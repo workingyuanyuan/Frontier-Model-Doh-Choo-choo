@@ -98,7 +98,7 @@ export function materializeScaleSweAtlas(
     rawVariantCounts[String(variant.key)] = variant.entries.length;
   }
   const overall = variants[0]!;
-  if (overall.label !== 'SWE Atlas - Overall')
+  if (overall.label !== 'Overall' && overall.label !== 'SWE Atlas - Overall')
     throw new Error('SWE Atlas overall label changed');
   const rows = overall.entries as unknown[];
   if (rows.length !== context.visualRowCount)

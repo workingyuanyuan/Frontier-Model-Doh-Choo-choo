@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-17",
+  "baselineCommit": "dd622dfc41e3000702bd883c4c2e41fea605f15d",
+  "baselineVersion": "sha256:48fb9c7975b92fcd1d53729a124b053d6c3e859321cf3ef2dbea7df36d7afffd",
+  "baselineGeneratedAt": "2026-11-15T13:35:14.745Z",
+  "activeSourcesChanged": true,
+  "newVersionId": "sha256:2bc8830b86bea82a461df5efe6225f99b9fdec12c44d4f77869930f81d21e819",
+  "releaseRunId": "2026-11-17T04-57-21-273Z",
+  "manifestVerification": {
+    "V": {
+      "entries": 62,
+      "verifiedBytesAndSha256": 62,
+      "identicalTo20261116": 3,
+      "changed200": 58,
+      "non200": [
+        {
+          "url": "https://ai.meta.com/blog/",
+          "httpStatus": 400,
+          "fallback": "Playwright rendered check returned HTTP 200; latest post Jul 27, 2026"
+        }
+      ],
+      "supplementalVendorDocs": [
+        {
+          "url": "https://help.aliyun.com/zh/model-studio/models",
+          "httpStatus": 200,
+          "finding": "Officially lists GA model ID qwen4-max for complex reasoning, coding, and visual understanding."
+        },
+        {
+          "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
+          "httpStatus": 200,
+          "finding": "Officially lists qwen4-max (0<Token<=1M): RMB 10 / 30 per 1M input/output tokens (global routing) and RMB 10.938 / 32.813 (Singapore international)."
+        }
+      ]
+    },
+    "L": {
+      "entries": 55,
+      "verifiedBytesAndSha256": 55,
+      "identicalTo20261116": 28,
+      "changed200": 25,
+      "non200": [
+        {
+          "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+          "httpStatus": 403
+        },
+        {
+          "url": "https://livebench.ai/static/js/main.8a7822ea.js",
+          "httpStatus": 404,
+          "note": "Replaced upstream by https://livebench.ai/static/js/main.f14f89ca.js (captured in L/raw/livebench-main.js)."
+        }
+      ]
+    }
+  },
+  "vendorReview": {
+    "newTextModelsSince20261116": [
+      {
+        "vendor": "Alibaba (Qwen)",
+        "model": "Qwen4 Max",
+        "modelId": "qwen4-max",
+        "canonicalModelId": "alibaba-qwen4-max",
+        "releaseDate": "2026-11-16",
+        "previewSibling": "qwen4-max-preview (2026-11-11 to 2026-11-25, Token Plan only; kept unmapped)",
+        "addedInActiveSources": ["artificial-analysis", "livebench", "vals-ai"]
+      }
+    ],
+    "huggingFaceChanges": [],
+    "vendorPageUpdatesWithoutNewModels": [
+      {
+        "vendor": "OpenAI",
+        "url": "https://openai.com/news/",
+        "change": "Added Nov 16 articles (science, safety, healthcare) and CSAM classifier doc entry; no new reasoning/text model."
+      },
+      {
+        "vendor": "Google",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "change": "Updated Nov 16 to add link to the Safety and Security Report; no new model."
+      },
+      {
+        "vendor": "Anthropic",
+        "url": "https://platform.claude.com/docs/en/release-notes/overview",
+        "change": "Added Nov 16 note on text watermarking for legacy 4.5/4.6 models; no new model."
+      },
+      {
+        "vendor": "Meta",
+        "url": "https://ai.meta.com/blog/",
+        "change": "HTTP 400 to urllib; Playwright HTTP 200 confirmed latest post remains Jul 27, 2026."
+      },
+      {
+        "vendor": "Qwen",
+        "url": "https://qwen.ai/blog",
+        "change": "Playwright returned HTTP 200 navigation shell; Alibaba Cloud Model Studio docs confirmed qwen4-max GA."
+      }
+    ]
+  },
+  "renderedVisualCounts": {
+    "observedWindowUtc": "2026-11-17T04:36:29Z to 2026-11-17T04:38:35Z",
+    "artificialAnalysis": {
+      "visible": 27,
+      "catalogTotal": 742
+    },
+    "livebenchV2": 36,
+    "livebenchV1IncludeFinetunes": 65,
+    "deepsweAll": 28,
+    "frontierCodeV2Best": 32,
+    "frontierCodeV2All": 125,
+    "frontierCodeV2HiddenModels": [],
+    "frontierCodeV2JsonLdTopTenMatched": 10,
+    "scaleSweAtlasOverall": 29,
+    "maxxbench": 17,
+    "surge": {
+      "chartography": 42,
+      "complex-constraints": 16,
+      "corecraft": 55,
+      "riemann": 21,
+      "dayjob-finance": 40,
+      "dayjob-healthcare": 38,
+      "dayjob-tax": 16,
+      "gdp-xlsx": 20
+    }
+  },
+  "activeSourceChangesSummary": {
+    "sourcesWithContentChanges": [
+      "artificial-analysis",
+      "livebench",
+      "vals-ai",
+      "scale-swe-atlas",
+      "frontier-swe",
+      "arc-prize"
+    ],
+    "totalCandidatesBefore": 10437,
+    "totalCandidatesAfter": 10509,
+    "totalCostsBefore": 5128,
+    "totalCostsAfter": 5155,
+    "refreshDiffFile": "artifacts/research/2026-11-17-benchmark-check/refresh/rerun-diff.json"
+  },
+  "nonActiveUpstreamChanges": [
+    {
+      "source": "Scale main leaderboard directory",
+      "url": "https://scale.com/leaderboard",
+      "change": "Added Gemini 4 Hydrogen (mini-swe-agent) high (69.10 +/- 3.50); SWE-bench/SWE Atlas are tracked as separate boards."
+    },
+    {
+      "source": "Epoch benchmarks.csv",
+      "url": "https://epoch.ai/data/benchmarks.csv",
+      "change": "Total rows unchanged (1,891 data rows / 1,892 lines); metadata columns updated only (Reference, Notability criteria, Parameters, Domain, Training compute cost). No direct/ECI score changes."
+    },
+    {
+      "source": "ARC Prize v3_Semi_Private",
+      "url": "https://arcprize.org/media/data/evaluations.json",
+      "change": "Added thinky-inkling-2-small-xhigh and -provider-adapter on v3_Semi_Private alongside inception-mercury-3-preview on v1/v2/v3; arc-prize active adapter only ingests v2_Semi_Private."
+    },
+    {
+      "source": "BenchLM",
+      "url": "https://benchlm.ai",
+      "change": "Arena counts and win rates updated (incl. Qwen4 Max announcement ticker); not in active sources."
+    }
+  ]
+}

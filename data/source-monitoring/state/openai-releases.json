@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:18:34.169Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "automationbench",
+        "includedRetainedRows": 54,
         "includedRows": 54,
         "metrics": ["task-completed-correctly:percent:true"],
         "models": [
@@ -91,6 +92,7 @@
       },
       {
         "id": "deepswe-1-1",
+        "includedRetainedRows": 66,
         "includedRows": 98,
         "metrics": ["pass-at-1:percent:true"],
         "models": [
@@ -196,6 +198,7 @@
       },
       {
         "id": "frontier-code-1-1",
+        "includedRetainedRows": 35,
         "includedRows": 35,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [

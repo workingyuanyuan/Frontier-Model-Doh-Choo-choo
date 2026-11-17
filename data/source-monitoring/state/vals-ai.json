@@ -391,21 +391,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-14T12:18:19.395Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/a7/a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3.html",
-    "byteLength": 318606,
+    "artifactPath": "artifacts/sha256/d1/d12984bba4ce61adf37e8d38177e9f498b13bebfc0864f7b4d40d7dae129a489.html",
+    "byteLength": 304145,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3",
+    "id": "sha256:d12984bba4ce61adf37e8d38177e9f498b13bebfc0864f7b4d40d7dae129a489",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-14T12:18:19.395Z",
+    "retrievedAt": "2026-11-17T04:51:46.035Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3",
+    "sha256": "sha256:d12984bba4ce61adf37e8d38177e9f498b13bebfc0864f7b4d40d7dae129a489",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -413,6 +413,7 @@
     "benchmarks": [
       {
         "id": "a2j",
+        "includedRetainedRows": 0,
         "includedRows": 23,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -488,6 +489,7 @@
       },
       {
         "id": "aime",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -702,6 +704,7 @@
       },
       {
         "id": "biomysterybench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -800,6 +803,7 @@
       },
       {
         "id": "case-law-v2",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -934,6 +938,7 @@
       },
       {
         "id": "claimbench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -953,14 +958,20 @@
           "[\"decision/d1\",null,null,null,null,null,null,null]",
           "[\"decision/d1-ultra\",null,null,null,null,null,null,null]",
           "[\"decision/decider-flash-v1.2\",null,null,null,null,null,null,null]",
+          "[\"decision/decider-flash-v1.3\",null,null,null,null,null,null,null]",
           "[\"decision/decider-v1.1-27b\",null,null,null,null,null,null,null]",
           "[\"decision/decider-v1.2\",null,null,null,null,null,null,null]",
+          "[\"decision/decider-v1.3\",null,null,null,null,null,null,null]",
           "[\"decision/drex-max\",null,null,null,null,null,null,null]",
           "[\"decision/drex-v1.5\",null,null,null,null,null,null,null]",
           "[\"decision/drex-v2.0\",null,null,null,null,null,null,null]",
+          "[\"decision/elephant-1\",null,null,null,null,null,null,null]",
+          "[\"decision/gemini-decision-1\",null,null,null,null,null,null,null]",
           "[\"decision/gpt-6-luna\",null,null,null,null,null,null,null]",
           "[\"decision/jev-1.13.0\",null,null,null,null,null,null,null]",
           "[\"decision/jev-1.14\",null,null,null,null,null,null,null]",
+          "[\"decision/joey-1\",null,null,null,null,null,null,null]",
+          "[\"decision/mammoth-1\",null,null,null,null,null,null,null]",
           "[\"decision/mercury-decide\",null,null,null,null,null,null,null]",
           "[\"decision/microsoft-decision-1\",null,null,null,null,null,null,null]",
           "[\"decision/solar-decide\",null,null,null,null,null,null,null]",
@@ -980,14 +991,20 @@
           "decision/d1",
           "decision/d1-ultra",
           "decision/decider-flash-v1.2",
+          "decision/decider-flash-v1.3",
           "decision/decider-v1.1-27b",
           "decision/decider-v1.2",
+          "decision/decider-v1.3",
           "decision/drex-max",
           "decision/drex-v1.5",
           "decision/drex-v2.0",
+          "decision/elephant-1",
+          "decision/gemini-decision-1",
           "decision/gpt-6-luna",
           "decision/jev-1.13.0",
           "decision/jev-1.14",
+          "decision/joey-1",
+          "decision/mammoth-1",
           "decision/mercury-decide",
           "decision/microsoft-decision-1",
           "decision/solar-decide",
@@ -996,12 +1013,13 @@
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol"
         ],
-        "rows": 25,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/claimbench"],
         "versions": ["1"]
       },
       {
         "id": "code-migration",
+        "includedRetainedRows": 0,
         "includedRows": 79,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1221,6 +1239,7 @@
       },
       {
         "id": "code-migration-v1-1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1310,6 +1329,7 @@
       },
       {
         "id": "corpfin",
+        "includedRetainedRows": 0,
         "includedRows": 134,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1624,6 +1644,7 @@
       },
       {
         "id": "cua-bench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1665,6 +1686,7 @@
       },
       {
         "id": "cyber",
+        "includedRetainedRows": 0,
         "includedRows": 48,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1803,6 +1825,7 @@
       },
       {
         "id": "emb",
+        "includedRetainedRows": 0,
         "includedRows": 77,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -2017,10 +2040,12 @@
       },
       {
         "id": "emb-v1-1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
@@ -2048,6 +2073,7 @@
         "profiles": [
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2092,6 +2118,7 @@
         "rawLabels": [
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-1",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
@@ -2133,15 +2160,17 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 42,
+        "rows": 43,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
       {
         "id": "fabv2-1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -2167,6 +2196,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2209,6 +2239,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
@@ -2249,12 +2280,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 40,
+        "rows": 41,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
       {
         "id": "finance-agent-v2",
+        "includedRetainedRows": 0,
         "includedRows": 81,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -2478,9 +2510,11 @@
       },
       {
         "id": "finance-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -2506,6 +2540,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2548,6 +2583,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
@@ -2588,12 +2624,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 40,
+        "rows": 41,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
       {
         "id": "financial-coaching-bench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -2689,6 +2726,7 @@
       },
       {
         "id": "gpqa-diamond",
+        "includedRetainedRows": 0,
         "includedRows": 138,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3013,9 +3051,11 @@
       },
       {
         "id": "hlab",
-        "includedRows": 38,
+        "includedRetainedRows": 0,
+        "includedRows": 39,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -3040,6 +3080,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -3080,6 +3121,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
@@ -3118,12 +3160,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
       {
         "id": "hlab-v1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3347,6 +3390,7 @@
       },
       {
         "id": "immigration",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3431,6 +3475,7 @@
       },
       {
         "id": "ioi",
+        "includedRetainedRows": 0,
         "includedRows": 46,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3566,6 +3611,7 @@
       },
       {
         "id": "legal-bench",
+        "includedRetainedRows": 0,
         "includedRows": 151,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3919,9 +3965,11 @@
       },
       {
         "id": "legal-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -3946,6 +3994,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -3986,6 +4035,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
@@ -4024,13 +4074,14 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 94,
+        "includedRetainedRows": 0,
+        "includedRows": 95,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -4038,6 +4089,7 @@
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
@@ -4097,6 +4149,7 @@
           "[\"alibaba/qwen3.8-27b\",\"xhigh\",null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"ant/ling-3.0-flash-2607\",null,null,null,null,null,null,null]",
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
@@ -4193,6 +4246,7 @@
           "alibaba/qwen3.8-27b",
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "ant/ling-3.0-flash-2607",
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
@@ -4282,12 +4336,13 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 94,
+        "rows": 95,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
       {
         "id": "livecodebench",
+        "includedRetainedRows": 0,
         "includedRows": 143,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -4622,6 +4677,7 @@
       },
       {
         "id": "math500",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": ["google-gemini-3-pro-preview"],
@@ -4755,6 +4811,7 @@
       },
       {
         "id": "medcode",
+        "includedRetainedRows": 0,
         "includedRows": 107,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -5025,6 +5082,7 @@
       },
       {
         "id": "medqa",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -5232,6 +5290,7 @@
       },
       {
         "id": "medscribe",
+        "includedRetainedRows": 0,
         "includedRows": 109,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -5506,6 +5565,7 @@
       },
       {
         "id": "mgsm",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": ["google-gemini-3-pro-preview"],
@@ -5669,6 +5729,7 @@
       },
       {
         "id": "mmlu-pro",
+        "includedRetainedRows": 0,
         "includedRows": 138,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -5994,6 +6055,7 @@
       },
       {
         "id": "mmmu",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -6222,6 +6284,7 @@
       },
       {
         "id": "mortgage-tax",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -6462,6 +6525,7 @@
       },
       {
         "id": "mysterymechanism",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -6561,6 +6625,7 @@
       },
       {
         "id": "poker-agent",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:source-score:true"],
         "models": ["google-gemini-3-pro-preview"],
@@ -6608,6 +6673,7 @@
       },
       {
         "id": "programbench",
+        "includedRetainedRows": 0,
         "includedRows": 66,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -6796,6 +6862,7 @@
       },
       {
         "id": "proofbench",
+        "includedRetainedRows": 0,
         "includedRows": 55,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -6953,6 +7020,7 @@
       },
       {
         "id": "public-benefits-bench",
+        "includedRetainedRows": 0,
         "includedRows": 50,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7099,6 +7167,7 @@
       },
       {
         "id": "public-benefits-bench-v1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7151,6 +7220,7 @@
       },
       {
         "id": "robo-bench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7186,6 +7256,7 @@
       },
       {
         "id": "sage",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7273,6 +7344,7 @@
       },
       {
         "id": "science-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7357,6 +7429,7 @@
       },
       {
         "id": "skillsbench",
+        "includedRetainedRows": 0,
         "includedRows": 35,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7463,6 +7536,7 @@
       },
       {
         "id": "srebench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7576,6 +7650,7 @@
       },
       {
         "id": "swe-bench",
+        "includedRetainedRows": 0,
         "includedRows": 88,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7803,6 +7878,7 @@
       },
       {
         "id": "swebench-multimodal",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7877,6 +7953,7 @@
       },
       {
         "id": "tax-agent-bench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -7885,6 +7962,7 @@
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
@@ -7940,6 +8018,7 @@
           "[\"alibaba/qwen3.8-27b\",\"xhigh\",null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
@@ -8027,6 +8106,7 @@
           "alibaba/qwen3.8-27b",
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
@@ -8107,12 +8187,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 85,
+        "rows": 86,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
       {
         "id": "tax-eval-v2",
+        "includedRetainedRows": 0,
         "includedRows": 145,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -8453,6 +8534,7 @@
       },
       {
         "id": "terminal-bench-2",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -8618,6 +8700,7 @@
       },
       {
         "id": "terminal-bench-2-1",
+        "includedRetainedRows": 0,
         "includedRows": 76,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -8826,10 +8909,12 @@
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 64,
+        "includedRetainedRows": 0,
+        "includedRows": 65,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
@@ -8875,6 +8960,7 @@
         "profiles": [
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
@@ -8941,6 +9027,7 @@
         "rawLabels": [
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
           "anthropic/claude-fable-5-2",
@@ -9004,12 +9091,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 64,
+        "rows": 65,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
       {
         "id": "terminal-bench-science",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9145,6 +9233,7 @@
       },
       {
         "id": "time-horizon-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9197,9 +9286,11 @@
       },
       {
         "id": "vals-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -9224,6 +9315,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -9263,6 +9355,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
@@ -9300,12 +9393,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 37,
+        "rows": 38,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
       {
         "id": "vals-multimodal-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9408,6 +9502,7 @@
       },
       {
         "id": "vcb-1-100",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9491,6 +9586,7 @@
       },
       {
         "id": "vcb-1-100-v1-1",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9525,7 +9621,8 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 128,
+        "includedRetainedRows": 0,
+        "includedRows": 129,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9534,6 +9631,7 @@
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
@@ -9602,6 +9700,7 @@
           "[\"alibaba/qwen3.8-27b\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
           "[\"alibaba/qwen3.8-max\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,\"OpenHands\",null,null,null,null]",
+          "[\"alibaba/qwen4-max\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
           "[\"ant/ling-3.0-flash-2607\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -9732,6 +9831,7 @@
           "alibaba/qwen3.8-27b",
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
+          "alibaba/qwen4-max",
           "ant/ling-3.0-flash-2607",
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
@@ -9852,12 +9952,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 128,
+        "rows": 129,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
       {
         "id": "voice-code-bench",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [],
@@ -9911,6 +10012,7 @@
       },
       {
         "id": "web-search",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -9953,7 +10055,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-14T12:18:08.653Z",
+    "observedAt": "2026-11-17T04:51:23.701Z",
     "sourceId": "vals-ai"
   }
 }

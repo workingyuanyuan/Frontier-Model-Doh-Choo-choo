@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:17:19.846Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "automationbench",
+        "includedRetainedRows": 0,
         "includedRows": 134,
         "metrics": ["task-completed-correctly:percent:true"],
         "models": [
@@ -328,7 +329,7 @@
         "versions": ["1.0.6"]
       }
     ],
-    "observedAt": "2026-11-14T12:17:17.403Z",
+    "observedAt": "2026-11-17T04:41:06.855Z",
     "sourceId": "zapier-automationbench"
   }
 }

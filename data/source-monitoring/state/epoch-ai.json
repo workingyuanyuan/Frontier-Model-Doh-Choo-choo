@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:15:54.477Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "aime",
+        "includedRetainedRows": 0,
         "includedRows": 316,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -687,6 +688,7 @@
       },
       {
         "id": "chess-puzzles",
+        "includedRetainedRows": 0,
         "includedRows": 162,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1073,6 +1075,7 @@
       },
       {
         "id": "epoch-capabilities-index",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["eci-score:eci-points:true"],
         "models": [
@@ -1660,6 +1663,7 @@
       },
       {
         "id": "frontiermath",
+        "includedRetainedRows": 0,
         "includedRows": 101,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -1892,6 +1896,7 @@
       },
       {
         "id": "frontiermath-tier-4",
+        "includedRetainedRows": 0,
         "includedRows": 72,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -2067,6 +2072,7 @@
       },
       {
         "id": "gpqa-diamond",
+        "includedRetainedRows": 0,
         "includedRows": 339,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -2791,6 +2797,7 @@
       },
       {
         "id": "math-level-5",
+        "includedRetainedRows": 0,
         "includedRows": 108,
         "metrics": ["accuracy:percent:true"],
         "models": [],
@@ -3020,6 +3027,7 @@
       },
       {
         "id": "simpleqa-verified",
+        "includedRetainedRows": 0,
         "includedRows": 103,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3291,6 +3299,7 @@
       },
       {
         "id": "swe-bench",
+        "includedRetainedRows": 0,
         "includedRows": 35,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -3386,7 +3395,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-14T12:15:52.706Z",
+    "observedAt": "2026-11-17T04:40:57.892Z",
     "sourceId": "epoch-ai"
   }
 }

@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "cursorbench-4",
+        "includedRetainedRows": 0,
         "includedRows": 42,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -84,6 +85,7 @@
       },
       {
         "id": "deepswe-1-1",
+        "includedRetainedRows": 0,
         "includedRows": 1,
         "metrics": ["pass-at-1:percent:true"],
         "models": ["xai-grok-4-7"],

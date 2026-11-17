@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3`
-- Observed at: 2026-11-14T12:18:08.653Z
+- Index evidence: `sha256:d12984bba4ce61adf37e8d38177e9f498b13bebfc0864f7b4d40d7dae129a489`
+- Observed at: 2026-11-17T04:51:23.701Z
 
 ## Exact counts
 
@@ -9,14 +9,14 @@
 |---|---:|
 | Benchmark slugs discovered from index | 65 |
 | Benchmark pages with BenchmarkView data | 60 |
-| CandidateResults | 3601 |
-| Included CandidateResults | 2113 |
-| Excluded CandidateResults | 1488 |
+| CandidateResults | 3617 |
+| Included CandidateResults | 2117 |
+| Excluded CandidateResults | 1500 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3450 |
-| Included vals_index CostRecords | 36 |
-| Canonically unresolved rows | 2082 |
-| Distinct canonically unresolved models | 235 |
+| CostRecords retained | 3466 |
+| Included vals_index CostRecords | 37 |
+| Canonically unresolved rows | 2088 |
+| Distinct canonically unresolved models | 241 |
 
 ## Per-page completeness
 
@@ -26,7 +26,7 @@
 | `aime` | 96 | EXCLUDED |
 | `biomysterybench` | 31 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `claimbench` | 25 | EXCLUDED |
+| `claimbench` | 31 | EXCLUDED |
 | `code-migration` | 79 | APPROVED |
 | `code-migration-v1-1` | 30 | EXCLUDED |
 | `corp_fin_v2` | 134 | APPROVED |
@@ -34,21 +34,21 @@
 | `cyber` | 48 | APPROVED |
 | `cyber_offense` | 0 | EXCLUDED |
 | `emb` | 77 | APPROVED |
-| `emb-v1-1` | 42 | EXCLUDED |
+| `emb-v1-1` | 43 | EXCLUDED |
 | `fabv2` | 81 | APPROVED |
-| `fabv2-1` | 40 | EXCLUDED |
-| `finance_index` | 40 | EXCLUDED |
+| `fabv2-1` | 41 | EXCLUDED |
+| `finance_index` | 41 | EXCLUDED |
 | `financial-coaching-bench` | 28 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 38 | APPROVED |
+| `hlab` | 39 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
 | `immigration` | 26 | EXCLUDED |
 | `inference_provider` | 0 | EXCLUDED |
 | `ioi` | 46 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
-| `legal_index` | 38 | EXCLUDED |
-| `legal_research` | 94 | APPROVED |
+| `legal_index` | 39 | EXCLUDED |
+| `legal_research` | 95 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 107 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
@@ -72,19 +72,19 @@
 | `srebench` | 37 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 22 | EXCLUDED |
-| `tax_agent_bench` | 85 | EXCLUDED |
+| `tax_agent_bench` | 86 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 64 | APPROVED |
+| `terminal-bench-4` | 65 | APPROVED |
 | `terminal-bench-science` | 45 | EXCLUDED |
 | `time_horizon_index` | 13 | EXCLUDED |
-| `vals_index` | 37 | EXCLUDED |
+| `vals_index` | 38 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
 | `vcb-1-100-v1-1` | 8 | EXCLUDED |
-| `vibe-code` | 128 | APPROVED |
+| `vibe-code` | 129 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 12 | EXCLUDED |
 
@@ -271,14 +271,20 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/d1
 - decision/d1-ultra
 - decision/decider-flash-v1.2
+- decision/decider-flash-v1.3
 - decision/decider-v1.1-27b
 - decision/decider-v1.2
+- decision/decider-v1.3
 - decision/drex-max
 - decision/drex-v1.5
 - decision/drex-v2.0
+- decision/elephant-1
+- decision/gemini-decision-1
 - decision/gpt-6-luna
 - decision/jev-1.13.0
 - decision/jev-1.14
+- decision/joey-1
+- decision/mammoth-1
 - decision/mercury-decide
 - decision/microsoft-decision-1
 - decision/solar-decide
@@ -454,18 +460,18 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 |---|---|---|---|
 | `a2j` | `a2j` | knowledge | reasoning, language |
 | `code-migration` | `code-migration` | coding | agentic, reasoning |
-| `corp_fin_v2` | `corpfin` | reasoning | knowledge |
-| `cyber` | `cyber` | agentic | coding, reasoning |
+| `corp_fin_v2` | `corpfin` | comprehension | reasoning, knowledge |
+| `cyber` | `cyber` | coding | agentic, reasoning |
 | `emb` | `emb` | agentic | reasoning, language |
 | `fabv2` | `finance-agent-v2` | agentic | knowledge, coding, reasoning |
 | `gpqa` | `gpqa-diamond` | reasoning | knowledge |
 | `hlab` | `hlab` | agentic | reasoning, knowledge, language |
 | `ioi` | `ioi` | coding | reasoning |
 | `lcb` | `livecodebench` | coding | reasoning |
-| `legal_bench` | `legal-bench` | reasoning | knowledge, language |
+| `legal_bench` | `legal-bench` | knowledge | reasoning, language |
 | `legal_research` | `legal-research` | agentic | knowledge, reasoning |
 | `medcode` | `medcode` | knowledge | reasoning, language |
-| `medscribe` | `medscribe` | language | reasoning, knowledge |
+| `medscribe` | `medscribe` | comprehension | reasoning, knowledge, language |
 | `mmlu_pro` | `mmlu-pro` | knowledge | reasoning |
 | `programbench` | `programbench` | coding | agentic, reasoning |
 | `proof_bench` | `proofbench` | reasoning | coding |
@@ -474,8 +480,8 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 | `skillsbench` | `skillsbench` | agentic | coding, language |
 | `swebench` | `swe-bench` | coding | agentic, reasoning |
 | `tax_eval_v2` | `tax-eval-v2` | knowledge | reasoning |
-| `terminal-bench-2-1` | `terminal-bench-2-1` | coding | agentic |
-| `terminal-bench-4` | `terminal-bench-4-0` | coding | agentic |
+| `terminal-bench-2-1` | `terminal-bench-2-1` | agentic | coding |
+| `terminal-bench-4` | `terminal-bench-4-0` | agentic | coding |
 | `vibe-code` | `vibe-code-bench` | coding | agentic, reasoning |
 
 The N3a user ruling remains authoritative. The deferred multimodal watchlist includes `sage` and `mortgage_tax`; neither is promoted by this refresh.
@@ -483,10 +489,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 63 | 65 | +2 |
-| CandidateResults | 3565 | 3601 | +36 |
-| CostRecords retained | 3414 | 3450 | +36 |
-| Canonically unresolved rows | 2074 | 2082 | +8 |
+| Benchmark slugs discovered from index | 65 | 65 | +0 |
+| CandidateResults | 3601 | 3617 | +16 |
+| CostRecords retained | 3450 | 3466 | +16 |
+| Canonically unresolved rows | 2082 | 2088 | +6 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

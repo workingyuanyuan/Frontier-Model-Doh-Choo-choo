@@ -1,13 +1,14 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:16:59.929Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "arc-agi-2",
-        "includedRows": 292,
+        "includedRetainedRows": 0,
+        "includedRows": 296,
         "metrics": ["score:fraction:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -324,6 +325,10 @@
           "[\"Magistral Medium (Thinking)\",null,null,null,null,null,null,null]",
           "[\"Magistral Medium\",null,null,null,null,null,null,null]",
           "[\"Magistral Small\",null,null,null,null,null,null,null]",
+          "[\"Mercury 3 Preview (High)\",\"high\",null,null,null,null,null,null]",
+          "[\"Mercury 3 Preview (Instant)\",null,null,null,null,null,null,null]",
+          "[\"Mercury 3 Preview (Low)\",\"low\",null,null,null,null,null,null]",
+          "[\"Mercury 3 Preview (Medium)\",\"medium\",null,null,null,null,null,null]",
           "[\"Minimax M2.5\",null,null,null,null,null,null,null]",
           "[\"Muse Spark Open (High)\",\"high\",null,null,null,null,null,null]",
           "[\"Muse Spark Open (Low)\",\"low\",null,null,null,null,null,null]",
@@ -626,6 +631,10 @@
           "Magistral Medium",
           "Magistral Medium (Thinking)",
           "Magistral Small",
+          "Mercury 3 Preview (High)",
+          "Mercury 3 Preview (Instant)",
+          "Mercury 3 Preview (Low)",
+          "Mercury 3 Preview (Medium)",
           "Minimax M2.5",
           "Muse Spark Open (High)",
           "Muse Spark Open (Low)",
@@ -659,12 +668,12 @@
           "o4-mini (Low)",
           "o4-mini (Medium)"
         ],
-        "rows": 300,
+        "rows": 304,
         "sourceUrls": ["https://arcprize.org/leaderboard"],
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-14T12:16:58.266Z",
+    "observedAt": "2026-11-17T04:41:01.369Z",
     "sourceId": "arc-prize"
   }
 }

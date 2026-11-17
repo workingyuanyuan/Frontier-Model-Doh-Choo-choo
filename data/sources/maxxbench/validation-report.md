@@ -1,8 +1,8 @@
 # MaxxBench acquisition validation
 
 - Source https://maxxbench.unlap.ai/
-- Evidence `sha256:90500fc0d021fc0a7c6c7f47da05ab662228957799119f79e2a2392703bde151`
-- Observed 2026-11-15T04:11:47.443Z
+- Evidence `sha256:7366c909a9cf0d1f26ac074f900d4e1ce843652fb7a3257f057b1a51845713b4`
+- Observed 2026-11-17T04:40:30.259Z
 - Visible leaderboard configurations 17
 - Embedded configurations 18
 - Materialized costs 17

@@ -1,13 +1,14 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:17:25.601Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "swe-atlas",
-        "includedRows": 28,
+        "includedRetainedRows": 0,
+        "includedRows": 29,
         "metrics": ["overall-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -29,10 +30,12 @@
           "openai-gpt-6-1-terra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
+          "reflection-beam-1-0",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
         "profiles": [
+          "[\"Beam 1.0\",null,null,null,null,null,null,null]",
           "[\"DeepSeek V4.1 Flash\",null,null,null,null,null,null,null]",
           "[\"Fable 5.1\",null,null,null,null,null,null,null]",
           "[\"Fable 5.2\",null,null,null,null,null,null,null]",
@@ -63,6 +66,7 @@
           "[\"gpt-oss-120b\",null,null,null,null,null,null,null]"
         ],
         "rawLabels": [
+          "Beam 1.0",
           "DeepSeek V4.1 Flash",
           "Fable 5.1",
           "Fable 5.2",
@@ -92,12 +96,12 @@
           "Sonnet 5.5",
           "gpt-oss-120b"
         ],
-        "rows": 28,
+        "rows": 29,
         "sourceUrls": ["https://scale.com/leaderboard/swe-atlas"],
         "versions": ["v1.1"]
       }
     ],
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "sourceId": "scale-swe-atlas"
   }
 }

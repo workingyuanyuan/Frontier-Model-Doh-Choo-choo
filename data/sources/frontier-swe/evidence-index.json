@@ -1,12 +1,12 @@
 [
   {
-    "artifactPath": "artifacts/sha256/db/dbc186dcedfeb7dd60f3db053d06bac380ef838f283f1b8cbdcfbcbfcc22c34b.html",
-    "byteLength": 899774,
+    "artifactPath": "artifacts/sha256/b8/b8245be56d54244ea0b8f267569c77e230f0f2fcb09152a2d9b30d0a0df9f951.html",
+    "byteLength": 927374,
     "finalUrl": "https://www.frontierswe.com/",
-    "id": "sha256:dbc186dcedfeb7dd60f3db053d06bac380ef838f283f1b8cbdcfbcbfcc22c34b",
+    "id": "sha256:b8245be56d54244ea0b8f267569c77e230f0f2fcb09152a2d9b30d0a0df9f951",
     "mediaType": "text/html",
     "metadata": {
-      "configurations": 25,
+      "configurations": 26,
       "metric": "mean@5",
       "scope": "all configurations",
       "serverRenderedRowsMatched": 10,
@@ -14,9 +14,9 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.frontierswe.com/",
-    "retrievedAt": "2026-11-14T12:15:47.518Z",
+    "retrievedAt": "2026-11-17T04:40:36.894Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:dbc186dcedfeb7dd60f3db053d06bac380ef838f283f1b8cbdcfbcbfcc22c34b",
+    "sha256": "sha256:b8245be56d54244ea0b8f267569c77e230f0f2fcb09152a2d9b30d0a0df9f951",
     "sourceId": "frontier-swe"
   }
 ]
