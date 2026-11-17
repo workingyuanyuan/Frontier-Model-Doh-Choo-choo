@@ -223,7 +223,7 @@ export const presetJson = (projection: PresetProjection): string => {
     nulls: {
       score: 'Not measured. A missing score is never zero and never imputed.',
       costIndex:
-        'No weighted cost source published a comparable USD task cost for this model.',
+        'The model is not on the cost chart: no weighted cost source published a positive USD task cost for a profile of it that qualifies for the table, or its Overall is zero.',
       pairedScore:
         'The source published a cost but no score that can be paired with it.',
     },

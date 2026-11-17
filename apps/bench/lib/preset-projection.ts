@@ -52,7 +52,7 @@ export interface PresetLeaderboardRow {
   reasoningEffort: string;
   overallScore: number | null;
   dimensionScores: Partial<Record<DimensionId, number | null>>;
-  /** Null when no weighted source published a comparable task cost. */
+  /** Null when the model has no point on the cost chart. */
   costIndex: number | null;
   evidencePath: string;
 }
