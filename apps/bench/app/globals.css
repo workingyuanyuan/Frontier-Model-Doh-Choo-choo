@@ -307,6 +307,50 @@ summary:focus-visible {
   width: 1.125rem;
 }
 
+/* Shown while the dashboard's data is on its way, or when it never arrived. */
+.load-notice {
+  align-items: center;
+  background: var(--ink);
+  border-radius: 999px;
+  bottom: 1rem;
+  box-shadow: var(--popover-shadow);
+  color: var(--surface);
+  display: flex;
+  font-family: var(--font-utility);
+  font-size: 0.8125rem;
+  gap: 0.75rem;
+  left: 50%;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  z-index: 30;
+}
+
+/* A load that finishes quickly never shows the notice. */
+.load-notice[role='status'] {
+  animation: load-notice-in 0.2s 0.6s both;
+}
+
+@keyframes load-notice-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.load-notice button {
+  background: none;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  flex: none;
+  font: inherit;
+  padding: 0.125rem 0.625rem;
+}
+
 .copy-markdown-status:not(:empty) {
   background: var(--surface);
   border: 1px solid var(--line);

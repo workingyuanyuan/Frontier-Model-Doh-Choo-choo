@@ -1,5 +1,5 @@
 import { waitForPaint } from './wait-for-paint';
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './test';
 import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { evidenceVersionPath } from '../lib/dashboard-data';
@@ -25,6 +25,93 @@ const retry = (page: Page) =>
 
 const endpoint = (profileId: string) =>
   `${basePath}/evidence/${encodeURIComponent(evidenceVersionPath(product.versionId))}/${encodeURIComponent(profileId)}.json`;
+
+const dashboardData = /\/data\/dashboard\.json(\?|$)/;
+const loadNotice = (page: Page) => page.locator('.load-notice');
+const developerMode = (page: Page) =>
+  page.getByRole('switch', { name: 'Developer mode' });
+
+test('serves the default view as HTML without embedding the data', async ({
+  browser,
+  request,
+}) => {
+  const html = await (await request.get(home)).text();
+  expect(html).not.toContain('dashboard-payload-v1');
+
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const page = await context.newPage();
+    await page.goto(home);
+    await expect(page.locator('[data-ranked-row]')).toHaveCount(
+      defaultModelCount,
+    );
+    await expect(loadNotice(page)).toHaveCount(0);
+  } finally {
+    await context.close();
+  }
+});
+
+test('shows the prerendered view until the data arrives, then responds', async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  let release!: () => void;
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route(dashboardData, async (route) => {
+    requests.push(route.request().url());
+    const response = await route.fetch();
+    await held;
+    await route.fulfill({ response });
+  });
+  try {
+    await page.goto(home, { waitUntil: 'commit' });
+    await expect(page.locator('[data-ranked-row]')).toHaveCount(
+      defaultModelCount,
+    );
+    await expect(loadNotice(page)).toHaveText('Loading interactive controls…');
+    const prerendered = await page.locator('main').innerHTML();
+    await expect(page.locator('html')).not.toHaveAttribute('data-dashboard');
+    release();
+    await expect(page.locator('html')).toHaveAttribute(
+      'data-dashboard',
+      'interactive',
+    );
+    await expect(loadNotice(page)).toHaveCount(0);
+    // Hydration keeps the prerendered markup: the data matches the page.
+    expect(await page.locator('main').innerHTML()).toBe(prerendered);
+    await developerMode(page).click();
+    await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
+    // The preload and the dashboard share one request.
+    expect(requests).toHaveLength(1);
+  } finally {
+    release();
+  }
+});
+
+test('stays readable and says so when the data does not arrive', async ({
+  page,
+}) => {
+  await page.route(dashboardData, (route) =>
+    route.fulfill({ status: 503, body: 'Temporarily unavailable' }),
+  );
+  await page.goto(home, { waitUntil: 'load' });
+  await expect(loadNotice(page)).toContainText('this page is read-only');
+  await expect(loadNotice(page)).toHaveAttribute('role', 'alert');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    defaultModelCount,
+  );
+  await page.unroute(dashboardData);
+  await loadNotice(page).getByRole('button', { name: 'Reload' }).click();
+  await expect(page.locator('html')).toHaveAttribute(
+    'data-dashboard',
+    'interactive',
+  );
+  await expect(loadNotice(page)).toHaveCount(0);
+  await developerMode(page).click();
+  await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
+});
 
 async function firstRow(page: Page) {
   const row = page.locator('[data-ranked-row]').first();

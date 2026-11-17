@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './test';
 import { readFileSync } from 'node:fs';
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { buildCommonComparison } from '../lib/common-benchmarks';

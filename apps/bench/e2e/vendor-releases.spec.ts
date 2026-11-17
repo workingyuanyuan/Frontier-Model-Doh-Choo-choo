@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './test';
 import { getSourceDisplayName } from '../components/model-detail-panel';
 import { buildAdvancedCostSeries } from '../lib/view-model';
 import { product } from './product-data';

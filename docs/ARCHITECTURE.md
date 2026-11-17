@@ -92,7 +92,7 @@ data/product/current.json ──► apps/bench static build
 
 ## 代理可讀輸出
 
-Dashboard 首頁內嵌整份資料（約 2 MB），不適合只能抓取網址的代理。建置時另外輸出下列檔案，路徑定義在 `apps/bench/lib/site-paths.ts`，內容由 `apps/bench/lib/agent-surfaces.ts` 產生：
+Dashboard 首頁只帶預設集合的畫面，其他集合與互動功能需要執行 JavaScript，不適合只能抓取網址的代理。建置時另外輸出下列檔案，路徑定義在 `apps/bench/lib/site-paths.ts`，內容由 `apps/bench/lib/agent-surfaces.ts` 產生：
 
 | 路徑                                    | 內容                                                                             |
 | --------------------------------------- | -------------------------------------------------------------------------------- |
@@ -113,6 +113,12 @@ Dashboard 首頁內嵌整份資料（約 2 MB），不適合只能抓取網址�
 - **只發布最新版**（2026-11-17 使用者裁決）：每次部署整站替換，舊版檔案不保留可抓取的網址；歷史版本以 Git 為準。每個檔案都寫明 `versionId`。
 - **英文方法論不是權威文件**（同日裁決）：公式參數、品質政策與來源清單由產品資料生成，敘述為英文摘要並註明以 `docs/` 的中文文件為準。修改計分或成本規則時須同步檢查 `methodologyMarkdown` 的敘述。
 - **上游授權標示**（同日裁決）：每個來源列出發布網站與快照時間；授權與再散布條款未經查證者一律寫 `unknown`，不自行宣告開放授權。
+- **首頁不內嵌資料**：`index.html` 只有預先渲染好的預設集合畫面（表格、圖表與成本明細），互動所需的整份資料放在 `data/dashboard.json`，由瀏覽器另外抓取。
+  - 建置時與瀏覽器裡讀的是同一份資料，來源不同：`apps/bench/package.json` 的 `imports` 讓 `#dashboard-source` 在建置時解析到 `lib/dashboard-source.ts`（直接讀產品檔），在瀏覽器解析到 `lib/dashboard-source.browser.ts`（抓取）。
+  - 資料抵達前，React 保留預先渲染的畫面，抵達後才接手互動；抓取失敗時畫面維持可讀，並顯示提示與重新載入按鈕。
+  - `data/dashboard.json` 是 Dashboard 的內部傳輸格式（字典編碼），不是對外契約，不列入 `llms.txt` 與 `data/index.json`；外部讀者使用上表的檔案。
+  - 網址帶 `?v=<versionId>`，避免新版頁面配到瀏覽器快取的舊版資料。
+  - 接手互動後 `<html>` 帶 `data-dashboard="interactive"`。e2e 的 `page.goto`（`apps/bench/e2e/test.ts`）等這個標記才返回，用瀏覽器操作頁面的代理也可以等它；`llms.txt` 寫明了這點。
 - 首頁成本圖的 Source breakdown（各來源美元任務成本）以收合的 `<details>` 隨靜態 HTML 輸出，不需開發者模式，讓不執行 JavaScript 的讀者也能取得。
 
 ## 離線與失敗安全
