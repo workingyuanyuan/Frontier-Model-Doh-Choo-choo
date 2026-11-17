@@ -18,6 +18,15 @@ export const UI_DIMENSION_ABBREVIATIONS: Record<DimensionId, string> = {
   language: 'LNG',
 };
 
+export const UI_DIMENSION_NAMES: Record<DimensionId, string> = {
+  comprehension: 'Comprehension',
+  agentic: 'Agentic',
+  coding: 'Coding',
+  reasoning: 'Reasoning',
+  knowledge: 'Knowledge',
+  language: 'Language',
+};
+
 /** Keep every view in the same order, omitting dimensions without scored tests. */
 export const getActiveDimensionIds = (
   rows: readonly {

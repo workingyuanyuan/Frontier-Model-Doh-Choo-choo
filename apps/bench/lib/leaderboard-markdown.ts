@@ -1,4 +1,5 @@
-const line = (cells: string[]): string => `| ${cells.join(' | ')} |`;
+export const markdownLine = (cells: string[]): string =>
+  `| ${cells.join(' | ')} |`;
 
 import { getActiveDimensionIds } from './ui-contract';
 import {
@@ -8,7 +9,7 @@ import {
   type PresetProductVersion,
 } from './view-model';
 
-const escapeCell = (value: string): string =>
+export const escapeCell = (value: string): string =>
   value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -33,11 +34,11 @@ export function leaderboardMarkdown(
     ),
   ];
   return [
-    line(headers),
-    line(headers.map(() => '---')),
+    markdownLine(headers),
+    markdownLine(headers.map(() => '---')),
     ...rows.map((row) => {
       const profile = profileById(product, row.profileId);
-      return line([
+      return markdownLine([
         escapeCell(profile?.baseModelName ?? row.modelId),
         escapeCell(profile ? getProfileIdentity(profile) : row.profileId),
         score(row.overallScore),
@@ -63,10 +64,10 @@ export function commonBenchmarksMarkdown(
     ...(withDifference ? ['Difference (first − second)'] : []),
   ];
   return [
-    line(headers.map(escapeCell)),
-    line(headers.map(() => '---')),
+    markdownLine(headers.map(escapeCell)),
+    markdownLine(headers.map(() => '---')),
     ...rows.map((row) =>
-      line([
+      markdownLine([
         escapeCell(row.label),
         ...row.scores.map(score),
         ...(withDifference && row.difference !== null
