@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/chartography",
-    "retrievedAt": "2026-11-14T12:17:02.030Z",
+    "retrievedAt": "2026-11-17T04:40:42.379Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2cd85eb9adb1d05190bbd7e80ffa70e146e0e10a56f0da46515ba802f946f420",
     "sourceId": "surge-chartography"

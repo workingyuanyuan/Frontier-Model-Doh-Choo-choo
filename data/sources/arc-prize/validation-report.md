@@ -4,43 +4,43 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:37c39593a3aac7a2b7fd15d52f263477ad32b7a979b09b5d08e0bada05c4383a`
-- Models evidence: `sha256:adf4b2bfcdbd91fc10d7dc145b2da8a59f171632ddb8864f9ab3c93fde2cb724`
+- Evaluations evidence: `sha256:68d0a9dbf8970c117a7bdd4b832a2eb2ad91aa07452cbab35e3eec3241ff10a4`
+- Models evidence: `sha256:3a7d3fbe0cba4dda8c4d434a25d8cbddd67639ae4f018fc9aef228a4c1b3628c`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:118edbeadc808d9722bf438a6c6b95f8245e3ed5c6bdceccc68fdfc4f27175d7`
-- Observed at: 2026-11-14T12:16:58.266Z
+- Page evidence: `sha256:ed8d47a3530800aaeee9780223ada62d7b81a5f9030ef812c3408f7037a25915`
+- Observed at: 2026-11-17T04:41:01.369Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1319 |
-| Total models in models.json | 387 |
+| Total evaluation rows (all splits) | 1339 |
+| Total models in models.json | 393 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 307 |
-| Promoted v2_Semi_Private rows (display=true) | 300 |
-| Promoted cost records (USD/task) | 300 |
+| Total v2_Semi_Private evaluations | 311 |
+| Promoted v2_Semi_Private rows (display=true) | 304 |
+| Promoted cost records (USD/task) | 304 |
 | Canonically resolved rows | 163 |
-| Canonically unresolved rows | 137 |
-| Canonically unresolved models | 137 |
+| Canonically unresolved rows | 141 |
+| Canonically unresolved models | 141 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 300 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 304 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 300/300 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 304/304 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 300/300 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 304/304 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 163/300 promoted rows (137 unresolved rows across 137 distinct model names).
+Exact catalog resolution succeeded for 163/304 promoted rows (141 unresolved rows across 141 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -179,6 +179,10 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Magistral Medium
 - Magistral Medium (Thinking)
 - Magistral Small
+- Mercury 3 Preview (High)
+- Mercury 3 Preview (Instant)
+- Mercury 3 Preview (Low)
+- Mercury 3 Preview (Medium)
 - Minimax M2.5
 - Nemotron 3.5 Super VL (High)
 - Nemotron 3.5 Super VL (Medium)
@@ -208,9 +212,9 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate rows | 300 | 300 | +0 |
-| Cost records | 300 | 300 | +0 |
-| Canonically unresolved models | 137 | 137 | +0 |
+| Candidate rows | 300 | 304 | +4 |
+| Cost records | 300 | 304 | +4 |
+| Canonically unresolved models | 137 | 141 | +4 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

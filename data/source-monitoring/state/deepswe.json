@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:18:40.522Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "deepswe-1-1",
+        "includedRetainedRows": 0,
         "includedRows": 70,
         "metrics": ["pass-at-1:percent:true"],
         "models": [
@@ -146,7 +147,7 @@
         "versions": ["1.1"]
       }
     ],
-    "observedAt": "2026-11-14T12:18:40.149Z",
+    "observedAt": "2026-11-17T04:40:28.627Z",
     "sourceId": "deepswe"
   }
 }

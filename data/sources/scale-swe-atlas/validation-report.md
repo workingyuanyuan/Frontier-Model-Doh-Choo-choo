@@ -1,10 +1,10 @@
 # Scale SWE Atlas acquisition validation
 
 - Source https://scale.com/leaderboard/swe-atlas
-- Observed 2026-11-14T12:17:24.614Z
-- Evidence `sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985`
-- Rendered Overall rows 28; embedded Overall rows 28; candidates 28.
-- Embedded variant populations: {"overall":28,"qna":28,"testwriting":28,"refactoring":28}.
+- Observed 2026-11-17T04:49:55.200Z
+- Evidence `sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822`
+- Rendered Overall rows 29; embedded Overall rows 29; candidates 29.
+- Embedded variant populations: {"overall":29,"qna":29,"testwriting":29,"refactoring":29}.
 - Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.
 - Published scores use the 0–100 scale directly. maxScore is chart-axis metadata, not the normalization denominator.
 - The official v1.1 notice describes 284 tasks and reruns with GPT-6.1 Sol as judge (majority of three votes), refined grading and restricted networking. Judge votes are not agent attempts.
@@ -15,6 +15,7 @@
 
 | Source model | Canonical identity | Source effort |
 |---|---|---|
+| Beam 1.0 | reflection-beam-1-0 | null |
 | DeepSeek V4.1 Flash | null | null |
 | Fable 5.1 | anthropic-claude-fable-5-1 | null |
 | Fable 5.2 | anthropic-claude-fable-5-2 | null |
@@ -53,6 +54,7 @@ This tagged section is generated deterministically for `scale-swe-atlas`. Raw `p
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
+| Beam 1.0 | `scale-swe-atlas:swe-atlas:beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | Fable 5.1 | `scale-swe-atlas:swe-atlas:fable-5-1` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
 | Fable 5.2 | `scale-swe-atlas:swe-atlas:fable-5-2` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-2-max:arc-agi-2-v2-semi-private |
 | Gemini 3.8 Flash | `scale-swe-atlas:swe-atlas:gemini-3-8-flash` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |

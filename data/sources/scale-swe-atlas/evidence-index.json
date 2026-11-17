@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/0c/0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985.html",
-    "byteLength": 129861,
+    "artifactPath": "artifacts/sha256/52/52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822.html",
+    "byteLength": 132555,
     "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
-    "id": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+    "id": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Next RSC leaderboard variants",
@@ -15,77 +15,77 @@
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5,
+          "confidenceInterval_upper": 5.05,
           "model": "Opus 5.5"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.2,
+          "confidenceInterval_upper": 5.16,
           "model": "Fable 5.1"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.5,
+          "confidenceInterval_upper": 5.46,
           "model": "Gemini 4 Carbon"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.5,
+          "confidenceInterval_upper": 5.48,
           "model": "Gemini 4 Argon"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.6,
+          "confidenceInterval_upper": 5.55,
           "model": "GPT-6 Astra"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.6,
+          "confidenceInterval_upper": 5.64,
           "model": "Sonnet 5.5"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.7,
+          "confidenceInterval_upper": 5.74,
           "model": "GPT-6.1 Sol"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.77,
           "model": "Muse Wonder 1.0"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.7,
+          "confidenceInterval_upper": 5.71,
           "model": "Qwen 3.8 Max"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
-          "model": "DeepSeek V4.1 Flash"
-        },
-        {
-          "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.79,
           "model": "Grok 4.7"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.85,
+          "model": "DeepSeek V4.1 Flash"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.83,
           "model": "Inkling 2 Small"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.9,
+          "confidenceInterval_upper": 5.88,
           "model": "Kimi K3.1 Pro"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.9,
+          "confidenceInterval_upper": 5.89,
           "model": "Kimi K3"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.9,
+          "confidenceInterval_upper": 5.92,
           "model": "Haiku 5.5"
         },
         {
@@ -95,32 +95,32 @@
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.9,
+          "confidenceInterval_upper": 5.94,
           "model": "GPT-6.1 Terra"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.83,
           "model": "Gemini 3.8 Flash"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 6,
+          "confidenceInterval_upper": 5.98,
           "model": "Muse Ember 1.0"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.9,
+          "confidenceInterval_upper": 5.94,
           "model": "GLM 5.3 Flash"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 6,
+          "confidenceInterval_upper": 6.02,
           "model": "GPT-6 Luna"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.83,
           "model": "Mistral Large 4"
         },
         {
@@ -130,40 +130,45 @@
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.8,
+          "confidenceInterval_upper": 5.75,
           "model": "MiniMax M3"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 5.2,
+          "confidenceInterval_upper": 5.76,
+          "model": "Beam 1.0"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.15,
           "model": "Nemotron 3.5 Super VL"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 4.9,
+          "confidenceInterval_upper": 4.87,
           "model": "Nemotron 3 Ultra"
         },
         {
           "confidenceInterval_lower": null,
-          "confidenceInterval_upper": 3.2,
+          "confidenceInterval_upper": 3.18,
           "model": "gpt-oss-120b"
         }
       ],
       "excludedFromScoring": ["qna", "testwriting", "refactoring"],
-      "materializedOverallRows": 28,
+      "materializedOverallRows": 29,
       "rawVariantCounts": {
-        "overall": 28,
-        "qna": 28,
-        "refactoring": 28,
-        "testwriting": 28
+        "overall": 29,
+        "qna": 29,
+        "refactoring": 29,
+        "testwriting": 29
       },
-      "renderedOverallRows": 28
+      "renderedOverallRows": 29
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://scale.com/leaderboard/swe-atlas",
-    "retrievedAt": "2026-11-14T12:17:24.614Z",
+    "retrievedAt": "2026-11-17T04:49:55.200Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+    "sha256": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
     "sourceId": "scale-swe-atlas"
   }
 ]

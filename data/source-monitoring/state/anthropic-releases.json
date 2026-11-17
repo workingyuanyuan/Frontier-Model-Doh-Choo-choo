@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:18:34.169Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "aa-briefcase",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["elo:elo:true"],
         "models": [
@@ -49,6 +50,7 @@
       },
       {
         "id": "cursorbench-4",
+        "includedRetainedRows": 0,
         "includedRows": 40,
         "metrics": ["accuracy:percent:true"],
         "models": [
@@ -108,6 +110,7 @@
       },
       {
         "id": "frontier-code-1-1",
+        "includedRetainedRows": 0,
         "includedRows": 44,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
@@ -181,6 +184,7 @@
       },
       {
         "id": "humanitys-last-exam",
+        "includedRetainedRows": 0,
         "includedRows": 0,
         "metrics": ["accuracy:percent:true"],
         "models": ["anthropic-claude-fable-5", "anthropic-claude-fable-5-1"],
@@ -212,7 +216,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-14T12:18:31.244Z",
+    "observedAt": "2026-11-17T04:41:32.127Z",
     "sourceId": "anthropic-releases"
   }
 }

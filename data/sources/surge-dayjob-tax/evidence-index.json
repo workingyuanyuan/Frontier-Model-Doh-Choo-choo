@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-tax",
-    "retrievedAt": "2026-11-14T12:18:50.725Z",
+    "retrievedAt": "2026-11-17T04:40:53.842Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:60ac714ebc6e07df83ec32c9c884f69af71508686dfe7107fce6804e00554e88",
     "sourceId": "surge-dayjob-tax"

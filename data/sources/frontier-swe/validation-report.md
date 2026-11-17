@@ -1,8 +1,8 @@
 # FrontierSWE V2 acquisition validation
 
 - Source: <https://www.frontierswe.com/>
-- Evidence: `sha256:dbc186dcedfeb7dd60f3db053d06bac380ef838f283f1b8cbdcfbcbfcc22c34b`
-- Complete mean@5 configurations: 25; coverage matrix identities matched.
+- Evidence: `sha256:b8245be56d54244ea0b8f267569c77e230f0f2fcb09152a2d9b30d0a0df9f951`
+- Complete mean@5 configurations: 26; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.
 - Unresolved catalog names: Claude Haiku 5.5, DeepSeek V4 Flash Vision Exp, GLM-5.3 Flash, GLM-5.3, Qwen3.8-Max-0902.
@@ -34,6 +34,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Grok 4.6 | `frontier-swe:frontier-swe-v2:grok-4-6-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `frontier-swe:frontier-swe-v2:grok-4-7-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling | `frontier-swe:frontier-swe-v2:inkling-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+| Inkling 2 Small | `frontier-swe:frontier-swe-v2:inkling-2-small-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Kimi K3 | `frontier-swe:frontier-swe-v2:kimi-k3-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | Muse Spark 1.2 | `frontier-swe:frontier-swe-v2:muse-spark-1-2-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | Muse Spark 1.3 | `frontier-swe:frontier-swe-v2:muse-spark-1-3-proximus` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-3 |

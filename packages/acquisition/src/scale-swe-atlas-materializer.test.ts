@@ -25,7 +25,12 @@ const row = {
   maxScore: 70,
 };
 function page(
-  options: { rows?: unknown[]; tab?: string; version?: string } = {},
+  options: {
+    rows?: unknown[];
+    tab?: string;
+    version?: string;
+    overallLabel?: string;
+  } = {},
 ) {
   const payload = [
     '$',
@@ -36,7 +41,10 @@ function page(
       activeTab: options.tab ?? 'overall',
       variants: ['overall', 'qna', 'testwriting', 'refactoring'].map((key) => ({
         key,
-        label: key === 'overall' ? 'SWE Atlas - Overall' : key,
+        label:
+          key === 'overall'
+            ? (options.overallLabel ?? 'SWE Atlas - Overall')
+            : key,
         entries: options.rows ?? [row],
       })),
     },
@@ -118,6 +126,13 @@ describe('Scale SWE Atlas materializer', () => {
     expect(() =>
       materializeScaleSweAtlas(page({ tab: 'qna' }), context),
     ).toThrow('default tab changed');
+    expect(
+      materializeScaleSweAtlas(page({ overallLabel: 'Overall' }), context)
+        .candidates,
+    ).toHaveLength(1);
+    expect(() =>
+      materializeScaleSweAtlas(page({ overallLabel: 'Details' }), context),
+    ).toThrow('overall label changed');
     expect(() =>
       materializeScaleSweAtlas(page({ version: '1.2' }), context),
     ).toThrow('methodology marker');

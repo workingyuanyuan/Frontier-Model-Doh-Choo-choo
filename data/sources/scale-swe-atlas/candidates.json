@@ -4,7 +4,73 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:beam-1-0",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "reflection-beam-1-0",
+      "profileId": "reflection-beam-1-0-default",
+      "rawName": "Beam 1.0"
+    },
+    "normalizedScore": 34.72,
+    "observedAt": "2026-11-17T04:49:55.200Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 34.72,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:deepseek-v4-1-flash",
@@ -20,8 +86,8 @@
       "profileId": null,
       "rawName": "DeepSeek V4.1 Flash"
     },
-    "normalizedScore": 62.1,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 62.12,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -33,32 +99,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].confidenceInterval_upper",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].score",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].createdAt",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 62.1,
+    "rawScore": 62.12,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -70,7 +136,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:fable-5-1",
@@ -86,8 +152,8 @@
       "profileId": "anthropic-claude-fable-5-1-default",
       "rawName": "Fable 5.1"
     },
-    "normalizedScore": 76.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 76.45,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -99,32 +165,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 76.4,
+    "rawScore": 76.45,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -136,7 +202,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:fable-5-2",
@@ -152,8 +218,8 @@
       "profileId": "anthropic-claude-fable-5-2-default",
       "rawName": "Fable 5.2"
     },
-    "normalizedScore": 80.5,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 80.55,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -165,32 +231,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 80.5,
+    "rawScore": 80.55,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -202,7 +268,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gemini-3-8-flash",
@@ -218,8 +284,8 @@
       "profileId": "google-gemini-3-8-flash-default",
       "rawName": "Gemini 3.8 Flash"
     },
-    "normalizedScore": 57.3,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 57.33,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -231,32 +297,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 57.3,
+    "rawScore": 57.33,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -268,7 +334,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gemini-4-argon",
@@ -284,8 +350,8 @@
       "profileId": "google-gemini-4-argon-default",
       "rawName": "Gemini 4 Argon"
     },
-    "normalizedScore": 70.1,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 70.08,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -297,32 +363,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 70.1,
+    "rawScore": 70.08,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -334,7 +400,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gemini-4-carbon",
@@ -350,8 +416,8 @@
       "profileId": "google-gemini-4-carbon-default",
       "rawName": "Gemini 4 Carbon"
     },
-    "normalizedScore": 71.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 71.45,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -363,32 +429,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 71.4,
+    "rawScore": 71.45,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -400,7 +466,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:glm-5-3",
@@ -417,7 +483,7 @@
       "rawName": "GLM 5.3"
     },
     "normalizedScore": 58.1,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -429,27 +495,27 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].createdAt",
         "method": "NEXT_RSC"
       }
@@ -466,7 +532,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:glm-5-3-flash",
@@ -482,8 +548,8 @@
       "profileId": null,
       "rawName": "GLM 5.3 Flash"
     },
-    "normalizedScore": 55.3,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 55.33,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -495,32 +561,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 55.3,
+    "rawScore": 55.33,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -532,7 +598,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gpt-6-1-sol",
@@ -548,8 +614,8 @@
       "profileId": "openai-gpt-6-1-sol-default",
       "rawName": "GPT-6.1 Sol"
     },
-    "normalizedScore": 65.9,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 65.88,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -561,32 +627,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 65.9,
+    "rawScore": 65.88,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -598,7 +664,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gpt-6-1-terra",
@@ -614,8 +680,8 @@
       "profileId": "openai-gpt-6-1-terra-default",
       "rawName": "GPT-6.1 Terra"
     },
-    "normalizedScore": 57.7,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 57.69,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -627,32 +693,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 57.7,
+    "rawScore": 57.69,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -664,7 +730,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gpt-6-astra",
@@ -680,8 +746,8 @@
       "profileId": "openai-gpt-6-astra-default",
       "rawName": "GPT-6 Astra"
     },
-    "normalizedScore": 69.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 69.42,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -693,32 +759,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 69.4,
+    "rawScore": 69.42,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -730,7 +796,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gpt-6-luna",
@@ -747,7 +813,7 @@
       "rawName": "GPT-6 Luna"
     },
     "normalizedScore": 50.8,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -759,27 +825,27 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].createdAt",
         "method": "NEXT_RSC"
       }
@@ -796,7 +862,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:gpt-oss-120b",
@@ -812,8 +878,8 @@
       "profileId": null,
       "rawName": "gpt-oss-120b"
     },
-    "normalizedScore": 8.8,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 8.79,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -825,32 +891,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].confidenceInterval_upper",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[28].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[28].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[28].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].score",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[28].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].createdAt",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[28].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 8.8,
+    "rawScore": 8.79,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -862,7 +928,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:grok-4-7",
@@ -878,8 +944,8 @@
       "profileId": "xai-grok-4-7-default",
       "rawName": "Grok 4.7"
     },
-    "normalizedScore": 62.1,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 62.13,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -891,32 +957,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].confidenceInterval_upper",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].score",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].createdAt",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 62.1,
+    "rawScore": 62.13,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -928,7 +994,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:haiku-5-5",
@@ -944,8 +1010,8 @@
       "profileId": null,
       "rawName": "Haiku 5.5"
     },
-    "normalizedScore": 59.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 59.43,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -957,32 +1023,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 59.4,
+    "rawScore": 59.43,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -994,7 +1060,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:inkling-2-small",
@@ -1010,8 +1076,8 @@
       "profileId": "thinking-machines-inkling-2-small-default",
       "rawName": "Inkling 2 Small"
     },
-    "normalizedScore": 61.9,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 61.89,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1023,32 +1089,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 61.9,
+    "rawScore": 61.89,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1060,7 +1126,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:kimi-k3",
@@ -1076,8 +1142,8 @@
       "profileId": "moonshot-kimi-k3-default",
       "rawName": "Kimi K3"
     },
-    "normalizedScore": 61,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 60.98,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1089,32 +1155,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 61,
+    "rawScore": 60.98,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1126,7 +1192,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:kimi-k3-1-pro",
@@ -1142,8 +1208,8 @@
       "profileId": "moonshot-kimi-k3-1-pro-default",
       "rawName": "Kimi K3.1 Pro"
     },
-    "normalizedScore": 61.1,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 61.11,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1155,32 +1221,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 61.1,
+    "rawScore": 61.11,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1192,7 +1258,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:minimax-m3",
@@ -1208,8 +1274,8 @@
       "profileId": "minimax-minimax-m3-default",
       "rawName": "MiniMax M3"
     },
-    "normalizedScore": 39.3,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 39.26,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1221,32 +1287,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 39.3,
+    "rawScore": 39.26,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1258,7 +1324,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:mistral-large-4",
@@ -1274,8 +1340,8 @@
       "profileId": null,
       "rawName": "Mistral Large 4"
     },
-    "normalizedScore": 45.2,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 45.19,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1287,32 +1353,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 45.2,
+    "rawScore": 45.19,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1324,7 +1390,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:muse-ember-1-0",
@@ -1340,8 +1406,8 @@
       "profileId": "meta-muse-ember-default",
       "rawName": "Muse Ember 1.0"
     },
-    "normalizedScore": 56,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 55.99,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1353,32 +1419,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 56,
+    "rawScore": 55.99,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1390,7 +1456,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:muse-spark-open",
@@ -1406,8 +1472,8 @@
       "profileId": "meta-muse-spark-open-default",
       "rawName": "Muse Spark Open"
     },
-    "normalizedScore": 42.3,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 42.28,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1419,32 +1485,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 42.3,
+    "rawScore": 42.28,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1456,7 +1522,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:muse-wonder-1-0",
@@ -1472,8 +1538,8 @@
       "profileId": "meta-muse-wonder-default",
       "rawName": "Muse Wonder 1.0"
     },
-    "normalizedScore": 64.8,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 64.83,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1485,32 +1551,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 64.8,
+    "rawScore": 64.83,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1522,7 +1588,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:nemotron-3-5-super-vl",
@@ -1539,7 +1605,7 @@
       "rawName": "Nemotron 3.5 Super VL"
     },
     "normalizedScore": 24.8,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1551,28 +1617,28 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].confidenceInterval_upper",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].score",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].createdAt",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].createdAt",
         "method": "NEXT_RSC"
       }
     },
@@ -1588,7 +1654,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:nemotron-3-ultra",
@@ -1604,8 +1670,8 @@
       "profileId": "nvidia-nemotron-3-ultra-default",
       "rawName": "Nemotron 3 Ultra"
     },
-    "normalizedScore": 21.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 21.39,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1617,32 +1683,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].confidenceInterval_upper",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].score",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
-        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].createdAt",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 21.4,
+    "rawScore": 21.39,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1654,7 +1720,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:opus-5-5",
@@ -1670,8 +1736,8 @@
       "profileId": "anthropic-claude-opus-5-5-default",
       "rawName": "Opus 5.5"
     },
-    "normalizedScore": 77.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 77.45,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1683,32 +1749,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 77.4,
+    "rawScore": 77.45,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1720,7 +1786,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:qwen-3-8-max",
@@ -1737,7 +1803,7 @@
       "rawName": "Qwen 3.8 Max"
     },
     "normalizedScore": 64.4,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1749,27 +1815,27 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].createdAt",
         "method": "NEXT_RSC"
       }
@@ -1786,7 +1852,7 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985"
+      "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822"
     ],
     "exclusionReason": null,
     "id": "scale-swe-atlas:swe-atlas:sonnet-5-5",
@@ -1802,8 +1868,8 @@
       "profileId": "anthropic-claude-sonnet-5-5-default",
       "rawName": "Sonnet 5.5"
     },
-    "normalizedScore": 68.3,
-    "observedAt": "2026-11-14T12:17:24.614Z",
+    "normalizedScore": 68.28,
+    "observedAt": "2026-11-17T04:49:55.200Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1815,32 +1881,32 @@
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:0c183c9bfeeb0f01b9768452d877def708e7c6f7ff095d056ca808929391a985",
+        "evidenceId": "sha256:52fd55b16d0b092fc85abc154a0a2b9a341fb1d440c0aec82fe42b78be30a822",
         "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 68.3,
+    "rawScore": 68.28,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,

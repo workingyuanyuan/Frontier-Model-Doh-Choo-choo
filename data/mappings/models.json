@@ -2,6 +2,15 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "alibaba-qwen4-max",
+      "providerId": "alibaba",
+      "displayName": "Qwen4 Max",
+      "aliases": ["Qwen 4 Max", "qwen4-max", "alibaba/qwen4-max"],
+      "releaseDate": "2026-11-16",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "lg-k-exaone-2-0",
       "providerId": "lg",
       "displayName": "K-EXAONE 2.0",

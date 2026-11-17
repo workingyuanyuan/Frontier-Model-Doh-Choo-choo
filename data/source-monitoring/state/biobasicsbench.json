@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "biobasicsbench",
+        "includedRetainedRows": 0,
         "includedRows": 37,
         "metrics": ["mean-reward:percent:true"],
         "models": [

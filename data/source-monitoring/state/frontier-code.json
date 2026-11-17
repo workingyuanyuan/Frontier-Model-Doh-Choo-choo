@@ -1,12 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-14T12:18:45.796Z",
+  "checkedAt": "2026-11-17T04:51:46.035Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "frontier-code-1-1",
+        "includedRetainedRows": 7,
         "includedRows": 141,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
@@ -244,6 +245,7 @@
       },
       {
         "id": "frontier-code-2-0",
+        "includedRetainedRows": 0,
         "includedRows": 125,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
@@ -438,7 +440,7 @@
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-14T12:18:45.248Z",
+    "observedAt": "2026-11-17T04:40:34.956Z",
     "sourceId": "frontier-code"
   }
 }

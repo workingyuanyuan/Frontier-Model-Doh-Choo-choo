@@ -8,23 +8,23 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 286 |
+| Unique profile rows across all captured page payloads | 288 |
 | Unique profile rows in evaluation-page payloads | 113 |
-| Unique profile rows in model-detail payloads | 286 |
+| Unique profile rows in model-detail payloads | 288 |
 | Profile rows in the /models payload | 27 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 275 |
-| Generated CandidateResults | 3075 |
-| Intelligence Index candidates (EXCLUDED) | 123 |
-| GDPval-AA normalized candidates | 205 |
-| Canonically unresolved candidates | 929 |
-| MEASURED_TASK cost rows | 118 |
-| API_STANDARDIZED token-price rows | 244 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 278 |
+| Generated CandidateResults | 3118 |
+| Intelligence Index candidates (EXCLUDED) | 125 |
+| GDPval-AA normalized candidates | 210 |
+| Canonically unresolved candidates | 960 |
+| MEASURED_TASK cost rows | 120 |
+| API_STANDARDIZED token-price rows | 247 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 27 selected profile rows in this capture.
 - The evaluation-page payload union exposes 113 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 286 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The model-detail payload union exposes 288 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
@@ -45,19 +45,20 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 198 | 152 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 144 | 105 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 136 | 103 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 201 | 153 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 147 | 106 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 138 | 104 |
 | `critpt-v2` | `critptAgentic` | `critpt-v2` | 58 | 42 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 125 | 95 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 127 | 96 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
 - Not integrated: AutomationBench-AA (`automationBenchPartialScore`); CritPt v2 Hard Subset (`critptAgenticHard`); AA FrontierCode 1.1 (`frontierCode`).
+- Warning: Model detail qwen3-8-27b-low failed: Error: existing content-addressed artifact is corrupt
 
 ## AA-Briefcase rows retained from the previous snapshot
 
-- AA-Briefcase rubric rows: 28 observed in this capture; 165 retained unchanged from the previous snapshot because the profile is still listed but no longer exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
+- AA-Briefcase rubric rows: 29 observed in this capture; 165 retained unchanged from the previous snapshot because the profile is still listed but no longer exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
 - Retention rule: a previous `aa-briefcase` rubric row is kept only when this capture has no row with the same ID, the same profile slug is still an eligible (non-deleted, in-window, newest-build) profile, and no current rubric row covers the same canonical model and effort. Values present in this capture always win.
 - artificial-analysis:aa-briefcase:agnes-2-5-pro-theta: 0.5200411099691675; observed 2026-11-13T05:10:48.813Z; Evidence sha256:fd142558ff3312243ebf02218c3f7067448f16f05928ebf030532ad32080ebb8.
 - artificial-analysis:aa-briefcase:apodex-1-1: 0.2937563971340839; observed 2026-11-13T05:10:48.813Z; Evidence sha256:8c2d22de94b2df4f07d30a427cf7a4bc1e429223e76efd5acbe159f566d440cc.
@@ -227,18 +228,18 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 741
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 286
+- Fresh rendered models page catalog total: 742
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 288
 - Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 286 | 286 | +0 |
-| Active source profiles | 275 | 275 | +0 |
-| Candidate results | 3241 | 3240 | -1 |
-| Materialized costs | 362 | 362 | +0 |
+| Unique source profiles | 286 | 288 | +2 |
+| Active source profiles | 275 | 278 | +3 |
+| Candidate results | 3240 | 3283 | +43 |
+| Materialized costs | 362 | 367 | +5 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -391,6 +392,18 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen3.8 Max (0902) | `artificial-analysis:terminal-bench-2-1:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:terminal-bench-4-0:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:terminal-bench-science:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen4 Max | `artificial-analysis:aa-briefcase:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:aa-omniscience:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:aa-omniscience:qwen4-max:index` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-1` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:apex-agents:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:critpt-v2:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:frontier-code-2-0:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:gdp-pdf:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:gdpval-aa:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:hle-diamond:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:terminal-bench-4-0:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Qwen4 Max | `artificial-analysis:terminal-bench-science:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
