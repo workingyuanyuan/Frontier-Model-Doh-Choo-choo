@@ -42,6 +42,7 @@ packages/benchmark-data
 - Leaderboard、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
 - 主畫面只顯示在所選集合（產品的 `presets`）每一項測試都有成績、且各維度皆非 null 的模型；Developer mode 提供缺格清單及獨立 partial-coverage 清單；後者顯示已有維度分數，不提供 Overall 或排名。
 - 靜態／standalone 建置不讀取 `data/sources` 或 `artifacts`。
+- 同一次建置另外輸出給代理與腳本讀取的純文字檔，內容見下方「代理可讀輸出」。
 
 ### `packages/benchmark-data`
 
@@ -88,6 +89,23 @@ data/product/current.json ──► apps/bench static build
 - `current.json` 是可覆寫的工作區輸出；使用者審核後才提交資料 commit。
 - 建置、頁尾與審核材料都使用同一個完整 `versionId`。
 - Git 歷史保存已部署資料版本；SQLite 保存本機採集與處理歷史，交易與可恢復匯出保護來源快照。切換 Git 分支後明確初始化目前快照，匯出以 snapshot ID 選取。
+
+## 代理可讀輸出
+
+Dashboard 首頁內嵌整份資料（約 2 MB），不適合只能抓取網址的代理。建置時由 `apps/bench/lib/agent-surfaces.ts` 另外輸出下列檔案，路徑定義在 `apps/bench/lib/site-paths.ts`：
+
+| 路徑                                    | 內容                                                                   |
+| --------------------------------------- | ---------------------------------------------------------------------- |
+| `llms.txt`                              | 入口：資料版本、各集合的 Markdown、evidence 路徑、方法論與原始碼庫連結 |
+| `data/presets/<presetId>.md`            | 該集合的排名、五維分數、成本指數與各來源美元任務成本、計分測試清單     |
+| `methodology.md`                        | 英文方法論摘要、來源清單與授權標示                                     |
+| `evidence/<versionId>/<profileId>.json` | 既有的逐 profile 證據檔                                                |
+
+- **一致性**：這些檔案與畫面讀取同一組投影函式（`mainScreenProduct`、`getRepresentativeRows`、`buildWeightedCostCurve`），不另寫一套計算。首頁頁尾與 `<head>` 的 `rel="alternate"` 連到入口。
+- **只發布最新版**（2026-11-17 使用者裁決）：每次部署整站替換，舊版檔案不保留可抓取的網址；歷史版本以 Git 為準。每個檔案都寫明 `versionId`。
+- **英文方法論不是權威文件**（同日裁決）：公式參數、品質政策與來源清單由產品資料生成，敘述為英文摘要並註明以 `docs/` 的中文文件為準。修改計分或成本規則時須同步檢查 `methodologyMarkdown` 的敘述。
+- **上游授權標示**（同日裁決）：每個來源列出發布網站與快照時間；授權與再散布條款未經查證者一律寫 `unknown`，不自行宣告開放授權。
+- 首頁成本圖的 Source breakdown（各來源美元任務成本）以收合的 `<details>` 隨靜態 HTML 輸出，不需開發者模式，讓不執行 JavaScript 的讀者也能取得。
 
 ## 離線與失敗安全
 

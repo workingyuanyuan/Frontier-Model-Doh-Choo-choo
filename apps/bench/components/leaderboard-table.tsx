@@ -13,6 +13,7 @@ import {
 } from '../lib/view-model';
 import {
   UI_DIMENSION_ABBREVIATIONS,
+  UI_DIMENSION_NAMES,
   getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { SortHeader } from './leaderboard-controls';
@@ -68,6 +69,18 @@ export function LeaderboardTable({
       tabIndex={0}
     >
       <table className="leaderboard-table">
+        <caption className="leaderboard-caption">
+          Scores are 0–100; higher is better. Overall is the weighted mean of
+          the dimension scores, and a dimension backed by a single benchmark
+          counts half.{' '}
+          {dimensionIds
+            .map(
+              (dimension) =>
+                `${UI_DIMENSION_ABBREVIATIONS[dimension]} = ${UI_DIMENSION_NAMES[dimension]}`,
+            )
+            .join(' · ')}
+          .
+        </caption>
         <thead>
           <tr>
             <th
@@ -216,6 +229,15 @@ export function LeaderboardTable({
                                 +
                               </button>
                             ) : null}
+                            <span className="sr-only">
+                              {' '}
+                              Provider: {profile?.providerId ?? 'unknown'}.
+                              Reasoning effort:{' '}
+                              {profile
+                                ? getProfileIdentity(profile)
+                                : chosenProfileId}
+                              .{' '}
+                            </span>
                             <label className="profile-select-label">
                               <span className="sr-only">
                                 Select profile for {profile?.baseModelName}
@@ -277,6 +299,10 @@ export function LeaderboardTable({
                           {profile
                             ? getProfileIdentity(profile)
                             : row.profileId}
+                        </span>
+                        <span className="sr-only">
+                          {' '}
+                          Provider: {profile?.providerId ?? 'unknown'}.
                         </span>
                       </button>
                     )}

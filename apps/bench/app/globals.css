@@ -1457,6 +1457,25 @@ details[open] > .evidence-group-summary::before {
   padding: 1.25rem clamp(1rem, 4vw, 3rem) 2rem;
 }
 
+.site-footer {
+  gap: 0.5rem 1.5rem;
+}
+
+.site-footer > span:first-child {
+  white-space: nowrap;
+}
+
+.footer-links {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+
+.footer-version-meta {
+  flex: 1 1 0;
+}
+
 .footer-version-meta {
   display: flex;
   flex-wrap: wrap;

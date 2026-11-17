@@ -22,10 +22,16 @@ import {
   type AdvancedCostModelOption,
   type AdvancedCostSeries,
   type AdvancedCostSourceId,
-  type CostSourceScoreBasisId,
   type WeightedCostPoint,
   type PresetProductVersion,
 } from '../lib/view-model';
+import {
+  SOURCE_NAMES,
+  WEIGHTED_SOURCE_COUNT,
+  costSourceName,
+  scoreBasisNote,
+  sourceName,
+} from '../lib/cost-labels';
 
 /** Models visible on the advanced chart, each with its visible effort profiles. */
 export type ChartShortlist = { modelId: string; profileIds: string[] }[];
@@ -44,21 +50,6 @@ const PROVIDER_COLORS: Record<string, string> = {
   nvidia: '#65a30d',
   'thinking-machines': '#9333ea',
   xiaomi: '#e11d48',
-};
-
-const SOURCE_NAMES: Record<string, string> = {
-  'artificial-analysis': 'Artificial Analysis',
-  livebench: 'LiveBench',
-  deepswe: 'DeepSWE',
-  'frontier-code': 'Frontier Code',
-  'arc-prize': 'ARC Prize',
-  'vals-ai': 'Vals AI',
-  'zapier-automationbench': 'Zapier',
-  cursorbench: 'CursorBench',
-  'openai-releases': 'OpenAI (vendor)',
-  'anthropic-releases': 'Anthropic (vendor)',
-  'xai-releases': 'xAI (vendor)',
-  'google-releases': 'Google (vendor)',
 };
 
 /**
@@ -83,54 +74,8 @@ const weightNote = (weights: Readonly<Record<string, number>>): string => {
         .join(' · ')}.`;
 };
 
-/**
- * What each source's contributed score actually is. A cost source without a
- * basis says so out loud: it contributed cost and nothing else.
- */
-const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
-  AA_INTELLIGENCE_INDEX: 'Intelligence Index',
-  DEEPSWE_1_1: 'DeepSWE 1.1',
-  FRONTIER_CODE_2_0: 'Frontier Code 2.0',
-  ARC_AGI: 'ARC-AGI-2',
-  VALS_INDEX: 'Vals Index',
-  ZAPIER_AUTOMATIONBENCH: 'AutomationBench',
-  CURSORBENCH_4: 'CursorBench 4.0',
-  NONE: 'cost only, no pairable score',
-};
-
-/** Names the basis once: "Frontier Code 2.0" plus version "2.0" reads as one. */
-const scoreBasisLabel = (
-  basis: CostSourceScoreBasisId,
-  version?: string | null,
-): string => {
-  const name = SCORE_BASIS_NAMES[basis];
-  if (!version || name.endsWith(version)) return name;
-  return version.startsWith(name) ? version : `${name} ${version}`;
-};
-
-const scoreBasisNote = (
-  basis: CostSourceScoreBasisId,
-  score: number | null,
-  version?: string | null,
-): string =>
-  basis === 'NONE' || score === null
-    ? SCORE_BASIS_NAMES.NONE
-    : `${scoreBasisLabel(basis, version)} ${score.toFixed(1)}`;
-
-/** Sources carrying a weight, i.e. the largest source count a point can have. */
-const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
-
 const providerColor = (providerId: string): string =>
   PROVIDER_COLORS[providerId] ?? '#64748b';
-
-const sourceName = (sourceId: string): string =>
-  SOURCE_NAMES[sourceId] ?? sourceId;
-
-const costSourceName = (source: {
-  sourceId: string;
-  reportedSourceId?: string;
-}): string =>
-  `${sourceName(source.sourceId)}${source.reportedSourceId ? ` · ${sourceName(source.reportedSourceId)}` : ''}`;
 
 const defaultPointIsSelected = (
   point: WeightedCostPoint,
@@ -655,13 +600,11 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
   selectedProfileId = null,
   onToggleSelect,
   initialActivePoint = null,
-  developerMode = false,
 }: {
   points: WeightedCostPoint[];
   selectedProfileId?: string | null;
   onToggleSelect?: (profileId: string | null) => void;
   initialActivePoint?: WeightedCostPoint | null;
-  developerMode?: boolean;
 }) {
   const [activePoint, setActivePoint] = useState<WeightedCostPoint | null>(
     initialActivePoint,
@@ -848,7 +791,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
         </div>
       )}
 
-      {developerMode ? (
+      {points.length > 0 ? (
         <details className="chart-data cost-chart-data">
           <summary>Source breakdown</summary>
           <table className="diagnostics-table cost-source-table">
@@ -1200,14 +1143,12 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
 export const CostChart = memo(function CostChart({
   defaultProduct,
   advancedProduct,
-  developerMode = false,
   onUseInLeaderboard,
 }: {
   /** Main-screen projection: complete display-set profiles only. */
   defaultProduct: PresetProductVersion;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: PresetProductVersion;
-  developerMode?: boolean;
   /** Hands the models and efforts visible on the advanced chart to the leaderboard. */
   onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
 }) {
@@ -1355,7 +1296,6 @@ export const CostChart = memo(function CostChart({
               points={points}
               selectedProfileId={selectedProfileId}
               onToggleSelect={setSelectedProfileId}
-              developerMode={developerMode}
             />
           )}
         </div>

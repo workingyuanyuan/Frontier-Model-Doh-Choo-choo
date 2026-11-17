@@ -339,18 +339,8 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Five Dimensions');
   });
 
-  it('keeps cost source contributions inside developer mode', () => {
-    const publicHtml = renderToStaticMarkup(dashboard());
-    const developerHtml = renderToStaticMarkup(
-      createElement(Dashboard, {
-        product: productFixture,
-        benchmarkDimensions,
-        initialDeveloperMode: true,
-      }),
-    );
-
-    expect(publicHtml).not.toContain('Source breakdown');
-    expect(developerHtml).toContain('Source breakdown');
+  it('publishes cost source contributions without developer mode', () => {
+    expect(renderToStaticMarkup(dashboard())).toContain('Source breakdown');
   });
 
   it('removes the dataset scope panel', () => {

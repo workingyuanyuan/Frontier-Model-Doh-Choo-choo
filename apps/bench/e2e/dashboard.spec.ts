@@ -926,16 +926,17 @@ test('uses an equal-width cost toolbar and full-width charts in both modes', asy
   }
 });
 
-test('shows cost chart source contributions only in developer mode', async ({
+test('publishes cost chart source contributions without developer mode', async ({
   page,
 }) => {
   await page.goto('/');
 
-  const sourceContributions = page.getByText('Source breakdown');
-  await expect(sourceContributions).toHaveCount(0);
-
-  await page.getByRole('switch', { name: 'Developer mode' }).click();
-  await expect(sourceContributions).toBeVisible();
+  const breakdown = page.locator('details.cost-chart-data');
+  await expect(breakdown.locator('summary')).toHaveText('Source breakdown');
+  // Collapsed for readers, present in the document for text extraction.
+  await expect(breakdown.locator('tbody tr').first()).toBeHidden();
+  await breakdown.locator('summary').click();
+  await expect(breakdown.locator('tbody tr').first()).toBeVisible();
 });
 
 test('restores the AA model-count slider and persists each cohort in the URL', async ({

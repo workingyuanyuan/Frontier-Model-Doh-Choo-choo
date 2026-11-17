@@ -228,7 +228,6 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       const html = renderToStaticMarkup(
         createElement(DefaultCostPlot, {
           points: [point],
-          developerMode: true,
         }),
       );
 
@@ -755,16 +754,14 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         html.indexOf('>Models</span>'),
       );
       expect(html).not.toContain('cost-model-legend');
-      expect(html).not.toContain('Source breakdown');
       expect(html).not.toContain('<title>');
     });
 
-    it('renders source contribution data when developer mode is enabled', () => {
+    it('renders source contribution data without developer mode', () => {
       const html = renderToStaticMarkup(
         createElement(CostChart, {
           defaultProduct: productFixture,
           advancedProduct: productFixture,
-          developerMode: true,
         }),
       );
 

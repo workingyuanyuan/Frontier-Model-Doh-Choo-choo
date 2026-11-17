@@ -297,6 +297,46 @@ export const isMainEligibleRow = (
   hasCompleteDisplaySet(product, row.profileId, displaySet) &&
   hasCompleteDimensionScores(row);
 
+/**
+ * The main-screen projection of a preset: only profiles that pass
+ * `isMainEligibleRow`, with every collection narrowed to match. The dashboard
+ * and the published Markdown read this one projection so they cannot disagree.
+ */
+export const mainScreenProduct = (
+  product: PresetProductVersion,
+): PresetProductVersion => {
+  const mainProfileIds = new Set(
+    product.leaderboard
+      .filter((row) => isMainEligibleRow(product, row, product.activePreset))
+      .map(({ profileId }) => profileId),
+  );
+  const visibleModelIds = new Set(
+    product.leaderboard
+      .filter((row) => mainProfileIds.has(row.profileId))
+      .map((row) => row.modelId),
+  );
+  const profiles = product.profiles.filter(({ id }) => mainProfileIds.has(id));
+  const visibleProfileIds = new Set(profiles.map(({ id }) => id));
+  return {
+    ...product,
+    frontier: product.frontier.filter(({ modelId }) =>
+      visibleModelIds.has(modelId),
+    ),
+    profiles,
+    leaderboard: product.leaderboard.filter(({ profileId }) =>
+      mainProfileIds.has(profileId),
+    ),
+    costs: product.costs.filter(({ profileId }) =>
+      visibleProfileIds.has(profileId),
+    ),
+    evidence: product.evidence.filter(
+      ({ model }) =>
+        model.canonicalModelId !== null &&
+        visibleModelIds.has(model.canonicalModelId),
+    ),
+  };
+};
+
 export interface DeveloperModelRow {
   modelId: string;
   profileId: string;

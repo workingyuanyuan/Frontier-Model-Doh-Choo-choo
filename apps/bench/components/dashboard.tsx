@@ -9,6 +9,13 @@ import {
 import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 
+import {
+  LLMS_TXT_PATH,
+  METHODOLOGY_PATH,
+  REPOSITORY_URL,
+  presetMarkdownPath,
+  sitePath,
+} from '../lib/site-paths';
 import { CostChart, type ChartShortlist } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
 import { PartialCoverageList } from './partial-coverage-list';
@@ -32,9 +39,8 @@ import {
   getDeveloperModelRows,
   getPartialCoverageRows,
   getRepresentativeRows,
-  isMainEligibleRow,
+  mainScreenProduct,
   withActivePreset,
-  type PresetProductVersion,
 } from '../lib/view-model';
 
 const PRESET_QUERY_KEY = 'preset';
@@ -127,54 +133,7 @@ export function Dashboard({
     () => (developerMode ? getPartialCoverageRows(product) : []),
     [product, developerMode],
   );
-  const mainProfileIds = useMemo(
-    () =>
-      new Set(
-        product.leaderboard
-          .filter((row) => isMainEligibleRow(product, row, activePreset))
-          .map(({ profileId }) => profileId),
-      ),
-    [activePreset, product],
-  );
-  const visibleModelIds = useMemo(
-    () =>
-      new Set(
-        product.leaderboard
-          .filter((row) => mainProfileIds.has(row.profileId))
-          .map((row) => row.modelId),
-      ),
-    [mainProfileIds, product.leaderboard],
-  );
-  const visibleProfileIds = useMemo(
-    () =>
-      new Set(
-        product.profiles
-          .filter(({ id }) => mainProfileIds.has(id))
-          .map(({ id }) => id),
-      ),
-    [mainProfileIds, product.profiles],
-  );
-  const visibleProduct = useMemo<PresetProductVersion>(
-    () => ({
-      ...product,
-      frontier: product.frontier.filter(({ modelId }) =>
-        visibleModelIds.has(modelId),
-      ),
-      profiles: product.profiles.filter(({ id }) => mainProfileIds.has(id)),
-      leaderboard: product.leaderboard.filter(({ profileId }) =>
-        mainProfileIds.has(profileId),
-      ),
-      costs: product.costs.filter(({ profileId }) =>
-        visibleProfileIds.has(profileId),
-      ),
-      evidence: product.evidence.filter(
-        ({ model }) =>
-          model.canonicalModelId !== null &&
-          visibleModelIds.has(model.canonicalModelId),
-      ),
-    }),
-    [mainProfileIds, product, visibleModelIds, visibleProfileIds],
-  );
+  const visibleProduct = useMemo(() => mainScreenProduct(product), [product]);
   const representatives = useMemo(
     () => getRepresentativeRows(visibleProduct),
     [visibleProduct],
@@ -465,12 +424,19 @@ export function Dashboard({
         <CostChart
           defaultProduct={visibleProduct}
           advancedProduct={product}
-          developerMode={developerMode}
           onUseInLeaderboard={applyChartShortlist}
         />
       </main>
       <footer className="site-footer">
         <span>FM-DCC</span>
+        <nav className="footer-links" aria-label="Data and documentation">
+          <a href={sitePath(presetMarkdownPath(activePreset.id))}>
+            Leaderboard (Markdown)
+          </a>
+          <a href={sitePath(METHODOLOGY_PATH)}>Methodology</a>
+          <a href={sitePath(LLMS_TXT_PATH)}>llms.txt</a>
+          <a href={REPOSITORY_URL}>Source repository</a>
+        </nav>
         <span className="footer-version-meta">
           <span>Version {product.versionId}</span>
           <span>Generated {generated} UTC</span>
