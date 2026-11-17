@@ -7,6 +7,7 @@ import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 import {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
   compareArtificialAnalysisApi,
+  extractArtificialAnalysisLeaderboardRows,
   extractArtificialAnalysisRscRows,
   extractArtificialAnalysisVariantSlugs,
   extractArtificialAnalysisVersionMetadata,
@@ -1206,6 +1207,135 @@ describe('AA-Briefcase retention', () => {
         capture.activeProfileKeys,
       ).retained,
     ).toEqual([]);
+  });
+});
+
+describe('AA-Briefcase leaderboard join', () => {
+  const today = '2026-11-17T00:00:00.000Z';
+  const briefcaseUrl = 'https://artificialanalysis.ai/evaluations/aa-briefcase';
+  const listed = (
+    name: string,
+    rubricPassRate: number,
+    releaseDate = '2026-09-30',
+  ) => ({
+    id: `uuid-${name}`,
+    name,
+    elo: 1400,
+    rubricPassRate,
+    releaseDate,
+  });
+  const profile = (
+    slug: string,
+    name: string,
+    extra: Record<string, unknown> = {},
+  ) => ({
+    slug,
+    name,
+    releaseDate: '2026-09-30',
+    intelligenceIndex: 40,
+    ...extra,
+  });
+  const materialize = (
+    profiles: Record<string, unknown>[],
+    leaderboardRows: Record<string, unknown>[],
+    evaluationRows: Record<string, unknown>[] = [],
+  ) =>
+    materializeArtificialAnalysisRsc([
+      {
+        kind: 'evaluation',
+        slug: 'aa-briefcase',
+        sourceUrl: briefcaseUrl,
+        evidenceId,
+        retrievedAt: today,
+        rows: evaluationRows,
+        leaderboardRows,
+      },
+      {
+        kind: 'model-detail',
+        slug: 'model-a',
+        sourceUrl: 'https://artificialanalysis.ai/models/model-a',
+        evidenceId,
+        retrievedAt: today,
+        rows: profiles,
+      },
+    ]);
+  const rubricRows = (result: ReturnType<typeof materialize>) =>
+    result.candidates.filter(
+      ({ benchmarkId }) => benchmarkId === 'aa-briefcase',
+    );
+
+  it('extracts slugless leaderboard rows and leaves profile rows out', () => {
+    const html = `<script>self.__next_f.push([1,"41:[\\"$\\",\\"$L75\\",null,{\\"models\\":[{\\"id\\":\\"u-1\\",\\"name\\":\\"Model A (Medium)\\",\\"rubricPassRate\\":0.6},{\\"slug\\":\\"model-a\\",\\"id\\":\\"u-2\\",\\"name\\":\\"Model A\\"}]}]"])</script>`;
+    expect(extractArtificialAnalysisLeaderboardRows(html)).toEqual([
+      { id: 'u-1', name: 'Model A (Medium)', rubricPassRate: 0.6 },
+    ]);
+  });
+
+  it('fills a profile without a breakdown rubric from the row with the identical name', () => {
+    const result = materialize(
+      [
+        profile('model-a-medium', 'Model A (Medium)', {
+          briefcaseBreakdown: { elo: 1500 },
+        }),
+      ],
+      [listed('Model A (Medium)', 0.62)],
+    );
+    expect(rubricRows(result)).toMatchObject([
+      {
+        id: 'artificial-analysis:aa-briefcase:model-a-medium',
+        rawScore: 0.62,
+        sourceUrl: briefcaseUrl,
+        observedAt: today,
+        profile: { effort: 'medium' },
+      },
+    ]);
+  });
+
+  it('keeps a profile rubric from any captured row and reports a disagreeing leaderboard value', () => {
+    const result = materialize(
+      [
+        profile('model-a', 'Model A (High)', {
+          briefcaseBreakdown: { rubricPassRate: 0.5 },
+        }),
+      ],
+      [listed('Model A (High)', 0.55)],
+      // The Briefcase page's own row for this profile lacks the rubric.
+      [profile('model-a', 'Model A (High)', { briefcaseBreakdown: {} })],
+    );
+    expect(rubricRows(result).map(({ rawScore }) => rawScore)).toEqual([0.5]);
+    expect(result.validationReport).toContain('leaderboard rubric disagree: 1');
+  });
+
+  it('joins nothing on a near name, a shared name, a duplicate listing, or a release day not stated on the same named row', () => {
+    const { releaseDate: _omitted, ...undated } = listed('Model F', 0.4);
+    const result = materialize(
+      [
+        profile('model-b', 'Model B 1019'),
+        profile('model-c', 'Model C'),
+        profile('model-c-old', 'Model C'),
+        profile('model-d', 'Model D'),
+        profile('model-e', 'Model E'),
+        profile('model-f', 'Model F'),
+        profile('model-g', 'Model G New'),
+      ],
+      [
+        listed('Model B', 0.4),
+        listed('Model C', 0.4),
+        listed('Model D', 0.4),
+        { ...listed('Model D', 0.41), id: 'uuid-second' },
+        listed('Model E', 0.4, '2025-01-01'),
+        undated,
+        listed('Model G', 0.4),
+      ],
+      // Same slug, matching name but another release day.
+      [profile('model-g', 'Model G', { releaseDate: '2026-08-30' })],
+    );
+    expect(rubricRows(result)).toEqual([]);
+    expect(result.validationReport).toContain(
+      '1 names match no captured profile',
+    );
+    expect(result.validationReport).toContain('2 ambiguous');
+    expect(result.validationReport).toContain('3 release-day mismatches');
   });
 });
 

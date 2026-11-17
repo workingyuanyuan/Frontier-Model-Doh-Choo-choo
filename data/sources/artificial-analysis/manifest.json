@@ -45,7 +45,7 @@
     "`$undefined` and null are both treated as missing values.",
     "Capture observed 288 unique profiles, 278 active profiles, 120 task-cost rows, and 247 token-price rows.",
     "Materialized 125 Intelligence Index candidates (all EXCLUDED) and 210 GDPval-AA normalized candidates.",
-    "AA-Briefcase rubric rows: 29 observed in this capture; 165 retained unchanged from the previous snapshot because the profile is still listed but no longer exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed)."
+    "AA-Briefcase rubric rows: 206 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed)."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

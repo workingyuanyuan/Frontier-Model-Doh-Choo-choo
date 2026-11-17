@@ -57,6 +57,12 @@ export interface ArtificialAnalysisPage {
   html?: string;
   rows?: readonly ArtificialAnalysisRow[];
   /**
+   * Leaderboard-table rows keyed only by display name and an internal UUID
+   * (no slug). Kept apart from `rows` because their `id` names no profile;
+   * see `extractArtificialAnalysisLeaderboardRows`.
+   */
+  leaderboardRows?: readonly ArtificialAnalysisRow[];
+  /**
    * Version metadata belongs to the page that displayed the credited value.
    * Refresh callers may provide it explicitly; rows extracted from HTML also
    * carry the same metadata through the internal WeakMap below.
@@ -789,6 +795,62 @@ export const extractArtificialAnalysisRscRows = (
   );
 };
 
+/**
+ * Extract leaderboard-table rows: `"models":[{id, name, ...}]` arrays whose
+ * entries carry a display name and an internal UUID but no slug.
+ *
+ * Since 2026-11-14 the AA-Briefcase evaluation page publishes the rubric pass
+ * rate of every listed profile only in such a table. The rows are returned
+ * separately from `extractArtificialAnalysisRscRows` because their `id` is not
+ * a profile key; the materializer joins them to captured profiles by exact
+ * display name.
+ */
+export const extractArtificialAnalysisLeaderboardRows = (
+  html: string,
+): ArtificialAnalysisRow[] => {
+  const text = decodeArtificialAnalysisRsc(html);
+  const markerText = '"models":[';
+  const rows: ArtificialAnalysisRow[] = [];
+  const seen = new Set<string>();
+  let from = 0;
+  while (true) {
+    const marker = text.indexOf(markerText, from);
+    if (marker < 0) break;
+    const candidate = balancedSlice(
+      text,
+      marker + markerText.length - 1,
+      '[',
+      ']',
+    );
+    if (candidate) {
+      try {
+        const parsed: unknown = JSON.parse(candidate);
+        if (Array.isArray(parsed)) {
+          for (const item of parsed) {
+            const row = asRecord(item);
+            if (
+              !row ||
+              row.slug !== undefined ||
+              typeof row.id !== 'string' ||
+              typeof row.name !== 'string' ||
+              row.name.length === 0
+            )
+              continue;
+            const key = JSON.stringify([row.id, row.name]);
+            if (seen.has(key)) continue;
+            seen.add(key);
+            rows.push(row);
+          }
+        }
+      } catch {
+        // Other RSC arrays named `models` are not leaderboard tables.
+      }
+    }
+    from = marker + markerText.length;
+  }
+  return rows;
+};
+
 const pageRowKey = (row: ArtificialAnalysisRow): string | null =>
   modelRowKey(row) ?? (typeof row.name === 'string' ? row.name : null) ?? null;
 
@@ -1489,13 +1551,140 @@ const hasIntelligenceIndex = (
     ({ row }) => readNumberField(row, INTELLIGENCE_INDEX_ALIASES) !== null,
   );
 
+interface LeaderboardMatch {
+  /** The leaderboard row and the page that shows it. */
+  listed: RowObservation;
+  /** The captured profile row carrying the same name and release day. */
+  profileRow: ArtificialAnalysisRow;
+}
+
+interface LeaderboardJoin {
+  /** Profile key → the leaderboard row joined to it. */
+  matched: Map<string, LeaderboardMatch>;
+  total: number;
+  unmatched: string[];
+  ambiguous: string[];
+  dateMismatches: string[];
+}
+
+const releaseDay = (row: ArtificialAnalysisRow): string | null => {
+  const value = readRowField(row, ['release_date', 'releaseDate']);
+  return typeof value === 'string' ? value.slice(0, 10) : null;
+};
+
+/**
+ * Join one evaluation page's leaderboard rows to captured profiles.
+ *
+ * A leaderboard row joins only when exactly one captured profile slug carries
+ * the identical `name` (AA's own label, no normalization or fuzzy matching)
+ * and one captured row of that slug states both that name and the leaderboard
+ * row's release day. A leaderboard row without a release day, a name shared
+ * by two slugs, or two leaderboard rows landing on one slug join nothing.
+ */
+const joinLeaderboardRows = (
+  pages: readonly ArtificialAnalysisPage[],
+  observationsByKey: ReadonlyMap<string, readonly RowObservation[]>,
+  evaluationSlug: string,
+): LeaderboardJoin => {
+  const keysByName = new Map<string, Set<string>>();
+  for (const [key, observations] of observationsByKey) {
+    for (const { row } of observations) {
+      if (typeof row.slug !== 'string' || typeof row.name !== 'string')
+        continue;
+      const keys = keysByName.get(row.name) ?? new Set<string>();
+      keys.add(key);
+      keysByName.set(row.name, keys);
+    }
+  }
+  const join: LeaderboardJoin = {
+    matched: new Map(),
+    total: 0,
+    unmatched: [],
+    ambiguous: [],
+    dateMismatches: [],
+  };
+  const conflicted = new Set<string>();
+  for (const page of pages) {
+    if (page.kind !== 'evaluation' || page.slug !== evaluationSlug) continue;
+    const leaderboardRows =
+      page.leaderboardRows ??
+      (page.html ? extractArtificialAnalysisLeaderboardRows(page.html) : []);
+    for (const row of leaderboardRows) {
+      const name = row.name as string;
+      join.total += 1;
+      const keys = [...(keysByName.get(name) ?? [])].toSorted();
+      if (keys.length === 0) {
+        join.unmatched.push(name);
+        continue;
+      }
+      if (keys.length > 1) {
+        join.ambiguous.push(`${name} → ${keys.join(', ')}`);
+        continue;
+      }
+      const key = keys[0]!;
+      const listedDay = releaseDay(row);
+      const sameName = observationsByKey
+        .get(key)!
+        .map(({ row: profileRow }) => profileRow)
+        .filter(
+          (profileRow) =>
+            typeof profileRow.slug === 'string' && profileRow.name === name,
+        );
+      const profileRow =
+        listedDay === null
+          ? undefined
+          : sameName.find((candidate) => releaseDay(candidate) === listedDay);
+      if (!profileRow) {
+        const profileDays = [
+          ...new Set(
+            sameName.map((candidate) => releaseDay(candidate) ?? 'none'),
+          ),
+        ].toSorted();
+        join.dateMismatches.push(
+          `${name}: leaderboard ${listedDay ?? 'none'}, profile ${key} ${profileDays.join('/')}`,
+        );
+        continue;
+      }
+      if (conflicted.has(key)) continue;
+      if (join.matched.has(key)) {
+        join.matched.delete(key);
+        conflicted.add(key);
+        join.ambiguous.push(`${name} → ${key} (listed more than once)`);
+        continue;
+      }
+      join.matched.set(key, { listed: { page, row }, profileRow });
+    }
+  }
+  return join;
+};
+
+const BRIEFCASE_RUBRIC_MAPPING: ScoreMapping = {
+  field: 'briefcase_rubric',
+  aliases: [],
+  benchmarkId: 'aa-briefcase',
+  metricId: 'rubric-score',
+  metricName: 'Rubric Score',
+  unit: 'percent',
+  sourceRole: 'ORGANIZER',
+  normalize: true,
+  preferredPage: 'aa-briefcase',
+};
+
 export const materializeArtificialAnalysisRsc = (
   pages: readonly ArtificialAnalysisPage[],
   api: ArtificialAnalysisApiPage | null = null,
 ): ArtificialAnalysisMaterializeResult => {
   if (pages.length === 0)
     throw new Error('Artificial Analysis pages are empty');
-  const rowsByKey = newestBuildRows(uniqueRows(pages));
+  const observationsByKey = uniqueRows(pages);
+  const rowsByKey = newestBuildRows(observationsByKey);
+  const briefcaseLeaderboard = joinLeaderboardRows(
+    pages,
+    observationsByKey,
+    'aa-briefcase',
+  );
+  const briefcaseLeaderboardFilled: string[] = [];
+  const briefcaseLeaderboardDisagreements: string[] = [];
   const allRows = [...rowsByKey.values()]
     .map((observations) => chooseObservation(observations)?.row)
     .filter((row): row is ArtificialAnalysisRow => row !== undefined);
@@ -1510,10 +1699,9 @@ export const materializeArtificialAnalysisRsc = (
 
   const candidates: CandidateResult[] = [];
   const candidateIds = new Set<string>();
-  for (const [, observations] of activeEntries) {
+  for (const [key, observations] of activeEntries) {
     const base = chooseObservation(observations);
     if (!base) continue;
-    const row = base.row;
     for (const mapping of SCORE_MAPPING) {
       const observation =
         chooseObservationWithField(
@@ -1606,32 +1794,58 @@ export const materializeArtificialAnalysisRsc = (
         candidates.push(candidate);
       }
     }
-    const rubric = readBriefcaseRubric(
-      chooseObservation(observations, 'aa-briefcase')?.row ?? row,
+    // Any captured row of this profile that still carries the rubric wins
+    // over the leaderboard, preferring the AA-Briefcase page's own row.
+    const rubricObservation = chooseObservation(
+      observations.filter(
+        ({ row: observed }) => readBriefcaseRubric(observed) !== null,
+      ),
+      'aa-briefcase',
     );
-    if (rubric !== null) {
-      const observation =
-        chooseObservation(observations, 'aa-briefcase') ?? base;
+    const rubric = rubricObservation
+      ? readBriefcaseRubric(rubricObservation.row)
+      : null;
+    const match = briefcaseLeaderboard.matched.get(key);
+    const listedRubric = match
+      ? readNumber(match.listed.row.rubricPassRate)
+      : null;
+    if (rubricObservation && rubric !== null) {
       const candidate = makeScoreCandidate(
-        observation,
-        observation.row,
-        {
-          field: 'briefcase_rubric',
-          aliases: [],
-          benchmarkId: 'aa-briefcase',
-          metricId: 'rubric-score',
-          metricName: 'Rubric Score',
-          unit: 'percent',
-          sourceRole: 'ORGANIZER',
-          normalize: true,
-          preferredPage: 'aa-briefcase',
-        },
+        rubricObservation,
+        rubricObservation.row,
+        BRIEFCASE_RUBRIC_MAPPING,
         rubric.value,
-        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${rubric.path}`,
+        `model slug=${pageRowKey(rubricObservation.row) ?? 'unknown'}; field=${rubric.path}`,
       );
       if (candidate && !candidateIds.has(candidate.id)) {
         candidateIds.add(candidate.id);
         candidates.push(candidate);
+      }
+      if (listedRubric !== null && listedRubric !== rubric.value)
+        briefcaseLeaderboardDisagreements.push(
+          `${key}: ${rubric.path}=${rubric.value}, leaderboard rubricPassRate=${listedRubric}`,
+        );
+    } else if (match && listedRubric !== null) {
+      // No captured profile row carries the rubric; the leaderboard row with
+      // the same name and release day does. Identity comes from that profile
+      // row, the score and Evidence from the leaderboard page that shows it.
+      const { listed, profileRow } = match;
+      const candidate = makeScoreCandidate(
+        { page: listed.page, row: profileRow },
+        profileRow,
+        BRIEFCASE_RUBRIC_MAPPING,
+        listedRubric,
+        `leaderboard row id=${String(listed.row.id)}; name=${JSON.stringify(listed.row.name)} matched exactly to model slug=${key}; field=rubricPassRate`,
+      );
+      if (candidate && !candidateIds.has(candidate.id)) {
+        candidateIds.add(candidate.id);
+        candidates.push(
+          CandidateResultSchema.parse({
+            ...candidate,
+            sourceUrl: listed.page.sourceUrl,
+          }),
+        );
+        briefcaseLeaderboardFilled.push(key);
       }
     }
   }
@@ -1798,6 +2012,14 @@ export const materializeArtificialAnalysisRsc = (
     '- `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.',
     `- Not integrated: ${V5_UNINTEGRATED.join('; ')}.`,
     '',
+    '## AA-Briefcase leaderboard join',
+    '',
+    `- \`/evaluations/aa-briefcase\` leaderboard rows (display name and internal UUID, no slug): ${briefcaseLeaderboard.total}.`,
+    `- Joined to exactly one captured profile row with the identical \`name\` and release day: ${briefcaseLeaderboard.matched.size}.`,
+    `- Rubric rows read from the leaderboard because no captured row of the profile carries \`briefcaseBreakdown.rubricPassRate\`: ${briefcaseLeaderboardFilled.length}${briefcaseLeaderboardFilled.length ? ` (${briefcaseLeaderboardFilled.toSorted().join(', ')})` : ''}.`,
+    `- Profile-row rubric and leaderboard rubric disagree: ${briefcaseLeaderboardDisagreements.length}${briefcaseLeaderboardDisagreements.length ? ` (${briefcaseLeaderboardDisagreements.toSorted().join('; ')})` : ''}. The profile-row value is kept.`,
+    `- Not joined: ${briefcaseLeaderboard.unmatched.length} names match no captured profile (no identity is inferred); ${briefcaseLeaderboard.ambiguous.length} ambiguous${briefcaseLeaderboard.ambiguous.length ? ` (${briefcaseLeaderboard.ambiguous.toSorted().join('; ')})` : ''}; ${briefcaseLeaderboard.dateMismatches.length} release-day mismatches or missing release days${briefcaseLeaderboard.dateMismatches.length ? ` (${briefcaseLeaderboard.dateMismatches.toSorted().join('; ')})` : ''}.`,
+    '',
   ].join('\n');
 
   return {
@@ -1939,7 +2161,17 @@ export const currentArtificialAnalysisCapture = (
         throw new Error(
           `Artificial Analysis page ${page.sourceUrl} cites Evidence outside the current capture: ${page.evidenceId}`,
         );
-      return { ...page, retrievedAt: capturedAt, rows };
+      if (page.kind !== 'evaluation')
+        return { ...page, retrievedAt: capturedAt, rows };
+      const record = currentRecords.find(({ id }) => id === page.evidenceId)!;
+      return {
+        ...page,
+        retrievedAt: capturedAt,
+        rows,
+        leaderboardRows: extractArtificialAnalysisLeaderboardRows(
+          readArtifact(record),
+        ),
+      };
     }),
     apiRecord:
       evidence.find(
@@ -1956,9 +2188,10 @@ const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;
 /**
  * Carry forward AA-Briefcase rubric rows the source stopped exposing.
  *
- * Since 2026-11-14 the model-detail payloads give only the Briefcase Elo, and
- * the evaluation page lists the rubric pass rate for a subset of profiles. A
- * previous rubric row is kept unchanged (score, observedAt, Evidence) only when
+ * Since 2026-11-14 the model-detail payloads give only the Briefcase Elo. The
+ * evaluation page still lists rubric pass rates, in profile rows for a subset
+ * and in a leaderboard table joined by exact name for the rest. A previous
+ * rubric row is kept unchanged (score, observedAt, Evidence) only when
  * today's capture has no row with the same ID, the same profile slug is still
  * an eligible (non-deleted, in-window, newest-build) profile today, and no
  * current rubric row already covers the same canonical model and effort.

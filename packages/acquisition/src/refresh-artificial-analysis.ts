@@ -16,6 +16,7 @@ import {
 
 import {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
+  extractArtificialAnalysisLeaderboardRows,
   extractArtificialAnalysisRscRows,
   extractArtificialAnalysisVariantSlugs,
   isArtificialAnalysisActiveRow,
@@ -349,6 +350,7 @@ const main = async () => {
       evidenceId: result.record.id,
       retrievedAt,
       rows: parseRows(result),
+      leaderboardRows: extractArtificialAnalysisLeaderboardRows(result.body),
     });
     console.log(
       `Captured evaluation ${slug}: ${pages.at(-1)?.rows?.length ?? 0} rows`,
@@ -403,7 +405,7 @@ const main = async () => {
   const currentBriefcaseRows = materialized.candidates.filter(
     ({ benchmarkId }) => benchmarkId === 'aa-briefcase',
   ).length;
-  const briefcaseNote = `AA-Briefcase rubric rows: ${currentBriefcaseRows} observed in this capture; ${briefcase.retained.length} retained unchanged from the previous snapshot because the profile is still listed but no longer exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).`;
+  const briefcaseNote = `AA-Briefcase rubric rows: ${currentBriefcaseRows} observed in this capture; ${briefcase.retained.length} retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).`;
   if (visualProfileCount < result.pageRows) {
     throw new Error(
       `Visible Artificial Analysis catalog count ${visualProfileCount} is smaller than the evaluation-page profile union ${result.pageRows}`,
