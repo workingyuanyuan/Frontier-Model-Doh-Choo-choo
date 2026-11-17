@@ -15,7 +15,7 @@ overrides:
   vite: 8.1.6
 
 catalog:
-  next: 16.4.2
+  next: 16.4.6
   react: 19.2.7
   react-dom: 19.2.7
   typescript: 5.9.3
