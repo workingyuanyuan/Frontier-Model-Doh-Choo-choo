@@ -1702,7 +1702,6 @@ export const materializeArtificialAnalysisRsc = (
   for (const [key, observations] of activeEntries) {
     const base = chooseObservation(observations);
     if (!base) continue;
-    const row = base.row;
     for (const mapping of SCORE_MAPPING) {
       const observation =
         chooseObservationWithField(
