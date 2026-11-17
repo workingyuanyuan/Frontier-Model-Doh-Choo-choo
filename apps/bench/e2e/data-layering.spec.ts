@@ -109,13 +109,10 @@ for (const failure of ['http', 'format', 'version'] as const) {
         await route.fulfill({ status: 503, body: 'Temporarily unavailable' });
         return;
       }
-      if (failure === 'format') {
-        await route.fulfill({ status: 200, body: '<html>not the data</html>' });
-        return;
-      }
       const response = await route.fetch();
       const payload = await response.json();
-      payload.product.versionId = 'sha256:another-release';
+      if (failure === 'format') payload.schemaVersion = 'another-format';
+      else payload.product.versionId = 'sha256:another-release';
       await route.fulfill({ response, json: payload });
     });
     await page.goto(home, { waitUntil: 'load' });
@@ -126,6 +123,10 @@ for (const failure of ['http', 'format', 'version'] as const) {
 
     await page.unroute(dashboardData);
     await page.reload();
+    await expect(page.locator('html')).toHaveAttribute(
+      'data-dashboard',
+      'interactive',
+    );
     await expect(loadNotice(page)).toHaveCount(0);
     await developerMode(page).click();
     await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
