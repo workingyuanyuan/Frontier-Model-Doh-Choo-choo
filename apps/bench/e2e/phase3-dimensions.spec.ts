@@ -79,12 +79,20 @@ async function picker(page: Page, action: () => Promise<void>) {
   await page.keyboard.press('Escape');
 }
 
+const capabilityLabels = (page: Page) =>
+  page.locator('.radar-label:not([data-axis="economy"])');
+
 async function axes(page: Page, count: number) {
   await expect(
     page.locator('.leaderboard-table thead th[aria-label]'),
   ).toHaveCount(count);
-  await expect(page.locator('.radar-axis')).toHaveCount(count);
-  await expect(page.locator('.dimension-bar-row')).toHaveCount(count);
+  // Economy is drawn after the capability dimensions and is not one of them.
+  await expect(
+    page.locator('.radar-axis:not([data-axis="economy"])'),
+  ).toHaveCount(count);
+  await expect(
+    page.locator('.dimension-bar-row:not([data-axis="economy"])'),
+  ).toHaveCount(count);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth - innerWidth,
@@ -113,7 +121,7 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
   await expect(page.locator('[data-ranked-row]')).toHaveCount(
     product.leaderboard.length,
   );
-  await expect(page.locator('.radar-label')).toHaveText(defaultLabels);
+  await expect(capabilityLabels(page)).toHaveText(defaultLabels);
   await expect(
     page.getByRole('region', { name: 'Common benchmarks', exact: true }),
   ).toHaveCount(0);
@@ -140,7 +148,7 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
   });
   if (await effort.count()) await effort.selectOption(wide.id);
   await axes(page, dims.length);
-  await expect(page.locator('.radar-label')).toHaveText(dims);
+  await expect(capabilityLabels(page)).toHaveText(dims);
   await expect(page.locator('[data-ranked-row]')).toHaveCount(1);
   const expected = compare([wide.id]).product.leaderboard[0]!;
   await expect(page.locator('[data-ranked-row]')).toContainText(

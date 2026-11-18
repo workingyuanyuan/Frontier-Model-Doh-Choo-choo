@@ -3,7 +3,11 @@ import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
 
-import { getActiveDimensionIds, UI_DIMENSION_IDS } from '../lib/ui-contract';
+import {
+  ECONOMY_AXIS_ID,
+  getActiveDimensionIds,
+  UI_DIMENSION_IDS,
+} from '../lib/ui-contract';
 import {
   sortLeaderboardRows,
   type LeaderboardSortKey,
@@ -15,7 +19,7 @@ import {
   type LeaderboardRow,
   type ProductPreset,
   type PresetProductVersion,
-  buildProfileCostIndex,
+  buildProfileEconomy,
 } from '../lib/view-model';
 import { CopyMarkdownButton } from './copy-markdown-button';
 import { ModelPicker } from './leaderboard-controls';
@@ -36,8 +40,8 @@ export type LeaderboardProps = {
   initialExpandedModelIds?: string[] | undefined;
   developerMode: boolean;
   pickerProduct?: PresetProductVersion;
-  /** The ranked profiles the cost index is scaled over; defaults to `product`. */
-  costProduct?: PresetProductVersion;
+  /** Economy of each profile shown; computed over `product` when omitted. */
+  economyByProfile?: ReadonlyMap<string, number>;
   onResetModels?: () => void;
   selectedProfiles?: Record<string, string>;
   onSelectedProfileChange?: (modelId: string, profileId: string) => void;
@@ -61,7 +65,7 @@ export function Leaderboard({
   initialExpandedModelIds,
   developerMode,
   pickerProduct = product,
-  costProduct,
+  economyByProfile: givenEconomy,
   onResetModels,
   selectedProfiles,
   onSelectedProfileChange,
@@ -135,20 +139,15 @@ export function Leaderboard({
   useEffect(() => {
     if (effectiveSort !== sort) setSort(effectiveSort);
   }, [effectiveSort, sort]);
-  // Each row's index comes from the task costs of the profile it shows.
-  const costIndexByProfile = useMemo(
-    () => buildProfileCostIndex(costProduct ?? product),
-    [costProduct, product],
+  // Each row's Economy comes from the task costs of the profile it shows.
+  const economyByProfile = useMemo(
+    () => givenEconomy ?? buildProfileEconomy(product),
+    [givenEconomy, product],
   );
   const sortedRows = useMemo(
     () =>
-      sortLeaderboardRows(
-        product,
-        activeRows,
-        effectiveSort,
-        costIndexByProfile,
-      ),
-    [activeRows, product, effectiveSort, costIndexByProfile],
+      sortLeaderboardRows(product, activeRows, effectiveSort, economyByProfile),
+    [activeRows, product, effectiveSort, economyByProfile],
   );
 
   const onSort = (key: LeaderboardSortKey) =>
@@ -161,26 +160,31 @@ export function Leaderboard({
     }));
 
   const heatMap = useMemo<HeatMap>(() => {
-    const map: HeatMap = {};
-    dimensionIds.forEach((dimensionId) => {
-      const values = activeRows
-        .map(
-          (row) =>
-            row.dimensions.find(({ dimension }) => dimension === dimensionId)
-              ?.score ?? null,
-        )
-        .filter((value): value is number => value !== null);
-      const dimensionMap: Record<number, number> = {};
-      [...new Set(values)]
-        .sort((left, right) => right - left)
-        .slice(0, 5)
-        .forEach((value, index) => {
-          dimensionMap[value] = index + 1;
-        });
-      map[dimensionId] = dimensionMap;
-    });
+    // The five highest distinct values of a column are shaded.
+    const topFive = (values: (number | null | undefined)[]) =>
+      Object.fromEntries(
+        [...new Set(values.filter((value) => value != null))]
+          .sort((left, right) => right - left)
+          .slice(0, 5)
+          .map((value, index) => [value, index + 1]),
+      );
+    const map: HeatMap = Object.fromEntries(
+      dimensionIds.map((dimensionId) => [
+        dimensionId,
+        topFive(
+          activeRows.map(
+            (row) =>
+              row.dimensions.find(({ dimension }) => dimension === dimensionId)
+                ?.score,
+          ),
+        ),
+      ]),
+    );
+    map[ECONOMY_AXIS_ID] = topFive(
+      activeRows.map((row) => economyByProfile.get(row.profileId)),
+    );
     return map;
-  }, [activeRows, dimensionIds]);
+  }, [activeRows, dimensionIds, economyByProfile]);
 
   return (
     <div className="dashboard-section">
@@ -214,7 +218,7 @@ export function Leaderboard({
               <CopyMarkdownButton
                 label="Copy table as Markdown"
                 markdown={() =>
-                  leaderboardMarkdown(product, sortedRows, costIndexByProfile)
+                  leaderboardMarkdown(product, sortedRows, economyByProfile)
                 }
               />
             </div>
@@ -228,7 +232,7 @@ export function Leaderboard({
           sort={effectiveSort}
           onSort={onSort}
           heatMap={heatMap}
-          costIndexByProfile={costIndexByProfile}
+          economyByProfile={economyByProfile}
           modelProfiles={modelProfiles}
           onProfileChange={handleProfileChange}
           benchmarkDimensions={benchmarkDimensions}

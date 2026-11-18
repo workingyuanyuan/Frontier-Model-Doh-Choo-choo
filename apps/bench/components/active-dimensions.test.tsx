@@ -3,7 +3,6 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { COST_INDEX_HEADING } from '../lib/cost-labels';
 import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
 import {
   UI_DIMENSION_ABBREVIATIONS,
@@ -110,7 +109,7 @@ describe('active comparison dimensions', () => {
     expect(radar).not.toContain('class="dimension-bar-row"');
     expect(markdown).toBe(
       [
-        `| Model | Reasoning Effort | Overall | ${COST_INDEX_HEADING} |`,
+        '| Model | Reasoning Effort | Overall | Economy |',
         '| --- | --- | --- | --- |',
       ].join('\n'),
     );
@@ -132,5 +131,32 @@ describe('active comparison dimensions', () => {
     expect(radar).toContain('LNG: N/A');
     expect(radar).toContain('<polyline');
     expect(radar.match(/<polygon[^>]*class="radar-area/g)).toHaveLength(1);
+  });
+
+  it('adds Economy as the last radar axis only when a plotted profile has one', () => {
+    const row = makeRow(
+      UI_DIMENSION_IDS.filter((dimension) => dimension !== 'language'),
+    );
+    const product = { ...productFixture, leaderboard: [row] };
+    const radar = (economyByProfile: Map<string, number>) =>
+      renderToStaticMarkup(
+        createElement(RadarChart, {
+          product,
+          fixedProfileIds: [row.profileId],
+          economyByProfile,
+        }),
+      );
+
+    const withEconomy = radar(new Map([[row.profileId, 40]]));
+    expect(withEconomy).toContain('Six Dimensions');
+    expect(withEconomy.match(/class="radar-axis"/g)).toHaveLength(6);
+    expect(withEconomy).toContain('ECO: 40.0');
+    expect(withEconomy.lastIndexOf('data-axis="economy"')).toBeGreaterThan(
+      withEconomy.lastIndexOf('data-axis="comprehension"'),
+    );
+
+    const without = radar(new Map());
+    expect(without).toContain('Five Dimensions');
+    expect(without).not.toContain('data-axis="economy"');
   });
 });

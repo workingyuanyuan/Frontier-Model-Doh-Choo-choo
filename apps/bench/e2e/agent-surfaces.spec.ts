@@ -64,6 +64,7 @@ interface PublishedPreset {
     overallScore: number | null;
     dimensionScores: Record<string, number | null>;
     costIndex: number | null;
+    economyScore: number | null;
   }>;
   costs: Array<{
     displayName: string;
@@ -176,8 +177,12 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     const markdown = await (await request.get(at(entry.markdown))).text();
     await page.goto(at(entry.html));
     const width = 5 + preset.dimensionIds.length;
-    // The column after the scores is the cost index of the row.
-    const costIndexes = preset.leaderboard.map((row) => shown(row.costIndex));
+    // The column after the scores is Economy: the cost index turned around.
+    const economy = preset.leaderboard.map((row) => shown(row.economyScore));
+    for (const row of preset.leaderboard)
+      expect(row.economyScore, `${entry.id} ${row.modelName}`).toBe(
+        row.costIndex === null ? null : 100 - row.costIndex,
+      );
 
     expect(preset.versionId, entry.id).toBe(index.versionId);
     expect(markdown, entry.id).toContain(index.versionId);
@@ -198,12 +203,12 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     ).toEqual(expected);
     expect(
       markdownTable(markdown, '## Leaderboard').map((row) => row[width]),
-      `${entry.id} Markdown cost index`,
-    ).toEqual(costIndexes);
+      `${entry.id} Markdown Economy`,
+    ).toEqual(economy);
     expect(
       (await tableCells('leaderboard')).map((row) => row[width]),
-      `${entry.id} HTML cost index`,
-    ).toEqual(costIndexes);
+      `${entry.id} HTML Economy`,
+    ).toEqual(economy);
 
     const costs = costCells(preset);
     expect(
@@ -271,7 +276,7 @@ test('the dashboard shows what the published files state', async ({
         cells[1],
         cells[0],
         ...cells.slice(4),
-        shown(preset.leaderboard[row]!.costIndex),
+        shown(preset.leaderboard[row]!.economyScore),
       ]),
     );
     await expect(page.locator('.site-footer')).toContainText(preset.versionId);

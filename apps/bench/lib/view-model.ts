@@ -1043,49 +1043,169 @@ const weightedTaskCosts = (
       (weights[point.sourceId] ?? 0) > 0,
   );
 
+type ProfileCostBlend = Pick<
+  WeightedCostPoint,
+  'profileId' | 'modelId' | 'normalizedCost' | 'sourceCount' | 'sourceWeight'
+> & {
+  sourceCosts: Array<
+    Omit<WeightedCostPoint['sourceCosts'][number], 'performance'>
+  >;
+};
+
 /**
- * The weighted cost index of every profile the product ranks, from that
- * profile's own task costs. The scale of each source spans the ranked
- * profiles, so the index is a position within the set being shown. With one
- * ranked profile per model it equals the index `buildWeightedCostCurve` plots.
+ * Blend the task costs of every profile the product ranks, each profile from
+ * its own costs. The scale of each source spans the ranked profiles, so the
+ * index is a position within the set being shown.
  */
-export const buildProfileCostIndex = (
+const profileCostBlends = (
   product: PresetProductVersion,
-  weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
-): Map<string, number> => {
+  weights: Readonly<Record<string, number>>,
+): ProfileCostBlend[] => {
+  const context = costScoreContext(product);
   const ranked = new Set(product.leaderboard.map((row) => row.profileId));
-  const taskCosts = weightedTaskCosts(
-    product,
-    costScoreContext(product),
-    weights,
-  ).filter((point) => ranked.has(point.profileId));
+  const taskCosts = weightedTaskCosts(product, context, weights).filter(
+    (point) => ranked.has(point.profileId),
+  );
   const sourceRanges = costSourceLogRanges(taskCosts, Object.keys(weights));
 
-  const byProfileSource = new Map<string, Map<string, number[]>>();
+  const byProfileSource = new Map<string, Map<string, CostPoint[]>>();
   taskCosts.forEach((point) => {
     const sources = byProfileSource.get(point.profileId) ?? new Map();
     sources.set(point.sourceId, [
       ...(sources.get(point.sourceId) ?? []),
-      point.cost,
+      point,
     ]);
     byProfileSource.set(point.profileId, sources);
   });
 
-  const index = new Map<string, number>();
-  byProfileSource.forEach((sources, profileId) => {
-    let total = 0;
-    let totalWeight = 0;
-    sources.forEach((costs, sourceId) => {
+  return [...byProfileSource.entries()].flatMap(([profileId, sources]) => {
+    const sourceCosts = [...sources.entries()].flatMap(([sourceId, rows]) => {
       const range = sourceRanges.get(sourceId);
       const weight = weights[sourceId] ?? 0;
-      if (!range || weight <= 0) return;
-      total += normalizeCost(median(costs), range) * weight;
-      totalWeight += weight;
+      const exemplar = rows.toSorted(compareCostRows)[0];
+      if (!range || weight <= 0 || !exemplar) return [];
+      const cost = median(rows.map((row) => row.cost));
+      const sourceScore = indexedSourceScore(
+        context,
+        sourceId,
+        profileId,
+        exemplar.reportedSourceId ? exemplar.benchmarkVersion : undefined,
+        exemplar.reportedSourceId,
+        exemplar.reportedSourceId ? exemplar.sourceUrl : undefined,
+      );
+      return [
+        {
+          sourceId,
+          ...(exemplar.reportedSourceId
+            ? { reportedSourceId: exemplar.reportedSourceId }
+            : {}),
+          cost,
+          normalizedCost: normalizeCost(cost, range),
+          weight,
+          profileId,
+          sourceScore: sourceScore?.score ?? null,
+          scoreBasis: sourceScore?.basis ?? ('NONE' as const),
+          scoreBenchmarkId: sourceScore?.benchmarkId ?? null,
+          scoreBenchmarkVersion: sourceScore?.benchmarkVersion ?? null,
+          metricName: exemplar.metricName,
+          sourceUrl: exemplar.sourceUrl,
+        },
+      ];
     });
-    if (totalWeight > 0) index.set(profileId, total / totalWeight);
+    const sourceWeight = sourceCosts.reduce(
+      (total, source) => total + source.weight,
+      0,
+    );
+    const first = sourceCosts[0];
+    if (!first || sourceWeight === 0) return [];
+    return [
+      {
+        profileId,
+        modelId: [...sources.values()][0]![0]!.modelId,
+        normalizedCost:
+          sourceCosts.reduce(
+            (total, source) => total + source.normalizedCost * source.weight,
+            0,
+          ) / sourceWeight,
+        sourceCount: sourceCosts.length,
+        sourceWeight,
+        sourceCosts,
+      },
+    ];
   });
-  return index;
 };
+
+/**
+ * The weighted cost index of every profile the product ranks, from that
+ * profile's own task costs. With one ranked profile per model it equals the
+ * index `buildWeightedCostCurve` plots.
+ */
+export const buildProfileCostIndex = (
+  product: PresetProductVersion,
+  weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
+): Map<string, number> =>
+  new Map(
+    profileCostBlends(product, weights).map((blend) => [
+      blend.profileId,
+      blend.normalizedCost,
+    ]),
+  );
+
+/** Economy is the cost index turned around, so that higher is cheaper. */
+export const economyScore = (costIndex: number): number => 100 - costIndex;
+
+/** Economy of every ranked profile that has a cost index. */
+export const buildProfileEconomy = (
+  product: PresetProductVersion,
+): Map<string, number> =>
+  new Map(
+    [...buildProfileCostIndex(product)].map(([profileId, costIndex]) => [
+      profileId,
+      economyScore(costIndex),
+    ]),
+  );
+
+/**
+ * One cost point per ranked profile, for a table that may rank several
+ * efforts of a model. `buildWeightedCostCurve` draws one point per model.
+ */
+export const buildProfileCostCurve = (
+  product: PresetProductVersion,
+  weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
+): WeightedCostPoint[] => {
+  const rows = new Map(product.leaderboard.map((row) => [row.profileId, row]));
+  const profiles = new Map(
+    product.profiles.map((profile) => [profile.id, profile]),
+  );
+  return profileCostBlends(product, weights)
+    .flatMap((blend) => {
+      const performance = rows.get(blend.profileId)?.overallScore ?? null;
+      const profile = profiles.get(blend.profileId);
+      if (performance === null || performance <= 0 || !profile) return [];
+      return [
+        {
+          ...blend,
+          selectedProfileIds: blend.sourceCosts.map(() => blend.profileId),
+          providerId: profile.providerId,
+          displayName: getProfileDisplayName(profile),
+          performance,
+          sourceCosts: blend.sourceCosts.map((source) => ({
+            ...source,
+            performance,
+          })),
+        },
+      ];
+    })
+    .toSorted(compareCostPoints);
+};
+
+const compareCostPoints = (
+  left: WeightedCostPoint,
+  right: WeightedCostPoint,
+): number =>
+  left.normalizedCost - right.normalizedCost ||
+  right.performance - left.performance ||
+  left.profileId.localeCompare(right.profileId);
 
 export const buildWeightedCostCurve = (
   product: PresetProductVersion,
@@ -1196,12 +1316,7 @@ export const buildWeightedCostCurve = (
       ];
     })
     .filter(({ performance }) => performance > 0)
-    .toSorted(
-      (left, right) =>
-        left.normalizedCost - right.normalizedCost ||
-        right.performance - left.performance ||
-        left.profileId.localeCompare(right.profileId),
-    );
+    .toSorted(compareCostPoints);
 };
 
 export const getCostParetoFrontier = (

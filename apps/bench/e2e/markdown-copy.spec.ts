@@ -14,6 +14,47 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   await page.goto('/');
   const copy = page.getByRole('button', { name: 'Copy table as Markdown' });
+  // Economy in the table and the cost index on the chart are one number seen
+  // from two sides, for whichever profiles the table ranks.
+  const checkCost = async () => {
+    const economy = await page
+      .locator('[data-ranked-row]')
+      .evaluateAll((rows) =>
+        rows.map((row) => {
+          const model = row.querySelector('strong')!.textContent!.trim();
+          const effort =
+            row.querySelector('select option:checked')?.textContent?.trim() ??
+            row.querySelector('.pinned-profile-label')?.textContent?.trim() ??
+            row
+              .querySelector('.model-button span:not(.sr-only)')!
+              .textContent!.trim();
+          return [
+            `${model} · ${effort}`,
+            row.querySelector('[data-economy-cell]')!.textContent!.trim(),
+          ] as const;
+        }),
+      );
+    const plotted = await page
+      .locator('.cost-source-table tbody tr')
+      .evaluateAll((rows) =>
+        rows.map(
+          (row) =>
+            [
+              row.querySelector('th')!.textContent!.trim(),
+              row.querySelector('td')!.textContent!.trim(),
+            ] as const,
+        ),
+      );
+    expect(plotted.length).toBeGreaterThan(0);
+    for (const [name, costIndex] of plotted) {
+      const cell = economy.find(([rowName]) => rowName === name)?.[1];
+      expect(cell, name).toBeDefined();
+      expect(
+        Math.abs(100 - Number(cell) - Number(costIndex)),
+        name,
+      ).toBeLessThan(0.11);
+    }
+  };
   const checkCopy = async () => {
     const dimensions = await page
       .locator('.leaderboard-table thead th[aria-label]')
@@ -28,7 +69,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
       'Reasoning Effort',
       'Overall',
       ...dimensions,
-      'Weighted cost index',
+      'Economy',
     ];
     const expectedRows = await page
       .locator('[data-ranked-row]')
@@ -59,6 +100,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
     ]);
   };
   await checkCopy();
+  await checkCost();
   // Pin one effort of a multi-effort model, then compare another.
   const [model] = findModels(1, ([p]) => Boolean(sharedEfforts(p!)));
   const [kept, compared] = sharedEfforts(model!)!;
@@ -82,6 +124,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
       .click();
   }
   await checkCopy();
+  await checkCost();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth > window.innerWidth,

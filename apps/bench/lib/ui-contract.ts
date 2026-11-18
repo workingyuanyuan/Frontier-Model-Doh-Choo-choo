@@ -45,3 +45,22 @@ export const getActiveDimensionIds = (
       ),
     ),
   );
+
+/**
+ * Economy sits beside the capability dimensions in the table and on the radar.
+ * It is 100 minus the weighted cost index, so higher is cheaper like every
+ * other column, but no benchmark feeds it and it never enters Overall.
+ */
+export const ECONOMY_AXIS_ID = 'economy';
+export const ECONOMY_NAME = 'Economy';
+export const ECONOMY_ABBREVIATION = 'ECO';
+export const ECONOMY_HEADING = `${ECONOMY_NAME} (${ECONOMY_ABBREVIATION})`;
+export const ECONOMY_NOTE =
+  'Economy is 100 minus the weighted cost index, so higher is cheaper.';
+
+export type AxisId = DimensionId | typeof ECONOMY_AXIS_ID;
+
+export const UI_AXIS_ABBREVIATIONS: Record<AxisId, string> = {
+  ...UI_DIMENSION_ABBREVIATIONS,
+  [ECONOMY_AXIS_ID]: ECONOMY_ABBREVIATION,
+};

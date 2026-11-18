@@ -22,7 +22,9 @@ import {
   splitCostSeries,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
+  buildProfileCostCurve,
   buildProfileCostIndex,
+  buildProfileEconomy,
   buildWeightedCostCurve,
   getCostParetoFrontier,
   getSourceScore,
@@ -1020,6 +1022,26 @@ describe('cost chart view model', () => {
       buildProfileCostIndex(oneRowPerModel).get('openai-gpt-5-6-sol-max')!,
       10,
     );
+
+    // The chart of a comparison plots each ranked effort at that index, and
+    // Economy is the same index turned around.
+    const points = buildProfileCostCurve(withSecondEffort);
+    expect(
+      points
+        .filter((point) => point.modelId === 'openai-gpt-5-6-sol')
+        .map((point) => point.profileId)
+        .toSorted(),
+    ).toEqual(['openai-gpt-5-6-sol-high', 'openai-gpt-5-6-sol-max']);
+    const economy = buildProfileEconomy(withSecondEffort);
+    points.forEach((point) => {
+      expect(point.normalizedCost).toBe(both.get(point.profileId));
+      expect(economy.get(point.profileId)).toBe(100 - point.normalizedCost);
+      expect(point.performance).toBe(
+        withSecondEffort.leaderboard.find(
+          (row) => row.profileId === point.profileId,
+        )?.overallScore,
+      );
+    });
   });
 
   it('guarantees leaderboard and cost curve defaults cannot diverge from getRepresentativeRows', () => {

@@ -1,7 +1,6 @@
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
 import {
-  COST_INDEX_HEADING,
   COST_TABLE_INDEX_HEADING,
   COST_NOTE,
   costSourceName,
@@ -30,6 +29,8 @@ import {
   relativeTo,
 } from './site-paths';
 import {
+  ECONOMY_ABBREVIATION,
+  ECONOMY_HEADING,
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
   UI_DIMENSION_NAMES,
@@ -62,7 +63,7 @@ const SCORE_NOTE =
   'Scores are 0–100 and higher is better. A missing score is written N/A; it is never zero and never imputed.';
 
 export const LEADERBOARD_NOTE =
-  'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. The cost index is the one explained under Quality vs. cost; N/A means the model has no comparable task cost.';
+  'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. Economy is 100 minus the cost index explained under Quality vs. cost, so higher is cheaper; it does not enter Overall, and N/A means the model has no comparable task cost.';
 
 export const COST_SOURCES_TITLE = 'Task costs by source';
 export const COST_SOURCES_NOTE =
@@ -120,7 +121,7 @@ export const presetMarkdown = (
       'Reasoning effort',
       'Overall',
       ...dimensionIds.map(dimensionHeading),
-      COST_INDEX_HEADING,
+      ECONOMY_HEADING,
       'Evidence',
     ],
     projection.leaderboard.map((row) => [
@@ -132,7 +133,7 @@ export const presetMarkdown = (
       ...dimensionIds.map((dimension) =>
         formatScore(row.dimensionScores[dimension] ?? null),
       ),
-      formatScore(row.costIndex),
+      formatScore(row.economyScore),
       `[${row.profileId}.json](${link(row.evidencePath)})`,
     ]),
   );
@@ -227,6 +228,7 @@ const UNITS = {
   overallScore: { unit: 'score_0_100', better: 'higher' },
   dimensionScores: { unit: 'score_0_100', better: 'higher' },
   costIndex: { unit: 'normalized_index_0_100', better: 'lower' },
+  economyScore: { unit: 'score_0_100', better: 'higher' },
   normalizedCost: { unit: 'normalized_index_0_100', better: 'lower' },
   usdPerTask: { unit: 'USD_PER_TASK', better: 'lower' },
 } as const;
@@ -591,6 +593,8 @@ export const methodologyMarkdown = (
     `- Only published USD-per-task costs are used; API token prices are not part of the default chart. Cost never affects capability scores.`,
     '- Within each source, the natural log of the task cost is min-max scaled to 0–100 (0 = cheapest, 100 = most expensive). The scale spans the costs that source published for the profiles in the preset being viewed: every reasoning effort that qualifies for the table, not only the one shown. The same model therefore has a different index in different presets.',
     `- The index is the equally weighted mean over the cost groups a model has, out of ${weightEntries.length}: ${weightEntries.map(sourceName).join(', ')}. Missing groups are skipped and the weights renormalised.`,
+    `- Economy (${ECONOMY_ABBREVIATION}) in the leaderboard tables and on the radar chart of the dashboard is 100 minus the cost index, so higher is cheaper like every other column. It is not a capability dimension, no benchmark feeds it and it does not enter Overall.`,
+    '- On the dashboard, changing the reasoning effort of a row or the set of models rescales the index over the profiles then shown, each from its own task costs.',
     '- The value frontier is the Pareto set: scanning from cheapest to most expensive, a model is on it when its Overall is strictly higher than that of every model with the same or a lower cost index.',
     '- The index is a comparison aid, not a dollar estimate.',
     '',

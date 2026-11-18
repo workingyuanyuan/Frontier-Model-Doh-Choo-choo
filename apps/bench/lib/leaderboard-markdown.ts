@@ -1,8 +1,7 @@
 export const markdownLine = (cells: string[]): string =>
   `| ${cells.join(' | ')} |`;
 
-import { COST_INDEX_HEADING } from './cost-labels';
-import { getActiveDimensionIds } from './ui-contract';
+import { ECONOMY_NAME, getActiveDimensionIds } from './ui-contract';
 import {
   getProfileIdentity,
   profileById,
@@ -22,13 +21,13 @@ const score = (value: number | null | undefined): string =>
   value == null ? 'N/A' : value.toFixed(1);
 
 /**
- * `costIndexByProfile` holds the weighted cost index of each profile shown. A
- * profile with no comparable task cost reads N/A.
+ * `economyByProfile` holds the Economy score of each profile shown. A profile
+ * with no comparable task cost reads N/A.
  */
 export function leaderboardMarkdown(
   product: PresetProductVersion,
   rows: LeaderboardRow[],
-  costIndexByProfile: ReadonlyMap<string, number> = new Map(),
+  economyByProfile: ReadonlyMap<string, number> = new Map(),
 ): string {
   const dimensionIds = getActiveDimensionIds(rows);
   const headers = [
@@ -38,7 +37,7 @@ export function leaderboardMarkdown(
     ...dimensionIds.map(
       (dimension) => dimension[0]!.toUpperCase() + dimension.slice(1),
     ),
-    COST_INDEX_HEADING,
+    ECONOMY_NAME,
   ];
   return [
     markdownLine(headers),
@@ -55,7 +54,7 @@ export function leaderboardMarkdown(
               ?.score,
           ),
         ),
-        score(costIndexByProfile.get(row.profileId)),
+        score(economyByProfile.get(row.profileId)),
       ]);
     }),
   ].join('\n');

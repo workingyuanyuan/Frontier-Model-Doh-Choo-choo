@@ -6,6 +6,7 @@ import { profileEvidencePath } from './site-paths';
 import { getActiveDimensionIds } from './ui-contract';
 import {
   buildWeightedCostCurve,
+  economyScore,
   getCostParetoFrontier,
   getProfileIdentity,
   getRepresentativeRows,
@@ -54,6 +55,8 @@ export interface PresetLeaderboardRow {
   dimensionScores: Partial<Record<DimensionId, number | null>>;
   /** Null when the model has no point on the cost chart. */
   costIndex: number | null;
+  /** 100 minus `costIndex`: higher is cheaper. Null with it. */
+  economyScore: number | null;
   evidencePath: string;
 }
 
@@ -88,6 +91,9 @@ export interface PresetCostSource {
   metricName: string;
   sourceUrl: string;
 }
+
+const economyOf = (costIndex: number | undefined): number | null =>
+  costIndex === undefined ? null : economyScore(costIndex);
 
 export const projectPreset = (
   product: ProductVersion,
@@ -136,6 +142,7 @@ export const projectPreset = (
           ]),
         ),
         costIndex: costIndexByModel.get(row.modelId) ?? null,
+        economyScore: economyOf(costIndexByModel.get(row.modelId)),
         evidencePath: profileEvidencePath(product.versionId, row.profileId),
       };
     }),

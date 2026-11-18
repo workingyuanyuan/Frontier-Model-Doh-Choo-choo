@@ -11,8 +11,10 @@ import {
   type ProductPreset,
   type PresetProductVersion,
 } from '../lib/view-model';
-import { COST_INDEX_HEADING } from '../lib/cost-labels';
 import {
+  ECONOMY_ABBREVIATION,
+  ECONOMY_AXIS_ID,
+  ECONOMY_NOTE,
   UI_DIMENSION_ABBREVIATIONS,
   getActiveDimensionIds,
 } from '../lib/ui-contract';
@@ -23,13 +25,37 @@ import { ModelDetailPanel } from './model-detail-panel';
 
 type HeatMap = Record<string, Record<number, number>>;
 
+/** Laid out and shaded like a dimension score, which it reads beside. */
+function EconomyCell({
+  value,
+  position,
+  heatMap,
+}: {
+  value: number | null;
+  position: number;
+  heatMap: HeatMap;
+}) {
+  return (
+    <td
+      className={`dimension-cell dimension-cell-${position}`}
+      data-label={ECONOMY_ABBREVIATION}
+      data-economy-cell
+      data-heat-rank={
+        value === null ? null : (heatMap[ECONOMY_AXIS_ID]?.[value] ?? null)
+      }
+    >
+      {formatScore(value)}
+    </td>
+  );
+}
+
 export function LeaderboardTable({
   product,
   rows,
   sort,
   onSort,
   heatMap,
-  costIndexByProfile = new Map(),
+  economyByProfile = new Map(),
   modelProfiles,
   onProfileChange,
   benchmarkDimensions,
@@ -48,8 +74,8 @@ export function LeaderboardTable({
   sort: { key: LeaderboardSortKey; direction: SortDirection };
   onSort: (key: LeaderboardSortKey) => void;
   heatMap: HeatMap;
-  /** Weighted cost index of each profile shown, from its own task costs. */
-  costIndexByProfile?: ReadonlyMap<string, number>;
+  /** Economy of each profile shown: 100 minus its weighted cost index. */
+  economyByProfile?: ReadonlyMap<string, number>;
   modelProfiles: Record<string, string>;
   onProfileChange: (modelId: string, profileId: string) => void;
   benchmarkDimensions: Record<string, DimensionId>;
@@ -132,12 +158,14 @@ export function LeaderboardTable({
             ))}
             <th
               scope="col"
-              aria-sort={sort.key === 'cost' ? sort.direction : 'none'}
+              data-economy-column
+              title={ECONOMY_NOTE}
+              aria-sort={sort.key === 'economy' ? sort.direction : 'none'}
             >
               <SortHeader
-                label={COST_INDEX_HEADING}
-                sortKey="cost"
-                active={sort.key === 'cost'}
+                label={ECONOMY_ABBREVIATION}
+                sortKey="economy"
+                active={sort.key === 'economy'}
                 direction={sort.direction}
                 onSort={onSort}
               />
@@ -333,11 +361,11 @@ export function LeaderboardTable({
                       </td>
                     );
                   })}
-                  <td className="cost-cell" data-label={COST_INDEX_HEADING}>
-                    {formatScore(
-                      costIndexByProfile.get(chosenProfileId) ?? null,
-                    )}
-                  </td>
+                  <EconomyCell
+                    value={economyByProfile.get(chosenProfileId) ?? null}
+                    position={dimensionIds.length + 1}
+                    heatMap={heatMap}
+                  />
                 </tr>
                 {isExpanded && profile ? (
                   <tr
