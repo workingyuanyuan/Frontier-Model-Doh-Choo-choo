@@ -5,6 +5,8 @@ import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 import {
   ADVANCED_COST_SOURCE_IDS,
+  AVAILABLE_ADVANCED_COST_SOURCE_IDS,
+  COST_SOURCE_WEIGHTS,
   buildAdvancedCostSeries,
   getProfilesForModel,
   withActivePreset,
@@ -351,7 +353,12 @@ test('every cost point discloses its source count and each source score basis', 
   await point.hover();
   const count = page.getByTestId('cost-hover-source-count');
   await expect(count).toBeVisible({ timeout: 300 });
-  await expect(count).toHaveText(/^[1-8] of 8$/);
+  const weighted = Object.keys(COST_SOURCE_WEIGHTS).length;
+  const sourceCount = new RegExp(`^[1-9]\\d* of ${weighted}$`);
+  const withinWeighted = async (text: string | null) =>
+    expect(Number(text?.split(' of ')[0])).toBeLessThanOrEqual(weighted);
+  await expect(count).toHaveText(sourceCount);
+  await withinWeighted(await count.textContent());
 
   // Table: the same count per row, plus a named basis for every source.
   await page.getByRole('switch', { name: 'Developer mode' }).click();
@@ -361,7 +368,8 @@ test('every cost point discloses its source count and each source score basis', 
   const total = await counts.count();
   expect(total).toBeGreaterThan(0);
   for (let index = 0; index < total; index += 1) {
-    await expect(counts.nth(index)).toHaveText(/^[1-8] of 8$/);
+    await expect(counts.nth(index)).toHaveText(sourceCount);
+    await withinWeighted(await counts.nth(index).textContent());
   }
 
   // No source may contribute an unnamed, floating average. LiveBench is in
@@ -451,13 +459,17 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
       .getByText('Lower cost is better. Higher Overall Score is better.'),
   ).toHaveCount(0);
   const sourceButtons = page.locator('.advanced-source-toggle');
-  await expect(sourceButtons).toHaveCount(6);
+  await expect(sourceButtons).toHaveCount(
+    AVAILABLE_ADVANCED_COST_SOURCE_IDS.length,
+  );
   for (let i = 0; i < (await sourceButtons.count()); i++) {
     const button = sourceButtons.nth(i);
     const sourceId = await button.getAttribute('data-source-id');
     await expect(button).toHaveAttribute(
       'aria-pressed',
-      sourceId === 'cursorbench' ? 'false' : 'true',
+      (ADVANCED_COST_SOURCE_IDS as readonly string[]).includes(sourceId ?? '')
+        ? 'true'
+        : 'false',
     );
   }
   const zapier = page.locator(
@@ -467,12 +479,15 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   const scoreAxis = page
     .locator('.advanced-cost-chart .cost-axis-title')
     .last();
-  await expect(scoreAxis).toContainText('5-source mean score');
+  const defaultCount = ADVANCED_COST_SOURCE_IDS.length;
+  await expect(scoreAxis).toContainText(`${defaultCount}-source mean score`);
   await zapier.press('Enter');
   await expect(zapier).toHaveAttribute('aria-pressed', 'false');
-  await expect(scoreAxis).toContainText('4-source mean score');
+  await expect(scoreAxis).toContainText(
+    `${defaultCount - 1}-source mean score`,
+  );
   await zapier.press('Enter');
-  await expect(scoreAxis).toContainText('5-source mean score');
+  await expect(scoreAxis).toContainText(`${defaultCount}-source mean score`);
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('.cost-curve-chart')).toBeVisible();

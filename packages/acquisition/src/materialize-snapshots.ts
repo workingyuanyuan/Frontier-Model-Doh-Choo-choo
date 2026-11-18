@@ -78,6 +78,13 @@ import {
   ARC_PRIZE_PAGE_URL,
 } from './arc-prize-materializer.js';
 import { materializeZapier, ZAPIER_PAGE_URL } from './zapier-materializer.js';
+import {
+  ALE_API_FEATURE,
+  ALE_PAGE_URL,
+  aleApiUrl,
+  materializeAle,
+  parseAlePageVersion,
+} from './ale-materializer.js';
 import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js';
 import {
   CandidateResultSchema,
@@ -223,6 +230,7 @@ function rebuildSnapshots(
       { id: 'epoch-ai', reportFn: null },
       { id: 'arc-prize', reportFn: null },
       { id: 'zapier-automationbench', reportFn: null },
+      { id: 'agents-last-exam', reportFn: null },
       { id: 'openai-releases', reportFn: null },
       { id: 'anthropic-releases', reportFn: null },
     ];
@@ -588,6 +596,35 @@ function rebuildSnapshots(
               discoveredModuleCount: Number(
                 page.metadata?.discoveredModuleCount ?? 1,
               ),
+            });
+            candidates = result.candidates;
+            materializedCosts = result.costs;
+            customReportText = result.validationReport;
+          } else if (src.id === 'agents-last-exam') {
+            const page = evidenceFor(ALE_PAGE_URL);
+            const version = parseAlePageVersion(evidenceText(page));
+            // Same evidence the online refresh requires: the official API URL
+            // and a captured page bundle that confirms the endpoint.
+            const api = evidenceList.find(
+              (record) =>
+                record.mediaType === 'application/json' &&
+                record.requestUrl === aleApiUrl(version),
+            );
+            if (!api)
+              throw new Error(`Missing ALE v${version} leaderboard evidence`);
+            const bundle = evidenceList.find(
+              (record) =>
+                record.mediaType === 'text/javascript' &&
+                evidenceText(record).includes(ALE_API_FEATURE),
+            );
+            if (!bundle)
+              throw new Error('Missing ALE leaderboard bundle evidence');
+            const result = materializeAle(evidenceText(api), {
+              apiEvidenceId: api.id,
+              pageEvidenceId: page.id,
+              apiUrl: api.requestUrl,
+              observedAt: api.retrievedAt,
+              version,
             });
             candidates = result.candidates;
             materializedCosts = result.costs;

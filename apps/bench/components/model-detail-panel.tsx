@@ -111,6 +111,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'gdp-pdf': 'GDP.pdf',
   ifbench: 'IFBench',
   automationbench: 'AutomationBench',
+  'agents-last-exam': "Agents' Last Exam",
 };
 
 export const getSourceDisplayName = (sourceId: string): string => {
@@ -146,6 +147,8 @@ export const getSourceDisplayName = (sourceId: string): string => {
       return 'Epoch AI';
     case 'zapier-automationbench':
       return 'zapier';
+    case 'agents-last-exam':
+      return "Agents' Last Exam";
     default:
       return sourceId;
   }

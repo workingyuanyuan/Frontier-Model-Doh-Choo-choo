@@ -79,7 +79,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Beam 1.0 | `epoch-ai:epoch-capabilities-index:reflection-beam-1-0-default-epoch-inspect-row-67` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | Claude Fable 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-default-epoch-inspect-row-12` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
 | Claude Fable 5.1 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-1-default-epoch-inspect-row-8` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
-| Claude Fable 5.2 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-2-default-epoch-inspect-row-2` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-2-xhigh:arc-agi-2-v2-semi-private |
+| Claude Fable 5.2 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-2-default-epoch-inspect-row-2` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-fable-5-2-reasoning-max:1-1 |
 | Claude Opus 4.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-5-default-epoch-inspect-row-62` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-214` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-5-default-epoch-inspect-row-41:tier-4` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
@@ -116,7 +116,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Claude Opus 5 | `epoch-ai:aime:anthropic-claude-opus-5-default-epoch-inspect-row-145` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-5-default-epoch-inspect-row-11` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5 | `epoch-ai:gpqa-diamond:anthropic-claude-opus-5-default-epoch-inspect-row-138` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
-| Claude Opus 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-5-5-default-epoch-inspect-row-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus55-max |
+| Claude Opus 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-5-5-default-epoch-inspect-row-5` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-opus-5-5-reasoning-max:1-1 |
 | Claude Sonnet 4.6 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-57` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (16k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-20:tier-4` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (16k thinking) | `epoch-ai:frontiermath:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-19` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
@@ -127,7 +127,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Claude Sonnet 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-5-5-default-epoch-inspect-row-9` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | DeepSeek V4 Flash 0731 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-epoch-inspect-row-52` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek V4 Pro 0813 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-epoch-inspect-row-42` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
-| DeepSeek V4.1 Flash 1017 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-1-flash-1017-default-epoch-inspect-row-23` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-1-flash-1017-max:arc-agi-2-v2-semi-private |
+| DeepSeek V4.1 Flash 1017 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-1-flash-1017-default-epoch-inspect-row-23` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-max:1-1 |
 | DeepSeek-V4-Flash | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-default-epoch-inspect-row-87` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek-V4-Pro | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-default-epoch-inspect-row-70` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | Gemini 3 Pro Preview | `epoch-ai:aime:google-gemini-3-pro-preview-default-epoch-inspect-row-215` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
@@ -145,8 +145,8 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Gemini 3.6 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-6-flash-default-epoch-inspect-row-45` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-6-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 3.7 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-7-flash-default-epoch-inspect-row-26` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-7-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 3.8 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-8-flash-default-epoch-inspect-row-24` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Argon | `epoch-ai:epoch-capabilities-index:google-gemini-4-argon-default-epoch-inspect-row-10` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Carbon | `epoch-ai:epoch-capabilities-index:google-gemini-4-carbon-default-epoch-inspect-row-3` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-carbon-high:arc-agi-2-v2-semi-private |
+| Gemini 4 Argon | `epoch-ai:epoch-capabilities-index:google-gemini-4-argon-default-epoch-inspect-row-10` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
+| Gemini 4 Carbon | `epoch-ai:epoch-capabilities-index:google-gemini-4-carbon-default-epoch-inspect-row-3` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | GLM-5.1 | `epoch-ai:aime:zai-glm-5-1-default-epoch-inspect-row-90` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
 | GLM-5.1 | `epoch-ai:chess-puzzles:zai-glm-5-1-default-epoch-inspect-row-23` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
 | GLM-5.1 | `epoch-ai:epoch-capabilities-index:zai-glm-5-1-default-epoch-inspect-row-69` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
@@ -167,14 +167,14 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | GPT-5.5 | `epoch-ai:epoch-capabilities-index:openai-gpt-5-5-default-epoch-inspect-row-21` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.5 Pro | `epoch-ai:epoch-capabilities-index:openai-gpt-5-5-pro-default-epoch-inspect-row-15` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-pro-2026-04-23-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.6 Luna | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-luna-default-epoch-inspect-row-36` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
-| GPT-5.6 Sol | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-default-epoch-inspect-row-14` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
+| GPT-5.6 Sol | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-default-epoch-inspect-row-14` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1 |
 | GPT-5.6 Terra | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-terra-default-epoch-inspect-row-18` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
-| GPT-6 Astra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-astra-default-epoch-inspect-row-4` | — | `max` | anthropic-releases | anthropic-releases:frontier-code-1-1:gpt6astra-max |
+| GPT-6 Astra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-astra-default-epoch-inspect-row-4` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-max:1-1 |
 | GPT-6 Luna | `epoch-ai:epoch-capabilities-index:openai-gpt-6-luna-default-epoch-inspect-row-38` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-6-luna-max:arc-agi-2-v2-semi-private |
 | GPT-6 Sol | `epoch-ai:epoch-capabilities-index:openai-gpt-6-sol-default-epoch-inspect-row-13` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:frontier-code-1-1:gpt6sol-max |
 | GPT-6.1 Sol | `epoch-ai:epoch-capabilities-index:openai-gpt-6-1-sol-default-epoch-inspect-row-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private |
-| GPT-6.1 Terra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-1-terra-default-epoch-inspect-row-7` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:gpt-6-1-terra |
-| GPT-6.2 Astra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-2-astra-default-epoch-inspect-row-1` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-6-2-astra-max:arc-agi-2-v2-semi-private |
+| GPT-6.1 Terra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-1-terra-default-epoch-inspect-row-7` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-max:1-1 |
+| GPT-6.2 Astra | `epoch-ai:epoch-capabilities-index:openai-gpt-6-2-astra-default-epoch-inspect-row-1` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-max:1-1 |
 | Grok 4.5 | `epoch-ai:epoch-capabilities-index:xai-grok-4-5-default-epoch-inspect-row-47` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | Grok 4.6 | `epoch-ai:epoch-capabilities-index:xai-grok-4-6-default-epoch-inspect-row-29` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `epoch-ai:epoch-capabilities-index:xai-grok-4-7-default-epoch-inspect-row-37` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
@@ -184,7 +184,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Kimi K2.7 Code | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k2-7-code-default-epoch-inspect-row-65` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:gpqa-diamond:moonshot-kimi-k2-7-code-default-epoch-inspect-row-97` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-7-code-default-epoch-inspect-row-47` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
-| Kimi K3 | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-default-epoch-inspect-row-25` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| Kimi K3 | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-default-epoch-inspect-row-25` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
 | Kimi K3.1 Pro | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-1-pro-default-epoch-inspect-row-17` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:kimi-k3-1-pro-max |
 | MiniMax-M3 | `epoch-ai:aime:minimax-minimax-m3-default-epoch-inspect-row-87` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
 | MiniMax-M3 | `epoch-ai:chess-puzzles:minimax-minimax-m3-default-epoch-inspect-row-138` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |

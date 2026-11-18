@@ -9,6 +9,7 @@ export const SOURCE_NAMES: Record<string, string> = {
   'vals-ai': 'Vals AI',
   'zapier-automationbench': 'Zapier',
   cursorbench: 'CursorBench',
+  'agents-last-exam': "Agents' Last Exam",
   'openai-releases': 'OpenAI (vendor)',
   'anthropic-releases': 'Anthropic (vendor)',
   'xai-releases': 'xAI (vendor)',
@@ -27,6 +28,7 @@ const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
   VALS_INDEX: 'Vals Index',
   ZAPIER_AUTOMATIONBENCH: 'AutomationBench',
   CURSORBENCH_4: 'CursorBench 4.0',
+  AGENTS_LAST_EXAM: "Agents' Last Exam",
   NONE: 'cost only, no pairable score',
 };
 
