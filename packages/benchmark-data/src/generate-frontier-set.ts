@@ -504,7 +504,7 @@ export function createAaCohorts(
     const leaders = topTen.slice(0, targetModelCount);
     const profileIds = leaders.map(({ profileId }) => profileId!);
     return {
-      id: targetModelCount === 8 ? 'aa-frontier' : `aa-top-${targetModelCount}`,
+      id: `aa-top-${targetModelCount}`,
       targetModelCount,
       modelIds: leaders.map(({ modelId }) => modelId),
       profileIds,

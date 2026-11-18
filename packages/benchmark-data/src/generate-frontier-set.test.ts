@@ -250,10 +250,9 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    expect(cohorts.map(({ id }) => id)).toContain('aa-frontier');
-    expect(
-      cohorts.find(({ id }) => id === 'aa-frontier')!.targetModelCount,
-    ).toBe(8);
+    expect(cohorts.map(({ id }) => id)).toEqual(
+      cohorts.map(({ targetModelCount }) => `aa-top-${targetModelCount}`),
+    );
     for (const cohort of cohorts) {
       expect(cohort.profileIds).toEqual(profilesOf(cohort.targetModelCount));
       expect(cohort.modelIds).toEqual(models.slice(0, cohort.targetModelCount));

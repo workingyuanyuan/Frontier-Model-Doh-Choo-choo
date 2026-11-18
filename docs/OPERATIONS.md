@@ -2,7 +2,7 @@
 
 ## 前沿集合政策產物
 
-正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生合格前沿模型前 2～10 名的拉桿集合；預設集合從前 8 名（`aa-frontier`）開始，共同測試數相同時延伸，規則見[前沿政策](FRONTIER_POLICY.md#模型資格)。排名資料驗證失敗時停止。
+正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生合格前沿模型前 2～10 名的拉桿集合；預設集合從前 8 名（`aa-top-8`）開始，共同測試數相同時延伸，規則見[前沿政策](FRONTIER_POLICY.md#模型資格)。排名資料驗證失敗時停止。
 
 依 [前沿政策](FRONTIER_POLICY.md)，`pnpm data:generate-frontier-set` 會產生 `data/derived/frontier-set.json` 及同目錄的 `frontier-selection-audit.json`。`data/mappings/` 只放人工審核的政策，`data/derived/` 只放生成結果。產品建置在記憶體中重算同一份集合，由本次 cohorts 建立 display set 並算出產品，全部成功後才一起寫入這兩份檔案與 `current.json`。日常資料發布統一透過 `pnpm data:release` 依序執行來源與證據核對、前沿集合產生與 audit 狀態檢查、產品重建、可重現性驗證、靜態網站建置與 e2e 測試；集合與產品差異的人工審閱移至事後的刷新報告。完整輸入、寫入範圍與停止條件見 §3。
 
@@ -246,7 +246,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ## 3. 重產集合與建立目前版本
 
-正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、代表 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets；前 8 名的 ID 為 `aa-frontier`，實際預設集合記錄在 `defaultPresetId`。
+正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、代表 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets，ID 為 `aa-top-N`；實際預設集合記錄在 `defaultPresetId`。
 
 模型數範圍 2～10 與預設從 8 開始延伸是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
 
