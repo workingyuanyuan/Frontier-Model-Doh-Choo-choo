@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 import {
-  COST_NOTE,
   LEADERBOARD_NOTE,
   costSourceNote,
   dimensionHeading,
   projectPresets,
 } from '../../../lib/agent-surfaces';
+import { COST_NOTE } from '../../../lib/cost-labels';
 import { loadProductVersion } from '../../../lib/load-product-version';
 import { formatScore } from '../../../lib/score-format';
 import {
@@ -174,15 +174,19 @@ export default async function PresetPage({ params }: Props) {
                       </td>
                       <td>{row.onValueFrontier ? 'yes' : 'no'}</td>
                       <td>
-                        <ul className="static-sources">
-                          {row.sources.map((source) => (
-                            <li key={source.sourceId}>
+                        {/* Inline, so the table survives conversion to text. */}
+                        <span className="static-sources">
+                          {row.sources.map((source, index) => (
+                            <span key={source.sourceId}>
                               <a href={source.sourceUrl}>
                                 {costSourceNote(source)}
                               </a>
-                            </li>
+                              {index < row.sources.length - 1 ? (
+                                <span className="sr-only">; </span>
+                              ) : null}
+                            </span>
                           ))}
-                        </ul>
+                        </span>
                       </td>
                     </tr>
                   ))}
