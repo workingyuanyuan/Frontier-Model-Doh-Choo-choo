@@ -19,13 +19,13 @@ import { productFixture } from '../test/fixture';
 // Axis titles show a short label, the snapped domain and a direction hint, and
 // carry the same domain on data attributes.
 const scoreAxisTitle = (label: string, min: number, max: number) =>
-  `data-domain-min="${min}" data-domain-max="${max}"><tspan>${label}</tspan>` +
-  `<tspan class="cost-axis-hint" dx="6">${min}–${max}</tspan>`;
+  `data-domain-min="${min}" data-domain-max="${max}"><tspan>${label} </tspan>` +
+  `<tspan class="cost-axis-hint" dx="3">${min}–${max} </tspan>`;
 const costAxisTitle = (min: number, max: number) =>
   `data-domain-min="${min}" data-domain-max="${max}">` +
-  `<tspan class="cost-axis-hint">← lower is better</tspan>` +
-  `<tspan dx="12">Weighted cost index</tspan>` +
-  `<tspan class="cost-axis-hint" dx="6">${min}–${max}</tspan>`;
+  `<tspan class="cost-axis-hint">← lower is better </tspan>` +
+  `<tspan dx="9">Weighted cost index </tspan>` +
+  `<tspan class="cost-axis-hint" dx="3">${min}–${max} </tspan>`;
 
 const sampleAdvancedSeries: AdvancedCostSeries[] = [
   {
@@ -484,7 +484,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         }),
       );
 
-      expect(html).toContain('<tspan>3-source mean score</tspan>');
+      expect(html).toContain('<tspan>3-source mean score </tspan>');
       expect(html).toContain('higher is better');
       expect(html).toContain('87.4');
       expect(html).not.toContain('ARC Prize</a>:');

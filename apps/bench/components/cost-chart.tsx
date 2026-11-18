@@ -216,7 +216,7 @@ function CostPlotAxes({
             y={y(tick) + 4}
             textAnchor="end"
           >
-            {tick}
+            {`${tick} `}
           </text>
         </g>
       ))}
@@ -235,7 +235,7 @@ function CostPlotAxes({
             y={bottom + 22}
             textAnchor="middle"
           >
-            {tick}
+            {`${tick} `}
           </text>
         </g>
       ))}
@@ -255,7 +255,7 @@ function CostPlotAxes({
         bottom={bottom}
       />
       <text className="cost-direction-label" x={left + 8} y={top + 15}>
-        Better value ↖
+        Better value ↖{' '}
       </text>
     </>
   );
@@ -284,10 +284,10 @@ function CostAxisTitles({
         data-domain-min={xDomain.min}
         data-domain-max={xDomain.max}
       >
-        <tspan className="cost-axis-hint">← lower is better</tspan>
-        <tspan dx="12">Weighted cost index</tspan>
-        <tspan className="cost-axis-hint" dx="6">
-          {`${xDomain.min}–${xDomain.max}`}
+        <tspan className="cost-axis-hint">← lower is better </tspan>
+        <tspan dx="9">Weighted cost index </tspan>
+        <tspan className="cost-axis-hint" dx="3">
+          {`${xDomain.min}–${xDomain.max} `}
         </tspan>
       </text>
       <text
@@ -297,12 +297,12 @@ function CostAxisTitles({
         data-domain-min={yDomain.min}
         data-domain-max={yDomain.max}
       >
-        <tspan>{scoreLabel}</tspan>
-        <tspan className="cost-axis-hint" dx="6">
-          {`${yDomain.min}–${yDomain.max}`}
+        <tspan>{`${scoreLabel} `}</tspan>
+        <tspan className="cost-axis-hint" dx="3">
+          {`${yDomain.min}–${yDomain.max} `}
         </tspan>
-        <tspan className="cost-axis-hint" dx="12">
-          ↑ higher is better
+        <tspan className="cost-axis-hint" dx="9">
+          ↑ higher is better{' '}
         </tspan>
       </text>
     </>
@@ -543,7 +543,7 @@ export function CostModelMenu({
                           aria-hidden="true"
                         />
                         <span>
-                          <strong>{point.displayName}</strong>
+                          <strong>{point.displayName}</strong>{' '}
                           <small>
                             {point.providerId} · cost{' '}
                             {point.normalizedCost.toFixed(1)} · score{' '}

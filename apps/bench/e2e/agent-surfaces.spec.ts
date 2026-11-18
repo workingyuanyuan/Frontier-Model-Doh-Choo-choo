@@ -95,6 +95,36 @@ const costCells = (preset: PublishedPreset): string[][] =>
     row.onValueFrontier ? 'yes' : 'no',
   ]);
 
+test('the plain HTML of the dashboard names only the effort each row shows', async ({
+  browser,
+  request,
+}) => {
+  const index = await (await request.get(`${basePath}/data/index.json`)).json();
+  const preset: PublishedPreset = await (
+    await request.get(`${basePath}/data/presets/${index.defaultPresetId}.json`)
+  ).json();
+  // The alternatives of a profile menu arrive with the script that runs it.
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const page = await context.newPage();
+    await page.goto(`${basePath}/`);
+    expect(
+      await page
+        .locator('tr[data-ranked-row] th')
+        .evaluateAll((cells) =>
+          cells.map((cell) => cell.textContent!.replace(/\s+/g, ' ').trim()),
+        ),
+    ).toEqual(
+      preset.leaderboard.map(
+        (row) =>
+          `${row.modelName} Provider: ${row.providerId}. Reasoning effort: ${row.reasoningEffort}`,
+      ),
+    );
+  } finally {
+    await context.close();
+  }
+});
+
 /** Cells of the Markdown table under a heading, up to the next heading. */
 const markdownTable = (markdown: string, heading: string): string[][] => {
   const start = markdown.indexOf(heading) + heading.length;

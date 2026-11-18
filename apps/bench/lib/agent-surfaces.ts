@@ -452,6 +452,14 @@ export const methodologyMarkdown = (
   benchmarkDimensions: Record<string, DimensionId>,
 ): string => {
   const quality = product.benchmarkQuality;
+  const scoredIds = [
+    ...new Set(product.presets.flatMap(({ benchmarkIds }) => benchmarkIds)),
+  ].toSorted();
+  const similarlyNamed = (quality?.excludedBenchmarkIds ?? []).flatMap((id) =>
+    scoredIds
+      .filter((scored) => scored.startsWith(`${id}-`))
+      .map((scored) => `\`${id}\` is excluded while \`${scored}\` is scored`),
+  );
   const ids = (values: readonly string[]): string =>
     values.length
       ? values
@@ -504,6 +512,7 @@ export const methodologyMarkdown = (
     '- A preset scores only the benchmarks that every model in it has a valid result for, so all rows are compared on the same tests.',
     '- A result counts when it is included, finite, and normalized to 0–100. External composite indices are not scored.',
     `- Excluded from scoring by the quality policy (reviewed ${quality?.reviewedAt ?? 'unknown'}): ${ids(quality?.excludedBenchmarkIds ?? [])}.`,
+    `- Benchmark IDs are exact. A benchmark with a similar name is a separate benchmark and the list above does not cover it${similarlyNamed.length ? `: ${similarlyNamed.join('; ')}` : ''}.`,
     `- Limited benchmarks (${ids(quality?.limitedBenchmarkIds ?? [])}) are kept only when the same dimension also has at least ${quality?.minOtherBenchmarksPerLimited ?? 'unknown'} unrestricted benchmarks.`,
     '- The main table lists a profile only when it has every benchmark of the preset and a score in every displayed dimension.',
     '',

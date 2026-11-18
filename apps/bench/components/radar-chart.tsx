@@ -2,6 +2,8 @@
 
 import { memo, useMemo, useState } from 'react';
 
+import { useHydrated } from '../lib/use-hydrated';
+
 import {
   buildRadarPoints,
   buildRadarSegments,
@@ -29,6 +31,7 @@ export const RadarChart = memo(function RadarChart({
 }) {
   const center = 140;
   const radius = 92;
+  const hydrated = useHydrated();
 
   const targetProduct = comparisonProduct ?? product;
   const fixedComparison = fixedProfileIds !== undefined;
@@ -171,7 +174,7 @@ export const RadarChart = memo(function RadarChart({
                 availableComparisonRows.length > 0 && (
                   <div className="add-model-container">
                     <label htmlFor="add-model-select" className="sr-only">
-                      Add model for comparison
+                      Add model for comparison{' '}
                     </label>
                     <select
                       id="add-model-select"
@@ -193,7 +196,7 @@ export const RadarChart = memo(function RadarChart({
                       <option value="" disabled>
                         Add model...
                       </option>
-                      {availableComparisonRows.map((row) => {
+                      {(hydrated ? availableComparisonRows : []).map((row) => {
                         const profile = product.profiles.find(
                           (p) => p.id === row.profileId,
                         );
@@ -227,9 +230,8 @@ export const RadarChart = memo(function RadarChart({
                         className="remove-series-btn"
                         onClick={() => handleRemoveSeries(series.profileId)}
                         aria-label={`Remove ${series.displayName} from radar chart`}
-                      >
-                        ×
-                      </button>
+                        data-glyph="×"
+                      />
                     ) : null}
                   </div>
                 ))}
@@ -253,8 +255,8 @@ export const RadarChart = memo(function RadarChart({
             >
               <title id="radar-chart-title">
                 {modelNames
-                  ? `${dimensionTitle} radar chart for ${modelNames}`
-                  : `${dimensionTitle} radar chart`}
+                  ? `${dimensionTitle} radar chart for ${modelNames}. `
+                  : `${dimensionTitle} radar chart. `}
               </title>
               <desc id="radar-chart-description">
                 {textualSummary ? `${textualSummary}. ` : ''}
@@ -262,7 +264,7 @@ export const RadarChart = memo(function RadarChart({
                   ? ''
                   : hasMissingValues
                     ? 'Missing values are shown as N/A and omitted from the plotted shape.'
-                    : 'All plotted dimensions have available values.'}
+                    : 'All plotted dimensions have available values.'}{' '}
               </desc>
               {(dimensionIds.length > 2 ? [25, 50, 75, 100] : []).map(
                 (level) => {
@@ -315,7 +317,7 @@ export const RadarChart = memo(function RadarChart({
                       textAnchor="middle"
                       dominantBaseline="middle"
                     >
-                      {UI_DIMENSION_ABBREVIATIONS[dimension]}
+                      {`${UI_DIMENSION_ABBREVIATIONS[dimension]} `}
                     </text>
                   </g>
                 );

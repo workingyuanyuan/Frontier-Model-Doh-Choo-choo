@@ -69,8 +69,7 @@ export function VersionHeader({
         <a className="brand" href="#top">
           <span className="brand-mark" aria-hidden="true" />
           <span>
-            <strong>FM-DCC</strong>
-            <small>Frontier Model Doh Choo-choo</small>
+            <strong>FM-DCC</strong> <small>Frontier Model Doh Choo-choo</small>
           </span>
         </a>
       </div>

@@ -16,6 +16,7 @@ import {
   UI_DIMENSION_NAMES,
   getActiveDimensionIds,
 } from '../lib/ui-contract';
+import { useHydrated } from '../lib/use-hydrated';
 import { SortHeader } from './leaderboard-controls';
 import type { LeaderboardSortKey, SortDirection } from '../lib/table-sort';
 import { ModelDetailPanel } from './model-detail-panel';
@@ -61,6 +62,9 @@ export function LeaderboardTable({
   effortDeltas?: Record<string, number> | undefined;
 }) {
   const dimensionIds = getActiveDimensionIds(rows);
+  // The plain HTML names the effort a row shows; the alternatives arrive
+  // with the script that makes the menu work.
+  const hydrated = useHydrated();
   return (
     <div
       className="table-scroll"
@@ -175,7 +179,7 @@ export function LeaderboardTable({
                   </td>
                   <th scope="row" data-label="Model">
                     {profiles.length > 1 ? (
-                      <div className="model-cell-content">
+                      <span className="model-cell-content">
                         <button
                           className="model-button"
                           type="button"
@@ -187,7 +191,7 @@ export function LeaderboardTable({
                           <strong>
                             {profile?.baseModelName ?? row.modelId}
                           </strong>
-                        </button>
+                        </button>{' '}
                         {pinned ? (
                           <>
                             <span className="pinned-profile-label">
@@ -199,12 +203,11 @@ export function LeaderboardTable({
                               type="button"
                               className="profile-compare-button"
                               aria-label={`Remove ${profile?.baseModelName} ${profile ? getProfileIdentity(profile) : ''} from comparison`}
+                              data-glyph="×"
                               onClick={() =>
                                 onRemovePinnedProfile?.(chosenProfileId)
                               }
-                            >
-                              ×
-                            </button>
+                            />
                           </>
                         ) : (
                           <>
@@ -222,29 +225,21 @@ export function LeaderboardTable({
                                       !pinnedProfileIds.includes(p.id),
                                   )
                                 }
+                                data-glyph="+"
                                 onClick={() =>
                                   onPinProfile(row.modelId, chosenProfileId)
                                 }
-                              >
-                                +
-                              </button>
+                              />
                             ) : null}
                             <span className="sr-only">
-                              {' '}
                               Provider: {profile?.providerId ?? 'unknown'}.
                               Reasoning effort:{' '}
-                              {profile
-                                ? getProfileIdentity(profile)
-                                : chosenProfileId}
-                              .{' '}
                             </span>
                             <label className="profile-select-label">
-                              <span className="sr-only">
-                                Select profile for {profile?.baseModelName}
-                              </span>
                               <select
                                 className="profile-table-select"
                                 name={`profile-${row.modelId}`}
+                                aria-label={`Select profile for ${profile?.baseModelName}`}
                                 value={chosenProfileId}
                                 onChange={(event) =>
                                   onProfileChange(
@@ -253,7 +248,12 @@ export function LeaderboardTable({
                                   )
                                 }
                               >
-                                {profiles.map((candidate) => (
+                                {(hydrated
+                                  ? profiles
+                                  : profiles.filter(
+                                      ({ id }) => id === chosenProfileId,
+                                    )
+                                ).map((candidate) => (
                                   <option
                                     key={candidate.id}
                                     value={candidate.id}
@@ -284,7 +284,7 @@ export function LeaderboardTable({
                             </label>
                           </>
                         )}
-                      </div>
+                      </span>
                     ) : (
                       <button
                         className="model-button"
@@ -295,14 +295,15 @@ export function LeaderboardTable({
                         }}
                       >
                         <strong>{profile?.baseModelName ?? row.modelId}</strong>
+                        <span className="sr-only">
+                          {' '}
+                          Provider: {profile?.providerId ?? 'unknown'}.
+                          Reasoning effort:{' '}
+                        </span>
                         <span>
                           {profile
                             ? getProfileIdentity(profile)
                             : row.profileId}
-                        </span>
-                        <span className="sr-only">
-                          {' '}
-                          Provider: {profile?.providerId ?? 'unknown'}.
                         </span>
                       </button>
                     )}

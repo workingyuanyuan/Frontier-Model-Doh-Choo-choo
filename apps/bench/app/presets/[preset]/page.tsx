@@ -59,10 +59,9 @@ export default async function PresetPage({ params }: Props) {
         <a className="brand" href={sitePath('')}>
           <span className="brand-mark" aria-hidden="true" />
           <span>
-            <strong>FM-DCC</strong>
-            <small>Frontier Model Doh Choo-choo</small>
+            <strong>FM-DCC</strong> <small>Frontier Model Doh Choo-choo</small>
           </span>
-        </a>
+        </a>{' '}
         <a href={dashboard}>Interactive dashboard</a>
       </header>
       <main className="page-shell static-page">
@@ -81,14 +80,14 @@ export default async function PresetPage({ params }: Props) {
           computed: <a href={sitePath(METHODOLOGY_PATH)}>methodology</a>.
         </p>
         <nav className="static-presets" aria-label="Presets">
-          <span>Model set:</span>
+          <span>Model sets (number of models): </span>
           {presets.map((other) => (
             <a
               key={other.preset.id}
               href={sitePath(presetPagePath(other.preset.id))}
               aria-current={other.preset.id === preset.id ? 'page' : undefined}
             >
-              {other.preset.id}
+              {other.preset.id} ({other.preset.modelCount}){' '}
             </a>
           ))}
         </nav>
@@ -225,10 +224,10 @@ export default async function PresetPage({ params }: Props) {
       <footer className="site-footer">
         <span>FM-DCC</span>
         <nav className="footer-links" aria-label="Data and documentation">
-          <a href={sitePath(presetMarkdownPath(preset.id))}>Markdown</a>
-          <a href={sitePath(presetJsonPath(preset.id))}>JSON</a>
-          <a href={sitePath(METHODOLOGY_PATH)}>Methodology</a>
-          <a href={sitePath(LLMS_TXT_PATH)}>llms.txt</a>
+          <a href={sitePath(presetMarkdownPath(preset.id))}>Markdown</a>{' '}
+          <a href={sitePath(presetJsonPath(preset.id))}>JSON</a>{' '}
+          <a href={sitePath(METHODOLOGY_PATH)}>Methodology</a>{' '}
+          <a href={sitePath(LLMS_TXT_PATH)}>llms.txt</a>{' '}
           <a href={REPOSITORY_URL}>Source repository</a>
         </nav>
         <span className="footer-version-meta">

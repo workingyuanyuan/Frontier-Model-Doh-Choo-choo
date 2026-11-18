@@ -160,7 +160,7 @@ describe('Dashboard Redesign', () => {
     expect(html.match(/class="radar-grid"/g)).toHaveLength(4);
     dimensionIds.forEach((dimension) => {
       expect(html).toContain(
-        `>${UI_DIMENSION_ABBREVIATIONS[dimension]}</text>`,
+        `>${UI_DIMENSION_ABBREVIATIONS[dimension]} </text>`,
       );
     });
   });
@@ -469,7 +469,7 @@ describe('Dashboard Redesign', () => {
 
     expect(html.match(/class="radar-axis"/g)).toHaveLength(4);
     expect(html).not.toContain('LNG: N/A');
-    expect(html).not.toContain('>LNG</text>');
+    expect(html).not.toContain('>LNG </text>');
     expect(html).toContain('<polygon class="radar-area');
     expect(html).not.toContain('bar-src');
   });

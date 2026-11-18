@@ -121,6 +121,11 @@ Dashboard 首頁只帶預設集合的畫面，其他集合與互動功能需要�
   - `data/dashboard.json` 是 Dashboard 的內部傳輸格式（字典編碼），不是對外契約，不列入 `llms.txt` 與 `data/index.json`；外部讀者使用上表的檔案。
   - 網址帶 `?v=<versionId>`，避免新版頁面配到瀏覽器快取的舊版資料。
   - 接手互動後 `<html>` 帶 `data-dashboard="interactive"`。e2e 的 `page.goto`（`apps/bench/e2e/test.ts`）等這個標記才返回，用瀏覽器操作頁面的代理也可以等它；`llms.txt` 寫明了這點。
+- **首頁的 HTML 要能直接轉成文字**：抓取工具會把 HTML 轉成 Markdown，因此標記遵守下列規則。
+  - 表格格子裡只放行內元素（清單或區塊會讓表格斷行），多筆資料以 `; ` 分隔。
+  - 下拉選單在 React 接手前只輸出目前選取的選項（`apps/bench/lib/use-hydrated.ts`），其餘選項接手後才出現；選單名稱寫在 `aria-label`。
+  - 只有圖示的按鈕以 `data-glyph` 由 CSS 繪製，文字只留在 `aria-label`。
+  - 相鄰的行內元素之間、SVG 文字結尾都留空白，轉成文字後才不會黏在一起。
 - 首頁成本圖的 Source breakdown（各來源美元任務成本）以收合的 `<details>` 隨靜態 HTML 輸出，不需開發者模式，讓不執行 JavaScript 的讀者也能取得。
 
 ## 離線與失敗安全

@@ -75,7 +75,7 @@ describe('active comparison dimensions', () => {
       dimensions.forEach((dimension, index) => {
         const abbreviation = UI_DIMENSION_ABBREVIATIONS[dimension];
         expect(table).toContain(`Sort by ${abbreviation}`);
-        expect(radar).toContain(`>${abbreviation}</text>`);
+        expect(radar).toContain(`>${abbreviation} </text>`);
         expect(markdown.split('\n')[0]).toContain(
           dimension[0]!.toUpperCase() + dimension.slice(1),
         );
@@ -84,8 +84,8 @@ describe('active comparison dimensions', () => {
           expect(table.indexOf(`Sort by ${previous}`)).toBeLessThan(
             table.indexOf(`Sort by ${abbreviation}`),
           );
-          expect(radar.indexOf(`>${previous}</text>`)).toBeLessThan(
-            radar.indexOf(`>${abbreviation}</text>`),
+          expect(radar.indexOf(`>${previous} </text>`)).toBeLessThan(
+            radar.indexOf(`>${abbreviation} </text>`),
           );
         }
       });
@@ -94,7 +94,7 @@ describe('active comparison dimensions', () => {
       );
       if (!dimensions.includes('language')) {
         expect(table).not.toContain('Sort by LNG');
-        expect(radar).not.toContain('>LNG</text>');
+        expect(radar).not.toContain('>LNG </text>');
         expect(markdown).not.toContain('Language');
       }
     },

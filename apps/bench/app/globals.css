@@ -143,6 +143,11 @@
   box-sizing: border-box;
 }
 
+/* A glyph drawn by CSS, so a button's label is its only text. */
+[data-glyph]::before {
+  content: attr(data-glyph);
+}
+
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);

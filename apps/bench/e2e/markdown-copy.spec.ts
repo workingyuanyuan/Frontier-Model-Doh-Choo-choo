@@ -32,7 +32,9 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
           const effort =
             row.querySelector('select option:checked')?.textContent?.trim() ??
             row.querySelector('.pinned-profile-label')?.textContent?.trim() ??
-            row.querySelector('.model-button span')!.textContent!.trim();
+            row
+              .querySelector('.model-button span:not(.sr-only)')!
+              .textContent!.trim();
           const scores = Array.from(row.querySelectorAll('td'))
             .slice(1)
             .map((cell) => cell.textContent!.trim());
