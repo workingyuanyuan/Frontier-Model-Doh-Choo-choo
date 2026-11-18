@@ -362,6 +362,7 @@ export function Dashboard({
                 : visibleProduct
           }
           pickerProduct={product}
+          costProduct={visibleProduct}
           rows={comparison ? comparison.product.leaderboard : rows}
           representatives={options}
           checkedModelIds={checkedModelIds}

@@ -66,6 +66,7 @@ interface PublishedPreset {
     reasoningEffort: string;
     overallScore: number | null;
     dimensionScores: Record<string, number | null>;
+    costIndex: number | null;
   }>;
   costs: Array<{
     displayName: string;
@@ -178,6 +179,8 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     const markdown = await (await request.get(at(entry.markdown))).text();
     await page.goto(at(entry.html));
     const width = 5 + preset.dimensionIds.length;
+    // The column after the scores is the cost index of the row.
+    const costIndexes = preset.leaderboard.map((row) => shown(row.costIndex));
 
     expect(preset.versionId, entry.id).toBe(index.versionId);
     expect(markdown, entry.id).toContain(index.versionId);
@@ -196,6 +199,14 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
       (await tableCells('leaderboard')).map((row) => row.slice(0, width)),
       `${entry.id} HTML`,
     ).toEqual(expected);
+    expect(
+      markdownTable(markdown, '## Leaderboard').map((row) => row[width]),
+      `${entry.id} Markdown cost index`,
+    ).toEqual(costIndexes);
+    expect(
+      (await tableCells('leaderboard')).map((row) => row[width]),
+      `${entry.id} HTML cost index`,
+    ).toEqual(costIndexes);
 
     const costs = costCells(preset);
     expect(

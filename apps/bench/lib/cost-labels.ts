@@ -55,6 +55,9 @@ export const scoreBasisNote = (
 export const COST_NOTE =
   'The cost index blends task costs across sources. Within each source, the natural log of the USD task cost is min-max scaled to 0–100 over the costs that source published for the profiles in this preset (every reasoning effort that qualifies for the table, not only the one shown), so the index of a model differs between presets. The sources a model has are then averaged with equal weight. It is a relative position, not a dollar estimate; the per-source USD figures are the published costs. A source named with a vendor, such as "DeepSWE · OpenAI (vendor)", is a score and cost for that benchmark that the named vendor published on its release page; it is used only when the benchmark organizer has no matching score and cost pair for the profile. A model is on the value frontier when its Overall is strictly higher than that of every model with the same or a lower cost index.';
 
+/** Column heading of the cost index wherever it sits beside the scores. */
+export const COST_INDEX_HEADING = 'Cost index (0–100, lower is cheaper)';
+
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 export const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
 

@@ -9,7 +9,7 @@ import {
   dimensionHeading,
   projectPresets,
 } from '../../../lib/agent-surfaces';
-import { COST_NOTE } from '../../../lib/cost-labels';
+import { COST_INDEX_HEADING, COST_NOTE } from '../../../lib/cost-labels';
 import { loadProductVersion } from '../../../lib/load-product-version';
 import { formatScore } from '../../../lib/score-format';
 import {
@@ -116,6 +116,7 @@ export default async function PresetPage({ params }: Props) {
                       {dimensionHeading(dimension)}
                     </th>
                   ))}
+                  <th scope="col">{COST_INDEX_HEADING}</th>
                   <th scope="col">Evidence</th>
                 </tr>
               </thead>
@@ -134,6 +135,7 @@ export default async function PresetPage({ params }: Props) {
                         {formatScore(row.dimensionScores[dimension] ?? null)}
                       </td>
                     ))}
+                    <td>{formatScore(row.costIndex)}</td>
                     <td>
                       <a href={sitePath(row.evidencePath)}>JSON</a>
                     </td>
@@ -154,7 +156,7 @@ export default async function PresetPage({ params }: Props) {
                   <tr>
                     <th scope="col">Model</th>
                     <th scope="col">Provider</th>
-                    <th scope="col">Cost index (0–100, lower is cheaper)</th>
+                    <th scope="col">{COST_INDEX_HEADING}</th>
                     <th scope="col">Overall</th>
                     <th scope="col">Cost sources</th>
                     <th scope="col">On value frontier</th>

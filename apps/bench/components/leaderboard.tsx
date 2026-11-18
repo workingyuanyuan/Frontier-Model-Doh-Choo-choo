@@ -15,6 +15,7 @@ import {
   type LeaderboardRow,
   type ProductPreset,
   type PresetProductVersion,
+  buildWeightedCostCurve,
 } from '../lib/view-model';
 import { CopyMarkdownButton } from './copy-markdown-button';
 import { ModelPicker } from './leaderboard-controls';
@@ -35,6 +36,8 @@ export type LeaderboardProps = {
   initialExpandedModelIds?: string[] | undefined;
   developerMode: boolean;
   pickerProduct?: PresetProductVersion;
+  /** The product the cost chart plots; its index is what the copied table quotes. */
+  costProduct?: PresetProductVersion;
   onResetModels?: () => void;
   selectedProfiles?: Record<string, string>;
   onSelectedProfileChange?: (modelId: string, profileId: string) => void;
@@ -58,6 +61,7 @@ export function Leaderboard({
   initialExpandedModelIds,
   developerMode,
   pickerProduct = product,
+  costProduct,
   onResetModels,
   selectedProfiles,
   onSelectedProfileChange,
@@ -198,7 +202,17 @@ export function Leaderboard({
               />
               <CopyMarkdownButton
                 label="Copy table as Markdown"
-                markdown={() => leaderboardMarkdown(product, sortedRows)}
+                markdown={() =>
+                  leaderboardMarkdown(
+                    product,
+                    sortedRows,
+                    new Map(
+                      buildWeightedCostCurve(costProduct ?? product).map(
+                        (point) => [point.profileId, point.normalizedCost],
+                      ),
+                    ),
+                  )
+                }
               />
             </div>
           </div>
