@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-healthcare",
-    "retrievedAt": "2026-11-17T04:40:52.014Z",
+    "retrievedAt": "2026-11-18T04:58:09.065Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b15dc689d8f644e106fb1981d8664bc0672a6a89aae983635816747f2d928a9b",
     "sourceId": "surge-dayjob-healthcare"

@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/gdp-xlsx",
-    "retrievedAt": "2026-11-17T04:40:55.792Z",
+    "retrievedAt": "2026-11-18T04:58:13.018Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:819745f6af0a213f17a6637635365f559f6a6def243813fbffa3ca15539575df",
     "sourceId": "surge-gdp-xlsx"

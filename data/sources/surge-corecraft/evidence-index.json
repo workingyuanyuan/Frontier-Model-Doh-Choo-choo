@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
-    "retrievedAt": "2026-11-17T04:40:46.302Z",
+    "retrievedAt": "2026-11-18T04:59:12.562Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3ff461809cb6107d35ccb21da7fb216e2a52d9127d730a6884728a1395d4d97c",
     "sourceId": "surge-corecraft"

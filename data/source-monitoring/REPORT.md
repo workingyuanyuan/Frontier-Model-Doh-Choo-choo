@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:41:32.127Z
+- Checked: 2026-11-18T04:58:53.500Z
+- Stored score snapshot: 2026-11-18T04:58:48.889Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:41:01.369Z
+- Checked: 2026-11-18T05:08:42.862Z
+- Stored score snapshot: 2026-11-18T05:08:40.122Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,8 +24,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:49:57.451Z
+- Checked: 2026-11-18T05:08:30.135Z
+- Stored score snapshot: 2026-11-18T05:07:00.044Z
 - Scope: live-catalog-and-snapshot
 
 | Finding                           | Benchmark             | Detail                                                          |
@@ -104,8 +104,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:28.627Z
+- Checked: 2026-11-18T04:57:26.312Z
+- Stored score snapshot: 2026-11-18T04:57:25.872Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -114,8 +114,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:57.892Z
+- Checked: 2026-11-18T05:08:38.697Z
+- Stored score snapshot: 2026-11-18T05:08:37.431Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -124,8 +124,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:34.956Z
+- Checked: 2026-11-18T05:08:36.172Z
+- Stored score snapshot: 2026-11-18T05:08:35.889Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -134,8 +134,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-swe
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:36.894Z
+- Checked: 2026-11-18T04:57:38.901Z
+- Stored score snapshot: 2026-11-18T04:57:34.329Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -154,8 +154,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:51:18.146Z
+- Checked: 2026-11-18T05:08:34.571Z
+- Stored score snapshot: 2026-11-18T05:08:32.664Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -164,8 +164,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## maxxbench
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:30.259Z
+- Checked: 2026-11-18T04:57:28.149Z
+- Stored score snapshot: 2026-11-18T04:57:27.644Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -174,7 +174,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-17T04:51:46.035Z
+- Checked: 2026-11-18T04:58:53.500Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -184,8 +184,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## scale-swe-atlas
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:49:55.200Z
+- Checked: 2026-11-18T04:57:30.323Z
+- Stored score snapshot: 2026-11-18T04:57:29.468Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -194,8 +194,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:42.379Z
+- Checked: 2026-11-18T04:57:40.530Z
+- Stored score snapshot: 2026-11-18T04:57:40.111Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -221,8 +221,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:44.379Z
+- Checked: 2026-11-18T04:57:47.668Z
+- Stored score snapshot: 2026-11-18T04:57:42.141Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -248,8 +248,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:46.302Z
+- Checked: 2026-11-18T04:59:12.945Z
+- Stored score snapshot: 2026-11-18T04:59:12.562Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -275,8 +275,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:50.176Z
+- Checked: 2026-11-18T04:58:07.494Z
+- Stored score snapshot: 2026-11-18T04:58:07.161Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -302,8 +302,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:52.014Z
+- Checked: 2026-11-18T04:58:09.473Z
+- Stored score snapshot: 2026-11-18T04:58:09.065Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -329,8 +329,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:53.842Z
+- Checked: 2026-11-18T04:58:11.369Z
+- Stored score snapshot: 2026-11-18T04:58:10.975Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -356,8 +356,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:55.792Z
+- Checked: 2026-11-18T04:58:13.396Z
+- Stored score snapshot: 2026-11-18T04:58:13.018Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -383,8 +383,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:40:48.191Z
+- Checked: 2026-11-18T04:58:05.660Z
+- Stored score snapshot: 2026-11-18T04:58:05.253Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -410,8 +410,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:51:23.701Z
+- Checked: 2026-11-18T05:09:01.527Z
+- Stored score snapshot: 2026-11-18T05:08:47.050Z
 - Scope: live-catalog-and-snapshot
 
 | Finding             | Benchmark                | Detail                                                  |
@@ -532,8 +532,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-17T04:51:46.035Z
-- Stored score snapshot: 2026-11-17T04:41:06.855Z
+- Checked: 2026-11-18T05:08:45.473Z
+- Stored score snapshot: 2026-11-18T05:08:44.095Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

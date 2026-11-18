@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T04:57:26.312Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -147,7 +147,7 @@
         "versions": ["1.1"]
       }
     ],
-    "observedAt": "2026-11-17T04:40:28.627Z",
+    "observedAt": "2026-11-18T04:57:25.872Z",
     "sourceId": "deepswe"
   }
 }

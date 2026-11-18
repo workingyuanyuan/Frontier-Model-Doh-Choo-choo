@@ -15,7 +15,7 @@
     "variants[overall].entries[].model": "model.rawName",
     "variants[overall].entries[].score": "normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-17T04:49:55.200Z",
+  "lastVerifiedAt": "2026-11-18T04:57:29.468Z",
   "notes": [
     "Overall only, benchmark version v1.1. QnA, Test Writing and Refactoring are preserved in raw evidence.",
     "Exact catalog display names and aliases resolve existing model identities; unresolved identities remain null.",

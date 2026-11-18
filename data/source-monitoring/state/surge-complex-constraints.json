@@ -79,7 +79,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T04:57:47.668Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/4c/4cf59de5727efb2820b1f49c2fa0e8616cc8be8ba78aec1ac8059943ed26e5e6.html",
     "byteLength": 930400,
@@ -91,7 +91,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-17T04:51:46.035Z",
+    "retrievedAt": "2026-11-18T04:57:47.668Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4cf59de5727efb2820b1f49c2fa0e8616cc8be8ba78aec1ac8059943ed26e5e6",
     "sourceId": "surge-complex-constraints"
@@ -247,7 +247,7 @@
         "versions": ["(unknown)", "v1.1"]
       }
     ],
-    "observedAt": "2026-11-17T04:40:44.379Z",
+    "observedAt": "2026-11-18T04:57:42.141Z",
     "sourceId": "surge-complex-constraints"
   }
 }
