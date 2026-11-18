@@ -3,7 +3,10 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
+import {
+  COPIED_COST_INDEX_HEADING,
+  leaderboardMarkdown,
+} from '../lib/leaderboard-markdown';
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
@@ -108,7 +111,10 @@ describe('active comparison dimensions', () => {
     expect(radar).not.toContain('class="radar-axis"');
     expect(radar).not.toContain('class="dimension-bar-row"');
     expect(markdown).toBe(
-      '| Model | Reasoning Effort | Overall |\n| --- | --- | --- |',
+      [
+        `| Model | Reasoning Effort | Overall | ${COPIED_COST_INDEX_HEADING} |`,
+        '| --- | --- | --- | --- |',
+      ].join('\n'),
     );
   });
 

@@ -1,6 +1,7 @@
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
 import {
+  COST_INDEX_HEADING,
   COST_NOTE,
   costSourceName,
   scoreBasisNote,
@@ -60,7 +61,7 @@ const SCORE_NOTE =
   'Scores are 0–100 and higher is better. A missing score is written N/A; it is never zero and never imputed.';
 
 export const LEADERBOARD_NOTE =
-  'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half.';
+  'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. The cost index is the one explained under Quality vs. cost; N/A means the model has no comparable task cost.';
 
 export const COST_SOURCES_TITLE = 'Task costs by source';
 export const COST_SOURCES_NOTE =
@@ -118,6 +119,7 @@ export const presetMarkdown = (
       'Reasoning effort',
       'Overall',
       ...dimensionIds.map(dimensionHeading),
+      COST_INDEX_HEADING,
       'Evidence',
     ],
     projection.leaderboard.map((row) => [
@@ -129,6 +131,7 @@ export const presetMarkdown = (
       ...dimensionIds.map((dimension) =>
         formatScore(row.dimensionScores[dimension] ?? null),
       ),
+      formatScore(row.costIndex),
       `[${row.profileId}.json](${link(row.evidencePath)})`,
     ]),
   );
@@ -138,7 +141,7 @@ export const presetMarkdown = (
         [
           'Model',
           'Provider',
-          'Cost index (0–100, lower is cheaper)',
+          COST_INDEX_HEADING,
           'Overall',
           'Cost sources',
           'On value frontier',
