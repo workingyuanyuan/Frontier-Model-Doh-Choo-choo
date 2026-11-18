@@ -1,7 +1,5 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
-
-type DimensionScore =
-  ProductVersion['presets'][number]['leaderboard'][number]['dimensions'][number];
+/** A score on one radar axis: a capability dimension or Economy. */
+type DimensionScore = { dimension: string; score: number | null };
 
 export type ChartPoint = {
   x: number;
@@ -35,7 +33,7 @@ export const polarPoint = (
  */
 export const buildRadarPoints = (
   dimensions: readonly DimensionScore[],
-  order: readonly DimensionId[],
+  order: readonly string[],
   centerX: number,
   centerY: number,
   radius: number,
@@ -62,7 +60,7 @@ export const buildRadarPoints = (
  */
 export const buildRadarSegments = (
   dimensions: readonly DimensionScore[],
-  order: readonly DimensionId[],
+  order: readonly string[],
   centerX: number,
   centerY: number,
   radius: number,

@@ -38,6 +38,7 @@ import {
   type SelectionContext,
 } from '../lib/dashboard-selection';
 import {
+  buildProfileEconomy,
   getDeveloperModelRows,
   getPartialCoverageRows,
   getRepresentativeRows,
@@ -184,6 +185,13 @@ export function Dashboard({
       commonMode,
       index,
     ],
+  );
+  // Cost follows what the table ranks: the preset's profiles, or the custom
+  // comparison once the user edits models or efforts.
+  const rankedProduct = comparison ? comparison.product : visibleProduct;
+  const economyByProfile = useMemo(
+    () => buildProfileEconomy(rankedProduct),
+    [rankedProduct],
   );
   // Developer mode shows the common-benchmark table for the default selection
   // too. It is computed separately so the ranked table and charts keep the
@@ -362,7 +370,7 @@ export function Dashboard({
                 : visibleProduct
           }
           pickerProduct={product}
-          costProduct={comparison ? comparison.product : visibleProduct}
+          economyByProfile={economyByProfile}
           rows={comparison ? comparison.product.leaderboard : rows}
           representatives={options}
           checkedModelIds={checkedModelIds}
@@ -422,10 +430,12 @@ export function Dashboard({
           product={comparison ? comparison.product : product}
           comparisonProduct={comparison ? comparison.product : visibleProduct}
           fixedProfileIds={fixedProfileIds}
+          economyByProfile={economyByProfile}
         />
 
         <CostChart
-          defaultProduct={visibleProduct}
+          defaultProduct={rankedProduct}
+          perProfile={comparison !== null}
           advancedProduct={product}
           onUseInLeaderboard={applyChartShortlist}
         />

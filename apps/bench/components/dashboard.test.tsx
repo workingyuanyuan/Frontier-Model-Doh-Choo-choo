@@ -11,6 +11,7 @@ import {
 } from '../lib/view-model';
 import { COST_SOURCE_WEIGHTS } from '../lib/view-model';
 import {
+  ECONOMY_ABBREVIATION,
   UI_DIMENSION_ABBREVIATIONS,
   getActiveDimensionIds,
 } from '../lib/ui-contract';
@@ -53,7 +54,7 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Frontier Model Doh Choo-choo');
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
-    expect(html).toContain('Five Dimensions');
+    expect(html).toContain('Six Dimensions');
     expect(html).toContain('role="switch"');
     expect(html).toContain('aria-label="Developer mode"');
     expect(html).toContain('aria-checked="false"');
@@ -158,12 +159,18 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
     const dimensionIds = getActiveDimensionIds(productFixture.leaderboard);
 
-    expect(html.match(/class="radar-axis"/g)).toHaveLength(dimensionIds.length);
+    // The capability dimensions, then Economy from the cost data.
+    expect(html.match(/class="radar-axis"/g)).toHaveLength(
+      dimensionIds.length + 1,
+    );
+    // Its axis line, its label and its bar row.
+    expect(html.match(/data-axis="economy"/g)).toHaveLength(3);
     expect(html.match(/class="radar-grid"/g)).toHaveLength(4);
-    dimensionIds.forEach((dimension) => {
-      expect(html).toContain(
-        `>${UI_DIMENSION_ABBREVIATIONS[dimension]} </text>`,
-      );
+    [
+      ...dimensionIds.map((dimension) => UI_DIMENSION_ABBREVIATIONS[dimension]),
+      ECONOMY_ABBREVIATION,
+    ].forEach((abbreviation) => {
+      expect(html).toContain(`>${abbreviation} </text>`);
     });
   });
 
@@ -338,7 +345,7 @@ describe('Dashboard Redesign', () => {
     );
 
     expect(html).toContain('Source breakdown');
-    expect(html).toContain('Five Dimensions');
+    expect(html).toContain('Six Dimensions');
   });
 
   it('publishes cost source contributions without developer mode', () => {
@@ -377,12 +384,12 @@ describe('Dashboard Redesign', () => {
     expect(html).not.toContain('src)');
   });
 
-  it('orders Quality vs. Cost below Five Dimensions', () => {
+  it('orders Quality vs. Cost below Six Dimensions', () => {
     const html = renderToStaticMarkup(dashboard());
-    const fiveDimensionsIndex = html.indexOf('Five Dimensions');
+    const dimensionsIndex = html.indexOf('Six Dimensions');
     const qualityVsCostIndex = html.indexOf('Quality vs. Cost');
-    expect(fiveDimensionsIndex).toBeGreaterThan(0);
-    expect(qualityVsCostIndex).toBeGreaterThan(fiveDimensionsIndex);
+    expect(dimensionsIndex).toBeGreaterThan(0);
+    expect(qualityVsCostIndex).toBeGreaterThan(dimensionsIndex);
   });
 
   it('groups model benchmarks into five capability dimensions in the detail panel when expanded', () => {
@@ -443,7 +450,7 @@ describe('Dashboard Redesign', () => {
     const leaderboardSorts = html.match(/data-leaderboard-sort/g) ?? [];
 
     expect(leaderboardSorts.length).toBe(9);
-    expect(html).toContain('Sort by Weighted cost index');
+    expect(html).toContain('Sort by ECO');
     expect(html).toContain('aria-sort="descending"');
     expect(html).toContain('Sort by Model');
   });
@@ -536,7 +543,7 @@ describe('Dashboard Redesign', () => {
 
     expect(html).not.toContain('GPT-5.6 Sol · high');
     expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
-    const mainMarkup = html.slice(0, html.indexOf('Five Dimensions'));
+    const mainMarkup = html.slice(0, html.indexOf('Six Dimensions'));
     expect(mainMarkup).not.toContain('N/A');
   });
 

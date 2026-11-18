@@ -9,11 +9,7 @@ import {
   dimensionHeading,
   projectPresets,
 } from '../../../lib/agent-surfaces';
-import {
-  COST_INDEX_HEADING,
-  COST_NOTE,
-  COST_TABLE_INDEX_HEADING,
-} from '../../../lib/cost-labels';
+import { COST_NOTE, COST_TABLE_INDEX_HEADING } from '../../../lib/cost-labels';
 import { loadProductVersion } from '../../../lib/load-product-version';
 import { formatScore } from '../../../lib/score-format';
 import {
@@ -25,7 +21,7 @@ import {
   presetPagePath,
   sitePath,
 } from '../../../lib/site-paths';
-import { UI_DIMENSION_NAMES } from '../../../lib/ui-contract';
+import { ECONOMY_HEADING, UI_DIMENSION_NAMES } from '../../../lib/ui-contract';
 import './static-page.css';
 
 export const dynamic = 'force-static';
@@ -120,7 +116,7 @@ export default async function PresetPage({ params }: Props) {
                       {dimensionHeading(dimension)}
                     </th>
                   ))}
-                  <th scope="col">{COST_INDEX_HEADING}</th>
+                  <th scope="col">{ECONOMY_HEADING}</th>
                   <th scope="col">Evidence</th>
                 </tr>
               </thead>
@@ -139,7 +135,7 @@ export default async function PresetPage({ params }: Props) {
                         {formatScore(row.dimensionScores[dimension] ?? null)}
                       </td>
                     ))}
-                    <td>{formatScore(row.costIndex)}</td>
+                    <td>{formatScore(row.economyScore)}</td>
                     <td>
                       <a href={sitePath(row.evidencePath)}>JSON</a>
                     </td>

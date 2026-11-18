@@ -80,8 +80,7 @@
   padding-block: 0.6875rem;
 }
 
-.leaderboard-table .dimension-cell,
-.leaderboard-table .cost-cell {
+.leaderboard-table .dimension-cell {
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -542,16 +541,14 @@
     padding-left: 0.75rem;
   }
 
-  .leaderboard-table .dimension-cell,
-  .leaderboard-table .cost-cell {
+  .leaderboard-table .dimension-cell {
     border-top: 0.0625rem solid var(--line);
     margin-top: 0.75rem;
     padding-top: 0.5rem;
     text-align: left;
   }
 
-  .leaderboard-table .dimension-cell::before,
-  .leaderboard-table .cost-cell::before {
+  .leaderboard-table .dimension-cell::before {
     color: var(--ink-faint);
     content: attr(data-label);
     display: block;
@@ -594,14 +591,9 @@
     grid-row: 4;
   }
 
-  .leaderboard-table .cost-cell {
-    grid-column: 2 / 6;
-    grid-row: 5;
-  }
-
   .leaderboard-table .rank-cell {
     grid-column: 1;
-    grid-row: 1 / span 5;
+    grid-row: 1 / span 4;
   }
 
   .leaderboard-toolbar,

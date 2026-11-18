@@ -16,6 +16,7 @@ import {
   COST_SOURCE_WEIGHTS,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
+  buildProfileCostCurve,
   buildWeightedCostCurve,
   getCostParetoFrontier,
   missingAdvancedCostSources,
@@ -1170,11 +1171,17 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
 
 export const CostChart = memo(function CostChart({
   defaultProduct,
+  perProfile = false,
   advancedProduct,
   onUseInLeaderboard,
 }: {
-  /** Main-screen projection: complete display-set profiles only. */
+  /** The profiles the leaderboard ranks: the preset's, or a custom comparison. */
   defaultProduct: PresetProductVersion;
+  /**
+   * Draw one point per ranked profile instead of one per model. A custom
+   * comparison can rank several efforts of a model, each with its own cost.
+   */
+  perProfile?: boolean;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: PresetProductVersion;
   /** Hands the models and efforts visible on the advanced chart to the leaderboard. */
@@ -1192,8 +1199,11 @@ export const CostChart = memo(function CostChart({
   );
   const [modelMenuOpen, setModelMenuOpen] = useState(false);
   const points = useMemo(
-    () => buildWeightedCostCurve(defaultProduct),
-    [defaultProduct],
+    () =>
+      perProfile
+        ? buildProfileCostCurve(defaultProduct)
+        : buildWeightedCostCurve(defaultProduct),
+    [defaultProduct, perProfile],
   );
   const selectedAdvancedSourceIds = useMemo(
     () =>

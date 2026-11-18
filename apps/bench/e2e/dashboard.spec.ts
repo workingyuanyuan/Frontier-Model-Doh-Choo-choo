@@ -985,7 +985,9 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
     const axes = preset.leaderboard[0]!.dimensions.filter(
       (d) => d.score !== null,
     ).length;
-    await expect(page.locator('.radar-axis')).toHaveCount(axes);
+    await expect(
+      page.locator('.radar-axis:not([data-axis="economy"])'),
+    ).toHaveCount(axes);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth - innerWidth,

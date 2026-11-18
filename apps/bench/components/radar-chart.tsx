@@ -11,8 +11,10 @@ import {
   polarPoint,
 } from '../lib/visualization';
 import {
+  ECONOMY_AXIS_ID,
   getActiveDimensionIds,
-  UI_DIMENSION_ABBREVIATIONS,
+  UI_AXIS_ABBREVIATIONS,
+  type AxisId,
 } from '../lib/ui-contract';
 import {
   getProfileDisplayName,
@@ -24,10 +26,13 @@ export const RadarChart = memo(function RadarChart({
   product,
   comparisonProduct,
   fixedProfileIds,
+  economyByProfile,
 }: {
   product: PresetProductVersion;
   comparisonProduct?: PresetProductVersion;
   fixedProfileIds?: string[] | undefined;
+  /** Economy of each profile; adds an axis after the capability dimensions. */
+  economyByProfile?: ReadonlyMap<string, number> | undefined;
 }) {
   const center = 140;
   const radius = 92;
@@ -65,7 +70,20 @@ export const RadarChart = memo(function RadarChart({
           ? {
               profileId,
               displayName: getProfileDisplayName(profile),
-              dimensions: result.dimensions,
+              dimensions: [
+                ...result.dimensions.map(({ dimension, score }) => ({
+                  dimension: dimension as AxisId,
+                  score,
+                })),
+                ...(economyByProfile
+                  ? [
+                      {
+                        dimension: ECONOMY_AXIS_ID,
+                        score: economyByProfile.get(profileId) ?? null,
+                      } as const,
+                    ]
+                  : []),
+              ],
             }
           : null;
       })
@@ -75,10 +93,30 @@ export const RadarChart = memo(function RadarChart({
     fixedProfileIds,
     product.profiles,
     product.leaderboard,
+    economyByProfile,
   ]);
 
-  const dimensionIds = useMemo(
-    () => getActiveDimensionIds(seriesList),
+  // Capability dimensions first, then Economy when a plotted profile has one.
+  const dimensionIds = useMemo<AxisId[]>(
+    () => [
+      ...getActiveDimensionIds(
+        seriesList.map(({ dimensions }) => ({
+          dimensions: dimensions.flatMap((entry) =>
+            entry.dimension === ECONOMY_AXIS_ID
+              ? []
+              : [{ dimension: entry.dimension, score: entry.score }],
+          ),
+        })),
+      ),
+      ...(seriesList.some(({ dimensions }) =>
+        dimensions.some(
+          (entry) =>
+            entry.dimension === ECONOMY_AXIS_ID && entry.score !== null,
+        ),
+      )
+        ? ([ECONOMY_AXIS_ID] as const)
+        : []),
+    ],
     [seriesList],
   );
   const plottedSeries = useMemo(
@@ -112,7 +150,7 @@ export const RadarChart = memo(function RadarChart({
     [seriesList, dimensionIds],
   );
   const dimensionTitle = dimensionIds.length
-    ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six'][dimensionIds.length]} ${dimensionIds.length === 1 ? 'Dimension' : 'Dimensions'}`
+    ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'][dimensionIds.length]} ${dimensionIds.length === 1 ? 'Dimension' : 'Dimensions'}`
     : 'Dimensions';
 
   const handleRemoveSeries = (profileId: string) => {
@@ -142,7 +180,7 @@ export const RadarChart = memo(function RadarChart({
           const value = series.dimensions.find(
             (dimension) => dimension.dimension === dimensionId,
           )?.score;
-          return `${UI_DIMENSION_ABBREVIATIONS[dimensionId]}: ${value === null || value === undefined ? 'N/A' : value.toFixed(1)}`;
+          return `${UI_AXIS_ABBREVIATIONS[dimensionId]}: ${value === null || value === undefined ? 'N/A' : value.toFixed(1)}`;
         })
         .join(', ');
       return `${series.displayName}: ${values}`;
@@ -305,6 +343,7 @@ export const RadarChart = memo(function RadarChart({
                   <g key={dimension}>
                     <line
                       className="radar-axis"
+                      data-axis={dimension}
                       x1={center}
                       y1={center}
                       x2={endpoint.x}
@@ -312,12 +351,13 @@ export const RadarChart = memo(function RadarChart({
                     />
                     <text
                       className="radar-label"
+                      data-axis={dimension}
                       x={textPoint.x}
                       y={textPoint.y}
                       textAnchor="middle"
                       dominantBaseline="middle"
                     >
-                      {`${UI_DIMENSION_ABBREVIATIONS[dimension]} `}
+                      {`${UI_AXIS_ABBREVIATIONS[dimension]} `}
                     </text>
                   </g>
                 );
@@ -368,9 +408,13 @@ export const RadarChart = memo(function RadarChart({
           <div className="horizontal-score-bars">
             {dimensionIds.map((dimensionId) => {
               return (
-                <div className="dimension-bar-row" key={dimensionId}>
+                <div
+                  className="dimension-bar-row"
+                  data-axis={dimensionId}
+                  key={dimensionId}
+                >
                   <span className="dimension-bar-label">
-                    {UI_DIMENSION_ABBREVIATIONS[dimensionId]}
+                    {UI_AXIS_ABBREVIATIONS[dimensionId]}
                   </span>
                   <div className="dimension-bars-container">
                     {seriesList.map((series, sIndex) => {

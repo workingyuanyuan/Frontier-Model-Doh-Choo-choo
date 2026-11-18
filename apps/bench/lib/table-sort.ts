@@ -6,7 +6,7 @@ import { type LeaderboardRow } from './view-model';
 
 export type SortDirection = 'ascending' | 'descending';
 export type LeaderboardSortKey =
-  'rank' | 'model' | 'overall' | 'cost' | DimensionId;
+  'rank' | 'model' | 'overall' | 'economy' | DimensionId;
 export type EvidenceSortKey =
   'benchmark' | 'profile' | 'score' | 'source' | 'acquisition' | 'decision';
 
@@ -29,7 +29,7 @@ export const sortLeaderboardRows = (
   product: ProductVersion,
   rows: LeaderboardRow[],
   sort: { key: LeaderboardSortKey; direction: SortDirection },
-  costIndexByProfile: ReadonlyMap<string, number> = new Map(),
+  economyByProfile: ReadonlyMap<string, number> = new Map(),
 ): LeaderboardRow[] => {
   const profileNames = new Map(
     product.profiles.map((profile) => [profile.id, profile.baseModelName]),
@@ -56,10 +56,10 @@ export const sortLeaderboardRows = (
         (x, y) => x - y,
         sign,
       );
-    } else if (sort.key === 'cost') {
+    } else if (sort.key === 'economy') {
       result = compareNullable(
-        costIndexByProfile.get(a.profileId),
-        costIndexByProfile.get(b.profileId),
+        economyByProfile.get(a.profileId),
+        economyByProfile.get(b.profileId),
         (x, y) => x - y,
         sign,
       );
