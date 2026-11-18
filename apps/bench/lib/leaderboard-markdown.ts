@@ -1,6 +1,7 @@
 export const markdownLine = (cells: string[]): string =>
   `| ${cells.join(' | ')} |`;
 
+import { COST_INDEX_HEADING } from './cost-labels';
 import { getActiveDimensionIds } from './ui-contract';
 import {
   getProfileIdentity,
@@ -16,9 +17,6 @@ export const escapeCell = (value: string): string =>
     .replace(/\\/g, '\\\\')
     .replace(/\|/g, '\\|')
     .replace(/\r\n|\r|\n/g, '<br>');
-
-export const COPIED_COST_INDEX_HEADING =
-  'Weighted cost index (0–100, lower is cheaper)';
 
 const score = (value: number | null | undefined): string =>
   value == null ? 'N/A' : value.toFixed(1);
@@ -41,7 +39,7 @@ export function leaderboardMarkdown(
     ...dimensionIds.map(
       (dimension) => dimension[0]!.toUpperCase() + dimension.slice(1),
     ),
-    COPIED_COST_INDEX_HEADING,
+    COST_INDEX_HEADING,
   ];
   return [
     markdownLine(headers),

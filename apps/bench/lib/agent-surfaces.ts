@@ -2,6 +2,7 @@ import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
 import {
   COST_INDEX_HEADING,
+  COST_TABLE_INDEX_HEADING,
   COST_NOTE,
   costSourceName,
   scoreBasisNote,
@@ -141,7 +142,7 @@ export const presetMarkdown = (
         [
           'Model',
           'Provider',
-          COST_INDEX_HEADING,
+          COST_TABLE_INDEX_HEADING,
           'Overall',
           'Cost sources',
           'On value frontier',

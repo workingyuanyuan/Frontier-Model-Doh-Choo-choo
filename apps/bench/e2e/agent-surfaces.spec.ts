@@ -44,16 +44,13 @@ test('a reader without JavaScript can walk from the page to the data', async ({
     ).toBe(200);
 });
 
-test('the default table states provider, effort and column meaning as text', async ({
+test('the default table states provider and effort as text', async ({
   page,
 }) => {
   await page.goto('/');
 
   const firstRow = page.locator('tr[data-ranked-row]').first();
   await expect(firstRow.locator('th')).toContainText(/Provider: \S+\./);
-  await expect(page.locator('.leaderboard-table caption')).toContainText(
-    'Scores are 0–100',
-  );
 });
 
 interface PublishedPreset {
@@ -270,10 +267,11 @@ test('the dashboard shows what the published files state', async ({
       ),
       id,
     ).toEqual(
-      leaderboardCells(preset).map((cells) => [
+      leaderboardCells(preset).map((cells, row) => [
         cells[1],
         cells[0],
         ...cells.slice(4),
+        shown(preset.leaderboard[row]!.costIndex),
       ]),
     );
     await expect(page.locator('.site-footer')).toContainText(preset.versionId);

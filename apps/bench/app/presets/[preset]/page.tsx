@@ -9,7 +9,11 @@ import {
   dimensionHeading,
   projectPresets,
 } from '../../../lib/agent-surfaces';
-import { COST_INDEX_HEADING, COST_NOTE } from '../../../lib/cost-labels';
+import {
+  COST_INDEX_HEADING,
+  COST_NOTE,
+  COST_TABLE_INDEX_HEADING,
+} from '../../../lib/cost-labels';
 import { loadProductVersion } from '../../../lib/load-product-version';
 import { formatScore } from '../../../lib/score-format';
 import {
@@ -156,7 +160,7 @@ export default async function PresetPage({ params }: Props) {
                   <tr>
                     <th scope="col">Model</th>
                     <th scope="col">Provider</th>
-                    <th scope="col">{COST_INDEX_HEADING}</th>
+                    <th scope="col">{COST_TABLE_INDEX_HEADING}</th>
                     <th scope="col">Overall</th>
                     <th scope="col">Cost sources</th>
                     <th scope="col">On value frontier</th>

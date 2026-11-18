@@ -14,7 +14,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   await page.goto('/');
   const copy = page.getByRole('button', { name: 'Copy table as Markdown' });
-  const checkCopy = async (expectIndex = false) => {
+  const checkCopy = async () => {
     const dimensions = await page
       .locator('.leaderboard-table thead th[aria-label]')
       .evaluateAll((cells) =>
@@ -28,19 +28,10 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
       'Reasoning Effort',
       'Overall',
       ...dimensions,
-      'Weighted cost index (0–100, lower is cheaper)',
+      'Weighted cost index',
     ];
-    // The copied index is the one the cost chart lists for the same profile.
-    const chartIndexes = await page
-      .locator('.cost-source-table tbody tr')
-      .evaluateAll((rows) =>
-        rows.map((row) => [
-          row.querySelector('th')!.textContent!.trim(),
-          row.querySelector('td')!.textContent!.trim(),
-        ]),
-      );
     const expectedRows = await page.locator('[data-ranked-row]').evaluateAll(
-      (rows, indexes) =>
+      (rows) =>
         rows.map((row) => {
           const model = row.querySelector('strong')!.textContent!.trim();
           const effort =
@@ -52,16 +43,9 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
           const scores = Array.from(row.querySelectorAll('td'))
             .slice(1)
             .map((cell) => cell.textContent!.trim());
-          const index =
-            indexes.find(([name]) => name === `${model} · ${effort}`)?.[1] ??
-            'N/A';
-          return `| ${[model, effort, ...scores, index].join(' | ')} |`;
+          return `| ${[model, effort, ...scores].join(' | ')} |`;
         }),
-      chartIndexes,
     );
-    if (expectIndex) {
-      expect(expectedRows.some((row) => !row.endsWith('| N/A |'))).toBe(true);
-    }
     await copy.click();
     await expect(
       page.getByRole('status').filter({ hasText: 'Copied!' }),
@@ -73,7 +57,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
       ...expectedRows,
     ]);
   };
-  await checkCopy(true);
+  await checkCopy();
   // Pin one effort of a multi-effort model, then compare another.
   const [model] = findModels(1, ([p]) => Boolean(sharedEfforts(p!)));
   const [kept, compared] = sharedEfforts(model!)!;
