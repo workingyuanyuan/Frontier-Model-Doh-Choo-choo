@@ -380,6 +380,8 @@ export const llmsTxt = (
     '',
     'One preset per model-set size. Each has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.',
     '',
+    'Read the Markdown or JSON file when the table structure matters. The Markdown files are served as Markdown and their tables are complete; a tool that converts an HTML page to text can drop the separator row under a table header.',
+    '',
     'A preset scores its models on the benchmarks all of them have in common, so each preset has its own benchmark set. The Overall, dimension scores and cost index of a model therefore differ between presets; compare models within one preset.',
     '',
     ...presets.map(
