@@ -231,7 +231,7 @@ export default async function PresetPage({ params }: Props) {
           <a href={REPOSITORY_URL}>Source repository</a>
         </nav>
         <span className="footer-version-meta">
-          <span>Version {projection.versionId}</span>
+          <span>Version {projection.versionId}</span>{' '}
           <span>Generated {projection.generatedAt}</span>
         </span>
       </footer>

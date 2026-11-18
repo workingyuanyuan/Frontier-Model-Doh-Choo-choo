@@ -134,7 +134,7 @@ export function ModelPicker({
         aria-controls="picker-popover"
         onClick={() => setIsOpen((current) => !current)}
       >
-        <span>Search Models</span>
+        <span>Search Models</span>{' '}
         <span className="selected-badge">
           {checkedModelIds.length} selected
         </span>

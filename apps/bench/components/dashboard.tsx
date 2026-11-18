@@ -440,7 +440,7 @@ export function Dashboard({
           <a href={REPOSITORY_URL}>Source repository</a>
         </nav>
         <span className="footer-version-meta">
-          <span>Version {product.versionId}</span>
+          <span>Version {product.versionId}</span>{' '}
           <span>Generated {generated} UTC</span>
         </span>
       </footer>
