@@ -8,6 +8,8 @@ export const METHODOLOGY_PATH = 'methodology.md';
 export const DATA_INDEX_PATH = 'data/index.json';
 export const PROFILES_PATH = 'data/profiles.json';
 export const COSTS_PATH = 'data/costs.json';
+/** The data the interactive dashboard loads; a transport, not a published contract. */
+export const DASHBOARD_DATA_PATH = 'data/dashboard.json';
 export const REPOSITORY_URL =
   'https://github.com/workingyuanyuan/Frontier-Model-Doh-Choo-choo';
 
@@ -37,3 +39,7 @@ export const relativeTo = (from: string, to: string): string =>
 /** Plain anchors are not prefixed by Next, so the Pages subpath is added here. */
 export const sitePath = (path: string): string =>
   `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/${path}`;
+
+/** The version keeps a cached copy of an older release from being paired with a newer page. */
+export const dashboardDataUrl = (versionId: string): string =>
+  `${sitePath(DASHBOARD_DATA_PATH)}?v=${encodeURIComponent(versionId)}`;

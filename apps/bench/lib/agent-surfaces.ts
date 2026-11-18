@@ -234,6 +234,7 @@ export const presetJson = (projection: PresetProjection): string => {
       evidence: link(evidencePath),
     })),
     weightedCostSourceCount: projection.weightedCostSourceCount,
+    weightedCostSourceIds: Object.keys(COST_SOURCE_WEIGHTS),
     costs: projection.costs.map((row) => ({
       ...row,
       sources: row.sources.map((source) => ({
@@ -278,6 +279,7 @@ export const dataIndexJson = (
     },
     sources: {
       note: 'Results and costs belong to their publishers. Licence and redistribution terms have not been established for any source; no open-data licence is claimed.',
+      weightedCostSourceIds: Object.keys(COST_SOURCE_WEIGHTS),
       list: sourceRows(product).map((source) => ({
         ...source,
         licence: 'unknown',
@@ -342,11 +344,13 @@ export const llmsTxt = (
     '',
     ...versionLines(product),
     `- ${SCORE_NOTE}`,
-    '- The interactive dashboard at the site root embeds its whole dataset and is about 2 MB; read the files below instead.',
+    '- The page at the site root is the interactive dashboard. Its HTML holds the tables of the default preset; the other presets and the controls need JavaScript. The files below hold every preset. A script that drives the page in a browser should wait for `<html data-dashboard="interactive">` before using the controls.',
     '',
     '## Leaderboards',
     '',
     'One preset per model-set size. Each has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.',
+    '',
+    'A preset scores its models on the benchmarks all of them have in common, so each preset has its own benchmark set. The Overall, dimension scores and cost index of a model therefore differ between presets; compare models within one preset.',
     '',
     ...presets.map(
       ({ preset }) =>

@@ -307,6 +307,25 @@ summary:focus-visible {
   width: 1.125rem;
 }
 
+/* Shown while the dashboard's data is on its way, or when it never arrived. */
+.load-notice {
+  background: var(--ink);
+  border-radius: 1.25rem;
+  bottom: 1rem;
+  box-shadow: var(--popover-shadow);
+  color: var(--surface);
+  font-family: var(--font-utility);
+  font-size: 0.8125rem;
+  left: 50%;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  z-index: 30;
+}
+
 .copy-markdown-status:not(:empty) {
   background: var(--surface);
   border: 1px solid var(--line);

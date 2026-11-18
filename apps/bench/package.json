@@ -2,6 +2,12 @@
   "name": "@llm-bench/bench",
   "version": "0.0.0",
   "private": true,
+  "imports": {
+    "#dashboard-source": {
+      "browser": "./lib/dashboard-source.browser.ts",
+      "default": "./lib/dashboard-source.ts"
+    }
+  },
   "scripts": {
     "build": "pnpm --filter @llm-bench/benchmark-data build && next build",
     "dev": "next dev",
