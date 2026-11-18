@@ -2,6 +2,16 @@
 
 Catalog observations and stored score snapshots have separate dates. Snapshot-only sources do not claim discovery of unpublished or unparsed upstream benchmarks.
 
+## agents-last-exam
+
+- Checked: 2026-11-18T09:19:37.610Z
+- Stored score snapshot: 2026-11-18T09:19:33.628Z
+- Scope: snapshot-only
+
+| Finding       | Benchmark        | Detail                                                                      |
+| ------------- | ---------------- | --------------------------------------------------------------------------- |
+| profiles-lost | agents-last-exam | 41 -\> 41; missing 1: \["gpt-5.6-luna",null,null,"codex",true,null,1,null\] |
+
 ## anthropic-releases
 
 - Checked: 2026-11-18T04:58:53.500Z

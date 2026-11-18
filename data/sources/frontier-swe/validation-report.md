@@ -20,22 +20,22 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 |---|---|---|---|---|---|
 | Claude Fable 5 | `frontier-swe:frontier-swe-v2:claude-fable-5-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
 | Claude Fable 5.1 | `frontier-swe:frontier-swe-v2:claude-fable-5-1-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
-| Claude Fable 5.2 | `frontier-swe:frontier-swe-v2:claude-fable-5-2-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-2-max:arc-agi-2-v2-semi-private |
+| Claude Fable 5.2 | `frontier-swe:frontier-swe-v2:claude-fable-5-2-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-fable-5-2-reasoning-max:1-1 |
 | Claude Opus 5 | `frontier-swe:frontier-swe-v2:claude-opus-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
-| Claude Opus 5.5 | `frontier-swe:frontier-swe-v2:claude-opus-5-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus55-max |
+| Claude Opus 5.5 | `frontier-swe:frontier-swe-v2:claude-opus-5-5-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-opus-5-5-reasoning-max:1-1 |
 | Claude Sonnet 5.5 | `frontier-swe:frontier-swe-v2:claude-sonnet-5-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | Gemini 3.7 Flash | `frontier-swe:frontier-swe-v2:gemini-3-7-flash-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-7-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 3.8 Flash | `frontier-swe:frontier-swe-v2:gemini-3-8-flash-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Carbon | `frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-carbon-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Hydrogen | `frontier-swe:frontier-swe-v2:gemini-4-hydrogen-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-hydrogen |
-| GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
-| GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | anthropic-releases | anthropic-releases:frontier-code-1-1:gpt6astra-max |
+| Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
+| Gemini 4 Carbon | `frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
+| Gemini 4 Hydrogen | `frontier-swe:frontier-swe-v2:gemini-4-hydrogen-proximus` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
+| GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1 |
+| GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-max:1-1 |
 | Grok 4.6 | `frontier-swe:frontier-swe-v2:grok-4-6-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `frontier-swe:frontier-swe-v2:grok-4-7-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling | `frontier-swe:frontier-swe-v2:inkling-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Inkling 2 Small | `frontier-swe:frontier-swe-v2:inkling-2-small-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
-| Kimi K3 | `frontier-swe:frontier-swe-v2:kimi-k3-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| Kimi K3 | `frontier-swe:frontier-swe-v2:kimi-k3-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
 | Muse Spark 1.2 | `frontier-swe:frontier-swe-v2:muse-spark-1-2-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | Muse Spark 1.3 | `frontier-swe:frontier-swe-v2:muse-spark-1-3-proximus` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-3 |
 | Qwen3.8-Max | `frontier-swe:frontier-swe-v2:qwen3-8-max-proximus` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |

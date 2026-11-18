@@ -26,6 +26,7 @@
     "materialize:epoch": "tsx src/refresh-with-audit.ts epoch-ai src/refresh-epoch.ts",
     "materialize:arc-prize": "tsx src/refresh-with-audit.ts arc-prize src/refresh-arc-prize.ts",
     "materialize:zapier": "tsx src/refresh-with-audit.ts zapier-automationbench src/refresh-zapier.ts",
+    "materialize:ale": "tsx src/refresh-with-audit.ts agents-last-exam src/refresh-ale.ts",
     "materialize:vals": "tsx src/refresh-with-audit.ts vals-ai src/refresh-vals.ts",
     "rematerialize:vals": "tsx src/process-source-command.ts vals-ai src/rematerialize-vals.ts",
     "materialize:livebench": "tsx src/refresh-with-audit.ts livebench src/refresh-livebench.ts",

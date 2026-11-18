@@ -63,28 +63,34 @@ type CostPoint = ProductVersion['costs'][number] & {
  * has. Vendor previews supplement a group's data without adding another weight.
  */
 export const COST_SOURCE_WEIGHTS = {
-  'artificial-analysis': 1 / 8,
-  livebench: 1 / 8,
-  deepswe: 1 / 8,
-  'frontier-code': 1 / 8,
-  'arc-prize': 1 / 8,
-  'vals-ai': 1 / 8,
-  'zapier-automationbench': 1 / 8,
-  cursorbench: 1 / 8,
+  'artificial-analysis': 1 / 9,
+  livebench: 1 / 9,
+  deepswe: 1 / 9,
+  'frontier-code': 1 / 9,
+  'arc-prize': 1 / 9,
+  'vals-ai': 1 / 9,
+  'zapier-automationbench': 1 / 9,
+  cursorbench: 1 / 9,
+  'agents-last-exam': 1 / 9,
 } as const;
 
+/** Sources the advanced chart enables initially; their intersection stays stable. */
 export const ADVANCED_COST_SOURCE_IDS = [
   'artificial-analysis',
-  'deepswe',
   'frontier-code',
   'arc-prize',
   'zapier-automationbench',
 ] as const;
 
-/** CursorBench is selectable independently; the initial intersection stays stable. */
+/**
+ * DeepSWE, CursorBench and Agents' Last Exam are selectable but start off, so
+ * adding one never shrinks the initial intersection of the default selection.
+ */
 export const AVAILABLE_ADVANCED_COST_SOURCE_IDS = [
   ...ADVANCED_COST_SOURCE_IDS,
+  'deepswe',
   'cursorbench',
+  'agents-last-exam',
 ] as const;
 
 export type AdvancedCostSourceId =
@@ -149,7 +155,8 @@ export interface AdvancedCostSourceDetail {
     | 'FRONTIER_CODE_2_0'
     | 'ARC_AGI'
     | 'ZAPIER_AUTOMATIONBENCH'
-    | 'CURSORBENCH_4';
+    | 'CURSORBENCH_4'
+    | 'AGENTS_LAST_EXAM';
   scoreBenchmarkId: string;
   scoreBenchmarkVersion?: string | null;
   metricName: string;
@@ -601,6 +608,7 @@ export type CostSourceScoreBasisId =
   | 'VALS_INDEX'
   | 'ZAPIER_AUTOMATIONBENCH'
   | 'CURSORBENCH_4'
+  | 'AGENTS_LAST_EXAM'
   | 'NONE';
 
 export const COST_SOURCE_SCORE_BASES: Readonly<
@@ -649,6 +657,12 @@ export const COST_SOURCE_SCORE_BASES: Readonly<
   cursorbench: {
     benchmarkId: 'cursorbench-4',
     basis: 'CURSORBENCH_4',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  'agents-last-exam': {
+    benchmarkId: 'agents-last-exam',
+    basis: 'AGENTS_LAST_EXAM',
     field: 'normalized',
     inclusion: 'INCLUDED',
   },

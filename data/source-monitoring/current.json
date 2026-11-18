@@ -1,7 +1,22 @@
 {
-  "checkedAt": "2026-11-18T05:09:01.527Z",
+  "checkedAt": "2026-11-18T09:19:37.610Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
+    {
+      "checkedAt": "2026-11-18T09:19:37.610Z",
+      "error": null,
+      "findings": [
+        {
+          "benchmarkId": "agents-last-exam",
+          "detail": "41 -> 41; missing 1: [\"gpt-5.6-luna\",null,null,\"codex\",true,null,1,null]",
+          "kind": "profiles-lost"
+        }
+      ],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-18T09:19:33.628Z",
+      "sourceId": "agents-last-exam"
+    },
     {
       "checkedAt": "2026-11-18T04:58:53.500Z",
       "error": null,

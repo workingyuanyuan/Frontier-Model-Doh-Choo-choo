@@ -122,6 +122,7 @@ pnpm --filter @llm-bench/acquisition materialize:gdp-xlsx -- --visual-row-count=
 pnpm --filter @llm-bench/acquisition materialize:epoch
 pnpm --filter @llm-bench/acquisition materialize:arc-prize
 pnpm --filter @llm-bench/acquisition materialize:zapier
+pnpm --filter @llm-bench/acquisition materialize:ale
 pnpm --filter @llm-bench/acquisition materialize:vals
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```

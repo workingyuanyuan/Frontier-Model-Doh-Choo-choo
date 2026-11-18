@@ -1,0 +1,2544 @@
+[
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "rawName": "gemini-4-argon"
+    },
+    "normalizedScore": 69.00151863477728,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "ale_claw",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-argon\",harnessVariant=\"reasoning-high\"].{totalCostUsd=568.36,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-argon\",harnessVariant=\"reasoning-high\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-argon\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-argon\",harnessVariant=\"reasoning-high\"].avgScore=0.6900151863477728 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 69.00151863477728,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-high",
+      "rawName": "gemini-4-carbon"
+    },
+    "normalizedScore": 77.41437508307806,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "ale_claw",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-carbon\",harnessVariant=\"reasoning-high\"].{totalCostUsd=561.14,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-carbon\",harnessVariant=\"reasoning-high\"].passRate=0.45901639344262296 (passes 56, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-carbon\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-carbon\",harnessVariant=\"reasoning-high\"].avgScore=0.7741437508307806 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 77.41437508307806,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-high",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "normalizedScore": 68.89364107336895,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-high\"].{totalCostUsd=239.99,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-high\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-high\"].avgScore=0.6889364107336895 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 68.89364107336895,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-low",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "normalizedScore": 51.67867613360113,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-low\"].{totalCostUsd=44.27,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-low\"].passRate=0.23770491803278687 (passes 29, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-low\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-low\"].avgScore=0.5167867613360113 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 51.67867613360113,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-medium",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "normalizedScore": 63.74545932038325,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=102.15,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-medium\"].passRate=0.3360655737704918 (passes 41, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-medium\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-medium\"].avgScore=0.6374545932038325 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 63.74545932038325,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-xhigh",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "normalizedScore": 71.39577546844394,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=524.89,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-xhigh\"].passRate=0.4344262295081967 (passes 53, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.7139577546844394 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 71.39577546844394,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:claude-code-claude-fable-5-2-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-2",
+      "profileId": "anthropic-claude-fable-5-2-max",
+      "rawName": "claude-fable-5-2"
+    },
+    "normalizedScore": 72.78966065035036,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-fable-5-2\",harnessVariant=\"reasoning-max\"].{totalCostUsd=6785.69,tasks=113,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17; partial coverage: 113 of 122 tasks",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-fable-5-2\",harnessVariant=\"reasoning-max\"].passRate=0.4690265486725664 (passes 53, tasks 113, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-fable-5-2\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=113,tasks=113,splitTasks=122}; partial coverage: 113 of 122 tasks",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-fable-5-2\",harnessVariant=\"reasoning-max\"].avgScore=0.7278966065035036 (× 100); partial coverage: 113 of 122 tasks",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 72.78966065035036,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:claude-code-claude-opus-5-5-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "claude-opus-5-5"
+    },
+    "normalizedScore": 71.6020487743225,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-opus-5-5\",harnessVariant=\"reasoning-max\"].{totalCostUsd=2143.41,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-opus-5-5\",harnessVariant=\"reasoning-max\"].passRate=0.4344262295081967 (passes 53, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-opus-5-5\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-opus-5-5\",harnessVariant=\"reasoning-max\"].avgScore=0.716020487743225 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 71.6020487743225,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "tencent-hy4",
+      "profileId": "tencent-hy4-high",
+      "rawName": "Hy4"
+    },
+    "normalizedScore": 70.30960503928412,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"Hy4\",harnessVariant=\"reasoning-high\"].{totalCostUsd=82.83,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"Hy4\",harnessVariant=\"reasoning-high\"].passRate=0.4098360655737705 (passes 50, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"Hy4\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"Hy4\",harnessVariant=\"reasoning-high\"].avgScore=0.7030960503928413 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 70.30960503928412,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:claude-code-minimax-m3-1-flash-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "minimax-m3-1-flash"
+    },
+    "normalizedScore": 57.9203281572014,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{totalCostUsd=136.99,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].passRate=0.29508196721311475 (passes 36, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].avgScore=0.5792032815720141 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 57.9203281572014,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-5-6-luna-reasoning-none:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-non-reasoning",
+      "rawName": "gpt-5.6-luna"
+    },
+    "normalizedScore": 26.485945380560427,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "non-reasoning",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-luna\",harnessVariant=\"reasoning-none\"].{totalCostUsd=14.71,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-luna\",harnessVariant=\"reasoning-none\"].passRate=0.05737704918032787 (passes 7, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-luna\",harnessVariant=\"reasoning-none\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-luna\",harnessVariant=\"reasoning-none\"].avgScore=0.2648594538056043 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 26.485945380560427,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "gpt-5.6-sol"
+    },
+    "normalizedScore": 50.20958789550425,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-sol\",harnessVariant=\"reasoning-max\"].{totalCostUsd=402.42,tasks=121,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17; partial coverage: 121 of 122 tasks",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-sol\",harnessVariant=\"reasoning-max\"].passRate=0.30327868852459017 (passes 37, tasks 121, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-sol\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=121,tasks=121,splitTasks=122}; partial coverage: 121 of 122 tasks",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-sol\",harnessVariant=\"reasoning-max\"].avgScore=0.5020958789550425 (× 100); partial coverage: 121 of 122 tasks",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 50.20958789550425,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-high",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 64.55196236140132,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=35.13,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-high\"].passRate=0.36065573770491804 (passes 44, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-high\"].avgScore=0.6455196236140132 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 64.55196236140132,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-low",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 66.39686667831648,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=18.08,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-low\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-low\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-low\"].avgScore=0.6639686667831649 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 66.39686667831648,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-max",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 69.78073386766798,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=106.8,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-max\"].passRate=0.4180327868852459 (passes 51, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-max\"].avgScore=0.6978073386766798 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 69.78073386766798,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-medium",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 64.92203268418957,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=28.59,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-medium\"].passRate=0.3442622950819672 (passes 42, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-medium\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-medium\"].avgScore=0.6492203268418958 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 64.92203268418957,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-none:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-non-reasoning",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 64.21414878786305,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "non-reasoning",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-none\"].{totalCostUsd=38.91,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-none\"].passRate=0.36885245901639346 (passes 45, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-none\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-none\"].avgScore=0.6421414878786305 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 64.21414878786305,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-xhigh",
+      "rawName": "gpt-6.1-terra"
+    },
+    "normalizedScore": 70.368886837223,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=59.95,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-xhigh\"].passRate=0.4098360655737705 (passes 50, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.70368886837223 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 70.368886837223,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-high",
+      "rawName": "gpt-6.2-astra"
+    },
+    "normalizedScore": 75.96382128009247,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=265.07,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-high\"].passRate=0.45901639344262296 (passes 56, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-high\"].avgScore=0.7596382128009247 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 75.96382128009247,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-low",
+      "rawName": "gpt-6.2-astra"
+    },
+    "normalizedScore": 65.76912195967535,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=63.56,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-low\"].passRate=0.3770491803278688 (passes 46, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-low\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-low\"].avgScore=0.6576912195967535 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 65.76912195967535,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-max",
+      "rawName": "gpt-6.2-astra"
+    },
+    "normalizedScore": 77.60714844257191,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=571.17,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-max\"].passRate=0.4672131147540984 (passes 57, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-max\"].avgScore=0.7760714844257192 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 77.60714844257191,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-medium",
+      "rawName": "gpt-6.2-astra"
+    },
+    "normalizedScore": 72.06460188560668,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=139.43,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-medium\"].passRate=0.4098360655737705 (passes 50, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-medium\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-medium\"].avgScore=0.7206460188560668 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 72.06460188560668,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-xhigh",
+      "rawName": "gpt-6.2-astra"
+    },
+    "normalizedScore": 78.33238426868974,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=372.01,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-xhigh\"].passRate=0.47540983606557374 (passes 58, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.7833238426868974 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 78.33238426868974,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-high",
+      "rawName": "gpt-6.2-sol"
+    },
+    "normalizedScore": 72.03595245098597,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-high\"].{totalCostUsd=89.41,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-high\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-high\"].avgScore=0.7203595245098597 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 72.03595245098597,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-low",
+      "rawName": "gpt-6.2-sol"
+    },
+    "normalizedScore": 66.6509910606572,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-low\"].{totalCostUsd=34.84,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-low\"].passRate=0.3524590163934426 (passes 43, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-low\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-low\"].avgScore=0.666509910606572 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 66.6509910606572,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-max",
+      "rawName": "gpt-6.2-sol"
+    },
+    "normalizedScore": 73.04398616455707,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-max\"].{totalCostUsd=169.46,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-max\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-max\"].avgScore=0.7304398616455706 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 73.04398616455707,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-medium",
+      "rawName": "gpt-6.2-sol"
+    },
+    "normalizedScore": 70.25776982820281,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=74.3,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-medium\"].passRate=0.38524590163934425 (passes 47, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-medium\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-medium\"].avgScore=0.7025776982820281 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 70.25776982820281,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-xhigh",
+      "rawName": "gpt-6.2-sol"
+    },
+    "normalizedScore": 72.48200922037955,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=111.32,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-xhigh\"].passRate=0.4180327868852459 (passes 51, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.7248200922037955 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 72.48200922037955,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "gpt-6-astra"
+    },
+    "normalizedScore": 71.0408133332075,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=838.48,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-high\"].passRate=0.38524590163934425 (passes 47, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-high\"].avgScore=0.710408133332075 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 71.0408133332075,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "gpt-6-astra"
+    },
+    "normalizedScore": 67.87307783671909,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=658.5,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-low\"].passRate=0.38524590163934425 (passes 47, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-low\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-low\"].avgScore=0.6787307783671909 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 67.87307783671909,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "gpt-6-astra"
+    },
+    "normalizedScore": 73.14293819265755,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=1097.06,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-max\"].passRate=0.4262295081967213 (passes 52, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-max\"].avgScore=0.7314293819265756 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 73.14293819265755,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "gpt-6-astra"
+    },
+    "normalizedScore": 71.15833255088161,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=757.39,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-medium\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-medium\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-medium\"].avgScore=0.7115833255088161 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 71.15833255088161,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "gpt-6-astra"
+    },
+    "normalizedScore": 71.67674912501735,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=922.75,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-xhigh\"].passRate=0.4016393442622951 (passes 49, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.7167674912501735 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 71.67674912501735,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-minimax-m3-1-flash-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "minimax-m3-1-flash"
+    },
+    "normalizedScore": 58.9412130288703,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{totalCostUsd=59.25,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].passRate=0.29508196721311475 (passes 36, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].avgScore=0.589412130288703 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 58.9412130288703,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:codex-qwen-4-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "qwen-4"
+    },
+    "normalizedScore": 74.38607388326207,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"qwen-4\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=1201.45,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"qwen-4\",harnessVariant=\"reasoning-xhigh\"].passRate=0.4672131147540984 (passes 57, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"qwen-4\",harnessVariant=\"reasoning-xhigh\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"qwen-4\",harnessVariant=\"reasoning-xhigh\"].avgScore=0.7438607388326207 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 74.38607388326207,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:kimi-code-kimi-3-1-pro-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "kimi-3.1-pro"
+    },
+    "normalizedScore": 74.43622682503343,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "kimi_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-3.1-pro\",harnessVariant=\"reasoning-max\"].{totalCostUsd=854.42,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-3.1-pro\",harnessVariant=\"reasoning-max\"].passRate=0.4344262295081967 (passes 53, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-3.1-pro\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-3.1-pro\",harnessVariant=\"reasoning-max\"].avgScore=0.7443622682503342 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 74.43622682503343,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-max",
+      "rawName": "kimi-k3"
+    },
+    "normalizedScore": 63.0206820867545,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "kimi_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-k3\",harnessVariant=\"reasoning-max\"].{totalCostUsd=580.81,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-k3\",harnessVariant=\"reasoning-max\"].passRate=0.3524590163934426 (passes 43, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-k3\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-k3\",harnessVariant=\"reasoning-max\"].avgScore=0.630206820867545 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 63.0206820867545,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:muse-code-muse-wonder-1-0-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-wonder",
+      "profileId": "meta-muse-wonder-high",
+      "rawName": "muse-wonder-1.0"
+    },
+    "normalizedScore": 68.37223234342581,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "muse_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"muse_code\",model=\"muse-wonder-1.0\",harnessVariant=\"reasoning-high\"].{totalCostUsd=380.14,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"muse_code\",model=\"muse-wonder-1.0\",harnessVariant=\"reasoning-high\"].passRate=0.38524590163934425 (passes 47, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"muse_code\",model=\"muse-wonder-1.0\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"muse_code\",model=\"muse-wonder-1.0\",harnessVariant=\"reasoning-high\"].avgScore=0.6837223234342581 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 68.37223234342581,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-high",
+      "rawName": "deepseek-deepseek-v4-1-flash-1017"
+    },
+    "normalizedScore": 65.403921553791,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "openclaw_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-high\"].{totalCostUsd=19.05,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-high\"].passRate=0.36065573770491804 (passes 44, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-high\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-high\"].avgScore=0.6540392155379099 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 65.403921553791,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
+      "rawName": "deepseek-deepseek-v4-1-flash-1017"
+    },
+    "normalizedScore": 66.64284229854064,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "openclaw_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-max\"].{totalCostUsd=31.86,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-max\"].passRate=0.3524590163934426 (passes 43, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-max\"].avgScore=0.6664284229854065 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 66.64284229854064,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:agents-last-exam:zcode-glm-5-3-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "average-score",
+      "name": "Average score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "glm-5.3"
+    },
+    "normalizedScore": 54.38646538936561,
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "zcode",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"zcode\",model=\"glm-5.3\",harnessVariant=\"reasoning-max\"].{totalCostUsd=580.77,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      },
+      "passRate": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"zcode\",model=\"glm-5.3\",harnessVariant=\"reasoning-max\"].passRate=0.26229508196721313 (passes 32, tasks 122, splitTasks 122); diagnostic only, not scored",
+        "method": "API_RESPONSE"
+      },
+      "profile": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"zcode\",model=\"glm-5.3\",harnessVariant=\"reasoning-max\"].{model,harness,harnessVariant,runs=122,tasks=122,splitTasks=122}",
+        "method": "API_RESPONSE"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"zcode\",model=\"glm-5.3\",harnessVariant=\"reasoning-max\"].avgScore=0.5438646538936561 (× 100)",
+        "method": "API_RESPONSE"
+      }
+    },
+    "rawScore": 54.38646538936561,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard"
+  }
+]

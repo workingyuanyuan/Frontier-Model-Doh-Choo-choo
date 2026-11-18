@@ -46,6 +46,7 @@
 | `epoch-ai`                  | https://epoch.ai/                                       | INDEPENDENT       | 期二       |
 | `arc-prize`                 | https://arcprize.org/leaderboard                        | ORGANIZER         | 期三       |
 | `zapier-automationbench`    | https://zapier.com/benchmarks                           | ORGANIZER         | 期三       |
+| `agents-last-exam`          | https://agents-last-exam.org/leaderboard                | ORGANIZER         | 2026-11-18 |
 | `vals-ai`                   | https://www.vals.ai/benchmarks                          | 逐 benchmark 判定 | 期三       |
 | `surge-chartography`        | https://surgehq.ai/benchmarks/chartography              | ORGANIZER         | 2026-10-02 |
 | `surge-complex-constraints` | https://surgehq.ai/benchmarks/complex-constraints       | ORGANIZER         | 2026-10-03 |
@@ -622,19 +623,19 @@ Language    71.0
 
 **預設圖**
 
-- 八個已採用且具任務成本的 benchmark 群組加權合併，X 軸為混合後的正規化成本，Y 軸為 Overall Score。
+- 九個已採用且具任務成本的 benchmark 群組加權合併，X 軸為混合後的正規化成本，Y 軸為 Overall Score。
 - 每個模型每個來源取**最佳表現**那一筆（與 §4.3 同一套選法）。
 - 未來新增來源時可直接擴充。
 
-**權重：八個 benchmark 群組各 1/8**
+**權重：九個 benchmark 群組各 1/9**
 
-Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench、CursorBench。Vals 僅使用 `vals_index` 的 `cost_per_test`。
+Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench、CursorBench、Agents' Last Exam（2026-11-18 加入）。Vals 僅使用 `vals_index` 的 `cost_per_test`。
 
 OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。同一模型與 effort 優先採用有配對分數的官方紀錄；缺少官方配對時，採用通過交叉核對的供應商分數與成本。供應商配對必須具有相同發布者、benchmark 版本及 profile，並保留 vendor 標示、原始連結與證據。每個群組只計算一次權重。
 
 原本的 40／40／20 是三來源時代的遺留值，沒有任何依據，不是決策結果。採等權重的理由：
 
-1. 八個群組都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
+1. 九個群組都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
 2. 權重混合的是「模型在該來源內部的相對貴賤位置」，不是美元。沒有可辯護的證據能對這些來源的量測品質排序。
 3. `sourceWeight` 會對該模型**實際具備的來源**重新正規化，缺來源不受懲罰。因此權重只在同一模型有兩個以上來源且排名不一致時才起作用。
 4. 等權重讓擴充成為機械操作；來源採用裁決完成後直接按來源數重算，不任意調高特定站點。
@@ -645,7 +646,7 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 
 原本非進階來源的「該來源分數」取的是「該 profile 在該來源所有 INCLUDED 列的 normalized 平均」。
 這個定義的**分母會浮動**：Vals 平均二十幾個榜單，ARC／DeepSWE／Frontier Code 各只平均一個，
-同一個欄位在不同列代表不同的東西。改為**八個群組各自宣告一個基準**，宣告表在
+同一個欄位在不同列代表不同的東西。改為**每個群組各自宣告一個基準**，宣告表在
 `apps/bench/lib/view-model.ts` 的 `COST_SOURCE_SCORE_BASES`：
 
 | 來源                | 基準 benchmark                           | 取值              | 理由                                         |
@@ -657,6 +658,7 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 | ARC Prize           | `arc-agi-2`                              | `normalizedScore` | 該來源唯一 benchmark                         |
 | Zapier              | `automationbench`                        | `normalizedScore` | 該來源唯一 benchmark                         |
 | CursorBench         | `cursorbench-4`                          | `normalizedScore` | Anthropic 發布頁的同列分數與美元任務成本     |
+| Agents' Last Exam   | `agents-last-exam`                       | `normalizedScore` | 該來源唯一 benchmark（`avgScore × 100`）     |
 | LiveBench           | **無**                                   | `null`            | 見上方「LiveBench 的成本為何不能與分數配對」 |
 
 - 兩個 composite index（AA、Vals）都是 `EXCLUDED`，值只在 `rawScore`，因此**不會**進入維度分數
@@ -671,11 +673,11 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 
 **R14 — 預設圖每個點必須揭露它由幾個來源構成（2026-08-23，N11 落實）**
 
-`sourceWeight` 依模型實際具備的群組重新正規化。懸停卡與資料表顯示 `N of 8`，並逐群組列出成本、分數基準及供應商標示。
+`sourceWeight` 依模型實際具備的群組重新正規化。懸停卡與資料表顯示 `N of 9`，並逐群組列出成本、分數基準及供應商標示。
 
 **進階圖**（按鈕開啟）
 
-可選來源包含 AA、DeepSWE、Frontier Code、ARC Prize、Zapier AutomationBench 與 CursorBench。初始啟用前五項；CursorBench 可獨立啟用。每個點都需要目前所選群組的完整成本／分數配對。選擇 DeepSWE 時，OpenAI 發布頁補充的 GPT-6 Sol 與 GPT-6.1 Sol 五個 effort 皆可出點。
+可選來源包含 AA、Frontier Code、ARC Prize、Zapier AutomationBench、DeepSWE、CursorBench 與 Agents' Last Exam。初始啟用前四項；DeepSWE（2026-11-18 起不再預設啟用）、CursorBench 與 Agents' Last Exam 可獨立啟用。每個點都需要目前所選群組的完整成本／分數配對。選擇 DeepSWE 時，OpenAI 發布頁補充的 GPT-6 Sol 與 GPT-6.1 Sol 五個 effort 皆可出點。
 
 **2026-08-21 改定：進階圖從「三個來源的原始散點拼貼」改為「與預設圖同構的聚合圖」。**
 原本每個模型每個來源各畫一條線，一張圖上同時存在三套座標系，只能逐條讀、無法互相比較。
@@ -684,18 +686,18 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 
 1. **來源與權重**：預設圖用本節「預設圖」段落所定的全部來源等權重；進階圖依 2026-09-26
    使用者裁決採用 **Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier AutomationBench
-   五個來源，各 1/5**。AutomationBench 提供多個 reasoning effort 的 `automationbench` 分數與
+   五個來源，各 1/5**（現行來源與初始啟用範圍見本節開頭）。AutomationBench 提供多個 reasoning effort 的 `automationbench` 分數與
    每任務成本。各來源以同一 profile 的分數與成本配對。
 2. **思考強度**：預設圖每個模型只畫**一種**強度（§4.3 的代表 profile）；進階圖畫出**所有
    具備啟用來源分數與成本的強度**，同一模型的各強度點連成一條線，讓思考強度的邊際效應看得出來。
 
-**R21（2026-08-26 使用者裁決，2026-09-26 擴充至五來源）**：五個來源為進階圖的來源
+**R21（2026-08-26 使用者裁決，2026-09-26 擴充至五來源；初始啟用範圍已由 2026-11-18 裁決取代，見本節開頭）**：五個來源為進階圖的來源
 母體，改由使用者個別開啟或關閉，預設五個全部開啟。每個 profile 的入選門檻是「在**目前啟用
 的每個來源**都有可配對的分數與成本」；聚合權重在啟用來源間等分。關閉來源後，資格、來源平均
 分數、成本指數與圖表軸域全部即時重算。來源內的成本正規化母體仍是產品檔內該來源的全部任務
 成本，不隨按鈕狀態改變。
 
-固定權重說明改為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier 五個可聚焦按鈕。
+固定權重說明改為各來源的可聚焦按鈕（2026-09-26 時為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier 五個）。
 標題下不放說明句（2026-10-20 移除 `Lower cost is better. Higher Overall Score is better.` 與圖下
 caption），方向改由軸標題的 `← lower is better` / `↑ higher is better` 提示承擔；進階圖
 Y 軸本身仍如本節所定，是啟用來源各自分數的算術平均，軸標題與無障礙文字必須如實寫成

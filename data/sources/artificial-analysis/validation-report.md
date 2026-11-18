@@ -247,6 +247,16 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen4 Max | `artificial-analysis:hle-diamond:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
 | Qwen4 Max | `artificial-analysis:terminal-bench-4-0:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
 | Qwen4 Max | `artificial-analysis:terminal-bench-science:qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| Tencent Hy4 | `artificial-analysis:aa-briefcase:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:aa-omniscience:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:aa-omniscience:tencent-hy4:index` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:critpt-v2:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:frontier-code-2-0:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:gdp-pdf:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:hle-diamond:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:tencent-hy4-aa-index:intelligence-index-v5-0-1` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:terminal-bench-4-0:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| Tencent Hy4 | `artificial-analysis:terminal-bench-science:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
@@ -407,15 +417,5 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen3.7 Plus | `artificial-analysis:tau3-banking:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:terminal-bench-2-1:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:terminal-bench-4-0:qwen3-7-plus` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:aa-briefcase:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:aa-omniscience:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:aa-omniscience:tencent-hy4:index` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:critpt-v2:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:frontier-code-2-0:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:gdp-pdf:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:hle-diamond:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:tencent-hy4-aa-index:intelligence-index-v5-0-1` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:terminal-bench-4-0:tencent-hy4` | — | `default` | — | — |
-| Tencent Hy4 | `artificial-analysis:terminal-bench-science:tencent-hy4` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

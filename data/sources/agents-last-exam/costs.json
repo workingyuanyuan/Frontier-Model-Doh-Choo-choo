@@ -1,0 +1,1847 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.658688524590164,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:ale-claw-gemini-4-argon-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "rawName": "gemini-4-argon"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "ale_claw",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-argon\",harnessVariant=\"reasoning-high\"].{totalCostUsd=568.36,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.599508196721311,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:ale-claw-gemini-4-carbon-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-high",
+      "rawName": "gemini-4-carbon"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "ale_claw",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"ale_claw\",model=\"gemini-4-carbon\",harnessVariant=\"reasoning-high\"].{totalCostUsd=561.14,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 1.9671311475409836,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:antigravity-cli-gemini-4-hydrogen-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-high",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-high\"].{totalCostUsd=239.99,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.3628688524590164,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:antigravity-cli-gemini-4-hydrogen-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-low",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-low\"].{totalCostUsd=44.27,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.8372950819672131,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:antigravity-cli-gemini-4-hydrogen-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-medium",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=102.15,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.302377049180328,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "profileId": "google-gemini-4-hydrogen-xhigh",
+      "rawName": "gemini-4-hydrogen"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "antigravity_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"antigravity_cli\",model=\"gemini-4-hydrogen\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=524.89,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 60.050353982300884,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:claude-code-claude-fable-5-2-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-2",
+      "profileId": "anthropic-claude-fable-5-2-max",
+      "rawName": "claude-fable-5-2"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-fable-5-2\",harnessVariant=\"reasoning-max\"].{totalCostUsd=6785.69,tasks=113,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17; partial coverage: 113 of 122 tasks",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 17.568934426229507,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:claude-code-claude-opus-5-5-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "claude-opus-5-5"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"claude-opus-5-5\",harnessVariant=\"reasoning-max\"].{totalCostUsd=2143.41,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.6789344262295082,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:claude-code-hy4-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "tencent-hy4",
+      "profileId": "tencent-hy4-high",
+      "rawName": "Hy4"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"Hy4\",harnessVariant=\"reasoning-high\"].{totalCostUsd=82.83,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 1.1228688524590165,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:claude-code-minimax-m3-1-flash-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "minimax-m3-1-flash"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"claude_code\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{totalCostUsd=136.99,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.12057377049180329,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-5-6-luna-reasoning-none:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-non-reasoning",
+      "rawName": "gpt-5.6-luna"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "non-reasoning",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-luna\",harnessVariant=\"reasoning-none\"].{totalCostUsd=14.71,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 3.3257851239669423,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-5-6-sol-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "gpt-5.6-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-5.6-sol\",harnessVariant=\"reasoning-max\"].{totalCostUsd=402.42,tasks=121,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17; partial coverage: 121 of 122 tasks",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.28795081967213115,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-high",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=35.13,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.1481967213114754,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-low",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=18.08,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.8754098360655738,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-max",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=106.8,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.23434426229508196,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-medium",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=28.59,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.3189344262295082,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-none:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-non-reasoning",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "non-reasoning",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-none\"].{totalCostUsd=38.91,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.4913934426229508,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-1-terra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-xhigh",
+      "rawName": "gpt-6.1-terra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.1-terra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=59.95,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 2.1727049180327866,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-astra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-high",
+      "rawName": "gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=265.07,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.5209836065573771,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-astra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-low",
+      "rawName": "gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=63.56,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.6817213114754095,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-astra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-max",
+      "rawName": "gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=571.17,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 1.1428688524590165,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-astra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-medium",
+      "rawName": "gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=139.43,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 3.049262295081967,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-astra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-xhigh",
+      "rawName": "gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-astra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=372.01,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.7328688524590163,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-sol-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-high",
+      "rawName": "gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-high\"].{totalCostUsd=89.41,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.2855737704918033,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-sol-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-low",
+      "rawName": "gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-low\"].{totalCostUsd=34.84,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 1.389016393442623,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-sol-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-max",
+      "rawName": "gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-max\"].{totalCostUsd=169.46,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.6090163934426229,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-sol-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-medium",
+      "rawName": "gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=74.3,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.9124590163934425,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-2-sol-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-xhigh",
+      "rawName": "gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6.2-sol\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=111.32,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 6.872786885245902,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-astra-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "gpt-6-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-high\"].{totalCostUsd=838.48,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 5.397540983606557,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-astra-reasoning-low:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "gpt-6-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-low\"].{totalCostUsd=658.5,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 8.992295081967212,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-astra-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "gpt-6-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-max\"].{totalCostUsd=1097.06,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 6.208114754098361,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-astra-reasoning-medium:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "gpt-6-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-medium\"].{totalCostUsd=757.39,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 7.563524590163935,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-gpt-6-astra-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "gpt-6-astra"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"gpt-6-astra\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=922.75,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.48565573770491804,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-minimax-m3-1-flash-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "minimax-m3-1-flash"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"minimax-m3-1-flash\",harnessVariant=\"reasoning-max\"].{totalCostUsd=59.25,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 9.847950819672132,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:codex-qwen-4-reasoning-xhigh:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "qwen-4"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"codex\",model=\"qwen-4\",harnessVariant=\"reasoning-xhigh\"].{totalCostUsd=1201.45,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 7.0034426229508195,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:kimi-code-kimi-3-1-pro-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "kimi-3.1-pro"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "kimi_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-3.1-pro\",harnessVariant=\"reasoning-max\"].{totalCostUsd=854.42,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.760737704918032,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:kimi-code-kimi-k3-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-max",
+      "rawName": "kimi-k3"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "kimi_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"kimi_code\",model=\"kimi-k3\",harnessVariant=\"reasoning-max\"].{totalCostUsd=580.81,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 3.115901639344262,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:muse-code-muse-wonder-1-0-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "meta-muse-wonder",
+      "profileId": "meta-muse-wonder-high",
+      "rawName": "muse-wonder-1.0"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "muse_code",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"muse_code\",model=\"muse-wonder-1.0\",harnessVariant=\"reasoning-high\"].{totalCostUsd=380.14,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.15614754098360656,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-high:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-high",
+      "rawName": "deepseek-deepseek-v4-1-flash-1017"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "openclaw_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-high\"].{totalCostUsd=19.05,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 0.26114754098360654,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
+      "rawName": "deepseek-deepseek-v4-1-flash-1017"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "openclaw_cli",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"openclaw_cli\",model=\"deepseek-deepseek-v4-1-flash-1017\",harnessVariant=\"reasoning-max\"].{totalCostUsd=31.86,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": "1.1",
+    "cost": 4.760409836065573,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+      "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
+    ],
+    "exclusionReason": null,
+    "id": "agents-last-exam:cost-per-task:zcode-glm-5-3-reasoning-max:1-1",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Agents' Last Exam cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "glm-5.3"
+    },
+    "observedAt": "2026-11-18T09:19:33.628Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 1,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "zcode",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
+        "locator": "$.rows[harness=\"zcode\",model=\"glm-5.3\",harnessVariant=\"reasoning-max\"].{totalCostUsd=580.77,tasks=122,costSource=list}; USD per task = totalCostUsd / tasks; list prices as of 2026-11-17",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "agents-last-exam",
+    "sourcePublishedAt": "2026-11-18T01:01:54.886Z",
+    "sourceUrl": "https://agents-last-exam.org/leaderboard",
+    "unit": "USD_PER_TASK"
+  }
+]

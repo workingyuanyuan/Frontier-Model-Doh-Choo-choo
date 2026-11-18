@@ -20,7 +20,7 @@ This tagged section is generated deterministically for `google-releases`. Raw `p
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| Gemini 4 Argon | `google-releases:argon:deepswe` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private |
+| Gemini 4 Argon | `google-releases:argon:deepswe` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

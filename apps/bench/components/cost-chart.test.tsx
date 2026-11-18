@@ -9,12 +9,16 @@ import {
   DefaultCostPlot,
 } from './cost-chart';
 import {
+  COST_SOURCE_WEIGHTS,
   buildWeightedCostCurve,
   type AdvancedCostModelOption,
   type AdvancedCostSeries,
   type WeightedCostPoint,
 } from '../lib/view-model';
 import { productFixture } from '../test/fixture';
+
+const SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
+const WEIGHT_NOTE = `Source weights: ${(100 / SOURCE_COUNT).toFixed(1)}% each.`;
 
 // Axis titles show a short label, the snapped domain and a direction hint, and
 // carry the same domain on data attributes.
@@ -231,8 +235,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         }),
       );
 
-      // How many of the seven sources actually placed this point.
-      expect(html).toContain('2 of 8');
+      // How many of the weighted sources actually placed this point.
+      expect(html).toContain(`2 of ${SOURCE_COUNT}`);
       // What each of them contributed, named rather than averaged.
       expect(html).toContain('Intelligence Index 61.2');
       expect(html).toContain(
@@ -752,11 +756,11 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('Quality vs. Cost');
       expect(html).toContain('cost-curve-chart');
       expect(html).not.toContain('Lower cost is better.');
-      expect(html).toContain('Source weights: 12.5% each.');
+      expect(html).toContain(WEIGHT_NOTE);
       expect(html).not.toContain('The frontier connects');
       expect(html).toContain('>Advanced</button>');
       expect(html).toContain('>Models</span>');
-      expect(html.indexOf('Source weights: 12.5% each.')).toBeLessThan(
+      expect(html.indexOf(WEIGHT_NOTE)).toBeLessThan(
         html.indexOf('>Advanced</button>'),
       );
       expect(html.indexOf('>Advanced</button>')).toBeLessThan(

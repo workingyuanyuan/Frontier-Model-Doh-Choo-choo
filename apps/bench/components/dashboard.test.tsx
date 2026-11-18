@@ -141,8 +141,10 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Weighted cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
-    expect(html).toContain('Source weights: 12.5% each.');
-    expect(html.match(/Source weights: 12\.5% each\./g)).toHaveLength(1);
+    const weightNote = `Source weights: ${(
+      100 / Object.keys(COST_SOURCE_WEIGHTS).length
+    ).toFixed(1)}% each.`;
+    expect(html.split(weightNote)).toHaveLength(2);
     Object.keys(COST_SOURCE_WEIGHTS).forEach((sourceId) => {
       expect(html).toContain(sourceId);
     });

@@ -178,6 +178,7 @@
         "representativeScore": 64.563595756626,
         "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "epoch-ai",
           "frontier-code",
@@ -198,6 +199,7 @@
         "representativeScore": 62.1387990593969,
         "representativeResultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "epoch-ai",
           "frontier-code",
@@ -219,6 +221,7 @@
         "representativeScore": 60.025738829526,
         "representativeResultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "epoch-ai",
           "frontier-code",
@@ -242,6 +245,7 @@
         "representativeScore": 59.1060336078904,
         "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "epoch-ai",
           "frontier-code",
@@ -266,6 +270,7 @@
         "representativeScore": 57.2576209885477,
         "representativeResultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "frontier-code",
           "livebench",
@@ -286,6 +291,7 @@
         "representativeScore": 56.8538559596797,
         "representativeResultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "arc-prize",
           "deepswe",
           "epoch-ai",
@@ -354,7 +360,12 @@
         "aaWinningProfileId": "google-gemini-4-hydrogen-xhigh",
         "representativeScore": 53.9192287317542,
         "representativeResultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-1",
-        "organizations": ["frontier-code", "livebench", "vals-ai"]
+        "organizations": [
+          "agents-last-exam",
+          "frontier-code",
+          "livebench",
+          "vals-ai"
+        ]
       },
       {
         "rank": 10,
@@ -369,6 +380,7 @@
         "representativeScore": 51.3265188577015,
         "representativeResultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-1",
         "organizations": [
+          "agents-last-exam",
           "epoch-ai",
           "frontier-code",
           "livebench",

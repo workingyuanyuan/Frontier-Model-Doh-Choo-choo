@@ -147,31 +147,31 @@ Frontier 模型清單依 [前沿政策](FRONTIER_POLICY.md) 由已保存的來�
 
 主 Quality vs. Cost 預設圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。
 
-權重為七個來源各 1/7（Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench）；Epoch 沒有成本。採用等權的理由：
+權重為九個 benchmark 群組各 1/9（Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench、CursorBench、Agents' Last Exam）；Epoch 沒有成本。採用等權的理由：
 
-1. 七個來源皆提供單次 task／test 的美元成本。
+1. 九個群組皆提供單次 task／test 的美元成本。
 2. min-max 正規化後混合的是各模型在各來源內的相對位置。
 3. 缺站時只在可用來源上重新正規化權重，不把缺值當零。
 
-X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
+X 軸為九群組加權正規化任務成本，Y 軸為五維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
 
 圖中的 frontier 是非支配集合（Pareto frontier）：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
 
-### 進階圖（四來源聚合的多思考強度性價比曲線）
+### 進階圖（多來源聚合的多思考強度性價比曲線）
 
-透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）的來源聚合分數與成本軌跡，同一模型的各強度點連成折線。來源母體為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize；四個來源預設開啟，使用者可個別關閉。
+透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）的來源聚合分數與成本軌跡，同一模型的各強度點連成折線。來源母體為 Artificial Analysis、Frontier Code、ARC Prize、Zapier AutomationBench、DeepSWE、CursorBench 與 Agents' Last Exam。前四項預設開啟；DeepSWE（2026-11-18 起前沿模型多已不測，改為預設關閉）、CursorBench 與 Agents' Last Exam 預設關閉、可個別開啟。
 
 進階圖設計原則：
 
-- **先在來源內配對，再跨來源聚合**：目前啟用的來源各自以同一 profile 的分數配同來源成本；全部成立後，X 軸取各來源 log min-max 成本指數等權平均，Y 軸取各來源原始分數等權平均。四來源時各 1/4，關閉一個後三來源各 1/3。不得拿跨來源 Overall 配單一來源成本。
+- **先在來源內配對，再跨來源聚合**：目前啟用的來源各自以同一 profile 的分數配同來源成本；全部成立後，X 軸取各來源 log min-max 成本指數等權平均，Y 軸取各來源原始分數等權平均。例如四來源時各 1/4，關閉一個後三來源各 1/3。不得拿跨來源 Overall 配單一來源成本。
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入五維 Overall）。
-- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-2-0`（2026-10-28 起取代 `frontier-code-1-1`）、`arc-agi-2` 的 normalized 分數。
+- **其他來源**：Y 軸使用 `deepswe-1-1`、`frontier-code-2-0`（2026-10-28 起取代 `frontier-code-1-1`）、`arc-agi-2`、`automationbench`、`cursorbench-4`、`agents-last-exam` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
   3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
-- **逐 profile 要求啟用來源齊全**：缺任一啟用來源的該強度不出點；模型仍可用其他齊全的強度出現。關閉來源後資格、等權聚合與軸域即時重算；每個來源的 log min-max 母體仍是產品檔內該來源的全部任務成本。Vals、LiveBench、Zapier 不在進階圖的來源母體。
-- **來源與 effort 控制**：四個來源按鈕決定聚合交集。Models 清單以 checkbox 控制模型的全部 effort，並以個別按鈕控制單一 effort；列上保留完整 ProductVersion effort 母體，未通過目前來源交集的 effort 顯示為不可用。
+- **逐 profile 要求啟用來源齊全**：缺任一啟用來源的該強度不出點；模型仍可用其他齊全的強度出現。關閉來源後資格、等權聚合與軸域即時重算；每個來源的 log min-max 母體仍是產品檔內該來源的全部任務成本。Vals 與 LiveBench 不在進階圖的來源母體。
+- **來源與 effort 控制**：來源按鈕決定聚合交集。Models 清單以 checkbox 控制模型的全部 effort，並以個別按鈕控制單一 effort；列上保留完整 ProductVersion effort 母體，未通過目前來源交集的 effort 顯示為不可用。
 
 ## ProductVersion 與可重現性
 
@@ -195,6 +195,6 @@ X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 
 OpenAI 與 Anthropic 發布頁中通過交叉核對的圖表，同列成本寫入 `CostRecord`，單位為 `USD_PER_TASK`。成本沿用分數的模型、明確 effort、benchmark 版本、納入狀態及 Evidence；已排除的混合模型 fallback 與分數衝突列，其成本也排除。
 
-圖表按 benchmark 群組配對：OpenAI 的 DeepSWE 1.1、AutomationBench 1.0.6；Anthropic 的 CursorBench 4.0。Anthropic 的 FrontierCode 1.1 Main 配對仍保存，但 2026-10-28 起 Frontier Code 群組改配 FrontierCode 2.0，1.1 配對不再進入成本圖。每個 profile 優先使用官方分數／成本配對，供應商配對補充缺漏。每個群組只計算一次權重，UI 保留供應商名稱與連結。預設成本圖有八個等權群組；進階圖新增可單獨啟用的 CursorBench。
+圖表按 benchmark 群組配對：OpenAI 的 DeepSWE 1.1、AutomationBench 1.0.6；Anthropic 的 CursorBench 4.0。Anthropic 的 FrontierCode 1.1 Main 配對仍保存，但 2026-10-28 起 Frontier Code 群組改配 FrontierCode 2.0，1.1 配對不再進入成本圖。每個 profile 優先使用官方分數／成本配對，供應商配對補充缺漏。每個群組只計算一次權重，UI 保留供應商名稱與連結。預設成本圖有九個等權群組（2026-11-18 加入 Agents' Last Exam）；進階圖初始啟用 AA、Frontier Code、ARC Prize 與 Zapier AutomationBench，DeepSWE、CursorBench 與 Agents' Last Exam 可單獨啟用。
 
 `pnpm data:materialize-costs`、離線 snapshot materialization 與 vendor refresh 都可重建成本；供應商與官方分數交叉核對失敗時，供應商成本不發布。

@@ -1,0 +1,39 @@
+{
+  "accessMethods": ["API_RESPONSE", "DOM", "EMBEDDED_JSON"],
+  "baseUrl": "https://agents-last-exam.org",
+  "benchmarkIds": ["agents-last-exam"],
+  "completeness": {
+    "expectedCountMethod": "Read the version from the page header and leaderboard version prop, confirm the page bundle fetches the versioned endpoint, then parse every overall row and require the linux and windows platform rows of each configuration to add up to its passes and tasks.",
+    "pagination": null,
+    "visibleComparisonRequired": false
+  },
+  "displayName": "Agents' Last Exam official leaderboard",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "resultsUpdatedAt": "sourcePublishedAt",
+    "rows[].avgScore": "rawScore and normalizedScore (× 100)",
+    "rows[].harness": "profile.harness",
+    "rows[].harnessVariant": "profile.effort (reasoning-<effort>)",
+    "rows[].model": "model.rawName",
+    "rows[].passRate": "provenance only (diagnostic)",
+    "rows[].totalCostUsd / rows[].tasks": "CostRecord.cost (USD per task)"
+  },
+  "lastVerifiedAt": "2026-11-18T09:19:33.628Z",
+  "notes": [
+    "ALE v1.1; 41 rows; results updated 2026-11-18T01:01:54.886914Z; list cost rates as of 2026-11-17; task definitions commit 2e91edd3cd26baa35a38127c90c8e5241dfbe62f.",
+    "Organizer: UC Berkeley RDI. Who executes each run (organizer or vendor submission) is not stated by the board or the repository README: unknown.",
+    "The page is a client shell; its leaderboard bundle is discovered from the HTML and must fetch the versioned endpoint. Deployment hashes are never hard-coded.",
+    "Score is avgScore × 100; passRate is diagnostic only. Cost is totalCostUsd / tasks at list prices.",
+    "Rows that cover fewer tasks than the split are included and disclosed: claude-fable-5-2 / claude_code / reasoning-max: 113 of 122 tasks; gpt-5.6-sol / codex / reasoning-max: 121 of 122 tasks.",
+    "A canonical model and effort published under more than one harness is excluded until reviewed.",
+    "Exact catalog identities only; 5 rows remain unresolved."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "agents-last-exam",
+  "targetUrls": [
+    "https://agents-last-exam.org/leaderboard",
+    "https://agents-last-exam.org/_next/static/chunks/app/leaderboard/page-38f997451c8089c6.js",
+    "https://agents-last-exam.org/api/demo/leaderboard/v1.1"
+  ]
+}

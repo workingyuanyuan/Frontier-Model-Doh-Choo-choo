@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ADVANCED_COST_SOURCE_IDS,
+  AVAILABLE_ADVANCED_COST_SOURCE_IDS,
   COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
   filterLeaderboard,
@@ -24,6 +25,7 @@ import {
   buildWeightedCostCurve,
   getCostParetoFrontier,
   getSourceScore,
+  type AdvancedCostSourceId,
   type PresetProductVersion,
 } from './view-model';
 import {
@@ -33,6 +35,15 @@ import {
 } from './visualization';
 import { UI_DIMENSION_IDS } from './ui-contract';
 import { productFixture } from '../test/fixture';
+
+/** A fixed multi-source selection, so pairing tests do not track the default. */
+const FIVE_SOURCES: readonly AdvancedCostSourceId[] = [
+  'artificial-analysis',
+  'deepswe',
+  'frontier-code',
+  'arc-prize',
+  'zapier-automationbench',
+];
 
 type FixtureLeaderboardRow = (typeof productFixture.leaderboard)[number];
 
@@ -674,10 +685,30 @@ describe('cost chart view model', () => {
       ),
     ).toEqual([]);
     expect(
-      ADVANCED_COST_SOURCE_IDS.filter(
+      AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter(
         (sourceId) => COST_SOURCE_SCORE_BASES[sourceId] == null,
       ),
     ).toEqual([]);
+  });
+
+  it('starts DeepSWE, CursorBench and ALE unselected but keeps them selectable', () => {
+    const optional = ['deepswe', 'cursorbench', 'agents-last-exam'] as const;
+    for (const sourceId of optional) {
+      expect(ADVANCED_COST_SOURCE_IDS).not.toContain(sourceId);
+      expect(AVAILABLE_ADVANCED_COST_SOURCE_IDS).toContain(sourceId);
+    }
+    expect(
+      ADVANCED_COST_SOURCE_IDS.every((sourceId) =>
+        (AVAILABLE_ADVANCED_COST_SOURCE_IDS as readonly string[]).includes(
+          sourceId,
+        ),
+      ),
+    ).toBe(true);
+    expect(COST_SOURCE_SCORE_BASES['agents-last-exam']).toMatchObject({
+      benchmarkId: 'agents-last-exam',
+      field: 'normalized',
+      inclusion: 'INCLUDED',
+    });
   });
 
   it('gives LiveBench no score at all rather than a mean of its four benchmarks', () => {
@@ -933,17 +964,27 @@ describe('cost chart view model', () => {
     });
   });
 
-  it('uses eight equal benchmark weights and excludes model-catalog costs', () => {
-    expect(COST_SOURCE_WEIGHTS).toEqual({
-      'artificial-analysis': 1 / 8,
-      livebench: 1 / 8,
-      deepswe: 1 / 8,
-      'frontier-code': 1 / 8,
-      'arc-prize': 1 / 8,
-      'vals-ai': 1 / 8,
-      'zapier-automationbench': 1 / 8,
-      cursorbench: 1 / 8,
-    });
+  it('uses equal benchmark weights and excludes model-catalog costs', () => {
+    const weightedIds = Object.keys(COST_SOURCE_WEIGHTS);
+    expect(weightedIds.toSorted()).toEqual(
+      [
+        'agents-last-exam',
+        'arc-prize',
+        'artificial-analysis',
+        'cursorbench',
+        'deepswe',
+        'frontier-code',
+        'livebench',
+        'vals-ai',
+        'zapier-automationbench',
+      ].toSorted(),
+    );
+    const equalWeight = 1 / weightedIds.length;
+    expect(
+      Object.values(COST_SOURCE_WEIGHTS).every(
+        (weight) => weight === equalWeight,
+      ),
+    ).toBe(true);
 
     const taskTemplate = productFixture.costs.find(
       ({ costType }) => costType === 'MEASURED_TASK',
@@ -982,11 +1023,11 @@ describe('cost chart view model', () => {
         .map(({ sourceId, weight }) => [sourceId, weight] as const)
         .toSorted(([left], [right]) => left.localeCompare(right)),
     ).toEqual([
-      ['arc-prize', 1 / 8],
-      ['artificial-analysis', 1 / 8],
-      ['frontier-code', 1 / 8],
-      ['livebench', 1 / 8],
-      ['vals-ai', 1 / 8],
+      ['arc-prize', equalWeight],
+      ['artificial-analysis', equalWeight],
+      ['frontier-code', equalWeight],
+      ['livebench', equalWeight],
+      ['vals-ai', equalWeight],
     ]);
     expect(
       sol?.sourceCosts.some(({ sourceId }) => sourceId === 'model-catalog'),
@@ -1147,7 +1188,7 @@ describe('cost chart view model', () => {
     ] as const;
 
     const solCosts = solProfiles.flatMap(([profileId, cost]) =>
-      ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
+      FIVE_SOURCES.map((sourceId, index) =>
         taskCost(
           sourceId,
           profileId,
@@ -1158,7 +1199,7 @@ describe('cost chart view model', () => {
       ),
     );
     const solEvidence = solProfiles.flatMap(([profileId, score]) =>
-      ADVANCED_COST_SOURCE_IDS.map((sourceId, sourceIndex) =>
+      FIVE_SOURCES.map((sourceId, sourceIndex) =>
         sourceEvidence(
           sourceId,
           profileId,
@@ -1192,7 +1233,7 @@ describe('cost chart view model', () => {
     );
 
     // Claude: low profile has all 5 sources (single qualifying effort), incomplete profile has only 1 source
-    const claudeLowCosts = ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
+    const claudeLowCosts = FIVE_SOURCES.map((sourceId, index) =>
       taskCost(
         sourceId,
         'anthropic-claude-fable-5-low',
@@ -1201,15 +1242,14 @@ describe('cost chart view model', () => {
         300 + index,
       ),
     );
-    const claudeLowEvidence = ADVANCED_COST_SOURCE_IDS.map(
-      (sourceId, sourceIndex) =>
-        sourceEvidence(
-          sourceId,
-          'anthropic-claude-fable-5-low',
-          'anthropic-claude-fable-5',
-          80 + sourceIndex,
-          300 + sourceIndex,
-        ),
+    const claudeLowEvidence = FIVE_SOURCES.map((sourceId, sourceIndex) =>
+      sourceEvidence(
+        sourceId,
+        'anthropic-claude-fable-5-low',
+        'anthropic-claude-fable-5',
+        80 + sourceIndex,
+        300 + sourceIndex,
+      ),
     );
     const claudeIncompleteCosts = [
       taskCost(
@@ -1271,7 +1311,7 @@ describe('cost chart view model', () => {
       ],
     };
 
-    const series = buildAdvancedCostSeries(product);
+    const series = buildAdvancedCostSeries(product, FIVE_SOURCES);
 
     // Only GPT-5.6 Sol and Claude Fable 5 qualify; Gemini is completely omitted
     expect(series.map(({ modelId }) => modelId)).toEqual([
@@ -1307,13 +1347,9 @@ describe('cost chart view model', () => {
     // Detail breakdown is preserved on every point
     for (const point of [...solSeries.points, ...claudeSeries.points]) {
       expect(point.sources).toHaveLength(5);
-      expect(point.sources.map(({ sourceId }) => sourceId)).toEqual([
-        'artificial-analysis',
-        'deepswe',
-        'frontier-code',
-        'arc-prize',
-        'zapier-automationbench',
-      ]);
+      expect(point.sources.map(({ sourceId }) => sourceId).toSorted()).toEqual(
+        [...FIVE_SOURCES].toSorted(),
+      );
     }
 
     const twoSourceSeries = buildAdvancedCostSeries(product, [
@@ -1448,13 +1484,17 @@ describe('cost chart view model', () => {
       ],
     };
 
-    const series = buildAdvancedCostSeries(product);
+    const series = buildAdvancedCostSeries(product, FIVE_SOURCES);
     expect(series).toHaveLength(1);
     const point = series[0]!.points[0]!;
 
     // Expected Y = (60 + 75 + 90 + 95 + 30) / 5 = 70.0
     expect(point.score).toBeCloseTo(70.0, 5);
-    expect(point.sources.at(-1)).toMatchObject({
+    expect(
+      point.sources.find(
+        ({ sourceId }) => sourceId === 'zapier-automationbench',
+      ),
+    ).toMatchObject({
       sourceId: 'zapier-automationbench',
       scoreBasis: 'ZAPIER_AUTOMATIONBENCH',
       scoreBenchmarkId: 'automationbench',
@@ -1472,8 +1512,10 @@ describe('cost chart view model', () => {
         (row) => row.sourceId !== 'zapier-automationbench',
       ),
     };
-    expect(buildAdvancedCostSeries(withoutZapierCost)).toEqual([]);
-    const fourSources = ADVANCED_COST_SOURCE_IDS.filter(
+    expect(buildAdvancedCostSeries(withoutZapierCost, FIVE_SOURCES)).toEqual(
+      [],
+    );
+    const fourSources = FIVE_SOURCES.filter(
       (id) => id !== 'zapier-automationbench',
     );
     expect(
@@ -1481,12 +1523,15 @@ describe('cost chart view model', () => {
         ?.score,
     ).toBeCloseTo(80, 5);
     expect(
-      buildAdvancedCostSeries({
-        ...product,
-        evidence: product.evidence.filter(
-          (row) => row.sourceId !== 'zapier-automationbench',
-        ),
-      }),
+      buildAdvancedCostSeries(
+        {
+          ...product,
+          evidence: product.evidence.filter(
+            (row) => row.sourceId !== 'zapier-automationbench',
+          ),
+        },
+        FIVE_SOURCES,
+      ),
     ).toEqual([]);
     expect(
       buildAdvancedCostSeries(product, ['zapier-automationbench'])[0]?.points[0]

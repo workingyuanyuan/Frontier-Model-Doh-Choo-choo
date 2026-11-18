@@ -99,10 +99,10 @@ This tagged section is generated deterministically for `zapier-automationbench`.
 | GPT-5.4 | `zapier-automationbench:automationbench:gpt-5-4-rank-146:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.5 | `zapier-automationbench:automationbench:gpt-5-5-rank-139:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.6 Luna | `zapier-automationbench:automationbench:gpt-5-6-luna-rank-145:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
-| GPT-5.6 Sol | `zapier-automationbench:automationbench:gpt-5-6-sol-rank-125:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
+| GPT-5.6 Sol | `zapier-automationbench:automationbench:gpt-5-6-sol-rank-125:1-0-6` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1 |
 | GPT-5.6 Terra | `zapier-automationbench:automationbench:gpt-5-6-terra-rank-140:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
 | Kimi K2.7 Code | `zapier-automationbench:automationbench:kimi-k2-7-code-rank-130:1-0-6` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
-| Kimi K3 | `zapier-automationbench:automationbench:kimi-k3-rank-54:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| Kimi K3 | `zapier-automationbench:automationbench:kimi-k3-rank-54:1-0-6` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
