@@ -6,13 +6,13 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1794868718`) | 36 |
-| 2.0 suite candidates | 252 |
+| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1794949612`) | 38 |
+| 2.0 suite candidates | 266 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1794868718`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 156 |
+| Cost records | 160 |
 | Distinct unresolved raw model names | 23 |
 
 ## LiveBench 2.0 suites
@@ -62,7 +62,7 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 ## Visible comparison
 
-- LiveBench 2.0 rendered leaderboard rows: 36; table rows: 36.
+- LiveBench 2.0 rendered leaderboard rows: 38; table rows: 38.
 - LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
 - Result: both rendered counts matched.
 
@@ -70,9 +70,9 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 101 | 102 | +1 |
-| Candidate results | 529 | 536 | +7 |
-| Materialized costs | 154 | 156 | +2 |
+| Raw model profiles | 104 | 104 | +0 |
+| Candidate results | 550 | 550 | +0 |
+| Materialized costs | 156 | 160 | +4 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -121,10 +121,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |

@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T05:08:38.697Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "aime",
         "includedRetainedRows": 0,
-        "includedRows": 316,
+        "includedRows": 317,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -60,6 +60,7 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -200,6 +201,7 @@
           "[\"GPT-6 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Terra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.2 Astra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (May 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 2.0 Flash (Feb 2025)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 2.0 Flash Thinking Exp\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -512,6 +514,7 @@
           "GPT-6 Sol (max)",
           "GPT-6.1 Sol (max)",
           "GPT-6.1 Terra (max)",
+          "GPT-6.2 Astra (max)",
           "Gemini 1.5 Flash (May 2024)",
           "Gemini 2.0 Flash (Feb 2025)",
           "Gemini 2.0 Flash Thinking Exp",
@@ -682,14 +685,14 @@
           "qwen3.5-4b_none",
           "seed-oss-36b-instruct"
         ],
-        "rows": 316,
+        "rows": 317,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
       {
         "id": "chess-puzzles",
         "includedRetainedRows": 0,
-        "includedRows": 162,
+        "includedRows": 163,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -737,6 +740,7 @@
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -854,6 +858,7 @@
           "[\"GPT-6 Luna (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.2 Astra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3 Flash Preview\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.1 Pro Preview\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.5 Flash\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1016,6 +1021,7 @@
           "GPT-6 Luna (max)",
           "GPT-6 Sol (max)",
           "GPT-6.1 Sol (max)",
+          "GPT-6.2 Astra (max)",
           "Gemini 3 Flash Preview",
           "Gemini 3.1 Pro Preview",
           "Gemini 3.5 Flash",
@@ -1069,7 +1075,7 @@
           "o4-mini (low)",
           "o4-mini (medium)"
         ],
-        "rows": 164,
+        "rows": 165,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -1130,6 +1136,7 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -1238,6 +1245,7 @@
           "[\"GPT-6 Sol\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Terra\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.2 Astra\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (May 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (Sep 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Pro (May 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1496,6 +1504,7 @@
           "GPT-6 Sol",
           "GPT-6.1 Sol",
           "GPT-6.1 Terra",
+          "GPT-6.2 Astra",
           "Gemini 1.5 Flash (May 2024)",
           "Gemini 1.5 Flash (Sep 2024)",
           "Gemini 1.5 Pro (May 2024)",
@@ -1657,7 +1666,7 @@
           "phi-3-small 7.4B",
           "vicuna-13b-v1.1"
         ],
-        "rows": 256,
+        "rows": 257,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2073,7 +2082,7 @@
       {
         "id": "gpqa-diamond",
         "includedRetainedRows": 0,
-        "includedRows": 339,
+        "includedRows": 340,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -2123,6 +2132,7 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -2268,6 +2278,7 @@
           "[\"GPT-6 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Terra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.2 Astra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (May 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 2.0 Flash (Feb 2025)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 2.0 Flash Thinking Exp\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2603,6 +2614,7 @@
           "GPT-6 Sol (max)",
           "GPT-6.1 Sol (max)",
           "GPT-6.1 Terra (max)",
+          "GPT-6.2 Astra (max)",
           "Gemini 1.5 Flash (May 2024)",
           "Gemini 2.0 Flash (Feb 2025)",
           "Gemini 2.0 Flash Thinking Exp",
@@ -2791,7 +2803,7 @@
           "qwq-plus",
           "seed-oss-36b-instruct"
         ],
-        "rows": 339,
+        "rows": 340,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3028,7 +3040,7 @@
       {
         "id": "simpleqa-verified",
         "includedRetainedRows": 0,
-        "includedRows": 103,
+        "includedRows": 104,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -3073,6 +3085,7 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -3141,6 +3154,7 @@
           "[\"GPT-6 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Terra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.2 Astra (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3 Flash Preview\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.1 Pro Preview\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.5 Flash\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3246,6 +3260,7 @@
           "GPT-6 Sol (max)",
           "GPT-6.1 Sol (max)",
           "GPT-6.1 Terra (max)",
+          "GPT-6.2 Astra (max)",
           "Gemini 3 Flash Preview",
           "Gemini 3.1 Pro Preview",
           "Gemini 3.5 Flash",
@@ -3293,7 +3308,7 @@
           "o4-mini (high)",
           "o4-mini (low)"
         ],
-        "rows": 103,
+        "rows": 104,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3395,7 +3410,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-17T04:40:57.892Z",
+    "observedAt": "2026-11-18T05:08:37.431Z",
     "sourceId": "epoch-ai"
   }
 }

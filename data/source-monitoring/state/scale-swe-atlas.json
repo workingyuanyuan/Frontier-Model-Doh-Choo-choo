@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T04:57:30.323Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -101,7 +101,7 @@
         "versions": ["v1.1"]
       }
     ],
-    "observedAt": "2026-11-17T04:49:55.200Z",
+    "observedAt": "2026-11-18T04:57:29.468Z",
     "sourceId": "scale-swe-atlas"
   }
 }

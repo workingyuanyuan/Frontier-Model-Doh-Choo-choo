@@ -28,7 +28,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/riemann-bench",
-    "retrievedAt": "2026-11-17T04:40:48.191Z",
+    "retrievedAt": "2026-11-18T04:58:05.253Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:63b261e0a5dc5556ed4c86c9e8494f8e9942ccef939a5db094062f8ad45a29d0",
     "sourceId": "surge-riemann"

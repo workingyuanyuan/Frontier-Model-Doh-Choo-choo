@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T05:08:42.862Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "arc-agi-2",
         "includedRetainedRows": 0,
-        "includedRows": 296,
+        "includedRows": 306,
         "metrics": ["score:fraction:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -45,6 +45,8 @@
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -247,6 +249,16 @@
           "[\"GPT-6.1 Sol (Max)\",\"max\",null,null,null,null,null,null]",
           "[\"GPT-6.1 Sol (Medium)\",\"medium\",null,null,null,null,null,null]",
           "[\"GPT-6.1 Sol (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra (High)\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra (Low)\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra (Max)\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra (Medium)\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol (High)\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol (Low)\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol (Max)\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol (Medium)\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"Gemini 1.5 Pro\",null,null,null,null,null,null,null]",
           "[\"Gemini 2.0 Flash\",null,null,null,null,null,null,null]",
           "[\"Gemini 2.5 Flash (Preview) (Thinking 16K)\",null,null,null,null,null,null,null]",
@@ -553,6 +565,16 @@
           "GPT-6.1 Sol (Max)",
           "GPT-6.1 Sol (Medium)",
           "GPT-6.1 Sol (XHigh)",
+          "GPT-6.2 Astra (High)",
+          "GPT-6.2 Astra (Low)",
+          "GPT-6.2 Astra (Max)",
+          "GPT-6.2 Astra (Medium)",
+          "GPT-6.2 Astra (XHigh)",
+          "GPT-6.2 Sol (High)",
+          "GPT-6.2 Sol (Low)",
+          "GPT-6.2 Sol (Max)",
+          "GPT-6.2 Sol (Medium)",
+          "GPT-6.2 Sol (XHigh)",
           "Gemini 1.5 Pro",
           "Gemini 2.0 Flash",
           "Gemini 2.5 Flash (Preview)",
@@ -668,12 +690,12 @@
           "o4-mini (Low)",
           "o4-mini (Medium)"
         ],
-        "rows": 304,
+        "rows": 314,
         "sourceUrls": ["https://arcprize.org/leaderboard"],
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-17T04:41:01.369Z",
+    "observedAt": "2026-11-18T05:08:40.122Z",
     "sourceId": "arc-prize"
   }
 }

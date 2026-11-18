@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T05:08:34.571Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "livebench-browser",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -31,6 +31,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -55,6 +57,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -93,6 +97,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -113,16 +119,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-coding",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -145,6 +151,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -169,6 +177,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -207,6 +217,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -227,16 +239,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-data-analysis",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -259,6 +271,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -283,6 +297,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -321,6 +337,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -341,16 +359,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-design",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -373,6 +391,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -397,6 +417,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -435,6 +457,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -455,9 +479,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       },
@@ -671,7 +695,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794868718"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
         ],
         "versions": ["2026-06-25"]
       },
@@ -885,14 +909,14 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794868718"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-long-agentic",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -915,6 +939,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -939,6 +965,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -977,6 +1005,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -997,9 +1027,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       },
@@ -1213,14 +1243,14 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794868718"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-reasoning",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": [
           "category-average:percent:true",
           "suite-score:percent:true"
@@ -1280,6 +1310,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -1353,6 +1385,8 @@
           "[\"gpt-6.1-sol-max\",\"max\",null,null,false,null,1,null]",
           "[\"gpt-6.1-sol-xhigh\",\"xhigh\",null,null,false,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"grok-4.3\",null,null,null,false,null,1,null]",
           "[\"grok-4.5\",null,null,null,false,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -1461,6 +1495,8 @@
           "gpt-6.1-sol-max",
           "gpt-6.1-sol-xhigh",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.3",
           "grok-4.5",
           "grok-4.6",
@@ -1504,17 +1540,17 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 107,
+        "rows": 109,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
         ],
         "versions": ["2026-06-25", "2026-11-06"]
       },
       {
         "id": "livebench-research",
         "includedRetainedRows": 0,
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1537,6 +1573,8 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "thinking-machines-inkling",
@@ -1561,6 +1599,8 @@
           "[\"gpt-6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-6.1-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-astra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gpt-6.2-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.6\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1599,6 +1639,8 @@
           "gpt-6-luna",
           "gpt-6.1-sol",
           "gpt-6.1-terra",
+          "gpt-6.2-astra",
+          "gpt-6.2-sol",
           "grok-4.6",
           "grok-4.7",
           "inkling",
@@ -1619,14 +1661,14 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794868718"
+          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
         ],
         "versions": ["2026-11-06"]
       }
     ],
-    "observedAt": "2026-11-17T04:51:18.146Z",
+    "observedAt": "2026-11-18T05:08:32.664Z",
     "sourceId": "livebench"
   }
 }

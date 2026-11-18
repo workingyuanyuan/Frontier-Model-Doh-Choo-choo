@@ -1,0 +1,263 @@
+{
+  "date": "2026-11-18",
+  "baselineCommit": "bfe702b0c6b4e7de33aa8ca1e38cd8ca569377d6",
+  "baselineVersion": "sha256:511a7966411490db7c9747a52ac0a69ff25229e73cdc97ffa5efd14aa140767b",
+  "baselineGeneratedAt": "2026-11-18T03:50:28.060Z",
+  "activeSourcesChanged": true,
+  "newVersionId": "sha256:5e4776f354b69ceb313f25c5a21a4fe288c1b10f4159dd9a924e4ba7a03a1250",
+  "releaseRunId": "2026-11-18T05-17-19-590Z",
+  "manifestVerification": {
+    "V": {
+      "entries": 62,
+      "verifiedBytesAndSha256": 62,
+      "identicalTo20261117": 5,
+      "changed200": 54,
+      "non200": [
+        {
+          "url": "https://openai.com/news/",
+          "httpStatus": 403
+        },
+        {
+          "url": "https://openai.com/index/",
+          "httpStatus": 403
+        },
+        {
+          "url": "https://ai.meta.com/blog/",
+          "httpStatus": 400
+        }
+      ],
+      "supplementalVendorDocs": [
+        {
+          "url": "https://platform.openai.com/docs/models/gpt-6.2-astra",
+          "file": "artifacts/research/2026-11-18-benchmark-check/web/V/raw/openai-docs-gpt-6.2-astra.html",
+          "sha256": "173bfc78b275b110c1f7f1d8c7cc4543213e0c7fcd305fa1660395e0252bb624",
+          "bytes": 477554,
+          "httpStatus": 200
+        },
+        {
+          "url": "https://platform.openai.com/docs/models/gpt-6.2-sol",
+          "file": "artifacts/research/2026-11-18-benchmark-check/web/V/raw/openai-docs-gpt-6.2-sol.html",
+          "sha256": "8672a8684c62680cc6a89c4ff0daf7f4d7cecac734c32e722e72272e6deb8e04",
+          "bytes": 477500,
+          "httpStatus": 200
+        },
+        {
+          "url": "https://platform.openai.com/docs/pricing",
+          "file": "artifacts/research/2026-11-18-benchmark-check/web/V/raw/openai-docs-pricing.html",
+          "sha256": "47cde71cdc36545795cc2a21a0d28aaeb4f59d3189f2f9fbc8fba3003b9908e7",
+          "bytes": 639826,
+          "httpStatus": 200
+        }
+      ],
+      "playwrightRendered": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "status": 200,
+          "observedAt": "2026-11-18T04:54:28.264Z",
+          "htmlSha256": "a9caca2f0ecf8fe0721111202dde848ba22df079712571ac7b99fab73c6385f7",
+          "bytes": 730456,
+          "key": "openai-introducing-gpt-6-2"
+        },
+        {
+          "url": "https://openai.com/news/",
+          "status": 200,
+          "observedAt": "2026-11-18T04:54:37.170Z",
+          "htmlSha256": "da3f555ca681190d2c128b9b7fcd1855db9722a93b7b50c69feb5f5a72be09d7",
+          "bytes": 360614,
+          "key": "openai-news"
+        },
+        {
+          "url": "https://openai.com/index/astra-law-6-2/",
+          "status": 200,
+          "observedAt": "2026-11-18T05:02:59.259Z",
+          "htmlSha256": "1e14d8d9484fadd79180d3b455c077732e86d7a691c2682f8c50d83cfa3f36a9",
+          "bytes": 464233,
+          "key": "openai-astra-law-6-2"
+        },
+        {
+          "url": "https://artificialanalysis.ai/models/astra-for-law-6-2",
+          "status": 200,
+          "observedAt": "2026-11-18T05:03:08.879Z",
+          "htmlSha256": "b748b71e1fb85bc528cc0c9a28ff9a71594442cb7d0732ecf8e5864d6206b27c",
+          "bytes": 1030051,
+          "key": "aa-astra-for-law-6-2"
+        }
+      ]
+    },
+    "L": {
+      "entries": 55,
+      "verifiedBytesAndSha256": 55,
+      "identicalTo20261117": 27,
+      "changed200": 25,
+      "non200": [
+        {
+          "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+          "httpStatus": 403
+        },
+        {
+          "url": "https://benchlm.ai",
+          "httpStatus": 500
+        },
+        {
+          "url": "https://livebench.ai/static/js/main.8a7822ea.js",
+          "httpStatus": 404
+        }
+      ]
+    }
+  },
+  "vendorReview": {
+    "newTextModelsSince20261117": [
+      {
+        "vendor": "OpenAI",
+        "model": "GPT-6.2 Astra",
+        "modelId": "gpt-6.2-astra",
+        "canonicalModelId": "openai-gpt-6-2-astra",
+        "releaseDate": "2026-11-17",
+        "officialEvidence": [
+          "https://platform.openai.com/docs/models/gpt-6.2-astra",
+          "https://openai.com/news/ (listing: \"Introducing GPT-6.2 Astra and Sol\", Nov 17, 2026)"
+        ],
+        "pricingUsdPerMTok": {
+          "input": 8,
+          "cachedInput": 0.4,
+          "output": 40
+        },
+        "contextWindow": 1050000,
+        "knowledgeCutoff": "2026-05-18",
+        "addedInActiveSources": [
+          "artificial-analysis",
+          "livebench",
+          "frontier-code",
+          "epoch-ai",
+          "arc-prize",
+          "vals-ai",
+          "zapier-automationbench"
+        ]
+      },
+      {
+        "vendor": "OpenAI",
+        "model": "GPT-6.2 Sol",
+        "modelId": "gpt-6.2-sol",
+        "canonicalModelId": "openai-gpt-6-2-sol",
+        "releaseDate": "2026-11-17",
+        "officialEvidence": [
+          "https://platform.openai.com/docs/models/gpt-6.2-sol",
+          "https://openai.com/news/"
+        ],
+        "pricingUsdPerMTok": {
+          "input": 2,
+          "cachedInput": 0.1,
+          "output": 10
+        },
+        "contextWindow": 1050000,
+        "knowledgeCutoff": "2026-06-01",
+        "addedInActiveSources": [
+          "artificial-analysis",
+          "livebench",
+          "frontier-code",
+          "arc-prize",
+          "vals-ai",
+          "zapier-automationbench"
+        ]
+      }
+    ],
+    "configurationsNotMapped": [
+      {
+        "vendor": "OpenAI",
+        "name": "Astra for Law 6.2",
+        "sourceNames": ["Astra for Law 6.2 (Max)", "openai/gpt-6.2-astra-law"],
+        "officialEvidence": "https://openai.com/index/astra-law-6-2/",
+        "reason": "Official text: \"a model configuration of GPT-6.2 Astra\" with an expanded legal search index and instructions; ChatGPT Enterprise Trusted Access only. Not a separate model and not plain GPT-6.2 Astra; kept unmapped."
+      }
+    ],
+    "otherNewUnmappedNames": [
+      "A.X-K2 (AA)",
+      "Inkling Small (High) (AA)",
+      "decision/d1.2 (Vals ClaimBench, excluded)",
+      "decision/d1.2-ultra (Vals ClaimBench, excluded)",
+      "tencent/hy4-flash (Vals)"
+    ],
+    "announcementPageNote": "https://openai.com/index/introducing-gpt-6-2-astra-sol/ rendered \"500 Internal Server Error\" twice in Playwright; date taken from the openai.com/news listing."
+  },
+  "renderedVisualCounts": {
+    "artificialAnalysisCatalogTotal": 758,
+    "livebenchV2": 38,
+    "livebenchV1IncludeFinetunes": 65,
+    "deepsweAll": 28,
+    "frontierCodeV2Best": 34,
+    "frontierCodeV2All": 135,
+    "frontierCodeTopTenMatched": true,
+    "maxxbench": 17,
+    "scaleSweAtlasOverall": 29,
+    "surge": {
+      "chartography": 42,
+      "complex-constraints": 16,
+      "corecraft": 55,
+      "riemann": 21,
+      "dayjob-finance": 40,
+      "dayjob-healthcare": 38,
+      "dayjob-tax": 16,
+      "gdp-xlsx": 20
+    },
+    "files": [
+      "artifacts/research/2026-11-18-benchmark-check/rendered/primary/primary-counts.json",
+      "artifacts/research/2026-11-18-benchmark-check/rendered/surge/surge-counts.json",
+      "artifacts/research/2026-11-18-benchmark-check/rendered/scale/visual-check.json",
+      "artifacts/research/2026-11-18-benchmark-check/rendered/remaining/remaining-counts.json"
+    ]
+  },
+  "activeSourceChangesSummary": {
+    "sourcesWithContentChanges": [
+      "artificial-analysis",
+      "livebench",
+      "frontier-code",
+      "frontier-swe",
+      "epoch-ai",
+      "arc-prize",
+      "zapier-automationbench",
+      "vals-ai"
+    ],
+    "refreshDiffFile": "artifacts/research/2026-11-18-benchmark-check/refresh/rerun-diff.json",
+    "firstPassDiffFile": "artifacts/research/2026-11-18-benchmark-check/refresh/refresh-diff.json",
+    "gpt62RowsFirstPass": 253,
+    "notes": {
+      "epoch-ai": "5 new GPT-6.2 Astra rows; 240 ECI (excluded) values re-estimated; remaining ID churn is row renumbering",
+      "zapier-automationbench": "10 GPT-6.2 rows; existing rows renumbered by rank, values unchanged",
+      "artificial-analysis": "GPT-6.2 Astra/Sol (5 efforts each), A.X-K2, Inkling Small (High), new critpt-v2/aa-briefcase rows for existing models; contextWindowTokens metadata flips with identical values; removed Command A+, EXAONE 4.5 33B (Reasoning), Step 5 Preview (unmapped)",
+      "frontier-swe": "Gemini 4 Hydrogen 53.0654 -> 53.1130, Inkling 2 Small 25.0518 -> 25.0696"
+    }
+  },
+  "nonActiveUpstreamChanges": [
+    {
+      "source": "Epoch benchmarks hub",
+      "url": "https://epoch.ai/benchmarks",
+      "change": "Top ECI now GPT-6.2 Astra (174); 429 models tracked (+1). benchmarks.csv +14 GPT-6.2 Astra (max) runs incl. FrontierMath, MirrorCode, SpireClimb."
+    },
+    {
+      "source": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/changelog",
+      "change": "New evaluations: JoyAI-VL-Preview, LFM3-1.7B, LFM3-VL-2B, Inkling (High), Inkling Small (High), Astra for Law 6.2 (Max); AA marks GPT-6 Astra and GPT-6.1 Sol deprecated in its releases catalog (flag not consumed by our catalog)."
+    },
+    {
+      "source": "Vals AI",
+      "url": "https://www.vals.ai/benchmarks",
+      "change": "Model counts updated across indexes (as of 2026-11-16); new models d1.2, d1.2-ultra (ClaimBench), Hy4 Flash."
+    },
+    {
+      "source": "Fireworks Specialized Intelligence Index",
+      "url": "https://fireworks.ai/specialized-intelligence-index/api/index.json",
+      "change": "MiniMax M3.1 Flash added across 18 benchmarks; Gemini 4 Carbon/Hydrogen added to Enterprise Tool Use and Big Finance."
+    },
+    {
+      "source": "Scale leaderboard",
+      "url": "https://scale.com/leaderboard",
+      "change": "AudioMultiChallenge rank 2 renamed salesforce-launa-omni-1 -> salesforce-sov-omni-1."
+    },
+    {
+      "source": "Hugging Face VIALS dataset",
+      "url": "https://huggingface.co/datasets/Handshake-AI-Research/VIALS",
+      "change": "Description retitled \"ATLAS - Visual Life Sciences (VIALS)\"."
+    }
+  ],
+  "discoveryNotes": "artifacts/research/2026-11-18-benchmark-check/web/discovery-notes.md"
+}

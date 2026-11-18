@@ -1639,6 +1639,15 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
       `model catalog is missing profiles: ${missingProfiles.join(', ')}`,
     );
   }
+  // Evidence keeps every result for audit, but only profiles with comparison
+  // or preset results are published. A result whose effort has no published
+  // profile (e.g. only excluded or quality-excluded measurements) stays under
+  // its model without one.
+  const productEvidence = evidence.map((row) => {
+    const { profileId } = row.model;
+    if (profileId === null || catalogProfileIds.has(profileId)) return row;
+    return { ...row, model: { ...row.model, profileId: null } };
+  });
 
   // Cost points carry the performance of the DEFAULT preset. A cost chart row
   // has one score, and the default preset is the one the app opens on.
@@ -1702,7 +1711,7 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     defaultPresetId: defaultPreset.id,
     presets,
     costs,
-    evidence,
+    evidence: productEvidence,
     comparisonEvidenceIds: comparisonResults.map(({ id }) => id).toSorted(),
     ...(input.benchmarkQuality
       ? { benchmarkQuality: input.benchmarkQuality }

@@ -153,6 +153,24 @@
       "profilePricing": {}
     },
     {
+      "modelId": "openai-gpt-6-2-astra",
+      "providerId": "openai",
+      "displayName": "GPT-6.2 Astra",
+      "aliases": ["gpt-6.2-astra", "gpt-6-2-astra", "openai/gpt-6.2-astra"],
+      "releaseDate": "2026-11-17",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-6-2-sol",
+      "providerId": "openai",
+      "displayName": "GPT-6.2 Sol",
+      "aliases": ["gpt-6.2-sol", "gpt-6-2-sol", "openai/gpt-6.2-sol"],
+      "releaseDate": "2026-11-17",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "openai-gpt-6-1-terra",
       "providerId": "openai",
       "displayName": "GPT-6.1 Terra",

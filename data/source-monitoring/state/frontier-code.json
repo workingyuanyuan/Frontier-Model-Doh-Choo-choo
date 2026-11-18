@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-17T04:51:46.035Z",
+  "checkedAt": "2026-11-18T05:08:36.172Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -246,7 +246,7 @@
       {
         "id": "frontier-code-2-0",
         "includedRetainedRows": 0,
-        "includedRows": 125,
+        "includedRows": 135,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
@@ -267,6 +267,8 @@
           "openai-gpt-5-5",
           "openai-gpt-5-6-sol",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -354,6 +356,16 @@
           "[\"GPT-6.1 Sol\",\"max\",null,\"codex\",null,null,null,null]",
           "[\"GPT-6.1 Sol\",\"medium\",null,\"codex\",null,null,null,null]",
           "[\"GPT-6.1 Sol\",\"xhigh\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Astra\",\"high\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Astra\",\"low\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Astra\",\"max\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Astra\",\"medium\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Astra\",\"xhigh\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Sol\",\"high\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Sol\",\"low\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Sol\",\"max\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Sol\",\"medium\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.2 Sol\",\"xhigh\",null,\"codex\",null,null,null,null]",
           "[\"Gemini 4 Argon\",\"high\",null,\"devin-cli\",null,null,null,null]",
           "[\"Gemini 4 Argon\",\"low\",null,\"devin-cli\",null,null,null,null]",
           "[\"Gemini 4 Argon\",\"medium\",null,\"devin-cli\",null,null,null,null]",
@@ -419,6 +431,8 @@
           "GPT-6 Luna",
           "GPT-6 Sol",
           "GPT-6.1 Sol",
+          "GPT-6.2 Astra",
+          "GPT-6.2 Sol",
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
           "Gemini 4 Hydrogen",
@@ -435,12 +449,12 @@
           "SWE-2",
           "SWE-2 Flash"
         ],
-        "rows": 125,
+        "rows": 135,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-17T04:40:34.956Z",
+    "observedAt": "2026-11-18T05:08:35.889Z",
     "sourceId": "frontier-code"
   }
 }

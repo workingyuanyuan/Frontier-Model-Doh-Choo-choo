@@ -2,7 +2,7 @@
 
 - Source https://maxxbench.unlap.ai/
 - Evidence `sha256:7366c909a9cf0d1f26ac074f900d4e1ce843652fb7a3257f057b1a51845713b4`
-- Observed 2026-11-17T04:40:30.259Z
+- Observed 2026-11-18T04:57:27.644Z
 - Visible leaderboard configurations 17
 - Embedded configurations 18
 - Materialized costs 17

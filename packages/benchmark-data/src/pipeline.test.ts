@@ -617,6 +617,40 @@ describe('buildProduct', () => {
       product.presets[0]!.leaderboard.map((row) => row.profileId),
     ).not.toContain('openai-gpt-5-6-sol-low');
   });
+  it('detaches an excluded result whose effort has no scored profile', () => {
+    const scored = makeCandidate({ id: 'scored' });
+    const unscored = makeCandidate({
+      id: 'unscored-effort',
+      inclusion: 'EXCLUDED',
+      exclusionReason: 'Not comparable',
+      model: { ...scored.model, profileId: 'openai-gpt-5-6-sol-low' },
+      profile: { ...scored.profile, effort: 'low' },
+    });
+    const candidates = [scored, unscored];
+    const catalog: ModelCatalog = {
+      schemaVersion: 'model-catalog-v1',
+      models: [],
+    };
+    const product = buildProduct({
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: ['test:snapshot'],
+      candidates,
+      profiles: deriveModelProfiles(candidates, catalog),
+      catalog,
+      manualModels: [{ modelId: 'openai-gpt-5-6-sol', reason: 'Fixture' }],
+      benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
+      displaySet: displaySetFor(['terminal-bench-2-1']),
+    });
+    const profileIds = new Set(product.profiles.map(({ id }) => id));
+    expect(profileIds.has('openai-gpt-5-6-sol-low')).toBe(false);
+    const detached = product.evidence.find(
+      ({ id }) => id === 'unscored-effort',
+    );
+    expect(detached?.model).toMatchObject({
+      canonicalModelId: scored.model.canonicalModelId,
+      profileId: null,
+    });
+  });
   it('selects the frontier from qualified models in catalog and scores from direct evidence', () => {
     const catalog: ModelCatalog = {
       schemaVersion: 'model-catalog-v1',
