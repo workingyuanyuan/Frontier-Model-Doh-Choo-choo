@@ -5041,7 +5041,7 @@
       ]
     },
     {
-      "id": "aa-frontier",
+      "id": "aa-top-8",
       "targetModelCount": 8,
       "modelIds": [
         "anthropic-claude-fable-5-2",

@@ -16,7 +16,7 @@ const row = (modelId, rank, overallScore, profileId = `${modelId}-max`) => ({
 
 const product = (versionId, leaderboard, benchmarkIds, frontier) => ({
   versionId,
-  defaultPresetId: 'aa-frontier',
+  defaultPresetId: 'aa-top-8',
   profiles: leaderboard.map(({ profileId }) => ({ id: profileId })),
   evidence: [],
   costs: [],
@@ -25,20 +25,18 @@ const product = (versionId, leaderboard, benchmarkIds, frontier) => ({
     modelId,
     externalCompositeScores: { 'artificial-analysis': 60 - index },
   })),
-  presets: [
-    { id: 'aa-frontier', targetModelCount: 8, benchmarkIds, leaderboard },
-  ],
+  presets: [{ id: 'aa-top-8', targetModelCount: 8, benchmarkIds, leaderboard }],
 });
 
 test('preset diff separates entries, exits and rank changes', () => {
   const diff = diffPreset(
     {
-      id: 'aa-frontier',
+      id: 'aa-top-8',
       benchmarkIds: ['a', 'b'],
       leaderboard: [row('m1', 1, 70), row('m2', 2, 65)],
     },
     {
-      id: 'aa-frontier',
+      id: 'aa-top-8',
       benchmarkIds: ['a', 'c'],
       leaderboard: [row('m3', 1, 72), row('m1', 2, 69.5, 'm1-xhigh')],
     },
@@ -100,7 +98,7 @@ test('release markdown lists versions, frontier and inferences', () => {
   assert.match(markdown, /\| 3 \| m3 \| 55\.8 \| vals-ai \|/u);
   assert.match(markdown, /\| 1 \| m1 \| 60 \| m2 \| 60 \|/u);
   assert.match(markdown, /m2 \(new\)/u);
-  assert.match(markdown, /\| 8 \| `aa-frontier` \(default\) \| 1 → 1 \|/u);
+  assert.match(markdown, /\| 8 \| `aa-top-8` \(default\) \| 1 → 1 \|/u);
   assert.match(
     markdown,
     /\| m2 \| a \| epoch-ai \| max \| arc-prize: arc:x \|/u,
