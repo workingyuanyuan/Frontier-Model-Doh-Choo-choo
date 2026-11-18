@@ -442,7 +442,8 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
     const leaderboardSorts = html.match(/data-leaderboard-sort/g) ?? [];
 
-    expect(leaderboardSorts.length).toBe(8);
+    expect(leaderboardSorts.length).toBe(9);
+    expect(html).toContain('Sort by Weighted cost index');
     expect(html).toContain('aria-sort="descending"');
     expect(html).toContain('Sort by Model');
   });

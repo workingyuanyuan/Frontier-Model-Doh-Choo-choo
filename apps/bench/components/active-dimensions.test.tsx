@@ -3,10 +3,8 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import {
-  COPIED_COST_INDEX_HEADING,
-  leaderboardMarkdown,
-} from '../lib/leaderboard-markdown';
+import { COST_INDEX_HEADING } from '../lib/cost-labels';
+import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
@@ -71,7 +69,7 @@ describe('active comparison dimensions', () => {
       expect(radar.match(/class="radar-axis"/g)).toHaveLength(
         dimensions.length,
       );
-      expect(table).toContain(`colSpan="${3 + dimensions.length}"`);
+      expect(table).toContain(`colSpan="${4 + dimensions.length}"`);
       expect(table.match(/data-dimension-group=/g)).toHaveLength(
         dimensions.length,
       );
@@ -112,7 +110,7 @@ describe('active comparison dimensions', () => {
     expect(radar).not.toContain('class="dimension-bar-row"');
     expect(markdown).toBe(
       [
-        `| Model | Reasoning Effort | Overall | ${COPIED_COST_INDEX_HEADING} |`,
+        `| Model | Reasoning Effort | Overall | ${COST_INDEX_HEADING} |`,
         '| --- | --- | --- | --- |',
       ].join('\n'),
     );

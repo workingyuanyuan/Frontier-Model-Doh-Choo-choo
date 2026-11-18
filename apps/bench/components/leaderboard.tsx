@@ -36,7 +36,7 @@ export type LeaderboardProps = {
   initialExpandedModelIds?: string[] | undefined;
   developerMode: boolean;
   pickerProduct?: PresetProductVersion;
-  /** The product the cost chart plots; its index is what the copied table quotes. */
+  /** The product the cost chart plots; the table quotes its index. */
   costProduct?: PresetProductVersion;
   onResetModels?: () => void;
   selectedProfiles?: Record<string, string>;
@@ -135,9 +135,27 @@ export function Leaderboard({
   useEffect(() => {
     if (effectiveSort !== sort) setSort(effectiveSort);
   }, [effectiveSort, sort]);
+  // The index of the profiles the cost chart plots. A row at another effort
+  // has none of its own and reads N/A.
+  const costIndexByProfile = useMemo(
+    () =>
+      new Map(
+        buildWeightedCostCurve(costProduct ?? product).map((point) => [
+          point.profileId,
+          point.normalizedCost,
+        ]),
+      ),
+    [costProduct, product],
+  );
   const sortedRows = useMemo(
-    () => sortLeaderboardRows(product, activeRows, effectiveSort),
-    [activeRows, product, effectiveSort],
+    () =>
+      sortLeaderboardRows(
+        product,
+        activeRows,
+        effectiveSort,
+        costIndexByProfile,
+      ),
+    [activeRows, product, effectiveSort, costIndexByProfile],
   );
 
   const onSort = (key: LeaderboardSortKey) =>
@@ -203,15 +221,7 @@ export function Leaderboard({
               <CopyMarkdownButton
                 label="Copy table as Markdown"
                 markdown={() =>
-                  leaderboardMarkdown(
-                    product,
-                    sortedRows,
-                    new Map(
-                      buildWeightedCostCurve(costProduct ?? product).map(
-                        (point) => [point.profileId, point.normalizedCost],
-                      ),
-                    ),
-                  )
+                  leaderboardMarkdown(product, sortedRows, costIndexByProfile)
                 }
               />
             </div>
@@ -225,6 +235,7 @@ export function Leaderboard({
           sort={effectiveSort}
           onSort={onSort}
           heatMap={heatMap}
+          costIndexByProfile={costIndexByProfile}
           modelProfiles={modelProfiles}
           onProfileChange={handleProfileChange}
           benchmarkDimensions={benchmarkDimensions}

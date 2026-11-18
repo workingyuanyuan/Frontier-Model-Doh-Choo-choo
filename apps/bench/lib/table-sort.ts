@@ -5,7 +5,8 @@ import { UI_DIMENSION_IDS } from './ui-contract';
 import { type LeaderboardRow } from './view-model';
 
 export type SortDirection = 'ascending' | 'descending';
-export type LeaderboardSortKey = 'rank' | 'model' | 'overall' | DimensionId;
+export type LeaderboardSortKey =
+  'rank' | 'model' | 'overall' | 'cost' | DimensionId;
 export type EvidenceSortKey =
   'benchmark' | 'profile' | 'score' | 'source' | 'acquisition' | 'decision';
 
@@ -28,6 +29,7 @@ export const sortLeaderboardRows = (
   product: ProductVersion,
   rows: LeaderboardRow[],
   sort: { key: LeaderboardSortKey; direction: SortDirection },
+  costIndexByProfile: ReadonlyMap<string, number> = new Map(),
 ): LeaderboardRow[] => {
   const profileNames = new Map(
     product.profiles.map((profile) => [profile.id, profile.baseModelName]),
@@ -51,6 +53,13 @@ export const sortLeaderboardRows = (
       result = compareNullable(
         a.overallScore,
         b.overallScore,
+        (x, y) => x - y,
+        sign,
+      );
+    } else if (sort.key === 'cost') {
+      result = compareNullable(
+        costIndexByProfile.get(a.profileId),
+        costIndexByProfile.get(b.profileId),
         (x, y) => x - y,
         sign,
       );

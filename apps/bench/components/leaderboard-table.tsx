@@ -11,9 +11,9 @@ import {
   type ProductPreset,
   type PresetProductVersion,
 } from '../lib/view-model';
+import { COST_INDEX_HEADING } from '../lib/cost-labels';
 import {
   UI_DIMENSION_ABBREVIATIONS,
-  UI_DIMENSION_NAMES,
   getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { useHydrated } from '../lib/use-hydrated';
@@ -29,6 +29,7 @@ export function LeaderboardTable({
   sort,
   onSort,
   heatMap,
+  costIndexByProfile = new Map(),
   modelProfiles,
   onProfileChange,
   benchmarkDimensions,
@@ -47,6 +48,8 @@ export function LeaderboardTable({
   sort: { key: LeaderboardSortKey; direction: SortDirection };
   onSort: (key: LeaderboardSortKey) => void;
   heatMap: HeatMap;
+  /** Weighted cost index of the profiles the cost chart plots. */
+  costIndexByProfile?: ReadonlyMap<string, number>;
   modelProfiles: Record<string, string>;
   onProfileChange: (modelId: string, profileId: string) => void;
   benchmarkDimensions: Record<string, DimensionId>;
@@ -73,18 +76,6 @@ export function LeaderboardTable({
       tabIndex={0}
     >
       <table className="leaderboard-table">
-        <caption className="leaderboard-caption">
-          Scores are 0–100; higher is better. Overall is the weighted mean of
-          the dimension scores, and a dimension backed by a single benchmark
-          counts half.{' '}
-          {dimensionIds
-            .map(
-              (dimension) =>
-                `${UI_DIMENSION_ABBREVIATIONS[dimension]} = ${UI_DIMENSION_NAMES[dimension]}`,
-            )
-            .join(' · ')}
-          .
-        </caption>
         <thead>
           <tr>
             <th
@@ -139,6 +130,18 @@ export function LeaderboardTable({
                 />
               </th>
             ))}
+            <th
+              scope="col"
+              aria-sort={sort.key === 'cost' ? sort.direction : 'none'}
+            >
+              <SortHeader
+                label={COST_INDEX_HEADING}
+                sortKey="cost"
+                active={sort.key === 'cost'}
+                direction={sort.direction}
+                onSort={onSort}
+              />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -330,6 +333,11 @@ export function LeaderboardTable({
                       </td>
                     );
                   })}
+                  <td className="cost-cell" data-label={COST_INDEX_HEADING}>
+                    {formatScore(
+                      costIndexByProfile.get(chosenProfileId) ?? null,
+                    )}
+                  </td>
                 </tr>
                 {isExpanded && profile ? (
                   <tr
@@ -337,7 +345,7 @@ export function LeaderboardTable({
                     data-model-detail={row.modelId}
                   >
                     <td
-                      colSpan={3 + dimensionIds.length}
+                      colSpan={4 + dimensionIds.length}
                       className="leaderboard-expansion-cell"
                     >
                       <ModelDetailPanel
