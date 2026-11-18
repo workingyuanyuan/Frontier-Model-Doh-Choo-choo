@@ -30,8 +30,9 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
       ...dimensions,
       'Weighted cost index',
     ];
-    const expectedRows = await page.locator('[data-ranked-row]').evaluateAll(
-      (rows) =>
+    const expectedRows = await page
+      .locator('[data-ranked-row]')
+      .evaluateAll((rows) =>
         rows.map((row) => {
           const model = row.querySelector('strong')!.textContent!.trim();
           const effort =
@@ -45,7 +46,7 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
             .map((cell) => cell.textContent!.trim());
           return `| ${[model, effort, ...scores].join(' | ')} |`;
         }),
-    );
+      );
     await copy.click();
     await expect(
       page.getByRole('status').filter({ hasText: 'Copied!' }),
