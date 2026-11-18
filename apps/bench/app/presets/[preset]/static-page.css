@@ -78,9 +78,3 @@
 .static-page .table-scroll {
   max-height: none;
 }
-
-.static-sources {
-  display: grid;
-  gap: 0.2rem;
-  white-space: nowrap;
-}

@@ -122,7 +122,8 @@ Dashboard 首頁只帶預設集合的畫面，其他集合與互動功能需要�
   - 網址帶 `?v=<versionId>`，避免新版頁面配到瀏覽器快取的舊版資料。
   - 接手互動後 `<html>` 帶 `data-dashboard="interactive"`。e2e 的 `page.goto`（`apps/bench/e2e/test.ts`）等這個標記才返回，用瀏覽器操作頁面的代理也可以等它；`llms.txt` 寫明了這點。
 - **首頁的 HTML 要能直接轉成文字**：抓取工具會把 HTML 轉成 Markdown，因此標記遵守下列規則。
-  - 表格格子裡只放行內元素（清單或區塊會讓表格斷行），多筆資料以 `; ` 分隔。
+  - 表格格子裡只放行內元素（清單或區塊會讓表格斷行）；一格有多筆資料時改成一筆一列，例如成本明細的「Task cost by source」。
+  - 圖表刻度前有不顯示的 `<desc>` 標明所屬的軸。
   - 下拉選單在 React 接手前只輸出目前選取的選項（`apps/bench/lib/use-hydrated.ts`），其餘選項接手後才出現；選單名稱寫在 `aria-label`。
   - 只有圖示的按鈕以 `data-glyph` 由 CSS 繪製，文字只留在 `aria-label`。
   - 相鄰的行內元素之間、SVG 文字結尾都留空白，轉成文字後才不會黏在一起。

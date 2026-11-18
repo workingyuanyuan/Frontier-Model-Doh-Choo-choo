@@ -62,21 +62,36 @@ const SCORE_NOTE =
 export const LEADERBOARD_NOTE =
   'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half.';
 
+export const COST_SOURCES_TITLE = 'Task costs by source';
+export const COST_SOURCES_NOTE =
+  'One row per source behind a cost index. The paired score is the score that source published with the cost, on its own scale; it is not the Overall.';
+export const COST_SOURCE_HEADERS = [
+  'Model',
+  'Source',
+  'Task cost (USD)',
+  'Paired score',
+];
+
 export const dimensionHeading = (dimension: DimensionId): string =>
   `${UI_DIMENSION_NAMES[dimension]} (${UI_DIMENSION_ABBREVIATIONS[dimension]})`;
 
-/** "DeepSWE · OpenAI (vendor) $1.234 (DeepSWE 1.1 62.0)". */
-export const costSourceNote = (source: PresetCostSource): string =>
-  `${costSourceName({
+/** Name, USD task cost and paired score of one source, as every format prints them. */
+export const costSourceCells = (
+  source: PresetCostSource,
+): [name: string, usd: string, pairedScore: string] => [
+  costSourceName({
     sourceId: source.sourceId,
     ...(source.reportedBySourceId
       ? { reportedSourceId: source.reportedBySourceId }
       : {}),
-  })} $${source.usdPerTask.toFixed(3)} (${scoreBasisNote(
+  }),
+  `$${source.usdPerTask.toFixed(3)}`,
+  scoreBasisNote(
     source.pairedScore?.basis ?? 'NONE',
     source.pairedScore?.score ?? null,
     source.pairedScore?.benchmarkVersion,
-  )})`;
+  ),
+];
 
 /** Every preset's projection, in product order. */
 export const projectPresets = (
@@ -127,7 +142,6 @@ export const presetMarkdown = (
           'Overall',
           'Cost sources',
           'On value frontier',
-          'Task cost in USD by source (paired score)',
         ],
         projection.costs.map((row) => [
           escapeCell(row.displayName),
@@ -136,12 +150,23 @@ export const presetMarkdown = (
           row.overallScore.toFixed(1),
           `${row.sourceCount} of ${projection.weightedCostSourceCount}`,
           row.onValueFrontier ? 'yes' : 'no',
-          row.sources
-            .map((source) => escapeCell(costSourceNote(source)))
-            .join('; '),
         ]),
       )
     : 'No model in this preset has a comparable task cost.';
+  const costSources = table(
+    COST_SOURCE_HEADERS,
+    projection.costs.flatMap((row) =>
+      row.sources.map((source) => {
+        const [name, usd, pairedScore] = costSourceCells(source);
+        return [
+          escapeCell(row.displayName),
+          `[${escapeCell(name)}](${source.sourceUrl})`,
+          usd,
+          escapeCell(pairedScore),
+        ];
+      }),
+    ),
+  );
 
   const benchmarks = table(
     ['Benchmark ID', 'Dimension'],
@@ -175,6 +200,9 @@ export const presetMarkdown = (
     '',
     costs,
     '',
+    ...(projection.costs.length
+      ? [`## ${COST_SOURCES_TITLE}`, '', COST_SOURCES_NOTE, '', costSources, '']
+      : []),
     '## Benchmarks scored in this preset',
     '',
     benchmarks,
@@ -511,7 +539,11 @@ export const methodologyMarkdown = (
     '',
     '- A preset scores only the benchmarks that every model in it has a valid result for, so all rows are compared on the same tests.',
     '- A result counts when it is included, finite, and normalized to 0–100. External composite indices are not scored.',
-    `- Excluded from scoring by the quality policy (reviewed ${quality?.reviewedAt ?? 'unknown'}): ${ids(quality?.excludedBenchmarkIds ?? [])}.`,
+    `- Excluded from scoring by the quality policy (reviewed ${quality?.reviewedAt ?? 'unknown'}): ${ids(quality?.excludedBenchmarkIds ?? [])}.${
+      quality?.evidencePath
+        ? ` The [review record](${REPOSITORY_URL}/blob/main/${quality.evidencePath}) gives the reason for each exclusion, including the benchmark that supersedes it where there is one.`
+        : ''
+    }`,
     `- Benchmark IDs are exact. A benchmark with a similar name is a separate benchmark and the list above does not cover it${similarlyNamed.length ? `: ${similarlyNamed.join('; ')}` : ''}.`,
     `- Limited benchmarks (${ids(quality?.limitedBenchmarkIds ?? [])}) are kept only when the same dimension also has at least ${quality?.minOtherBenchmarksPerLimited ?? 'unknown'} unrestricted benchmarks.`,
     '- The main table lists a profile only when it has every benchmark of the preset and a score in every displayed dimension.',

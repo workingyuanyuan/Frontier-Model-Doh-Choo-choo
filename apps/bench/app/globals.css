@@ -2424,7 +2424,6 @@ details[open] > .evidence-group-summary::before {
 
 .cost-source-table {
   margin-top: 0.75rem;
-  min-width: 52rem;
 }
 
 .cost-source-table th,
@@ -2440,31 +2439,32 @@ details[open] > .evidence-group-summary::before {
   max-width: 62rem;
 }
 
-.cost-source-list {
-  display: grid;
-  gap: 0.2rem;
+.cost-source-rows {
+  margin-top: 1.25rem;
 }
 
-.cost-source-item {
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: 13rem 4rem minmax(0, 1fr);
+.cost-source-table caption,
+.cost-source-rows caption {
+  color: var(--ink-soft);
+  font-weight: 650;
+  padding: 0 0.75rem 0.35rem;
+  text-align: left;
 }
 
-.cost-source-list a {
+/* Kept on one line each; a narrow screen scrolls the table sideways. */
+.cost-source-rows th,
+.cost-source-rows td {
+  padding-inline: 0.75rem;
   white-space: nowrap;
 }
 
-.cost-source-value {
-  font-variant-numeric: tabular-nums;
-  text-align: right;
+/* Rows of one model read as a block. */
+.cost-source-rows tbody tr:not([data-group-start]) th {
+  color: var(--ink-faint);
+  font-weight: 400;
 }
 
-.cost-source-basis {
-  color: var(--ink-soft);
-}
-
-.cost-source-basis.is-cost-only {
+.cost-source-rows .is-cost-only {
   color: var(--ink-faint);
   font-style: italic;
 }

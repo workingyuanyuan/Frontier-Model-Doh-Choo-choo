@@ -201,6 +201,8 @@ function CostPlotAxes({
 }) {
   return (
     <>
+      {/* Not drawn; tells a reader of the text which axis the numbers are on. */}
+      <desc>{`${scoreLabel} axis: `}</desc>
       {yDomain.ticks.map((tick) => (
         <g key={`${keyPrefix}y-${tick}`}>
           <line
@@ -220,6 +222,7 @@ function CostPlotAxes({
           </text>
         </g>
       ))}
+      <desc>Cost axis: </desc>
       {xDomain.ticks.map((tick) => (
         <g key={`${keyPrefix}x-${tick}`}>
           <line
@@ -797,6 +800,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
           <summary>Source breakdown</summary>
           <p className="cost-source-note">{COST_NOTE}</p>
           <table className="diagnostics-table cost-source-table">
+            <caption>Cost index by model</caption>
             <thead>
               <tr>
                 <th scope="col">Model</th>
@@ -809,7 +813,6 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 <th scope="col" className="diagnostics-num">
                   Sources
                 </th>
-                <th scope="col">Task cost in USD (paired score)</th>
               </tr>
             </thead>
             <tbody>
@@ -828,38 +831,54 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                   >
                     {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
                   </td>
-                  <td>
-                    {/* Inline, so the table survives conversion to text. */}
-                    <span className="cost-source-list">
-                      {point.sourceCosts.map((source, index) => (
-                        <span
-                          className="cost-source-item"
-                          key={source.sourceId}
-                        >
-                          <a href={source.sourceUrl}>
-                            {costSourceName(source)}
-                          </a>{' '}
-                          <span className="cost-source-value">
-                            ${source.cost.toFixed(3)}
-                          </span>{' '}
-                          <span
-                            className={`cost-source-basis${source.scoreBasis === 'NONE' || source.sourceScore === null ? ' is-cost-only' : ''}`}
-                          >
-                            {`(${scoreBasisNote(
-                              source.scoreBasis,
-                              source.sourceScore,
-                              source.scoreBenchmarkVersion,
-                            )})`}
-                          </span>
-                          {index < point.sourceCosts.length - 1 ? (
-                            <span className="sr-only">; </span>
-                          ) : null}
-                        </span>
-                      ))}
-                    </span>
-                  </td>
                 </tr>
               ))}
+            </tbody>
+          </table>
+          {/* One row per source: a cell with several sources is hard to read as text. */}
+          <table className="diagnostics-table cost-source-rows">
+            <caption>Task cost by source</caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Source</th>
+                <th scope="col" className="diagnostics-num">
+                  Task cost (USD)
+                </th>
+                <th scope="col">Paired score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {points.flatMap((point) =>
+                point.sourceCosts.map((source, index) => (
+                  <tr
+                    key={`${point.modelId}:${source.sourceId}`}
+                    data-group-start={index === 0 || undefined}
+                  >
+                    <th scope="row">{point.displayName}</th>
+                    <td>
+                      <a href={source.sourceUrl}>{costSourceName(source)}</a>
+                    </td>
+                    <td className="diagnostics-num">
+                      ${source.cost.toFixed(3)}
+                    </td>
+                    <td
+                      className={
+                        source.scoreBasis === 'NONE' ||
+                        source.sourceScore === null
+                          ? 'is-cost-only'
+                          : undefined
+                      }
+                    >
+                      {scoreBasisNote(
+                        source.scoreBasis,
+                        source.sourceScore,
+                        source.scoreBenchmarkVersion,
+                      )}
+                    </td>
+                  </tr>
+                )),
+              )}
             </tbody>
           </table>
         </details>

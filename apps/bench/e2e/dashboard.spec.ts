@@ -366,15 +366,18 @@ test('every cost point discloses its source count and each source score basis', 
 
   // No source may contribute an unnamed, floating average. LiveBench is in
   // the weight table but has no pairable score, and must say so.
-  const rows = page.locator('.cost-chart-data tbody tr');
+  const rows = page.locator('.cost-source-rows tbody tr');
   const contributions = await rows.evaluateAll((elements) =>
-    elements.map((element) => element.lastElementChild?.textContent ?? ''),
+    elements.map((element) => ({
+      source: element.children[1]?.textContent ?? '',
+      basis: element.lastElementChild?.textContent ?? '',
+    })),
   );
   expect(contributions.length).toBeGreaterThan(0);
-  contributions.forEach((text) => {
-    expect(text).not.toBe('');
-    if (text.includes('LiveBench')) {
-      expect(text).toContain('cost only, no pairable score');
+  contributions.forEach(({ source, basis }) => {
+    expect(basis).not.toBe('');
+    if (source.includes('LiveBench')) {
+      expect(basis).toBe('cost only, no pairable score');
     }
   });
 });

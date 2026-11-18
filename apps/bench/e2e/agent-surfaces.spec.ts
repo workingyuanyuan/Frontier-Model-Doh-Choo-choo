@@ -71,6 +71,7 @@ interface PublishedPreset {
     displayName: string;
     costIndex: number;
     onValueFrontier: boolean;
+    sources: Array<{ usdPerTask: number }>;
   }>;
 }
 
@@ -124,6 +125,15 @@ test('the plain HTML of the dashboard names only the effort each row shows', asy
     await context.close();
   }
 });
+
+/** One row per source of a model: the model and the USD task cost. */
+const costSourceCells = (preset: PublishedPreset): string[][] =>
+  preset.costs.flatMap((row) =>
+    row.sources.map((source) => [
+      row.displayName,
+      '$' + source.usdPerTask.toFixed(3),
+    ]),
+  );
 
 /** Cells of the Markdown table under a heading, up to the next heading. */
 const markdownTable = (markdown: string, heading: string): string[][] => {
@@ -200,6 +210,19 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
       (await tableCells('costs')).map((row) => [row[0], row[2], row[5]]),
       `${entry.id} HTML costs`,
     ).toEqual(costs);
+
+    const sources = costSourceCells(preset);
+    expect(
+      markdownTable(markdown, '## Task costs by source').map((row) => [
+        row[0],
+        row[2],
+      ]),
+      `${entry.id} Markdown cost sources`,
+    ).toEqual(sources);
+    expect(
+      (await tableCells('cost-sources')).map((row) => [row[0], row[2]]),
+      `${entry.id} HTML cost sources`,
+    ).toEqual(sources);
   }
   await context.close();
 });
@@ -256,8 +279,19 @@ test('the dashboard shows what the published files state', async ({
         ),
       `${id} costs`,
     ).toEqual(costCells(preset).map((cells) => cells.slice(0, 2)));
+    expect(
+      await page
+        .locator('.cost-source-rows tbody tr')
+        .evaluateAll((elements) =>
+          elements.map((row) => [
+            row.children[0]!.textContent!.trim(),
+            row.children[2]!.textContent!.trim(),
+          ]),
+        ),
+      `${id} cost sources`,
+    ).toEqual(costSourceCells(preset));
     await expect(
-      page.locator('.cost-source-table').locator(blocksInCells),
+      page.locator('.cost-chart-data').locator(blocksInCells),
     ).toHaveCount(0);
   }
 });

@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 
 import {
+  COST_SOURCES_NOTE,
+  COST_SOURCES_TITLE,
+  COST_SOURCE_HEADERS,
   LEADERBOARD_NOTE,
-  costSourceNote,
+  costSourceCells,
   dimensionHeading,
   projectPresets,
 } from '../../../lib/agent-surfaces';
@@ -155,9 +158,6 @@ export default async function PresetPage({ params }: Props) {
                     <th scope="col">Overall</th>
                     <th scope="col">Cost sources</th>
                     <th scope="col">On value frontier</th>
-                    <th scope="col">
-                      Task cost in USD by source (paired score)
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -172,21 +172,6 @@ export default async function PresetPage({ params }: Props) {
                         {projection.weightedCostSourceCount}
                       </td>
                       <td>{row.onValueFrontier ? 'yes' : 'no'}</td>
-                      <td>
-                        {/* Inline, so the table survives conversion to text. */}
-                        <span className="static-sources">
-                          {row.sources.map((source, index) => (
-                            <span key={source.sourceId}>
-                              <a href={source.sourceUrl}>
-                                {costSourceNote(source)}
-                              </a>
-                              {index < row.sources.length - 1 ? (
-                                <span className="sr-only">; </span>
-                              ) : null}
-                            </span>
-                          ))}
-                        </span>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -196,6 +181,43 @@ export default async function PresetPage({ params }: Props) {
             <p>No model in this preset has a comparable task cost.</p>
           )}
         </section>
+
+        {projection.costs.length ? (
+          <section className="panel static-panel" aria-labelledby="sources">
+            <h2 id="sources">{COST_SOURCES_TITLE}</h2>
+            <p>{COST_SOURCES_NOTE}</p>
+            <div className="table-scroll">
+              <table className="static-table" data-static-table="cost-sources">
+                <thead>
+                  <tr>
+                    {COST_SOURCE_HEADERS.map((header) => (
+                      <th key={header} scope="col">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {projection.costs.flatMap((row) =>
+                    row.sources.map((source) => {
+                      const [name, usd, pairedScore] = costSourceCells(source);
+                      return (
+                        <tr key={`${row.profileId}:${source.sourceId}`}>
+                          <th scope="row">{row.displayName}</th>
+                          <td>
+                            <a href={source.sourceUrl}>{name}</a>
+                          </td>
+                          <td>{usd}</td>
+                          <td>{pairedScore}</td>
+                        </tr>
+                      );
+                    }),
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ) : null}
 
         <section className="panel static-panel" aria-labelledby="benchmarks">
           <h2 id="benchmarks">Benchmarks scored in this preset</h2>

@@ -236,7 +236,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       // What each of them contributed, named rather than averaged.
       expect(html).toContain('Intelligence Index 61.2');
       expect(html).toContain(
-        '<span class="cost-source-basis is-cost-only">(cost only, no pairable score)</span>',
+        '<td class="is-cost-only">cost only, no pairable score</td>',
       );
       // Anything but inline text in a cell breaks the table for text extraction.
       const cellTags = [...html.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].flatMap(
