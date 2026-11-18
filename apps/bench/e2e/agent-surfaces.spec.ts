@@ -107,8 +107,8 @@ const markdownTable = (markdown: string, heading: string): string[][] => {
     .map((line) => line.slice(2, -2).split(' | '));
 };
 
-// A list or block inside a table cell breaks the table for text extraction.
-const blocksInCells = 'td :is(ul, ol, li, div, p, br)';
+// Anything but inline text in a table cell breaks the table for text extraction.
+const blocksInCells = 'td :not(a, span, strong, code)';
 
 test('every preset reads the same in JSON, Markdown and static HTML', async ({
   browser,

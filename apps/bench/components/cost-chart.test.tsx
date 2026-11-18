@@ -238,9 +238,14 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain(
         '<span class="cost-source-basis is-cost-only">(cost only, no pairable score)</span>',
       );
-      // A list or block inside a cell breaks the table for text extraction.
-      expect(html).not.toMatch(
-        /<td[^>]*>(?:(?!<\/td>).)*<(?:ul|ol|li|div|p|br)\b/,
+      // Anything but inline text in a cell breaks the table for text extraction.
+      const cellTags = [...html.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].flatMap(
+        ([, cell]) =>
+          [...cell!.matchAll(/<([a-z0-9]+)/g)].map(([, tag]) => tag),
+      );
+      expect(cellTags.length).toBeGreaterThan(0);
+      expect(cellTags.filter((tag) => tag !== 'a' && tag !== 'span')).toEqual(
+        [],
       );
     });
 
