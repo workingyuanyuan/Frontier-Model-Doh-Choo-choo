@@ -26,6 +26,7 @@ import {
   type PresetProductVersion,
 } from '../lib/view-model';
 import {
+  COST_NOTE,
   SOURCE_NAMES,
   WEIGHTED_SOURCE_COUNT,
   costSourceName,
@@ -794,6 +795,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
       {points.length > 0 ? (
         <details className="chart-data cost-chart-data">
           <summary>Source breakdown</summary>
+          <p className="cost-source-note">{COST_NOTE}</p>
           <table className="diagnostics-table cost-source-table">
             <thead>
               <tr>
@@ -807,7 +809,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 <th scope="col" className="diagnostics-num">
                   Sources
                 </th>
-                <th scope="col">Task cost · paired score</th>
+                <th scope="col">Task cost in USD (paired score)</th>
               </tr>
             </thead>
             <tbody>
@@ -827,27 +829,34 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                     {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
                   </td>
                   <td>
-                    <ul className="cost-source-list">
-                      {point.sourceCosts.map((source) => (
-                        <li key={source.sourceId}>
+                    {/* Inline, so the table survives conversion to text. */}
+                    <span className="cost-source-list">
+                      {point.sourceCosts.map((source, index) => (
+                        <span
+                          className="cost-source-item"
+                          key={source.sourceId}
+                        >
                           <a href={source.sourceUrl}>
                             {costSourceName(source)}
-                          </a>
+                          </a>{' '}
                           <span className="cost-source-value">
                             ${source.cost.toFixed(3)}
-                          </span>
+                          </span>{' '}
                           <span
                             className={`cost-source-basis${source.scoreBasis === 'NONE' || source.sourceScore === null ? ' is-cost-only' : ''}`}
                           >
-                            {scoreBasisNote(
+                            {`(${scoreBasisNote(
                               source.scoreBasis,
                               source.sourceScore,
                               source.scoreBenchmarkVersion,
-                            )}
+                            )})`}
                           </span>
-                        </li>
+                          {index < point.sourceCosts.length - 1 ? (
+                            <span className="sr-only">; </span>
+                          ) : null}
+                        </span>
                       ))}
-                    </ul>
+                    </span>
                   </td>
                 </tr>
               ))}

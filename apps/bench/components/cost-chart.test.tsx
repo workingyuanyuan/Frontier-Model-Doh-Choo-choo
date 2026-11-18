@@ -236,7 +236,16 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       // What each of them contributed, named rather than averaged.
       expect(html).toContain('Intelligence Index 61.2');
       expect(html).toContain(
-        '<span class="cost-source-basis is-cost-only">cost only, no pairable score</span>',
+        '<span class="cost-source-basis is-cost-only">(cost only, no pairable score)</span>',
+      );
+      // Anything but inline text in a cell breaks the table for text extraction.
+      const cellTags = [...html.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].flatMap(
+        ([, cell]) =>
+          [...cell!.matchAll(/<([a-z0-9]+)/g)].map(([, tag]) => tag),
+      );
+      expect(cellTags.length).toBeGreaterThan(0);
+      expect(cellTags.filter((tag) => tag !== 'a' && tag !== 'span')).toEqual(
+        [],
       );
     });
 

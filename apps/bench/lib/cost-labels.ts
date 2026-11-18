@@ -49,6 +49,10 @@ export const scoreBasisNote = (
     ? SCORE_BASIS_NAMES.NONE
     : `${scoreBasisLabel(basis, version)} ${score.toFixed(1)}`;
 
+/** How to read the cost index; shown wherever the index is published. */
+export const COST_NOTE =
+  'The cost index blends task costs across sources. Within each source, the natural log of the USD task cost is min-max scaled to 0–100 over the costs that source published for the profiles in this preset (every reasoning effort that qualifies for the table, not only the one shown), so the index of a model differs between presets. The sources a model has are then averaged with equal weight. It is a relative position, not a dollar estimate; the per-source USD figures are the published costs. A model is on the value frontier when its Overall is strictly higher than that of every model with the same or a lower cost index.';
+
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 export const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
 

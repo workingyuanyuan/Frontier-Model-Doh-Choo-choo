@@ -107,6 +107,9 @@ const markdownTable = (markdown: string, heading: string): string[][] => {
     .map((line) => line.slice(2, -2).split(' | '));
 };
 
+// Anything but inline text in a table cell breaks the table for text extraction.
+const blocksInCells = 'td :not(a, span, strong, code)';
+
 test('every preset reads the same in JSON, Markdown and static HTML', async ({
   browser,
   request,
@@ -139,6 +142,7 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     expect(preset.versionId, entry.id).toBe(index.versionId);
     expect(markdown, entry.id).toContain(index.versionId);
     await expect(page.locator('footer')).toContainText(index.versionId);
+    await expect(page.locator(blocksInCells)).toHaveCount(0);
     expect(preset.leaderboard.length, entry.id).toBe(entry.modelCount);
 
     const expected = leaderboardCells(preset);
@@ -222,5 +226,8 @@ test('the dashboard shows what the published files state', async ({
         ),
       `${id} costs`,
     ).toEqual(costCells(preset).map((cells) => cells.slice(0, 2)));
+    await expect(
+      page.locator('.cost-source-table').locator(blocksInCells),
+    ).toHaveCount(0);
   }
 });

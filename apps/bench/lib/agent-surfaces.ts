@@ -1,6 +1,11 @@
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
-import { costSourceName, scoreBasisNote, sourceName } from './cost-labels';
+import {
+  COST_NOTE,
+  costSourceName,
+  scoreBasisNote,
+  sourceName,
+} from './cost-labels';
 import { escapeCell, markdownLine } from './leaderboard-markdown';
 import {
   projectPreset,
@@ -56,9 +61,6 @@ const SCORE_NOTE =
 
 export const LEADERBOARD_NOTE =
   'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half.';
-
-export const COST_NOTE =
-  'The cost index blends task costs across sources. Within each source, the natural log of the USD task cost is min-max scaled to 0–100 over the costs that source published for the profiles in this preset (every reasoning effort that qualifies for the table, not only the one shown), so the index of a model differs between presets. The sources a model has are then averaged with equal weight. It is a relative position, not a dollar estimate; the per-source USD figures are the published costs. A model is on the value frontier when its Overall is strictly higher than that of every model with the same or a lower cost index.';
 
 export const dimensionHeading = (dimension: DimensionId): string =>
   `${UI_DIMENSION_NAMES[dimension]} (${UI_DIMENSION_ABBREVIATIONS[dimension]})`;
@@ -533,6 +535,8 @@ export const methodologyMarkdown = (
     sourcesTable(product),
     '',
     'Sources are captured independently, so the snapshot times differ; each is when that source was last captured, and the scores it contributes are as of that time.',
+    '',
+    'A source URL is the exact page the data was captured from, including its language edition. Some vendor release pages were captured from a localized edition, so their URLs carry a locale path such as `/zh-Hant/`.',
     '',
     `Machine-readable files are listed in [llms.txt](${LLMS_TXT_PATH}) and [data/index.json](${DATA_INDEX_PATH}).`,
     '',
