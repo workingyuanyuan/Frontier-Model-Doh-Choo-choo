@@ -15,7 +15,7 @@ import {
   type LeaderboardRow,
   type ProductPreset,
   type PresetProductVersion,
-  buildWeightedCostCurve,
+  buildProfileCostIndex,
 } from '../lib/view-model';
 import { CopyMarkdownButton } from './copy-markdown-button';
 import { ModelPicker } from './leaderboard-controls';
@@ -36,7 +36,7 @@ export type LeaderboardProps = {
   initialExpandedModelIds?: string[] | undefined;
   developerMode: boolean;
   pickerProduct?: PresetProductVersion;
-  /** The product the cost chart plots; the table quotes its index. */
+  /** The ranked profiles the cost index is scaled over; defaults to `product`. */
   costProduct?: PresetProductVersion;
   onResetModels?: () => void;
   selectedProfiles?: Record<string, string>;
@@ -135,16 +135,9 @@ export function Leaderboard({
   useEffect(() => {
     if (effectiveSort !== sort) setSort(effectiveSort);
   }, [effectiveSort, sort]);
-  // The index of the profiles the cost chart plots. A row at another effort
-  // has none of its own and reads N/A.
+  // Each row's index comes from the task costs of the profile it shows.
   const costIndexByProfile = useMemo(
-    () =>
-      new Map(
-        buildWeightedCostCurve(costProduct ?? product).map((point) => [
-          point.profileId,
-          point.normalizedCost,
-        ]),
-      ),
+    () => buildProfileCostIndex(costProduct ?? product),
     [costProduct, product],
   );
   const sortedRows = useMemo(

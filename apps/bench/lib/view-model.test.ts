@@ -22,6 +22,7 @@ import {
   splitCostSeries,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
+  buildProfileCostIndex,
   buildWeightedCostCurve,
   getCostParetoFrontier,
   getSourceScore,
@@ -896,7 +897,8 @@ describe('cost chart view model', () => {
     expect(solPoints).toHaveLength(1);
     expect(solPoints[0]?.profileId).toBe(solRep?.profileId);
     expect(solPoints[0]?.performance).toBe(solRep?.overallScore);
-    expect(solPoints[0]?.normalizedCost).toBeCloseTo(100, 10);
+    // The representative has a cost of its own, so the point is priced by it.
+    expect(solPoints[0]?.selectedProfileIds).toEqual([solRep?.profileId]);
   });
 
   it('uses the best available profile for a source when the global representative has no cost data', () => {
@@ -937,21 +939,87 @@ describe('cost chart view model', () => {
     ]);
   });
 
-  it('excludes null-performance costs from the weighted cost curve', () => {
-    const product = {
+  it('takes the Overall of a cost point from the leaderboard being drawn', () => {
+    // Cost records carry the Overall of the default preset only; a profile
+    // ranked by another preset has none there and is still a point.
+    const withoutRecordScores = {
       ...productFixture,
-      costs: productFixture.costs.map((cost) =>
-        cost.modelId === 'openai-gpt-5-6-sol'
-          ? { ...cost, performance: null }
-          : cost,
+      costs: productFixture.costs.map((cost) => ({
+        ...cost,
+        performance: null,
+      })),
+    };
+    expect(
+      buildWeightedCostCurve(withoutRecordScores).map((point) => [
+        point.profileId,
+        point.performance,
+        point.normalizedCost,
+      ]),
+    ).toEqual(
+      buildWeightedCostCurve(productFixture).map((point) => [
+        point.profileId,
+        point.performance,
+        point.normalizedCost,
+      ]),
+    );
+
+    const unranked = {
+      ...productFixture,
+      leaderboard: productFixture.leaderboard.filter(
+        (row) => row.modelId !== 'openai-gpt-5-6-sol',
       ),
     };
-
     expect(
-      buildWeightedCostCurve(product).find(
+      buildWeightedCostCurve(unranked).find(
         (point) => point.modelId === 'openai-gpt-5-6-sol',
       ),
     ).toBeUndefined();
+  });
+
+  it('indexes every ranked profile by its own task costs', () => {
+    const oneRowPerModel = {
+      ...productFixture,
+      leaderboard: getRepresentativeRows(productFixture),
+    };
+    const index = buildProfileCostIndex(oneRowPerModel);
+    // With one ranked profile per model the table and the chart agree.
+    const plotted = buildWeightedCostCurve(oneRowPerModel);
+    expect(plotted.length).toBeGreaterThan(0);
+    plotted.forEach((point) => {
+      expect(index.get(point.profileId)).toBeCloseTo(point.normalizedCost, 10);
+    });
+
+    // A second effort of a model gets an index of its own, and only ranked
+    // profiles set the scale.
+    const cheaper = {
+      ...productFixture.costs.find(
+        (cost) =>
+          cost.profileId === 'openai-gpt-5-6-sol-max' &&
+          cost.costType === 'MEASURED_TASK',
+      )!,
+      profileId: 'openai-gpt-5-6-sol-high',
+      cost: 0.0001,
+      performance: null,
+    };
+    const withSecondEffort = {
+      ...productFixture,
+      costs: [...productFixture.costs, cheaper],
+    };
+    const both = buildProfileCostIndex(withSecondEffort);
+    expect(both.get('openai-gpt-5-6-sol-high')).toBeLessThan(
+      both.get('openai-gpt-5-6-sol-max')!,
+    );
+    const maxOnly = buildProfileCostIndex({
+      ...withSecondEffort,
+      leaderboard: withSecondEffort.leaderboard.filter(
+        (row) => row.profileId !== 'openai-gpt-5-6-sol-high',
+      ),
+    });
+    expect(maxOnly.has('openai-gpt-5-6-sol-high')).toBe(false);
+    expect(maxOnly.get('openai-gpt-5-6-sol-max')).toBeCloseTo(
+      buildProfileCostIndex(oneRowPerModel).get('openai-gpt-5-6-sol-max')!,
+      10,
+    );
   });
 
   it('guarantees leaderboard and cost curve defaults cannot diverge from getRepresentativeRows', () => {

@@ -22,9 +22,8 @@ const score = (value: number | null | undefined): string =>
   value == null ? 'N/A' : value.toFixed(1);
 
 /**
- * `costIndexByProfile` holds the weighted cost index of the profiles that are
- * points on the cost chart. A row at another reasoning effort has no index of
- * its own, so its cell is N/A rather than the index of a different profile.
+ * `costIndexByProfile` holds the weighted cost index of each profile shown. A
+ * profile with no comparable task cost reads N/A.
  */
 export function leaderboardMarkdown(
   product: PresetProductVersion,
