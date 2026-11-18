@@ -967,6 +967,7 @@ interface SourceCostCandidate {
 const chooseBestSourceCandidate = (
   context: CostScoreContext,
   rows: CostPoint[],
+  overallByProfile: ReadonlyMap<string, number>,
 ): SourceCostCandidate | undefined => {
   const grouped = new Map<string, CostPoint[]>();
   rows.forEach((row) => {
@@ -979,21 +980,14 @@ const chooseBestSourceCandidate = (
   const candidates = [...grouped.values()].flatMap((profileRows) => {
     const first = profileRows[0];
     if (!first) return [];
-    const performanceRows = profileRows.filter(
-      ({ performance }) => performance !== null,
-    );
-    if (performanceRows.length === 0) return [];
-    const overallScore = median(
-      performanceRows.flatMap(({ performance }) =>
-        performance === null ? [] : [performance],
-      ),
-    );
+    const overallScore = overallByProfile.get(first.profileId);
+    if (overallScore === undefined) return [];
     return [
       {
         modelId: first.modelId,
         sourceId: first.sourceId,
         profileId: first.profileId,
-        rows: performanceRows,
+        rows: profileRows,
         sourceScore: indexedSourceScore(
           context,
           first.sourceId,
@@ -1035,6 +1029,64 @@ const costSourceLogRanges = <T extends string>(
   return sourceRanges;
 };
 
+/** Positive USD task costs of the weighted sources, vendor pairs resolved. */
+const weightedTaskCosts = (
+  product: ProductVersion,
+  context: CostScoreContext,
+  weights: Readonly<Record<string, number>>,
+): CostPoint[] =>
+  chartCostRows(product, context).filter(
+    (point) =>
+      isTaskCost(point) &&
+      currentAaCost(context, point) &&
+      point.cost > 0 &&
+      (weights[point.sourceId] ?? 0) > 0,
+  );
+
+/**
+ * The weighted cost index of every profile the product ranks, from that
+ * profile's own task costs. The scale of each source spans the ranked
+ * profiles, so the index is a position within the set being shown. With one
+ * ranked profile per model it equals the index `buildWeightedCostCurve` plots.
+ */
+export const buildProfileCostIndex = (
+  product: PresetProductVersion,
+  weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
+): Map<string, number> => {
+  const ranked = new Set(product.leaderboard.map((row) => row.profileId));
+  const taskCosts = weightedTaskCosts(
+    product,
+    costScoreContext(product),
+    weights,
+  ).filter((point) => ranked.has(point.profileId));
+  const sourceRanges = costSourceLogRanges(taskCosts, Object.keys(weights));
+
+  const byProfileSource = new Map<string, Map<string, number[]>>();
+  taskCosts.forEach((point) => {
+    const sources = byProfileSource.get(point.profileId) ?? new Map();
+    sources.set(point.sourceId, [
+      ...(sources.get(point.sourceId) ?? []),
+      point.cost,
+    ]);
+    byProfileSource.set(point.profileId, sources);
+  });
+
+  const index = new Map<string, number>();
+  byProfileSource.forEach((sources, profileId) => {
+    let total = 0;
+    let totalWeight = 0;
+    sources.forEach((costs, sourceId) => {
+      const range = sourceRanges.get(sourceId);
+      const weight = weights[sourceId] ?? 0;
+      if (!range || weight <= 0) return;
+      total += normalizeCost(median(costs), range) * weight;
+      totalWeight += weight;
+    });
+    if (totalWeight > 0) index.set(profileId, total / totalWeight);
+  });
+  return index;
+};
+
 export const buildWeightedCostCurve = (
   product: PresetProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
@@ -1046,13 +1098,17 @@ export const buildWeightedCostCurve = (
   const profiles = new Map(
     product.profiles.map((profile) => [profile.id, profile]),
   );
-  const taskCosts = chartCostRows(product, context).filter(
-    (point) =>
-      isTaskCost(point) &&
-      currentAaCost(context, point) &&
-      point.cost > 0 &&
-      (weights[point.sourceId] ?? 0) > 0 &&
-      point.performance !== null,
+  // A point needs an Overall for its Y axis. It comes from the leaderboard of
+  // the product being drawn, so a profile counts in whichever preset ranks it.
+  const overallByProfile = new Map(
+    product.leaderboard.flatMap((row) =>
+      row.overallScore === null
+        ? []
+        : [[row.profileId, row.overallScore] as const],
+    ),
+  );
+  const taskCosts = weightedTaskCosts(product, context, weights).filter(
+    (point) => overallByProfile.has(point.profileId),
   );
   const sourceRanges = costSourceLogRanges(taskCosts, Object.keys(weights));
 
@@ -1066,7 +1122,11 @@ export const buildWeightedCostCurve = (
 
   const selectedByModel = new Map<string, SourceCostCandidate[]>();
   byModelSource.forEach((rows) => {
-    const candidate = chooseBestSourceCandidate(context, rows);
+    const candidate = chooseBestSourceCandidate(
+      context,
+      rows,
+      overallByProfile,
+    );
     if (!candidate) return;
     const sourceCandidates = selectedByModel.get(candidate.modelId) ?? [];
     sourceCandidates.push(candidate);

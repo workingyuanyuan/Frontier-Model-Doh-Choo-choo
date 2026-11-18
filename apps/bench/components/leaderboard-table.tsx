@@ -48,7 +48,7 @@ export function LeaderboardTable({
   sort: { key: LeaderboardSortKey; direction: SortDirection };
   onSort: (key: LeaderboardSortKey) => void;
   heatMap: HeatMap;
-  /** Weighted cost index of the profiles the cost chart plots. */
+  /** Weighted cost index of each profile shown, from its own task costs. */
   costIndexByProfile?: ReadonlyMap<string, number>;
   modelProfiles: Record<string, string>;
   onProfileChange: (modelId: string, profileId: string) => void;

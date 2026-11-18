@@ -341,7 +341,8 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 
 - **ProductVersion 必須保存所有 `INCLUDED` 且能解析出 profile 的成本列**，不論該 profile 是否通過顯示門檻。
 - `ProductCost.performance` 為 **nullable**。它是給預設圖用的便利欄位，不是保存成本的前提。
-- 由**各張圖表**決定要不要濾掉 `performance` 為 null 的點：預設圖以 Overall 為 Y 軸，必須濾；進階圖以來源自己的分數為 Y 軸，不濾。
+- `performance` 只記錄預設集合的 Overall，所以圖表不靠它判斷要不要畫點。預設圖以 Overall 為 Y 軸，取**目前顯示集合的排行列**的 Overall：該集合有排名且 Overall 不為 null 的 profile 才成為點，其他集合（例如模型數較多的集合）新增的模型因此也有成本指數。進階圖以來源自己的分數為 Y 軸，不看 Overall。
+- 排行表的 Weighted cost index 逐列計算：每一列用該列 profile 自己的任務成本，各來源的 log min-max 範圍取目前表中所有列。每個模型只有一列時，結果與預設圖的點相同；切換或釘選其他思考強度後，各列的指數以當下顯示的那組 profile 重新計算。
 
 一般化的原則：**顯示規則不得決定資料保存範圍。**開發者模式與進階圖的存在意義就是呈現主畫面容納不下的資料；讓主畫面的門檻在管線階段就把資料刪掉，會讓這兩者永遠沒有東西可顯示，而且測試全綠。
 
