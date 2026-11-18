@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   dataIndexJson,
   llmsTxt,
+  methodologyMarkdown,
   presetJson,
   presetMarkdown,
   profilesJson,
@@ -17,6 +18,7 @@ import {
   presetPagePath,
   profileEvidencePath,
 } from './site-paths';
+import { UI_DIMENSION_IDS, UI_DIMENSION_NAMES } from './ui-contract';
 import { getRepresentativeRows, mainScreenProduct } from './view-model';
 import { productFixture } from '../test/fixture';
 
@@ -146,5 +148,37 @@ describe('published agent files', () => {
         profileEvidencePath(productFixture.versionId, id),
       ),
     );
+  });
+
+  it('states how many presets score each dimension', () => {
+    const markdown = methodologyMarkdown(productFixture, benchmarkDimensions);
+    const scoring = UI_DIMENSION_IDS.map(
+      (dimension) =>
+        presets.filter(({ dimensionIds }) => dimensionIds.includes(dimension))
+          .length,
+    );
+
+    expect(scoring.some((count) => count > 0)).toBe(true);
+    expect(scoring.some((count) => count === 0)).toBe(true);
+    expect(
+      tableRows(
+        markdown.slice(0, markdown.indexOf('## Which models')),
+        '## Dimensions',
+      ).map((row) => [row[0], row[4]!.replace(/ \|$/, '')]),
+    ).toEqual(
+      UI_DIMENSION_IDS.map((dimension, index) => [
+        UI_DIMENSION_NAMES[dimension],
+        `${scoring[index]} of ${presets.length}`,
+      ]),
+    );
+
+    const unscored = markdown
+      .split('\n')
+      .find((line) => line.startsWith('Scored in no preset'))!;
+    UI_DIMENSION_IDS.forEach((dimension, index) => {
+      expect(unscored.includes(`${UI_DIMENSION_NAMES[dimension]} (`)).toBe(
+        scoring[index] === 0,
+      );
+    });
   });
 });

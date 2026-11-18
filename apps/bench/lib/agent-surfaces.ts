@@ -495,6 +495,7 @@ export const methodologyMarkdown = (
           .map((id) => `\`${id}\``)
           .join(', ')
       : 'none';
+  const presets = projectPresets(product, benchmarkDimensions);
   const perDimension = UI_DIMENSION_IDS.map(
     (dimension) =>
       [
@@ -502,8 +503,13 @@ export const methodologyMarkdown = (
         Object.values(benchmarkDimensions).filter(
           (value) => value === dimension,
         ).length,
+        presets.filter(({ dimensionIds }) => dimensionIds.includes(dimension))
+          .length,
       ] as const,
   );
+  const unscored = perDimension
+    .filter(([, , presetCount]) => presetCount === 0)
+    .map(([dimension]) => dimensionHeading(dimension));
   const weightEntries = Object.keys(COST_SOURCE_WEIGHTS);
   const docs = `${REPOSITORY_URL}/blob/main/docs`;
 
@@ -516,17 +522,30 @@ export const methodologyMarkdown = (
     '',
     '## Dimensions',
     '',
-    'Each benchmark feeds exactly one dimension.',
+    'Each benchmark feeds exactly one dimension. A leaderboard shows a dimension only when its preset scores at least one benchmark mapped to it, so a dimension can have mapped benchmarks and still be missing from a leaderboard.',
     '',
     table(
-      ['Dimension', 'Abbreviation', 'Meaning', 'Benchmarks mapped'],
-      perDimension.map(([dimension, count]) => [
+      [
+        'Dimension',
+        'Abbreviation',
+        'Meaning',
+        'Benchmarks mapped',
+        'Presets that score it',
+      ],
+      perDimension.map(([dimension, count, presetCount]) => [
         UI_DIMENSION_NAMES[dimension],
         UI_DIMENSION_ABBREVIATIONS[dimension],
         DIMENSION_MEANINGS[dimension],
         String(count),
+        `${presetCount} of ${presets.length}`,
       ]),
     ),
+    ...(unscored.length
+      ? [
+          '',
+          `Scored in no preset in this data version, so no leaderboard has a column for it: ${unscored.join(', ')}.`,
+        ]
+      : []),
     '',
     '## Which models are ranked',
     '',
