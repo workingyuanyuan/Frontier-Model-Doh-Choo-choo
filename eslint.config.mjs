@@ -76,7 +76,13 @@ export default tseslint.config(
     // Node scripts run outside the browser and outside the TS program.
     files: ['scripts/**/*.mjs'],
     languageOptions: {
-      globals: { console: 'readonly', process: 'readonly' },
+      globals: {
+        AbortSignal: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        process: 'readonly',
+        URL: 'readonly',
+      },
     },
   },
   {

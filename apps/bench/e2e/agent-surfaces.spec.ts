@@ -1,3 +1,6 @@
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+
 import { expect, test } from './test';
 
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/+$/, '');
@@ -42,6 +45,42 @@ test('a reader without JavaScript can walk from the page to the data', async ({
       ).status(),
       href,
     ).toBe(200);
+});
+
+// Written out rather than imported, so a wrong site constant cannot pass.
+const PUBLIC_SITE_URL =
+  'https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/';
+
+test('the sitemap lists every page by the public URL its canonical link names', async ({
+  request,
+}) => {
+  // The export served to this suite; Next's error pages are not content.
+  const exported = readdirSync(resolve('apps/bench/out'), { recursive: true })
+    .map((file) => String(file).replaceAll('\\', '/'))
+    .filter((file) => file.endsWith('.html') && !file.startsWith('_next/'))
+    .filter((file) => !['404.html', '_not-found.html'].includes(file))
+    .map((file) => (file === 'index.html' ? '' : file))
+    .sort();
+
+  const response = await request.get(`${basePath}/sitemap.xml`);
+  expect(response.status()).toBe(200);
+  const locs = [
+    ...(await response.text()).matchAll(/<loc>([^<]+)<\/loc>/g),
+  ].map((match) => match[1]!);
+  for (const loc of locs)
+    expect(loc.startsWith(PUBLIC_SITE_URL), loc).toBe(true);
+  const listed = locs.map((loc) => loc.slice(PUBLIC_SITE_URL.length)).sort();
+  expect(listed).toEqual(exported);
+
+  for (const path of listed) {
+    const page = await request.get(`${basePath}/${path}`);
+    expect(page.status(), path).toBe(200);
+    const html = await page.text();
+    const canonical = [
+      ...html.matchAll(/<link rel="canonical" href="([^"]+)"/g),
+    ].map((match) => match[1]);
+    expect(canonical, path).toEqual([`${PUBLIC_SITE_URL}${path}`]);
+  }
 });
 
 test('the default table states provider and effort as text', async ({
