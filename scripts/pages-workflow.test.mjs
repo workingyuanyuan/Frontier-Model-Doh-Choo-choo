@@ -167,6 +167,7 @@ test('IndexNow runs only after a deploy and never blocks one', () => {
   assert.equal(quality.outputs.indexnow, '${{ steps.indexnow.outputs.body }}');
   assert.deepEqual(indexnow.needs, ['quality', 'deploy']);
   assert.equal(indexnow.permissions, undefined);
+  assert.ok(indexnow.steps.every((s) => s['continue-on-error'] === true));
 });
 
 test('API failure or incomplete response blocks verification', () => {

@@ -197,7 +197,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      # The site is already live; a rejected or failed submission is a
+      # warning, not a failed deploy.
       - name: Submit changed pages
+        continue-on-error: true
         env:
           BODY: ${{ needs.quality.outputs.indexnow }}
         run: >

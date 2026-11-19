@@ -1,7 +1,6 @@
 import { readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { PUBLIC_SITE_URL } from '../lib/site-paths';
 import { expect, test } from './test';
 
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/+$/, '');
@@ -48,6 +47,10 @@ test('a reader without JavaScript can walk from the page to the data', async ({
     ).toBe(200);
 });
 
+// Written out rather than imported, so a wrong site constant cannot pass.
+const PUBLIC_SITE_URL =
+  'https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/';
+
 test('the sitemap lists every page by the public URL its canonical link names', async ({
   request,
 }) => {
@@ -70,7 +73,9 @@ test('the sitemap lists every page by the public URL its canonical link names', 
   expect(listed).toEqual(exported);
 
   for (const path of listed) {
-    const html = await (await request.get(`${basePath}/${path}`)).text();
+    const page = await request.get(`${basePath}/${path}`);
+    expect(page.status(), path).toBe(200);
+    const html = await page.text();
     const canonical = [
       ...html.matchAll(/<link rel="canonical" href="([^"]+)"/g),
     ].map((match) => match[1]);
