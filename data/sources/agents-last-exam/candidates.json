@@ -22,7 +22,7 @@
       "rawName": "gemini-4-argon"
     },
     "normalizedScore": 69.00151863477728,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -84,7 +84,7 @@
       "rawName": "gemini-4-carbon"
     },
     "normalizedScore": 77.41437508307806,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -146,7 +146,7 @@
       "rawName": "gemini-4-hydrogen"
     },
     "normalizedScore": 68.89364107336895,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -208,7 +208,7 @@
       "rawName": "gemini-4-hydrogen"
     },
     "normalizedScore": 51.67867613360113,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -270,7 +270,7 @@
       "rawName": "gemini-4-hydrogen"
     },
     "normalizedScore": 63.74545932038325,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -332,7 +332,7 @@
       "rawName": "gemini-4-hydrogen"
     },
     "normalizedScore": 71.39577546844394,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -394,7 +394,7 @@
       "rawName": "claude-fable-5-2"
     },
     "normalizedScore": 72.78966065035036,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -456,7 +456,7 @@
       "rawName": "claude-opus-5-5"
     },
     "normalizedScore": 71.6020487743225,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -518,7 +518,7 @@
       "rawName": "Hy4"
     },
     "normalizedScore": 70.30960503928412,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -580,7 +580,7 @@
       "rawName": "minimax-m3-1-flash"
     },
     "normalizedScore": 57.9203281572014,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -642,7 +642,7 @@
       "rawName": "gpt-5.6-luna"
     },
     "normalizedScore": 26.485945380560427,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -704,7 +704,7 @@
       "rawName": "gpt-5.6-sol"
     },
     "normalizedScore": 50.20958789550425,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -766,7 +766,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 64.55196236140132,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -828,7 +828,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 66.39686667831648,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -890,7 +890,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 69.78073386766798,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -952,7 +952,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 64.92203268418957,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1014,7 +1014,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 64.21414878786305,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1076,7 +1076,7 @@
       "rawName": "gpt-6.1-terra"
     },
     "normalizedScore": 70.368886837223,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1138,7 +1138,7 @@
       "rawName": "gpt-6.2-astra"
     },
     "normalizedScore": 75.96382128009247,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1200,7 +1200,7 @@
       "rawName": "gpt-6.2-astra"
     },
     "normalizedScore": 65.76912195967535,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1262,7 +1262,7 @@
       "rawName": "gpt-6.2-astra"
     },
     "normalizedScore": 77.60714844257191,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1324,7 +1324,7 @@
       "rawName": "gpt-6.2-astra"
     },
     "normalizedScore": 72.06460188560668,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1386,7 +1386,7 @@
       "rawName": "gpt-6.2-astra"
     },
     "normalizedScore": 78.33238426868974,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1448,7 +1448,7 @@
       "rawName": "gpt-6.2-sol"
     },
     "normalizedScore": 72.03595245098597,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1510,7 +1510,7 @@
       "rawName": "gpt-6.2-sol"
     },
     "normalizedScore": 66.6509910606572,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1572,7 +1572,7 @@
       "rawName": "gpt-6.2-sol"
     },
     "normalizedScore": 73.04398616455707,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1634,7 +1634,7 @@
       "rawName": "gpt-6.2-sol"
     },
     "normalizedScore": 70.25776982820281,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1696,7 +1696,7 @@
       "rawName": "gpt-6.2-sol"
     },
     "normalizedScore": 72.48200922037955,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1758,7 +1758,7 @@
       "rawName": "gpt-6-astra"
     },
     "normalizedScore": 71.0408133332075,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1820,7 +1820,7 @@
       "rawName": "gpt-6-astra"
     },
     "normalizedScore": 67.87307783671909,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1882,7 +1882,7 @@
       "rawName": "gpt-6-astra"
     },
     "normalizedScore": 73.14293819265755,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -1944,7 +1944,7 @@
       "rawName": "gpt-6-astra"
     },
     "normalizedScore": 71.15833255088161,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2006,7 +2006,7 @@
       "rawName": "gpt-6-astra"
     },
     "normalizedScore": 71.67674912501735,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2068,7 +2068,7 @@
       "rawName": "minimax-m3-1-flash"
     },
     "normalizedScore": 58.9412130288703,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2130,7 +2130,7 @@
       "rawName": "qwen-4"
     },
     "normalizedScore": 74.38607388326207,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2192,7 +2192,7 @@
       "rawName": "kimi-3.1-pro"
     },
     "normalizedScore": 74.43622682503343,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2254,7 +2254,7 @@
       "rawName": "kimi-k3"
     },
     "normalizedScore": 63.0206820867545,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2316,7 +2316,7 @@
       "rawName": "muse-wonder-1.0"
     },
     "normalizedScore": 68.37223234342581,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2378,7 +2378,7 @@
       "rawName": "deepseek-deepseek-v4-1-flash-1017"
     },
     "normalizedScore": 65.403921553791,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2440,7 +2440,7 @@
       "rawName": "deepseek-deepseek-v4-1-flash-1017"
     },
     "normalizedScore": 66.64284229854064,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,
@@ -2502,7 +2502,7 @@
       "rawName": "glm-5.3"
     },
     "normalizedScore": 54.38646538936561,
-    "observedAt": "2026-11-18T09:19:33.628Z",
+    "observedAt": "2026-11-18T23:35:34.222Z",
     "profile": {
       "attempts": 1,
       "contextWindowTokens": null,

@@ -1,42 +1,36 @@
 {
-  "checkedAt": "2026-11-18T09:19:37.610Z",
+  "checkedAt": "2026-11-19T01:23:26.932Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-11-18T09:19:37.610Z",
+      "checkedAt": "2026-11-18T23:35:35.673Z",
       "error": null,
-      "findings": [
-        {
-          "benchmarkId": "agents-last-exam",
-          "detail": "41 -> 41; missing 1: [\"gpt-5.6-luna\",null,null,\"codex\",true,null,1,null]",
-          "kind": "profiles-lost"
-        }
-      ],
+      "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T09:19:33.628Z",
+      "snapshotObservedAt": "2026-11-18T23:35:34.222Z",
       "sourceId": "agents-last-exam"
     },
     {
-      "checkedAt": "2026-11-18T04:58:53.500Z",
+      "checkedAt": "2026-11-19T01:23:26.932Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T04:58:48.889Z",
+      "snapshotObservedAt": "2026-11-19T01:23:24.407Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-11-18T05:08:42.862Z",
+      "checkedAt": "2026-11-18T23:33:47.557Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T05:08:40.122Z",
+      "snapshotObservedAt": "2026-11-18T23:33:45.105Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-18T05:08:30.135Z",
+      "checkedAt": "2026-11-18T23:37:37.395Z",
       "error": null,
       "findings": [
         {
@@ -533,7 +527,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T05:07:00.044Z",
+      "snapshotObservedAt": "2026-11-18T23:36:01.329Z",
       "sourceId": "artificial-analysis"
     },
     {
@@ -546,39 +540,39 @@
       "sourceId": "biobasicsbench"
     },
     {
-      "checkedAt": "2026-11-18T04:57:26.312Z",
+      "checkedAt": "2026-11-18T23:34:32.199Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T04:57:25.872Z",
+      "snapshotObservedAt": "2026-11-18T23:34:31.507Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-11-18T05:08:38.697Z",
+      "checkedAt": "2026-11-18T23:33:43.380Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T05:08:37.431Z",
+      "snapshotObservedAt": "2026-11-18T23:33:38.683Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-11-18T05:08:36.172Z",
+      "checkedAt": "2026-11-18T23:34:40.897Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T05:08:35.889Z",
+      "snapshotObservedAt": "2026-11-18T23:34:39.834Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-11-18T04:57:38.901Z",
+      "checkedAt": "2026-11-18T23:33:37.155Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T04:57:34.329Z",
+      "snapshotObservedAt": "2026-11-18T23:33:32.436Z",
       "sourceId": "frontier-swe"
     },
     {
@@ -591,25 +585,25 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-11-18T05:08:34.571Z",
+      "checkedAt": "2026-11-18T23:33:30.831Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T05:08:32.664Z",
+      "snapshotObservedAt": "2026-11-18T23:33:28.658Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-11-18T04:57:28.149Z",
+      "checkedAt": "2026-11-18T23:34:34.725Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T04:57:27.644Z",
+      "snapshotObservedAt": "2026-11-18T23:34:33.744Z",
       "sourceId": "maxxbench"
     },
     {
-      "checkedAt": "2026-11-18T04:58:53.500Z",
+      "checkedAt": "2026-11-19T01:23:26.932Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -618,18 +612,43 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-11-18T04:57:30.323Z",
+      "checkedAt": "2026-11-18T23:37:53.793Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T04:57:29.468Z",
+      "snapshotObservedAt": "2026-11-18T23:37:52.474Z",
       "sourceId": "scale-swe-atlas"
     },
     {
-      "checkedAt": "2026-11-18T04:57:40.530Z",
+      "checkedAt": "2026-11-18T23:34:43.672Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "chartography",
+          "detail": "32 -> 32; missing 12: alibaba-qwen3-7-plus, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, google-gemini-3-5-flash-lite, google-gemini-3-6-flash, google-gemini-4-argon, meta-muse-spark-1-1, moonshot-kimi-k2-6, openai-gpt-5-4, openai-gpt-5-5, xai-grok-4-3, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "chartography",
+          "detail": "42 -> 41; missing 20: [\"Claude Opus 4.7 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,null,null], [\"Claude Opus 4.8 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,null,null], [\"DeepSeek V4 Flash Vision (experimental) (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,null,null], [\"GPT 5.4 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null], [\"GPT 5.5 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null], [\"GPT 5.6 Terra (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,null,null], [\"Gemini 3.5 Flash-Lite (Minimal reasoning)\",\"low\",\"Minimal reasoning\",null,null,null,null,null], [\"Gemini 3.6 Flash (Medium reasoning)\",\"medium\",\"Medium reasoning\",null,null,null,null,null], [\"Gemini 4 Argon (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Grok 4.3 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Grok 4.5 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Inkling Small (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null], [\"Kimi K2.5 (Thinking on)\",null,\"Thinking on\",null,null,null,null,null], [\"Kimi K2.6 (Thinking on)\",null,\"Thinking on\",null,null,null,null,null], [\"Muse Spark 1.1 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null], [\"Qwen 3.5 Plus (Thinking on)\",null,\"Thinking on\",null,null,null,null,null], [\"Qwen 3.7 Plus (Thinking on)\",null,\"Thinking on\",null,null,null,null,null], [\"Qwen 3.8 Flash (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "chartography",
+          "detail": "42 -> 41 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -690,6 +709,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -774,13 +803,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:57:40.111Z",
+      "snapshotObservedAt": "2026-11-18T23:34:42.447Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-11-18T04:57:47.668Z",
+      "checkedAt": "2026-11-18T23:34:49.871Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -841,6 +880,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -925,13 +974,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:57:42.141Z",
+      "snapshotObservedAt": "2026-11-18T23:34:46.036Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-11-18T04:59:12.945Z",
+      "checkedAt": "2026-11-18T23:34:56.727Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -992,6 +1051,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1076,13 +1145,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:59:12.562Z",
+      "snapshotObservedAt": "2026-11-18T23:34:51.853Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-11-18T04:58:07.494Z",
+      "checkedAt": "2026-11-18T23:35:11.654Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1143,6 +1222,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1227,13 +1316,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:58:07.161Z",
+      "snapshotObservedAt": "2026-11-18T23:35:06.335Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-11-18T04:58:09.473Z",
+      "checkedAt": "2026-11-18T23:35:18.161Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1294,6 +1393,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1378,13 +1487,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:58:09.065Z",
+      "snapshotObservedAt": "2026-11-18T23:35:13.678Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-11-18T04:58:11.369Z",
+      "checkedAt": "2026-11-18T23:35:25.147Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1445,6 +1564,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1529,13 +1658,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:58:10.975Z",
+      "snapshotObservedAt": "2026-11-18T23:35:20.193Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-11-18T04:58:13.396Z",
+      "checkedAt": "2026-11-18T23:35:32.131Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1596,6 +1735,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1680,13 +1829,23 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:58:13.018Z",
+      "snapshotObservedAt": "2026-11-18T23:35:27.244Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-11-18T04:58:05.660Z",
+      "checkedAt": "2026-11-18T23:35:04.412Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "dayjob-law",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-law",
+          "kind": "unintegrated"
+        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1747,6 +1906,16 @@
           "status": "scored",
           "title": "View DAYJOB: Healthcare benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-law",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Law benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-law",
           "version": null
         },
         {
@@ -1831,16 +2000,21 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T04:58:05.253Z",
+      "snapshotObservedAt": "2026-11-18T23:34:58.992Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-11-18T05:09:01.527Z",
+      "checkedAt": "2026-11-18T23:45:36.144Z",
       "error": null,
       "findings": [
         {
           "benchmarkId": "aime",
           "detail": "https://www.vals.ai/benchmarks/aime",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "autoform_hard",
+          "detail": "https://www.vals.ai/benchmarks/autoform_hard",
           "kind": "captured-not-scored"
         },
         {
@@ -2033,6 +2207,16 @@
           "status": "captured-not-scored",
           "title": "AIME",
           "url": "https://www.vals.ai/benchmarks/aime",
+          "version": null
+        },
+        {
+          "benchmarkId": "autoform-hard",
+          "captureRegistered": true,
+          "id": "autoform_hard",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Autoform-Hard",
+          "url": "https://www.vals.ai/benchmarks/autoform_hard",
           "version": null
         },
         {
@@ -2667,7 +2851,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-18T05:08:47.050Z",
+      "snapshotObservedAt": "2026-11-18T23:44:59.089Z",
       "sourceId": "vals-ai"
     },
     {
@@ -2680,12 +2864,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-11-18T05:08:45.473Z",
+      "checkedAt": "2026-11-18T23:33:55.761Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-18T05:08:44.095Z",
+      "snapshotObservedAt": "2026-11-18T23:33:49.185Z",
       "sourceId": "zapier-automationbench"
     }
   ]

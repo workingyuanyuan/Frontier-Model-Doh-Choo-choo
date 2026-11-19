@@ -14,7 +14,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://maxxbench.unlap.ai/",
-    "retrievedAt": "2026-11-18T04:57:27.644Z",
+    "retrievedAt": "2026-11-18T23:34:33.744Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7366c909a9cf0d1f26ac074f900d4e1ce843652fb7a3257f057b1a51845713b4",
     "sourceId": "maxxbench"

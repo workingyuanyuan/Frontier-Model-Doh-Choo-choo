@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/09/099ea48bc28cf806a1b503ea89b5cd5924149ea28716c138d9578dba0ccaf96d.html",
-    "byteLength": 132555,
+    "artifactPath": "artifacts/sha256/da/da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02.html",
+    "byteLength": 139406,
     "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
-    "id": "sha256:099ea48bc28cf806a1b503ea89b5cd5924149ea28716c138d9578dba0ccaf96d",
+    "id": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Next RSC leaderboard variants",
@@ -85,6 +85,16 @@
         },
         {
           "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "GPT-6.2 Sol"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.88,
+          "model": "GPT-6.2 Astra"
+        },
+        {
+          "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.92,
           "model": "Haiku 5.5"
         },
@@ -155,20 +165,20 @@
         }
       ],
       "excludedFromScoring": ["qna", "testwriting", "refactoring"],
-      "materializedOverallRows": 29,
+      "materializedOverallRows": 31,
       "rawVariantCounts": {
-        "overall": 29,
-        "qna": 29,
-        "refactoring": 29,
-        "testwriting": 29
+        "overall": 31,
+        "qna": 31,
+        "refactoring": 31,
+        "testwriting": 31
       },
-      "renderedOverallRows": 29
+      "renderedOverallRows": 31
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://scale.com/leaderboard/swe-atlas",
-    "retrievedAt": "2026-11-18T04:57:29.468Z",
+    "retrievedAt": "2026-11-18T23:37:52.474Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:099ea48bc28cf806a1b503ea89b5cd5924149ea28716c138d9578dba0ccaf96d",
+    "sha256": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
     "sourceId": "scale-swe-atlas"
   }
 ]

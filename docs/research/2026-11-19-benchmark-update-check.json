@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-19",
+  "baselineCommit": "d0742142070db1f79942c9c753b21ab597a4afb4",
+  "baselineVersion": "sha256:ae37d32a1ed7a3c729b9c5234c379f3ffe8aad00e28d6c17e3a02070f8f796fa",
+  "baselineGeneratedAt": "2026-11-18T09:24:00.849Z",
+  "newVersionId": "sha256:3f530338362539fa040bb4d7f16cfc2a3a9b72322209295eb534caf6c504f1b2",
+  "releaseRunId": "2026-11-19T01-23-58-594Z",
+  "manifestVerification": {
+    "vendorUrls": 62,
+    "leadUrls": 55,
+    "changedFiles": 94,
+    "fetchedAt": "2026-11-18T23:28:23Z..2026-11-18T23:28:39Z",
+    "httpErrors": [
+      "https://openai.com/index/ 403",
+      "https://ai.meta.com/blog/ 400",
+      "Perplexity WANDR 403",
+      "livebench main.8a7822ea.js 404"
+    ]
+  },
+  "newModels": [
+    {
+      "modelId": "google-gemini-4-neon",
+      "apiId": "gemini-4-neon",
+      "releaseDate": "2026-11-18",
+      "evidence": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "https://ai.google.dev/gemini-api/docs/models/gemini-4-neon"
+      ],
+      "aliases": [
+        "gemini-4-neon",
+        "google/gemini-4-neon",
+        "google/cobalt-c-high-1p00"
+      ],
+      "pricingUsdPerMTok": {
+        "input": 3,
+        "output": 15,
+        "cachedInput": 0.15
+      },
+      "efforts": ["low", "medium", "high", "xhigh"],
+      "aaIntelligenceIndexXhigh": 61.3982491392674,
+      "aaRank": 3
+    }
+  ],
+  "notRegistered": [
+    "Genie 4 (world model)",
+    "K2 Horizon 32B / MoVA 36B A4B (no official identity evidence)",
+    "MAI Code 2 / Flash (BenchLM only)",
+    "Hy Hy4 (Surge label)",
+    "MiniMax M3.1 Flash",
+    "Mistral Large 4"
+  ],
+  "activeSourcesChanged": [
+    "artificial-analysis",
+    "scale-swe-atlas",
+    "frontier-code",
+    "surge-chartography",
+    "surge-complex-constraints",
+    "surge-riemann",
+    "surge-dayjob-finance",
+    "surge-dayjob-healthcare",
+    "surge-dayjob-tax",
+    "surge-gdp-xlsx",
+    "epoch-ai",
+    "zapier-automationbench",
+    "vals-ai",
+    "anthropic-releases (cross-check record only)",
+    "openai-releases (cross-check record only)"
+  ],
+  "renderedVisualCounts": {
+    "aaCatalog": 763,
+    "livebench2": 38,
+    "livebench1": 65,
+    "deepswe": 28,
+    "maxxbench": 17,
+    "scaleSweAtlasOverall": 31,
+    "frontierCodeBest": 35,
+    "frontierCodeAll": 139,
+    "chartography": 41,
+    "complexConstraints": 25,
+    "corecraft": 55,
+    "riemann": 28,
+    "dayjobFinance": 49,
+    "dayjobHealthcare": 49,
+    "dayjobTax": 25,
+    "gdpXlsx": 35,
+    "arcPrizeRows": 124,
+    "zapierExpanded": 151,
+    "aleConfigurations": 41
+  },
+  "upstreamMethodChanges": [
+    {
+      "source": "surge-chartography",
+      "change": "Whole board rescored without a published note: all 22 retained models changed, most sharply upward (e.g. Claude Opus 5 27.3 -> 84.4); 19 rows added, 20 removed. Adopted as published; affects only preset aa-top-2."
+    },
+    {
+      "source": "cursor (CursorBench organizer)",
+      "change": "Live chart moved from CursorBench 4.0 to 4.1 on 2026-11-18; vendor 4.0 rows now cross-checked against the pinned reviewed 4.0 capture sha256:b408dbff..."
+    },
+    {
+      "source": "scale-swe-atlas",
+      "change": "Page redesign moved the methodology sentence into an iframe; parser reads the RSC catalog version instead"
+    }
+  ],
+  "nonActiveUpstreamChanges": [
+    "Surge DAYJOB: Law (new benchmark)",
+    "Surge Tuesday@Work Index (renamed composite)",
+    "Vals Autoform-Hard (new benchmark; ProofBench v1.1 archived)",
+    "CursorBench 4.1",
+    "Fireworks SII: Qwen 4 Max, GPT-6.2 entries",
+    "Epoch benchmarks.csv: 12 Gemini 4 Hydrogen xhigh rows",
+    "ARC Prize: Mercury 3 Preview (Instant) row hidden from table"
+  ],
+  "discoveryNotes": "artifacts/research/2026-11-19-benchmark-check/web/discovery-notes.md",
+  "refreshSummary": "artifacts/research/2026-11-19-benchmark-check/refresh/SUMMARY.md",
+  "spotCheck": {
+    "samples": 30,
+    "match": 30,
+    "live": 28,
+    "savedArtifact": 2,
+    "report": "artifacts/research/2026-11-19-benchmark-check/spot-check/REPORT.md"
+  }
+}

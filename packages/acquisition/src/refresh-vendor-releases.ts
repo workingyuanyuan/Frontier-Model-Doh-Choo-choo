@@ -3,8 +3,10 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import {
   CandidateResultSchema,
+  EvidenceRecordSchema,
   SourceManifestSchema,
   type CandidateResult,
+  type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 import { buildArtifactRecord, writeContentAddressedArtifact } from './index.js';
 import {
@@ -18,7 +20,14 @@ import {
   materializeAnthropicReleases,
   ANTHROPIC_RELEASE_URLS,
 } from './vendor-anthropic.js';
-import { auditVendorReleases } from './vendor-release-audit.js';
+import {
+  auditVendorReleases,
+  cursorBenchActiveVersion,
+  cursorFallbackNote,
+  REVIEWED_CURSORBENCH_SUCCESSORS,
+  REVIEWED_CURSORBENCH_VERSION,
+  verifyReviewedCursorCapture,
+} from './vendor-release-audit.js';
 
 const root = getWorkspaceRoot();
 const args = process.argv.slice(2).filter((a) => a !== '--');
@@ -96,7 +105,7 @@ const anthropic = materializeAnthropicReleases(
     observedAt: page.record.retrievedAt,
   })),
 );
-const cursorPage = await captureArtifact({
+const liveCursorPage = await captureArtifact({
   root,
   sourceId: 'anthropic-releases',
   url: 'https://prod.cursor.com/evals',
@@ -107,6 +116,35 @@ const cursorPage = await captureArtifact({
     scope: 'Organizer cross-check; visible chart aria-label score/effort pairs',
   },
 });
+// The vendor charts report CursorBench 4.0. Once Cursor's live chart moves to
+// a later release, keep cross-checking against the pinned, reviewed 4.0
+// capture (verified byte for byte) instead of comparing scores across releases.
+const liveCursorVersion = cursorBenchActiveVersion(liveCursorPage.text);
+let cursorPage: { text: string; record: EvidenceRecord } = liveCursorPage;
+let fallbackNote: string | null = null;
+if (liveCursorVersion !== REVIEWED_CURSORBENCH_VERSION) {
+  if (!REVIEWED_CURSORBENCH_SUCCESSORS.includes(liveCursorVersion))
+    throw new Error(
+      `Cursor's live chart shows CursorBench ${liveCursorVersion}, not a reviewed successor of ${REVIEWED_CURSORBENCH_VERSION}`,
+    );
+  const previous = EvidenceRecordSchema.parse(
+    (
+      await readJson<{ cursorEvidence: unknown }>(
+        join(root, 'data/sources/anthropic-releases/cross-checks.json'),
+      )
+    ).cursorEvidence,
+  );
+  const text = verifyReviewedCursorCapture(
+    previous,
+    await readFile(join(root, previous.artifactPath)),
+  );
+  cursorPage = { text, record: previous };
+  fallbackNote = cursorFallbackNote(
+    liveCursorPage.record,
+    liveCursorVersion,
+    previous,
+  );
+}
 const organizerIds = ['deepswe', 'zapier-automationbench', 'frontier-code'];
 const organizerCandidates: CandidateResult[] = [];
 const references: unknown[] = [];
@@ -203,11 +241,15 @@ for (const source of [
     checks,
     references,
     cursorEvidence: cursorPage.record,
+    ...(fallbackNote && {
+      liveCursorEvidence: liveCursorPage.record,
+      cursorFallbackNote: fallbackNote,
+    }),
   });
   await writeFile(
     join(directory, 'validation-report.md'),
     source.result.validationReport +
-      `\n## Organizer cross-check\n\n- Matched: ${checks.filter((r) => r.status === 'MATCH').length}\n- Vendor preview rows absent from reference: ${checks.filter((r) => r.status === 'SUPPLEMENT').length}\n- Excluded: ${checks.filter((r) => r.status === 'EXCLUDED').length}\n- Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).\n- Research: [vendor release review](../../../docs/refresh/2026-10-02-vendor-releases.md).\n`,
+      `\n## Organizer cross-check\n\n- Matched: ${checks.filter((r) => r.status === 'MATCH').length}\n- Vendor preview rows absent from reference: ${checks.filter((r) => r.status === 'SUPPLEMENT').length}\n- Excluded: ${checks.filter((r) => r.status === 'EXCLUDED').length}\n${fallbackNote ? `- ${fallbackNote}\n` : ''}- Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).\n- Research: [vendor release review](../../../docs/refresh/2026-10-02-vendor-releases.md).\n`,
   );
 }
 console.log(
