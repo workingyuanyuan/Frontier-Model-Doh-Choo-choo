@@ -10,6 +10,13 @@ export const PROFILES_PATH = 'data/profiles.json';
 export const COSTS_PATH = 'data/costs.json';
 /** The data the interactive dashboard loads; a transport, not a published contract. */
 export const DASHBOARD_DATA_PATH = 'data/dashboard.json';
+/**
+ * Where the site is published. Canonical links and the sitemap name this
+ * address whatever base path a build uses, so a local or preview build never
+ * claims to be the original.
+ */
+export const PUBLIC_SITE_URL =
+  'https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/';
 export const REPOSITORY_URL =
   'https://github.com/workingyuanyuan/Frontier-Model-Doh-Choo-choo';
 
@@ -35,6 +42,9 @@ export const profileEvidencePath = (
 /** Path from a file at `from` to the site-root-relative `to`. */
 export const relativeTo = (from: string, to: string): string =>
   `${'../'.repeat(from.split('/').length - 1)}${to}`;
+
+/** Absolute public URL of a site-root-relative path; `''` is the home page. */
+export const publicUrl = (path: string): string => `${PUBLIC_SITE_URL}${path}`;
 
 /** Plain anchors are not prefixed by Next, so the Pages subpath is added here. */
 export const sitePath = (path: string): string =>

@@ -1,10 +1,14 @@
+import type { Metadata } from 'next';
 import { preload } from 'react-dom';
 
 import { DashboardLoader } from '../components/dashboard-loader';
 import { loadProductVersion } from '../lib/load-product-version';
-import { dashboardDataUrl } from '../lib/site-paths';
+import { dashboardDataUrl, publicUrl } from '../lib/site-paths';
 
 export const dynamic = 'force-static';
+
+// Set per page rather than in the layout, so the 404 page claims no address.
+export const metadata: Metadata = { alternates: { canonical: publicUrl('') } };
 
 export default function Page() {
   // The display set is loaded and validated here; the product already

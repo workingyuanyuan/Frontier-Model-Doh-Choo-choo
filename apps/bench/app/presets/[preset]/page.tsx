@@ -19,6 +19,7 @@ import {
   presetJsonPath,
   presetMarkdownPath,
   presetPagePath,
+  publicUrl,
   sitePath,
 } from '../../../lib/site-paths';
 import { ECONOMY_HEADING, UI_DIMENSION_NAMES } from '../../../lib/ui-contract';
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `FM-DCC leaderboard — preset ${preset}`,
     description: `Frontier language models of preset ${preset}: ranking, dimension scores and task costs as a static table.`,
+    alternates: { canonical: publicUrl(presetPagePath(preset)) },
   };
 }
 

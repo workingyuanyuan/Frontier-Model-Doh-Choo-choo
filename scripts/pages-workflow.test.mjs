@@ -152,6 +152,23 @@ test('workflow ties every required gate to the uploaded output and SHA', () => {
   );
 });
 
+test('IndexNow runs only after a deploy and never blocks one', () => {
+  const { quality, indexnow } = workflow.jobs;
+  const step = quality.steps.find(({ id }) => id === 'indexnow');
+  assert.equal(step['continue-on-error'], true);
+  assert.equal(
+    step.if,
+    "github.event_name == 'push' && github.ref == 'refs/heads/main'",
+  );
+  assert.ok(
+    quality.steps.indexOf(step) <
+      quality.steps.findIndex(({ id }) => id === 'verified'),
+  );
+  assert.equal(quality.outputs.indexnow, '${{ steps.indexnow.outputs.body }}');
+  assert.deepEqual(indexnow.needs, ['quality', 'deploy']);
+  assert.equal(indexnow.permissions, undefined);
+});
+
 test('API failure or incomplete response blocks verification', () => {
   assert.throws(
     () =>
