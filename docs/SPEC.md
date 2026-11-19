@@ -55,6 +55,7 @@
 | `surge-dayjob-finance`      | https://surgehq.ai/benchmarks/dayjob-finance            | ORGANIZER         | 2026-10-03 |
 | `surge-dayjob-healthcare`   | https://surgehq.ai/benchmarks/dayjob-healthcare         | ORGANIZER         | 2026-10-03 |
 | `surge-dayjob-tax`          | https://surgehq.ai/benchmarks/dayjob-tax                | ORGANIZER         | 2026-10-28 |
+| `surge-dayjob-law`          | https://surgehq.ai/benchmarks/dayjob-law                | ORGANIZER         | 2026-11-19 |
 | `surge-gdp-xlsx`            | https://surgehq.ai/benchmarks/gdp-xlsx                  | ORGANIZER         | 2026-10-03 |
 | `openai-releases`           | https://openai.com/                                     | VENDOR            | 2026-10-02 |
 | `anthropic-releases`        | https://www.anthropic.com/                              | VENDOR            | 2026-10-02 |
@@ -62,6 +63,10 @@
 Chartography 使用獨立 benchmark ID `chartography`，主要維度為 Reasoning、次要關聯為 Knowledge。採主榜 Pass@1 百分比及其明示的 reasoning 設定，依既有完整矩陣與集合生成政策參與計分。來源沒有逐列試驗次數、版本及發布日期時保存 null。
 
 DAYJOB: Tax 使用獨立 benchmark ID `dayjob-tax`，與 Finance、Healthcare 同屬 Agentic 主維度，次要關聯為 Reasoning 與 Knowledge（使用者 2026-10-28 決定採用）。指標與兩個姊妹榜不同：[官方公告](https://surgehq.ai/blog/dayjob-tax)報告 50 個環境在 95% rubric 門檻下的 Pass@1，即滿足至少 95% 評分項目的嘗試比例；每題五次嘗試。materializer 只解析 `.lead-main` 主榜，並以 `--visual-row-count` 核對瀏覽器畫面列數。Tax 任務不在公開的 DAYJOB repository，逐列 harness、工具、版本、context 與發布日期保留 null。
+
+DAYJOB: Law 使用獨立 benchmark ID `dayjob-law`（使用者 2026-11-19 決定採用），維度與 Tax 相同：Agentic 主維度，次要關聯為 Reasoning 與 Knowledge。指標也與 Tax 相同：[官方公告](https://surgehq.ai/blog/dayjob-law)報告 71 項由執業律師撰寫的法律任務在 95% rubric 門檻下的通過率；DAYJOB README 載明榜單每題五次嘗試。公開資料集只有 2 題樣本，逐列 harness、工具、版本、context 與發布日期保留 null。
+
+Vals Autoform-Hard 使用 benchmark ID `autoform-hard`（使用者 2026-11-19 決定採用），主維度 Reasoning、次要關聯 Coding，與 ProofBench 相同。[Vals 方法說明](https://www.vals.ai/benchmarks/autoform_hard)：取 AutoformBench（Meta FAIR）100 題驗證集中原研究十個前沿模型都未解出的題目，去除 3 題重複後共 56 題，並經 Vals 稽核修正，在同一 agent harness 下以 Lean 4 形式化並證明，每題一次嘗試、3 小時與 200 美元上限，通過 clean-room 重建與獨立 kernel 重放才算解出。題組、修正與評分都由 Vals 定義，只有 Vals 發布這份榜單，因此來源角色記為 ORGANIZER。
 
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 

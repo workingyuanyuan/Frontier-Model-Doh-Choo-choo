@@ -397,7 +397,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-18T23:45:36.144Z",
+  "checkedAt": "2026-11-19T02:19:21.933Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/54/54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0.html",
     "byteLength": 304595,
@@ -409,7 +409,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-18T23:45:36.144Z",
+    "retrievedAt": "2026-11-19T02:19:21.933Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0",
     "sourceId": "vals-ai"

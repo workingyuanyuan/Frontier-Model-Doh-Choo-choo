@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://surgehq.ai/benchmarks/dayjob-law",
+  "benchmarkIds": ["dayjob-law"],
+  "completeness": {
+    "expectedCountMethod": "Compare main leaderboard rows with rendered browser count, validate one numeric score and percent marker per row, and cross-check any numeric data-score attributes against visible text.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Surge AI DAYJOB Law",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
+    "[data-score] numeric displayed text": "rawScore / normalizedScore"
+  },
+  "lastVerifiedAt": "2026-11-19T02:19:07.164Z",
+  "notes": [
+    "Main leaderboard Pass@1 percentages at a 95% rubric threshold over 71 legal assignments. Only 2 sample tasks are public; full benchmark access is by request.",
+    "Official methodology: https://surgehq.ai/blog/dayjob-law (2026-11-18) and https://huggingface.co/datasets/surgeai/DAYJOB-law. An attempt passes when it satisfies at least 95% of its task rubric criteria; the score is the share of passing attempts. Five attempts per task: the DAYJOB README identifies five attempts per task for leaderboard runs.",
+    "The DAYJOB family harness uses Harbor and OpenHands SDK, with Claude Opus 4.8 grading; exact current per-row tools and harness for Law remain unconfirmed and null. Benchmark version and leaderboard publication date are unpublished."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "surge-dayjob-law",
+  "targetUrls": ["https://surgehq.ai/benchmarks/dayjob-law"]
+}

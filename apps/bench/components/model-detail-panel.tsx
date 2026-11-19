@@ -67,6 +67,8 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'dayjob-finance': 'DAYJOB: Finance',
   'dayjob-healthcare': 'DAYJOB: Healthcare',
   'dayjob-tax': 'DAYJOB: Tax',
+  'dayjob-law': 'DAYJOB: Law',
+  'autoform-hard': 'Autoform-Hard',
   'gdp-xlsx': 'GDP.xlsx',
   'cursorbench-4': 'CursorBench 4.0',
   critpt: 'CritPt',
@@ -133,6 +135,7 @@ export const getSourceDisplayName = (sourceId: string): string => {
     case 'surge-dayjob-finance':
     case 'surge-dayjob-healthcare':
     case 'surge-dayjob-tax':
+    case 'surge-dayjob-law':
     case 'surge-gdp-xlsx':
       return 'Surge AI';
     case 'openai-releases':

@@ -118,6 +118,7 @@ pnpm --filter @llm-bench/acquisition materialize:riemann -- --visual-row-count=<
 pnpm --filter @llm-bench/acquisition materialize:dayjob-finance -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-healthcare -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-tax -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:dayjob-law -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:gdp-xlsx -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:epoch
 pnpm --filter @llm-bench/acquisition materialize:arc-prize

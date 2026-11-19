@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/43/43868322963491fade02fc021a4fec685c5efa565b323d4a127086ffc9cc2e90.html",
+    "byteLength": 726536,
+    "finalUrl": "https://surgehq.ai/benchmarks/dayjob-law",
+    "id": "sha256:43868322963491fade02fc021a4fec685c5efa565b323d4a127086ffc9cc2e90",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 24,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/dayjob-law",
+    "retrievedAt": "2026-11-19T02:19:07.164Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:43868322963491fade02fc021a4fec685c5efa565b323d4a127086ffc9cc2e90",
+    "sourceId": "surge-dayjob-law"
+  }
+]

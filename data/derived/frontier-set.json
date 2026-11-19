@@ -1245,6 +1245,7 @@
         "critpt-v2",
         "dayjob-finance",
         "dayjob-healthcare",
+        "dayjob-law",
         "dayjob-tax",
         "frontier-code-2-0",
         "gdp-pdf",
@@ -1272,6 +1273,7 @@
         "critpt-v2",
         "dayjob-finance",
         "dayjob-healthcare",
+        "dayjob-law",
         "dayjob-tax",
         "frontier-code-2-0",
         "gdp-pdf",
@@ -1313,6 +1315,7 @@
             "automationbench",
             "dayjob-finance",
             "dayjob-healthcare",
+            "dayjob-law",
             "dayjob-tax",
             "terminal-bench-4-0",
             "terminal-bench-science"
@@ -1421,6 +1424,14 @@
               "resultId": "surge-dayjob-healthcare:dayjob-healthcare:claude-fable-5-2-adaptive-max",
               "evidenceIds": [
                 "sha256:307ea37bdc99be8f8022522bbd033dae9d07e1745c3661f175d5cc63c69581ba"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 26.5,
+              "resultId": "surge-dayjob-law:dayjob-law:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:43868322963491fade02fc021a4fec685c5efa565b323d4a127086ffc9cc2e90"
               ]
             },
             {
@@ -1614,6 +1625,14 @@
               "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-2-astra-max-reasoning",
               "evidenceIds": [
                 "sha256:307ea37bdc99be8f8022522bbd033dae9d07e1745c3661f175d5cc63c69581ba"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 41.4,
+              "resultId": "surge-dayjob-law:dayjob-law:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:43868322963491fade02fc021a4fec685c5efa565b323d4a127086ffc9cc2e90"
               ]
             },
             {

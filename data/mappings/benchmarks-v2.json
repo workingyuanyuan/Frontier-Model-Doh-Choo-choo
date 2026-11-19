@@ -30,6 +30,11 @@
       "secondaryDimensions": ["reasoning", "knowledge"]
     },
     {
+      "id": "dayjob-law",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
       "id": "riemann-bench",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["knowledge", "agentic"]
@@ -146,6 +151,11 @@
     },
     {
       "id": "proofbench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "autoform-hard",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["coding"]
     },
