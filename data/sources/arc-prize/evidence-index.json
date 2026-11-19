@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/03/03c98400916140c8db67c484348c06ec6b85510af30826eff0fba013af6fa400.html",
-    "byteLength": 1983381,
+    "artifactPath": "artifacts/sha256/fc/fc9fe3de085b8ba4937081578a4be77169e276238da8ede6a9d5a09d1b9d91ac.html",
+    "byteLength": 1969472,
     "finalUrl": "https://arcprize.org/leaderboard",
-    "id": "sha256:03c98400916140c8db67c484348c06ec6b85510af30826eff0fba013af6fa400",
+    "id": "sha256:fc9fe3de085b8ba4937081578a4be77169e276238da8ede6a9d5a09d1b9d91ac",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "official leaderboard page",
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://arcprize.org/leaderboard",
-    "retrievedAt": "2026-11-18T05:08:40.122Z",
+    "retrievedAt": "2026-11-18T23:33:45.105Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:03c98400916140c8db67c484348c06ec6b85510af30826eff0fba013af6fa400",
+    "sha256": "sha256:fc9fe3de085b8ba4937081578a4be77169e276238da8ede6a9d5a09d1b9d91ac",
     "sourceId": "arc-prize"
   },
   {
@@ -28,7 +28,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/datasets.json",
-    "retrievedAt": "2026-11-18T05:08:40.122Z",
+    "retrievedAt": "2026-11-18T23:33:45.105Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6",
     "sourceId": "arc-prize"
@@ -48,7 +48,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/evaluations.json",
-    "retrievedAt": "2026-11-18T05:08:40.122Z",
+    "retrievedAt": "2026-11-18T23:33:45.105Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ac3718f6b42a98c7013cce7ff55e8243368b02894c59f72ef1f16b5c1da0c88c",
     "sourceId": "arc-prize"
@@ -66,7 +66,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/models.json",
-    "retrievedAt": "2026-11-18T05:08:40.122Z",
+    "retrievedAt": "2026-11-18T23:33:45.105Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1ecce809bb81021a79a7fdfb2e5dd8e85ea4c81cc0a826c129dfc9275a947ea3",
     "sourceId": "arc-prize"

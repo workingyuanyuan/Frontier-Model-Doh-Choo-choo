@@ -135,6 +135,19 @@
       "profilePricing": {}
     },
     {
+      "modelId": "google-gemini-4-neon",
+      "providerId": "google",
+      "displayName": "Gemini 4 Neon",
+      "aliases": [
+        "gemini-4-neon",
+        "google/gemini-4-neon",
+        "google/cobalt-c-high-1p00"
+      ],
+      "releaseDate": "2026-11-18",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "google-gemini-4-hydrogen",
       "providerId": "google",
       "displayName": "Gemini 4 Hydrogen",

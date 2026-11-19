@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-18T04:57:38.901Z",
+  "checkedAt": "2026-11-18T23:33:37.155Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -94,7 +94,7 @@
         "versions": ["2"]
       }
     ],
-    "observedAt": "2026-11-18T04:57:34.329Z",
+    "observedAt": "2026-11-18T23:33:32.436Z",
     "sourceId": "frontier-swe"
   }
 }

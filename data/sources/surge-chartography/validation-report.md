@@ -1,10 +1,10 @@
 # Surge Chartography acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/chartography>
-- Evidence: `sha256:2cd85eb9adb1d05190bbd7e80ffa70e146e0e10a56f0da46515ba802f946f420`
-- Main leaderboard: 42 rows; rendered browser count: 42.
+- Evidence: `sha256:35a7f210fd64895b7a456633666e0733f162226fd5765b93e088a3fad6f4a667`
+- Main leaderboard: 41 rows; rendered browser count: 41.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
-- Unresolved catalog identities (10): DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); Inkling Small (xHigh reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning).
+- Unresolved catalog identities (9): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning).
 
 Scores are the main leaderboard pass@1 percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max and Minimal reasoning to low. Thinking on does not declare an effort tier. Unresolved model variants retain null canonical identity.
 
@@ -23,7 +23,6 @@ This tagged section is generated deterministically for `surge-chartography`. Raw
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| Kimi K2.6 (Thinking on) | `surge-chartography:chartography:kimi-k2-6-thinking-on` | — | `default` | — | — |
-| Qwen 3.7 Plus (Thinking on) | `surge-chartography:chartography:qwen-3-7-plus-thinking-on` | — | `default` | — | — |
+| Nemotron 3 Ultra | `surge-chartography:chartography:nemotron-3-ultra` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

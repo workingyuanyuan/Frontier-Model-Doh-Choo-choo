@@ -101,6 +101,40 @@ describe('Scale SWE Atlas materializer', () => {
     });
     expect(unknown.profile.effort).toBeNull();
   });
+  it('accepts the exact RSC v1.1 catalog marker when methodology moves to an iframe', () => {
+    const catalog = (version: string) =>
+      `<script>self.__next_f.push(${JSON.stringify([
+        1,
+        `2:${JSON.stringify({
+          id: 'swe-atlas',
+          airtableTableName: `sweatlas_${version} Overall`,
+          deprecated: false,
+        })}\n`,
+      ])})</script>`;
+    const redesigned = page().replace(
+      '<strong>SWE Atlas v1.1 is live.</strong>',
+      '<iframe src="/embeds/swe-atlas-index.html"></iframe>',
+    );
+    expect(
+      materializeScaleSweAtlas(redesigned + catalog('1.1'), context)
+        .candidates[0]?.benchmarkVersion,
+    ).toBe('v1.1');
+    expect(() =>
+      materializeScaleSweAtlas(redesigned + catalog('1.2'), context),
+    ).toThrow('methodology marker');
+    expect(() =>
+      materializeScaleSweAtlas(
+        redesigned + catalog('1.1') + catalog('1.2'),
+        context,
+      ),
+    ).toThrow('methodology marker');
+    expect(() =>
+      materializeScaleSweAtlas(
+        page({ version: '1.2' }) + catalog('1.1'),
+        context,
+      ),
+    ).toThrow('methodology marker');
+  });
   it('stops on incomplete, duplicate, invalid or changed source data', () => {
     expect(() =>
       materializeScaleSweAtlas(page(), { ...context, visualRowCount: 2 }),

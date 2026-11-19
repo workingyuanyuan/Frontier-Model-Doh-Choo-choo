@@ -2,10 +2,10 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:bef66ce9fdf5c6c2d5fa41fdc6fec71eda9472d0761b673011b96bdff9171baa`
-- Main leaderboard: 16 rows; rendered browser count: 16.
+- Evidence: `sha256:9123a5a3c775931e4aa23be2b13b5a371a5a96ec6e86618ee4ceb9509a43b7cc`
+- Main leaderboard: 25 rows; rendered browser count: 25.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
+- Unresolved catalog identities (5): GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 4 (High reasoning).
 
 Scores are the main leaderboard pass@1 percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on does not declare an effort tier. Unresolved model variants retain null canonical identity.
 
@@ -13,7 +13,7 @@ The official harness defines the leaderboard task pass rate as all_pass/mean (Pa
 
 ## Preserved rows omitted from the current leaderboard
 
-Current rendered rows: 16; preserved: 34; total stored: 50. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
+Current rendered rows: 25; preserved: 34; total stored: 59. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
 
 - surge-complex-constraints:complex-constraints:claude-fable-5-max-reasoning: 38.1; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:claude-opus-4-8-max-reasoning: 35.6; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.

@@ -3,25 +3,25 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:ce7219ee0a7bbdb8bc4c687b6bb1d7ad8f16d515ba0d05290176b0ad39b05980`
+- Page/JSON-LD evidence: `sha256:77197cb32d67a542146044ef1c54e745298f705ad87f162c22a9752a08fbc8df`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:d857aadde18ec51435b2fd0c56a22ef587c43aef7ac8a2e0e7acb401ff62e815`
+- 2.0 export evidence: `sha256:79217153ce56e1a9f986fe886aa3279f7d17c69fd03f25b20cabf95dfc0f6fce`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 34 |
-| 2.0 Main configurations | 135 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 135 |
-| 2.0 models with multiple efforts | 32 |
+| 2.0 visible models | 35 |
+| 2.0 Main configurations | 139 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 139 |
+| 2.0 models with multiple efforts | 33 |
 | 2.0 hidden export models | 0 |
 | 2.0 canonically unresolved models | 8 |
 
-- Rendered Best reasoning mode rows: 34; All reasoning levels rows: 135; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 35; All reasoning levels rows: 139; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
@@ -61,10 +61,10 @@ Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `fr
 |---|---:|---:|---:|
 | Distinct models | 47 | 47 | +0 |
 | Main configurations | 141 | 141 | +0 |
-| Materialized costs | 276 | 276 | +0 |
-| 2.0 costs | 135 | 135 | +0 |
-| 2.0 models | 34 | 34 | +0 |
-| 2.0 configurations | 135 | 135 | +0 |
+| Materialized costs | 276 | 280 | +4 |
+| 2.0 costs | 135 | 139 | +4 |
+| 2.0 models | 34 | 35 | +1 |
+| 2.0 configurations | 135 | 139 | +4 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -79,9 +79,9 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 |---|---|---|---|---|---|
 | DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+| Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
-| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

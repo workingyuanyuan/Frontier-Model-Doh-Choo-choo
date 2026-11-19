@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-18T04:57:30.323Z",
+  "checkedAt": "2026-11-18T23:37:53.793Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "swe-atlas",
         "includedRetainedRows": 0,
-        "includedRows": 29,
+        "includedRows": 31,
         "metrics": ["overall-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -28,6 +28,8 @@
           "nvidia-nemotron-3-ultra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
@@ -45,6 +47,8 @@
           "[\"GPT-6 Luna\",null,null,null,null,null,null,null]",
           "[\"GPT-6.1 Sol\",null,null,null,null,null,null,null]",
           "[\"GPT-6.1 Terra\",null,null,null,null,null,null,null]",
+          "[\"GPT-6.2 Astra\",null,null,null,null,null,null,null]",
+          "[\"GPT-6.2 Sol\",null,null,null,null,null,null,null]",
           "[\"Gemini 3.8 Flash\",null,null,null,null,null,null,null]",
           "[\"Gemini 4 Argon\",null,null,null,null,null,null,null]",
           "[\"Gemini 4 Carbon\",null,null,null,null,null,null,null]",
@@ -76,6 +80,8 @@
           "GPT-6 Luna",
           "GPT-6.1 Sol",
           "GPT-6.1 Terra",
+          "GPT-6.2 Astra",
+          "GPT-6.2 Sol",
           "Gemini 3.8 Flash",
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
@@ -96,12 +102,12 @@
           "Sonnet 5.5",
           "gpt-oss-120b"
         ],
-        "rows": 29,
+        "rows": 31,
         "sourceUrls": ["https://scale.com/leaderboard/swe-atlas"],
         "versions": ["v1.1"]
       }
     ],
-    "observedAt": "2026-11-18T04:57:29.468Z",
+    "observedAt": "2026-11-18T23:37:52.474Z",
     "sourceId": "scale-swe-atlas"
   }
 }

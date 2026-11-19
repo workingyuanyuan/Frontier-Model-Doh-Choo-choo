@@ -8,23 +8,23 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 300 |
-| Unique profile rows in evaluation-page payloads | 122 |
-| Unique profile rows in model-detail payloads | 300 |
+| Unique profile rows across all captured page payloads | 304 |
+| Unique profile rows in evaluation-page payloads | 125 |
+| Unique profile rows in model-detail payloads | 304 |
 | Profile rows in the /models payload | 27 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 289 |
-| Generated CandidateResults | 3403 |
-| Intelligence Index candidates (EXCLUDED) | 137 |
-| GDPval-AA normalized candidates | 209 |
-| Canonically unresolved candidates | 1002 |
-| MEASURED_TASK cost rows | 131 |
-| API_STANDARDIZED token-price rows | 258 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 293 |
+| Generated CandidateResults | 3465 |
+| Intelligence Index candidates (EXCLUDED) | 144 |
+| GDPval-AA normalized candidates | 210 |
+| Canonically unresolved candidates | 1021 |
+| MEASURED_TASK cost rows | 135 |
+| API_STANDARDIZED token-price rows | 262 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 27 selected profile rows in this capture.
-- The evaluation-page payload union exposes 122 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 300 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 125 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 304 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
@@ -45,11 +45,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 213 | 164 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 159 | 117 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 150 | 115 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 66 | 50 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 139 | 107 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 219 | 168 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 166 | 121 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 156 | 119 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 69 | 53 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 145 | 111 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -57,31 +57,31 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## AA-Briefcase leaderboard join
 
-- `/evaluations/aa-briefcase` leaderboard rows (display name and internal UUID, no slug): 284.
-- Joined to exactly one captured profile row with the identical `name` and release day: 221.
-- Rubric rows read from the leaderboard because no captured row of the profile carries `briefcaseBreakdown.rubricPassRate`: 113 (a-x-k2, claude-fable-5-1-high, claude-fable-5-1-low, claude-fable-5-1-medium, claude-fable-5-2-high, claude-fable-5-2-low, claude-fable-5-2-medium, claude-fable-5-2-xhigh, claude-haiku-5-5-high, claude-haiku-5-5-low, claude-haiku-5-5-medium, claude-haiku-5-5-xhigh, claude-opus-4-7-non-reasoning, claude-opus-5-5-high, claude-opus-5-5-low, claude-opus-5-5-medium, claude-opus-5-5-xhigh, claude-opus-5-low, claude-opus-5-medium, claude-sonnet-5-5-high, claude-sonnet-5-5-low, claude-sonnet-5-5-medium, claude-sonnet-5-5-xhigh, claude-sonnet-5-high, claude-sonnet-5-low, claude-sonnet-5-medium, claude-sonnet-5-xhigh, deepseek-v4-1-flash-1017-high, deepseek-v4-1-flash-1017-non-reasoning, deepseek-v4-1-flash-non-reasoning, deepseek-v4-flash-0420-high, deepseek-v4-pro-high, deepseek-v4-pro-non-reasoning, gemini-3-5-flash-medium, gemini-3-8-flash-low, gemini-4-carbon-low, gemini-4-hydrogen-high, gemini-4-hydrogen-low, gemini-4-hydrogen-medium, gemma-4-e4b, glm-5-3-low, gpt-5-5-high, gpt-5-6-luna-high, gpt-5-6-luna-low, gpt-5-6-luna-medium, gpt-5-6-luna-non-reasoning, gpt-5-6-luna-xhigh, gpt-5-6-sol-high, gpt-5-6-sol-low, gpt-5-6-sol-medium, gpt-5-6-sol-non-reasoning, gpt-5-6-terra-high, gpt-5-6-terra-low, gpt-5-6-terra-medium, gpt-5-6-terra-non-reasoning, gpt-5-6-terra-xhigh, gpt-6-1-sol-high, gpt-6-1-sol-medium, gpt-6-1-sol-xhigh, gpt-6-1-terra-high, gpt-6-1-terra-low, gpt-6-1-terra-medium, gpt-6-1-terra-non-reasoning, gpt-6-1-terra-xhigh, gpt-6-2-astra-high, gpt-6-2-astra-low, gpt-6-2-astra-medium, gpt-6-2-astra-xhigh, gpt-6-2-sol-high, gpt-6-2-sol-low, gpt-6-2-sol-medium, gpt-6-2-sol-xhigh, gpt-6-astra-low, gpt-6-luna-high, gpt-6-luna-low, gpt-6-luna-medium, gpt-6-luna-non-reasoning, gpt-6-luna-xhigh, gpt-6-sol-high, gpt-6-sol-low, gpt-6-sol-medium, gpt-6-sol-non-reasoning, gpt-6-sol-xhigh, granite-4-2-30b, granite-4-2-8b, grok-4-3-non-reasoning, grok-4-6-low, grok-4-6-medium, grok-4-7-high, grok-4-7-low, hypernova-60b, inkling-high, inkling-small-high, k-exaone-2-0, k2-horizon-7b, kimi-k3-low, ling-3-0-flash-vl, mimo-v2-6-flash, mistral-large-4-medium, mistral-medium-3-5, mistral-small-4, muse-ember-xhigh, muse-glimmer, nanbeige4-3-33b, nemotron-3-5-bolt-74b-a9b, nemotron-3-5-lightning, north-mini-code, qwen3-5-9b, qwen3-8-27b-low, qwen3-8-27b-medium, qwen3-8-27b-non-reasoning, qwen3-coder-next, solar-pro4).
+- `/evaluations/aa-briefcase` leaderboard rows (display name and internal UUID, no slug): 289.
+- Joined to exactly one captured profile row with the identical `name` and release day: 227.
+- Rubric rows read from the leaderboard because no captured row of the profile carries `briefcaseBreakdown.rubricPassRate`: 116 (a-x-k2, claude-fable-5-1-high, claude-fable-5-1-low, claude-fable-5-1-medium, claude-fable-5-2-high, claude-fable-5-2-low, claude-fable-5-2-medium, claude-fable-5-2-xhigh, claude-haiku-5-5-high, claude-haiku-5-5-low, claude-haiku-5-5-medium, claude-haiku-5-5-xhigh, claude-opus-4-7-non-reasoning, claude-opus-5-5-high, claude-opus-5-5-low, claude-opus-5-5-medium, claude-opus-5-5-xhigh, claude-opus-5-low, claude-opus-5-medium, claude-sonnet-5-5-high, claude-sonnet-5-5-low, claude-sonnet-5-5-medium, claude-sonnet-5-5-xhigh, claude-sonnet-5-high, claude-sonnet-5-low, claude-sonnet-5-medium, claude-sonnet-5-xhigh, deepseek-v4-1-flash-1017-high, deepseek-v4-1-flash-1017-non-reasoning, deepseek-v4-1-flash-non-reasoning, deepseek-v4-flash-0420-high, deepseek-v4-pro-high, deepseek-v4-pro-non-reasoning, gemini-3-5-flash-medium, gemini-3-8-flash-low, gemini-4-carbon-low, gemini-4-hydrogen-high, gemini-4-hydrogen-low, gemini-4-hydrogen-medium, gemini-4-neon-high, gemma-4-e4b, glm-5-3-low, gpt-5-5-high, gpt-5-6-luna-high, gpt-5-6-luna-low, gpt-5-6-luna-medium, gpt-5-6-luna-non-reasoning, gpt-5-6-luna-xhigh, gpt-5-6-sol-high, gpt-5-6-sol-low, gpt-5-6-sol-medium, gpt-5-6-sol-non-reasoning, gpt-5-6-terra-high, gpt-5-6-terra-low, gpt-5-6-terra-medium, gpt-5-6-terra-non-reasoning, gpt-5-6-terra-xhigh, gpt-6-1-sol-high, gpt-6-1-sol-medium, gpt-6-1-sol-xhigh, gpt-6-1-terra-high, gpt-6-1-terra-low, gpt-6-1-terra-medium, gpt-6-1-terra-non-reasoning, gpt-6-1-terra-xhigh, gpt-6-2-astra-high, gpt-6-2-astra-low, gpt-6-2-astra-medium, gpt-6-2-astra-xhigh, gpt-6-2-sol-high, gpt-6-2-sol-low, gpt-6-2-sol-medium, gpt-6-2-sol-xhigh, gpt-6-astra-low, gpt-6-luna-high, gpt-6-luna-low, gpt-6-luna-medium, gpt-6-luna-non-reasoning, gpt-6-luna-xhigh, gpt-6-sol-high, gpt-6-sol-low, gpt-6-sol-medium, gpt-6-sol-non-reasoning, gpt-6-sol-xhigh, granite-4-2-30b, granite-4-2-8b, grok-4-3-non-reasoning, grok-4-6-low, grok-4-6-medium, grok-4-7-high, grok-4-7-low, hypernova-60b, inkling-high, inkling-small-high, k-exaone-2-0, k2-horizon-32b, k2-horizon-7b, k2-horizon-mova-36b-a4b, kimi-k3-low, ling-3-0-flash-vl, mimo-v2-6-flash, mistral-large-4-medium, mistral-medium-3-5, mistral-small-4, muse-ember-xhigh, muse-glimmer, nanbeige4-3-33b, nemotron-3-5-bolt-74b-a9b, nemotron-3-5-lightning, north-mini-code, qwen3-5-9b, qwen3-8-27b-low, qwen3-8-27b-medium, qwen3-8-27b-non-reasoning, qwen3-coder-next, solar-pro4).
 - Profile-row rubric and leaderboard rubric disagree: 0. The profile-row value is kept.
-- Not joined: 63 names match no captured profile (no identity is inferred); 0 ambiguous; 0 release-day mismatches or missing release days.
+- Not joined: 62 names match no captured profile (no identity is inferred); 0 ambiguous; 0 release-day mismatches or missing release days.
 
 ## AA-Briefcase rows retained from the previous snapshot
 
-- AA-Briefcase rubric rows: 218 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
+- AA-Briefcase rubric rows: 224 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
 - Retention rule: a previous `aa-briefcase` rubric row is kept only when this capture has no row with the same ID, the same profile slug is still an eligible (non-deleted, in-window, newest-build) profile, and no current rubric row covers the same canonical model and effort. Values present in this capture always win.
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 758
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 300
+- Fresh rendered models page catalog total: 763
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 304
 - Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 300 | 300 | +0 |
-| Active source profiles | 289 | 289 | +0 |
-| Candidate results | 3403 | 3403 | +0 |
-| Materialized costs | 389 | 389 | +0 |
+| Unique source profiles | 304 | 304 | +0 |
+| Active source profiles | 293 | 293 | +0 |
+| Candidate results | 3465 | 3465 | +0 |
+| Materialized costs | 397 | 397 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -141,18 +141,18 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-4-0:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-science:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
-| GLM-5.1 (Reasoning) | `artificial-analysis:aa-briefcase:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:aa-lcr:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:critpt:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:gdp-pdf:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:gdpval-aa:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:gpqa-diamond:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:humanitys-last-exam:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:ifbench:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:scicode:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:tau3-banking:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:terminal-bench-2-1:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
-| GLM-5.1 (Reasoning) | `artificial-analysis:terminal-bench-4-0:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-113:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:aa-briefcase:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:aa-lcr:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:critpt:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:gdp-pdf:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:gdpval-aa:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:gpqa-diamond:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:humanitys-last-exam:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:ifbench:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:scicode:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:tau3-banking:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:terminal-bench-2-1:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 (Reasoning) | `artificial-analysis:terminal-bench-4-0:glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | Inkling 2 Small | `artificial-analysis:aa-briefcase:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Inkling 2 Small | `artificial-analysis:aa-lcr:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Inkling 2 Small | `artificial-analysis:aa-omniscience:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
@@ -169,41 +169,41 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Inkling 2 Small | `artificial-analysis:terminal-bench-4-0:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Inkling 2 Small | `artificial-analysis:terminal-bench-science:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Inkling 2 Small | `artificial-analysis:thinking-machines-inkling-2-small-aa-index:intelligence-index-v5-0-1` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
-| Kimi K3.1 Pro | `artificial-analysis:aa-briefcase:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:aa-lcr:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro:index` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:critpt-v2:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:critpt:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:frontier-code-2-0:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:gdp-pdf:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:hle-diamond:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:mka:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:terminal-bench-4-0:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| Kimi K3.1 Pro | `artificial-analysis:terminal-bench-science:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:critpt-v2:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:frontier-code-2-0:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:gdp-pdf:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:hle-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v5-0-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:terminal-bench-4-0:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:terminal-bench-science:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| Kimi K3.1 Pro | `artificial-analysis:aa-briefcase:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:aa-lcr:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro:index` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:critpt-v2:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:critpt:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:frontier-code-2-0:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:gdp-pdf:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:hle-diamond:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:mka:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:terminal-bench-4-0:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| Kimi K3.1 Pro | `artificial-analysis:terminal-bench-science:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:critpt-v2:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:frontier-code-2-0:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gdp-pdf:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:hle-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v5-0-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:terminal-bench-4-0:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:terminal-bench-science:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
 | Qwen3.8 Max | `artificial-analysis:aa-briefcase:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-lcr:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:critpt:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |

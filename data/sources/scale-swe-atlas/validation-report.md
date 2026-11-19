@@ -1,10 +1,10 @@
 # Scale SWE Atlas acquisition validation
 
 - Source https://scale.com/leaderboard/swe-atlas
-- Observed 2026-11-18T04:57:29.468Z
-- Evidence `sha256:099ea48bc28cf806a1b503ea89b5cd5924149ea28716c138d9578dba0ccaf96d`
-- Rendered Overall rows 29; embedded Overall rows 29; candidates 29.
-- Embedded variant populations: {"overall":29,"qna":29,"testwriting":29,"refactoring":29}.
+- Observed 2026-11-18T23:37:52.474Z
+- Evidence `sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02`
+- Rendered Overall rows 31; embedded Overall rows 31; candidates 31.
+- Embedded variant populations: {"overall":31,"qna":31,"testwriting":31,"refactoring":31}.
 - Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.
 - Published scores use the 0–100 scale directly. maxScore is chart-axis metadata, not the normalization denominator.
 - The official v1.1 notice describes 284 tasks and reruns with GPT-6.1 Sol as judge (majority of three votes), refined grading and restricted networking. Judge votes are not agent attempts.
@@ -26,6 +26,8 @@
 | GLM 5.3 Flash | null | null |
 | GPT-6.1 Sol | openai-gpt-6-1-sol | null |
 | GPT-6.1 Terra | openai-gpt-6-1-terra | null |
+| GPT-6.2 Astra | openai-gpt-6-2-astra | null |
+| GPT-6.2 Sol | openai-gpt-6-2-sol | null |
 | GPT-6 Astra | openai-gpt-6-astra | null |
 | GPT-6 Luna | openai-gpt-6-luna | null |
 | gpt-oss-120b | null | null |
@@ -64,11 +66,13 @@ This tagged section is generated deterministically for `scale-swe-atlas`. Raw `p
 | GPT-6 Luna | `scale-swe-atlas:swe-atlas:gpt-6-luna` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-6-luna-max:arc-agi-2-v2-semi-private |
 | GPT-6.1 Sol | `scale-swe-atlas:swe-atlas:gpt-6-1-sol` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private |
 | GPT-6.1 Terra | `scale-swe-atlas:swe-atlas:gpt-6-1-terra` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-1-terra-reasoning-max:1-1 |
+| GPT-6.2 Astra | `scale-swe-atlas:swe-atlas:gpt-6-2-astra` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-2-astra-reasoning-max:1-1 |
+| GPT-6.2 Sol | `scale-swe-atlas:swe-atlas:gpt-6-2-sol` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-max:1-1 |
 | Grok 4.7 | `scale-swe-atlas:swe-atlas:grok-4-7` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling 2 Small | `scale-swe-atlas:swe-atlas:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Kimi K3 | `scale-swe-atlas:swe-atlas:kimi-k3` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
-| Kimi K3.1 Pro | `scale-swe-atlas:swe-atlas:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| MiniMax M3 | `scale-swe-atlas:swe-atlas:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-120:1-0-6 |
+| Kimi K3.1 Pro | `scale-swe-atlas:swe-atlas:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-3 |
+| MiniMax M3 | `scale-swe-atlas:swe-atlas:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
 | Muse Ember 1.0 | `scale-swe-atlas:swe-atlas:muse-ember-1-0` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-ember |
 | Muse Spark Open | `scale-swe-atlas:swe-atlas:muse-spark-open` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:meta-muse-spark-open-xhigh:arc-agi-2-v2-semi-private |
 | Muse Wonder 1.0 | `scale-swe-atlas:swe-atlas:muse-wonder-1-0` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-wonder |

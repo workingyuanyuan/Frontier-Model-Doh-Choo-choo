@@ -1,10 +1,10 @@
 # Surge GDP.xlsx acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/gdp-xlsx>
-- Evidence: `sha256:819745f6af0a213f17a6637635365f559f6a6def243813fbffa3ca15539575df`
-- Main leaderboard: 20 rows; rendered browser count: 20.
+- Evidence: `sha256:47df748b60aa92fbe71f2bb037ec13d08ccad0eaddd5de5af0b2ad7f69378efd`
+- Main leaderboard: 35 rows; rendered browser count: 35.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (4): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.
+- Unresolved catalog identities (7): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 3; Mistral Large 4 (High reasoning).
 
 Scores are the main leaderboard mean reward percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.
 

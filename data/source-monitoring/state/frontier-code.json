@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-18T05:08:36.172Z",
+  "checkedAt": "2026-11-18T23:34:40.897Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -246,7 +246,7 @@
       {
         "id": "frontier-code-2-0",
         "includedRetainedRows": 0,
-        "includedRows": 135,
+        "includedRows": 139,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
@@ -260,6 +260,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-open",
           "meta-muse-wonder",
           "moonshot-kimi-k3",
@@ -376,6 +377,10 @@
           "[\"Gemini 4 Hydrogen\",\"low\",null,\"antigravity-cli\",null,null,null,null]",
           "[\"Gemini 4 Hydrogen\",\"medium\",null,\"antigravity-cli\",null,null,null,null]",
           "[\"Gemini 4 Hydrogen\",\"xhigh\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Neon\",\"high\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Neon\",\"low\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Neon\",\"medium\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Neon\",\"xhigh\",null,\"antigravity-cli\",null,null,null,null]",
           "[\"Grok 4.7\",\"high\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"low\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"medium\",null,\"grok-build\",null,null,null,null]",
@@ -436,6 +441,7 @@
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
           "Gemini 4 Hydrogen",
+          "Gemini 4 Neon",
           "Grok 4.7",
           "Inkling 2 Small",
           "Inkling Small",
@@ -449,12 +455,12 @@
           "SWE-2",
           "SWE-2 Flash"
         ],
-        "rows": 135,
+        "rows": 139,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-18T05:08:35.889Z",
+    "observedAt": "2026-11-18T23:34:39.834Z",
     "sourceId": "frontier-code"
   }
 }

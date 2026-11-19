@@ -64,7 +64,13 @@ import {
   materializeAnthropicReleases,
   ANTHROPIC_RELEASE_URLS,
 } from './vendor-anthropic.js';
-import { auditVendorReleases } from './vendor-release-audit.js';
+import {
+  auditVendorReleases,
+  cursorBenchActiveVersion,
+  cursorFallbackNote,
+  REVIEWED_CURSORBENCH_SUCCESSORS,
+  verifyReviewedCursorCapture,
+} from './vendor-release-audit.js';
 import {
   FRONTIER_SWE_PAGE_URL,
   materializeFrontierSwe,
@@ -89,6 +95,7 @@ import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js
 import {
   CandidateResultSchema,
   CostRecordSchema,
+  EvidenceRecordSchema,
   deterministicJson,
   ProfilePolicySchema,
   BenchmarkDimensionMappingSchema,
@@ -277,6 +284,53 @@ function rebuildSnapshots(
       );
     if (!cursorEvidence)
       throw new Error('Missing stored Cursor organizer evidence');
+    // When the refresh fell back to the reviewed CursorBench 4.0 capture, the
+    // live capture that showed a later release is kept in cross-checks.json;
+    // re-verify both and rebuild the same disclosure.
+    const storedCrossChecks = JSON.parse(
+      readFileSync(
+        join(repoRoot, 'data/sources/anthropic-releases/cross-checks.json'),
+        'utf8',
+      ),
+    ) as { liveCursorEvidence?: unknown };
+    let cursorFallback: {
+      liveCursorEvidence: EvidenceRecord;
+      cursorFallbackNote: string;
+    } | null = null;
+    if (storedCrossChecks.liveCursorEvidence !== undefined) {
+      const live = EvidenceRecordSchema.parse(
+        storedCrossChecks.liveCursorEvidence,
+      );
+      const liveBytes = readFileSync(join(repoRoot, live.artifactPath));
+      const liveDigest = `sha256:${createHash('sha256').update(liveBytes).digest('hex')}`;
+      if (
+        liveDigest !== live.sha256 ||
+        live.id !== live.sha256 ||
+        liveBytes.byteLength !== live.byteLength
+      )
+        throw new Error(
+          `Live Cursor capture ${live.id} fails its integrity check`,
+        );
+      const liveVersion = cursorBenchActiveVersion(
+        new TextDecoder().decode(liveBytes),
+      );
+      if (!REVIEWED_CURSORBENCH_SUCCESSORS.includes(liveVersion))
+        throw new Error(
+          `Live Cursor capture shows CursorBench ${liveVersion}; no fallback applies`,
+        );
+      verifyReviewedCursorCapture(
+        cursorEvidence,
+        readFileSync(join(repoRoot, cursorEvidence.artifactPath)),
+      );
+      cursorFallback = {
+        liveCursorEvidence: live,
+        cursorFallbackNote: cursorFallbackNote(
+          live,
+          liveVersion,
+          cursorEvidence,
+        ),
+      };
+    }
     const references = [
       'deepswe',
       'zapier-automationbench',
@@ -830,10 +884,13 @@ function rebuildSnapshots(
       }
       if (vendor)
         files['cross-checks.json'] = prettyDeterministicJson({
-          observedAt: cursorEvidence.retrievedAt,
+          observedAt:
+            cursorFallback?.liveCursorEvidence.retrievedAt ??
+            cursorEvidence.retrievedAt,
           checks,
           references,
           cursorEvidence,
+          ...cursorFallback,
         });
       // Counts
       const unresolvedCount = candidates.filter(
@@ -847,7 +904,7 @@ function rebuildSnapshots(
           ? src.reportFn(candidates.length, candidates.length, unresolvedCount)
           : '');
       if (vendor) {
-        reportText += `\n## Organizer cross-check\n\n- Matched: ${checks.filter(({ status }) => status === 'MATCH').length}\n- Vendor preview rows absent from reference: ${checks.filter(({ status }) => status === 'SUPPLEMENT').length}\n- Excluded: ${checks.filter(({ status }) => status === 'EXCLUDED').length}\n- Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).\n`;
+        reportText += `\n## Organizer cross-check\n\n- Matched: ${checks.filter(({ status }) => status === 'MATCH').length}\n- Vendor preview rows absent from reference: ${checks.filter(({ status }) => status === 'SUPPLEMENT').length}\n- Excluded: ${checks.filter(({ status }) => status === 'EXCLUDED').length}\n${cursorFallback ? `- ${cursorFallback.cursorFallbackNote}\n` : ''}- Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).\n`;
       }
       files['validation-report.md'] = reportText;
       outputFiles.set(src.id, files);

@@ -4,7 +4,7 @@
 - Data endpoint: <https://agents-last-exam.org/api/demo/leaderboard/v1.1>
 - API evidence: `sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0`
 - Page evidence: `sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11`
-- Observed at: 2026-11-18T09:19:33.628Z
+- Observed at: 2026-11-18T23:35:34.222Z
 - Results updated at (source): 2026-11-18T01:01:54.886914Z
 - Cost rates as of (source): 2026-11-17
 - Task definitions: https://github.com/rdi-berkeley/agents-last-exam @ `2e91edd3cd26baa35a38127c90c8e5241dfbe62f` (2026-10-27T01:22:44Z)

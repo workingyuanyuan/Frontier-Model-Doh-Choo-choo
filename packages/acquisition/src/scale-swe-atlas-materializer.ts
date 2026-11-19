@@ -74,9 +74,31 @@ export function materializeScaleSweAtlas(
 } {
   if (!Number.isInteger(context.visualRowCount) || context.visualRowCount <= 0)
     throw new Error('A verified positive visual row count is required');
-  if (!/SWE Atlas v1\.1 is live\./u.test(html))
+  const objects = pageObjects(html);
+  const announcedVersions = [
+    ...html.matchAll(/SWE Atlas v(\d+(?:\.\d+)+) is live\./gu),
+  ].map((match) => match[1]);
+  // The redesigned page embeds methodology in an iframe; its RSC catalog
+  // still names the benchmark version behind the active Overall board, and
+  // it must name exactly one.
+  const catalogVersions = new Set(
+    objects.flatMap(({ value }) => {
+      if (value.id !== 'swe-atlas' || value.deprecated !== false) return [];
+      const match = /^sweatlas_(\d+(?:\.\d+)+) Overall$/u.exec(
+        String(value.airtableTableName ?? ''),
+      );
+      return match ? [match[1]!] : [];
+    }),
+  );
+  const catalogVersion =
+    catalogVersions.size === 1 && catalogVersions.has('1.1');
+  if (
+    announcedVersions.some((version) => version !== '1.1') ||
+    [...catalogVersions].some((version) => version !== '1.1') ||
+    (!announcedVersions.includes('1.1') && !catalogVersion)
+  )
     throw new Error('SWE Atlas v1.1 methodology marker missing');
-  const boards = pageObjects(html).filter(
+  const boards = objects.filter(
     ({ value }) => value.slug === 'swe-atlas' && Array.isArray(value.variants),
   );
   if (boards.length !== 1)

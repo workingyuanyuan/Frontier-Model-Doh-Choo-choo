@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+
 import type { CandidateResult } from '@llm-bench/benchmark-data';
 
 export interface VendorCrossCheck {
@@ -12,15 +14,100 @@ export interface VendorCrossCheck {
   note: string;
 }
 
+/** The CursorBench release the vendor charts report. */
+export const REVIEWED_CURSORBENCH_VERSION = '4.0';
+
+/**
+ * The last reviewed capture of Cursor's chart while it showed CursorBench 4.0
+ * (retrieved 2026-11-18T04:58:48.889Z). Cursor moved the chart to 4.1 later
+ * that day, so 4.0 vendor rows are cross-checked against this capture only.
+ */
+export const REVIEWED_CURSORBENCH_CAPTURE_ID =
+  'sha256:b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a';
+
+/**
+ * The CursorBench results sections of a Cursor evals page. Older releases
+ * also appear in the page's changelog, so the release is read from the results
+ * section label, and scores are read only from inside those sections.
+ */
+export function cursorBenchResults(html: string): {
+  version: string;
+  body: string;
+} {
+  const sections = [
+    ...html
+      .replace(/<!--[\s\S]*?-->/gu, '')
+      .matchAll(
+        /<section\b[^>]*\baria-label="CursorBench (\d+(?:\.\d+)+) results"[^>]*>([\s\S]*?)<\/section>/gu,
+      ),
+  ];
+  const versions = new Set(sections.map((match) => match[1]!));
+  if (versions.size !== 1)
+    throw new Error(
+      `Cursor reference must show exactly one CursorBench results release (found ${versions.size})`,
+    );
+  if (sections.some((match) => /<section\b/u.test(match[2]!)))
+    throw new Error('Cursor results section has an unexpected nested section');
+  return {
+    version: [...versions][0]!,
+    body: sections.map((match) => match[2]!).join('\n'),
+  };
+}
+
+export const cursorBenchActiveVersion = (html: string): string =>
+  cursorBenchResults(html).version;
+
+/**
+ * Releases after 4.0 whose arrival has been reviewed: on these the refresh
+ * falls back to the pinned 4.0 capture. Any other release stops the refresh
+ * for review.
+ */
+export const REVIEWED_CURSORBENCH_SUCCESSORS: readonly string[] = ['4.1'];
+
+/**
+ * Returns the reviewed 4.0 capture's text after checking the record is the
+ * pinned capture and the bytes hash to it, so a different capture cannot be
+ * substituted through the generated cross-check file.
+ */
+export function verifyReviewedCursorCapture(
+  record: { id: string; sha256: string; byteLength: number },
+  bytes: Uint8Array,
+): string {
+  const digest = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+  if (
+    record.id !== REVIEWED_CURSORBENCH_CAPTURE_ID ||
+    record.sha256 !== REVIEWED_CURSORBENCH_CAPTURE_ID ||
+    digest !== REVIEWED_CURSORBENCH_CAPTURE_ID ||
+    bytes.byteLength !== record.byteLength
+  )
+    throw new Error(
+      `Cursor fallback ${record.id} is not the reviewed CursorBench ${REVIEWED_CURSORBENCH_VERSION} capture ${REVIEWED_CURSORBENCH_CAPTURE_ID}`,
+    );
+  const text = new TextDecoder().decode(bytes);
+  if (cursorBenchActiveVersion(text) !== REVIEWED_CURSORBENCH_VERSION)
+    throw new Error('Reviewed Cursor capture does not show CursorBench 4.0');
+  return text;
+}
+
+/** Disclosure shared by the online refresh and the offline replay. */
+export const cursorFallbackNote = (
+  live: { id: string; retrievedAt: string },
+  liveVersion: string,
+  reviewed: { id: string; retrievedAt: string },
+): string =>
+  `Cursor's live chart now shows CursorBench ${liveVersion} (${live.id}, retrieved ${live.retrievedAt}). CursorBench ${REVIEWED_CURSORBENCH_VERSION} rows are cross-checked against the last reviewed ${REVIEWED_CURSORBENCH_VERSION} capture (${reviewed.id}, retrieved ${reviewed.retrievedAt}).`;
+
 /** Only the reviewed benchmark releases and scoring metrics may share a key. */
 export function auditVendorReleases(
   candidates: CandidateResult[],
   organizerCandidates: CandidateResult[],
   cursorHtml: string,
 ): VendorCrossCheck[] {
-  if (!cursorHtml.includes('CursorBench 4.0')) {
+  const { version: cursorVersion, body: cursorBody } =
+    cursorBenchResults(cursorHtml);
+  if (cursorVersion !== REVIEWED_CURSORBENCH_VERSION) {
     throw new Error(
-      'Cursor reference is not the reviewed CursorBench 4.0 release',
+      `Cursor reference shows CursorBench ${cursorVersion}, not the reviewed ${REVIEWED_CURSORBENCH_VERSION} release`,
     );
   }
   const cursorRows = new Map<string, number>();
@@ -44,8 +131,8 @@ export function auditVendorReleases(
     'Gemini 3.8 Flash': 'google-gemini-3-8-flash',
     'Muse Spark 1.3': 'meta-muse-spark-1-3',
   };
-  for (const match of cursorHtml.matchAll(
-    /aria-label="([^"<>]+?) (Extra High|Medium|High|Low|Max): ([\d.]+)%,/gu,
+  for (const match of cursorBody.matchAll(
+    /<[a-z][^<>]*\saria-label="([^"<>]+?) (Extra High|Medium|High|Low|Max): ([\d.]+)%,/gu,
   )) {
     const modelId = models[match[1]!];
     if (!modelId) continue;
@@ -79,6 +166,13 @@ export function auditVendorReleases(
     let referenceScore: number | null;
     let referenceUrl: string | null;
     if (row.benchmarkId === 'cursorbench-4') {
+      if (
+        row.benchmarkVersion !== REVIEWED_CURSORBENCH_VERSION ||
+        row.metric.id !== 'accuracy'
+      )
+        throw new Error(
+          `CursorBench row ${row.id} is ${row.benchmarkVersion}/${row.metric.id}, not the reviewed ${REVIEWED_CURSORBENCH_VERSION}/accuracy chart`,
+        );
       referenceScore =
         cursorRows.get(`${row.model.canonicalModelId}:${row.profile.effort}`) ??
         null;

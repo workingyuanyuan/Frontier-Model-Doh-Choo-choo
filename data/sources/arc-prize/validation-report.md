@@ -7,8 +7,8 @@
 - Evaluations evidence: `sha256:ac3718f6b42a98c7013cce7ff55e8243368b02894c59f72ef1f16b5c1da0c88c`
 - Models evidence: `sha256:1ecce809bb81021a79a7fdfb2e5dd8e85ea4c81cc0a826c129dfc9275a947ea3`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:03c98400916140c8db67c484348c06ec6b85510af30826eff0fba013af6fa400`
-- Observed at: 2026-11-18T05:08:40.122Z
+- Page evidence: `sha256:fc9fe3de085b8ba4937081578a4be77169e276238da8ede6a9d5a09d1b9d91ac`
+- Observed at: 2026-11-18T23:33:45.105Z
 
 ## Exact counts
 
@@ -214,7 +214,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 |---|---:|---:|---:|
 | Candidate rows | 314 | 314 | +0 |
 | Cost records | 314 | 314 | +0 |
-| Canonically unresolved models | 151 | 141 | -10 |
+| Canonically unresolved models | 141 | 141 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -230,7 +230,7 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | biobasicsbench | biobasicsbench:openai-gpt-5-2-xhigh |
 | GPT-5.2 (Refinement) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | biobasicsbench | biobasicsbench:openai-gpt-5-2-xhigh |
-| Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+| Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
