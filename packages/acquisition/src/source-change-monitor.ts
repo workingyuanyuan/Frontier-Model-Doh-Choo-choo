@@ -132,6 +132,10 @@ const SURGE_ADAPTERS = {
     sourceId: 'surge-dayjob-tax',
     benchmarkId: 'dayjob-tax',
   },
+  'dayjob-law': {
+    sourceId: 'surge-dayjob-law',
+    benchmarkId: 'dayjob-law',
+  },
   'gdp-xlsx': {
     sourceId: 'surge-gdp-xlsx',
     benchmarkId: 'gdp-xlsx',

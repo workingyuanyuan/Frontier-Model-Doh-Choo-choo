@@ -15,6 +15,7 @@ export const SOURCE_CATALOG_URLS: Readonly<Record<string, string>> = {
   'surge-dayjob-finance': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-healthcare': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-tax': 'https://surgehq.ai/benchmarks',
+  'surge-dayjob-law': 'https://surgehq.ai/benchmarks',
   'surge-gdp-xlsx': 'https://surgehq.ai/benchmarks',
 };
 

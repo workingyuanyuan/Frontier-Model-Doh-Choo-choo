@@ -38,6 +38,8 @@
 
 以下都是新出現的 benchmark 或指數，是否收錄屬使用者決定的計分政策，本次未納入：
 
+> 後續：使用者於同日決定收錄 Surge DAYJOB: Law 與 Vals Autoform-Hard，見[刷新報告](../refresh/2026-11-19-law-autoform.md)。
+
 - **Surge DAYJOB: Law**：長時程法律代理任務（合約審閱、盡職調查、研究備忘錄等）。前 3 名 GPT 6.2 Astra (Max) `41.4%`、GPT 6 Astra (Max) `36.6%`、GPT 6.2 Sol (Max) `32.7%`；Gemini 4 Neon (High) 第 7（`26.2%`）。與現役的 DAYJOB Finance／Healthcare／Tax 同系列。
 - **Surge Tuesday@Work Index**：原「Tuesday Work Index」改名，為 Surge 各榜的綜合指數；Neon (High) `71.6` 第 1。屬綜合指數，依既有政策不以綜合指數代替個別成績。
 - **Vals Autoform-Hard**：以 Lean 4 形式化研究級數學，8 個模型受測，前 3 名 GPT-6.2 Astra、Claude Fable 5.2、GPT-6.2 Sol；ProofBench v1.1 移入封存。

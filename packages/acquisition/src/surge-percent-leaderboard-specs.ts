@@ -78,6 +78,30 @@ export const SURGE_PERCENT_LEADERBOARDS = {
       'The DAYJOB family harness uses Harbor and OpenHands SDK, with Claude Opus 4.8 grading; exact current per-row tools and harness for Tax remain unconfirmed and null. Benchmark version and leaderboard publication date are unpublished.',
     ],
   },
+  'surge-dayjob-law': {
+    sourceId: 'surge-dayjob-law',
+    benchmarkId: 'dayjob-law',
+    pageUrl: 'https://surgehq.ai/benchmarks/dayjob-law',
+    pageTitle: 'DAYJOB: Law',
+    label: 'DAYJOB Law',
+    displayName: 'Surge AI DAYJOB Law',
+    attempts: 5,
+    metric: {
+      id: 'pass-at-1',
+      name: 'Pass@1',
+    },
+    scoreSummary: 'Pass@1 percentages (0–100) at a 95% rubric threshold',
+    reportParagraphs: [
+      'Like DAYJOB: Tax, and unlike the Finance and Healthcare leaderboards, which display mean reward, the official DAYJOB: Law announcement reports a pass rate at a 95% rubric threshold: an attempt passes when it satisfies at least 95% of its task criteria, and the leaderboard shows the share of passing attempts. The benchmark contains 71 assignments written by practicing lawyers. The DAYJOB repository identifies five attempts per task for leaderboard runs, so attempts is 5.',
+      'The public DAYJOB-law dataset holds 2 sample tasks; the full 71-task set is available by request to Surge. The repository documents a Harbor adapter and OpenHands SDK agent harness, with Claude Opus 4.8 grading, for the DAYJOB family, but neither it nor the Law announcement establishes exact tools or harness metadata for each current Law row, so those profile fields remain null. Benchmark version, context windows and leaderboard publication dates are unpublished and remain null.',
+      '- Methodology: <https://surgehq.ai/blog/dayjob-law> (published 2026-11-18), <https://huggingface.co/datasets/surgeai/DAYJOB-law> and <https://github.com/surge-ai/dayjob>. The blog publication date is not the leaderboard publication date.',
+    ],
+    manifestNotes: [
+      'Main leaderboard Pass@1 percentages at a 95% rubric threshold over 71 legal assignments. Only 2 sample tasks are public; full benchmark access is by request.',
+      'Official methodology: https://surgehq.ai/blog/dayjob-law (2026-11-18) and https://huggingface.co/datasets/surgeai/DAYJOB-law. An attempt passes when it satisfies at least 95% of its task rubric criteria; the score is the share of passing attempts. Five attempts per task: the DAYJOB README identifies five attempts per task for leaderboard runs.',
+      'The DAYJOB family harness uses Harbor and OpenHands SDK, with Claude Opus 4.8 grading; exact current per-row tools and harness for Law remain unconfirmed and null. Benchmark version and leaderboard publication date are unpublished.',
+    ],
+  },
   'surge-corecraft': {
     sourceId: 'surge-corecraft',
     benchmarkId: 'enterprisebench-corecraft',

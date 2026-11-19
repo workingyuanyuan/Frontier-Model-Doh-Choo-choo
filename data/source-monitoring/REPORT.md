@@ -4,7 +4,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## agents-last-exam
 
-- Checked: 2026-11-18T23:35:35.673Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:35:34.222Z
 - Scope: snapshot-only
 
@@ -14,7 +14,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-19T01:23:26.932Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-19T01:23:24.407Z
 - Scope: snapshot-only
 
@@ -24,7 +24,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-18T23:33:47.557Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:33:45.105Z
 - Scope: snapshot-only
 
@@ -34,7 +34,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-18T23:37:37.395Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:36:01.329Z
 - Scope: live-catalog-and-snapshot
 
@@ -104,7 +104,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## biobasicsbench
 
-- Checked: 2026-11-17T04:51:46.035Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-09T01:51:32.016Z
 - Scope: snapshot-only
 
@@ -114,7 +114,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-18T23:34:32.199Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:31.507Z
 - Scope: snapshot-only
 
@@ -124,7 +124,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-18T23:33:43.380Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:33:38.683Z
 - Scope: snapshot-only
 
@@ -134,7 +134,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-11-18T23:34:40.897Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:39.834Z
 - Scope: snapshot-only
 
@@ -144,7 +144,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-swe
 
-- Checked: 2026-11-18T23:33:37.155Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:33:32.436Z
 - Scope: snapshot-only
 
@@ -154,7 +154,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## google-releases
 
-- Checked: 2026-11-17T04:51:46.035Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-10-04T04:31:00.008Z
 - Scope: snapshot-only
 
@@ -164,7 +164,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-18T23:33:30.831Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:33:28.658Z
 - Scope: snapshot-only
 
@@ -174,7 +174,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## maxxbench
 
-- Checked: 2026-11-18T23:34:34.725Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:33.744Z
 - Scope: snapshot-only
 
@@ -184,7 +184,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-19T01:23:26.932Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -194,7 +194,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## scale-swe-atlas
 
-- Checked: 2026-11-18T23:37:53.793Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:37:52.474Z
 - Scope: snapshot-only
 
@@ -204,19 +204,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-18T23:34:43.672Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:42.447Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                     | Benchmark    | Detail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| models-lost                 | chartography | 32 -\> 32; missing 12: alibaba-qwen3-7-plus, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, google-gemini-3-5-flash-lite, google-gemini-3-6-flash, google-gemini-4-argon, meta-muse-spark-1-1, moonshot-kimi-k2-6, openai-gpt-5-4, openai-gpt-5-5, xai-grok-4-3, xai-grok-4-5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| profiles-lost               | chartography | 42 -\> 41; missing 20: \["Claude Opus 4.7 (Adaptive/Max)","max","Adaptive/Max",null,null,null,null,null\], \["Claude Opus 4.8 (Adaptive/Max)","max","Adaptive/Max",null,null,null,null,null\], \["DeepSeek V4 Flash Vision (experimental) (Max reasoning)","max","Max reasoning",null,null,null,null,null\], \["DeepSeek V4.1 Flash (Max reasoning)","max","Max reasoning",null,null,null,null,null\], \["GPT 5.4 (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\], \["GPT 5.5 (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\], \["GPT 5.6 Terra (Max reasoning)","max","Max reasoning",null,null,null,null,null\], \["Gemini 3.5 Flash-Lite (Minimal reasoning)","low","Minimal reasoning",null,null,null,null,null\], \["Gemini 3.6 Flash (Medium reasoning)","medium","Medium reasoning",null,null,null,null,null\], \["Gemini 4 Argon (High reasoning)","high","High reasoning",null,null,null,null,null\], \["Grok 4.3 (High reasoning)","high","High reasoning",null,null,null,null,null\], \["Grok 4.5 (High reasoning)","high","High reasoning",null,null,null,null,null\], \["Inkling Small (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\], \["Kimi K2.5 (Thinking on)",null,"Thinking on",null,null,null,null,null\], \["Kimi K2.6 (Thinking on)",null,"Thinking on",null,null,null,null,null\], \["Muse Spark 1.1 (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\], \["Muse Spark 1.3 (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\], \["Qwen 3.5 Plus (Thinking on)",null,"Thinking on",null,null,null,null,null\], \["Qwen 3.7 Plus (Thinking on)",null,"Thinking on",null,null,null,null,null\], \["Qwen 3.8 Flash (xHigh reasoning)","xhigh","xHigh reasoning",null,null,null,null,null\] |
-| included-coverage-decreased | chartography | 42 -\> 41 included rows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| catalog-added               | dayjob-law   | https://surgehq.ai/benchmarks/dayjob-law                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| unintegrated                | dayjob-law   | https://surgehq.ai/benchmarks/dayjob-law                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| unintegrated                | gdp-pdf      | https://surgehq.ai/benchmarks/gdp-pdf                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| unintegrated                | sudo-l7      | https://surgehq.ai/benchmarks/sudo-l7                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -225,7 +220,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -237,16 +232,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-18T23:34:49.871Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:46.036Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -255,7 +248,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -267,16 +260,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-18T23:34:56.727Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:51.853Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -285,7 +276,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -297,16 +288,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-18T23:35:11.654Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:35:06.335Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -315,7 +304,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -327,16 +316,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-18T23:35:18.161Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:35:13.678Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -345,7 +332,35 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
+| [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
+| [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
+| [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
+| [View GDP.xlsx benchmark](https://surgehq.ai/benchmarks/gdp-xlsx)                                           | yes                | scored            | gdp-xlsx                  |                                                                                  |
+| [View HANDBOOK.md Agents benchmark](https://surgehq.ai/benchmarks/handbook)                                 | no                 | reviewed-deferred | —                         | User decision: prioritize current frontier model coverage; defer this benchmark. |
+| [View Hemingway-bench benchmark](https://surgehq.ai/benchmarks/hemingway-bench)                             | no                 | reviewed-deferred | —                         | User decision: prioritize current frontier model coverage; defer this benchmark. |
+| [View Riemann-bench benchmark](https://surgehq.ai/benchmarks/riemann-bench)                                 | yes                | scored            | riemann-bench             |                                                                                  |
+| [View sudo L7 benchmark](https://surgehq.ai/benchmarks/sudo-l7)                                             | no                 | unintegrated      | —                         |                                                                                  |
+
+## surge-dayjob-law
+
+- Checked: 2026-11-19T02:19:21.933Z
+- Stored score snapshot: 2026-11-19T02:19:07.164Z
+- Scope: live-catalog-and-snapshot
+
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
+
+| Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
+| ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| [View Antidote: Everyday Edition benchmark](https://surgehq.ai/benchmarks/antidote)                         | no                 | reviewed-deferred | —                         | User decision: prioritize current frontier model coverage; defer this benchmark. |
+| [View Chartography benchmark](https://surgehq.ai/benchmarks/chartography)                                   | yes                | scored            | chartography              |                                                                                  |
+| [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
+| [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
+| [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -357,16 +372,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-18T23:35:25.147Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:35:20.193Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -375,7 +388,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -387,16 +400,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-18T23:35:32.131Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:35:27.244Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -405,7 +416,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -417,16 +428,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-18T23:35:04.412Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:34:58.992Z
 - Scope: live-catalog-and-snapshot
 
-| Finding       | Benchmark  | Detail                                   |
-| ------------- | ---------- | ---------------------------------------- |
-| catalog-added | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | dayjob-law | https://surgehq.ai/benchmarks/dayjob-law |
-| unintegrated  | gdp-pdf    | https://surgehq.ai/benchmarks/gdp-pdf    |
-| unintegrated  | sudo-l7    | https://surgehq.ai/benchmarks/sudo-l7    |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -435,7 +444,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View ComplexConstraints benchmark](https://surgehq.ai/benchmarks/complex-constraints)                      | no                 | scored            | complex-constraints       |                                                                                  |
 | [View DAYJOB: Finance benchmark](https://surgehq.ai/benchmarks/dayjob-finance)                              | yes                | scored            | dayjob-finance            |                                                                                  |
 | [View DAYJOB: Healthcare benchmark](https://surgehq.ai/benchmarks/dayjob-healthcare)                        | yes                | scored            | dayjob-healthcare         |                                                                                  |
-| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | no                 | unintegrated      | —                         |                                                                                  |
+| [View DAYJOB: Law benchmark](https://surgehq.ai/benchmarks/dayjob-law)                                      | yes                | scored            | dayjob-law                |                                                                                  |
 | [View DAYJOB: Tax benchmark](https://surgehq.ai/benchmarks/dayjob-tax)                                      | yes                | scored            | dayjob-tax                |                                                                                  |
 | [View EnterpriseBench: CoreCraft Agents benchmark](https://surgehq.ai/benchmarks/enterprisebench-corecraft) | yes                | scored            | enterprisebench-corecraft |                                                                                  |
 | [View GDP.pdf benchmark](https://surgehq.ai/benchmarks/gdp-pdf)                                             | no                 | unintegrated      | —                         |                                                                                  |
@@ -447,7 +456,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-18T23:45:36.144Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:44:59.089Z
 - Scope: live-catalog-and-snapshot
 
@@ -561,7 +570,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## xai-releases
 
-- Checked: 2026-11-17T04:51:46.035Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-10-04T04:31:01.893Z
 - Scope: snapshot-only
 
@@ -571,7 +580,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-18T23:33:55.761Z
+- Checked: 2026-11-19T02:19:21.933Z
 - Stored score snapshot: 2026-11-18T23:33:49.185Z
 - Scope: snapshot-only
 

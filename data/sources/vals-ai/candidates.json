@@ -6670,9 +6670,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:anthropic-claude-fable-5-2",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6716,7 +6716,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -6726,9 +6726,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:google-gemini-4-argon",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6772,7 +6772,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -6782,9 +6782,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:google-gemini-4-carbon",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6828,7 +6828,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -6838,9 +6838,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:google-gemini-4-hydrogen",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6884,7 +6884,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -6894,9 +6894,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:minimax-minimax-m3-1-flash",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6940,7 +6940,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -6950,9 +6950,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:openai-gpt-6-2-astra",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -6996,7 +6996,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -7006,9 +7006,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:openai-gpt-6-2-sol",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -7052,7 +7052,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {
@@ -7062,9 +7062,9 @@
     "evidenceIds": [
       "sha256:cdf885d8f740170eee59379e6146d9256add098c21843214c75e52ad89b1bb62"
     ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
+    "exclusionReason": null,
     "id": "vals-ai:autoform-hard:reflection-beam-1-0",
-    "inclusion": "EXCLUDED",
+    "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "accuracy",
@@ -7108,7 +7108,7 @@
     "schemaVersion": "candidate-result-v1",
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
+    "sourceRole": "ORGANIZER",
     "sourceUrl": "https://www.vals.ai/benchmarks/autoform_hard"
   },
   {

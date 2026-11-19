@@ -233,6 +233,7 @@ function rebuildSnapshots(
       { id: 'surge-dayjob-finance', reportFn: null },
       { id: 'surge-dayjob-healthcare', reportFn: null },
       { id: 'surge-dayjob-tax', reportFn: null },
+      { id: 'surge-dayjob-law', reportFn: null },
       { id: 'surge-gdp-xlsx', reportFn: null },
       { id: 'epoch-ai', reportFn: null },
       { id: 'arc-prize', reportFn: null },

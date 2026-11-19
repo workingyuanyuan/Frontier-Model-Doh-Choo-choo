@@ -39,6 +39,8 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
   lcb: { benchmarkId: 'livecodebench', role: 'INDEPENDENT' },
   mmlu_pro: { benchmarkId: 'mmlu-pro', role: 'INDEPENDENT' },
   proof_bench: { benchmarkId: 'proofbench', role: 'ORGANIZER' },
+  // Approved 2026-11-19: Vals' 56-task audited slice of AutoformBench, own harness.
+  autoform_hard: { benchmarkId: 'autoform-hard', role: 'ORGANIZER' },
   corp_fin_v2: { benchmarkId: 'corpfin', role: 'ORGANIZER' },
   fabv2: { benchmarkId: 'finance-agent-v2', role: 'ORGANIZER' },
   'vibe-code': { benchmarkId: 'vibe-code-bench', role: 'ORGANIZER' },

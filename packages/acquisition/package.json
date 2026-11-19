@@ -41,6 +41,7 @@
     "materialize:dayjob-finance": "tsx src/refresh-with-audit.ts surge-dayjob-finance src/refresh-surge-leaderboard.ts surge-dayjob-finance",
     "materialize:dayjob-healthcare": "tsx src/refresh-with-audit.ts surge-dayjob-healthcare src/refresh-surge-leaderboard.ts surge-dayjob-healthcare",
     "materialize:dayjob-tax": "tsx src/refresh-with-audit.ts surge-dayjob-tax src/refresh-surge-leaderboard.ts surge-dayjob-tax",
+    "materialize:dayjob-law": "tsx src/refresh-with-audit.ts surge-dayjob-law src/refresh-surge-leaderboard.ts surge-dayjob-law",
     "materialize:gdp-xlsx": "tsx src/refresh-with-audit.ts surge-gdp-xlsx src/refresh-surge-gdp-xlsx.ts",
     "evidence": "tsx src/evidence-cli.ts"
   },

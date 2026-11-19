@@ -10,8 +10,8 @@
 | Benchmark slugs discovered from index | 66 |
 | Benchmark pages with BenchmarkView data | 61 |
 | CandidateResults | 3687 |
-| Included CandidateResults | 2136 |
-| Excluded CandidateResults | 1551 |
+| Included CandidateResults | 2144 |
+| Excluded CandidateResults | 1543 |
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3535 |
 | Included vals_index CostRecords | 41 |
@@ -24,7 +24,7 @@
 |---|---:|---|
 | `a2j` | 23 | APPROVED |
 | `aime` | 96 | EXCLUDED |
-| `autoform_hard` | 8 | EXCLUDED |
+| `autoform_hard` | 8 | APPROVED |
 | `biomysterybench` | 34 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
 | `claimbench` | 33 | EXCLUDED |
@@ -96,6 +96,7 @@ Every parsed page passed the strict `metadata.total_models === Object.keys(tasks
 | Vals slug | Source-neutral benchmark ID | Source role |
 |---|---|---|
 | `a2j` | `a2j` | ORGANIZER |
+| `autoform_hard` | `autoform-hard` | ORGANIZER |
 | `code-migration` | `code-migration` | ORGANIZER |
 | `corp_fin_v2` | `corpfin` | ORGANIZER |
 | `cyber` | `cyber` | INDEPENDENT |
@@ -126,7 +127,6 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 ## Unapproved benchmark pages
 
 - `aime`
-- `autoform_hard`
 - `biomysterybench`
 - `case_law_v2`
 - `claimbench`
@@ -173,7 +173,6 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 
 ## Newly discovered since the reviewed table
 
-- `autoform_hard` (not auto-promoted)
 - `biomysterybench` (not auto-promoted)
 - `claimbench` (not auto-promoted)
 - `code-migration-v1-1` (not auto-promoted)
@@ -466,6 +465,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 | Vals slug | Benchmark ID | Primary dimension | Secondary dimensions |
 |---|---|---|---|
 | `a2j` | `a2j` | knowledge | reasoning, language |
+| `autoform_hard` | `autoform-hard` | reasoning | coding |
 | `code-migration` | `code-migration` | coding | agentic, reasoning |
 | `corp_fin_v2` | `corpfin` | comprehension | reasoning, knowledge |
 | `cyber` | `cyber` | coding | agentic, reasoning |
@@ -499,7 +499,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 66 | 66 | +0 |
 | CandidateResults | 3687 | 3687 | +0 |
 | CostRecords retained | 3535 | 3535 | +0 |
-| Canonically unresolved rows | 2116 | 2102 | -14 |
+| Canonically unresolved rows | 2102 | 2102 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

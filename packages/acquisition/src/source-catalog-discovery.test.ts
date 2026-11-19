@@ -71,6 +71,7 @@ describe('source catalog discovery', () => {
     'surge-dayjob-finance',
     'surge-dayjob-healthcare',
     'surge-dayjob-tax',
+    'surge-dayjob-law',
     'surge-gdp-xlsx',
   ])(
     'enumerates every Surge benchmark and strips display metrics for %s',
@@ -227,6 +228,7 @@ describe('source catalog discovery', () => {
       'surge-dayjob-finance',
       'surge-dayjob-healthcare',
       'surge-dayjob-tax',
+      'surge-dayjob-law',
       'surge-gdp-xlsx',
     ]) {
       expect(() => discoverSourceCatalog(source, '<h1>Directory</h1>')).toThrow(
