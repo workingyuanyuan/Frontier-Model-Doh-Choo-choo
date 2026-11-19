@@ -1,4 +1,4 @@
-import { expect, test } from './test';
+import { expect, openAdvancedCostChartWithEveryModel, test } from './test';
 import {
   buildCommonComparison,
   commonBenchmarkCountDeltas,
@@ -140,8 +140,7 @@ test('names missing sources and hands the chart shortlist to the leaderboard', a
   expect(kept).toHaveLength(2);
 
   await page.goto('/');
-  await page.locator('.cost-mode-toggle').click();
-  await page.locator('.cost-model-overflow-trigger').click();
+  await openAdvancedCostChartWithEveryModel(page);
   const missingTags = page.locator(
     `.cost-model-menu-list li[data-series-id="${excluded!.seriesId}"] .cost-model-missing-source`,
   );
@@ -234,8 +233,7 @@ test('drops pins the chart hides and never pins the handed-over effort', async (
     kept,
   );
 
-  await page.locator('.cost-mode-toggle').click();
-  await page.locator('.cost-model-overflow-trigger').click();
+  await openAdvancedCostChartWithEveryModel(page);
   for (const other of series) {
     if (other === line) continue;
     await page
@@ -271,8 +269,14 @@ test('clears and restores the advanced cost chart models from the menu', async (
   await page.locator('.cost-model-overflow-trigger').click();
 
   const actions = page.locator('.cost-model-menu-actions button');
-  // Same order as the Search Models picker: primary action, Clear, Default.
-  await expect(actions).toHaveText(['Use in Leaderboard', 'Clear', 'Default']);
+  // Same order as the Search Models picker: primary action, Select all,
+  // Clear, Default.
+  await expect(actions).toHaveText([
+    'Use in Leaderboard',
+    'Select all',
+    'Clear',
+    'Default',
+  ]);
 
   const checked = page.locator(
     '.cost-model-menu-list input[type="checkbox"]:checked',
@@ -288,4 +292,99 @@ test('clears and restores the advanced cost chart models from the menu', async (
   await actions.filter({ hasText: 'Default' }).click();
   await expect(checked).toHaveCount(initialChecked);
   await expect(useInLeaderboard).toBeEnabled();
+
+  // Select all shows every model the enabled sources can plot.
+  await actions.filter({ hasText: 'Select all' }).click();
+  await expect(page.locator('.advanced-cost-point')).toHaveCount(
+    buildAdvancedCostSeries(product, ADVANCED_COST_SOURCE_IDS).flatMap(
+      ({ points }) => points,
+    ).length,
+  );
+});
+
+test('starts the advanced cost chart from the leaderboard models and follows Search Models', async ({
+  page,
+}) => {
+  const series = buildAdvancedCostSeries(product, ADVANCED_COST_SOURCE_IDS);
+  const plotted = () =>
+    page
+      .locator('.advanced-cost-point')
+      .evaluateAll((points) =>
+        points.map((point) => point.getAttribute('data-profile-id')!).sort(),
+      );
+  const expected = (modelIds: string[]) =>
+    series
+      .filter(({ modelId }) => modelIds.includes(modelId))
+      .flatMap(({ points }) => points.map(({ profileId }) => profileId))
+      .sort();
+  const rankedModelIds = async () =>
+    (
+      await page
+        .locator('[data-ranked-row]')
+        .evaluateAll((rows) =>
+          rows.map((row) => row.getAttribute('data-profile-id')!),
+        )
+    ).map((id) => profile(id).modelId);
+
+  await page.goto('/');
+  await page.locator('.cost-mode-toggle').click();
+  const preset = await rankedModelIds();
+  // Every effort of the preset's models, and no other model.
+  expect(expected(preset).length).toBeGreaterThan(0);
+  expect(expected(preset).length).toBeLessThan(
+    series.flatMap(({ points }) => points).length,
+  );
+  expect(await plotted()).toEqual(expected(preset));
+
+  // A model outside the preset that the chart can plot, and one inside it.
+  // Both need a picker name no other model shares.
+  const optionNames = comparisonOptions(product, benchmarkDimensions).map(
+    ({ modelId, profileId }) => ({
+      modelId,
+      name: profile(profileId).baseModelName,
+    }),
+  );
+  const pickable = (line: (typeof series)[number]) =>
+    optionNames.filter(({ name }) => name === line.displayName).length === 1 &&
+    optionNames.some(({ modelId }) => modelId === line.modelId);
+  const added = series.find(
+    (line) => pickable(line) && !preset.includes(line.modelId),
+  )!;
+  expect(added).toBeDefined();
+  const removed = series.find(
+    (line) => pickable(line) && preset.includes(line.modelId),
+  )!;
+  expect(removed).toBeDefined();
+
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page
+    .getByRole('checkbox', { name: added.displayName, exact: true })
+    .check();
+  await page
+    .getByRole('checkbox', { name: removed.displayName, exact: true })
+    .uncheck();
+  await page.keyboard.press('Escape');
+  const chosen = [
+    ...preset.filter((id) => id !== removed.modelId),
+    added.modelId,
+  ];
+  await expect.poll(plotted).toEqual(expected(chosen));
+
+  // A change made in the chart's own menu lasts until the leaderboard's
+  // models change again.
+  await page.locator('.cost-model-overflow-trigger').click();
+  await page
+    .locator(
+      `.cost-model-menu-list li[data-series-id="${added.seriesId}"] input[type="checkbox"]`,
+    )
+    .click();
+  await expect
+    .poll(plotted)
+    .toEqual(expected(chosen.filter((id) => id !== added.modelId)));
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page
+    .getByRole('checkbox', { name: removed.displayName, exact: true })
+    .check();
+  await page.keyboard.press('Escape');
+  await expect.poll(plotted).toEqual(expected([...chosen, removed.modelId]));
 });

@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test';
+import { test as base, type Page } from '@playwright/test';
 
 /**
  * A plain `page.goto` of the dashboard resolves once its controls respond.
@@ -25,3 +25,18 @@ export const test = base.extend({
 });
 
 export { expect, type Page } from '@playwright/test';
+
+/**
+ * Opens the advanced cost chart with every model shown and its Models menu
+ * open. The chart starts from the models the leaderboard lists, so a test
+ * about some other model widens it first.
+ */
+export const openAdvancedCostChartWithEveryModel = async (
+  page: Page,
+): Promise<void> => {
+  await page.locator('.cost-mode-toggle').click();
+  await page.locator('.cost-model-overflow-trigger').click();
+  await page
+    .locator('.cost-model-menu-actions button', { hasText: 'Select all' })
+    .click();
+};
