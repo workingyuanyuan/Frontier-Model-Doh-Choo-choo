@@ -437,6 +437,7 @@ export function Dashboard({
           defaultProduct={rankedProduct}
           perProfile={comparison !== null}
           advancedProduct={product}
+          leaderboardModelIds={checkedModelIds}
           onUseInLeaderboard={applyChartShortlist}
         />
       </main>

@@ -79,6 +79,10 @@ const weightNote = (weights: Readonly<Record<string, number>>): string => {
 const providerColor = (providerId: string): string =>
   PROVIDER_COLORS[providerId] ?? '#64748b';
 
+/** Identifies a set of models regardless of the order they are listed in. */
+const modelSetKey = (modelIds: readonly string[] | undefined): string =>
+  modelIds ? modelIds.toSorted().join('\u0000') : '';
+
 const defaultPointIsSelected = (
   point: WeightedCostPoint,
   selectedProfileId: string | null | undefined,
@@ -326,6 +330,7 @@ export function CostModelMenu({
   onToggleOpen,
   onToggleSelect,
   onUpdateHiddenProfileIds,
+  onResetHiddenProfileIds,
   onUseInLeaderboard,
 }: {
   advanced: boolean;
@@ -342,6 +347,8 @@ export function CostModelMenu({
   onUpdateHiddenProfileIds: (
     update: (current: Set<string>) => Set<string>,
   ) => void;
+  /** Back to the chart's starting visibility. */
+  onResetHiddenProfileIds: () => void;
   onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
 }) {
   const seriesById = new Map(series.map((line) => [line.seriesId, line]));
@@ -561,7 +568,8 @@ export function CostModelMenu({
         </ul>
         {advanced ? (
           // Laid out like the Search Models picker: the primary action on the
-          // left, then Clear and Default.
+          // left, then Select all, Clear and Default. Default returns to the
+          // models the leaderboard shows.
           <div className="picker-actions cost-model-menu-actions">
             {onUseInLeaderboard ? (
               <button
@@ -572,6 +580,12 @@ export function CostModelMenu({
                 Use in Leaderboard
               </button>
             ) : null}
+            <button
+              type="button"
+              onClick={() => onUpdateHiddenProfileIds(() => new Set())}
+            >
+              Select all
+            </button>
             <button
               type="button"
               onClick={() =>
@@ -587,10 +601,7 @@ export function CostModelMenu({
             >
               Clear
             </button>
-            <button
-              type="button"
-              onClick={() => onUpdateHiddenProfileIds(() => new Set())}
-            >
+            <button type="button" onClick={onResetHiddenProfileIds}>
               Default
             </button>
           </div>
@@ -1173,6 +1184,7 @@ export const CostChart = memo(function CostChart({
   defaultProduct,
   perProfile = false,
   advancedProduct,
+  leaderboardModelIds,
   onUseInLeaderboard,
 }: {
   /** The profiles the leaderboard ranks: the preset's, or a custom comparison. */
@@ -1184,6 +1196,12 @@ export const CostChart = memo(function CostChart({
   perProfile?: boolean;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: PresetProductVersion;
+  /**
+   * Models checked in the leaderboard. The advanced chart starts from these,
+   * with every effort of each, and returns to them whenever the list changes.
+   * Omitted, it starts from every model.
+   */
+  leaderboardModelIds?: readonly string[] | undefined;
   /** Hands the models and efforts visible on the advanced chart to the leaderboard. */
   onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
 }) {
@@ -1194,9 +1212,12 @@ export const CostChart = memo(function CostChart({
   const [advancedSourceIds, setAdvancedSourceIds] = useState<
     Set<AdvancedCostSourceId>
   >(() => new Set(ADVANCED_COST_SOURCE_IDS));
-  const [advancedHiddenProfileIds, setAdvancedHiddenProfileIds] = useState(
-    () => new Set<string>(),
-  );
+  // Edits made in the chart's own Models menu, kept only while the leaderboard
+  // still lists the models they were made against.
+  const [menuEdit, setMenuEdit] = useState<{
+    modelKey: string;
+    hiddenProfileIds: Set<string>;
+  } | null>(null);
   const [modelMenuOpen, setModelMenuOpen] = useState(false);
   const points = useMemo(
     () =>
@@ -1223,6 +1244,20 @@ export const CostChart = memo(function CostChart({
     () => (advanced ? buildAdvancedCostModelOptions(advancedProduct) : []),
     [advanced, advancedProduct],
   );
+  const leaderboardModelKey = modelSetKey(leaderboardModelIds);
+  const followedHiddenProfileIds = useMemo(() => {
+    if (!leaderboardModelIds) return new Set<string>();
+    const listed = new Set(leaderboardModelIds);
+    return new Set(
+      advancedModelOptions.flatMap(({ modelId, efforts }) =>
+        listed.has(modelId) ? [] : efforts.map(({ profileId }) => profileId),
+      ),
+    );
+  }, [advancedModelOptions, leaderboardModelIds]);
+  const advancedHiddenProfileIds =
+    menuEdit?.modelKey === leaderboardModelKey
+      ? menuEdit.hiddenProfileIds
+      : followedHiddenProfileIds;
   const advancedPanelId = 'advanced-cost-chart-panel';
 
   const toggleAdvancedSource = (sourceId: AdvancedCostSourceId) => {
@@ -1305,12 +1340,24 @@ export const CostChart = memo(function CostChart({
                 onToggleOpen={() => setModelMenuOpen((current) => !current)}
                 onToggleSelect={setSelectedProfileId}
                 onUpdateHiddenProfileIds={(update) =>
-                  setAdvancedHiddenProfileIds(update)
+                  setMenuEdit({
+                    modelKey: leaderboardModelKey,
+                    hiddenProfileIds: update(advancedHiddenProfileIds),
+                  })
                 }
+                onResetHiddenProfileIds={() => setMenuEdit(null)}
                 onUseInLeaderboard={
                   onUseInLeaderboard &&
                   ((models) => {
                     setModelMenuOpen(false);
+                    // The leaderboard is about to list these models; keep the
+                    // efforts hidden here hidden once it does.
+                    setMenuEdit({
+                      modelKey: modelSetKey(
+                        models.map(({ modelId }) => modelId),
+                      ),
+                      hiddenProfileIds: advancedHiddenProfileIds,
+                    });
                     onUseInLeaderboard(models);
                   })
                 }

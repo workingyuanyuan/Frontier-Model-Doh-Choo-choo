@@ -1,6 +1,6 @@
 import { waitForPaint } from './wait-for-paint';
 import AxeBuilder from '@axe-core/playwright';
-import { expect, test } from './test';
+import { expect, openAdvancedCostChartWithEveryModel, test } from './test';
 import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 import {
@@ -728,8 +728,7 @@ test('recomputes source eligibility and supports model and effort controls', asy
   expect(scenario).toBeDefined();
   const { sourceId, model, oldPoints, gained } = scenario!;
   await page.goto('/');
-  await page.locator('.cost-mode-toggle').click();
-  await page.locator('.cost-model-overflow-trigger').click();
+  await openAdvancedCostChartWithEveryModel(page);
   const row = page.locator(
     `.cost-model-menu-list li[data-series-id="${model.seriesId}"]`,
   );

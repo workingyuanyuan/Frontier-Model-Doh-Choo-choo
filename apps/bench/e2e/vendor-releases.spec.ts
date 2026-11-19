@@ -1,4 +1,4 @@
-import { expect, test } from './test';
+import { expect, openAdvancedCostChartWithEveryModel, test } from './test';
 import { getSourceDisplayName } from '../components/model-detail-panel';
 import { buildAdvancedCostSeries } from '../lib/view-model';
 import { product } from './product-data';
@@ -19,7 +19,8 @@ for (const sourceId of [
     const point = points.find(({ sources }) => sources[0]!.reportedSourceId);
     test.skip(!point, `${sourceId} has no vendor-reported cost pair`);
     await page.goto('/');
-    await page.locator('.cost-mode-toggle').click();
+    await openAdvancedCostChartWithEveryModel(page);
+    await page.locator('.cost-model-overflow-trigger').click();
     for (const toggle of await page.locator('.advanced-source-toggle').all()) {
       const id = await toggle.getAttribute('data-source-id');
       const enabled = (await toggle.getAttribute('aria-pressed')) === 'true';

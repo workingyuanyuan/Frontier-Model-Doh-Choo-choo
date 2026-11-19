@@ -2642,6 +2642,20 @@ details[open] > .evidence-group-summary::before {
   margin: 0.35rem -0.35rem -0.35rem;
 }
 
+/* Four actions do not fit one phone-width row: the primary action takes its
+   own row above the three selection shortcuts. */
+@media (max-width: 30rem) {
+  .picker-actions.cost-model-menu-actions {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 0.25rem;
+  }
+
+  .picker-actions.cost-model-menu-actions button:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .picker-actions.cost-model-menu-actions button:disabled {
   background: none;
   color: var(--ink-faint);
