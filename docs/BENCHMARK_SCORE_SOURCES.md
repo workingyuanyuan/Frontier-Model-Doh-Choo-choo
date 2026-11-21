@@ -11,9 +11,11 @@
 
 本文件是「來源分類與時效登錄」，不是一般連結收藏，也**不是匯入授權**。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
 
-**允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前有 Artificial Analysis、LiveBench、DeepSWE、Cognition Frontier Code、Proximal FrontierSWE、Surge AI Chartography、ComplexConstraints、EnterpriseBench: CoreCraft、Riemann-bench、DAYJOB: Finance、DAYJOB: Healthcare、GDP.xlsx、Epoch AI、ARC Prize、Zapier AutomationBench、Agents' Last Exam、Vals AI、OpenAI releases 與 Anthropic releases 等來源（完整清單以該檔為準；見 [重構規格 §3](SPEC.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
+**允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前有 Artificial Analysis、LiveBench、DeepSWE、Cognition Frontier Code、Proximal FrontierSWE、Surge AI Chartography、ComplexConstraints、EnterpriseBench: CoreCraft、Riemann-bench、DAYJOB: Finance、DAYJOB: Healthcare、GDP.xlsx、Epoch AI、ARC Prize、Zapier AutomationBench、Agents' Last Exam、Vals AI、GBENCH、OpenAI releases 與 Anthropic releases 等來源（完整清單以該檔為準；見 [重構規格 §3](SPEC.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
 
 ## 採用與覆蓋規則
+
+2026-11-21 使用者確認採用 [GBENCH（Gert Labs）](https://gertlabs.com/rankings?mode=agentic_coding)（來源 `gbench`，ORGANIZER）：只採 Agentic Coding 模式的 GScore，物化為 `gbench-agentic-coding`（×100，主維度 Coding）。綜合分數、One-shot Coding 與 Decision Making 保存為證據。GScore 是相對分數，會隨新模型與新遊戲重新平衡；來源沒有版本，也沒有逐列 effort，版本保持 null，effort 由跨來源投票推論。評估與採用理由見 [來源評估](research/2026-11-21-gbench-source-evaluation.md)。
 
 2026-11-12 使用者確認採用三項 benchmark：[Artificial Analysis MKA](https://artificialanalysis.ai/evaluations/mka)（`mka`，INDEPENDENT，Climb WSR 百分比，版本 unknown）、[Vals Access to Justice](https://www.vals.ai/benchmarks/a2j)（`a2j`，ORGANIZER，保留來源 accuracy），以及 [Scale SWE Atlas](https://scale.com/leaderboard/swe-atlas)（來源 `scale-swe-atlas`，ORGANIZER，`swe-atlas` v1.1）。SWE Atlas 只採 Overall 分數，QnA、Test Writing、Refactoring 是其組成，保留為證據；來源未提供成本。維度與納入規則見 [維度映射](BENCHMARK_DIMENSION_MAPPING.md#2026-11-12-approved-benchmark-additions)。
 

@@ -194,6 +194,16 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | ------- | --------- | ------------------------------------------------ |
 | None    | —         | No differences detected within the stated scope. |
 
+## gbench
+
+- Checked: 2026-11-21T12:40:56.254Z
+- Stored score snapshot: 2026-11-21T12:40:54.066Z
+- Scope: snapshot-only
+
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
+
 ## google-releases
 
 - Checked: 2026-11-19T02:19:21.933Z

@@ -509,6 +509,11 @@
       "id": "swe-atlas",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "gbench-agentic-coding",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
     }
   ]
 }

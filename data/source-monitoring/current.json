@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-21T08:52:52.923Z",
+  "checkedAt": "2026-11-21T12:40:56.254Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -749,6 +749,15 @@
       "scope": "snapshot-only",
       "snapshotObservedAt": "2026-11-21T08:43:22.510Z",
       "sourceId": "frontier-swe"
+    },
+    {
+      "checkedAt": "2026-11-21T12:40:56.254Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-21T12:40:54.066Z",
+      "sourceId": "gbench"
     },
     {
       "checkedAt": "2026-11-19T02:19:21.933Z",

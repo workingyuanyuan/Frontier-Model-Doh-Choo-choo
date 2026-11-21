@@ -81,8 +81,13 @@ export const captureArtifact = async (input: {
   mediaType: string;
   method: EvidenceRecord['method'];
   metadata: Record<string, unknown>;
+  /** Request headers, e.g. for a site that rejects requests without a user agent. */
+  headers?: Record<string, string>;
 }): Promise<CapturedArtifact> => {
-  const response = await acquireEvidenceResponse(input);
+  const response = await acquireEvidenceResponse(
+    input,
+    input.headers ? { headers: input.headers } : undefined,
+  );
   if (!response.ok) {
     throw new Error(`${input.url} returned HTTP ${response.status}`);
   }

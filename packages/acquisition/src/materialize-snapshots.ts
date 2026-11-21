@@ -59,6 +59,10 @@ import {
   materializeScaleSweAtlas,
 } from './scale-swe-atlas-materializer.js';
 import {
+  GBENCH_AGENTIC_API_URL,
+  materializeGbench,
+} from './gbench-materializer.js';
+import {
   CWE_BENCH_PAGE_URL,
   materializeCweBench,
 } from './cwe-bench-materializer.js';
@@ -231,6 +235,7 @@ function rebuildSnapshots(
       { id: 'deepswe', reportFn: null },
       { id: 'maxxbench', reportFn: null },
       { id: 'scale-swe-atlas', reportFn: null },
+      { id: 'gbench', reportFn: null },
       { id: 'biobasicsbench', reportFn: null },
       { id: 'frontier-code', reportFn: null },
       { id: 'frontier-swe', reportFn: null },
@@ -591,6 +596,26 @@ function rebuildSnapshots(
               evidenceId: page.id,
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedOverallRows),
+              models: catalog.models,
+            });
+            candidates = result.candidates;
+            materializedCosts = [];
+            customReportText = result.validationReport;
+          } else if (src.id === 'gbench') {
+            const response = evidenceFor(GBENCH_AGENTIC_API_URL);
+            const catalog = JSON.parse(
+              readFileSync(join(repoRoot, 'data/mappings/models.json'), 'utf8'),
+            ) as {
+              models: {
+                modelId: string;
+                displayName: string;
+                aliases?: string[];
+              }[];
+            };
+            const result = materializeGbench(evidenceText(response), {
+              evidenceId: response.id,
+              observedAt: response.retrievedAt,
+              visualRowCount: Number(response.metadata?.renderedAgenticRows),
               models: catalog.models,
             });
             candidates = result.candidates;

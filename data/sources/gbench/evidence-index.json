@@ -1,0 +1,22 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/c4/c450f6b554136aa2ce0c42279fa87351e9ea8189ae952742a59395414713a076.json",
+    "byteLength": 10244507,
+    "finalUrl": "https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500",
+    "id": "sha256:c450f6b554136aa2ce0c42279fa87351e9ea8189ae952742a59395414713a076",
+    "mediaType": "application/json",
+    "metadata": {
+      "captureScope": "complete Agentic Coding rankings JSON",
+      "materializedRows": 110,
+      "nonModelRows": ["custom/human", "baseline/random"],
+      "rankedRows": 112,
+      "renderedAgenticRows": 100
+    },
+    "method": "API_RESPONSE",
+    "requestUrl": "https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500",
+    "retrievedAt": "2026-11-21T12:40:54.066Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:c450f6b554136aa2ce0c42279fa87351e9ea8189ae952742a59395414713a076",
+    "sourceId": "gbench"
+  }
+]
