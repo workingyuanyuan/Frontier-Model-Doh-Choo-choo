@@ -1,7 +1,7 @@
 # Terminal-Bench 4.1 acquisition validation
 
 - Source: <https://www.tbench.ai/leaderboard>
-- Evidence: `sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70`
+- Evidence: `sha256:e940233895e39102367c3d593cc89d00816fd81ba8bff22264544f1abc7be718`
 - Leaderboard `terminal-bench/terminal-bench` / `4-1-0` ("Terminal-Bench 4.1"), updated 2026-11-20T16:07:10.159Z.
 - Configurations: 67; distinct models: 54; rendered browser rows: 54.
 - Every row has 330 trials and its resolution rate equals successes / trials.
@@ -25,7 +25,7 @@ This tagged section is generated deterministically for `terminal-bench`. Raw `pr
 |---|---|---|---|---|---|
 | Beam 1.0 | `terminal-bench:terminal-bench-4-1:beam-1-0-mini-swe-agent-none` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | Inkling | `terminal-bench:terminal-bench-4-1:inkling-mini-swe-agent-none` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
-| MiniMax M3 | `terminal-bench:terminal-bench-4-1:minimax-m3-mini-swe-agent-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| MiniMax M3 | `terminal-bench:terminal-bench-4-1:minimax-m3-mini-swe-agent-none` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

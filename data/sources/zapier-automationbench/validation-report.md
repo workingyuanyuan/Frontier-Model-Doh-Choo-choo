@@ -3,8 +3,8 @@
 - Page: <https://zapier.com/benchmarks>
 - Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CKqsGf_l.mjs>
 - Module evidence: `sha256:cbbf17ea7945a4d080a764c866fc57d87a823c4e15dd7ca9e3729a1b93e7bf1b`
-- Page evidence: `sha256:7cf94b26e9396d2696ce3017753cd5f5cae1f0b2655bb98b0be1366c890cd5c6`
-- Observed at: 2026-11-18T23:33:49.185Z
+- Page evidence: `sha256:31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c`
+- Observed at: 2026-11-21T08:43:45.282Z
 
 ## Exact counts
 
@@ -74,16 +74,6 @@
 - Minimax M2.7 (High)
 - Qwen 3.6+ (High)
 - Qwen 3.7+
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 147 | 151 | +4 |
-| Cost records | 146 | 150 | +4 |
-| Canonically unresolved rows | 14 | 14 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

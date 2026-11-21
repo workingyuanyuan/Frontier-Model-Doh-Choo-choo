@@ -2,18 +2,9 @@
 
 Grok 4.7 release: literal CursorBench 4.0 score and USD/task curves; DeepSWE v1.1 high-effort footnote. Minimal remains excluded to preserve distinct configurations.
 
-- Matches: 16
-- Supplements: 27
+- Matches: 9
+- Supplements: 34
 - Excluded: 1
-
-## Snapshot delta
-
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 44 | 44 | +0 |
-| Materialized costs | 43 | 43 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

@@ -1,22 +1,22 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0`
-- Observed at: 2026-11-18T23:44:59.089Z
+- Index evidence: `sha256:e685822cd7325a9adae1eb66603fec5057938f40e48a2155073c4b436ff7789c`
+- Observed at: 2026-11-21T08:52:43.955Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 66 |
-| Benchmark pages with BenchmarkView data | 61 |
-| CandidateResults | 3687 |
-| Included CandidateResults | 2144 |
-| Excluded CandidateResults | 1543 |
+| Benchmark slugs discovered from index | 67 |
+| Benchmark pages with BenchmarkView data | 62 |
+| CandidateResults | 3727 |
+| Included CandidateResults | 2155 |
+| Excluded CandidateResults | 1572 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3535 |
-| Included vals_index CostRecords | 41 |
-| Canonically unresolved rows | 2102 |
-| Distinct canonically unresolved models | 245 |
+| CostRecords retained | 3575 |
+| Included vals_index CostRecords | 42 |
+| Canonically unresolved rows | 2115 |
+| Distinct canonically unresolved models | 249 |
 
 ## Per-page completeness
 
@@ -25,69 +25,70 @@
 | `a2j` | 23 | APPROVED |
 | `aime` | 96 | EXCLUDED |
 | `autoform_hard` | 8 | APPROVED |
-| `biomysterybench` | 34 | EXCLUDED |
+| `biomysterybench` | 35 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `claimbench` | 33 | EXCLUDED |
+| `claimbench` | 35 | EXCLUDED |
 | `code-migration` | 79 | APPROVED |
-| `code-migration-v1-1` | 30 | EXCLUDED |
+| `code-migration-v1-1` | 31 | EXCLUDED |
 | `corp_fin_v2` | 134 | APPROVED |
 | `cua_bench` | 9 | EXCLUDED |
-| `cyber` | 48 | APPROVED |
+| `cyber` | 49 | APPROVED |
 | `cyber_offense` | 0 | EXCLUDED |
 | `emb` | 77 | APPROVED |
-| `emb-v1-1` | 47 | EXCLUDED |
+| `emb-v1-1` | 48 | EXCLUDED |
 | `fabv2` | 81 | APPROVED |
-| `fabv2-1` | 45 | EXCLUDED |
-| `finance_index` | 45 | EXCLUDED |
+| `fabv2-1` | 46 | EXCLUDED |
+| `finance_index` | 46 | EXCLUDED |
 | `financial-coaching-bench` | 28 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 43 | APPROVED |
+| `hlab` | 44 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
 | `immigration` | 26 | EXCLUDED |
 | `inference_provider` | 0 | EXCLUDED |
-| `ioi` | 46 | APPROVED |
+| `ioi` | 47 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
-| `legal_index` | 43 | EXCLUDED |
-| `legal_research` | 100 | APPROVED |
+| `legal_index` | 44 | EXCLUDED |
+| `legal_research` | 101 | APPROVED |
 | `math500` | 60 | EXCLUDED |
-| `medcode` | 108 | APPROVED |
+| `medcode` | 109 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
-| `medscribe` | 110 | APPROVED |
+| `medscribe` | 111 | APPROVED |
 | `mental-health` | 0 | EXCLUDED |
 | `mgsm` | 75 | EXCLUDED |
 | `mmlu_pro` | 138 | APPROVED |
 | `mmmu` | 93 | EXCLUDED |
 | `mortgage_tax` | 98 | EXCLUDED |
-| `mysterymechanism` | 34 | EXCLUDED |
+| `mysterymechanism` | 35 | EXCLUDED |
 | `poker_agent` | 17 | EXCLUDED |
-| `programbench` | 66 | APPROVED |
-| `proof_bench` | 55 | APPROVED |
+| `programbench` | 67 | APPROVED |
+| `proof_bench` | 56 | APPROVED |
 | `public-benefits-bench` | 50 | APPROVED |
 | `public-benefits-bench-v1` | 13 | EXCLUDED |
-| `robo_bench` | 10 | EXCLUDED |
+| `rctbench` | 9 | EXCLUDED |
+| `robo_bench` | 11 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
-| `sage` | 29 | EXCLUDED |
-| `science_index` | 28 | EXCLUDED |
-| `skillsbench` | 35 | APPROVED |
-| `srebench` | 37 | EXCLUDED |
+| `sage` | 30 | EXCLUDED |
+| `science_index` | 29 | EXCLUDED |
+| `skillsbench` | 36 | APPROVED |
+| `srebench` | 38 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
-| `swebench-multimodal` | 22 | EXCLUDED |
-| `tax_agent_bench` | 90 | EXCLUDED |
+| `swebench-multimodal` | 23 | EXCLUDED |
+| `tax_agent_bench` | 91 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 69 | APPROVED |
-| `terminal-bench-science` | 48 | EXCLUDED |
+| `terminal-bench-4` | 70 | APPROVED |
+| `terminal-bench-science` | 49 | EXCLUDED |
 | `time_horizon_index` | 13 | EXCLUDED |
-| `vals_index` | 42 | EXCLUDED |
+| `vals_index` | 43 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
-| `vcb-1-100-v1-1` | 10 | EXCLUDED |
-| `vibe-code` | 133 | APPROVED |
+| `vcb-1-100-v1-1` | 11 | EXCLUDED |
+| `vibe-code` | 134 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
-| `web_search` | 12 | EXCLUDED |
+| `web_search` | 14 | EXCLUDED |
 
 Every parsed page passed the strict `metadata.total_models === Object.keys(tasks.overall).length` check.
 
@@ -150,6 +151,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `mysterymechanism`
 - `poker_agent`
 - `public-benefits-bench-v1`
+- `rctbench`
 - `robo_bench`
 - `rsi_index`
 - `sage`
@@ -187,6 +189,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `mental-health` (not auto-promoted)
 - `mysterymechanism` (not auto-promoted)
 - `public-benefits-bench-v1` (not auto-promoted)
+- `rctbench` (not auto-promoted)
 - `robo_bench` (not auto-promoted)
 - `rsi_index` (not auto-promoted)
 - `science_index` (not auto-promoted)
@@ -266,6 +269,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - cohere/command-r
 - cohere/command-r-plus
 - cursor/composer-2.5
+- decision/bison-1
 - decision/classify-1
 - decision/clef
 - decision/clef-flash
@@ -285,6 +289,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/elephant-1
 - decision/gemini-decision-1
 - decision/gpt-6-luna
+- decision/groundhog-1
 - decision/jev-1.13.0
 - decision/jev-1.14
 - decision/joey-1
@@ -411,6 +416,8 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - openai/gpt-5.5-factory
 - openai/gpt-5.6-sol-exa
 - openai/gpt-5.6-sol-keenable
+- openai/gpt-5.6-sol-parallel-advanced
+- openai/gpt-5.6-sol-parallel-fast
 - openai/gpt-6.2-astra-law
 - openai/gpt-daybreak-blue
 - openai/gpt-live-transcribe
@@ -496,10 +503,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 66 | 66 | +0 |
-| CandidateResults | 3687 | 3687 | +0 |
-| CostRecords retained | 3535 | 3535 | +0 |
-| Canonically unresolved rows | 2102 | 2102 | +0 |
+| Benchmark slugs discovered from index | 67 | 67 | +0 |
+| CandidateResults | 3727 | 3727 | +0 |
+| CostRecords retained | 3575 | 3575 | +0 |
+| Canonically unresolved rows | 2140 | 2115 | -25 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -563,43 +570,59 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
-| minimax/MiniMax-M3 | `vals-ai:a2j:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:code-migration-v1-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:code-migration:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:corpfin:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:cyber:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:emb-v1-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:emb:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:fabv2-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:finance-agent-v2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:finance-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:financial-coaching-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:gpqa-diamond:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:hlab-v1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:immigration:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:legal-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:legal-research:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:livecodebench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:medcode:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:medscribe:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:mmlu-pro:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:mmmu:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:mortgage-tax:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:proofbench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:public-benefits-bench-v1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:public-benefits-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:sage:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:skillsbench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:swe-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:swebench-multimodal:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:tax-agent-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:tax-eval-v2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:terminal-bench-2-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:terminal-bench-2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:terminal-bench-4-0:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:vals-multimodal-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:vcb-1-100:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:vibe-code-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-124:1-0-6 |
+| minimax/MiniMax-M3 | `vals-ai:a2j:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:code-migration-v1-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:code-migration:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:corpfin:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:cyber:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:emb-v1-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:emb:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:fabv2-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:finance-agent-v2:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:finance-index:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:financial-coaching-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:gpqa-diamond:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:hlab-v1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:immigration:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:legal-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:legal-research:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:livecodebench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:medcode:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:medscribe:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:mmlu-pro:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:mmmu:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:mortgage-tax:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:proofbench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:public-benefits-bench-v1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:public-benefits-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:sage:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:skillsbench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:swe-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:swebench-multimodal:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:tax-agent-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:tax-eval-v2:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:terminal-bench-2-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:terminal-bench-2:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:terminal-bench-4-0:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:vals-multimodal-index:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:vcb-1-100:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| minimax/MiniMax-M3 | `vals-ai:vibe-code-bench:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:code-migration:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:corpfin:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:emb:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:finance-agent-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:gpqa-diamond:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:hlab-v1:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:legal-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:legal-research:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:livecodebench:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:medcode:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:mmlu-pro:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:programbench:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:swe-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:tax-eval-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:vibe-code-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 | openai/gpt-5.2-codex | `vals-ai:livecodebench:openai-gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | openai/gpt-5.4 | `vals-ai:vibe-code-bench:openai-gpt-5-4` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
 | reflection/Beam-1.0 | `vals-ai:autoform-hard:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
@@ -651,6 +674,31 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-science:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vals-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:biomysterybench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:cyber:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:emb-v1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:fabv2-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:finance-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:hlab:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:ioi:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:legal-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:legal-research:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:medcode:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:medscribe:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:mysterymechanism:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:programbench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:proofbench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:sage:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:science-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:skillsbench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:srebench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:swebench-multimodal:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:tax-agent-bench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-science:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:vals-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-bench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:code-migration:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -789,22 +837,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | meta/muse_spark | `vals-ai:tax-eval-v2:meta-muse-spark` | — | `default` | — | — |
 | meta/muse_spark | `vals-ai:terminal-bench-2:meta-muse-spark` | — | `default` | — | — |
 | meta/muse_spark | `vals-ai:vibe-code-bench:meta-muse-spark` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:code-migration:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:corpfin:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:emb:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:finance-agent-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:gpqa-diamond:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:hlab-v1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:legal-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:legal-research:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:livecodebench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:medcode:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:mmlu-pro:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:programbench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:swe-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:tax-eval-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:vibe-code-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:code-migration:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:corpfin:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:emb:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |

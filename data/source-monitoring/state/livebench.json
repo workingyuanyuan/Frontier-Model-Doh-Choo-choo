@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-19T02:19:21.933Z",
+  "checkedAt": "2026-11-21T08:43:13.235Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "livebench-browser",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -23,6 +23,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -50,6 +51,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -90,6 +92,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -119,16 +122,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-coding",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -143,6 +146,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -170,6 +174,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -210,6 +215,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -239,16 +245,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-data-analysis",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -263,6 +269,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -290,6 +297,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -330,6 +338,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -359,16 +368,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-design",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -383,6 +392,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -410,6 +420,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -450,6 +461,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -479,9 +491,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       },
@@ -695,7 +707,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1795111261"
         ],
         "versions": ["2026-06-25"]
       },
@@ -909,14 +921,14 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1795111261"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-long-agentic",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -931,6 +943,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -958,6 +971,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -998,6 +1012,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -1027,9 +1042,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       },
@@ -1243,14 +1258,14 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1795111261"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-reasoning",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": [
           "category-average:percent:true",
           "suite-score:percent:true"
@@ -1288,6 +1303,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-1",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
@@ -1361,6 +1377,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"glm-5.2\",null,null,null,false,null,1,null]",
           "[\"glm-5.3\",null,null,null,false,null,1,null]",
@@ -1472,6 +1489,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.2",
           "glm-5.3",
@@ -1540,17 +1558,17 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 109,
+        "rows": 110,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1795111261"
         ],
         "versions": ["2026-06-25", "2026-11-06"]
       },
       {
         "id": "livebench-research",
         "includedRetainedRows": 0,
-        "includedRows": 38,
+        "includedRows": 39,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1565,6 +1583,7 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -1592,6 +1611,7 @@
           "[\"gemini-4-argon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-carbon\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemini-4-hydrogen\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"gemini-4-neon\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gemma-4-31b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"glm-5.3-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"gpt-5.6-terra\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1632,6 +1652,7 @@
           "gemini-4-argon",
           "gemini-4-carbon",
           "gemini-4-hydrogen",
+          "gemini-4-neon",
           "gemma-4-31b",
           "glm-5.3-flash",
           "gpt-5.6-terra",
@@ -1661,14 +1682,14 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 38,
+        "rows": 39,
         "sourceUrls": [
-          "https://livebench.ai/data/20261106/table.csv?v=1794949612"
+          "https://livebench.ai/data/20261106/table.csv?v=1795111261"
         ],
         "versions": ["2026-11-06"]
       }
     ],
-    "observedAt": "2026-11-18T23:33:28.658Z",
+    "observedAt": "2026-11-21T08:43:11.494Z",
     "sourceId": "livebench"
   }
 }

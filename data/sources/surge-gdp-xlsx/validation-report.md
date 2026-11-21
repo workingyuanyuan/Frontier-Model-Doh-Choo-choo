@@ -1,8 +1,8 @@
 # Surge GDP.xlsx acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/gdp-xlsx>
-- Evidence: `sha256:47df748b60aa92fbe71f2bb037ec13d08ccad0eaddd5de5af0b2ad7f69378efd`
-- Main leaderboard: 35 rows; rendered browser count: 35.
+- Evidence: `sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675`
+- Main leaderboard: 36 rows; rendered browser count: 36.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (7): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 3; Mistral Large 4 (High reasoning).
 
@@ -21,12 +21,12 @@ This tagged section is generated deterministically for `surge-gdp-xlsx`. Raw `pr
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| Nemotron 3 Ultra | `surge-gdp-xlsx:gdp-xlsx:nemotron-3-ultra` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| Nemotron 3 Ultra | `surge-gdp-xlsx:gdp-xlsx:nemotron-3-ultra` | — | `default` | — | — |
+- None.
 
 <!-- C6-EFFORT-INFERENCE:END -->

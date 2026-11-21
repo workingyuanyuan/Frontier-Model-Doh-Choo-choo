@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/da/da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02.html",
-    "byteLength": 139406,
+    "artifactPath": "artifacts/sha256/b2/b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775.html",
+    "byteLength": 142419,
     "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
-    "id": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+    "id": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Next RSC leaderboard variants",
@@ -11,157 +11,157 @@
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 4.8,
-          "model": "Fable 5.2"
+          "model": "Claude Fable 5.2 (Claude Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.05,
-          "model": "Opus 5.5"
+          "model": "Claude Opus 5.5 (Claude Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.16,
-          "model": "Fable 5.1"
+          "model": "Claude Fable 5.1 (Claude Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.46,
-          "model": "Gemini 4 Carbon"
+          "model": "Gemini 4 Carbon (Antigravity CLI) high"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.48,
-          "model": "Gemini 4 Argon"
+          "model": "Gemini 4 Argon (Antigravity CLI) high"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.55,
-          "model": "GPT-6 Astra"
+          "model": "GPT 6 Astra (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.64,
-          "model": "Sonnet 5.5"
+          "model": "Claude Sonnet 5.5 (Claude Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.74,
-          "model": "GPT-6.1 Sol"
+          "model": "GPT 6.1 Sol (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.77,
-          "model": "Muse Wonder 1.0"
+          "model": "Muse Wonder 1.0 (Muse Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.71,
-          "model": "Qwen 3.8 Max"
+          "model": "Qwen 3.8 Max (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.79,
-          "model": "Grok 4.7"
+          "model": "Grok 4.7 (Grok Build) xhigh"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.85,
-          "model": "DeepSeek V4.1 Flash"
+          "model": "DeepSeek V4.1 Flash (DeepSeek Harness) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.83,
-          "model": "Inkling 2 Small"
+          "model": "Inkling 2 Small (mini-swe-agent) xhigh"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.88,
-          "model": "Kimi K3.1 Pro"
+          "model": "Kimi K3.1 Pro (Kimi Code CLI) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.89,
-          "model": "Kimi K3"
+          "model": "Kimi K3 (Kimi Code CLI) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.9,
-          "model": "GPT-6.2 Sol"
+          "model": "GPT 6.2 Sol (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.88,
-          "model": "GPT-6.2 Astra"
+          "model": "GPT 6.2 Astra (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.92,
-          "model": "Haiku 5.5"
+          "model": "Claude Haiku 5.5 (Claude Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.9,
-          "model": "GLM 5.3"
+          "model": "GLM 5.3 (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.94,
-          "model": "GPT-6.1 Terra"
+          "model": "GPT 6.1 Terra (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.83,
-          "model": "Gemini 3.8 Flash"
+          "model": "Gemini 3.8 Flash (Antigravity CLI) high"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.98,
-          "model": "Muse Ember 1.0"
+          "model": "Muse Ember 1.0 (Muse Code) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.94,
-          "model": "GLM 5.3 Flash"
+          "model": "GLM 5.3 Flash (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 6.02,
-          "model": "GPT-6 Luna"
+          "model": "GPT 6 Luna (Codex) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.83,
-          "model": "Mistral Large 4"
+          "model": "Mistral Large 4 (Mistral Vibe) high"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.9,
-          "model": "Muse Spark Open"
+          "model": "Muse Spark Open (Muse Code) xhigh"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.75,
-          "model": "MiniMax M3"
+          "model": "MiniMax M3 (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.76,
-          "model": "Beam 1.0"
+          "model": "Beam 1.0 (OpenCode) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.15,
-          "model": "Nemotron 3.5 Super VL"
+          "model": "Nemotron 3.5 Super VL (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 4.87,
-          "model": "Nemotron 3 Ultra"
+          "model": "Nemotron 3 Ultra (mini-swe-agent) max"
         },
         {
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 3.18,
-          "model": "gpt-oss-120b"
+          "model": "gpt-oss-120b (mini-swe-agent) high"
         }
       ],
       "excludedFromScoring": ["qna", "testwriting", "refactoring"],
@@ -176,9 +176,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://scale.com/leaderboard/swe-atlas",
-    "retrievedAt": "2026-11-18T23:37:52.474Z",
+    "retrievedAt": "2026-11-21T08:42:42.735Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+    "sha256": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
     "sourceId": "scale-swe-atlas"
   }
 ]

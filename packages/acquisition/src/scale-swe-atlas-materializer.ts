@@ -179,11 +179,24 @@ export function materializeScaleSweAtlas(
       const key = slugify(row.model);
       if (seen.has(key)) throw new Error('Duplicate SWE Atlas overall model');
       seen.add(key);
-      const canonicalModelId = aliases.get(row.model) ?? null;
+      // Since 2026-11-21 labels read "<model> (<harness>) <effort>"; older
+      // labels were "<model>" or "<model> (<effort>)".
+      // An exact catalog match on the full label wins; only otherwise is the
+      // label split, and an empty harness is never recorded.
+      const labelled = aliases.has(row.model)
+        ? null
+        : /^(.+) \(([^()]*[^()\s][^()]*)\) (non-reasoning|low|medium|high|xhigh|max)$/u.exec(
+            row.model,
+          );
+      const modelName = labelled?.[1] ?? row.model;
+      const harness = labelled?.[2]?.trim() ?? null;
+      const canonicalModelId = aliases.get(modelName) ?? null;
       const effort =
+        labelled?.[3] ??
         row.model.match(
           /\s\((non-reasoning|low|medium|high|xhigh|max)\)$/u,
-        )?.[1] ?? null;
+        )?.[1] ??
+        null;
       const locator = `${board.locator}.variants[0].entries[${index}]`;
       const field = (name: string) => ({
         evidenceId: context.evidenceId,
@@ -215,7 +228,7 @@ export function materializeScaleSweAtlas(
           effort,
           thinking: null,
           tools: null,
-          harness: null,
+          harness,
           contextWindowTokens: null,
           quantization: null,
           attempts: null,
@@ -242,6 +255,14 @@ export function materializeScaleSweAtlas(
             ...field('model'),
             locator: `${locator}.model; effort is retained only when explicitly named`,
           },
+          ...(harness === null
+            ? {}
+            : {
+                'profile.harness': {
+                  ...field('model'),
+                  locator: `${locator}.model; harness named in the label`,
+                },
+              }),
           sourceCreatedAt: field('createdAt'),
           ...(row.confidenceInterval_upper == null
             ? {}
@@ -269,16 +290,16 @@ export function materializeScaleSweAtlas(
       '- Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.',
       '- Published scores use the 0–100 scale directly. maxScore is chart-axis metadata, not the normalization denominator.',
       '- The official v1.1 notice describes 284 tasks and reruns with GPT-6.1 Sol as judge (majority of three votes), refined grading and restricted networking. Judge votes are not agent attempts.',
-      '- Unpublished effort, tools, harness, thinking, context, quantization and attempts remain null. Row createdAt is retained in provenance and is not treated as a score publication timestamp.',
+      '- Effort and harness are taken only from labels of the form "<model> (<harness>) <effort>" or "<model> (<effort>)"; the model part must match the catalog exactly. Unpublished effort, tools, harness, thinking, context, quantization and attempts remain null. Row createdAt is retained in provenance and is not treated as a score publication timestamp.',
       '- Published confidenceInterval_upper/lower fields are retained verbatim in artifact metadata and field provenance. No confidence level or missing bound is inferred.',
       '',
       '## Exact model identities',
       '',
-      '| Source model | Canonical identity | Source effort |',
-      '|---|---|---|',
+      '| Source model | Canonical identity | Source effort | Source harness |',
+      '|---|---|---|---|',
       ...candidates.map(
         (row) =>
-          `| ${row.model.rawName} | ${row.model.canonicalModelId ?? 'null'} | ${row.profile.effort ?? 'null'} |`,
+          `| ${row.model.rawName} | ${row.model.canonicalModelId ?? 'null'} | ${row.profile.effort ?? 'null'} | ${row.profile.harness ?? 'null'} |`,
       ),
       '',
     ].join('\n'),

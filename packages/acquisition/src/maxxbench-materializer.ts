@@ -237,7 +237,11 @@ export function materializeMaxxBench(
       throw new Error(`Invalid MaxxBench model ${match[1]}`);
     }
     const body = decodeHtml(match[2]!);
-    const label = body.match(/aria-label="Pin ([^"]+), ([^"]+) effort"/u);
+    const label =
+      body.match(/aria-label="Pin ([^"]+), ([^"]+) effort"/u) ??
+      body.match(
+        /aria-label="View ([^"]+), ([^"]+) effort model report(?:; released after MaxxBench launched)?"/u,
+      );
     const displayedScore = body.match(
       /<td\b[^>]*class="[^"]*\bscore-cell\b[^"]*"[^>]*>([\d.]+)/u,
     )?.[1];

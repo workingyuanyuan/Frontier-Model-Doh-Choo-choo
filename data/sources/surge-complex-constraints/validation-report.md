@@ -2,8 +2,8 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:9123a5a3c775931e4aa23be2b13b5a371a5a96ec6e86618ee4ceb9509a43b7cc`
-- Main leaderboard: 25 rows; rendered browser count: 25.
+- Evidence: `sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6`
+- Main leaderboard: 26 rows; rendered browser count: 26.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (5): GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 4 (High reasoning).
 
@@ -13,7 +13,7 @@ The official harness defines the leaderboard task pass rate as all_pass/mean (Pa
 
 ## Preserved rows omitted from the current leaderboard
 
-Current rendered rows: 25; preserved: 34; total stored: 59. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
+Current rendered rows: 26; preserved: 34; total stored: 60. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
 
 - surge-complex-constraints:complex-constraints:claude-fable-5-max-reasoning: 38.1; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:claude-opus-4-8-max-reasoning: 35.6; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
@@ -57,14 +57,15 @@ This tagged section is generated deterministically for `surge-complex-constraint
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| Nemotron 3 Ultra | `surge-complex-constraints:complex-constraints:nemotron-3-ultra` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | Kimi K2.6 (Thinking on) | `surge-complex-constraints:complex-constraints:kimi-k2-6-thinking-on` | — | `default` | — | — |
-| Nemotron 3 Ultra | `surge-complex-constraints:complex-constraints:nemotron-3-ultra` | — | `default` | — | — |
 | Qwen 3.7 Max (Thinking on) | `surge-complex-constraints:complex-constraints:qwen-3-7-max-thinking-on` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

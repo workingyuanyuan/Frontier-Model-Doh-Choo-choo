@@ -38,14 +38,14 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-11-18T23:36:01.329Z",
+  "lastVerifiedAt": "2026-11-21T08:41:25.915Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
     "`$undefined` and null are both treated as missing values.",
-    "Capture observed 304 unique profiles, 293 active profiles, 135 task-cost rows, and 262 token-price rows.",
-    "Materialized 144 Intelligence Index candidates (all EXCLUDED) and 210 GDPval-AA normalized candidates.",
-    "AA-Briefcase rubric rows: 224 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed)."
+    "Capture observed 305 unique profiles, 295 active profiles, 135 task-cost rows, and 263 token-price rows.",
+    "Materialized 145 Intelligence Index candidates (all EXCLUDED) and 211 GDPval-AA normalized candidates.",
+    "AA-Briefcase rubric rows: 225 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed)."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

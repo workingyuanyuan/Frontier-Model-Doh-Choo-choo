@@ -7,7 +7,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-2-none",
+    "id": "biobasicsbench:openai-gpt-5-2-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -17,15 +17,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-2",
-      "profileId": "openai-gpt-5-2-none",
+      "profileId": "openai-gpt-5-2-high",
       "rawName": "GPT-5.2"
     },
-    "normalizedScore": 24.01436,
+    "normalizedScore": 30.49368,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "none",
+      "effort": "high",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -34,27 +34,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].ci95_lower_pct",
+        "locator": "$.values[3][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].ci95_upper_pct",
+        "locator": "$.values[3][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].effort_order",
+        "locator": "$.values[3][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].model_label",
+        "locator": "$.values[3][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].mean_output_tokens_per_problem",
+        "locator": "$.values[3][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -64,7 +64,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].effort_label",
+        "locator": "$.values[3][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -74,11 +74,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[0][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].mean_credit_pct",
+        "locator": "$.values[3][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 24.01436,
+    "rawScore": 30.49368,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -265,7 +265,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-2-high",
+    "id": "biobasicsbench:openai-gpt-5-2-none",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -275,15 +275,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-2",
-      "profileId": "openai-gpt-5-2-high",
+      "profileId": "openai-gpt-5-2-none",
       "rawName": "GPT-5.2"
     },
-    "normalizedScore": 30.49368,
+    "normalizedScore": 24.01436,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "none",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -292,27 +292,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].ci95_lower_pct",
+        "locator": "$.values[0][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].ci95_upper_pct",
+        "locator": "$.values[0][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].effort_order",
+        "locator": "$.values[0][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].model_label",
+        "locator": "$.values[0][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].mean_output_tokens_per_problem",
+        "locator": "$.values[0][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -322,7 +322,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].effort_label",
+        "locator": "$.values[0][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -332,11 +332,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[3][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[3].mean_credit_pct",
+        "locator": "$.values[0][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[0].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 30.49368,
+    "rawScore": 24.01436,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -437,7 +437,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-4-none",
+    "id": "biobasicsbench:openai-gpt-5-4-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -447,15 +447,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-none",
+      "profileId": "openai-gpt-5-4-high",
       "rawName": "GPT-5.4"
     },
-    "normalizedScore": 24.47002,
+    "normalizedScore": 31.49656,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "none",
+      "effort": "high",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -464,27 +464,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].ci95_lower_pct",
+        "locator": "$.values[8][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].ci95_upper_pct",
+        "locator": "$.values[8][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].effort_order",
+        "locator": "$.values[8][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].model_label",
+        "locator": "$.values[8][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].mean_output_tokens_per_problem",
+        "locator": "$.values[8][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -494,7 +494,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].effort_label",
+        "locator": "$.values[8][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -504,11 +504,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[5][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].mean_credit_pct",
+        "locator": "$.values[8][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 24.47002,
+    "rawScore": 31.49656,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -695,7 +695,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-4-high",
+    "id": "biobasicsbench:openai-gpt-5-4-none",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -705,15 +705,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-high",
+      "profileId": "openai-gpt-5-4-none",
       "rawName": "GPT-5.4"
     },
-    "normalizedScore": 31.49656,
+    "normalizedScore": 24.47002,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "none",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -722,27 +722,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].ci95_lower_pct",
+        "locator": "$.values[5][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].ci95_upper_pct",
+        "locator": "$.values[5][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].effort_order",
+        "locator": "$.values[5][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].model_label",
+        "locator": "$.values[5][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].mean_output_tokens_per_problem",
+        "locator": "$.values[5][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -752,7 +752,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].effort_label",
+        "locator": "$.values[5][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -762,11 +762,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[8][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[8].mean_credit_pct",
+        "locator": "$.values[5][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[5].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 31.49656,
+    "rawScore": 24.47002,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -867,7 +867,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-5-none",
+    "id": "biobasicsbench:openai-gpt-5-5-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -877,15 +877,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-none",
+      "profileId": "openai-gpt-5-5-high",
       "rawName": "GPT-5.5"
     },
-    "normalizedScore": 25.90308,
+    "normalizedScore": 33.39794,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "none",
+      "effort": "high",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -894,27 +894,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].ci95_lower_pct",
+        "locator": "$.values[13][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].ci95_upper_pct",
+        "locator": "$.values[13][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].effort_order",
+        "locator": "$.values[13][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].model_label",
+        "locator": "$.values[13][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].mean_output_tokens_per_problem",
+        "locator": "$.values[13][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -924,7 +924,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].effort_label",
+        "locator": "$.values[13][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -934,11 +934,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[10][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].mean_credit_pct",
+        "locator": "$.values[13][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 25.90308,
+    "rawScore": 33.39794,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -1125,7 +1125,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-5-high",
+    "id": "biobasicsbench:openai-gpt-5-5-none",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1135,15 +1135,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-high",
+      "profileId": "openai-gpt-5-5-none",
       "rawName": "GPT-5.5"
     },
-    "normalizedScore": 33.39794,
+    "normalizedScore": 25.90308,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "none",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -1152,27 +1152,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].ci95_lower_pct",
+        "locator": "$.values[10][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].ci95_upper_pct",
+        "locator": "$.values[10][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].effort_order",
+        "locator": "$.values[10][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].model_label",
+        "locator": "$.values[10][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].mean_output_tokens_per_problem",
+        "locator": "$.values[10][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -1182,7 +1182,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].effort_label",
+        "locator": "$.values[10][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -1192,11 +1192,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[13][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[13].mean_credit_pct",
+        "locator": "$.values[10][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[10].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 33.39794,
+    "rawScore": 25.90308,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -1297,7 +1297,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-6-sol-none",
+    "id": "biobasicsbench:openai-gpt-5-6-sol-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1307,15 +1307,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-none",
+      "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "GPT-5.6 Sol"
     },
-    "normalizedScore": 29.80568,
+    "normalizedScore": 41.6532,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "none",
+      "effort": "high",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -1324,27 +1324,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].ci95_lower_pct",
+        "locator": "$.values[18][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].ci95_upper_pct",
+        "locator": "$.values[18][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].effort_order",
+        "locator": "$.values[18][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].model_label",
+        "locator": "$.values[18][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].mean_output_tokens_per_problem",
+        "locator": "$.values[18][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -1354,7 +1354,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].effort_label",
+        "locator": "$.values[18][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -1364,11 +1364,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[15][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].mean_credit_pct",
+        "locator": "$.values[18][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 29.80568,
+    "rawScore": 41.6532,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -1469,6 +1469,92 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-5-6-sol-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "normalizedScore": 45.56352,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[20][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 45.56352,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
     "id": "biobasicsbench:openai-gpt-5-6-sol-medium",
     "inclusion": "INCLUDED",
     "metric": {
@@ -1555,7 +1641,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-6-sol-high",
+    "id": "biobasicsbench:openai-gpt-5-6-sol-none",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1565,15 +1651,15 @@
     },
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-high",
+      "profileId": "openai-gpt-5-6-sol-none",
       "rawName": "GPT-5.6 Sol"
     },
-    "normalizedScore": 41.6532,
+    "normalizedScore": 29.80568,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "none",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -1582,27 +1668,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].ci95_lower_pct",
+        "locator": "$.values[15][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].ci95_upper_pct",
+        "locator": "$.values[15][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].effort_order",
+        "locator": "$.values[15][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].model_label",
+        "locator": "$.values[15][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].mean_output_tokens_per_problem",
+        "locator": "$.values[15][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -1612,7 +1698,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].effort_label",
+        "locator": "$.values[15][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -1622,11 +1708,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[18][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[18].mean_credit_pct",
+        "locator": "$.values[15][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[15].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 41.6532,
+    "rawScore": 29.80568,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -1727,7 +1813,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-5-6-sol-max",
+    "id": "biobasicsbench:openai-gpt-6-1-sol-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1736,16 +1822,16 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-max",
-      "rawName": "GPT-5.6 Sol"
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-high",
+      "rawName": "GPT-6.1 Sol"
     },
-    "normalizedScore": 45.56352,
+    "normalizedScore": 60.40354,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
       "contextWindowTokens": null,
-      "effort": "max",
+      "effort": "high",
       "harness": null,
       "quantization": null,
       "thinking": null,
@@ -1754,27 +1840,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].ci95_lower_pct",
+        "locator": "$.values[23][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].ci95_upper_pct",
+        "locator": "$.values[23][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].effort_order",
+        "locator": "$.values[23][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].model_label",
+        "locator": "$.values[23][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].mean_output_tokens_per_problem",
+        "locator": "$.values[23][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -1784,7 +1870,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].effort_label",
+        "locator": "$.values[23][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -1794,11 +1880,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[20][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[20].mean_credit_pct",
+        "locator": "$.values[23][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 45.56352,
+    "rawScore": 60.40354,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -1899,6 +1985,92 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-1-sol-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "normalizedScore": 62.61486,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[25][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 62.61485999999999,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
     "id": "biobasicsbench:openai-gpt-6-1-sol-medium",
     "inclusion": "INCLUDED",
     "metric": {
@@ -1971,92 +2143,6 @@
       }
     },
     "rawScore": 57.56218,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-1-sol-high",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-1-sol",
-      "profileId": "openai-gpt-6-1-sol-high",
-      "rawName": "GPT-6.1 Sol"
-    },
-    "normalizedScore": 60.40354,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[23][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[23].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 60.40354,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -2157,7 +2243,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-1-sol-max",
+    "id": "biobasicsbench:openai-gpt-6-astra-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -2166,355 +2252,11 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": "openai-gpt-6-1-sol",
-      "profileId": "openai-gpt-6-1-sol-max",
-      "rawName": "GPT-6.1 Sol"
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT-6 Astra"
     },
-    "normalizedScore": 62.61486,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[25][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[25].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 62.61485999999999,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-none",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-none",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 27.97478,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "none",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[26][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 27.97478,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-low",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-low",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 30.06596,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[27][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 30.065960000000004,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-medium",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-medium",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 34.87168,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[28][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 34.87168,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-high",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-high",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 36.98412,
+    "normalizedScore": 65.43528,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
@@ -2528,27 +2270,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].ci95_lower_pct",
+        "locator": "$.values[34][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].ci95_upper_pct",
+        "locator": "$.values[34][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].effort_order",
+        "locator": "$.values[34][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].model_label",
+        "locator": "$.values[34][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].mean_output_tokens_per_problem",
+        "locator": "$.values[34][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -2558,7 +2300,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].effort_label",
+        "locator": "$.values[34][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -2568,183 +2310,11 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[29][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].mean_credit_pct",
+        "locator": "$.values[34][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 36.98412,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-xhigh",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-xhigh",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 38.26694,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[30][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 38.26694,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-luna-max",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-max",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 37.5624,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[31][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 37.5624,
+    "rawScore": 65.43527999999999,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -2845,6 +2415,92 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-astra-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 66.98176,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[36][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 66.98176000000001,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
     "id": "biobasicsbench:openai-gpt-6-astra-medium",
     "inclusion": "INCLUDED",
     "metric": {
@@ -2917,92 +2573,6 @@
       }
     },
     "rawScore": 63.72312,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "biobasicsbench",
-    "sourcePublishedAt": null,
-    "sourceRole": "VENDOR",
-    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "biobasicsbench",
-    "benchmarkVersion": null,
-    "evidenceIds": [
-      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
-    ],
-    "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-astra-high",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "mean-reward",
-      "name": "Mean reward",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-astra",
-      "profileId": "openai-gpt-6-astra-high",
-      "rawName": "GPT-6 Astra"
-    },
-    "normalizedScore": 65.43528,
-    "observedAt": "2026-11-09T01:51:32.016Z",
-    "profile": {
-      "attempts": 5,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalLower": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].ci95_lower_pct",
-        "method": "DOM"
-      },
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].ci95_upper_pct",
-        "method": "DOM"
-      },
-      "effortOrder": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].effort_order",
-        "method": "DOM"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].model_label",
-        "method": "DOM"
-      },
-      "outputTokensPerTask": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].mean_output_tokens_per_problem",
-        "method": "DOM"
-      },
-      "profile.attempts": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
-        "method": "DOM"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].effort_label",
-        "method": "DOM"
-      },
-      "publicationDate": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
-        "method": "DOM"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[34][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[34].mean_credit_pct",
-        "method": "DOM"
-      }
-    },
-    "rawScore": 65.43527999999999,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,
@@ -3103,7 +2673,7 @@
       "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
     ],
     "exclusionReason": null,
-    "id": "biobasicsbench:openai-gpt-6-astra-max",
+    "id": "biobasicsbench:openai-gpt-6-luna-high",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -3112,11 +2682,183 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": "openai-gpt-6-astra",
-      "profileId": "openai-gpt-6-astra-max",
-      "rawName": "GPT-6 Astra"
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-high",
+      "rawName": "GPT-6 Luna"
     },
-    "normalizedScore": 66.98176,
+    "normalizedScore": 36.98412,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[29][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[29].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 36.98412,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-luna-low",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-low",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 30.06596,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[27][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[27].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 30.065960000000004,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-luna-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-max",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 37.5624,
     "observedAt": "2026-11-09T01:51:32.016Z",
     "profile": {
       "attempts": 5,
@@ -3130,27 +2872,27 @@
     "provenance": {
       "confidenceIntervalLower": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].ci95_lower_pct",
+        "locator": "$.values[31][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].ci95_lower_pct",
         "method": "DOM"
       },
       "confidenceIntervalUpper": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].ci95_upper_pct",
+        "locator": "$.values[31][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].ci95_upper_pct",
         "method": "DOM"
       },
       "effortOrder": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].effort_order",
+        "locator": "$.values[31][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].effort_order",
         "method": "DOM"
       },
       "model.rawName": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].model_label",
+        "locator": "$.values[31][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].model_label",
         "method": "DOM"
       },
       "outputTokensPerTask": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].mean_output_tokens_per_problem",
+        "locator": "$.values[31][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].mean_output_tokens_per_problem",
         "method": "DOM"
       },
       "profile.attempts": {
@@ -3160,7 +2902,7 @@
       },
       "profile.effort": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].effort_label",
+        "locator": "$.values[31][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].effort_label",
         "method": "DOM"
       },
       "publicationDate": {
@@ -3170,11 +2912,269 @@
       },
       "rawScore": {
         "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
-        "locator": "$.values[36][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[36].mean_credit_pct",
+        "locator": "$.values[31][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[31].mean_credit_pct",
         "method": "DOM"
       }
     },
-    "rawScore": 66.98176000000001,
+    "rawScore": 37.5624,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-luna-medium",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-medium",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 34.87168,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[28][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[28].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 34.87168,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-luna-none",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-none",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 27.97478,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "none",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[26][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[26].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 27.97478,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "biobasicsbench",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "biobasicsbench",
+    "benchmarkVersion": null,
+    "evidenceIds": [
+      "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41"
+    ],
+    "exclusionReason": null,
+    "id": "biobasicsbench:openai-gpt-6-luna-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "mean-reward",
+      "name": "Mean reward",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-xhigh",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 38.26694,
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "profile": {
+      "attempts": 5,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalLower": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][5] (ci95_lower_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].ci95_lower_pct",
+        "method": "DOM"
+      },
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][6] (ci95_upper_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].ci95_upper_pct",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][2] (effort_order); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].effort_order",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][0] (model_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].model_label",
+        "method": "DOM"
+      },
+      "outputTokensPerTask": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][4] (mean_output_tokens_per_problem); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].mean_output_tokens_per_problem",
+        "method": "DOM"
+      },
+      "profile.attempts": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.attemptsPerTask; official Results paragraph, five attempts per task",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][1] (effort_label); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].effort_label",
+        "method": "DOM"
+      },
+      "publicationDate": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.publicationDate; official page date 2026-11-06, exact publication time unpublished",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+        "locator": "$.values[30][3] (mean_credit_pct); official chart linkId=biobasicsbench-model-performance, vegaLiteSpec.data.values[30].mean_credit_pct",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 38.26694,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "biobasicsbench",
     "sourcePublishedAt": null,

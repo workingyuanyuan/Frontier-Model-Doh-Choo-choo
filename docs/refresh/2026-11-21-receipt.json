@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "data-release-receipt-v1",
+  "runId": "2026-11-21T08-53-30-581Z",
+  "status": "complete",
+  "failedStep": null,
+  "error": null,
+  "head": "96c7ac2018e9a2b312403323058f02d1c0208be4",
+  "startedAt": "2026-11-21T08:53:30.581Z",
+  "finishedAt": "2026-11-21T08:57:16.568Z",
+  "baselineDir": "artifacts/releases/2026-11-21T08-53-30-581Z/baseline",
+  "previousVersionId": "sha256:33be42322e75773597c19754201a36e463c8701cb79b561835b172b1616b104b",
+  "versionId": "sha256:837f83ad769f4a6e004373d782eb839995191e36b57987eba6f2da93471d1df0",
+  "basePath": "",
+  "steps": [
+    {
+      "id": "sources",
+      "command": null,
+      "exitCode": 0,
+      "ms": 186,
+      "log": null
+    },
+    {
+      "id": "evidence",
+      "command": "pnpm -s evidence verify",
+      "exitCode": 0,
+      "ms": 171268,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/evidence.log"
+    },
+    {
+      "id": "frontier",
+      "command": "pnpm data:generate-frontier-set",
+      "exitCode": 0,
+      "ms": 1208,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/frontier.log"
+    },
+    {
+      "id": "product",
+      "command": "pnpm data:build-current",
+      "exitCode": 0,
+      "ms": 1839,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/product.log"
+    },
+    {
+      "id": "fresh",
+      "command": "pnpm data:verify-fresh",
+      "exitCode": 0,
+      "ms": 1998,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/fresh.log"
+    },
+    {
+      "id": "tests",
+      "command": "pnpm test",
+      "exitCode": 0,
+      "ms": 5410,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/tests.log"
+    },
+    {
+      "id": "site",
+      "command": "pnpm --filter @llm-bench/bench build",
+      "exitCode": 0,
+      "ms": 17126,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/site.log"
+    },
+    {
+      "id": "e2e",
+      "command": "pnpm e2e",
+      "exitCode": 0,
+      "ms": 26610,
+      "log": "artifacts/releases/2026-11-21T08-53-30-581Z/logs/e2e.log"
+    }
+  ],
+  "inputsDigest": "sha256:5a66dcc9e96ac71718d32e36e9e9fc43b085992c6c7bc766bfe27d84ae2422bf",
+  "outputsDigest": "sha256:503572e2a322eb8e205fcaab325e9781b40c5b7d756096b04c4cdbe7d09e4de2",
+  "implementationDigest": "sha256:0a8ba73d2674d863c7854991b18fd11b0dca6bf6a9188f65610f2e34a6bf8f9d",
+  "exportDigest": "sha256:15b80e8695fedd32f003afde872eb3e648cf17ebcb8c1489364f6925266186f5"
+}

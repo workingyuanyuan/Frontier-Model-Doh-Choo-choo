@@ -85,21 +85,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-19T02:19:21.933Z",
+  "checkedAt": "2026-11-21T08:43:30.758Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/e7/e719950816754ae96133d76fdb2ce3d1af137874d990952e73df6ae699d74a98.html",
-    "byteLength": 1102624,
+    "artifactPath": "artifacts/sha256/bc/bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8.html",
+    "byteLength": 1124446,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:e719950816754ae96133d76fdb2ce3d1af137874d990952e73df6ae699d74a98",
+    "id": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-19T02:19:21.933Z",
+    "retrievedAt": "2026-11-21T08:43:30.758Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e719950816754ae96133d76fdb2ce3d1af137874d990952e73df6ae699d74a98",
+    "sha256": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
     "sourceId": "surge-dayjob-finance"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -108,10 +108,11 @@
       {
         "id": "dayjob-finance",
         "includedRetainedRows": 0,
-        "includedRows": 49,
+        "includedRows": 50,
         "metrics": ["mean-reward:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
+          "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
@@ -200,6 +201,7 @@
           "[\"Muse Wonder 1.0 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Nemotron 3 Ultra\",null,null,null,null,null,5,null]",
           "[\"Qwen 3.8 Max (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
+          "[\"Qwen 4 Max (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
           "[\"mistral Large 3\",null,null,null,null,null,5,null]"
         ],
         "rawLabels": [
@@ -251,14 +253,15 @@
           "Muse Wonder 1.0 (Max reasoning)",
           "Nemotron 3 Ultra",
           "Qwen 3.8 Max (xHigh reasoning)",
+          "Qwen 4 Max (xHigh reasoning)",
           "mistral Large 3"
         ],
-        "rows": 49,
+        "rows": 50,
         "sourceUrls": ["https://surgehq.ai/benchmarks/dayjob-finance"],
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-18T23:35:06.335Z",
+    "observedAt": "2026-11-21T08:43:30.512Z",
     "sourceId": "surge-dayjob-finance"
   }
 }

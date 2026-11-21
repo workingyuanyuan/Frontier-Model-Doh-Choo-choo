@@ -5,10 +5,10 @@
       "candidateId": "xai-releases:cursorbench-4:anthropic-claude-fable-5-1:max",
       "effort": "max",
       "modelId": "anthropic-claude-fable-5-1",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 51.8,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 51.8
     },
     {
@@ -16,10 +16,10 @@
       "candidateId": "xai-releases:cursorbench-4:anthropic-claude-fable-5-1:xhigh",
       "effort": "xhigh",
       "modelId": "anthropic-claude-fable-5-1",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 51.6,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 51.6
     },
     {
@@ -27,10 +27,10 @@
       "candidateId": "xai-releases:cursorbench-4:anthropic-claude-fable-5-1:high",
       "effort": "high",
       "modelId": "anthropic-claude-fable-5-1",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 49.2,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 49.2
     },
     {
@@ -38,10 +38,10 @@
       "candidateId": "xai-releases:cursorbench-4:anthropic-claude-fable-5-1:medium",
       "effort": "medium",
       "modelId": "anthropic-claude-fable-5-1",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 46.8,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 46.8
     },
     {
@@ -49,10 +49,10 @@
       "candidateId": "xai-releases:cursorbench-4:anthropic-claude-fable-5-1:low",
       "effort": "low",
       "modelId": "anthropic-claude-fable-5-1",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 45.1,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 45.1
     },
     {
@@ -379,10 +379,10 @@
       "candidateId": "xai-releases:cursorbench-4:google-gemini-3-8-flash:high",
       "effort": "high",
       "modelId": "google-gemini-3-8-flash",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 39.6,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 39.6
     },
     {
@@ -390,10 +390,10 @@
       "candidateId": "xai-releases:cursorbench-4:google-gemini-3-8-flash:medium",
       "effort": "medium",
       "modelId": "google-gemini-3-8-flash",
-      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
-      "referenceScore": 37.3,
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
       "referenceUrl": "https://prod.cursor.com/evals",
-      "status": "MATCH",
+      "status": "SUPPLEMENT",
       "vendorScore": 37.3
     },
     {
