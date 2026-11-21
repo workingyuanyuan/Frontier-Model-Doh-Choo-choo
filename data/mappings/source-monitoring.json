@@ -23,6 +23,9 @@
     },
     "scale-swe-atlas": {
       "swe-atlas": "2026-11-12 user decision: score only the Overall leaderboard as swe-atlas v1.1; primary coding, secondary agentic and reasoning. QnA, Test Writing and Refactoring are components retained as evidence."
+    },
+    "gbench": {
+      "gbench-agentic-coding": "2026-11-21 user decision: score only the Agentic Coding GScore (x100) as gbench-agentic-coding; primary coding, secondary agentic and reasoning. Combined, one-shot and decision-making scores are retained as evidence. No version or effort is published."
     }
   }
 }

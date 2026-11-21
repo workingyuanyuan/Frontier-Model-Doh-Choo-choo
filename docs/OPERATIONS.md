@@ -108,6 +108,7 @@ pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-c
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:maxxbench -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:scale-swe-atlas -- --visual-row-count=<Overall count>
+pnpm --filter @llm-bench/acquisition materialize:gbench -- --visual-row-count=<Agentic Coding rows>
 pnpm --filter @llm-bench/acquisition materialize:biobasicsbench
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --v2-visual-row-count=<Best rows> --v2-visual-all-row-count=<All rows> --v2-visual-top-ten-matched [--v2-hidden-model=<name> ...] [--v1-1-accept-value-changes]
 pnpm --filter @llm-bench/acquisition materialize:frontier-swe
@@ -137,6 +138,8 @@ CWE-bench 以瀏覽器核對 Combined 檢視的列數後傳入 `--visual-row-cou
 MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。2026-11-14 起頁面以 `completionData`（cost、output tokens、agent steps 三條通過試跑累積曲線）取代 `trials`：每條曲線須涵蓋恰好 `passed` 次通過試跑、題數等於 `taskCount`、解題數以 1／重複次數遞增；失敗試跑的成本與題目 ID 不再公開，平均成本只能以「通過試跑成本總和 ≤ 平均成本 × attempts」作下界核對，並須與畫面上的兩位小數成本一致。舊 artifact 含 `trials` 時仍使用完整的逐次核對。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
 
 SWE Atlas 刷新先以瀏覽器核對預設 Overall 榜的可見列數，再傳入 `--visual-row-count`。擷取器以完整 HTML 的 Next RSC `overall` 分頁物化 `swe-atlas` v1.1，保留原始百分比分數；QnA、Test Writing、Refactoring 保存於原始 artifact。信賴區間欄位保存在 Evidence metadata 與 provenance，未公布的 confidence level、缺少的下界及未明示的 effort 保持缺值。2026-11-21 起標籤格式為「模型 (harness) 檔位」（例如 `Claude Opus 5.5 (Claude Code) max`）：完整標籤若已精確對到 catalog 就不拆分，否則拆出模型名稱、harness 與檔位，模型名稱只以 catalog 的精確名稱／alias 對應既有身分。
+
+GBENCH 刷新先以瀏覽器打開 [Agentic Coding 榜](https://gertlabs.com/rankings?mode=agentic_coding)，核對可見列數（頁面只顯示前 100 列）後傳入 `--visual-row-count`。擷取器向 `/api/v1/global/rankings?mode=agentic_coding&limit=500` 取得完整名單：回傳列數必須少於 limit，前 100 列要與畫面列數一致，且每列頂層 GScore 必須等於 `agentic_coding.gscore`。API 對沒有 user agent 的請求回 403，所以擷取時送出通用的 `llm-bench-acquisition`。`custom/human` 與 `baseline/random` 不是模型，不物化。GScore 會隨新模型與新遊戲重新平衡，所以每次刷新舊模型的分數都可能變動，這是來源特性，刷新報告照常列出即可。
 
 ### 來源變更監測
 

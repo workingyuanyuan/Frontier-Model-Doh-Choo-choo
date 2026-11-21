@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "source-evaluation-v1",
+  "evaluatedAt": "2026-11-21",
+  "source": {
+    "name": "GBENCH (Gert Labs)",
+    "rankingsUrl": "https://gertlabs.com/rankings",
+    "methodologyUrl": "https://gertlabs.com/blog/gbench-1",
+    "termsUrl": "https://gertlabs.com/terms",
+    "apiEndpoint": "https://gertlabs.com/api/v1/global/rankings",
+    "apiTimestamp": "2026-11-21T12:27:54Z",
+    "rankedModels": 100
+  },
+  "productVersion": "sha256:19752c094251c2413f33e7a22f727b1259a061f3a0834ed405fd5ca1e493e6aa",
+  "matching": {
+    "catalogAlias": 48,
+    "modelSlugEvaluationOnly": 17,
+    "unmatched": 35,
+    "note": "Slug matching is for this evaluation only; adoption would need reviewed exact aliases."
+  },
+  "correlations": {
+    "spearmanGscoreVsAaIndexAllMatched": {
+      "n": 35,
+      "rho": 0.895
+    },
+    "spearmanGscoreVsAaIndexFrontier": {
+      "n": 10,
+      "rho": 0.321
+    },
+    "spearmanGscoreVsAaTop10Overall": {
+      "n": 10,
+      "rho": 0.358
+    },
+    "spearmanAaTop10OverallVsAaIndex": {
+      "n": 10,
+      "rho": 0.976
+    }
+  },
+  "frontierCiOverlap": {
+    "overlappingPairs": 10,
+    "pairsWithCi": 36,
+    "note": "Gemini 4 Carbon has no published CI."
+  },
+  "frontierRows": [
+    {
+      "canonicalModelId": "anthropic-claude-fable-5-2",
+      "gbenchModelId": "anthropic/claude-fable-5-2",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 4,
+      "gscore": 0.8824,
+      "ciLow": 0.8631,
+      "ciHigh": 0.9017,
+      "agenticCoding": {
+        "gscore": 0.8596,
+        "ci_low": 0.8225,
+        "ci_high": 0.8953,
+        "games_played": 30,
+        "total_matches": 15114,
+        "success_rate": 0.94
+      },
+      "oneshotCoding": {
+        "gscore": 0.8898,
+        "ci_low": 0.8679,
+        "ci_high": 0.9113,
+        "games_played": 50,
+        "total_matches": 37134,
+        "success_rate": 0.931
+      },
+      "decisionMaking": {
+        "gscore": 0.9786,
+        "ci_low": 0.9702,
+        "ci_high": 0.987,
+        "games_played": 3,
+        "total_matches": 12,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 64.563595756626,
+      "aaTop10Rank": 1,
+      "aaTop10Overall": 65.35212216845501
+    },
+    {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "gbenchModelId": "openai/gpt-6.2-astra",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 3,
+      "gscore": 0.9002,
+      "ciLow": 0.8776,
+      "ciHigh": 0.9228,
+      "agenticCoding": {
+        "gscore": 0.8931,
+        "ci_low": 0.8476,
+        "ci_high": 0.9363,
+        "games_played": 27,
+        "total_matches": 8073,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.9022,
+        "ci_low": 0.8815,
+        "ci_high": 0.9224,
+        "games_played": 38,
+        "total_matches": 16555,
+        "success_rate": 0.8182
+      },
+      "decisionMaking": {
+        "gscore": 0.9551,
+        "ci_low": 0.9476,
+        "ci_high": 0.9626,
+        "games_played": 3,
+        "total_matches": 7,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 62.1387990593969,
+      "aaTop10Rank": 2,
+      "aaTop10Overall": 62.25115852401566
+    },
+    {
+      "canonicalModelId": "google-gemini-4-neon",
+      "gbenchModelId": "google/gemini-4-neon",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 6,
+      "gscore": 0.8381,
+      "ciLow": 0.8194,
+      "ciHigh": 0.8568,
+      "agenticCoding": {
+        "gscore": 0.8626,
+        "ci_low": 0.8445,
+        "ci_high": 0.8802,
+        "games_played": 25,
+        "total_matches": 9418,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.8123,
+        "ci_low": 0.779,
+        "ci_high": 0.8443,
+        "games_played": 42,
+        "total_matches": 13276,
+        "success_rate": 0.8295
+      },
+      "decisionMaking": {
+        "gscore": 0.9103,
+        "ci_low": 0.9038,
+        "ci_high": 0.9156,
+        "games_played": 3,
+        "total_matches": 5,
+        "success_rate": 0.7143
+      },
+      "aaIntelligenceIndexMax": 61.3982491392674,
+      "aaTop10Rank": 3,
+      "aaTop10Overall": 59.14934858792001
+    },
+    {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "gbenchModelId": "anthropic/claude-opus-5-5",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 8,
+      "gscore": 0.833,
+      "ciLow": 0.8125,
+      "ciHigh": 0.8536,
+      "agenticCoding": {
+        "gscore": 0.7962,
+        "ci_low": 0.7505,
+        "ci_high": 0.8395,
+        "games_played": 27,
+        "total_matches": 44797,
+        "success_rate": 0.9167
+      },
+      "oneshotCoding": {
+        "gscore": 0.827,
+        "ci_low": 0.8042,
+        "ci_high": 0.8491,
+        "games_played": 56,
+        "total_matches": 122695,
+        "success_rate": 0.9421
+      },
+      "decisionMaking": {
+        "gscore": 0.9492,
+        "ci_low": 0.9375,
+        "ci_high": 0.9607,
+        "games_played": 6,
+        "total_matches": 41,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 59.1060336078904,
+      "aaTop10Rank": 4,
+      "aaTop10Overall": 58.41628942486084
+    },
+    {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "gbenchModelId": "google/gemini-4-carbon",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 7,
+      "gscore": 0.8371,
+      "ciLow": null,
+      "ciHigh": null,
+      "agenticCoding": {
+        "gscore": 0.8658,
+        "ci_low": 0.8379,
+        "ci_high": 0.8929,
+        "games_played": 36,
+        "total_matches": 15817,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.8174,
+        "ci_low": 0.7926,
+        "ci_high": 0.8414,
+        "games_played": 44,
+        "total_matches": 23731,
+        "success_rate": 0.7708
+      },
+      "decisionMaking": {
+        "gscore": 0.7077,
+        "ci_low": 0.7077,
+        "ci_high": 0.7077,
+        "games_played": 1,
+        "total_matches": 4,
+        "success_rate": 0.2667
+      },
+      "aaIntelligenceIndexMax": 60.025738829526,
+      "aaTop10Rank": 5,
+      "aaTop10Overall": 58.17892393320966
+    },
+    {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "gbenchModelId": "openai/gpt-6-astra",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 1,
+      "gscore": 0.9196,
+      "ciLow": 0.9111,
+      "ciHigh": 0.9281,
+      "agenticCoding": {
+        "gscore": 0.9208,
+        "ci_low": 0.9077,
+        "ci_high": 0.9337,
+        "games_played": 24,
+        "total_matches": 38168,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.9093,
+        "ci_low": 0.895,
+        "ci_high": 0.9234,
+        "games_played": 57,
+        "total_matches": 149676,
+        "success_rate": 0.8615
+      },
+      "decisionMaking": {
+        "gscore": 0.9472,
+        "ci_low": 0.9335,
+        "ci_high": 0.9607,
+        "games_played": 7,
+        "total_matches": 56,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 56.8538559596797,
+      "aaTop10Rank": 6,
+      "aaTop10Overall": 56.9832941661513
+    },
+    {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "gbenchModelId": "openai/gpt-6.2-sol",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 5,
+      "gscore": 0.8684,
+      "ciLow": 0.8473,
+      "ciHigh": 0.8896,
+      "agenticCoding": {
+        "gscore": 0.9089,
+        "ci_low": 0.8837,
+        "ci_high": 0.9334,
+        "games_played": 26,
+        "total_matches": 9356,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.8281,
+        "ci_low": 0.7921,
+        "ci_high": 0.8625,
+        "games_played": 38,
+        "total_matches": 14036,
+        "success_rate": 0.7614
+      },
+      "decisionMaking": {
+        "gscore": 0.9242,
+        "ci_low": 0.8944,
+        "ci_high": 0.953,
+        "games_played": 3,
+        "total_matches": 7,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 57.2576209885477,
+      "aaTop10Rank": 7,
+      "aaTop10Overall": 56.901583178726035
+    },
+    {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "gbenchModelId": "openai/gpt-6.1-sol",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 2,
+      "gscore": 0.9062,
+      "ciLow": 0.892,
+      "ciHigh": 0.9205,
+      "agenticCoding": {
+        "gscore": 0.9173,
+        "ci_low": 0.8895,
+        "ci_high": 0.9442,
+        "games_played": 26,
+        "total_matches": 39193,
+        "success_rate": 0.9524
+      },
+      "oneshotCoding": {
+        "gscore": 0.8948,
+        "ci_low": 0.8759,
+        "ci_high": 0.9133,
+        "games_played": 54,
+        "total_matches": 99292,
+        "success_rate": 0.8879
+      },
+      "decisionMaking": {
+        "gscore": 0.9111,
+        "ci_low": 0.8869,
+        "ci_high": 0.9346,
+        "games_played": 6,
+        "total_matches": 42,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 54.6087338138148,
+      "aaTop10Rank": 8,
+      "aaTop10Overall": 55.37236652236653
+    },
+    {
+      "canonicalModelId": "anthropic-claude-sonnet-5-5",
+      "gbenchModelId": "anthropic/claude-sonnet-5-5",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 19,
+      "gscore": 0.6986,
+      "ciLow": 0.6717,
+      "ciHigh": 0.7256,
+      "agenticCoding": {
+        "gscore": 0.6974,
+        "ci_low": 0.6652,
+        "ci_high": 0.7282,
+        "games_played": 24,
+        "total_matches": 32887,
+        "success_rate": 0.9318
+      },
+      "oneshotCoding": {
+        "gscore": 0.7143,
+        "ci_low": 0.6786,
+        "ci_high": 0.7483,
+        "games_played": 45,
+        "total_matches": 62765,
+        "success_rate": 0.9425
+      },
+      "decisionMaking": {
+        "gscore": 0.6501,
+        "ci_low": 0.5086,
+        "ci_high": 0.7659,
+        "games_played": 6,
+        "total_matches": 27,
+        "success_rate": 1
+      },
+      "aaIntelligenceIndexMax": 54.54133407109,
+      "aaTop10Rank": 9,
+      "aaTop10Overall": 52.42940012368583
+    },
+    {
+      "canonicalModelId": "google-gemini-4-hydrogen",
+      "gbenchModelId": "google/gemini-4-hydrogen",
+      "matchedBy": "catalog alias",
+      "gbenchRank": 11,
+      "gscore": 0.7914,
+      "ciLow": 0.7709,
+      "ciHigh": 0.8118,
+      "agenticCoding": {
+        "gscore": 0.8375,
+        "ci_low": 0.8083,
+        "ci_high": 0.8658,
+        "games_played": 36,
+        "total_matches": 22480,
+        "success_rate": 1
+      },
+      "oneshotCoding": {
+        "gscore": 0.7694,
+        "ci_low": 0.7393,
+        "ci_high": 0.7984,
+        "games_played": 46,
+        "total_matches": 27699,
+        "success_rate": 0.8161
+      },
+      "decisionMaking": {
+        "gscore": 0.449,
+        "ci_low": 0.2986,
+        "ci_high": 0.5603,
+        "games_played": 3,
+        "total_matches": 5,
+        "success_rate": 0.4545
+      },
+      "aaIntelligenceIndexMax": 53.9192287317542,
+      "aaTop10Rank": 10,
+      "aaTop10Overall": 51.68450010307153
+    }
+  ]
+}

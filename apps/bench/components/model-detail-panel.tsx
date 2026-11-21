@@ -99,6 +99,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   mka: 'MKA',
   a2j: 'Access to Justice',
   'swe-atlas': 'SWE Atlas 1.1',
+  'gbench-agentic-coding': 'GBENCH Agentic Coding',
   'frontier-code-1-1': 'Frontier Code 1.1',
   'frontier-code-2-0': 'Frontier Code 2.0',
   'frontier-swe-v2': 'FrontierSWE V2',

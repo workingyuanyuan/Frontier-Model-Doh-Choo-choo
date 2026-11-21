@@ -27,6 +27,7 @@
     "biobasicsbench",
     "maxxbench",
     "scale-swe-atlas",
+    "gbench",
     "cwe-bench",
     "terminal-bench"
   ]
