@@ -4,43 +4,43 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:ac3718f6b42a98c7013cce7ff55e8243368b02894c59f72ef1f16b5c1da0c88c`
-- Models evidence: `sha256:1ecce809bb81021a79a7fdfb2e5dd8e85ea4c81cc0a826c129dfc9275a947ea3`
+- Evaluations evidence: `sha256:b0a982bcca21daacdce77b8662fa00730ebdf56e50092e67af2251b9b26dd3bf`
+- Models evidence: `sha256:55b22723416758db2a159581c1db82966919a93f68775602995363577db55478`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:fc9fe3de085b8ba4937081578a4be77169e276238da8ede6a9d5a09d1b9d91ac`
-- Observed at: 2026-11-18T23:33:45.105Z
+- Page evidence: `sha256:83c177d73c2e0e8f011db30a60de74f17c4fb6dfcd1fee79ef4e8522fc7ad8e6`
+- Observed at: 2026-11-21T08:43:40.883Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1399 |
-| Total models in models.json | 413 |
+| Total evaluation rows (all splits) | 1395 |
+| Total models in models.json | 418 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 321 |
-| Promoted v2_Semi_Private rows (display=true) | 314 |
-| Promoted cost records (USD/task) | 314 |
-| Canonically resolved rows | 173 |
-| Canonically unresolved rows | 141 |
-| Canonically unresolved models | 141 |
+| Total v2_Semi_Private evaluations | 324 |
+| Promoted v2_Semi_Private rows (display=true) | 318 |
+| Promoted cost records (USD/task) | 318 |
+| Canonically resolved rows | 178 |
+| Canonically unresolved rows | 140 |
+| Canonically unresolved models | 140 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 314 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 318 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 314/314 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 318/318 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 314/314 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 318/318 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 173/314 promoted rows (141 unresolved rows across 141 distinct model names).
+Exact catalog resolution succeeded for 178/318 promoted rows (140 unresolved rows across 140 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -192,7 +192,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - o3 (High)
 - o3 (Low)
 - o3 (Medium)
-- o3-mini (High)
 - o3-mini (Low)
 - o3-mini (Medium)
 - o3-Pro (High)
@@ -207,16 +206,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 314 | 314 | +0 |
-| Cost records | 314 | 314 | +0 |
-| Canonically unresolved models | 141 | 141 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

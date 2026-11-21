@@ -111,6 +111,33 @@ describe('MaxxBench acquisition', () => {
       materializeMaxxBench(page({ model: { maxxBenchScore: 51 } }), context),
     ).toThrow('Invalid MaxxBench');
   });
+  it('validates model report labels and keeps baseline scores separate', () => {
+    const reportPage = (displayedScore: number) =>
+      page({ displayedScore })
+        .replace(
+          'aria-label="Pin GPT-6 Astra, xhigh effort"',
+          'aria-label="View GPT-6 Astra, xhigh effort model report"',
+        )
+        .replace(
+          '<td class="number score-cell">',
+          '<td class="bar-cell">DeepSWE 91.2%</td><td class="number score-cell">',
+        );
+    expect(
+      materializeMaxxBench(reportPage(50), context).candidates[0],
+    ).toMatchObject({ normalizedScore: 50 });
+    expect(
+      materializeMaxxBench(
+        reportPage(50).replace(
+          'effort model report"',
+          'effort model report; released after MaxxBench launched"',
+        ),
+        context,
+      ).candidates[0],
+    ).toMatchObject({ normalizedScore: 50 });
+    expect(() => materializeMaxxBench(reportPage(51), context)).toThrow(
+      'visible identity or score',
+    );
+  });
   it('checks completionData curves when the page no longer embeds trials', () => {
     // One passed attempt costing 1 of two attempts averaging 2.
     const curves = (cost: number[], steps: number[] = [40, 0.5]) => ({

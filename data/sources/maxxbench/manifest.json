@@ -16,7 +16,7 @@
     "models[].maxxBenchScore": "normalizedScore",
     "models[].name": "model.rawName"
   },
-  "lastVerifiedAt": "2026-11-18T23:34:33.744Z",
+  "lastVerifiedAt": "2026-11-21T08:46:32.497Z",
   "notes": [
     "Only default visible leaderboard configurations are materialized.",
     "Benchmark version and unpublished configuration fields remain null.",

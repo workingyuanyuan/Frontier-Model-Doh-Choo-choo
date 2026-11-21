@@ -1,8 +1,8 @@
 # Surge Chartography acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/chartography>
-- Evidence: `sha256:35a7f210fd64895b7a456633666e0733f162226fd5765b93e088a3fad6f4a667`
-- Main leaderboard: 41 rows; rendered browser count: 41.
+- Evidence: `sha256:a9afec977eb7e393d4ba88e797d789750cb656d9e90d8168064437b3b52d3eb3`
+- Main leaderboard: 42 rows; rendered browser count: 42.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
 - Unresolved catalog identities (9): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning).
 
@@ -17,12 +17,12 @@ This tagged section is generated deterministically for `surge-chartography`. Raw
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| Nemotron 3 Ultra | `surge-chartography:chartography:nemotron-3-ultra` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| Nemotron 3 Ultra | `surge-chartography:chartography:nemotron-3-ultra` | — | `default` | — | — |
+- None.
 
 <!-- C6-EFFORT-INFERENCE:END -->

@@ -103,7 +103,7 @@ Terminal-Bench 4.1 使用 benchmark ID `terminal-bench-4-1`（使用者 2026-11-
 benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個檔案（含 `costs.json`）；舊快照
 留在 git 歷史與內容定址 artifact store 供對照。
 
-**`scale-swe-atlas` 於 2026-11-12 納入白名單**（使用者決定）。`refresh-scale-swe-atlas.ts` 取得 Scale 官方 SWE Atlas 頁面的 Next.js 資料，核對渲染後 Overall 列數，只將 Overall 物化為 `swe-atlas` v1.1。QnA、Test Writing、Refactoring 是 Overall 的組成，保留為原始證據，不重複計分。來源沒有成本，模型只使用 `models.json` 中的既有身分與經證據確認的精確 alias；無法解析者保持 null。來源明示的 effort 優先，未明示時保持 null，再由既有跨來源政策處理。
+**`scale-swe-atlas` 於 2026-11-12 納入白名單**（使用者決定）。`refresh-scale-swe-atlas.ts` 取得 Scale 官方 SWE Atlas 頁面的 Next.js 資料，核對渲染後 Overall 列數，只將 Overall 物化為 `swe-atlas` v1.1。QnA、Test Writing、Refactoring 是 Overall 的組成，保留為原始證據，不重複計分。來源沒有成本，模型只使用 `models.json` 中的既有身分與經證據確認的精確 alias；無法解析者保持 null。來源明示的 effort 優先，未明示時保持 null，再由既有跨來源政策處理。2026-11-21 起 Overall 標籤寫成「模型 (harness) 檔位」，effort 與 harness 都取自標籤。
 
 2026-11-12 同時核准 AA `mka`（Climb WSR，百分比，版本 unknown）與 Vals `a2j`（accuracy）。現行 v2 主維度分別為 comprehension 與 knowledge，次要關聯見 [維度映射](BENCHMARK_DIMENSION_MAPPING.md#2026-11-12-approved-benchmark-additions)。
 

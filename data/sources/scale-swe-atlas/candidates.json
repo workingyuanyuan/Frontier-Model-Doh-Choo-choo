@@ -4,10 +4,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:beam-1-0",
+    "id": "scale-swe-atlas:swe-atlas:beam-1-0-opencode-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -17,43 +17,48 @@
     },
     "model": {
       "canonicalModelId": "reflection-beam-1-0",
-      "profileId": "reflection-beam-1-0-default",
-      "rawName": "Beam 1.0"
+      "profileId": "reflection-beam-1-0-max",
+      "rawName": "Beam 1.0 (OpenCode) max"
     },
     "normalizedScore": 34.72,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "OpenCode",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[27].createdAt",
         "method": "NEXT_RSC"
       }
@@ -70,76 +75,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:deepseek-v4-1-flash",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "DeepSeek V4.1 Flash"
-    },
-    "normalizedScore": 62.12,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 62.12,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:fable-5-1",
+    "id": "scale-swe-atlas:swe-atlas:claude-fable-5-1-claude-code-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -149,43 +88,48 @@
     },
     "model": {
       "canonicalModelId": "anthropic-claude-fable-5-1",
-      "profileId": "anthropic-claude-fable-5-1-default",
-      "rawName": "Fable 5.1"
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "rawName": "Claude Fable 5.1 (Claude Code) max"
     },
     "normalizedScore": 76.45,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "Claude Code",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[2].createdAt",
         "method": "NEXT_RSC"
       }
@@ -202,10 +146,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:fable-5-2",
+    "id": "scale-swe-atlas:swe-atlas:claude-fable-5-2-claude-code-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -215,43 +159,48 @@
     },
     "model": {
       "canonicalModelId": "anthropic-claude-fable-5-2",
-      "profileId": "anthropic-claude-fable-5-2-default",
-      "rawName": "Fable 5.2"
+      "profileId": "anthropic-claude-fable-5-2-max",
+      "rawName": "Claude Fable 5.2 (Claude Code) max"
     },
     "normalizedScore": 80.55,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "Claude Code",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[0].createdAt",
         "method": "NEXT_RSC"
       }
@@ -268,208 +217,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gemini-3-8-flash",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "google-gemini-3-8-flash",
-      "profileId": "google-gemini-3-8-flash-default",
-      "rawName": "Gemini 3.8 Flash"
-    },
-    "normalizedScore": 57.33,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 57.33,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gemini-4-argon",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "google-gemini-4-argon",
-      "profileId": "google-gemini-4-argon-default",
-      "rawName": "Gemini 4 Argon"
-    },
-    "normalizedScore": 70.08,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 70.08,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gemini-4-carbon",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "google-gemini-4-carbon",
-      "profileId": "google-gemini-4-carbon-default",
-      "rawName": "Gemini 4 Carbon"
-    },
-    "normalizedScore": 71.45,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 71.45,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:glm-5-3",
+    "id": "scale-swe-atlas:swe-atlas:claude-haiku-5-5-claude-code-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -480,702 +231,47 @@
     "model": {
       "canonicalModelId": null,
       "profileId": null,
-      "rawName": "GLM 5.3"
-    },
-    "normalizedScore": 58.1,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 58.1,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:glm-5-3-flash",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "GLM 5.3 Flash"
-    },
-    "normalizedScore": 55.33,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 55.33,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-sol",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-1-sol",
-      "profileId": "openai-gpt-6-1-sol-default",
-      "rawName": "GPT-6.1 Sol"
-    },
-    "normalizedScore": 65.88,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 65.88,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-terra",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-1-terra",
-      "profileId": "openai-gpt-6-1-terra-default",
-      "rawName": "GPT-6.1 Terra"
-    },
-    "normalizedScore": 57.69,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 57.69,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-2-astra",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-astra",
-      "profileId": "openai-gpt-6-2-astra-default",
-      "rawName": "GPT-6.2 Astra"
-    },
-    "normalizedScore": 60.46,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 60.46,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-2-sol",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-sol",
-      "profileId": "openai-gpt-6-2-sol-default",
-      "rawName": "GPT-6.2 Sol"
-    },
-    "normalizedScore": 60.48,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 60.48,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-astra",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-astra",
-      "profileId": "openai-gpt-6-astra-default",
-      "rawName": "GPT-6 Astra"
-    },
-    "normalizedScore": 69.42,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 69.42,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-6-luna",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-luna",
-      "profileId": "openai-gpt-6-luna-default",
-      "rawName": "GPT-6 Luna"
-    },
-    "normalizedScore": 50.8,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 50.8,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:gpt-oss-120b",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "gpt-oss-120b"
-    },
-    "normalizedScore": 8.79,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 8.79,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:grok-4-7",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "xai-grok-4-7",
-      "profileId": "xai-grok-4-7-default",
-      "rawName": "Grok 4.7"
-    },
-    "normalizedScore": 62.13,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 62.13,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:haiku-5-5",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Haiku 5.5"
+      "rawName": "Claude Haiku 5.5 (Claude Code) max"
     },
     "normalizedScore": 59.43,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "Claude Code",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[17].createdAt",
         "method": "NEXT_RSC"
       }
@@ -1192,670 +288,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:inkling-2-small",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "thinking-machines-inkling-2-small",
-      "profileId": "thinking-machines-inkling-2-small-default",
-      "rawName": "Inkling 2 Small"
-    },
-    "normalizedScore": 61.89,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 61.89,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:kimi-k3",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "moonshot-kimi-k3",
-      "profileId": "moonshot-kimi-k3-default",
-      "rawName": "Kimi K3"
-    },
-    "normalizedScore": 60.98,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 60.98,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:kimi-k3-1-pro",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "moonshot-kimi-k3-1-pro",
-      "profileId": "moonshot-kimi-k3-1-pro-default",
-      "rawName": "Kimi K3.1 Pro"
-    },
-    "normalizedScore": 61.11,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 61.11,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:minimax-m3",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "minimax-minimax-m3",
-      "profileId": "minimax-minimax-m3-default",
-      "rawName": "MiniMax M3"
-    },
-    "normalizedScore": 39.26,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 39.26,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:mistral-large-4",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Mistral Large 4"
-    },
-    "normalizedScore": 45.19,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 45.19,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:muse-ember-1-0",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "meta-muse-ember",
-      "profileId": "meta-muse-ember-default",
-      "rawName": "Muse Ember 1.0"
-    },
-    "normalizedScore": 55.99,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 55.99,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:muse-spark-open",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "meta-muse-spark-open",
-      "profileId": "meta-muse-spark-open-default",
-      "rawName": "Muse Spark Open"
-    },
-    "normalizedScore": 42.28,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 42.28,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:muse-wonder-1-0",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "meta-muse-wonder",
-      "profileId": "meta-muse-wonder-default",
-      "rawName": "Muse Wonder 1.0"
-    },
-    "normalizedScore": 64.83,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 64.83,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:nemotron-3-5-super-vl",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Nemotron 3.5 Super VL"
-    },
-    "normalizedScore": 24.8,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 24.8,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:nemotron-3-ultra",
-    "inclusion": "INCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "overall-score",
-      "name": "SWE Atlas Overall score",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "nvidia-nemotron-3-ultra",
-      "profileId": "nvidia-nemotron-3-ultra-default",
-      "rawName": "Nemotron 3 Ultra"
-    },
-    "normalizedScore": 21.39,
-    "observedAt": "2026-11-18T23:37:52.474Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].confidenceInterval_upper",
-        "method": "NEXT_RSC"
-      },
-      "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].model",
-        "method": "NEXT_RSC"
-      },
-      "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].model; effort is retained only when explicitly named",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].score",
-        "method": "NEXT_RSC"
-      },
-      "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].createdAt",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 21.39,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "scale-swe-atlas",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "swe-atlas",
-    "benchmarkVersion": "v1.1",
-    "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
-    ],
-    "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:opus-5-5",
+    "id": "scale-swe-atlas:swe-atlas:claude-opus-5-5-claude-code-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1865,43 +301,48 @@
     },
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5-5",
-      "profileId": "anthropic-claude-opus-5-5-default",
-      "rawName": "Opus 5.5"
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "Claude Opus 5.5 (Claude Code) max"
     },
     "normalizedScore": 77.45,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "Claude Code",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].model; effort is retained only when explicitly named",
         "method": "NEXT_RSC"
       },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
         "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[1].createdAt",
         "method": "NEXT_RSC"
       }
@@ -1918,10 +359,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:qwen-3-8-max",
+    "id": "scale-swe-atlas:swe-atlas:claude-sonnet-5-5-claude-code-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1930,49 +371,54 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": "alibaba-qwen3-8-max",
-      "profileId": "alibaba-qwen3-8-max-default",
-      "rawName": "Qwen 3.8 Max"
+      "canonicalModelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "rawName": "Claude Sonnet 5.5 (Claude Code) max"
     },
-    "normalizedScore": 64.4,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "normalizedScore": 68.28,
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "Claude Code",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].confidenceInterval_upper",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].model",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].model; harness named in the label",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].score",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].createdAt",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 64.4,
+    "rawScore": 68.28,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,
@@ -1984,10 +430,10 @@
     "benchmarkId": "swe-atlas",
     "benchmarkVersion": "v1.1",
     "evidenceIds": [
-      "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02"
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
     ],
     "exclusionReason": null,
-    "id": "scale-swe-atlas:swe-atlas:sonnet-5-5",
+    "id": "scale-swe-atlas:swe-atlas:deepseek-v4-1-flash-deepseek-harness-max",
     "inclusion": "INCLUDED",
     "metric": {
       "higherIsBetter": true,
@@ -1996,49 +442,1758 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5-5",
-      "profileId": "anthropic-claude-sonnet-5-5-default",
-      "rawName": "Sonnet 5.5"
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "DeepSeek V4.1 Flash (DeepSeek Harness) max"
     },
-    "normalizedScore": 68.28,
-    "observedAt": "2026-11-18T23:37:52.474Z",
+    "normalizedScore": 62.12,
+    "observedAt": "2026-11-21T08:42:42.735Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
-      "harness": null,
+      "effort": "max",
+      "harness": "DeepSeek Harness",
       "quantization": null,
       "thinking": null,
       "tools": null
     },
     "provenance": {
       "confidenceIntervalUpper": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].confidenceInterval_upper",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].confidenceInterval_upper",
         "method": "NEXT_RSC"
       },
       "model.rawName": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].model",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].model",
         "method": "NEXT_RSC"
       },
       "profile.effort": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].model; effort is retained only when explicitly named",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].model; harness named in the label",
         "method": "NEXT_RSC"
       },
       "rawScore": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].score",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].score",
         "method": "NEXT_RSC"
       },
       "sourceCreatedAt": {
-        "evidenceId": "sha256:da27ce1d981c9ae44702d36fe9c175b6ff2506b4c9c8df38dbc4a792ac059f02",
-        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[6].createdAt",
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[11].createdAt",
         "method": "NEXT_RSC"
       }
     },
-    "rawScore": 68.28,
+    "rawScore": 62.12,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-3-8-flash-antigravity-cli-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
+      "rawName": "Gemini 3.8 Flash (Antigravity CLI) high"
+    },
+    "normalizedScore": 57.33,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Antigravity CLI",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[20].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 57.33,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-4-argon-antigravity-cli-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "rawName": "Gemini 4 Argon (Antigravity CLI) high"
+    },
+    "normalizedScore": 70.08,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Antigravity CLI",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[4].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 70.08,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-4-carbon-antigravity-cli-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-high",
+      "rawName": "Gemini 4 Carbon (Antigravity CLI) high"
+    },
+    "normalizedScore": 71.45,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Antigravity CLI",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[3].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 71.45,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:glm-5-3-flash-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3 Flash (mini-swe-agent) max"
+    },
+    "normalizedScore": 55.33,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[22].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 55.33,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:glm-5-3-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3 (mini-swe-agent) max"
+    },
+    "normalizedScore": 58.1,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[18].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 58.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-sol-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "rawName": "GPT 6.1 Sol (Codex) max"
+    },
+    "normalizedScore": 65.88,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[7].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 65.88,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-terra-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-max",
+      "rawName": "GPT 6.1 Terra (Codex) max"
+    },
+    "normalizedScore": 57.69,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[19].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 57.69,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-2-astra-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-max",
+      "rawName": "GPT 6.2 Astra (Codex) max"
+    },
+    "normalizedScore": 60.46,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[16].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 60.46,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-2-sol-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-max",
+      "rawName": "GPT 6.2 Sol (Codex) max"
+    },
+    "normalizedScore": 60.48,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[15].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 60.48,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-astra-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT 6 Astra (Codex) max"
+    },
+    "normalizedScore": 69.42,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[5].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 69.42,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-luna-codex-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-max",
+      "rawName": "GPT 6 Luna (Codex) max"
+    },
+    "normalizedScore": 50.8,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[23].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 50.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-oss-120b-mini-swe-agent-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "gpt-oss-120b (mini-swe-agent) high"
+    },
+    "normalizedScore": 8.79,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[30].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 8.79,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:grok-4-7-grok-build-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-xhigh",
+      "rawName": "Grok 4.7 (Grok Build) xhigh"
+    },
+    "normalizedScore": 62.13,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Grok Build",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[10].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 62.13,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:inkling-2-small-mini-swe-agent-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "thinking-machines-inkling-2-small",
+      "profileId": "thinking-machines-inkling-2-small-xhigh",
+      "rawName": "Inkling 2 Small (mini-swe-agent) xhigh"
+    },
+    "normalizedScore": 61.89,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[12].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 61.89,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:kimi-k3-1-pro-kimi-code-cli-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3-1-pro",
+      "profileId": "moonshot-kimi-k3-1-pro-max",
+      "rawName": "Kimi K3.1 Pro (Kimi Code CLI) max"
+    },
+    "normalizedScore": 61.11,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Kimi Code CLI",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[13].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 61.11,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:kimi-k3-kimi-code-cli-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-max",
+      "rawName": "Kimi K3 (Kimi Code CLI) max"
+    },
+    "normalizedScore": 60.98,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Kimi Code CLI",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[14].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 60.98,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3-max",
+      "rawName": "MiniMax M3 (mini-swe-agent) max"
+    },
+    "normalizedScore": 39.26,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[26].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 39.26,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:mistral-large-4-mistral-vibe-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Mistral Large 4 (Mistral Vibe) high"
+    },
+    "normalizedScore": 45.19,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Mistral Vibe",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[24].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 45.19,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-ember-1-0-muse-code-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-ember",
+      "profileId": "meta-muse-ember-max",
+      "rawName": "Muse Ember 1.0 (Muse Code) max"
+    },
+    "normalizedScore": 55.99,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Muse Code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[21].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 55.99,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-spark-open-muse-code-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-spark-open",
+      "profileId": "meta-muse-spark-open-xhigh",
+      "rawName": "Muse Spark Open (Muse Code) xhigh"
+    },
+    "normalizedScore": 42.28,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Muse Code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[25].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 42.28,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-wonder-1-0-muse-code-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-wonder",
+      "profileId": "meta-muse-wonder-max",
+      "rawName": "Muse Wonder 1.0 (Muse Code) max"
+    },
+    "normalizedScore": 64.83,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Muse Code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[8].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 64.83,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:nemotron-3-5-super-vl-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Nemotron 3.5 Super VL (mini-swe-agent) max"
+    },
+    "normalizedScore": 24.8,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[28].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 24.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-ultra",
+      "profileId": "nvidia-nemotron-3-ultra-max",
+      "rawName": "Nemotron 3 Ultra (mini-swe-agent) max"
+    },
+    "normalizedScore": 21.39,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[29].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 21.39,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:qwen-3-8-max-mini-swe-agent-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "alibaba-qwen3-8-max",
+      "profileId": "alibaba-qwen3-8-max-max",
+      "rawName": "Qwen 3.8 Max (mini-swe-agent) max"
+    },
+    "normalizedScore": 64.4,
+    "observedAt": "2026-11-21T08:42:42.735Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].model; harness named in the label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775",
+        "locator": "Next RSC 19[3].children[0][3].children[1][3].children[3].children[1][3].children[3].variants[0].entries[9].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 64.4,
     "schemaVersion": "candidate-result-v1",
     "sourceId": "scale-swe-atlas",
     "sourcePublishedAt": null,

@@ -101,6 +101,67 @@ describe('Scale SWE Atlas materializer', () => {
     });
     expect(unknown.profile.effort).toBeNull();
   });
+
+  it('splits "<model> (<harness>) <effort>" labels and matches the model part exactly', () => {
+    const [labelled, dated, inexact] = materializeScaleSweAtlas(
+      page({
+        rows: [
+          { ...row, model: 'Example model (Example CLI) xhigh' },
+          { ...row, model: 'Example model (0902) (mini-swe-agent) max' },
+          { ...row, model: 'Example-model (Example CLI) high' },
+        ],
+      }),
+      { ...context, visualRowCount: 3 },
+    ).candidates;
+    const byName = new Map(
+      [labelled, dated, inexact].map((c) => [c!.model.rawName, c!]),
+    );
+    expect(byName.get('Example model (Example CLI) xhigh')!).toMatchObject({
+      model: {
+        canonicalModelId: 'example-model',
+        profileId: 'example-model-xhigh',
+      },
+      profile: { effort: 'xhigh', harness: 'Example CLI' },
+    });
+    // Only the last parenthesised group is the harness.
+    expect(
+      byName.get('Example model (0902) (mini-swe-agent) max')!,
+    ).toMatchObject({
+      model: { canonicalModelId: null },
+      profile: { effort: 'max', harness: 'mini-swe-agent' },
+    });
+    expect(
+      byName.get('Example-model (Example CLI) high')!.model.canonicalModelId,
+    ).toBeNull();
+  });
+
+  it('prefers a full-label catalog match and never records a blank harness', () => {
+    const models = [
+      ...context.models,
+      {
+        modelId: 'example-preview',
+        displayName: 'Example model (Preview) max',
+      },
+    ];
+    const [blank, full] = materializeScaleSweAtlas(
+      page({
+        rows: [
+          { ...row, model: 'Example model (Preview) max' },
+          { ...row, model: 'Example model ( ) max' },
+        ],
+      }),
+      { ...context, models, visualRowCount: 2 },
+    ).candidates;
+    expect(full).toMatchObject({
+      model: { canonicalModelId: 'example-preview' },
+      profile: { effort: null, harness: null },
+    });
+    expect(blank).toMatchObject({
+      model: { canonicalModelId: null },
+      profile: { harness: null },
+    });
+    expect(blank!.provenance['profile.harness']).toBeUndefined();
+  });
   it('accepts the exact RSC v1.1 catalog marker when methodology moves to an iframe', () => {
     const catalog = (version: string) =>
       `<script>self.__next_f.push(${JSON.stringify([

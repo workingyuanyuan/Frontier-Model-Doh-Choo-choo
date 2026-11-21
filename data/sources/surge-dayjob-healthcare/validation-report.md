@@ -1,8 +1,8 @@
 # Surge DAYJOB Healthcare acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-healthcare>
-- Evidence: `sha256:307ea37bdc99be8f8022522bbd033dae9d07e1745c3661f175d5cc63c69581ba`
-- Main leaderboard: 49 rows; rendered browser count: 49.
+- Evidence: `sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18`
+- Main leaderboard: 50 rows; rendered browser count: 50.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (10): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
 
@@ -21,12 +21,12 @@ This tagged section is generated deterministically for `surge-dayjob-healthcare`
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| Nemotron 3 Ultra | `surge-dayjob-healthcare:dayjob-healthcare:nemotron-3-ultra` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| Nemotron 3 Ultra | `surge-dayjob-healthcare:dayjob-healthcare:nemotron-3-ultra` | — | `default` | — | — |
+- None.
 
 <!-- C6-EFFORT-INFERENCE:END -->

@@ -32,19 +32,19 @@
     "sourceId": "xai-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/67/679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0.html",
-    "byteLength": 349671,
+    "artifactPath": "artifacts/sha256/b4/b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a.html",
+    "byteLength": 428324,
     "finalUrl": "https://prod.cursor.com/evals",
-    "id": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "id": "sha256:b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Organizer cross-check; visible chart aria-label score/effort pairs"
     },
     "method": "DOM",
     "requestUrl": "https://prod.cursor.com/evals",
-    "retrievedAt": "2026-10-04T03:29:03.639Z",
+    "retrievedAt": "2026-11-18T04:58:48.889Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "sha256": "sha256:b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a",
     "sourceId": "anthropic-releases"
   }
 ]

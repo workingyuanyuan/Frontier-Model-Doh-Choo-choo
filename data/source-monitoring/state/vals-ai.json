@@ -259,6 +259,12 @@
       "version": "v1"
     },
     {
+      "id": "rctbench",
+      "title": "RollerCoasterTycoonBench",
+      "url": "https://www.vals.ai/benchmarks/rctbench",
+      "version": null
+    },
+    {
       "id": "robo_bench",
       "title": "Robo-bench",
       "url": "https://www.vals.ai/benchmarks/robo_bench",
@@ -397,21 +403,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-19T02:19:21.933Z",
+  "checkedAt": "2026-11-21T08:52:52.923Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/54/54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0.html",
-    "byteLength": 304595,
+    "artifactPath": "artifacts/sha256/e6/e685822cd7325a9adae1eb66603fec5057938f40e48a2155073c4b436ff7789c.html",
+    "byteLength": 310157,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0",
+    "id": "sha256:e685822cd7325a9adae1eb66603fec5057938f40e48a2155073c4b436ff7789c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-19T02:19:21.933Z",
+    "retrievedAt": "2026-11-21T08:52:52.923Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:54f702f33c538d18f4d3251ee647a6745d0758d6974e1768f2f4259676ea32f0",
+    "sha256": "sha256:e685822cd7325a9adae1eb66603fec5057938f40e48a2155073c4b436ff7789c",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -711,7 +717,7 @@
       {
         "id": "autoform-hard",
         "includedRetainedRows": 0,
-        "includedRows": 0,
+        "includedRows": 8,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-fable-5-2",
@@ -774,6 +780,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -812,6 +819,7 @@
           "[\"stepfun/step-5-preview\",null,null,\"Terminus 2\",null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,\"Terminus 2\",null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,\"Terminus 2\",null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,\"Terminus 2\",null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,\"Terminus 2\",null,null,null,null]"
         ],
         "rawLabels": [
@@ -848,9 +856,10 @@
           "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash"
         ],
-        "rows": 34,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/biomysterybench"],
         "versions": ["1"]
       },
@@ -1004,6 +1013,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"decision/bison-1\",null,null,null,null,null,null,null]",
           "[\"decision/classify-1\",null,null,null,null,null,null,null]",
           "[\"decision/clef\",null,null,null,null,null,null,null]",
           "[\"decision/clef-flash\",null,null,null,null,null,null,null]",
@@ -1023,6 +1033,7 @@
           "[\"decision/elephant-1\",null,null,null,null,null,null,null]",
           "[\"decision/gemini-decision-1\",null,null,null,null,null,null,null]",
           "[\"decision/gpt-6-luna\",null,null,null,null,null,null,null]",
+          "[\"decision/groundhog-1\",null,null,null,null,null,null,null]",
           "[\"decision/jev-1.13.0\",null,null,null,null,null,null,null]",
           "[\"decision/jev-1.14\",null,null,null,null,null,null,null]",
           "[\"decision/joey-1\",null,null,null,null,null,null,null]",
@@ -1039,6 +1050,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "decision/bison-1",
           "decision/classify-1",
           "decision/clef",
           "decision/clef-flash",
@@ -1058,6 +1070,7 @@
           "decision/elephant-1",
           "decision/gemini-decision-1",
           "decision/gpt-6-luna",
+          "decision/groundhog-1",
           "decision/jev-1.13.0",
           "decision/jev-1.14",
           "decision/joey-1",
@@ -1070,7 +1083,7 @@
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol"
         ],
-        "rows": 33,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/claimbench"],
         "versions": ["1"]
       },
@@ -1314,6 +1327,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "xai-grok-4-7"
         ],
         "profiles": [
@@ -1342,6 +1356,7 @@
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -1374,13 +1389,14 @@
           "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/code-migration-v1-1"],
         "versions": ["1.1"]
       },
@@ -1744,7 +1760,7 @@
       {
         "id": "cyber",
         "includedRetainedRows": 0,
-        "includedRows": 48,
+        "includedRows": 49,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1771,6 +1787,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -1820,6 +1837,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -1870,13 +1888,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 48,
+        "rows": 49,
         "sourceUrls": ["https://www.vals.ai/benchmarks/cyber"],
         "versions": ["1.1"]
       },
@@ -2127,6 +2146,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -2173,6 +2193,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -2222,13 +2243,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 47,
+        "rows": 48,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2262,6 +2284,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -2306,6 +2329,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -2353,13 +2377,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 45,
+        "rows": 46,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2617,6 +2642,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -2661,6 +2687,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -2708,13 +2735,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 45,
+        "rows": 46,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -3142,7 +3170,7 @@
       {
         "id": "hlab",
         "includedRetainedRows": 0,
-        "includedRows": 43,
+        "includedRows": 44,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen4-max",
@@ -3168,6 +3196,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -3210,6 +3239,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -3255,13 +3285,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 43,
+        "rows": 44,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3577,7 +3608,7 @@
       {
         "id": "ioi",
         "includedRetainedRows": 0,
-        "includedRows": 46,
+        "includedRows": 47,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -3606,6 +3637,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "xai-grok-4-5",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -3652,6 +3684,7 @@
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -3700,13 +3733,14 @@
           "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 46,
+        "rows": 47,
         "sourceUrls": ["https://www.vals.ai/benchmarks/ioi"],
         "versions": ["2"]
       },
@@ -4093,6 +4127,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -4135,6 +4170,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -4180,20 +4216,21 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 43,
+        "rows": 44,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
         "includedRetainedRows": 0,
-        "includedRows": 100,
+        "includedRows": 101,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -4249,6 +4286,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -4348,6 +4386,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null]",
@@ -4450,6 +4489,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.5",
           "xiaomi/mimo-v2.5-pro",
@@ -4461,7 +4501,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 100,
+        "rows": 101,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -4937,7 +4977,7 @@
       {
         "id": "medcode",
         "includedRetainedRows": 0,
-        "includedRows": 108,
+        "includedRows": 109,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -4976,6 +5016,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -5083,6 +5124,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"together/meta-llama/Llama-4-Scout-17B-16E-Instruct\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
@@ -5193,6 +5235,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "together/meta-llama/Llama-4-Scout-17B-16E-Instruct",
           "xiaomi/mimo-v2.5",
@@ -5204,7 +5247,7 @@
           "zai/glm-5.2",
           "zai/glm-5.3"
         ],
-        "rows": 108,
+        "rows": 109,
         "sourceUrls": ["https://www.vals.ai/benchmarks/medcode"],
         "versions": ["1"]
       },
@@ -5419,7 +5462,7 @@
       {
         "id": "medscribe",
         "includedRetainedRows": 0,
-        "includedRows": 110,
+        "includedRows": 111,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -5458,6 +5501,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -5566,6 +5610,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"together/meta-llama/Llama-4-Scout-17B-16E-Instruct\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
@@ -5678,6 +5723,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "together/meta-llama/Llama-4-Scout-17B-16E-Instruct",
           "xiaomi/mimo-v2.5",
@@ -5690,7 +5736,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 110,
+        "rows": 111,
         "sourceUrls": ["https://www.vals.ai/benchmarks/medscribe"],
         "versions": ["1"]
       },
@@ -6683,6 +6729,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -6719,6 +6766,7 @@
           "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
           "[\"zai/glm-5.3\",\"max\",null,null,null,null,null,null]"
@@ -6755,11 +6803,12 @@
           "reflection/Beam-1.0",
           "stepfun/step-5-preview",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3"
         ],
-        "rows": 34,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/mysterymechanism"],
         "versions": ["1"]
       },
@@ -6814,7 +6863,7 @@
       {
         "id": "programbench",
         "includedRetainedRows": 0,
-        "includedRows": 66,
+        "includedRows": 67,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -6853,6 +6902,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -6920,6 +6970,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -6988,6 +7039,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
@@ -6996,14 +7048,14 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 66,
+        "rows": 67,
         "sourceUrls": ["https://www.vals.ai/benchmarks/programbench"],
         "versions": ["1"]
       },
       {
         "id": "proofbench",
         "includedRetainedRows": 0,
-        "includedRows": 55,
+        "includedRows": 56,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -7035,6 +7087,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "xai-grok-4-5",
           "xai-grok-4-6",
           "xai-grok-4-7",
@@ -7089,6 +7142,7 @@
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null]",
@@ -7146,6 +7200,7 @@
           "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.5",
           "xiaomi/mimo-v2.5-pro",
@@ -7154,7 +7209,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 55,
+        "rows": 56,
         "sourceUrls": ["https://www.vals.ai/benchmarks/proof_bench"],
         "versions": ["1.1"]
       },
@@ -7359,6 +7414,38 @@
         "versions": ["1"]
       },
       {
+        "id": "rctbench",
+        "includedRetainedRows": 0,
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": [],
+        "profiles": [
+          "[\"decision/decider-flash-v1.2\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/decider-flash-v1.3\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/decider-v1.2\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/decider-v1.3\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/drex-max\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/gemini-decision-1\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/gpt-6-luna\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/jev-1.13.0\",null,null,\"rctbench\",null,null,null,null]",
+          "[\"decision/jev-1.14\",null,null,\"rctbench\",null,null,null,null]"
+        ],
+        "rawLabels": [
+          "decision/decider-flash-v1.2",
+          "decision/decider-flash-v1.3",
+          "decision/decider-v1.2",
+          "decision/decider-v1.3",
+          "decision/drex-max",
+          "decision/gemini-decision-1",
+          "decision/gpt-6-luna",
+          "decision/jev-1.13.0",
+          "decision/jev-1.14"
+        ],
+        "rows": 9,
+        "sourceUrls": ["https://www.vals.ai/benchmarks/rctbench"],
+        "versions": ["1"]
+      },
+      {
         "id": "robo-bench",
         "includedRetainedRows": 0,
         "includedRows": 0,
@@ -7372,6 +7459,7 @@
           "meta-muse-wonder-full",
           "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-2-astra",
           "openai-gpt-6-astra",
           "xai-grok-4-7"
         ],
@@ -7385,7 +7473,8 @@
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,\"kimi-code\",null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,\"muse-code\",null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,\"codex\",null,null,null,null]",
-          "[\"openai/gpt-6.1-sol\",\"max\",null,\"codex\",null,null,null,null]"
+          "[\"openai/gpt-6.1-sol\",\"max\",null,\"codex\",null,null,null,null]",
+          "[\"openai/gpt-6.2-astra\",\"max\",null,\"codex\",null,null,null,null]"
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max",
@@ -7397,9 +7486,10 @@
           "kimi/kimi-k3.1-pro",
           "meta/muse-wonder-full",
           "openai/gpt-6-astra",
-          "openai/gpt-6.1-sol"
+          "openai/gpt-6.1-sol",
+          "openai/gpt-6.2-astra"
         ],
-        "rows": 10,
+        "rows": 11,
         "sourceUrls": ["https://www.vals.ai/benchmarks/robo_bench"],
         "versions": ["1"]
       },
@@ -7422,6 +7512,7 @@
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-luna",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -7452,6 +7543,7 @@
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
           "[\"zai/glm-5.3-flash\",\"max\",null,null,null,null,null,null]"
@@ -7483,11 +7575,12 @@
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3-flash"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/sage"],
         "versions": ["1.1"]
       },
@@ -7517,6 +7610,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -7549,6 +7643,7 @@
           "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]"
         ],
         "rawLabels": [
@@ -7579,16 +7674,17 @@
           "reflection/Beam-1.0",
           "stepfun/step-5-preview",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash"
         ],
-        "rows": 28,
+        "rows": 29,
         "sourceUrls": ["https://www.vals.ai/benchmarks/science_index"],
         "versions": ["1.0"]
       },
       {
         "id": "skillsbench",
         "includedRetainedRows": 0,
-        "includedRows": 35,
+        "includedRows": 36,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -7610,6 +7706,7 @@
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
+          "thinking-machines-inkling-2-mini",
           "xai-grok-4-5",
           "xai-grok-4-6",
           "zai-glm-5-2"
@@ -7646,6 +7743,7 @@
           "[\"openai/gpt-5.6-sol\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"openai/gpt-5.6-terra\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,\"OpenHands\",null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"zai/glm-5.2\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"zai/glm-5.3\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -7683,12 +7781,13 @@
           "openai/gpt-5.6-sol",
           "openai/gpt-5.6-terra",
           "thinkingmachines/inkling",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "zai/glm-5.2",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 35,
+        "rows": 36,
         "sourceUrls": ["https://www.vals.ai/benchmarks/skillsbench"],
         "versions": ["1"]
       },
@@ -7719,6 +7818,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-7",
@@ -7757,6 +7857,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
           "[\"zai/glm-5.2\",\"max\",null,null,null,null,null,null]",
@@ -7796,13 +7897,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.2",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 37,
+        "rows": 38,
         "sourceUrls": ["https://www.vals.ai/benchmarks/srebench"],
         "versions": ["1"]
       },
@@ -8054,6 +8156,7 @@
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -8079,6 +8182,7 @@
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
           "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]"
         ],
         "rawLabels": [
@@ -8103,9 +8207,10 @@
           "openai/gpt-6.1-sol",
           "stepfun/step-5-preview",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-pro"
         ],
-        "rows": 22,
+        "rows": 23,
         "sourceUrls": ["https://www.vals.ai/benchmarks/swebench-multimodal"],
         "versions": ["1"]
       },
@@ -8166,6 +8271,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -8256,6 +8362,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null]",
@@ -8348,6 +8455,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.5",
           "xiaomi/mimo-v2.5-pro",
@@ -8356,7 +8464,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 90,
+        "rows": 91,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -9079,7 +9187,7 @@
       {
         "id": "terminal-bench-4-0",
         "includedRetainedRows": 0,
-        "includedRows": 69,
+        "includedRows": 70,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -9123,6 +9231,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -9193,6 +9302,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
@@ -9264,6 +9374,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.5-pro",
           "xiaomi/mimo-v2.6-flash",
@@ -9271,7 +9382,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 69,
+        "rows": 70,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -9312,6 +9423,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -9361,6 +9473,7 @@
           "[\"stepfun/step-5-preview\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,\"Terminus 2\",null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"zai/glm-5.3\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
@@ -9411,12 +9524,13 @@
           "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 48,
+        "rows": 49,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-science"],
         "versions": ["0.1"]
       },
@@ -9502,6 +9616,7 @@
           "openai-gpt-6-luna",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
@@ -9543,6 +9658,7 @@
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
           "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
@@ -9587,13 +9703,14 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.6-flash",
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 42,
+        "rows": 43,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -9793,6 +9910,7 @@
           "anthropic-claude-opus-5-5",
           "deepseek-deepseek-v4-1-flash-1017",
           "google-gemini-4-carbon",
+          "google-gemini-4-neon",
           "openai-gpt-6-2-astra",
           "openai-gpt-6-2-sol",
           "xai-grok-4-7"
@@ -9800,6 +9918,7 @@
         "profiles": [
           "[\"anthropic/claude-opus-5-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"google/cobalt-c-high-1p00\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"google/gemini-4-carbon\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -9812,6 +9931,7 @@
         "rawLabels": [
           "anthropic/claude-opus-5-5",
           "deepseek/deepseek-v4.1-flash-1017",
+          "google/cobalt-c-high-1p00",
           "google/gemini-4-carbon",
           "grok/grok-4.7",
           "minimax/MiniMax-M3.1-flash",
@@ -9821,14 +9941,14 @@
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3"
         ],
-        "rows": 10,
+        "rows": 11,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vcb-1-100-v1-1"],
         "versions": ["1.1"]
       },
       {
         "id": "vibe-code-bench",
         "includedRetainedRows": 0,
-        "includedRows": 133,
+        "includedRows": 134,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9891,6 +10011,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "tencent-hy4",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -10022,6 +10143,7 @@
           "[\"tencent/hy4-preview\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"thinkingmachines/inkling-2-small\",null,null,\"OpenHands\",null,null,null,null]",
+          "[\"thinkingmachines/inkling-mini-1117\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"xiaomi/mimo-v2.5\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"xiaomi/mimo-v2.5-pro\",null,null,\"OpenHands\",null,null,null,null]",
@@ -10157,6 +10279,7 @@
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-2-small",
+          "thinkingmachines/inkling-mini-1117",
           "thinkingmachines/inkling-small",
           "xiaomi/mimo-v2.5",
           "xiaomi/mimo-v2.5-pro",
@@ -10169,7 +10292,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 133,
+        "rows": 134,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -10251,7 +10374,9 @@
           "[\"grok/grok-4.5-exa\",\"high\",null,\"Exa\",null,null,null,null]",
           "[\"openai/gpt-5.6-sol\",\"max\",null,\"Native\",null,null,null,null]",
           "[\"openai/gpt-5.6-sol-exa\",\"max\",null,\"Exa\",null,null,null,null]",
-          "[\"openai/gpt-5.6-sol-keenable\",\"max\",null,\"Keenable\",null,null,null,null]"
+          "[\"openai/gpt-5.6-sol-keenable\",\"max\",null,\"Keenable\",null,null,null,null]",
+          "[\"openai/gpt-5.6-sol-parallel-advanced\",\"max\",null,\"Parallel Advanced\",null,null,null,null]",
+          "[\"openai/gpt-5.6-sol-parallel-fast\",\"max\",null,\"Parallel Fast\",null,null,null,null]"
         ],
         "rawLabels": [
           "anthropic/claude-fable-5",
@@ -10265,14 +10390,16 @@
           "grok/grok-4.5-exa",
           "openai/gpt-5.6-sol",
           "openai/gpt-5.6-sol-exa",
-          "openai/gpt-5.6-sol-keenable"
+          "openai/gpt-5.6-sol-keenable",
+          "openai/gpt-5.6-sol-parallel-advanced",
+          "openai/gpt-5.6-sol-parallel-fast"
         ],
-        "rows": 12,
+        "rows": 14,
         "sourceUrls": ["https://www.vals.ai/benchmarks/web_search"],
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-18T23:44:59.089Z",
+    "observedAt": "2026-11-21T08:52:43.955Z",
     "sourceId": "vals-ai"
   }
 }

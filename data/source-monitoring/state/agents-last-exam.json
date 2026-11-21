@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-19T02:19:21.933Z",
+  "checkedAt": "2026-11-21T08:43:50.731Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -96,7 +96,7 @@
         "versions": ["1.1"]
       }
     ],
-    "observedAt": "2026-11-18T23:35:34.222Z",
+    "observedAt": "2026-11-21T08:43:49.689Z",
     "sourceId": "agents-last-exam"
   }
 }

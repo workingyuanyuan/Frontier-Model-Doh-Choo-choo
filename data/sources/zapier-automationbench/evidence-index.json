@@ -15,16 +15,16 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CKqsGf_l.mjs",
-    "retrievedAt": "2026-11-18T23:33:49.185Z",
+    "retrievedAt": "2026-11-21T08:43:45.282Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cbbf17ea7945a4d080a764c866fc57d87a823c4e15dd7ca9e3729a1b93e7bf1b",
     "sourceId": "zapier-automationbench"
   },
   {
-    "artifactPath": "artifacts/sha256/7c/7cf94b26e9396d2696ce3017753cd5f5cae1f0b2655bb98b0be1366c890cd5c6.html",
-    "byteLength": 174513,
+    "artifactPath": "artifacts/sha256/31/31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c.html",
+    "byteLength": 174514,
     "finalUrl": "https://zapier.com/benchmarks",
-    "id": "sha256:7cf94b26e9396d2696ce3017753cd5f5cae1f0b2655bb98b0be1366c890cd5c6",
+    "id": "sha256:31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "official AutomationBench page and module list",
@@ -33,9 +33,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://zapier.com/benchmarks",
-    "retrievedAt": "2026-11-18T23:33:49.185Z",
+    "retrievedAt": "2026-11-21T08:43:45.282Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7cf94b26e9396d2696ce3017753cd5f5cae1f0b2655bb98b0be1366c890cd5c6",
+    "sha256": "sha256:31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c",
     "sourceId": "zapier-automationbench"
   }
 ]
