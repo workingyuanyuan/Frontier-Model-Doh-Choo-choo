@@ -195,7 +195,11 @@ export function Leaderboard({
 
   return (
     <div className="dashboard-section">
-      <p className="eyebrow section-eyebrow">Representative profiles</p>
+      <p className="eyebrow section-eyebrow">
+        {!commonMode && scope?.effortChanges.length
+          ? 'Profiles chosen for coverage'
+          : 'Representative profiles'}
+      </p>
       <section
         className="panel leaderboard-panel"
         aria-labelledby="leaderboard-title"
@@ -229,9 +233,17 @@ export function Leaderboard({
               />
               <CopyMarkdownButton
                 label="Copy table as Markdown"
-                markdown={() =>
-                  leaderboardMarkdown(product, sortedRows, economyByProfile)
-                }
+                markdown={() => {
+                  const table = leaderboardMarkdown(
+                    product,
+                    sortedRows,
+                    economyByProfile,
+                  );
+                  // A preset table keeps the scope it was ranked under.
+                  return scopeSentence && !commonMode
+                    ? `${scopeSentence}\n\n${table}`
+                    : table;
+                }}
               />
             </div>
           </div>

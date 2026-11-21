@@ -716,7 +716,7 @@
     "maxModels": 10,
     "defaultModelCount": 8,
     "defaultSelection": "largest-cohort-keeping-base-test-count",
-    "coverageSelection": "most-common-tests-then-active-dimensions-then-aa-rank-within-window"
+    "coverageSelection": "most-common-tests-over-models-and-qualifying-efforts-then-active-dimensions-then-fewest-non-representative-efforts-then-aa-rank-within-window"
   },
   "defaultPresetId": "aa-top-9",
   "benchmarkQuality": {
@@ -7042,6 +7042,10 @@
         "anthropic-claude-opus-5-5-max",
         "anthropic-claude-sonnet-5-5-max"
       ],
+      "representativeProfileIds": [
+        "anthropic-claude-opus-5-5-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
       "commonBeforeQuality": [
         "a2j",
         "aa-briefcase",
@@ -8076,6 +8080,11 @@
         "anthropic-claude-sonnet-5-5"
       ],
       "profileIds": [
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
+      "representativeProfileIds": [
         "anthropic-claude-opus-5-5-max",
         "openai-gpt-6-1-sol-max",
         "anthropic-claude-sonnet-5-5-max"
@@ -9467,6 +9476,12 @@
         "anthropic-claude-sonnet-5-5"
       ],
       "profileIds": [
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
+      "representativeProfileIds": [
         "anthropic-claude-opus-5-5-max",
         "openai-gpt-6-astra-max",
         "openai-gpt-6-1-sol-max",
@@ -11187,6 +11202,13 @@
         "openai-gpt-6-1-sol-max",
         "anthropic-claude-sonnet-5-5-max"
       ],
+      "representativeProfileIds": [
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
       "commonBeforeQuality": [
         "aa-briefcase",
         "aa-lcr",
@@ -12808,6 +12830,14 @@
         "anthropic-claude-sonnet-5-5"
       ],
       "profileIds": [
+        "openai-gpt-6-2-astra-max",
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
+      "representativeProfileIds": [
         "openai-gpt-6-2-astra-max",
         "google-gemini-4-carbon-high",
         "anthropic-claude-opus-5-5-max",
@@ -14628,6 +14658,15 @@
         "anthropic-claude-sonnet-5-5"
       ],
       "profileIds": [
+        "openai-gpt-6-2-astra-max",
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-2-sol-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max"
+      ],
+      "representativeProfileIds": [
         "openai-gpt-6-2-astra-max",
         "google-gemini-4-carbon-high",
         "anthropic-claude-opus-5-5-max",
@@ -16492,6 +16531,16 @@
         "anthropic-claude-sonnet-5-5-max",
         "google-gemini-4-hydrogen-xhigh"
       ],
+      "representativeProfileIds": [
+        "openai-gpt-6-2-astra-max",
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-2-sol-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max",
+        "google-gemini-4-hydrogen-xhigh"
+      ],
       "commonBeforeQuality": [
         "aa-briefcase",
         "aa-omniscience",
@@ -18254,6 +18303,17 @@
         "anthropic-claude-sonnet-5-5-max",
         "google-gemini-4-hydrogen-xhigh"
       ],
+      "representativeProfileIds": [
+        "openai-gpt-6-2-astra-max",
+        "google-gemini-4-neon-xhigh",
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-2-sol-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max",
+        "google-gemini-4-hydrogen-xhigh"
+      ],
       "commonBeforeQuality": [
         "aa-briefcase",
         "aa-omniscience",
@@ -19764,6 +19824,18 @@
       "profileIds": [
         "anthropic-claude-fable-5-2-max",
         "openai-gpt-6-2-astra-max",
+        "google-gemini-4-neon-high",
+        "google-gemini-4-carbon-high",
+        "anthropic-claude-opus-5-5-max",
+        "openai-gpt-6-2-sol-max",
+        "openai-gpt-6-astra-max",
+        "openai-gpt-6-1-sol-max",
+        "anthropic-claude-sonnet-5-5-max",
+        "google-gemini-4-hydrogen-xhigh"
+      ],
+      "representativeProfileIds": [
+        "anthropic-claude-fable-5-2-max",
+        "openai-gpt-6-2-astra-max",
         "google-gemini-4-neon-xhigh",
         "google-gemini-4-carbon-high",
         "anthropic-claude-opus-5-5-max",
@@ -19776,9 +19848,15 @@
       "commonBeforeQuality": [
         "aa-briefcase",
         "aa-omniscience",
+        "complex-constraints",
         "critpt-v2",
+        "dayjob-finance",
+        "dayjob-healthcare",
+        "dayjob-law",
+        "dayjob-tax",
         "frontier-code-2-0",
         "gdp-pdf",
+        "gdp-xlsx",
         "hle-diamond",
         "terminal-bench-4-0",
         "terminal-bench-science"
@@ -19788,9 +19866,15 @@
       "benchmarkIds": [
         "aa-briefcase",
         "aa-omniscience",
+        "complex-constraints",
         "critpt-v2",
+        "dayjob-finance",
+        "dayjob-healthcare",
+        "dayjob-law",
+        "dayjob-tax",
         "frontier-code-2-0",
         "gdp-pdf",
+        "gdp-xlsx",
         "hle-diamond",
         "terminal-bench-science"
       ],
@@ -19800,20 +19884,28 @@
           "id": "knowledge",
           "benchmarkIds": ["aa-omniscience", "hle-diamond"]
         },
-        { "id": "comprehension", "benchmarkIds": ["gdp-pdf"] },
+        { "id": "comprehension", "benchmarkIds": ["gdp-pdf", "gdp-xlsx"] },
         { "id": "coding", "benchmarkIds": ["frontier-code-2-0"] },
         {
           "id": "agentic",
-          "benchmarkIds": ["aa-briefcase", "terminal-bench-science"]
+          "benchmarkIds": [
+            "aa-briefcase",
+            "dayjob-finance",
+            "dayjob-healthcare",
+            "dayjob-law",
+            "dayjob-tax",
+            "terminal-bench-science"
+          ]
         },
-        { "id": "language", "benchmarkIds": [] }
+        { "id": "language", "benchmarkIds": ["complex-constraints"] }
       ],
       "activeDimensionIds": [
         "reasoning",
         "knowledge",
         "comprehension",
         "coding",
-        "agentic"
+        "agentic",
+        "language"
       ],
       "profiles": [
         {
@@ -19836,11 +19928,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 64.5,
+              "resultId": "surge-complex-constraints:complex-constraints:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 86.2857142857143,
               "resultId": "artificial-analysis:critpt-v2:claude-fable-5-2",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 43.7,
+              "resultId": "surge-dayjob-finance:dayjob-finance:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 45,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 26.5,
+              "resultId": "surge-dayjob-law:dayjob-law:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 15.6,
+              "resultId": "surge-dayjob-tax:dayjob-tax:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -19858,6 +19990,14 @@
               "resultId": "artificial-analysis:gdp-pdf:claude-fable-5-2",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 32.9,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-fable-5-2-adaptive-max",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -19898,11 +20038,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 69.6,
+              "resultId": "surge-complex-constraints:complex-constraints:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 83.7142857142857,
               "resultId": "artificial-analysis:critpt-v2:gpt-6-2-astra",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 45.8,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 34.4,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 41.4,
+              "resultId": "surge-dayjob-law:dayjob-law:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 9.2,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -19920,6 +20100,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-2-astra",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 29.7,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-2-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -19941,36 +20129,76 @@
           ]
         },
         {
-          "profileId": "google-gemini-4-neon-xhigh",
+          "profileId": "google-gemini-4-neon-high",
           "results": [
             {
               "benchmarkId": "aa-briefcase",
-              "score": 62.02020202020202,
-              "resultId": "artificial-analysis:aa-briefcase:gemini-4-neon",
+              "score": 58.18181818181818,
+              "resultId": "artificial-analysis:aa-briefcase:gemini-4-neon-high",
               "evidenceIds": [
-                "sha256:1e758af544719f03045b6dafc2c3ef04d080add5316693b8d9f51b3f662ba7ee"
+                "sha256:2e4066e22aaf2043361d3f65ee360f6362d9337c875bbf2ce11f8f609299dad4"
               ]
             },
             {
               "benchmarkId": "aa-omniscience",
-              "score": 60.46666666666667,
-              "resultId": "artificial-analysis:aa-omniscience:gemini-4-neon",
+              "score": 59.4,
+              "resultId": "artificial-analysis:aa-omniscience:gemini-4-neon-high",
               "evidenceIds": [
                 "sha256:f4659923034c3d359c93337be9a8a19a03d196f14acc1875d5f0f03a0425dd97"
               ]
             },
             {
-              "benchmarkId": "critpt-v2",
-              "score": 77.4285714285714,
-              "resultId": "artificial-analysis:critpt-v2:gemini-4-neon",
+              "benchmarkId": "complex-constraints",
+              "score": 72.9,
+              "resultId": "surge-complex-constraints:complex-constraints:gemini-4-neon-high-reasoning",
               "evidenceIds": [
-                "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
+              "benchmarkId": "critpt-v2",
+              "score": 76.5714285714286,
+              "resultId": "artificial-analysis:critpt-v2:gemini-4-neon-high",
+              "evidenceIds": [
+                "sha256:2e4066e22aaf2043361d3f65ee360f6362d9337c875bbf2ce11f8f609299dad4"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 50.5,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gemini-4-neon-high-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 47.2,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-neon-high-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 26.2,
+              "resultId": "surge-dayjob-law:dayjob-law:gemini-4-neon-high-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 12.8,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gemini-4-neon-high-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
               "benchmarkId": "frontier-code-2-0",
-              "score": 44.83,
-              "resultId": "frontier-code:frontier-code-2-0:gemini-4-neon-xhigh",
+              "score": 46.239999999999995,
+              "resultId": "frontier-code:frontier-code-2-0:gemini-4-neon-high",
               "evidenceIds": [
                 "sha256:79217153ce56e1a9f986fe886aa3279f7d17c69fd03f25b20cabf95dfc0f6fce",
                 "sha256:6b8a451f9604529940e3bf2fdf9e2aefc8552451410e2d9375bd975f7749396f"
@@ -19978,26 +20206,34 @@
             },
             {
               "benchmarkId": "gdp-pdf",
-              "score": 28.000000000000004,
-              "resultId": "artificial-analysis:gdp-pdf:gemini-4-neon",
+              "score": 33.4,
+              "resultId": "artificial-analysis:gdp-pdf:gemini-4-neon-high",
               "evidenceIds": [
-                "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+                "sha256:f4659923034c3d359c93337be9a8a19a03d196f14acc1875d5f0f03a0425dd97"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 43.1,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gemini-4-neon-high-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
               "benchmarkId": "hle-diamond",
-              "score": 71.3,
-              "resultId": "artificial-analysis:hle-diamond:gemini-4-neon",
+              "score": 68.4,
+              "resultId": "artificial-analysis:hle-diamond:gemini-4-neon-high",
               "evidenceIds": [
-                "sha256:11fb13dba60c57a4b81ead14323bb68cfffe1530e569f65a27bb34c9d3a5c1d3"
+                "sha256:f4659923034c3d359c93337be9a8a19a03d196f14acc1875d5f0f03a0425dd97"
               ]
             },
             {
               "benchmarkId": "terminal-bench-science",
-              "score": 70,
-              "resultId": "artificial-analysis:terminal-bench-science:gemini-4-neon",
+              "score": 65.71428571428571,
+              "resultId": "artificial-analysis:terminal-bench-science:gemini-4-neon-high",
               "evidenceIds": [
-                "sha256:98a67b890c1bebd1d22ea93a745ebd6639d07db530691e68731170c231311562"
+                "sha256:f4659923034c3d359c93337be9a8a19a03d196f14acc1875d5f0f03a0425dd97"
               ]
             }
           ]
@@ -20022,11 +20258,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 70.9,
+              "resultId": "surge-complex-constraints:complex-constraints:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 82.28571428571429,
               "resultId": "artificial-analysis:critpt-v2:gemini-4-carbon",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 23.8,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 35.2,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 13.8,
+              "resultId": "surge-dayjob-law:dayjob-law:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 4.8,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20044,6 +20320,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-carbon",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 38.9,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gemini-4-carbon-high-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20084,11 +20368,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 64.4,
+              "resultId": "surge-complex-constraints:complex-constraints:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 81.7142857142857,
               "resultId": "artificial-analysis:critpt-v2:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 42.5,
+              "resultId": "surge-dayjob-finance:dayjob-finance:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 48.3,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 23.7,
+              "resultId": "surge-dayjob-law:dayjob-law:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 9.2,
+              "resultId": "surge-dayjob-tax:dayjob-tax:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20106,6 +20430,14 @@
               "resultId": "artificial-analysis:gdp-pdf:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 30.3,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-opus-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20146,11 +20478,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 69.5,
+              "resultId": "surge-complex-constraints:complex-constraints:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 78.5714285714286,
               "resultId": "artificial-analysis:critpt-v2:gpt-6-2-sol",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 32.8,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 17.2,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 32.7,
+              "resultId": "surge-dayjob-law:dayjob-law:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 4.8,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20168,6 +20540,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-2-sol",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 22.3,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-2-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20208,11 +20588,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 70.8,
+              "resultId": "surge-complex-constraints:complex-constraints:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 83.1428571428571,
               "resultId": "artificial-analysis:critpt-v2:gpt-6-astra",
               "evidenceIds": [
                 "sha256:55371e057646b207428431d565575e4e5e821a3107fbf0c8755cb1c0de7f3a84"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 37.3,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 28.4,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 36.6,
+              "resultId": "surge-dayjob-law:dayjob-law:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 4.8,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20230,6 +20650,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-astra",
               "evidenceIds": [
                 "sha256:54a7e7b88489ebc8a14b43acd00e4806c0997c8faec51ea38199be362380b6d8"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 22.9,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-astra-max-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20270,11 +20698,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 70.1,
+              "resultId": "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 82.5714285714286,
               "resultId": "artificial-analysis:critpt-v2:gpt-6-1-sol",
               "evidenceIds": [
                 "sha256:55371e057646b207428431d565575e4e5e821a3107fbf0c8755cb1c0de7f3a84"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 33.5,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 25.2,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 31.6,
+              "resultId": "surge-dayjob-law:dayjob-law:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 4,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20292,6 +20760,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-1-sol",
               "evidenceIds": [
                 "sha256:c29e7a5d4ea9f442f1ffdd6255b653158cdf317b861ecf7899064950429b90f3"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 22,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20332,11 +20808,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 67.2,
+              "resultId": "surge-complex-constraints:complex-constraints:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 75.7142857142857,
               "resultId": "artificial-analysis:critpt-v2:claude-sonnet-5-5",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 40.5,
+              "resultId": "surge-dayjob-finance:dayjob-finance:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 34,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 26.8,
+              "resultId": "surge-dayjob-law:dayjob-law:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 10.8,
+              "resultId": "surge-dayjob-tax:dayjob-tax:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20354,6 +20870,14 @@
               "resultId": "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 29.1,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-sonnet-5-5-adaptive-max",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {
@@ -20394,11 +20918,51 @@
               ]
             },
             {
+              "benchmarkId": "complex-constraints",
+              "score": 73.7,
+              "resultId": "surge-complex-constraints:complex-constraints:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6"
+              ]
+            },
+            {
               "benchmarkId": "critpt-v2",
               "score": 80.57142857142861,
               "resultId": "artificial-analysis:critpt-v2:gemini-4-hydrogen",
               "evidenceIds": [
                 "sha256:42f1b30397b50e66a4af56746871c03f06ae727b9b541ceea69310d4b8646265"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-finance",
+              "score": 38.5,
+              "resultId": "surge-dayjob-finance:dayjob-finance:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-healthcare",
+              "score": 24,
+              "resultId": "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-law",
+              "score": 9.7,
+              "resultId": "surge-dayjob-law:dayjob-law:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80"
+              ]
+            },
+            {
+              "benchmarkId": "dayjob-tax",
+              "score": 3.6,
+              "resultId": "surge-dayjob-tax:dayjob-tax:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909"
               ]
             },
             {
@@ -20416,6 +20980,14 @@
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-hydrogen",
               "evidenceIds": [
                 "sha256:b1a341d60f5eab2840c5f48293df9edb12126d4f7bb926c3d9536e985b7c8d67"
+              ]
+            },
+            {
+              "benchmarkId": "gdp-xlsx",
+              "score": 40.9,
+              "resultId": "surge-gdp-xlsx:gdp-xlsx:gemini-4-hydrogen-xhigh-reasoning",
+              "evidenceIds": [
+                "sha256:1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675"
               ]
             },
             {

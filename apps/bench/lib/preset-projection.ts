@@ -9,6 +9,7 @@ import {
   PRESET_FAMILY_INFO,
   presetScope,
   presetScopeSentence,
+  type PresetEffortChange,
   type PresetWindowModel,
 } from './preset-family';
 import { toDashboardProduct } from './dashboard-data';
@@ -54,10 +55,15 @@ export interface PresetProjection {
     /** The other family's preset with the same model count, if any. */
     counterpartPresetId: string | null;
     sameModelsAsCounterpart: boolean;
+    /** Models scored at another effort than their representative profile. */
+    nonRepresentativeEfforts: PresetEffortChange[];
   };
   /** Dimensions with a score in this preset, in display order. */
   dimensionIds: DimensionId[];
-  /** One row per base model at its representative effort, in rank order. */
+  /**
+   * One row per base model in rank order, at its representative effort except
+   * where nonRepresentativeEfforts names another one (coverage presets only).
+   */
   leaderboard: PresetLeaderboardRow[];
   /** Models with a comparable task cost, cheapest cost index first. */
   costs: PresetCostRow[];
@@ -157,6 +163,7 @@ export const projectPreset = (
       omittedFrontierModels: scope.omitted,
       counterpartPresetId: scope.counterpartId,
       sameModelsAsCounterpart: scope.sameModelsAsCounterpart,
+      nonRepresentativeEfforts: scope.effortChanges,
     },
     dimensionIds,
     leaderboard: rows.map((row) => {

@@ -45,6 +45,23 @@ import { COST_SOURCE_WEIGHTS, getProfileIdentity } from './view-model';
  * the dashboard calls, so a number here is the number on screen.
  */
 
+/** Names the models a preset scores at a non-representative effort. */
+const effortChangeNote = (
+  changes: readonly {
+    modelName: string;
+    effort: string;
+    representativeEffort: string;
+  }[],
+): string =>
+  changes.length
+    ? `, scored at a non-representative effort: ${changes
+        .map(
+          ({ modelName, effort, representativeEffort }) =>
+            `${modelName} ${effort} (representative ${representativeEffort})`,
+        )
+        .join(', ')}`
+    : '';
+
 const table = (headers: string[], rows: string[][]): string =>
   [
     markdownLine(headers),
@@ -64,7 +81,7 @@ const SCORE_NOTE =
   'Scores are 0–100 and higher is better. A missing score is written N/A; it is never zero and never imputed.';
 
 export const LEADERBOARD_NOTE =
-  'One row per base model, at its representative reasoning effort (the qualifying effort holding the most scoring-eligible benchmarks). Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. Economy is 100 minus the cost index explained under Quality vs. cost, so higher is cheaper; it does not enter Overall, and N/A means the model has no comparable task cost.';
+  'One row per base model, at its representative reasoning effort (the qualifying effort holding the most scoring-eligible benchmarks); a coverage preset may use another qualifying effort, and its scope line names each one. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. Economy is 100 minus the cost index explained under Quality vs. cost, so higher is cheaper; it does not enter Overall, and N/A means the model has no comparable task cost.';
 
 export const COST_SOURCES_TITLE = 'Task costs by source';
 export const COST_SOURCES_NOTE =
@@ -403,7 +420,7 @@ export const llmsTxt = (
     'Two model sets, each with one preset per size (2 to 10 models). Each preset has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.',
     '',
     `- \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}): ${PRESET_FAMILY_INFO['aa-frontier'].rule}. Use it for "the best N models".`,
-    `- \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}): ${PRESET_FAMILY_INFO.coverage.rule}. Use it to compare on the most benchmarks; it can leave out top-ranked models, and each file names the ones it leaves out.`,
+    `- \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}): ${PRESET_FAMILY_INFO.coverage.rule}. Use it to compare on the most benchmarks; it can leave out top-ranked models or score a model at another qualifying effort than its representative one, and each file names both.`,
     '',
     'Read the Markdown or JSON file when the table structure matters. The Markdown files are served as Markdown and their tables are complete; a tool that converts an HTML page to text can drop the separator row under a table header.',
     '',
@@ -411,7 +428,7 @@ export const llmsTxt = (
     '',
     ...presets.map(
       ({ preset }) =>
-        `- ${preset.id}${preset.isDefault ? ' (default view)' : ''}, ${preset.familyName}, ${preset.modelCount} models, ${preset.benchmarkCount} benchmarks: [Markdown](${presetMarkdownPath(preset.id)}), [JSON](${presetJsonPath(preset.id)}), [HTML](${presetPagePath(preset.id)})`,
+        `- ${preset.id}${preset.isDefault ? ' (default view)' : ''}, ${preset.familyName}, ${preset.modelCount} models, ${preset.benchmarkCount} benchmarks${effortChangeNote(preset.nonRepresentativeEfforts)}: [Markdown](${presetMarkdownPath(preset.id)}), [JSON](${presetJsonPath(preset.id)}), [HTML](${presetPagePath(preset.id)})`,
     ),
     '',
     '## Data',
@@ -580,9 +597,9 @@ export const methodologyMarkdown = (
     '- A model qualifies when it is ranked there and has results from at least two independent organisations.',
     '- The frontier window is the first ten qualifying models in that ranking.',
     '- Each model is represented by one reasoning-effort profile: among its qualifying efforts, the one holding the most scoring-eligible benchmarks (ties: more independent organisations, then the higher AA score, then the profile ID). The choice is recomputed with every data version, so it follows the effort the sources measured most.',
-    `- Two model sets, one preset per size N = 2 to 10. \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}) takes ${PRESET_FAMILY_INFO['aa-frontier'].rule.replace('the top N models', 'the top N')}. \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}) takes ${PRESET_FAMILY_INFO.coverage.rule}; it can leave out top-ranked models. With all ten models the two sets coincide.`,
+    `- Two model sets, one preset per size N = 2 to 10. \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}) takes ${PRESET_FAMILY_INFO['aa-frontier'].rule.replace('the top N models', 'the top N')}. \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}) takes ${PRESET_FAMILY_INFO.coverage.rule}; it can leave out top-ranked models, and it may score a model at another qualifying effort than its representative one when that shares more benchmarks, or as many benchmarks across more dimensions. With all ten models the two sets score the same models, possibly at different efforts.`,
     `- The default preset is \`${product.defaultPresetId}\`.`,
-    '- A model can have several profiles, one per reasoning effort. Results from different efforts are never merged. Each preset scores one row per base model: its representative profile. On the dashboard a reader can switch a row to another effort, and the scores are recomputed for that selection.',
+    '- A model can have several profiles, one per reasoning effort. Results from different efforts are never merged. Each preset scores one row per base model: its representative profile in `aa-top-N`, and in `coverage-N` the qualifying effort the search chose, named in the scope line of the preset. On the dashboard a reader can switch a row to another effort, and the scores are recomputed for that selection.',
     '',
     '## Which benchmarks are scored',
     '',

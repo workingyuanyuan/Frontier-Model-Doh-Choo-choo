@@ -258,14 +258,17 @@ describe('buildWorkspaceProduct', () => {
         );
     expect(chooseDefaultCohort(aaPresets).id).toBe(product.defaultPresetId);
     // A coverage preset shares at least as many tests as the AA prefix of the
-    // same size, and both families coincide on the whole window.
+    // same size. On the whole window both score the same models, though
+    // coverage may pick other qualifying efforts.
     coveragePresets.forEach((preset, index) =>
       expect(preset.benchmarkIds.length).toBeGreaterThanOrEqual(
         aaPresets[index]!.benchmarkIds.length,
       ),
     );
-    expect(coveragePresets.at(-1)!.benchmarkIds).toEqual(
-      aaPresets.at(-1)!.benchmarkIds,
+    const modelsOf = (preset: (typeof aaPresets)[number]) =>
+      preset.leaderboard.map(({ modelId }) => modelId).toSorted();
+    expect(modelsOf(coveragePresets.at(-1)!)).toEqual(
+      modelsOf(aaPresets.at(-1)!),
     );
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),

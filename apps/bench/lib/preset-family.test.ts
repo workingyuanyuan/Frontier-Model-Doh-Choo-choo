@@ -12,15 +12,25 @@ const frontier = ['m1', 'm2', 'm3', 'm4'].map((modelId) => ({
   reasons: ['fixture'],
   externalCompositeScores: {},
 }));
-const profiles = frontier.map(({ modelId }) => ({
-  id: `${modelId}-max`,
-  modelId,
-  baseModelName: `Model ${modelId.slice(1)}`,
-})) as never;
+const profiles = [
+  ...frontier.map(({ modelId }) => ({
+    id: `${modelId}-max`,
+    modelId,
+    baseModelName: `Model ${modelId.slice(1)}`,
+    attributes: { effort: 'max', harness: null },
+  })),
+  {
+    id: 'm4-high',
+    modelId: 'm4',
+    baseModelName: 'Model 4',
+    attributes: { effort: 'high', harness: null },
+  },
+] as never;
 const preset = (
   id: string,
   family: 'aa-frontier' | 'coverage',
   modelIds: string[],
+  profileOf: (modelId: string) => string = (modelId) => `${modelId}-max`,
 ) => ({
   id,
   family,
@@ -28,7 +38,7 @@ const preset = (
   benchmarkIds: ['b'],
   leaderboard: modelIds.map((modelId) => ({
     modelId,
-    profileId: `${modelId}-max`,
+    profileId: profileOf(modelId),
     rank: 1,
     overallScore: 50,
     dimensions: [],
@@ -40,7 +50,10 @@ const presets = [
   preset('aa-top-3', 'aa-frontier', ['m1', 'm2', 'm3']),
   preset('aa-top-4', 'aa-frontier', ['m1', 'm2', 'm3', 'm4']),
   preset('coverage-2', 'coverage', ['m2', 'm4']),
-  preset('coverage-4', 'coverage', ['m1', 'm2', 'm3', 'm4']),
+  // m4 is scored at high here; its representative profile is max.
+  preset('coverage-4', 'coverage', ['m1', 'm2', 'm3', 'm4'], (modelId) =>
+    modelId === 'm4' ? 'm4-high' : `${modelId}-max`,
+  ),
 ];
 const product = { frontier, profiles, presets };
 
@@ -70,6 +83,24 @@ describe('preset families', () => {
     );
     expect(presetScope(product, 'aa-top-3')!.counterpartId).toBe(null);
     expect(presetScope(product, 'missing')).toBe(null);
+  });
+
+  it('names models a coverage preset scores at a non-representative effort', () => {
+    const scope = presetScope(product, 'coverage-4')!;
+    expect(scope.effortChanges).toEqual([
+      {
+        modelId: 'm4',
+        modelName: 'Model 4',
+        profileId: 'm4-high',
+        effort: 'high',
+        representativeProfileId: 'm4-max',
+        representativeEffort: 'max',
+      },
+    ]);
+    expect(presetScopeSentence(scope, 4)).toContain(
+      'Model 4 at high (representative: max)',
+    );
+    expect(presetScope(product, 'coverage-2')!.effortChanges).toEqual([]);
   });
 
   it('keeps the model count on a family switch, else the nearest larger', () => {
