@@ -13,7 +13,7 @@ export const PRESET_FAMILY_INFO: Record<
   coverage: {
     label: 'Coverage',
     name: 'Max coverage',
-    rule: 'the N frontier-window models whose representative profiles share the most scoring-eligible benchmarks after the quality rules (ties: more scored dimensions, then higher AA ranks)',
+    rule: 'the N frontier-window models, each at one qualifying reasoning effort, that share the most scoring-eligible benchmarks after the quality rules (ties: more scored dimensions, then fewer efforts other than the representative, then higher AA ranks, then efforts earlier in representative order)',
   },
 };
 
@@ -33,6 +33,20 @@ export interface PresetScope {
   counterpartId: string | null;
   /** Whether that counterpart scores exactly the same models. */
   sameModelsAsCounterpart: boolean;
+  /**
+   * Models this preset scores at another effort than their representative
+   * profile (coverage only: the AA family always uses the representative).
+   */
+  effortChanges: PresetEffortChange[];
+}
+
+export interface PresetEffortChange {
+  modelId: string;
+  modelName: string;
+  profileId: string;
+  effort: string;
+  representativeProfileId: string;
+  representativeEffort: string;
 }
 
 type ScopeProduct = Pick<ProductVersion, 'frontier' | 'presets' | 'profiles'>;
@@ -78,6 +92,35 @@ export const presetScope = (
   const nameOf = (modelId: string) =>
     product.profiles.find((profile) => profile.modelId === modelId)
       ?.baseModelName ?? modelId;
+  const effortOf = (profileId: string) =>
+    product.profiles.find(({ id }) => id === profileId)?.attributes.effort ??
+    profileId;
+  // Every AA-family preset scores its models at their representative profiles.
+  const representative = new Map(
+    product.presets
+      .filter(({ family }) => family === 'aa-frontier')
+      .flatMap(({ leaderboard }) =>
+        leaderboard.map(({ modelId, profileId }) => [modelId, profileId]),
+      ),
+  );
+  // The AA family uses the representative profiles by definition.
+  const comparedRows = preset.family === 'coverage' ? preset.leaderboard : [];
+  const effortChanges = comparedRows.flatMap(({ modelId, profileId }) => {
+    const representativeProfileId = representative.get(modelId);
+    return representativeProfileId === undefined ||
+      representativeProfileId === profileId
+      ? []
+      : [
+          {
+            modelId,
+            modelName: nameOf(modelId),
+            profileId,
+            effort: effortOf(profileId),
+            representativeProfileId,
+            representativeEffort: effortOf(representativeProfileId),
+          },
+        ];
+  });
   const omitted = product.frontier.flatMap(({ modelId }, index) =>
     members.has(modelId)
       ? []
@@ -98,6 +141,7 @@ export const presetScope = (
       counterpartMembers !== null &&
       counterpartMembers.size === members.size &&
       [...members].every((modelId) => counterpartMembers.has(modelId)),
+    effortChanges,
   };
 };
 
@@ -108,7 +152,7 @@ export const presetScopeSentence = (
 ): string => {
   const base =
     scope.family === 'coverage'
-      ? `Max coverage: ${modelCount} of the ${scope.windowSize} frontier-window models, chosen to share the most benchmarks.`
+      ? `Max coverage: ${modelCount} of the ${scope.windowSize} frontier-window models and their reasoning efforts, chosen to share the most benchmarks.`
       : `AA frontier: the top ${modelCount} of the ${scope.windowSize} frontier-window models by AA Intelligence Index.`;
   const omitted =
     scope.family === 'coverage' && scope.omitted.length
@@ -120,5 +164,13 @@ export const presetScopeSentence = (
     scope.family === 'coverage' && scope.sameModelsAsCounterpart
       ? ' Same models as the AA frontier set of this size.'
       : '';
-  return `${base}${omitted}${same}`;
+  const efforts = scope.effortChanges.length
+    ? ` Scored at another effort than the representative one: ${scope.effortChanges
+        .map(
+          ({ modelName, effort, representativeEffort }) =>
+            `${modelName} at ${effort} (representative: ${representativeEffort})`,
+        )
+        .join(', ')}.`
+    : '';
+  return `${base}${omitted}${same}${efforts}`;
 };

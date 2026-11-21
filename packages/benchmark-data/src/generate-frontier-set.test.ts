@@ -316,8 +316,111 @@ describe('frontier common quality core', () => {
         sameSize.benchmarkIds.length,
       );
     }
-    // The whole window has one subset, so both families coincide at ten.
+    // One effort per model and one ten-model subset: the families coincide.
     expect(cohorts.at(-1)!.profileIds).toEqual(aaCohorts.at(-1)!.profileIds);
+  });
+
+  // m01-max lacks both coding tests but holds reason-c, so it keeps the
+  // representative slot (8 benchmarks each; max has the higher AA score).
+  // An alternate effort of m01 carries the coding tests the other top models
+  // share, but not limited-k.
+  const m01Alternate = (effort: string, aaScore: number) => [
+    aa('m01', aaScore, effort),
+    ...scoredBy(
+      'm01',
+      'org-a',
+      [
+        'reason-a',
+        'reason-b',
+        'know-a',
+        'know-b',
+        'code-a',
+        'code-b',
+        'agent-a',
+      ],
+      effort,
+    ),
+    ...scoredBy('m01', 'org-b', ['agent-b'], effort),
+  ];
+  const withoutM01Coding = () =>
+    base().filter(
+      (c) =>
+        !(
+          c.model.profileId === 'm01-max' &&
+          ['code-a', 'code-b'].includes(c.benchmarkId)
+        ),
+    );
+  const coverageCohort = (candidates: CandidateResult[], n: number) => {
+    const { leaders } = eligible(candidates);
+    return createCoverageCohorts(candidates, leaders, mapping, quality).find(
+      ({ targetModelCount }) => targetModelCount === n,
+    )!;
+  };
+
+  it('scores a model at another qualifying effort when that shares more tests', () => {
+    // xhigh and high hold the same tests; xhigh is earlier in representative
+    // order (higher AA score), so it wins that tie.
+    const candidates = [
+      ...withoutM01Coding(),
+      ...scoredBy('m01', 'org-a', ['reason-c']),
+      ...m01Alternate('high', 99),
+      ...m01Alternate('xhigh', 99.5),
+    ];
+    const { leaders } = eligible(candidates);
+    expect(leaders[0]!.profileId).toBe('m01-max');
+    const aaFive = createAaCohorts(candidates, leaders, mapping, quality)[3]!;
+    expect(aaFive.benchmarkIds).toHaveLength(7);
+    // With xhigh the top five keep both coding tests: 8 shared, not 7.
+    const five = coverageCohort(candidates, 5);
+    expect(five.modelIds).toEqual(['m01', 'm02', 'm03', 'm04', 'm05']);
+    expect(five.profileIds[0]).toBe('m01-xhigh');
+    expect(five.representativeProfileIds[0]).toBe('m01-max');
+    expect(five.benchmarkIds).toHaveLength(8);
+    expect(five.benchmarkIds).toContain('code-a');
+  });
+
+  it('prefers a lower-ranked subset that needs fewer non-representative efforts', () => {
+    // m06 gains the coding tests and loses limited-k, so m02–m06 at their
+    // representative efforts share the same 8 tests and 4 dimensions as the
+    // top five with m01 at xhigh.
+    const candidates = [
+      ...withoutM01Coding().filter(
+        (c) =>
+          !(c.model.profileId === 'm06-max' && c.benchmarkId === 'limited-k'),
+      ),
+      ...scoredBy('m01', 'org-a', ['reason-c']),
+      ...scoredBy('m06', 'org-a', ['code-a', 'code-b']),
+      ...m01Alternate('xhigh', 99.5),
+    ];
+    const five = coverageCohort(candidates, 5);
+    expect(five.benchmarkIds).toHaveLength(8);
+    expect(five.modelIds).toEqual(['m02', 'm03', 'm04', 'm05', 'm06']);
+    expect(five.profileIds).toEqual(five.representativeProfileIds);
+  });
+
+  it('keeps the representative effort when another effort only ties', () => {
+    // m01-xhigh holds exactly the tests m01-max shares with every other
+    // model, so each intersection is the same at either effort.
+    const candidates = [
+      ...base(),
+      ...scoredBy('m01', 'org-a', ['reason-c']),
+      aa('m01', 99.5, 'xhigh'),
+      ...scoredBy('m01', 'org-a', [...shared, 'code-a', 'code-b'], 'xhigh'),
+      ...scoredBy('m01', 'org-b', ['agent-b'], 'xhigh'),
+    ];
+    const { leaders } = eligible(candidates);
+    expect(
+      leaders[0]!.candidateProfiles.map(({ profileId }) => profileId),
+    ).toEqual(['m01-max', 'm01-xhigh']);
+    for (const cohort of createCoverageCohorts(
+      candidates,
+      leaders,
+      mapping,
+      quality,
+    ))
+      expect(cohort.profileIds, cohort.id).toEqual(
+        cohort.representativeProfileIds,
+      );
   });
 
   it('breaks coverage ties by active dimensions before AA rank', () => {

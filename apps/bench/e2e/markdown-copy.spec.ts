@@ -88,12 +88,18 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
           return `| ${[model, effort, ...scores].join(' | ')} |`;
         }),
       );
+    // A preset table carries its scope line; an edited comparison has none.
+    const scope = page.getByTestId('preset-scope');
+    const scopeLines = (await scope.count())
+      ? [(await scope.textContent())!.trim(), '']
+      : [];
     await copy.click();
     await expect(
       page.getByRole('status').filter({ hasText: 'Copied!' }),
     ).toBeVisible();
     const markdown = await page.evaluate(() => navigator.clipboard.readText());
     expect(markdown.split(/\r?\n/)).toEqual([
+      ...scopeLines,
       `| ${headers.join(' | ')} |`,
       `| ${headers.map(() => '---').join(' | ')} |`,
       ...expectedRows,

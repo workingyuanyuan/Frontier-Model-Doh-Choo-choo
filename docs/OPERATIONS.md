@@ -252,7 +252,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ## 3. 重產集合與建立目前版本
 
-正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試，並為每個 N 從同一窗口挑出共同合格測試最多的 N 個模型。每組 cohort 保存模型、代表 profiles、benchmark 與逐列 evidence，產品以這十八組 cohorts 建立 presets，ID 為 `aa-top-N` 與 `coverage-N`；實際預設集合記錄在 `defaultPresetId`。
+正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試，並為每個 N 從同一窗口挑出共同合格測試最多的 N 個模型及其合格 effort。每組 cohort 保存模型、所用 profiles、benchmark 與逐列 evidence，產品以這十八組 cohorts 建立 presets，ID 為 `aa-top-N` 與 `coverage-N`；實際預設集合記錄在 `defaultPresetId`。
 
 模型數範圍 2～10 與預設從 8 開始延伸是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
 
