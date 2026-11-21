@@ -40,13 +40,19 @@ export const resolveWithin = (urlPath, rootDir = root) => {
     : null;
 };
 
-export const fileFor = async (candidate) => {
+/**
+ * Same lookup order as GitHub Pages: the file itself, a directory index, then
+ * <path>.html. A request ending in a slash names a directory, so only its
+ * index answers it; Pages returns 404 there even when <path>.html exists.
+ */
+export const fileFor = async (candidate, { directoryOnly = false } = {}) => {
   const direct = await stat(candidate).catch(() => null);
-  if (direct?.isFile()) return candidate;
+  if (direct?.isFile()) return directoryOnly ? null : candidate;
   if (direct?.isDirectory()) {
     const index = join(candidate, 'index.html');
     if ((await stat(index).catch(() => null))?.isFile()) return index;
   }
+  if (directoryOnly) return null;
   const html = `${candidate}.html`;
   return (await stat(html).catch(() => null))?.isFile() ? html : null;
 };
@@ -62,6 +68,7 @@ export const createStaticServer = (
 
     const handle = async () => {
       let candidate;
+      let directoryOnly;
       try {
         const url = request.url ?? '/';
         const queryStart = url.indexOf('?');
@@ -83,6 +90,7 @@ export const createStaticServer = (
           : pathname;
         candidate =
           mountedPath === null ? null : resolveWithin(mountedPath, rootDir);
+        directoryOnly = mountedPath?.endsWith('/') ?? false;
       } catch (err) {
         if (err instanceof URIError) {
           response.writeHead(400, {
@@ -94,7 +102,8 @@ export const createStaticServer = (
         throw err;
       }
 
-      const file = candidate === null ? null : await fileFor(candidate);
+      const file =
+        candidate === null ? null : await fileFor(candidate, { directoryOnly });
       if (file === null) {
         response.writeHead(404, {
           'content-type': 'text/plain; charset=utf-8',

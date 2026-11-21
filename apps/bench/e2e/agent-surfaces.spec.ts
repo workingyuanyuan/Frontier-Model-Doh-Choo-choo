@@ -54,10 +54,19 @@ const PUBLIC_SITE_URL =
 test('the sitemap lists every page by the public URL its canonical link names', async ({
   request,
 }) => {
-  // The export served to this suite; Next's error pages are not content.
-  const exported = readdirSync(resolve('apps/bench/out'), { recursive: true })
-    .map((file) => String(file).replaceAll('\\', '/'))
+  // The export served to this suite; Next's error pages are not content, and
+  // <page>/index.html is a copy of <page>.html for trailing-slash URLs.
+  const files = readdirSync(resolve('apps/bench/out'), { recursive: true }).map(
+    (file) => String(file).replaceAll('\\', '/'),
+  );
+  const directoryCopies = new Set(
+    files
+      .filter((file) => file.endsWith('.html'))
+      .map((file) => `${file.slice(0, -'.html'.length)}/index.html`),
+  );
+  const exported = files
     .filter((file) => file.endsWith('.html') && !file.startsWith('_next/'))
+    .filter((file) => !directoryCopies.has(file))
     .filter((file) => !['404.html', '_not-found.html'].includes(file))
     .map((file) => (file === 'index.html' ? '' : file))
     .sort();
@@ -279,6 +288,28 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     ).toEqual(sources);
   }
   await context.close();
+});
+
+// GitHub Pages answers a trailing slash only from a directory index, and
+// the local server follows the same rule, so this fails without the copies.
+test('preset pages also open with a trailing slash', async ({
+  page,
+  request,
+}) => {
+  const indexUrl = `${basePath}/data/index.json`;
+  const index = await (await request.get(indexUrl)).json();
+  for (const entry of index.presets) {
+    const htmlPath = new URL(entry.html, `http://x${indexUrl}`).pathname;
+    const url = `${htmlPath.replace(/\.html$/u, '')}/`;
+    const response = await page.goto(url);
+    expect(response?.status(), url).toBe(200);
+    await page.waitForLoadState('networkidle');
+    await expect(page.locator('footer'), url).toContainText(index.versionId);
+    await expect(
+      page.locator('[data-static-table="leaderboard"] tbody tr'),
+      url,
+    ).toHaveCount(entry.modelCount);
+  }
 });
 
 test('the dashboard shows what the published files state', async ({

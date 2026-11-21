@@ -277,6 +277,13 @@ describe('scripts/serve-static.mjs integration tests', () => {
     assert.equal(resSubSlash.status, 200);
     assert.ok(resSubSlash.body.includes('<h1>Sub Index</h1>'));
 
+    // GitHub Pages answers a trailing slash only from a directory index.
+    const resCleanSlash = await sendRawRequest(
+      serverInstance.port,
+      'GET /clean-page/ HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n',
+    );
+    assert.equal(resCleanSlash.status, 404);
+
     const resNested = await sendRawRequest(
       serverInstance.port,
       'GET /sub/nested.html HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n',

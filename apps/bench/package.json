@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "build": "pnpm --filter @llm-bench/benchmark-data build && next build",
+    "build": "pnpm --filter @llm-bench/benchmark-data build && next build && node ../../scripts/add-directory-indexes.mjs out",
     "dev": "next dev",
     "start": "next start",
     "test": "vitest",
