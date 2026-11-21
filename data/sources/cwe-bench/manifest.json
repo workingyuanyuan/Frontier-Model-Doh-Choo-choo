@@ -1,0 +1,29 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://cwe-bench.com/",
+  "benchmarkIds": ["cwe-bench-v2"],
+  "completeness": {
+    "expectedCountMethod": "Count every leaderboard row with data-model in the server-rendered Combined view and compare with the rendered browser table.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "CWE-bench (Collinear AI)",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    "Grading card (4 attempts per task)": "profile.attempts",
+    "How the scores are computed (high reasoning)": "profile.effort",
+    "td.lb-harness-cell": "profile.harness",
+    "tr[data-model]": "model.rawName",
+    "tr[data-p1-all]": "rawScore / normalizedScore"
+  },
+  "lastVerifiedAt": "2026-11-21T02:05:55.708Z",
+  "notes": [
+    "20 rows, Combined view (250 tasks: 100 public, 150 held-out). Public and Held-out views are not materialized.",
+    "All models run at high reasoning per the organizer; harness is per row.",
+    "Average cost per rollout is not materialized."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "cwe-bench",
+  "targetUrls": ["https://cwe-bench.com/"]
+}

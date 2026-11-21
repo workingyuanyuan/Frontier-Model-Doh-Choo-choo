@@ -112,6 +112,16 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | ------- | --------- | ------------------------------------------------ |
 | None    | —         | No differences detected within the stated scope. |
 
+## cwe-bench
+
+- Checked: 2026-11-21T02:05:56.595Z
+- Stored score snapshot: 2026-11-21T02:05:55.708Z
+- Scope: snapshot-only
+
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
+
 ## deepswe
 
 - Checked: 2026-11-19T02:19:21.933Z
@@ -453,6 +463,16 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [View Hemingway-bench benchmark](https://surgehq.ai/benchmarks/hemingway-bench)                             | no                 | reviewed-deferred | —                         | User decision: prioritize current frontier model coverage; defer this benchmark. |
 | [View Riemann-bench benchmark](https://surgehq.ai/benchmarks/riemann-bench)                                 | yes                | scored            | riemann-bench             |                                                                                  |
 | [View sudo L7 benchmark](https://surgehq.ai/benchmarks/sudo-l7)                                             | no                 | unintegrated      | —                         |                                                                                  |
+
+## terminal-bench
+
+- Checked: 2026-11-21T02:06:00.100Z
+- Stored score snapshot: 2026-11-21T02:05:57.757Z
+- Scope: snapshot-only
+
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
 
 ## vals-ai
 

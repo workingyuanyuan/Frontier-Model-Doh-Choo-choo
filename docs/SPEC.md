@@ -57,6 +57,8 @@
 | `surge-dayjob-tax`          | https://surgehq.ai/benchmarks/dayjob-tax                | ORGANIZER         | 2026-10-28 |
 | `surge-dayjob-law`          | https://surgehq.ai/benchmarks/dayjob-law                | ORGANIZER         | 2026-11-19 |
 | `surge-gdp-xlsx`            | https://surgehq.ai/benchmarks/gdp-xlsx                  | ORGANIZER         | 2026-10-03 |
+| `cwe-bench`                 | https://cwe-bench.com/                                  | ORGANIZER         | 2026-11-21 |
+| `terminal-bench`            | https://www.tbench.ai/leaderboard                       | ORGANIZER         | 2026-11-21 |
 | `openai-releases`           | https://openai.com/                                     | VENDOR            | 2026-10-02 |
 | `anthropic-releases`        | https://www.anthropic.com/                              | VENDOR            | 2026-10-02 |
 
@@ -67,6 +69,10 @@ DAYJOB: Tax 使用獨立 benchmark ID `dayjob-tax`，與 Finance、Healthcare �
 DAYJOB: Law 使用獨立 benchmark ID `dayjob-law`（使用者 2026-11-19 決定採用），維度與 Tax 相同：Agentic 主維度，次要關聯為 Reasoning 與 Knowledge。指標也與 Tax 相同：[官方公告](https://surgehq.ai/blog/dayjob-law)報告 71 項由執業律師撰寫的法律任務在 95% rubric 門檻下的通過率；DAYJOB README 載明榜單每題五次嘗試。公開資料集只有 2 題樣本，逐列 harness、工具、版本、context 與發布日期保留 null。
 
 Vals Autoform-Hard 使用 benchmark ID `autoform-hard`（使用者 2026-11-19 決定採用），主維度 Reasoning、次要關聯 Coding，與 ProofBench 相同。[Vals 方法說明](https://www.vals.ai/benchmarks/autoform_hard)：取 AutoformBench（Meta FAIR）100 題驗證集中原研究十個前沿模型都未解出的題目，去除 3 題重複後共 56 題，並經 Vals 稽核修正，在同一 agent harness 下以 Lean 4 形式化並證明，每題一次嘗試、3 小時與 200 美元上限，通過 clean-room 重建與獨立 kernel 重放才算解出。題組、修正與評分都由 Vals 定義，只有 Vals 發布這份榜單，因此來源角色記為 ORGANIZER。
+
+CWE-bench v2 使用 benchmark ID `cwe-bench-v2`（使用者 2026-11-21 依代理推薦決定採用），主維度 Coding、次要關聯 Agentic 與 Reasoning，與 `cyber` 相同。Collinear AI 自行執行所有模型，所以來源角色記為 ORGANIZER。採預設的 Combined 檢視：250 題稽核並修補漏洞的任務（100 題公開、150 題不公開），以程式化驗證器評分，每題四次 rollout 的 Pass@1。主辦方寫明所有模型都以 high 檔位執行，因此每列 effort 記為 `high`；harness 逐列不同（Claude Code、Codex、Antigravity、opencode），保存在 profile。Public 與 Held-out 檢視、Pass@4 與平均成本不物化。顯示名稱保留日期版本（如 `Qwen3.8-Max (0902)`），只以精確 alias 對應身分。
+
+Terminal-Bench 4.1 使用 benchmark ID `terminal-bench-4-1`（使用者 2026-11-21 依代理推薦決定採用），維度與 4.0 相同：Agentic 主維度、Coding 次要。來源是主辦方 Stanford／Laude Institute 的官方榜，角色記為 ORGANIZER。頁面把完整榜單查詢嵌在 Next.js flight data；表格只顯示每個模型最佳的一列，所以物化所有 effort 組態，並以不重複模型數核對瀏覽器畫面列數。每列 330 次試跑（66 題、各五次），解題率必須等於成功數除以試跑數。來源 effort `none` 不是產品檔位，保持 null。4.1 保留 4.0 的題目、改用加固後的驗證器，並以保存的 artifact 重新評分 4.0 榜單；依「benchmark 改版時跟隨新版」規則，`terminal-bench-4-0`（AA 與 Vals）自 2026-11-21 起只保留為證據、不計分，見[審核紀錄](analysis/2026-11-21-terminal-bench-4-1-supersession.json)。
 
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
@@ -936,7 +942,7 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
   - `terminalBenchScience` → `terminal-bench-science`：版本取頁面標示的 `v0.1`（資料集 tag 0.1.0）；mini-swe-agent、三次重複的 pass@1 平均。
   - `critptAgentic` → `critpt-v2`：CritPt v2 Full Set（70 題，頁面預設榜），Stirrup 離線 Python sandbox。Index 計入的是 40 題 Hard Subset（`critptAgenticHard`），不物化；`critpt`（v1、無 harness）維持原狀。
   - `frontierCode20` → `frontier-code-2-0`：AA 以 Stirrup 對 132 題各跑三次，與 Cognition 主辦方共用 benchmark ID 與 `weighted-rubric-score` 指標。AA 列為 `INDEPENDENT`／`PARTIAL_SOURCE`，依 §4.3.1 主辦方列在每個重疊 profile 勝出，AA 只補主辦方沒有的 profile。`/evaluations/frontiercode` 的 `frontierCode` 是 AA 的 FrontierCode 1.1 執行，不物化。
-  - Terminal-Bench 4.0（`terminalBench40` → `terminal-bench-4-0`，66 題、mini-swe-agent、三次重複的 pass@1 平均）於 2026-10-29 整合，與 Vals 的 `terminal-bench-4` 共用 ID，與 2.1 分開。
+  - Terminal-Bench 4.0（`terminalBench40` → `terminal-bench-4-0`，66 題、mini-swe-agent、三次重複的 pass@1 平均）於 2026-10-29 整合，與 Vals 的 `terminal-bench-4` 共用 ID，與 2.1 分開。自 2026-11-21 起由主辦方的 Terminal-Bench 4.1（`terminal-bench-4-1`）取代，4.0 列只保留為證據、不計分。
   - 不計分：AutomationBench-AA（`automationBenchPartialScore`）是各題目標完成比例的平均，主辦方 Zapier 榜（`automationbench`）採嚴格的任務完成率，指標不同（使用者 2026-10-29 決定）。
 - 任務成本欄位 `intelligenceIndexCostPerTask` 在 `/models` 與 `/models/<slug>` 頁面上，是一個物件，含 `cost.total` 與 `evaluations[].weightedCostPerTask`（每個 benchmark 各自的加權成本）。**在 `/evaluations/omniscience` 頁面上，這個欄位只有舊模型有值。** 開工時必須確認要組合哪幾個頁面才能取得完整的現役模型集。
 

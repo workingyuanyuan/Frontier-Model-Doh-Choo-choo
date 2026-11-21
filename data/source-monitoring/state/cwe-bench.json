@@ -1,0 +1,83 @@
+{
+  "catalog": null,
+  "checkedAt": "2026-11-21T02:05:56.595Z",
+  "evidence": null,
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "cwe-bench-v2",
+        "includedRetainedRows": 0,
+        "includedRows": 20,
+        "metrics": ["pass-at-1:percent:true"],
+        "models": [
+          "anthropic-claude-fable-5-2",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
+          "google-gemini-4-argon",
+          "google-gemini-4-carbon",
+          "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
+          "meta-muse-wonder",
+          "moonshot-kimi-k3-1-pro",
+          "openai-gpt-6-1-terra",
+          "openai-gpt-6-2-astra",
+          "openai-gpt-6-2-sol",
+          "openai-gpt-6-astra",
+          "tencent-hy4",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"Claude Fable 5.2\",\"high\",null,\"Claude Code\",true,null,4,null]",
+          "[\"Claude Opus 5.5\",\"high\",null,\"Claude Code\",true,null,4,null]",
+          "[\"Claude Sonnet 5.5\",\"high\",null,\"Claude Code\",true,null,4,null]",
+          "[\"DeepSeek-V4.1-Flash (1017)\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"GLM-5.3\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"GPT-6 Astra\",\"high\",null,\"Codex\",true,null,4,null]",
+          "[\"GPT-6.1 Terra\",\"high\",null,\"Codex\",true,null,4,null]",
+          "[\"GPT-6.2 Astra\",\"high\",null,\"Codex\",true,null,4,null]",
+          "[\"GPT-6.2 Sol\",\"high\",null,\"Codex\",true,null,4,null]",
+          "[\"Gemini 4 Argon\",\"high\",null,\"Antigravity\",true,null,4,null]",
+          "[\"Gemini 4 Carbon\",\"high\",null,\"Antigravity\",true,null,4,null]",
+          "[\"Gemini 4 Hydrogen\",\"high\",null,\"Antigravity\",true,null,4,null]",
+          "[\"Gemini 4 Neon\",\"high\",null,\"Antigravity\",true,null,4,null]",
+          "[\"Grok 4.7\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"Hy4 Preview\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"Hy4\",\"high\",null,\"Claude Code\",true,null,4,null]",
+          "[\"Kimi K3.1 Pro\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"Mistral Large 4\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"Muse Wonder\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"Qwen3.8-Max (0902)\",\"high\",null,\"opencode\",true,null,4,null]"
+        ],
+        "rawLabels": [
+          "Claude Fable 5.2",
+          "Claude Opus 5.5",
+          "Claude Sonnet 5.5",
+          "DeepSeek-V4.1-Flash (1017)",
+          "GLM-5.3",
+          "GPT-6 Astra",
+          "GPT-6.1 Terra",
+          "GPT-6.2 Astra",
+          "GPT-6.2 Sol",
+          "Gemini 4 Argon",
+          "Gemini 4 Carbon",
+          "Gemini 4 Hydrogen",
+          "Gemini 4 Neon",
+          "Grok 4.7",
+          "Hy4",
+          "Hy4 Preview",
+          "Kimi K3.1 Pro",
+          "Mistral Large 4",
+          "Muse Wonder",
+          "Qwen3.8-Max (0902)"
+        ],
+        "rows": 20,
+        "sourceUrls": ["https://cwe-bench.com/"],
+        "versions": ["v2"]
+      }
+    ],
+    "observedAt": "2026-11-21T02:05:55.708Z",
+    "sourceId": "cwe-bench"
+  }
+}

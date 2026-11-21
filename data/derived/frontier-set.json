@@ -181,6 +181,7 @@
           "frontier-code",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "zapier-automationbench"
         ]
       },
@@ -204,6 +205,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -220,7 +222,12 @@
         "aaWinningProfileId": "google-gemini-4-neon-xhigh",
         "representativeScore": 61.3982491392674,
         "representativeResultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-1",
-        "organizations": ["frontier-code", "vals-ai", "zapier-automationbench"]
+        "organizations": [
+          "frontier-code",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ]
       },
       {
         "rank": 4,
@@ -237,11 +244,13 @@
         "organizations": [
           "agents-last-exam",
           "arc-prize",
+          "cwe-bench",
           "epoch-ai",
           "frontier-code",
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -267,6 +276,7 @@
           "maxxbench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -290,6 +300,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -315,6 +326,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -338,6 +350,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai"
         ]
       },
@@ -360,6 +373,7 @@
           "maxxbench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -396,8 +410,8 @@
   },
   "defaultPresetId": "aa-top-9",
   "benchmarkQuality": {
-    "reviewedAt": "2026-10-28",
-    "evidencePath": "docs/analysis/2026-10-28-benchmark-supersessions.json",
+    "reviewedAt": "2026-11-21",
+    "evidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
     "excludedBenchmarkIds": [
       "aime",
       "programbench",
@@ -405,7 +419,8 @@
       "livebench-mathematics",
       "ioi",
       "humanitys-last-exam",
-      "critpt"
+      "critpt",
+      "terminal-bench-4-0"
     ],
     "limitedBenchmarkIds": [
       "aa-lcr",
@@ -473,9 +488,10 @@
     "gdp-pdf",
     "hle-diamond",
     "terminal-bench-4-0",
+    "terminal-bench-4-1",
     "terminal-bench-science"
   ],
-  "excludedBenchmarkIds": [],
+  "excludedBenchmarkIds": ["terminal-bench-4-0"],
   "qualityShareRemovedBenchmarkIds": [],
   "benchmarkIds": [
     "aa-briefcase",
@@ -485,7 +501,7 @@
     "frontier-code-2-0",
     "gdp-pdf",
     "hle-diamond",
-    "terminal-bench-4-0",
+    "terminal-bench-4-1",
     "terminal-bench-science"
   ],
   "dimensions": [
@@ -498,7 +514,7 @@
       "benchmarkIds": [
         "aa-briefcase",
         "automationbench",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ]
     },
@@ -574,11 +590,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 59.5959595959596,
-          "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 65.76,
+          "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
           "evidenceIds": [
-            "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -653,11 +669,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 63.131,
-          "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 62.12,
+          "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -732,11 +748,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 61.616,
-          "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 61.21,
+          "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -811,11 +827,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 63.131,
-          "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 64.55,
+          "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -890,11 +906,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 65.152,
-          "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 65.76,
+          "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -969,11 +985,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 60.606,
-          "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 61.52,
+          "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-sol-codex-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -1048,11 +1064,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 59.596,
-          "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 60.3,
+          "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-astra-codex-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -1126,11 +1142,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 55.051,
-          "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 60.91,
+          "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-1-sol-codex-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -1205,11 +1221,11 @@
           ]
         },
         {
-          "benchmarkId": "terminal-bench-4-0",
-          "score": 64.141,
-          "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+          "benchmarkId": "terminal-bench-4-1",
+          "score": 63.94,
+          "resultId": "terminal-bench:terminal-bench-4-1:sonnet-5-5-claude-code-max",
           "evidenceIds": [
-            "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+            "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
           ]
         },
         {
@@ -1257,9 +1273,10 @@
         "simpleqa-verified",
         "swe-atlas",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": ["aime"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -1284,7 +1301,7 @@
         "riemann-bench",
         "simpleqa-verified",
         "swe-atlas",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -1317,7 +1334,7 @@
             "dayjob-healthcare",
             "dayjob-law",
             "dayjob-tax",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -1516,11 +1533,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -1717,11 +1734,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -1759,9 +1776,10 @@
         "hle-diamond",
         "mka",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -1772,7 +1790,7 @@
         "gdp-pdf",
         "hle-diamond",
         "mka",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -1788,7 +1806,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -1872,11 +1890,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -1959,11 +1977,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2046,11 +2064,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2090,9 +2108,10 @@
         "hle-diamond",
         "mka",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -2103,7 +2122,7 @@
         "gdp-pdf",
         "hle-diamond",
         "mka",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -2119,7 +2138,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -2203,11 +2222,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2290,11 +2309,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2377,11 +2396,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2464,11 +2483,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2510,9 +2529,10 @@
         "hle-diamond",
         "mka",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -2523,7 +2543,7 @@
         "gdp-pdf",
         "hle-diamond",
         "mka",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -2539,7 +2559,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -2623,11 +2643,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2710,11 +2730,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2797,11 +2817,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2884,11 +2904,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -2971,11 +2991,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3018,9 +3038,10 @@
         "gdp-pdf",
         "hle-diamond",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -3030,7 +3051,7 @@
         "frontier-code-2-0",
         "gdp-pdf",
         "hle-diamond",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -3046,7 +3067,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -3122,11 +3143,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3201,11 +3222,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3280,11 +3301,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3359,11 +3380,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3438,11 +3459,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3517,11 +3538,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 60.606,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.52,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3566,9 +3587,10 @@
         "gdp-pdf",
         "hle-diamond",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -3578,7 +3600,7 @@
         "frontier-code-2-0",
         "gdp-pdf",
         "hle-diamond",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -3594,7 +3616,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -3670,11 +3692,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3749,11 +3771,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3828,11 +3850,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3907,11 +3929,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -3986,11 +4008,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4065,11 +4087,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 60.606,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.52,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4144,11 +4166,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.596,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 60.3,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4195,9 +4217,10 @@
         "gdp-pdf",
         "hle-diamond",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -4207,7 +4230,7 @@
         "frontier-code-2-0",
         "gdp-pdf",
         "hle-diamond",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -4223,7 +4246,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -4299,11 +4322,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4378,11 +4401,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4457,11 +4480,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4536,11 +4559,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4615,11 +4638,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4694,11 +4717,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 60.606,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.52,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4773,11 +4796,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.596,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 60.3,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4851,11 +4874,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 55.051,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 60.91,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-1-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -4904,9 +4927,10 @@
         "gdp-pdf",
         "hle-diamond",
         "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -4916,7 +4940,7 @@
         "frontier-code-2-0",
         "gdp-pdf",
         "hle-diamond",
-        "terminal-bench-4-0",
+        "terminal-bench-4-1",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -4932,7 +4956,7 @@
           "benchmarkIds": [
             "aa-briefcase",
             "automationbench",
-            "terminal-bench-4-0",
+            "terminal-bench-4-1",
             "terminal-bench-science"
           ]
         },
@@ -5008,11 +5032,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:fable-5-2-claude-code-max",
               "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5087,11 +5111,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 62.12,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5166,11 +5190,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.21,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-neon-antigravity-cli-xhigh",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5245,11 +5269,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 64.55,
+              "resultId": "terminal-bench:terminal-bench-4-1:gemini-4-carbon-antigravity-cli-high",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5324,11 +5348,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 65.76,
+              "resultId": "terminal-bench:terminal-bench-4-1:opus-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5403,11 +5427,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 60.606,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 61.52,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-2-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5482,11 +5506,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.596,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 60.3,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-astra-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5560,11 +5584,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 55.051,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 60.91,
+              "resultId": "terminal-bench:terminal-bench-4-1:gpt-6-1-sol-codex-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5639,11 +5663,11 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 64.141,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "terminal-bench-4-1",
+              "score": 63.94,
+              "resultId": "terminal-bench:terminal-bench-4-1:sonnet-5-5-claude-code-max",
               "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
+                "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70"
               ]
             },
             {
@@ -5695,7 +5719,7 @@
         "terminal-bench-4-0",
         "terminal-bench-science"
       ],
-      "excludedBenchmarkIds": [],
+      "excludedBenchmarkIds": ["terminal-bench-4-0"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -5704,7 +5728,6 @@
         "frontier-code-2-0",
         "gdp-pdf",
         "hle-diamond",
-        "terminal-bench-4-0",
         "terminal-bench-science"
       ],
       "dimensions": [
@@ -5717,11 +5740,7 @@
         { "id": "coding", "benchmarkIds": ["frontier-code-2-0"] },
         {
           "id": "agentic",
-          "benchmarkIds": [
-            "aa-briefcase",
-            "terminal-bench-4-0",
-            "terminal-bench-science"
-          ]
+          "benchmarkIds": ["aa-briefcase", "terminal-bench-science"]
         },
         { "id": "language", "benchmarkIds": [] }
       ],
@@ -5783,14 +5802,6 @@
               "resultId": "artificial-analysis:hle-diamond:claude-fable-5-2",
               "evidenceIds": [
                 "sha256:c3e742c884d2c4bf5d14b7747021d4cc74eda2f0450536a25d64bb8dc980229d"
-              ]
-            },
-            {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.5959595959596,
-              "resultId": "artificial-analysis:terminal-bench-4-0:claude-fable-5-2",
-              "evidenceIds": [
-                "sha256:1147450d9f0092d0a8d6e2c68dae018cab547660b3012208f93d5c2e8a93f52e"
               ]
             },
             {
@@ -5856,14 +5867,6 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-astra",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
-              ]
-            },
-            {
               "benchmarkId": "terminal-bench-science",
               "score": 78.0952380952381,
               "resultId": "artificial-analysis:terminal-bench-science:gpt-6-2-astra",
@@ -5923,14 +5926,6 @@
               "resultId": "artificial-analysis:hle-diamond:gemini-4-neon",
               "evidenceIds": [
                 "sha256:c3e742c884d2c4bf5d14b7747021d4cc74eda2f0450536a25d64bb8dc980229d"
-              ]
-            },
-            {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 61.616,
-              "resultId": "vals-ai:terminal-bench-4-0:google-cobalt-c-high-1p00",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
               ]
             },
             {
@@ -5996,14 +5991,6 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 63.131,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
-              ]
-            },
-            {
               "benchmarkId": "terminal-bench-science",
               "score": 64.7619047619048,
               "resultId": "artificial-analysis:terminal-bench-science:gemini-4-carbon",
@@ -6063,14 +6050,6 @@
               "resultId": "artificial-analysis:hle-diamond:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:c3e742c884d2c4bf5d14b7747021d4cc74eda2f0450536a25d64bb8dc980229d"
-              ]
-            },
-            {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 65.152,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
               ]
             },
             {
@@ -6136,14 +6115,6 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 60.606,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-2-sol",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
-              ]
-            },
-            {
               "benchmarkId": "terminal-bench-science",
               "score": 67.6190476190476,
               "resultId": "artificial-analysis:terminal-bench-science:gpt-6-2-sol",
@@ -6203,14 +6174,6 @@
               "resultId": "artificial-analysis:hle-diamond:gpt-6-astra",
               "evidenceIds": [
                 "sha256:7e04bd9ae4016b712627ea0b51506fd1df142439050d02fa0a8b1ebd767c07b3"
-              ]
-            },
-            {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 59.596,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
               ]
             },
             {
@@ -6276,14 +6239,6 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 55.051,
-              "resultId": "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
-              ]
-            },
-            {
               "benchmarkId": "terminal-bench-science",
               "score": 58.0952380952381,
               "resultId": "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
@@ -6346,14 +6301,6 @@
               ]
             },
             {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 64.141,
-              "resultId": "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
-              ]
-            },
-            {
               "benchmarkId": "terminal-bench-science",
               "score": 53.3333333333333,
               "resultId": "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
@@ -6413,14 +6360,6 @@
               "resultId": "artificial-analysis:hle-diamond:gemini-4-hydrogen",
               "evidenceIds": [
                 "sha256:c3e742c884d2c4bf5d14b7747021d4cc74eda2f0450536a25d64bb8dc980229d"
-              ]
-            },
-            {
-              "benchmarkId": "terminal-bench-4-0",
-              "score": 54.04,
-              "resultId": "vals-ai:terminal-bench-4-0:google-gemini-4-hydrogen",
-              "evidenceIds": [
-                "sha256:86ef1e6a40a6d6714a53279fd9a105d726010881f6ceb50add7a3e2331b5fd67"
               ]
             },
             {

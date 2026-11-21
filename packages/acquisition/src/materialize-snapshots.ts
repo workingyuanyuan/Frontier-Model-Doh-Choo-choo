@@ -58,6 +58,14 @@ import {
   SCALE_SWE_ATLAS_PAGE_URL,
   materializeScaleSweAtlas,
 } from './scale-swe-atlas-materializer.js';
+import {
+  CWE_BENCH_PAGE_URL,
+  materializeCweBench,
+} from './cwe-bench-materializer.js';
+import {
+  TERMINAL_BENCH_PAGE_URL,
+  materializeTerminalBench,
+} from './terminal-bench-materializer.js';
 import { materializeDeepSweCosts } from './pricing-materializers.js';
 import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
 import {
@@ -234,6 +242,8 @@ function rebuildSnapshots(
       { id: 'surge-dayjob-healthcare', reportFn: null },
       { id: 'surge-dayjob-tax', reportFn: null },
       { id: 'surge-dayjob-law', reportFn: null },
+      { id: 'cwe-bench', reportFn: null },
+      { id: 'terminal-bench', reportFn: null },
       { id: 'surge-gdp-xlsx', reportFn: null },
       { id: 'epoch-ai', reportFn: null },
       { id: 'arc-prize', reportFn: null },
@@ -503,6 +513,24 @@ function rebuildSnapshots(
                 baseline['candidates.json'],
                 evidenceList,
               ));
+          } else if (src.id === 'cwe-bench') {
+            const page = evidenceFor(CWE_BENCH_PAGE_URL);
+            const result = materializeCweBench(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+              visualRowCount: Number(page.metadata?.renderedRows),
+            });
+            candidates = result.candidates;
+            customReportText = result.validationReport;
+          } else if (src.id === 'terminal-bench') {
+            const page = evidenceFor(TERMINAL_BENCH_PAGE_URL);
+            const result = materializeTerminalBench(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+              visualModelCount: Number(page.metadata?.renderedRows),
+            });
+            candidates = result.candidates;
+            customReportText = result.validationReport;
           } else if (isSurgePercentLeaderboardId(src.id)) {
             const spec = SURGE_PERCENT_LEADERBOARDS[src.id];
             const page = evidenceFor(spec.pageUrl);

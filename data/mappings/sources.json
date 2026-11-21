@@ -26,6 +26,8 @@
     "xai-releases",
     "biobasicsbench",
     "maxxbench",
-    "scale-swe-atlas"
+    "scale-swe-atlas",
+    "cwe-bench",
+    "terminal-bench"
   ]
 }
