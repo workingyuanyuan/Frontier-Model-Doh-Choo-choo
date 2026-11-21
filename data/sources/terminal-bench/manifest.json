@@ -1,0 +1,29 @@
+{
+  "accessMethods": ["NEXT_RSC"],
+  "baseUrl": "https://www.tbench.ai",
+  "benchmarkIds": ["terminal-bench-4-1"],
+  "completeness": {
+    "expectedCountMethod": "Read every row of the embedded leaderboard query and compare its distinct models with the rendered table, which shows one best configuration per model.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Terminal-Bench (tbench.ai)",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "rows[].metadata.agent_display.label": "profile.harness",
+    "rows[].metadata.model_display.label": "model.rawName",
+    "rows[].metadata.reasoning_effort": "profile.effort",
+    "rows[].metrics.accuracy": "rawScore / normalizedScore",
+    "rows[].metrics.n_trials": "profile.attempts"
+  },
+  "lastVerifiedAt": "2026-11-21T02:05:57.757Z",
+  "notes": [
+    "67 configurations / 54 models; every configuration is retained.",
+    "Terminal-Bench 4.1 regrades the 4.0 tasks with hardened verifiers.",
+    "Source effort none stays null. Tokens and cost are not materialized."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "terminal-bench",
+  "targetUrls": ["https://www.tbench.ai/leaderboard"]
+}

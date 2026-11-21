@@ -316,6 +316,11 @@
       "secondaryDimensions": ["coding"]
     },
     {
+      "id": "terminal-bench-4-1",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding"]
+    },
+    {
       "id": "terminal-bench-science",
       "primaryDimension": "agentic",
       "secondaryDimensions": ["coding", "knowledge", "reasoning"]
@@ -432,6 +437,11 @@
     },
     {
       "id": "cyber",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "cwe-bench-v2",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"]
     },

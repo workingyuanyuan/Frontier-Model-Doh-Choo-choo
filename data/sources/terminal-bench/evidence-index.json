@@ -1,0 +1,23 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/58/5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70.html",
+    "byteLength": 355615,
+    "finalUrl": "https://www.tbench.ai/",
+    "id": "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "leaderboard page with embedded Terminal-Bench 4.1 query",
+      "configurations": 67,
+      "distinctModels": 54,
+      "leaderboardUpdatedAt": "2026-11-20T16:07:10.159Z",
+      "renderedRows": 54,
+      "visibleComparisonMatched": true
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://www.tbench.ai/leaderboard",
+    "retrievedAt": "2026-11-21T02:05:57.757Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5887a8f0125284b5728f31f02f6a2f70a6dee295081ff8c84457e428f9547f70",
+    "sourceId": "terminal-bench"
+  }
+]

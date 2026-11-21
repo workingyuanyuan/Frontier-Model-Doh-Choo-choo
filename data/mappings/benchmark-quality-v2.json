@@ -1,6 +1,6 @@
 {
-  "reviewedAt": "2026-10-28",
-  "evidencePath": "docs/analysis/2026-10-28-benchmark-supersessions.json",
+  "reviewedAt": "2026-11-21",
+  "evidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
   "excludedBenchmarkIds": [
     "aime",
     "programbench",
@@ -8,7 +8,8 @@
     "livebench-mathematics",
     "ioi",
     "humanitys-last-exam",
-    "critpt"
+    "critpt",
+    "terminal-bench-4-0"
   ],
   "limitedBenchmarkIds": [
     "aa-lcr",

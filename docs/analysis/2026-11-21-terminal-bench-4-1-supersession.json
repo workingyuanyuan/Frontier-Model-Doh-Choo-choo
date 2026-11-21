@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-11-21",
+  "approvedBy": "user",
+  "approval": "2026-11-21 使用者指示「照你的推薦收錄」：推薦內容為改收 Terminal-Bench 4.1 官方榜（tbench.ai）作為新來源；4.1 是 4.0 的改版，依「benchmark 改版時跟隨新版」規則由 4.1 取代 4.0。",
+  "decision": "exclude-from-scoring",
+  "addedExcludedBenchmarkIds": ["terminal-bench-4-0"],
+  "previousEvidencePath": "docs/analysis/2026-10-28-benchmark-supersessions.json",
+  "reviews": [
+    {
+      "benchmarkId": "terminal-bench-4-0",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "terminal-bench-4-1",
+      "reason": "Terminal-Bench 4.1 (2026-11-09) keeps the 4.0 tasks and replaces their verifiers for reward-hack resistance and correctness; the organizer regraded the saved 4.0 leaderboard artifacts. Scoring both would count the same tasks twice, so the Artificial Analysis and Vals 4.0 rows are retained only as evidence.",
+      "source": "https://www.tbench.ai/news/terminal-bench-4-1"
+    }
+  ],
+  "qualityPolicy": {
+    "reviewedAt": "2026-11-21",
+    "evidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi",
+      "humanitys-last-exam",
+      "critpt",
+      "terminal-bench-4-0"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/2b/2bc48a5e57b133b3fbb46dfa7efa7dc1a34fef1a18175b14b4b5dfe2d64950f8.html",
+    "byteLength": 154400,
+    "finalUrl": "https://cwe-bench.com/",
+    "id": "sha256:2bc48a5e57b133b3fbb46dfa7efa7dc1a34fef1a18175b14b4b5dfe2d64950f8",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "server-rendered leaderboard, Combined view",
+      "renderedRows": 20,
+      "resultsAsOf": "2026-11-18",
+      "visibleComparisonMatched": true
+    },
+    "method": "DOM",
+    "requestUrl": "https://cwe-bench.com/",
+    "retrievedAt": "2026-11-21T02:05:55.708Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:2bc48a5e57b133b3fbb46dfa7efa7dc1a34fef1a18175b14b4b5dfe2d64950f8",
+    "sourceId": "cwe-bench"
+  }
+]

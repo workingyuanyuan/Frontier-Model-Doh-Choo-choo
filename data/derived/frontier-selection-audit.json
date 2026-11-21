@@ -178,6 +178,7 @@
           "frontier-code",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "zapier-automationbench"
         ]
       },
@@ -201,6 +202,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -217,7 +219,12 @@
         "aaWinningProfileId": "google-gemini-4-neon-xhigh",
         "representativeScore": 61.3982491392674,
         "representativeResultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-1",
-        "organizations": ["frontier-code", "vals-ai", "zapier-automationbench"]
+        "organizations": [
+          "frontier-code",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ]
       },
       {
         "rank": 4,
@@ -234,11 +241,13 @@
         "organizations": [
           "agents-last-exam",
           "arc-prize",
+          "cwe-bench",
           "epoch-ai",
           "frontier-code",
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -264,6 +273,7 @@
           "maxxbench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -287,6 +297,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -312,6 +323,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]
@@ -335,6 +347,7 @@
           "livebench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai"
         ]
       },
@@ -357,6 +370,7 @@
           "maxxbench",
           "scale-swe-atlas",
           "surge",
+          "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ]

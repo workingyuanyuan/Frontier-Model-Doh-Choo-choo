@@ -119,6 +119,8 @@ pnpm --filter @llm-bench/acquisition materialize:dayjob-finance -- --visual-row-
 pnpm --filter @llm-bench/acquisition materialize:dayjob-healthcare -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-tax -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-law -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:cwe-bench -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:terminal-bench -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:gdp-xlsx -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:epoch
 pnpm --filter @llm-bench/acquisition materialize:arc-prize
@@ -129,6 +131,8 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
 ComplexConstraints／Riemann-bench 刷新會保留當期榜單移除的既有列及其原始 Evidence，並將新列的明示版本寫入 `benchmarkVersion`。預設以工作區前一份快照為基準；若本次中途物化已覆蓋前一份快照，可加 `--baseline-directory=artifacts/research/<日期>-benchmark-check/import-baseline/sources/<source-id>` 指向本任務匯入前保存的來源目錄。保留列與當期可見列數分開記錄，保留列不算新版重測；方法見 [資料方法](DATA_METHODOLOGY.md#擷取與刷新)。
+
+CWE-bench 以瀏覽器核對 Combined 檢視的列數後傳入 `--visual-row-count`。Terminal-Bench 的表格每個模型只顯示最佳一列，擷取器讀取 flight data 內完整的榜單查詢（含所有 effort），所以傳入的是畫面列數 `--visual-model-count`，與不重複模型數比對。
 
 MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。2026-11-14 起頁面以 `completionData`（cost、output tokens、agent steps 三條通過試跑累積曲線）取代 `trials`：每條曲線須涵蓋恰好 `passed` 次通過試跑、題數等於 `taskCount`、解題數以 1／重複次數遞增；失敗試跑的成本與題目 ID 不再公開，平均成本只能以「通過試跑成本總和 ≤ 平均成本 × attempts」作下界核對，並須與畫面上的兩位小數成本一致。舊 artifact 含 `trials` 時仍使用完整的逐次核對。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
 

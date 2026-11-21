@@ -48,6 +48,19 @@
 - **Epoch `benchmarks.csv`（非現役欄位）**：Gemini 4 Hydrogen xhigh 新增 FrontierMath Tier 1–3 v2 `0.881`、Tier 4 v2 `0.878`、SpireClimb 等 12 列。
 - **ARC Prize**：可見表格由 125 列減為 124 列，移除 `Mercury 3 Preview (Instant)` 單獨列；該模型仍在 JSON 中，現役快照無變化。
 
+## 後續：Gemini 4 Neon 公告圖表的逐項查證（2026-11-21）
+
+使用者詢問 Neon 公告的 benchmark 圖表裡有沒有值得收錄的新項目。逐項對照各主辦方官網後：
+
+- **已收錄（不必動）**：AA Index、FrontierCode 2.0、AutomationBench、Agents' Last Exam、RiemannBench、Terminal-Bench-Science、HLE-Diamond、MKA、Chartography、GraphWalks。Vals Index 是綜合指數，依政策不計分。
+- **推薦並經使用者同意收錄**：CWE-bench v2（[cwe-bench.com](https://cwe-bench.com/)）與 Terminal-Bench 4.1（[tbench.ai](https://www.tbench.ai/leaderboard)，取代 4.0），見[刷新報告](../refresh/2026-11-21-cwe-tbench.md)。
+- **建議觀察**：SEC-bench Pro（[sec-bench.github.io](https://sec-bench.github.io/)）有官方版本快照，但缺 Fable 5.2、Opus 5.5、Sonnet 5.5。CursorBench 4.1 仍是上方的線索，改用 Cursor 官方榜屬來源採用決定。
+- **不建議收錄**：
+  - SWE-sweep：[官方榜](https://swesweep.com/)最後更新 11/2，只有 18 列，沒有現役前沿模型；圖上 Neon 的 39.0% 用的是 Google 自家 harness。
+  - WebExploitBench v1.2：找不到公開榜單。
+  - LVBench：學術長影片榜，最新條目停在 2025 年。
+  - 圖上的資安項目對應的是限定釋出的「Gemini 4 Neon for cyber」，不直接採用廠商數字。
+
 ## 證據與覆蓋限制
 
 - **HTTP 異常**：`openai.com/index/` 對 HTTP 客戶端回 403；`ai.meta.com/blog/` 回 400；Perplexity WANDR 文章回 403；LiveBench 舊 bundle `main.8a7822ea.js` 回 404。`openai.com/news/` 與 `benchlm.ai` 今日回 200（前日 403／500），無法與前日逐字比對，只摘要今日內容。

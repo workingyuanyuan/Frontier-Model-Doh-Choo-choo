@@ -43,6 +43,8 @@
     "materialize:dayjob-tax": "tsx src/refresh-with-audit.ts surge-dayjob-tax src/refresh-surge-leaderboard.ts surge-dayjob-tax",
     "materialize:dayjob-law": "tsx src/refresh-with-audit.ts surge-dayjob-law src/refresh-surge-leaderboard.ts surge-dayjob-law",
     "materialize:gdp-xlsx": "tsx src/refresh-with-audit.ts surge-gdp-xlsx src/refresh-surge-gdp-xlsx.ts",
+    "materialize:cwe-bench": "tsx src/refresh-with-audit.ts cwe-bench src/refresh-cwe-bench.ts",
+    "materialize:terminal-bench": "tsx src/refresh-with-audit.ts terminal-bench src/refresh-terminal-bench.ts",
     "evidence": "tsx src/evidence-cli.ts"
   },
   "dependencies": {

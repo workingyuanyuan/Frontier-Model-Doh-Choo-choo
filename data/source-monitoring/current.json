@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-19T02:19:21.933Z",
+  "checkedAt": "2026-11-21T02:06:00.100Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -538,6 +538,15 @@
       "scope": "snapshot-only",
       "snapshotObservedAt": "2026-11-09T01:51:32.016Z",
       "sourceId": "biobasicsbench"
+    },
+    {
+      "checkedAt": "2026-11-21T02:05:56.595Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-21T02:05:55.708Z",
+      "sourceId": "cwe-bench"
     },
     {
       "checkedAt": "2026-11-19T02:19:21.933Z",
@@ -2068,6 +2077,15 @@
       "scope": "live-catalog-and-snapshot",
       "snapshotObservedAt": "2026-11-18T23:34:58.992Z",
       "sourceId": "surge-riemann"
+    },
+    {
+      "checkedAt": "2026-11-21T02:06:00.100Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-21T02:05:57.757Z",
+      "sourceId": "terminal-bench"
     },
     {
       "checkedAt": "2026-11-19T02:19:21.933Z",

@@ -80,6 +80,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'tau3-banking': 'τ³ Banking',
   'terminal-bench-2-1': 'Terminal-Bench 2.1',
   'terminal-bench-4-0': 'Terminal-Bench 4.0',
+  'terminal-bench-4-1': 'Terminal-Bench 4.1',
   'terminal-bench-science': 'Terminal-Bench-Science 0.1',
   'livebench-reasoning': 'LiveBench Reasoning',
   'livebench-mathematics': 'LiveBench Mathematics',
@@ -94,6 +95,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'deepswe-1-1': 'DeepSWE 1.1',
   biobasicsbench: 'BioBasicsBench',
   maxxbench: 'MaxxBench',
+  'cwe-bench-v2': 'CWE-bench v2',
   mka: 'MKA',
   a2j: 'Access to Justice',
   'swe-atlas': 'SWE Atlas 1.1',
@@ -152,6 +154,10 @@ export const getSourceDisplayName = (sourceId: string): string => {
       return 'zapier';
     case 'agents-last-exam':
       return "Agents' Last Exam";
+    case 'cwe-bench':
+      return 'CWE-bench';
+    case 'terminal-bench':
+      return 'Terminal-Bench';
     default:
       return sourceId;
   }
