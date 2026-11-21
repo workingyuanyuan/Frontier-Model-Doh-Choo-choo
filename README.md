@@ -2,7 +2,7 @@
 
 前沿大語言模型（Frontier LLMs）綜合能力與性價比評測看板。
 
-🌐 **線上看板**：[https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/](https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/)
+🌐 **線上看板**：[https://yuanaruru.com/Frontier-Model-Doh-Choo-choo/](https://yuanaruru.com/Frontier-Model-Doh-Choo-choo/)
 
 本專案整合公開評測快照，呈現推理、知識、程式碼、智慧體與語言五項能力，並依推理強度分開比較。看板使用建置時的資料版本；評測結果可追溯至來源與採集紀錄。
 

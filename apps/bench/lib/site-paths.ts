@@ -16,7 +16,7 @@ export const DASHBOARD_DATA_PATH = 'data/dashboard.json';
  * claims to be the original.
  */
 export const PUBLIC_SITE_URL =
-  'https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/';
+  'https://yuanaruru.com/Frontier-Model-Doh-Choo-choo/';
 export const REPOSITORY_URL =
   'https://github.com/workingyuanyuan/Frontier-Model-Doh-Choo-choo';
 

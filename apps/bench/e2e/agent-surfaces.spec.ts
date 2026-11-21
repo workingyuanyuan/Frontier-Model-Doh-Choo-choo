@@ -48,8 +48,7 @@ test('a reader without JavaScript can walk from the page to the data', async ({
 });
 
 // Written out rather than imported, so a wrong site constant cannot pass.
-const PUBLIC_SITE_URL =
-  'https://workingyuanyuan.github.io/Frontier-Model-Doh-Choo-choo/';
+const PUBLIC_SITE_URL = 'https://yuanaruru.com/Frontier-Model-Doh-Choo-choo/';
 
 test('the sitemap lists every page by the public URL its canonical link names', async ({
   request,
