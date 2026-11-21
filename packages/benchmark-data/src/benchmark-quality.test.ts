@@ -47,7 +47,7 @@ const display = (benchmarkIds: string[]) =>
       {
         id: 'fixture',
         targetModelCount: 2,
-        requireAllSources: false,
+        family: 'aa-frontier' as const,
         benchmarkIds,
       },
     ],

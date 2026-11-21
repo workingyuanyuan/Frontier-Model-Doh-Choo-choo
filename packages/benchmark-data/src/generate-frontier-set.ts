@@ -134,9 +134,10 @@ function commonQualityBenchmarksFromCurrentResults(
  * independent organizations. AA itself selects, so it does not count; vendor
  * release pages are self-reports and do not count; Surge's leaderboards are
  * one organization. Among the model's AA efforts that meet this rule, the
- * representative profile is the one scored by the most organizations, ties
- * broken by AA score (user ruling 2026-10-28), so the frontier keeps the effort
- * other organizations actually measured.
+ * representative profile is the one holding the most scoring-eligible
+ * benchmarks (user ruling 2026-11-21), so the frontier keeps the effort the
+ * sources actually measured and follows it when another effort overtakes.
+ * Ties go to more organizations, then the higher AA score, then profile ID.
  */
 export const FRONTIER_ELIGIBILITY_POLICY = {
   minIndependentOrganizations: 2,
@@ -150,11 +151,42 @@ export const sourceOrganization = (sourceId: string): string =>
 type AaLeader = ReturnType<typeof rankAaModels>[number];
 
 /**
+ * Scoring-eligible benchmarks a single profile holds: exactly the rows a preset
+ * intersection could use, counted once per benchmark after cross-source
+ * current-result selection. Limited benchmarks count because their cap depends
+ * on the cohort; comparison-only and quality-excluded benchmarks do not.
+ */
+export function scoringEligibleBenchmarksByProfile(
+  current: readonly CandidateResult[],
+  mapping: BenchmarkDimensionMapping,
+  quality: BenchmarkQualityPolicy,
+): Map<string, Set<string>> {
+  const comparisonOnly = getComparisonOnlyBenchmarkIds(mapping);
+  const known = new Set(mapping.benchmarks.map(({ id }) => id));
+  const benchmarks = new Map<string, Set<string>>();
+  for (const row of current) {
+    if (
+      row.normalizedScore === null ||
+      row.model.profileId === null ||
+      !known.has(row.benchmarkId) ||
+      comparisonOnly.has(row.benchmarkId) ||
+      quality.excludedBenchmarkIds.includes(row.benchmarkId)
+    ) {
+      continue;
+    }
+    const set = benchmarks.get(row.model.profileId) ?? new Set<string>();
+    set.add(row.benchmarkId);
+    benchmarks.set(row.model.profileId, set);
+  }
+  return benchmarks;
+}
+
+/**
  * Walks the AA ranking and keeps the first ten models with an AA profile that
  * meets the eligibility policy, represented by the qualifying effort with the
- * most organizations. Ranking still uses the model's best AA score. Skipped models stay
- * in the audit and remain selectable in the dashboard; they only leave the
- * slider and default view.
+ * most scoring-eligible benchmarks. Ranking still uses the model's best AA
+ * score. Skipped models stay in the audit and remain selectable in the
+ * dashboard; they only leave the slider and default view.
  */
 export function selectEligibleFrontier(
   candidates: CandidateResult[],
@@ -197,14 +229,21 @@ export function selectEligibleFrontier(
     set.add(sourceOrganization(row.sourceId));
     organizations.set(row.model.profileId, set);
   }
+  // Benchmarks are counted the way a preset intersection sees them: one
+  // current result per benchmark across sources.
+  const benchmarks = scoringEligibleBenchmarksByProfile(
+    selectCurrentResults(candidates),
+    mapping,
+    quality,
+  );
   const organizationsOf = (profileId: string | null) =>
     [...(organizations.get(profileId ?? '') ?? [])].toSorted();
+  const benchmarkCountOf = (profileId: string | null) =>
+    benchmarks.get(profileId ?? '')?.size ?? 0;
   const qualifies = (profileId: string | null) =>
     profileId !== null &&
     organizationsOf(profileId).length >=
       FRONTIER_ELIGIBILITY_POLICY.minIndependentOrganizations;
-  // Every AA index row per model, best score first, ties by result ID; the
-  // stable sort below keeps that order among equally covered efforts.
   const aaRowsByModel = new Map<string, CandidateResult[]>();
   for (const row of candidates) {
     const modelId = row.model.canonicalModelId;
@@ -219,27 +258,36 @@ export function selectEligibleFrontier(
     rows.push(row);
     aaRowsByModel.set(modelId, rows);
   }
-  for (const rows of aaRowsByModel.values()) {
-    rows.sort(
-      (left, right) =>
-        right.rawScore - left.rawScore || left.id.localeCompare(right.id),
-    );
-  }
+  // Most benchmarks, then most organizations, then AA score, then a stable ID.
+  const byRepresentativeOrder = (
+    left: CandidateResult,
+    right: CandidateResult,
+  ) =>
+    benchmarkCountOf(right.model.profileId) -
+      benchmarkCountOf(left.model.profileId) ||
+    organizationsOf(right.model.profileId).length -
+      organizationsOf(left.model.profileId).length ||
+    right.rawScore - left.rawScore ||
+    (left.model.profileId ?? '').localeCompare(right.model.profileId ?? '') ||
+    left.id.localeCompare(right.id);
   const leaders: (AaLeader & {
     aaWinningProfileId: string | null;
     representativeScore: number;
     representativeResultId: string;
+    candidateProfiles: {
+      profileId: string;
+      benchmarkCount: number;
+      organizationCount: number;
+      aaScore: number;
+    }[];
   })[] = [];
   const skipped: (AaLeader & { organizations: string[] })[] = [];
   for (const leader of ranked) {
     if (leaders.length === AA_FRONTIER_POLICY.searchWindowModels) break;
-    const representative = (aaRowsByModel.get(leader.modelId) ?? [])
+    const qualifying = (aaRowsByModel.get(leader.modelId) ?? [])
       .filter((row) => qualifies(row.model.profileId))
-      .toSorted(
-        (left, right) =>
-          organizationsOf(right.model.profileId).length -
-          organizationsOf(left.model.profileId).length,
-      )[0];
+      .toSorted(byRepresentativeOrder);
+    const representative = qualifying[0];
     if (representative) {
       leaders.push({
         ...leader,
@@ -247,6 +295,12 @@ export function selectEligibleFrontier(
         profileId: representative.model.profileId,
         representativeScore: representative.rawScore,
         representativeResultId: representative.id,
+        candidateProfiles: qualifying.map((row) => ({
+          profileId: row.model.profileId!,
+          benchmarkCount: benchmarkCountOf(row.model.profileId),
+          organizationCount: organizationsOf(row.model.profileId).length,
+          aaScore: row.rawScore,
+        })),
       });
     } else {
       skipped.push({
@@ -277,6 +331,7 @@ export function selectEligibleFrontier(
     leaders: leaders.map((leader) => ({
       ...leader,
       organizations: [...organizations.get(leader.profileId!)!].toSorted(),
+      benchmarkCount: benchmarkCountOf(leader.profileId),
     })),
     skipped,
   };
@@ -380,6 +435,7 @@ export async function computeFrontierSet(
   }
   let eligibility: ReturnType<typeof selectEligibleFrontier>;
   let cohorts: ReturnType<typeof createAaCohorts>;
+  let coverageCohorts: ReturnType<typeof createCoverageCohorts>;
   try {
     eligibility = selectEligibleFrontier(
       candidates,
@@ -389,6 +445,12 @@ export async function computeFrontierSet(
       quality,
     );
     cohorts = createAaCohorts(
+      candidates,
+      eligibility.leaders,
+      mapping,
+      quality,
+    );
+    coverageCohorts = createCoverageCohorts(
       candidates,
       eligibility.leaders,
       mapping,
@@ -408,7 +470,7 @@ export async function computeFrontierSet(
   const defaultCohort = chooseDefaultCohort(cohorts);
   const audit = { ...selection, eligibility };
   const artifact = {
-    schemaVersion: 'frontier-set-v2',
+    schemaVersion: 'frontier-set-v3',
     selection,
     eligibility,
     cohortPolicy: {
@@ -416,6 +478,8 @@ export async function computeFrontierSet(
       maxModels: 10,
       defaultModelCount: BASE_DEFAULT_MODEL_COUNT,
       defaultSelection: 'largest-cohort-keeping-base-test-count',
+      coverageSelection:
+        'most-common-tests-then-active-dimensions-then-aa-rank-within-window',
     },
     defaultPresetId: defaultCohort.id,
     benchmarkQuality: quality,
@@ -427,6 +491,7 @@ export async function computeFrontierSet(
     })),
     ...defaultCohort,
     cohorts,
+    coverageCohorts,
   };
   return { status: 'selected' as const, audit, artifact };
 }
@@ -505,6 +570,7 @@ export function createAaCohorts(
     const profileIds = leaders.map(({ profileId }) => profileId!);
     return {
       id: `aa-top-${targetModelCount}`,
+      family: 'aa-frontier' as const,
       targetModelCount,
       modelIds: leaders.map(({ modelId }) => modelId),
       profileIds,
@@ -514,6 +580,100 @@ export function createAaCohorts(
         mapping,
         quality,
       ),
+    };
+  });
+}
+
+/** Every k-element index subset of 0..n-1, in lexicographic order. */
+function* indexCombinations(n: number, k: number): Generator<number[]> {
+  const picked = Array.from({ length: k }, (_, index) => index);
+  while (true) {
+    yield [...picked];
+    let position = k - 1;
+    while (position >= 0 && picked[position] === n - k + position) position--;
+    if (position < 0) return;
+    picked[position]!++;
+    for (let next = position + 1; next < k; next++)
+      picked[next] = picked[next - 1]! + 1;
+  }
+}
+
+/**
+ * The coverage family (user ruling 2026-11-21): for each size N, the N window
+ * models whose representative profiles share the most scoring-eligible tests
+ * after quality rules. Ties go to more active dimensions, then to the subset
+ * whose window positions sort first, so the higher AA ranks win. Profiles
+ * stay the representative ones, as in the AA family; the window is the same
+ * ten eligible models, never the wider catalog.
+ */
+export function createCoverageCohorts(
+  candidates: CandidateResult[],
+  window: readonly Pick<AaLeader, 'modelId' | 'profileId'>[],
+  mapping: BenchmarkDimensionMapping,
+  quality: BenchmarkQualityPolicy,
+) {
+  if (window.length !== 10 || window.some(({ profileId }) => !profileId))
+    throw new Error('Expected ten resolved AA leaders');
+  const current = selectCurrentResults(candidates);
+  const profileIds = window.map(({ profileId }) => profileId!);
+  // Raw intersections bound the capped count, so subsets that cannot beat the
+  // incumbent skip the quality pass.
+  const held = scoringEligibleBenchmarksByProfile(current, mapping, quality);
+  return Array.from({ length: 9 }, (_, index) => {
+    const targetModelCount = index + 2;
+    let best:
+      | {
+          positions: number[];
+          common: ReturnType<typeof commonQualityBenchmarksFromCurrentResults>;
+        }
+      | undefined;
+    for (const positions of indexCombinations(
+      window.length,
+      targetModelCount,
+    )) {
+      const ids = positions.map((position) => profileIds[position]!);
+      const [first, ...rest] = ids.map(
+        (id) => held.get(id) ?? new Set<string>(),
+      );
+      const rawCount = [...first!].filter((id) =>
+        rest.every((set) => set.has(id)),
+      ).length;
+      if (best && rawCount < best.common.benchmarkIds.length) continue;
+      let common: ReturnType<typeof commonQualityBenchmarksFromCurrentResults>;
+      try {
+        common = commonQualityBenchmarksFromCurrentResults(
+          current,
+          ids,
+          mapping,
+          quality,
+        );
+      } catch {
+        continue;
+      }
+      // Lexicographic enumeration means the first subset at a given score
+      // already has the best AA ranks; only strict improvements replace it.
+      if (
+        !best ||
+        common.benchmarkIds.length > best.common.benchmarkIds.length ||
+        (common.benchmarkIds.length === best.common.benchmarkIds.length &&
+          common.activeDimensionIds.length >
+            best.common.activeDimensionIds.length)
+      ) {
+        best = { positions, common };
+      }
+    }
+    if (!best)
+      throw new Error(
+        `No ${targetModelCount}-model subset of the frontier window shares a quality-feasible test`,
+      );
+    const chosen = best.positions.map((position) => window[position]!);
+    return {
+      id: `coverage-${targetModelCount}`,
+      family: 'coverage' as const,
+      targetModelCount,
+      modelIds: chosen.map(({ modelId }) => modelId),
+      profileIds: chosen.map(({ profileId }) => profileId!),
+      ...best.common,
     };
   });
 }

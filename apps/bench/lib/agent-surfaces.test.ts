@@ -71,7 +71,7 @@ describe('published agent files', () => {
     expect(
       tableRows(leaderboard, '## Leaderboard').map((cells) => [
         cells[0],
-        cells[4],
+        cells[5],
         resolveFrom(
           presetMarkdownPath(presetId),
           cells.at(-1)!.match(/\]\(([^)]+)\)/)![1]!,

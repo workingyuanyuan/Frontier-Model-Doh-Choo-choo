@@ -426,7 +426,7 @@ describe('buildProductVersion', () => {
         {
           id: 'test-preset',
           targetModelCount: 1,
-          requireAllSources: false,
+          family: 'aa-frontier' as const,
           benchmarkIds: ['terminal-bench-2-1'],
           leaderboard: scoreProfiles(
             [makeCandidate()],
@@ -459,7 +459,7 @@ const displaySetFor = (
     {
       id: 'test-preset',
       targetModelCount: 1,
-      requireAllSources: false,
+      family: 'aa-frontier' as const,
       benchmarkIds,
     },
   ],

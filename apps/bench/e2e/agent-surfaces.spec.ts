@@ -98,6 +98,7 @@ interface PublishedPreset {
   leaderboard: Array<{
     rank: number | null;
     modelName: string;
+    frontierWindowRank: number | null;
     providerId: string;
     reasoningEffort: string;
     overallScore: number | null;
@@ -121,6 +122,7 @@ const leaderboardCells = (preset: PublishedPreset): string[][] =>
   preset.leaderboard.map((row) => [
     row.rank === null ? 'N/A' : String(row.rank),
     row.modelName,
+    row.frontierWindowRank === null ? 'N/A' : String(row.frontierWindowRank),
     row.providerId,
     row.reasoningEffort,
     shown(row.overallScore),
@@ -215,7 +217,7 @@ test('every preset reads the same in JSON, Markdown and static HTML', async ({
     ).json();
     const markdown = await (await request.get(at(entry.markdown))).text();
     await page.goto(at(entry.html));
-    const width = 5 + preset.dimensionIds.length;
+    const width = 6 + preset.dimensionIds.length;
     // The column after the scores is Economy: the cost index turned around.
     const economy = preset.leaderboard.map((row) => shown(row.economyScore));
     for (const row of preset.leaderboard)
@@ -314,7 +316,8 @@ test('the dashboard shows what the published files state', async ({
       leaderboardCells(preset).map((cells, row) => [
         cells[1],
         cells[0],
-        ...cells.slice(4),
+        // The dashboard has no Frontier # column.
+        ...cells.slice(5),
         shown(preset.leaderboard[row]!.economyScore),
       ]),
     );

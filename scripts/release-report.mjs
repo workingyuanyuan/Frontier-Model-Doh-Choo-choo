@@ -43,6 +43,7 @@ export const diffPreset = (before, after) => {
     .toSorted((left, right) => (left.newRank ?? 99) - (right.newRank ?? 99));
   return {
     id: after?.id ?? before?.id,
+    family: after?.family ?? before?.family ?? 'aa-frontier',
     targetModelCount:
       after?.targetModelCount ?? before?.targetModelCount ?? null,
     benchmarks: setDiff(
@@ -200,16 +201,20 @@ export const renderReleaseMarkdown = ({
     '',
     '## Model-count options',
     '',
-    'Common tests per cohort size; the default grows past eight models only while the count holds.',
+    'Common tests per cohort size and model set; the default (AA frontier) grows past eight models only while the count holds.',
     '',
-    '| Models | Preset | Common tests (before → after) |',
-    '| --- | --- | --- |',
+    '| Models | Model set | Preset | Common tests (before → after) |',
+    '| --- | --- | --- | --- |',
     ...diff.presets
       .filter(({ targetModelCount }) => targetModelCount !== null)
-      .toSorted((left, right) => left.targetModelCount - right.targetModelCount)
+      .toSorted(
+        (left, right) =>
+          left.targetModelCount - right.targetModelCount ||
+          left.family.localeCompare(right.family),
+      )
       .map(
-        ({ id, targetModelCount, benchmarkCount }) =>
-          `| ${targetModelCount} | \`${id}\`${id === diff.defaultPresetId ? ' (default)' : ''} | ${benchmarkCount.before} → ${benchmarkCount.after} |`,
+        ({ id, family, targetModelCount, benchmarkCount }) =>
+          `| ${targetModelCount} | ${family} | \`${id}\`${id === diff.defaultPresetId ? ' (default)' : ''} | ${benchmarkCount.before} → ${benchmarkCount.after} |`,
       ),
     '',
     '## Frontier models (AA-ranked, passing eligibility)',

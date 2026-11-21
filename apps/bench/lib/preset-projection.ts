@@ -1,6 +1,16 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type {
+  DimensionId,
+  PresetFamily,
+  ProductVersion,
+} from '@llm-bench/benchmark-data';
 
 import { WEIGHTED_SOURCE_COUNT } from './cost-labels';
+import {
+  PRESET_FAMILY_INFO,
+  presetScope,
+  presetScopeSentence,
+  type PresetWindowModel,
+} from './preset-family';
 import { toDashboardProduct } from './dashboard-data';
 import { profileEvidencePath } from './site-paths';
 import { getActiveDimensionIds } from './ui-contract';
@@ -31,12 +41,23 @@ export interface PresetProjection {
   preset: {
     id: string;
     isDefault: boolean;
+    /** How the models were chosen; scores never compare across presets. */
+    family: PresetFamily;
+    familyName: string;
+    selectionRule: string;
+    /** One sentence naming the family, size and any omitted window models. */
+    scopeNote: string;
     modelCount: number;
     benchmarkCount: number;
+    /** Frontier-window models this preset does not score, in window order. */
+    omittedFrontierModels: PresetWindowModel[];
+    /** The other family's preset with the same model count, if any. */
+    counterpartPresetId: string | null;
+    sameModelsAsCounterpart: boolean;
   };
   /** Dimensions with a score in this preset, in display order. */
   dimensionIds: DimensionId[];
-  /** One row per base model at its highest-scoring effort, in rank order. */
+  /** One row per base model at its representative effort, in rank order. */
   leaderboard: PresetLeaderboardRow[];
   /** Models with a comparable task cost, cheapest cost index first. */
   costs: PresetCostRow[];
@@ -48,6 +69,8 @@ export interface PresetLeaderboardRow {
   rank: number | null;
   modelId: string;
   modelName: string;
+  /** 1-based position in the AA-ordered frontier window. */
+  frontierWindowRank: number | null;
   providerId: string;
   profileId: string;
   reasoningEffort: string;
@@ -100,7 +123,12 @@ export const projectPreset = (
   presetId: string,
   benchmarkDimensions: Record<string, DimensionId>,
 ): PresetProjection | null => {
-  if (!product.presets.some(({ id }) => id === presetId)) return null;
+  const scope = presetScope(product, presetId);
+  if (!scope) return null;
+  const windowRankOf = (modelId: string): number | null => {
+    const index = product.frontier.findIndex((row) => row.modelId === modelId);
+    return index === -1 ? null : index + 1;
+  };
   const main = mainScreenProduct(
     withActivePreset(toDashboardProduct(product), presetId),
   );
@@ -120,8 +148,15 @@ export const projectPreset = (
     preset: {
       id: presetId,
       isDefault: presetId === product.defaultPresetId,
+      family: scope.family,
+      familyName: PRESET_FAMILY_INFO[scope.family].name,
+      selectionRule: PRESET_FAMILY_INFO[scope.family].rule,
+      scopeNote: presetScopeSentence(scope, rows.length),
       modelCount: rows.length,
       benchmarkCount: main.activePreset.benchmarkIds.length,
+      omittedFrontierModels: scope.omitted,
+      counterpartPresetId: scope.counterpartId,
+      sameModelsAsCounterpart: scope.sameModelsAsCounterpart,
     },
     dimensionIds,
     leaderboard: rows.map((row) => {
@@ -130,6 +165,7 @@ export const projectPreset = (
         rank: row.rank,
         modelId: row.modelId,
         modelName: profile?.baseModelName ?? row.modelId,
+        frontierWindowRank: windowRankOf(row.modelId),
         providerId: profile?.providerId ?? 'unknown',
         profileId: row.profileId,
         reasoningEffort: profile ? getProfileIdentity(profile) : 'unknown',

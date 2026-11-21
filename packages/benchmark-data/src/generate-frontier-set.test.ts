@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   commonQualityBenchmarks,
   createAaCohorts,
+  createCoverageCohorts,
   chooseDefaultCohort,
   selectEligibleFrontier,
 } from './generate-frontier-set.js';
@@ -22,6 +23,7 @@ import type {
 const benchmarks = [
   ['reason-a', 'reasoning'],
   ['reason-b', 'reasoning'],
+  ['reason-c', 'reasoning'],
   ['excluded-x', 'reasoning'],
   ['know-a', 'knowledge'],
   ['know-b', 'knowledge'],
@@ -276,6 +278,70 @@ describe('frontier common quality core', () => {
     ).toThrow('Expected ten resolved AA leaders');
   });
 
+  it('picks the window subset sharing the most tests, ties to higher AA ranks', () => {
+    // m02 lacks know-a, so subsets without it share one more test.
+    const candidates = base().filter(
+      (c) => !(c.model.profileId === 'm02-max' && c.benchmarkId === 'know-a'),
+    );
+    const { leaders } = eligible(candidates);
+    const cohorts = createCoverageCohorts(
+      candidates,
+      leaders,
+      mapping,
+      quality,
+    );
+    expect(cohorts.map(({ id }) => id)).toEqual(
+      [2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `coverage-${n}`),
+    );
+    const members = (n: number) =>
+      cohorts.find(({ targetModelCount }) => targetModelCount === n)!.modelIds;
+    expect(members(2)).toEqual(['m01', 'm03']);
+    expect(members(4)).toEqual(['m01', 'm03', 'm04', 'm05']);
+    // Keeping both coding tests (8) beats keeping know-a without them (7).
+    expect(members(5)).toEqual(['m01', 'm02', 'm03', 'm04', 'm05']);
+    // Several six-model subsets share seven tests; the highest ranks win.
+    expect(members(6)).toEqual(['m01', 'm03', 'm04', 'm05', 'm06', 'm07']);
+    const aaCohorts = createAaCohorts(candidates, leaders, mapping, quality);
+    for (const cohort of cohorts) {
+      expect(cohort.family).toBe('coverage');
+      expect(cohort.profileIds).toEqual(
+        cohort.modelIds.map(
+          (id) => leaders.find(({ modelId }) => modelId === id)!.profileId,
+        ),
+      );
+      const sameSize = aaCohorts.find(
+        ({ targetModelCount }) => targetModelCount === cohort.targetModelCount,
+      )!;
+      expect(cohort.benchmarkIds.length).toBeGreaterThanOrEqual(
+        sameSize.benchmarkIds.length,
+      );
+    }
+    // The whole window has one subset, so both families coincide at ten.
+    expect(cohorts.at(-1)!.profileIds).toEqual(aaCohorts.at(-1)!.profileIds);
+  });
+
+  it('breaks coverage ties by active dimensions before AA rank', () => {
+    // {m01, m02} and {m01, m03} share eight tests each (as do m04 and m05),
+    // but only pairs without m02 keep a coding test.
+    const candidates = [
+      ...base().filter(
+        (c) =>
+          !(
+            (c.model.profileId === 'm02-max' &&
+              ['code-a', 'code-b'].includes(c.benchmarkId)) ||
+            (['m03-max', 'm04-max', 'm05-max'].includes(c.model.profileId!) &&
+              c.benchmarkId === 'code-b')
+          ),
+      ),
+      ...scoredBy('m01', 'org-a', ['reason-c']),
+      ...scoredBy('m02', 'org-a', ['reason-c']),
+    ];
+    const { leaders } = eligible(candidates);
+    const [pair] = createCoverageCohorts(candidates, leaders, mapping, quality);
+    expect(pair!.modelIds).toEqual(['m01', 'm03']);
+    expect(pair!.activeDimensionIds).toContain('coding');
+  });
+
   it('requires at least one common test and rejects duplicate profiles', () => {
     expect(() =>
       commonQualityBenchmarks([], ['missing'], mapping, quality),
@@ -360,16 +426,17 @@ describe('frontier eligibility', () => {
     ).toEqual(['org-a', 'surge']);
   });
 
-  it('represents each model by its qualifying effort with the most organizations', () => {
+  it('represents each model by its qualifying effort with the most benchmarks', () => {
     const candidates = [
       ...base(),
       // m01's best AA effort is measured by one organization only.
       aa('m01', 101, 'xhigh'),
       ...scoredBy('m01', 'org-a', ['agent-a'], 'xhigh'),
-      // m02 high and max tie on organizations: the higher AA score wins.
+      // m02 high is measured by three organizations but on one benchmark.
       aa('m02', 97.5, 'high'),
       ...scoredBy('m02', 'org-a', ['agent-a'], 'high'),
       ...scoredBy('m02', 'org-b', ['agent-a'], 'high'),
+      ...scoredBy('m02', 'org-c', ['agent-a'], 'high'),
     ];
     const result = eligible(candidates);
     const leader = (id: string) =>
@@ -380,24 +447,69 @@ describe('frontier eligibility', () => {
       score: 101,
       representativeScore: 100,
     });
-    expect(leader('m02').profileId).toBe('m02-max');
-    // A third organization on m02 high outweighs its lower AA score.
-    const more = eligible([
-      ...candidates,
-      ...scoredBy('m02', 'org-c', ['agent-a'], 'high'),
+    // More organizations do not outweigh more benchmarks.
+    expect(leader('m02')).toMatchObject({
+      profileId: 'm02-max',
+      benchmarkCount: 9,
+    });
+    expect(
+      leader('m02').candidateProfiles.map(
+        ({ profileId, benchmarkCount, organizationCount }) => [
+          profileId,
+          benchmarkCount,
+          organizationCount,
+        ],
+      ),
+    ).toEqual([
+      ['m02-max', 9, 2],
+      ['m02-high', 1, 3],
     ]);
-    expect(more.leaders.find(({ modelId }) => modelId === 'm02')).toMatchObject(
-      {
-        profileId: 'm02-high',
-        representativeScore: 97.5,
-        organizations: ['org-a', 'org-b', 'org-c'],
-      },
-    );
+    // Once the high effort holds more benchmarks, the selection follows it.
+    const overtaken = eligible([
+      ...candidates,
+      ...scoredBy(
+        'm02',
+        'org-a',
+        [...shared, 'code-a', 'code-b', 'reason-c'],
+        'high',
+      ),
+      ...scoredBy('m02', 'org-b', ['agent-b'], 'high'),
+    ]);
+    expect(
+      overtaken.leaders.find(({ modelId }) => modelId === 'm02'),
+    ).toMatchObject({
+      profileId: 'm02-high',
+      representativeScore: 97.5,
+      benchmarkCount: 10,
+    });
     for (const l of result.leaders) {
       const rep = candidates.find(({ id }) => id === l.representativeResultId)!;
       expect(rep.model.profileId).toBe(l.profileId);
       expect(rep.rawScore).toBe(l.representativeScore);
     }
+  });
+
+  it('breaks benchmark-count ties by organizations, then AA score', () => {
+    const tied = [
+      ...base(),
+      aa('m02', 97.5, 'high'),
+      ...scoredBy('m02', 'org-a', [...shared, 'code-a', 'code-b'], 'high'),
+      ...scoredBy('m02', 'org-b', ['agent-b'], 'high'),
+    ];
+    // Same benchmarks and organizations: the higher AA score (max, 99) wins.
+    const byScore = eligible(tied);
+    expect(
+      byScore.leaders.find(({ modelId }) => modelId === 'm02')!.profileId,
+    ).toBe('m02-max');
+    // A third organization on the same benchmark set tips it to high.
+    const byOrganizations = eligible([
+      ...tied,
+      ...scoredBy('m02', 'org-c', ['agent-a'], 'high'),
+    ]);
+    expect(
+      byOrganizations.leaders.find(({ modelId }) => modelId === 'm02')!
+        .profileId,
+    ).toBe('m02-high');
   });
 
   it('counts an organization even when another source wins the same benchmark', () => {

@@ -1,8 +1,15 @@
 'use client';
 
+import type { PresetFamily } from '@llm-bench/benchmark-data';
+
+import { PRESET_FAMILY_INFO, presetForFamily } from '../lib/preset-family';
 import type { ProductPreset } from '../lib/view-model';
 
-/** Select a scored cohort by its model count. */
+/**
+ * Select a scored cohort: the family picks how models are chosen, the slider
+ * picks how many. Switching family keeps the model count when the other
+ * family has it, otherwise the nearest count it does have.
+ */
 export function PresetControls({
   presets,
   activePreset,
@@ -13,46 +20,50 @@ export function PresetControls({
   onSelectPreset: (presetId: string) => void;
 }) {
   if (presets.length < 2) return null;
+  const families = (Object.keys(PRESET_FAMILY_INFO) as PresetFamily[]).filter(
+    (family) => presets.some((preset) => preset.family === family),
+  );
+  const inFamily = (family: PresetFamily) =>
+    presets.filter((preset) => preset.family === family);
+  const familyPresets = inFamily(activePreset.family);
   const modelCounts = [
-    ...new Set(presets.map(({ targetModelCount }) => targetModelCount)),
+    ...new Set(familyPresets.map(({ targetModelCount }) => targetModelCount)),
   ].toSorted((left, right) => left - right);
 
-  const atCount = (modelCount: number): ProductPreset[] =>
-    presets.filter((preset) => preset.targetModelCount === modelCount);
-  const alternative = atCount(activePreset.targetModelCount).find(
-    (preset) => preset.requireAllSources !== activePreset.requireAllSources,
-  );
-
   const selectCount = (modelCount: number): void => {
-    if (!modelCounts.includes(modelCount)) return;
-    const candidates = atCount(modelCount);
-    const sameMode = candidates.find(
-      (preset) => preset.requireAllSources === activePreset.requireAllSources,
+    const next = familyPresets.find(
+      (preset) => preset.targetModelCount === modelCount,
     );
-    const next = sameMode ?? candidates[0];
+    if (next) onSelectPreset(next.id);
+  };
+
+  const selectFamily = (family: PresetFamily): void => {
+    if (family === activePreset.family) return;
+    const next = presetForFamily(presets, activePreset, family);
     if (next) onSelectPreset(next.id);
   };
 
   return (
     <div className="preset-controls">
-      {alternative && (
-        <button
-          type="button"
-          role="switch"
-          className="preset-sources-switch"
-          aria-checked={activePreset.requireAllSources}
-          disabled={alternative === undefined}
-          title={
-            alternative === undefined
-              ? `Only one benchmark set reaches ${activePreset.targetModelCount} models, so there is nothing to switch to.`
-              : 'Switch between requiring every source and letting the set drop sources.'
-          }
-          onClick={() => {
-            if (alternative) onSelectPreset(alternative.id);
-          }}
+      {families.length > 1 && (
+        <div
+          className="preset-family-switch"
+          role="group"
+          aria-label="How models are chosen"
         >
-          {activePreset.requireAllSources ? 'All sources' : 'Any sources'}
-        </button>
+          {families.map((family) => (
+            <button
+              key={family}
+              type="button"
+              aria-pressed={family === activePreset.family}
+              data-family={family}
+              title={`${PRESET_FAMILY_INFO[family].name}: ${PRESET_FAMILY_INFO[family].rule}.`}
+              onClick={() => selectFamily(family)}
+            >
+              {PRESET_FAMILY_INFO[family].label}
+            </button>
+          ))}
+        </div>
       )}
 
       <label className="preset-slider" htmlFor="preset-model-count">

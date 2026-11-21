@@ -629,10 +629,14 @@
   min-width: 0;
 }
 
+/* The family switch and the slider wrap onto two rows on a phone rather than
+   push the page wider than the screen. */
 .preset-controls {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
+  max-width: 100%;
 }
 
 .preset-slider {
@@ -672,38 +676,47 @@
   text-align: right;
 }
 
-.preset-sources-switch {
+.preset-family-switch {
   background: var(--surface);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow);
-  color: var(--ink);
+  display: flex;
+  height: 2.5rem;
+  overflow: hidden;
+}
+
+.preset-family-switch button {
+  background: transparent;
+  border: 0;
+  color: var(--ink-faint);
   cursor: pointer;
   font-weight: 600;
-  height: 2.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0 0.75rem;
   transition:
     background 0.15s,
-    border-color 0.15s;
+    color 0.15s;
 }
 
-.preset-sources-switch[aria-checked='true'] {
+.preset-family-switch button + button {
+  border-left: 1px solid var(--line-strong);
+}
+
+.preset-family-switch button[aria-pressed='true'] {
   background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-strong);
 }
 
-/* Every model count currently resolves to one preset, so the switch never has
-   anywhere to go. Disabled, it still answers "is this set source-complete?",
-   which is the question it exists to answer. */
-.preset-sources-switch:disabled {
-  cursor: default;
-  opacity: 0.75;
-}
-
-.preset-sources-switch:focus-visible {
+.preset-family-switch button:focus-visible {
   outline: 2px solid var(--cobalt);
-  outline-offset: 2px;
+  outline-offset: -2px;
+}
+
+.preset-scope {
+  color: var(--ink-faint);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0;
+  max-width: 60ch;
 }
 
 @media (max-width: 48rem) {

@@ -18,7 +18,7 @@ const benchmarkDimensions = {
 const preset = {
   id: 'fixture-preset',
   targetModelCount: 2,
-  requireAllSources: false,
+  family: 'aa-frontier' as const,
   benchmarkIds: [
     'terminal-bench-2-1',
     'frontiermath',
