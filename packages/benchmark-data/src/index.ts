@@ -446,21 +446,24 @@ export type BenchmarkQualityPolicy = z.infer<
   typeof BenchmarkQualityPolicySchema
 >;
 
+export const PRESET_FAMILIES = ['aa-frontier', 'coverage'] as const;
+export const PresetFamilySchema = z.enum(PRESET_FAMILIES);
+export type PresetFamily = z.infer<typeof PresetFamilySchema>;
+
 export const DisplaySetPresetSchema = z
   .object({
     id: SlugSchema,
     /**
-     * How many qualified base models the coverage report predicted this preset
-     * would leave complete. It is the user-facing axis -- the UI slider selects
-     * a model count, not a benchmark count -- so it is stored rather than
-     * recomputed, and the report is what it is checked against.
+     * How many frontier-window models the preset scores. It is the user-facing
+     * axis: the UI slider selects a model count, not a benchmark count.
      */
     targetModelCount: z.int().positive(),
     /**
-     * Whether this preset came from the curve that forces every source holding
-     * an active benchmark to contribute at least one.
+     * How the preset's models were chosen: `aa-frontier` takes the top N of the
+     * AA frontier window; `coverage` takes the N window models whose
+     * representative profiles share the most scoring-eligible benchmarks.
      */
-    requireAllSources: z.boolean(),
+    family: PresetFamilySchema,
     benchmarkIds: z.array(SlugSchema).min(1),
   })
   .strict();
@@ -989,7 +992,7 @@ const LeaderboardEntrySchema = z
   .strict();
 
 export const ProductVersionSchema = z.object({
-  schemaVersion: z.literal('product-version-v4'),
+  schemaVersion: z.literal('product-version-v5'),
   versionId: Sha256Schema,
   generatedAt: z.iso.datetime(),
   sourceSnapshotIds: z.array(z.string().min(1)),
@@ -1013,7 +1016,7 @@ export const ProductVersionSchema = z.object({
         .object({
           id: SlugSchema,
           targetModelCount: z.int().positive(),
-          requireAllSources: z.boolean(),
+          family: PresetFamilySchema,
           benchmarkIds: z.array(SlugSchema).min(1),
           leaderboard: z.array(LeaderboardEntrySchema),
         })
@@ -1584,7 +1587,7 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
   const presets = input.displaySet.presets.map((preset) => ({
     id: preset.id,
     targetModelCount: preset.targetModelCount,
-    requireAllSources: preset.requireAllSources,
+    family: preset.family,
     benchmarkIds: [...preset.benchmarkIds].toSorted((left, right) =>
       left.localeCompare(right),
     ),
@@ -1725,7 +1728,7 @@ export const buildProductVersion = (
   input: ProductVersionInput,
 ): ProductVersion => {
   const versionContent = {
-    schemaVersion: 'product-version-v4' as const,
+    schemaVersion: 'product-version-v5' as const,
     ...input,
   };
   return ProductVersionSchema.parse({

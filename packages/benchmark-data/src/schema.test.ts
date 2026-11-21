@@ -227,7 +227,7 @@ describe('ProductVersionSchema', () => {
   it('keeps all five dimensions in canonical order', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
-      schemaVersion: 'product-version-v4',
+      schemaVersion: 'product-version-v5',
       versionId:
         'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       generatedAt: '2026-07-16T00:00:00.000Z',
@@ -239,7 +239,7 @@ describe('ProductVersionSchema', () => {
         {
           id: 'sample-preset',
           targetModelCount: 1,
-          requireAllSources: false,
+          family: 'aa-frontier' as const,
           benchmarkIds: ['terminal-bench-2-1'],
           leaderboard: [
             {
@@ -339,7 +339,7 @@ describe('ProductVersionSchema', () => {
         {
           id: 'sample-preset',
           targetModelCount: 1,
-          requireAllSources: false,
+          family: 'aa-frontier' as const,
           benchmarkIds: ['terminal-bench-2-1'],
           leaderboard: [],
         },
@@ -414,7 +414,7 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
   const preset = (overrides: Record<string, unknown> = {}) => ({
     id: 'sample-preset',
     targetModelCount: 4,
-    requireAllSources: false,
+    family: 'aa-frontier' as const,
     benchmarkIds: allDimensionIds,
     ...overrides,
   });

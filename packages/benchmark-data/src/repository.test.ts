@@ -22,7 +22,7 @@ const makeVersion = (generatedAt: string) =>
       {
         id: 'sample-preset',
         targetModelCount: 1,
-        requireAllSources: false,
+        family: 'aa-frontier' as const,
         benchmarkIds: ['terminal-bench-2-1'],
         leaderboard: [],
       },

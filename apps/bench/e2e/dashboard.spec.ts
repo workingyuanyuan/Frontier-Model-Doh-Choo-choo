@@ -960,7 +960,10 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
   page,
 }, info) => {
   test.setTimeout(90_000);
-  expect(currentProduct.presets).toHaveLength(9);
+  const aaPresets = currentProduct.presets.filter(
+    (p) => p.family === 'aa-frontier',
+  );
+  expect(aaPresets).toHaveLength(9);
   await page.goto('/');
   const slider = page.locator('#preset-model-count');
   await expect(slider).toHaveAttribute('min', '2');
@@ -968,9 +971,7 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
   await expect(slider).toHaveValue(String(defaultModelCount));
   for (const count of [2, 3, 4, 5, 6, 7, 8, 9, 10]) {
     await slider.fill(String(count));
-    const preset = currentProduct.presets.find(
-      (p) => p.targetModelCount === count,
-    )!;
+    const preset = aaPresets.find((p) => p.targetModelCount === count)!;
     await expect(page.locator('[data-ranked-row]')).toHaveCount(count);
     expect(
       (
@@ -1012,6 +1013,60 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
     path: info.outputPath('restored-slider.png'),
     fullPage: true,
   });
+});
+
+test('switches between the AA frontier and max-coverage model sets', async ({
+  page,
+}) => {
+  const coverage = currentProduct.presets.filter(
+    (p) => p.family === 'coverage',
+  );
+  expect(coverage.map((p) => p.targetModelCount)).toEqual([
+    2, 3, 4, 5, 6, 7, 8, 9, 10,
+  ]);
+  const rowProfiles = () =>
+    page
+      .locator('[data-ranked-row]')
+      .evaluateAll((rows) =>
+        rows.map((r) => r.getAttribute('data-profile-id')).sort(),
+      );
+  await page.goto('/');
+  const switcher = page.getByRole('group', { name: 'How models are chosen' });
+  await expect(
+    switcher.getByRole('button', { name: 'Frontier' }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByTestId('preset-scope')).toContainText('AA frontier');
+
+  // The switch keeps the model count and records the preset in the URL.
+  await switcher.getByRole('button', { name: 'Coverage' }).click();
+  const sameSize = coverage.find(
+    (p) => p.targetModelCount === defaultModelCount,
+  )!;
+  await expect(page).toHaveURL(new RegExp(`preset=${sameSize.id}`));
+  await expect(page.locator('#preset-model-count')).toHaveValue(
+    String(defaultModelCount),
+  );
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    defaultModelCount,
+  );
+  expect(await rowProfiles()).toEqual(
+    sameSize.leaderboard.map((r) => r.profileId).sort(),
+  );
+  await expect(page.getByTestId('preset-scope')).toContainText('Max coverage');
+
+  // The slider now moves within the coverage family.
+  const small = coverage.find((p) => p.targetModelCount === 2)!;
+  await page.locator('#preset-model-count').fill('2');
+  await expect(page).toHaveURL(new RegExp(`preset=${small.id}`));
+  expect(await rowProfiles()).toEqual(
+    small.leaderboard.map((r) => r.profileId).sort(),
+  );
+  await page.reload();
+  await expect(
+    switcher.getByRole('button', { name: 'Coverage' }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await switcher.getByRole('button', { name: 'Frontier' }).click();
+  await expect(page).toHaveURL(/preset=aa-top-2/);
 });
 
 test('restores the frontier profiles after a manual effort comparison', async ({

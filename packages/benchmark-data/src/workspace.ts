@@ -162,12 +162,14 @@ const computeWorkspace = async (
   const displaySet = {
     schemaVersion: 'display-set-v2' as const,
     defaultPresetId: artifact.defaultPresetId,
-    presets: artifact.cohorts.map((cohort) => ({
-      id: cohort.id,
-      targetModelCount: cohort.targetModelCount,
-      requireAllSources: false,
-      benchmarkIds: cohort.benchmarkIds,
-    })),
+    presets: [...artifact.cohorts, ...artifact.coverageCohorts].map(
+      (cohort) => ({
+        id: cohort.id,
+        targetModelCount: cohort.targetModelCount,
+        family: cohort.family,
+        benchmarkIds: cohort.benchmarkIds,
+      }),
+    ),
   };
   validateDisplaySet(displaySet, benchmarkMapping, quality);
 
@@ -188,13 +190,15 @@ const computeWorkspace = async (
         ...(row.profileId === row.aaWinningProfileId
           ? []
           : [
-              `Representative profile ${row.profileId} (AA ${row.representativeScore}) is scored by more independent organizations than AA-winning ${row.aaWinningProfileId}`,
+              `Representative profile ${row.profileId} (AA ${row.representativeScore}) holds ${row.benchmarkCount} scoring-eligible benchmarks; AA-winning ${row.aaWinningProfileId} ${aaWinnerStanding(row)}`,
             ]),
       ],
       externalCompositeScores: { 'artificial-analysis': row.score },
     })),
     presetProfileIds: new Map(
-      artifact.cohorts.map(({ id, profileIds }) => [id, profileIds]),
+      [...artifact.cohorts, ...artifact.coverageCohorts].map(
+        ({ id, profileIds }) => [id, profileIds],
+      ),
     ),
     benchmarkQuality: quality,
     costRecords,
@@ -229,4 +233,17 @@ export const writeWorkspaceCurrent = async (
   if (frontier.status !== 'selected' || product === null) throw frontier.error;
   await writeCurrentProductVersion(join(root, 'data', 'product'), product);
   return product;
+};
+
+/** How the AA-winning effort compares under the representative-profile rule. */
+const aaWinnerStanding = (row: {
+  aaWinningProfileId: string | null;
+  candidateProfiles: readonly { profileId: string; benchmarkCount: number }[];
+}): string => {
+  const winner = row.candidateProfiles.find(
+    ({ profileId }) => profileId === row.aaWinningProfileId,
+  );
+  return winner
+    ? `holds ${winner.benchmarkCount}`
+    : 'lacks results from enough independent organizations';
 };

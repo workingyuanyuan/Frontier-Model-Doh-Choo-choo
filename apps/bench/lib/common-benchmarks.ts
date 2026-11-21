@@ -259,7 +259,8 @@ export function buildCommonComparison(
   const activePreset = {
     id: 'common-benchmarks',
     targetModelCount: profiles.length,
-    requireAllSources: false,
+    // A manual comparison keeps the family of the preset it started from.
+    family: product.activePreset.family,
     benchmarkIds,
     leaderboard,
   };

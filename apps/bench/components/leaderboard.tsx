@@ -25,6 +25,7 @@ import { CopyMarkdownButton } from './copy-markdown-button';
 import { ModelPicker } from './leaderboard-controls';
 import { LeaderboardTable } from './leaderboard-table';
 import { PresetControls } from './preset-controls';
+import { presetScope, presetScopeSentence } from '../lib/preset-family';
 
 type HeatMap = Record<string, Record<number, number>>;
 
@@ -186,6 +187,12 @@ export function Leaderboard({
     return map;
   }, [activeRows, dimensionIds, economyByProfile]);
 
+  const scopePreset = controlPreset ?? product.activePreset;
+  const scope = presetScope(pickerProduct, scopePreset.id);
+  const scopeSentence = scope
+    ? presetScopeSentence(scope, scopePreset.targetModelCount)
+    : null;
+
   return (
     <div className="dashboard-section">
       <p className="eyebrow section-eyebrow">Representative profiles</p>
@@ -200,6 +207,11 @@ export function Leaderboard({
                 ? 'Compare reasoning efforts.'
                 : 'One row per base model.'}
             </h2>
+            {scopeSentence && !commonMode ? (
+              <p className="preset-scope" data-testid="preset-scope">
+                {scopeSentence}
+              </p>
+            ) : null}
           </div>
           <div className="leaderboard-toolbar">
             <PresetControls

@@ -152,6 +152,8 @@ Terminal-Bench-Science（`terminal-bench-science`）不是軟體工程任務集�
 
 ### 4.3 代表 profile 的選法
 
+> **2026-11-21 起**，預設集合的代表 profile 依 [前沿政策](FRONTIER_POLICY.md#模型資格) 取持有可計分 benchmark 最多的合格 effort。下文是成本圖與早期規格的選法，保留作為歷史依據。
+
 同一個模型有多個思考強度的 profile 時，取**該來源測出分數最高**的那一個。
 
 - 不判斷 effort 標籤，不假設「max 一定最好」。

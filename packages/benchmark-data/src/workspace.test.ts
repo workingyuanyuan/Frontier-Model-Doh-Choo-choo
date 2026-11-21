@@ -164,7 +164,7 @@ describe('buildWorkspaceProduct', () => {
         ?.leaderboard ?? [];
 
     expect(defaultLeaderboard.length).toBeGreaterThan(0);
-    expect(product.schemaVersion).toBe('product-version-v4');
+    expect(product.schemaVersion).toBe('product-version-v5');
 
     // The live preset is tied to the freshly selected AA winning profiles.
     expect(product.presets.length).toBeGreaterThan(0);
@@ -222,6 +222,11 @@ describe('buildWorkspaceProduct', () => {
       benchmarkIds: string[];
       dimensions: { id: string; benchmarkIds: string[] }[];
       cohorts: { id: string; profileIds: string[]; modelIds: string[] }[];
+      coverageCohorts: {
+        id: string;
+        profileIds: string[];
+        modelIds: string[];
+      }[];
     };
     // The frontier is the first ten AA-ranked models that pass eligibility.
     const leaders = artifact.eligibility.leaders;
@@ -233,19 +238,34 @@ describe('buildWorkspaceProduct', () => {
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
     expect(product.defaultPresetId).toBe(artifact.defaultPresetId);
     expect(product.frontier).toHaveLength(10);
-    expect(
-      product.presets.map(({ targetModelCount }) => targetModelCount),
-    ).toEqual([2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const family = (name: string) =>
+      product.presets.filter((preset) => preset.family === name);
+    const aaPresets = family('aa-frontier');
+    const coveragePresets = family('coverage');
+    for (const presets of [aaPresets, coveragePresets])
+      expect(presets.map(({ targetModelCount }) => targetModelCount)).toEqual([
+        2, 3, 4, 5, 6, 7, 8, 9, 10,
+      ]);
+    expect(product.presets).toHaveLength(18);
     // Larger cohorts never share more tests, and the default follows its rule.
-    product.presets
-      .slice(1)
-      .forEach((preset, index) =>
-        expect(preset.benchmarkIds.length).toBeLessThanOrEqual(
-          product.presets[index]!.benchmarkIds.length,
-        ),
-      );
-    expect(chooseDefaultCohort(product.presets).id).toBe(
-      product.defaultPresetId,
+    for (const presets of [aaPresets, coveragePresets])
+      presets
+        .slice(1)
+        .forEach((preset, index) =>
+          expect(preset.benchmarkIds.length).toBeLessThanOrEqual(
+            presets[index]!.benchmarkIds.length,
+          ),
+        );
+    expect(chooseDefaultCohort(aaPresets).id).toBe(product.defaultPresetId);
+    // A coverage preset shares at least as many tests as the AA prefix of the
+    // same size, and both families coincide on the whole window.
+    coveragePresets.forEach((preset, index) =>
+      expect(preset.benchmarkIds.length).toBeGreaterThanOrEqual(
+        aaPresets[index]!.benchmarkIds.length,
+      ),
+    );
+    expect(coveragePresets.at(-1)!.benchmarkIds).toEqual(
+      aaPresets.at(-1)!.benchmarkIds,
     );
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
@@ -259,7 +279,9 @@ describe('buildWorkspaceProduct', () => {
     for (const preset of product.presets) {
       const completeModels = completeModelsFor(preset.benchmarkIds);
       expect(preset.leaderboard).toHaveLength(preset.targetModelCount);
-      const cohort = artifact.cohorts.find(({ id }) => id === preset.id)!;
+      const cohort = [...artifact.cohorts, ...artifact.coverageCohorts].find(
+        ({ id }) => id === preset.id,
+      )!;
       expect(
         preset.leaderboard.map(({ profileId }) => profileId).sort(),
       ).toEqual(cohort.profileIds.toSorted());

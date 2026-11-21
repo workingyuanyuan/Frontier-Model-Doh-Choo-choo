@@ -84,6 +84,21 @@ export default async function PresetPage({ params }: Props) {
           <a href={sitePath(presetJsonPath(preset.id))}>JSON</a>; how it is
           computed: <a href={sitePath(METHODOLOGY_PATH)}>methodology</a>.
         </p>
+        <p data-testid="preset-scope">
+          {preset.scopeNote} Model set: {preset.familyName},{' '}
+          {preset.selectionRule}.
+          {preset.counterpartPresetId ? (
+            <>
+              {' '}
+              Same size in the other model set:{' '}
+              <a href={sitePath(presetPagePath(preset.counterpartPresetId))}>
+                {preset.counterpartPresetId}
+              </a>
+              .
+            </>
+          ) : null}{' '}
+          Scores compare only within this preset.
+        </p>
         <nav className="static-presets" aria-label="Presets">
           <span>Model sets (number of models): </span>
           {presets.map((other) => (
@@ -91,6 +106,7 @@ export default async function PresetPage({ params }: Props) {
               key={other.preset.id}
               href={sitePath(presetPagePath(other.preset.id))}
               aria-current={other.preset.id === preset.id ? 'page' : undefined}
+              title={other.preset.familyName}
             >
               {other.preset.id} ({other.preset.modelCount}){' '}
             </a>
@@ -100,7 +116,8 @@ export default async function PresetPage({ params }: Props) {
         <section className="panel static-panel" aria-labelledby="leaderboard">
           <h2 id="leaderboard">Leaderboard</h2>
           <p>
-            {LEADERBOARD_NOTE} Scores are 0–100 and higher is better. Each
+            {LEADERBOARD_NOTE} Scores are 0–100 and higher is better. Frontier #
+            is the model&apos;s position in the AA-ordered frontier window. Each
             evidence file lists every measurement behind the row with its source
             URL.
           </p>
@@ -110,6 +127,7 @@ export default async function PresetPage({ params }: Props) {
                 <tr>
                   <th scope="col">Rank</th>
                   <th scope="col">Model</th>
+                  <th scope="col">Frontier #</th>
                   <th scope="col">Provider</th>
                   <th scope="col">Reasoning effort</th>
                   <th scope="col">Overall</th>
@@ -127,6 +145,7 @@ export default async function PresetPage({ params }: Props) {
                   <tr key={row.profileId} data-profile-id={row.profileId}>
                     <td>{row.rank ?? 'N/A'}</td>
                     <th scope="row">{row.modelName}</th>
+                    <td>{row.frontierWindowRank ?? 'N/A'}</td>
                     <td>{row.providerId}</td>
                     <td>{row.reasoningEffort}</td>
                     <td>

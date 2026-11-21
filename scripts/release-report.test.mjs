@@ -25,7 +25,15 @@ const product = (versionId, leaderboard, benchmarkIds, frontier) => ({
     modelId,
     externalCompositeScores: { 'artificial-analysis': 60 - index },
   })),
-  presets: [{ id: 'aa-top-8', targetModelCount: 8, benchmarkIds, leaderboard }],
+  presets: [
+    {
+      id: 'aa-top-8',
+      family: 'aa-frontier',
+      targetModelCount: 8,
+      benchmarkIds,
+      leaderboard,
+    },
+  ],
 });
 
 test('preset diff separates entries, exits and rank changes', () => {
@@ -98,7 +106,10 @@ test('release markdown lists versions, frontier and inferences', () => {
   assert.match(markdown, /\| 3 \| m3 \| 55\.8 \| vals-ai \|/u);
   assert.match(markdown, /\| 1 \| m1 \| 60 \| m2 \| 60 \|/u);
   assert.match(markdown, /m2 \(new\)/u);
-  assert.match(markdown, /\| 8 \| `aa-top-8` \(default\) \| 1 → 1 \|/u);
+  assert.match(
+    markdown,
+    /\| 8 \| aa-frontier \| `aa-top-8` \(default\) \| 1 → 1 \|/u,
+  );
   assert.match(
     markdown,
     /\| m2 \| a \| epoch-ai \| max \| arc-prize: arc:x \|/u,
