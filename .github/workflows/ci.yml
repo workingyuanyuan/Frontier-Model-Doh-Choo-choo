@@ -89,6 +89,8 @@ jobs:
           run-id: ${{ steps.find.outputs.run-id }}
           github-token: ${{ github.token }}
 
+      # upload-pages-artifact leaves dotfiles such as .nojekyll out of the
+      # archive, so only the site itself is checked.
       - name: Check the archive holds the site
         id: archive
         if: steps.download.outcome == 'success'
@@ -97,7 +99,6 @@ jobs:
           mkdir -p reuse/out
           tar -xf reuse/pages/artifact.tar -C reuse/out
           test -f reuse/out/index.html
-          test -f reuse/out/.nojekyll
 
       # deploy-pages only reads artifacts of its own run, so the PR's archive
       # is uploaded again unchanged. The name differs from `build`'s so a
