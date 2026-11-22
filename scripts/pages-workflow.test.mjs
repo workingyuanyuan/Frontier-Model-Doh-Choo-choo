@@ -357,6 +357,8 @@ test('main reuses a PR artifact only through the gated reuse chain', () => {
   assert.equal(byId.download.if, "steps.check.outcome == 'success'");
   assert.equal(byId.archive.if, "steps.download.outcome == 'success'");
   assert.match(byId.archive.run, /test -f reuse\/out\/index\.html/);
+  // upload-pages-artifact drops dotfiles, so .nojekyll is never in it.
+  assert.doesNotMatch(byId.archive.run, /nojekyll/);
   assert.equal(byId.upload.if, "steps.archive.outcome == 'success'");
   assert.equal(byId.reused.if, "steps.upload.outcome == 'success'");
   assert.equal(byId.reused['continue-on-error'], undefined);
