@@ -7,6 +7,11 @@ import {
   verifyCurrentMain,
   verifyDeployment,
 } from './verify-pages-deployment.mjs';
+import {
+  latestSuccessfulRun,
+  mergedPullRequest,
+  verifiedArtifact,
+} from './find-verified-pr-build.mjs';
 
 const workflow = parse(readFileSync('.github/workflows/ci.yml', 'utf8'));
 const sha = 'a'.repeat(40);
@@ -20,6 +25,7 @@ const valid = {
 };
 function jobEligible(env) {
   return runInNewContext(workflow.jobs.deploy.if, {
+    cancelled: () => false,
     github: {
       event_name: env.GITHUB_EVENT_NAME,
       repository: env.GITHUB_REPOSITORY,
@@ -103,13 +109,24 @@ test('every gate runs unconditionally in a job that quality waits for', () => {
     assert.equal(step['continue-on-error'], undefined);
   }
   for (const job of [checks, build, e2e]) {
-    assert.equal(job.if, undefined);
     assert.equal(job.permissions, undefined);
     assert.equal(job.steps[0].with.ref, '${{ github.sha }}');
   }
+  // Only a reused PR build may skip the gates.
+  for (const job of [checks, build]) {
+    assert.equal(job.needs, 'reuse');
+    assert.equal(
+      job.if,
+      "${{ !cancelled() && !(needs.reuse.result == 'success' && needs.reuse.outputs.hit == 'true') }}",
+    );
+  }
   assert.equal(e2e.needs, 'build');
+  assert.equal(
+    e2e.if,
+    "${{ !cancelled() && needs.build.result == 'success' }}",
+  );
   assert.deepEqual(e2e.strategy.matrix.shard, [1, 2, 3]);
-  assert.deepEqual(quality.needs, ['checks', 'build', 'e2e']);
+  assert.deepEqual(quality.needs, ['reuse', 'checks', 'build', 'e2e']);
 });
 
 test('the browser shards test the export this run built', () => {
@@ -149,15 +166,34 @@ test('quality fails closed and carries the build SHA and artifact', () => {
   const { build, quality } = workflow.jobs;
   assert.equal(quality.if, '${{ !cancelled() }}');
   assert.equal(quality.permissions, undefined);
-  assert.equal(quality.steps.length, 2);
-  const [receipts, verified] = quality.steps;
+  assert.equal(quality.steps.length, 3);
+  const [receipts, verified, receiptUpload] = quality.steps;
   assert.ok(receipts.uses.startsWith('actions/download-artifact@'));
   assert.equal(receipts.with.pattern, 'e2e-receipt-*');
+  assert.equal(
+    receipts.if,
+    "${{ !(needs.reuse.result == 'success' && needs.reuse.outputs.hit == 'true') }}",
+  );
   assert.equal(verified.id, 'verified');
-  for (const step of quality.steps) {
-    assert.equal(step.if, undefined);
+  assert.equal(verified.if, undefined);
+  for (const step of [receipts, verified])
     assert.equal(step['continue-on-error'], undefined);
-  }
+  // Best effort: a missing receipt only means main runs every gate.
+  assert.equal(receiptUpload['continue-on-error'], true);
+  // The receipt a later main push reuses is written only on the path that
+  // checked every gate, and uploaded only once that step passed.
+  const gated = verified.run.indexOf('else');
+  assert.ok(gated > 0);
+  assert.ok(verified.run.indexOf('verified-build/receipt') > gated);
+  assert.ok(verified.run.indexOf('test "$E2E" = success') > gated);
+  assert.equal(verified.env.TREE, '${{ needs.build.outputs.tree }}');
+  assert.ok(verified.run.includes('test -n "$TREE"'));
+  assert.equal(receiptUpload.if, "github.event_name == 'pull_request'");
+  assert.equal(
+    receiptUpload.with.name,
+    'verified-build-${{ github.run_attempt }}',
+  );
+  assert.equal(receiptUpload.with['if-no-files-found'], 'error');
   // Every shard must leave a receipt naming the build this run tested.
   const { e2e } = workflow.jobs;
   const ran = e2e.steps.findIndex((s) => s.run?.startsWith('pnpm e2e'));
@@ -215,9 +251,11 @@ test('quality fails closed and carries the build SHA and artifact', () => {
 });
 
 test('deploy uses only the artifact quality verified, under its own lock', () => {
-  const { checks, build, e2e, quality, deploy } = workflow.jobs;
+  const { reuse, checks, build, e2e, quality, deploy } = workflow.jobs;
   // A workflow-wide cancel would also cancel a deploy already running.
   assert.equal(workflow.concurrency, undefined);
+  // A cancelled reuse would start its fallback gates after a newer run's.
+  assert.equal(reuse.concurrency, undefined);
   const groups = [checks, build, e2e].map((job) => job.concurrency.group);
   assert.equal(new Set(groups).size, groups.length);
   assert.match(e2e.concurrency.group, /matrix\.shard/);
@@ -225,6 +263,7 @@ test('deploy uses only the artifact quality verified, under its own lock', () =>
   assert.deepEqual(deploy.concurrency, {
     group: 'pages',
     'cancel-in-progress': false,
+    queue: 'max',
   });
   assert.equal(deploy.needs, 'quality');
   assert.equal(deploy.steps[0].with.ref, '${{ github.sha }}');
@@ -260,8 +299,12 @@ test('IndexNow runs only after a deploy and never blocks one', () => {
       build.steps.findIndex(({ run }) => run === 'pnpm build'),
   );
   assert.equal(build.outputs.indexnow, '${{ steps.indexnow.outputs.body }}');
-  assert.equal(quality.outputs.indexnow, '${{ needs.build.outputs.indexnow }}');
+  assert.equal(
+    quality.outputs.indexnow,
+    '${{ needs.build.outputs.indexnow || needs.reuse.outputs.indexnow }}',
+  );
   assert.deepEqual(indexnow.needs, ['quality', 'deploy']);
+  assert.match(indexnow.if, /needs\.deploy\.result == 'success'/);
   assert.equal(indexnow.permissions, undefined);
   assert.ok(indexnow.steps.every((s) => s['continue-on-error'] === true));
 });
@@ -289,4 +332,145 @@ test('API failure or incomplete response blocks verification', () => {
       return sha;
     }),
   );
+});
+
+test('main reuses a PR artifact only through the gated reuse chain', () => {
+  const { reuse, quality, deploy } = workflow.jobs;
+  assert.match(reuse.if, /github\.event_name == 'push'/);
+  assert.match(reuse.if, /github\.ref == 'refs\/heads\/main'/);
+  assert.match(reuse.if, /github\.repository == 'workingyuanyuan\//);
+  assert.deepEqual(reuse.permissions, {
+    contents: 'read',
+    actions: 'read',
+    'pull-requests': 'read',
+  });
+  const byId = Object.fromEntries(
+    reuse.steps.filter((s) => s.id).map((s) => [s.id, s]),
+  );
+  // Each step runs only if the previous one succeeded, so any failure
+  // leaves `hit` unset and the gates run.
+  assert.equal(
+    byId.receipt.if,
+    "steps.find.outcome == 'success' && steps.find.outputs.run-id != ''",
+  );
+  assert.equal(byId.check.if, "steps.receipt.outcome == 'success'");
+  assert.equal(byId.download.if, "steps.check.outcome == 'success'");
+  assert.equal(byId.archive.if, "steps.download.outcome == 'success'");
+  assert.match(byId.archive.run, /test -f reuse\/out\/index\.html/);
+  assert.equal(byId.upload.if, "steps.archive.outcome == 'success'");
+  assert.equal(byId.reused.if, "steps.upload.outcome == 'success'");
+  assert.equal(byId.reused['continue-on-error'], undefined);
+  assert.match(byId.reused.run, /hit=true/);
+  assert.equal(byId.find.run, 'node scripts/find-verified-pr-build.mjs find');
+  assert.match(byId.check.run, /find-verified-pr-build\.mjs check/);
+  assert.equal(
+    byId.receipt.with.name,
+    'verified-build-${{ steps.find.outputs.attempt }}',
+  );
+  for (const step of [byId.receipt, byId.download])
+    assert.equal(step.with['run-id'], '${{ steps.find.outputs.run-id }}');
+  assert.equal(byId.download.with.name, '${{ steps.check.outputs.artifact }}');
+  assert.equal(
+    byId.upload.with.name,
+    'github-pages-reused-${{ github.run_id }}-${{ github.run_attempt }}',
+  );
+  assert.match(
+    byId.reused.run,
+    /artifact=github-pages-reused-\$GITHUB_RUN_ID-\$GITHUB_RUN_ATTEMPT/,
+  );
+  // Never the name a fallback build in the same run uploads.
+  assert.notEqual(
+    byId.upload.with.name,
+    workflow.jobs.build.steps.find((s) =>
+      s.uses?.startsWith('actions/upload-pages-artifact@'),
+    ).with.name,
+  );
+  assert.equal(byId.indexnow['timeout-minutes'], 2);
+  assert.ok(byId.indexnow['timeout-minutes'] < reuse['timeout-minutes']);
+  assert.equal(reuse.outputs.hit, '${{ steps.reused.outputs.hit }}');
+  // quality accepts the reused artifact only with every gate skipped.
+  const verified = quality.steps.find((s) => s.id === 'verified');
+  const reused = verified.run.slice(0, verified.run.indexOf('else'));
+  assert.ok(reused.includes('[ "$REUSE" = success ] && [ "$REUSED" = true ]'));
+  for (const name of ['CHECKS', 'BUILD', 'E2E'])
+    assert.ok(reused.includes(`test "$${name}" = skipped`), name);
+  assert.ok(reused.includes('test -n "$REUSED_ARTIFACT"'));
+  assert.match(deploy.if, /^!cancelled\(\) &&/);
+});
+
+const repo = 'workingyuanyuan/Frontier-Model-Doh-Choo-choo';
+const head = 'c'.repeat(40);
+const tree = 'd'.repeat(40);
+const pr = {
+  number: 7,
+  merged_at: '2026-11-22T00:00:00Z',
+  merge_commit_sha: sha,
+  base: { ref: 'main', repo: { full_name: repo } },
+  head: { sha: head, repo: { full_name: repo } },
+};
+const run = {
+  id: 42,
+  run_attempt: 2,
+  event: 'pull_request',
+  status: 'completed',
+  conclusion: 'success',
+  path: '.github/workflows/ci.yml',
+  head_sha: head,
+  head_repository: { full_name: repo },
+  created_at: '2026-11-22T00:00:00Z',
+};
+
+test('only the same-repository PR this commit merged is used', () => {
+  assert.equal(mergedPullRequest([pr], repo, sha), pr);
+  for (const patch of [
+    { merged_at: null },
+    { merge_commit_sha: 'b'.repeat(40) },
+    { base: { ref: 'topic', repo: { full_name: repo } } },
+    { head: { sha: head, repo: { full_name: 'someone/fork' } } },
+    { head: { sha: 'short', repo: { full_name: repo } } },
+  ])
+    assert.equal(
+      mergedPullRequest([{ ...pr, ...patch }], repo, sha),
+      undefined,
+    );
+});
+
+test('only a passing CI run of that PR head is used, newest first', () => {
+  const newer = { ...run, id: 43, created_at: '2026-11-22T01:00:00Z' };
+  assert.equal(latestSuccessfulRun([run, newer], repo, head), newer);
+  for (const patch of [
+    { conclusion: 'failure' },
+    { status: 'in_progress' },
+    { event: 'push' },
+    { path: '.github/workflows/workspace-timing.yml' },
+    { head_sha: 'b'.repeat(40) },
+    { head_repository: { full_name: 'someone/fork' } },
+    { run_attempt: undefined },
+  ])
+    assert.equal(
+      latestSuccessfulRun([{ ...run, ...patch }], repo, head),
+      undefined,
+    );
+});
+
+test('the receipt must name this tree and an artifact of that run', () => {
+  const receipt = `tree=${tree}\nartifact=github-pages-42-2\n`;
+  assert.equal(verifiedArtifact(receipt, tree, '42', '2'), 'github-pages-42-2');
+  // A partial rerun keeps the earlier attempt's build.
+  assert.equal(verifiedArtifact(receipt, tree, '42', '3'), 'github-pages-42-2');
+  assert.throws(() => verifiedArtifact(receipt, tree, '42', '1'));
+  assert.throws(() => verifiedArtifact(receipt, tree, '42', ''));
+  for (const [text, at, id] of [
+    [receipt, 'e'.repeat(40), '42'],
+    [receipt, tree, '43'],
+    [receipt, '', '42'],
+    [receipt, tree, '42 '],
+    [`tree=${tree}\n`, tree, '42'],
+    [`${receipt}tree=${tree}\n`, tree, '42'],
+    [`${receipt}extra=1\n`, tree, '42'],
+    [`tree=${tree}\nartifact=github-pages-42-2-x\n`, tree, '42'],
+    [`tree=${tree}\nartifact=github-pages-4-2\n`, tree, '42'],
+    ['', tree, '42'],
+  ])
+    assert.throws(() => verifiedArtifact(text, at, id, '2'));
 });
