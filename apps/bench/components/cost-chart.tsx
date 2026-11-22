@@ -19,7 +19,9 @@ import {
   buildProfileCostCurve,
   buildWeightedCostCurve,
   getCostParetoFrontier,
+  getProfileIdentity,
   missingAdvancedCostSources,
+  profileById,
   type AdvancedCostModelOption,
   type AdvancedCostSeries,
   type AdvancedCostSourceId,
@@ -34,6 +36,11 @@ import {
   scoreBasisNote,
   sourceName,
 } from '../lib/cost-labels';
+import {
+  costChartMarkdown,
+  type CostChartMarkdownRow,
+} from '../lib/leaderboard-markdown';
+import { CopyMarkdownButton } from './copy-markdown-button';
 
 /** Models visible on the advanced chart, each with its visible effort profiles. */
 export type ChartShortlist = { modelId: string; profileIds: string[] }[];
@@ -75,6 +82,53 @@ const weightNote = (weights: Readonly<Record<string, number>>): string => {
         )
         .join(' · ')}.`;
 };
+
+/**
+ * The points the chart currently plots as a Markdown table: the default
+ * chart's Overall Score, or the advanced chart's mean of the enabled sources,
+ * each against the weighted cost index. Hidden efforts are left out.
+ */
+function costChartCopy(
+  product: PresetProductVersion,
+  advanced: boolean,
+  points: readonly WeightedCostPoint[],
+  series: readonly AdvancedCostSeries[],
+  hiddenProfileIds: ReadonlySet<string>,
+  sourceIds: readonly AdvancedCostSourceId[],
+): string {
+  const identity = (profileId: string, fallbackModel: string) => {
+    const profile = profileById(product, profileId);
+    return {
+      model: profile?.baseModelName ?? fallbackModel,
+      effort: profile ? getProfileIdentity(profile) : profileId,
+    };
+  };
+  if (!advanced) {
+    return costChartMarkdown(
+      'Overall Score',
+      points.map((point): CostChartMarkdownRow => ({
+        ...identity(point.profileId, point.displayName),
+        score: point.performance,
+        costIndex: point.normalizedCost,
+      })),
+    );
+  }
+  const sources = sourceIds.map(sourceName).join(', ');
+  return costChartMarkdown(
+    sourceIds.length === 1
+      ? `Score (${sources})`
+      : `Score (mean of ${sources})`,
+    series.flatMap((line) =>
+      line.points
+        .filter(({ profileId }) => !hiddenProfileIds.has(profileId))
+        .map((point): CostChartMarkdownRow => ({
+          ...identity(point.profileId, line.displayName),
+          score: point.score,
+          costIndex: point.costIndex,
+        })),
+    ),
+  );
+}
 
 const providerColor = (providerId: string): string =>
   PROVIDER_COLORS[providerId] ?? '#64748b';
@@ -1360,6 +1414,29 @@ export const CostChart = memo(function CostChart({
                     });
                     onUseInLeaderboard(models);
                   })
+                }
+              />
+              <CopyMarkdownButton
+                label="Copy chart data as Markdown"
+                disabled={
+                  advanced
+                    ? !series.some((line) =>
+                        line.points.some(
+                          ({ profileId }) =>
+                            !advancedHiddenProfileIds.has(profileId),
+                        ),
+                      )
+                    : !points.length
+                }
+                markdown={() =>
+                  costChartCopy(
+                    advanced ? advancedProduct : defaultProduct,
+                    advanced,
+                    points,
+                    series,
+                    advancedHiddenProfileIds,
+                    selectedAdvancedSourceIds,
+                  )
                 }
               />
             </div>

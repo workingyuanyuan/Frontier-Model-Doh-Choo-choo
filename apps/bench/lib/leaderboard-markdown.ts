@@ -84,3 +84,30 @@ export function commonBenchmarksMarkdown(
     ),
   ].join('\n');
 }
+
+export interface CostChartMarkdownRow {
+  model: string;
+  effort: string;
+  score: number;
+  costIndex: number;
+}
+
+/** The points a cost chart plots, one row per model and effort. */
+export function costChartMarkdown(
+  scoreHeader: string,
+  rows: readonly CostChartMarkdownRow[],
+): string {
+  const headers = ['Model', 'Effort', scoreHeader, 'Cost index'];
+  return [
+    markdownLine(headers.map(escapeCell)),
+    markdownLine(headers.map(() => '---')),
+    ...rows.map((row) =>
+      markdownLine([
+        escapeCell(row.model),
+        escapeCell(row.effort),
+        score(row.score),
+        score(row.costIndex),
+      ]),
+    ),
+  ].join('\n');
+}
