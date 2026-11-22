@@ -174,7 +174,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-fable-5-2-max",
-            "benchmarkCount": 31,
+            "benchmarkCount": 33,
             "organizationCount": 9,
             "aaScore": 64.563595756626
           },
@@ -214,7 +214,7 @@
           "terminal-bench",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 31
+        "benchmarkCount": 33
       },
       {
         "rank": 2,
@@ -231,7 +231,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-astra-max",
-            "benchmarkCount": 39,
+            "benchmarkCount": 41,
             "organizationCount": 11,
             "aaScore": 62.1387990593969
           },
@@ -273,7 +273,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 39
+        "benchmarkCount": 41
       },
       {
         "rank": 3,
@@ -290,7 +290,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-neon-xhigh",
-            "benchmarkCount": 25,
+            "benchmarkCount": 27,
             "organizationCount": 6,
             "aaScore": 61.3982491392674
           },
@@ -321,7 +321,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 25
+        "benchmarkCount": 27
       },
       {
         "rank": 4,
@@ -338,7 +338,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-carbon-high",
-            "benchmarkCount": 42,
+            "benchmarkCount": 44,
             "organizationCount": 12,
             "aaScore": 60.025738829526
           },
@@ -369,7 +369,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 42
+        "benchmarkCount": 44
       },
       {
         "rank": 5,
@@ -386,7 +386,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-opus-5-5-max",
-            "benchmarkCount": 54,
+            "benchmarkCount": 56,
             "organizationCount": 12,
             "aaScore": 59.1060336078904
           },
@@ -429,7 +429,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 54
+        "benchmarkCount": 56
       },
       {
         "rank": 6,
@@ -504,7 +504,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-astra-max",
-            "benchmarkCount": 54,
+            "benchmarkCount": 56,
             "organizationCount": 12,
             "aaScore": 56.8538559596797
           },
@@ -547,7 +547,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 54
+        "benchmarkCount": 56
       },
       {
         "rank": 8,
@@ -564,7 +564,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-1-sol-max",
-            "benchmarkCount": 52,
+            "benchmarkCount": 54,
             "organizationCount": 9,
             "aaScore": 54.6087338138148
           },
@@ -604,7 +604,7 @@
           "terminal-bench",
           "vals-ai"
         ],
-        "benchmarkCount": 52
+        "benchmarkCount": 54
       },
       {
         "rank": 9,
@@ -621,7 +621,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-sonnet-5-5-max",
-            "benchmarkCount": 51,
+            "benchmarkCount": 53,
             "organizationCount": 10,
             "aaScore": 54.54133407109
           },
@@ -662,7 +662,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 51
+        "benchmarkCount": 53
       },
       {
         "rank": 10,
@@ -679,7 +679,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-hydrogen-xhigh",
-            "benchmarkCount": 33,
+            "benchmarkCount": 35,
             "organizationCount": 8,
             "aaScore": 53.9192287317542
           },
@@ -712,7 +712,7 @@
           "surge",
           "vals-ai"
         ],
-        "benchmarkCount": 33
+        "benchmarkCount": 35
       }
     ],
     "skipped": []

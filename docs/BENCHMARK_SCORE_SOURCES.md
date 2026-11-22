@@ -137,15 +137,15 @@
 
 ## 補充網站核驗結論
 
-| 網站                                                                   | 結論                        | 用法                                                                                                                                                              |
-| ---------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Epoch AI Benchmarks](https://epoch.ai/benchmarks)                     | **採用，混合角色**          | FrontierMath 是主辦方；只把標為 Epoch AI internal runs 的外部 Benchmark 列列為獨立評測；資料下載更新 2026-07-15。                                                 |
-| [Snorkel Leaderboard](https://snorkel.ai/leaderboard/)                 | **採用，逐 Benchmark 判定** | Senior SWE-Bench／Snorkel Agentic Coding 採主辦方結果；外部 OSWorld／TBench／ALE 必須回原站。                                                                     |
-| [Scale Labs](https://labs.scale.com/leaderboard)                       | **採用，逐 Benchmark 判定** | HLE、SWE Atlas、EnigmaEval 等 Scale 主辦／共同主辦項目可採；2026-07-23／28 仍有新 benchmark 更新。不得把首頁各榜複合成單一分數，且各榜須另行建立 Benchmark 映射。 |
-| [LLM Stats](https://llm-stats.com/)                                    | **INDEX ONLY**              | metadata 更新 2026-07-15，內容混合主辦方、第三方與廠商值；只用於找上游來源，不直接匯入聚合分數。                                                                  |
-| [Agents' Last Exam](https://agents-last-exam.org/leaderboard)          | **採用，主辦方**            | 2026-11-18 匯入 v1.1（`data/sources/agents-last-exam/`）；少跑題的列照常採用並揭露，同一 profile 有多個 harness 時排除。                                          |
-| [DeepSWE](https://deepswe.datacurve.ai/)                               | **採用，主辦方**            | DeepSWE 1.1，61 configs／24 models；官方資料生成 2026-08-13，渲染頁核驗 2026-08-18。                                                                              |
-| [Terminal-Bench](https://www.tbench.ai/leaderboard/terminal-bench/2.1) | **採用，主辦方驗證**        | 2.1 最新明示模型為 GPT-5.6 Terra／Luna max，2026-07-11；1.0 Legacy 不刷新。                                                                                       |
+| 網站                                                                   | 結論                        | 用法                                                                                                                                                               |
+| ---------------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Epoch AI Benchmarks](https://epoch.ai/benchmarks)                     | **採用，混合角色**          | FrontierMath、Mystery Game Puzzles、Furniture Assembly 是 Epoch 設計的 benchmark，採主辦方角色；Epoch 重跑的外部 Benchmark 列為獨立評測；資料下載更新 2026-11-22。 |
+| [Snorkel Leaderboard](https://snorkel.ai/leaderboard/)                 | **採用，逐 Benchmark 判定** | Senior SWE-Bench／Snorkel Agentic Coding 採主辦方結果；外部 OSWorld／TBench／ALE 必須回原站。                                                                      |
+| [Scale Labs](https://labs.scale.com/leaderboard)                       | **採用，逐 Benchmark 判定** | HLE、SWE Atlas、EnigmaEval 等 Scale 主辦／共同主辦項目可採；2026-07-23／28 仍有新 benchmark 更新。不得把首頁各榜複合成單一分數，且各榜須另行建立 Benchmark 映射。  |
+| [LLM Stats](https://llm-stats.com/)                                    | **INDEX ONLY**              | metadata 更新 2026-07-15，內容混合主辦方、第三方與廠商值；只用於找上游來源，不直接匯入聚合分數。                                                                   |
+| [Agents' Last Exam](https://agents-last-exam.org/leaderboard)          | **採用，主辦方**            | 2026-11-18 匯入 v1.1（`data/sources/agents-last-exam/`）；少跑題的列照常採用並揭露，同一 profile 有多個 harness 時排除。                                           |
+| [DeepSWE](https://deepswe.datacurve.ai/)                               | **採用，主辦方**            | DeepSWE 1.1，61 configs／24 models；官方資料生成 2026-08-13，渲染頁核驗 2026-08-18。                                                                               |
+| [Terminal-Bench](https://www.tbench.ai/leaderboard/terminal-bench/2.1) | **採用，主辦方驗證**        | 2.1 最新明示模型為 GPT-5.6 Terra／Luna max，2026-07-11；1.0 Legacy 不刷新。                                                                                        |
 
 ## 每月維護程序
 

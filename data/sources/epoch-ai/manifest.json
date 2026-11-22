@@ -9,8 +9,10 @@
     "frontiermath-tier-4",
     "frontiermath-tier-4-v2",
     "frontiermath-v2",
+    "furniture-assembly",
     "gpqa-diamond",
     "math-level-5",
+    "mystery-game-puzzles",
     "simpleqa-verified",
     "swe-bench"
   ],
@@ -28,11 +30,11 @@
     "Release date": "model release metadata",
     "Started at": "sourcePublishedAt"
   },
-  "lastVerifiedAt": "2026-11-22T05:05:44.873Z",
+  "lastVerifiedAt": "2026-11-22T06:18:03.572Z",
   "notes": [
     "Only files without the _external suffix are treated as Epoch-run evidence.",
     "ECI is an Epoch-owned composite and stays EXCLUDED: selection-only evidence, never a ninth dimension.",
-    "10 promoted files matched the live benchmarks.csv model set exactly.",
+    "12 promoted files matched the live benchmarks.csv model set exactly.",
     "FrontierMath v1 files stay as evidence; Epoch marks them superseded by v2, which is scored under frontiermath-v2 and frontiermath-tier-4-v2.",
     "Other Epoch-run files without an approved benchmark ID stay in the raw artifact and are listed in the validation report.",
     "Epoch Inspect harness and attempt metadata remain raw Profile provenance and do not create Product Profiles."

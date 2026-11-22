@@ -134,14 +134,13 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-22T05:05:46.827Z
-- Stored score snapshot: 2026-11-22T05:05:44.873Z
+- Checked: 2026-11-22T06:18:05.483Z
+- Stored score snapshot: 2026-11-22T06:18:03.572Z
 - Scope: snapshot-only
 
-| Finding                | Benchmark              | Detail                 |
-| ---------------------- | ---------------------- | ---------------------- |
-| benchmark-materialized | frontiermath-tier-4-v2 | 84 rows; 83 included   |
-| benchmark-materialized | frontiermath-v2        | 128 rows; 128 included |
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
 
 ## frontier-code
 
