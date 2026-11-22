@@ -174,6 +174,21 @@ describe('Dashboard Redesign', () => {
     });
   });
 
+  it('states how the preset chose its models only in developer mode', () => {
+    expect(renderToStaticMarkup(dashboard())).not.toContain(
+      'data-testid="preset-scope"',
+    );
+    expect(
+      renderToStaticMarkup(
+        createElement(Dashboard, {
+          product: productFixture,
+          benchmarkDimensions,
+          initialDeveloperMode: true,
+        }),
+      ),
+    ).toContain('data-testid="preset-scope"');
+  });
+
   it('discloses partial-coverage profiles in developer mode, without a score or a rank (R19)', () => {
     expect(renderToStaticMarkup(dashboard())).not.toContain(
       'data-partial-coverage',

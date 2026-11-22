@@ -9,6 +9,19 @@ import {
 
 type Comparison = ReturnType<typeof buildCommonComparison>;
 
+/** The value listed most often; the first such value on a tie. */
+const mostCommon = (values: readonly string[]): string | undefined => {
+  const counts = new Map<string, number>();
+  values.forEach((value) => counts.set(value, (counts.get(value) ?? 0) + 1));
+  return values.reduce<string | undefined>(
+    (best, value) =>
+      best === undefined || counts.get(value)! > counts.get(best)!
+        ? value
+        : best,
+    undefined,
+  );
+};
+
 /** One row per benchmark metric, shared by the table and its Markdown copy. */
 function commonBenchmarkRows({ profiles, benchmarkIds, evidence }: Comparison) {
   return benchmarkIds.flatMap((benchmarkId) => {
@@ -114,12 +127,29 @@ export function CommonBenchmarkTable({
                   const best = Math.max(
                     ...cells.map((cell) => cell.normalizedScore!),
                   );
+                  const rowSource = mostCommon(
+                    cells.map(({ sourceId }) => sourceId),
+                  );
                   return (
                     <tr key={key}>
                       <th scope="row">{label}</th>
                       {cells.map((cell) => (
                         <td key={cell.id}>
-                          <strong
+                          {/* Source, raw score and version sit in the link's
+                              tooltip; only a source that differs from the
+                              rest of the row is spelled out. */}
+                          <a
+                            href={cell.provenance.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={`${getSourceDisplayName(cell.sourceId)} · original score ${new Intl.NumberFormat(
+                              'en',
+                              { maximumFractionDigits: 4 },
+                            ).format(cell.rawScore)} ${cell.metric.unit}${
+                              cell.benchmarkVersion
+                                ? ` · ${cell.benchmarkVersion}`
+                                : ''
+                            }`}
                             className={
                               cell.normalizedScore === best
                                 ? 'common-best-score'
@@ -127,22 +157,12 @@ export function CommonBenchmarkTable({
                             }
                           >
                             {cell.normalizedScore!.toFixed(1)}
-                          </strong>
-                          <a
-                            href={cell.provenance.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            title={`Original score: ${cell.rawScore} ${cell.metric.unit}`}
-                          >
-                            {getSourceDisplayName(cell.sourceId)} ·{' '}
-                            {new Intl.NumberFormat('en', {
-                              maximumFractionDigits: 4,
-                            }).format(cell.rawScore)}{' '}
-                            {cell.metric.unit}
-                            {cell.benchmarkVersion
-                              ? ` · ${cell.benchmarkVersion}`
-                              : ''}
                           </a>
+                          {cell.sourceId !== rowSource ? (
+                            <span className="common-cell-source">
+                              {getSourceDisplayName(cell.sourceId)}
+                            </span>
+                          ) : null}
                         </td>
                       ))}
                       {difference !== null ? (

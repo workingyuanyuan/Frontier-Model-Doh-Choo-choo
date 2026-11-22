@@ -176,18 +176,24 @@ export async function expectCommonRow(
 ) {
   const row = commonRow(page, label);
   const cells = picks.map((p) => rowsFor(benchmarkId, p.profileId)[0]!);
-  await expect(row.locator('strong')).toHaveText(
+  // Each score links to its evidence; the publisher is named in the link's
+  // tooltip, and in the cell only where it differs from the rest of the row.
+  const links = row.getByRole('link');
+  await expect(links).toHaveText(
     cells.map((cell) => cell.normalizedScore!.toFixed(1)),
   );
-  const links = row.getByRole('link');
-  await expect(links).toHaveCount(cells.length);
   for (const [i, cell] of cells.entries()) {
     await expect(links.nth(i)).toHaveAttribute(
       'href',
       cell.provenance.sourceUrl,
     );
-    await expect(links.nth(i)).toContainText(
-      getSourceDisplayName(cell.sourceId),
+    const source = getSourceDisplayName(cell.sourceId);
+    await expect(links.nth(i)).toHaveAttribute(
+      'title',
+      new RegExp(`^${source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} · `),
     );
+  }
+  if (new Set(cells.map(({ sourceId }) => sourceId)).size > 1) {
+    await expect(row.locator('.common-cell-source')).not.toHaveCount(0);
   }
 }

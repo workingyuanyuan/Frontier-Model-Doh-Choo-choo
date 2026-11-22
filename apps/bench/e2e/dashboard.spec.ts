@@ -186,9 +186,8 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
         .toBeGreaterThan(0);
     }
   } else {
-    await expect(page.locator('[data-partial-coverage]')).toContainText(
-      'No profile is missing exactly one dimension.',
-    );
+    // An empty disclosure is left out rather than listed as empty.
+    await expect(page.locator('[data-partial-coverage]')).toHaveCount(0);
   }
   await expect(developerModelButton).toHaveAttribute('aria-expanded', 'false');
   await developerModelButton.click();
@@ -1031,6 +1030,9 @@ test('switches between the AA frontier and max-coverage model sets', async ({
         rows.map((r) => r.getAttribute('data-profile-id')).sort(),
       );
   await page.goto('/');
+  // The sentence describing the model set is a developer-mode detail.
+  await expect(page.getByTestId('preset-scope')).toHaveCount(0);
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   const switcher = page.getByRole('group', { name: 'How models are chosen' });
   await expect(
     switcher.getByRole('button', { name: 'Frontier' }),
@@ -1150,20 +1152,24 @@ test('discloses partial-coverage profiles in developer mode, outside the ranked 
   await expect(panel).toHaveCount(0);
 
   await page.getByRole('switch', { name: 'Developer mode' }).click();
-  await expect(panel).toBeVisible();
+  await expect(page.locator('[data-developer-models]')).toBeVisible();
+  const partialCount = getPartialCoverageRows(
+    withActivePreset(currentProduct),
+  ).length;
+  // With nothing to disclose the section is left out.
+  if (partialCount) await expect(panel).toBeVisible();
+  else await expect(panel).toHaveCount(0);
 
   const partialRows = page.locator('[data-partial-coverage-row]');
-  const partialCount = await partialRows.count();
-  expect(partialCount).toBe(
-    getPartialCoverageRows(withActivePreset(currentProduct)).length,
-  );
-  await expect(
-    page.locator(`[data-partial-coverage-count="${partialCount}"]`),
-  ).toBeVisible();
-
-  // R19: the list carries no aggregate and no position.
-  await expect(panel).not.toContainText('Overall');
-  await expect(panel).not.toContainText('Rank');
+  await expect(partialRows).toHaveCount(partialCount);
+  if (partialCount) {
+    await expect(
+      page.locator(`[data-partial-coverage-count="${partialCount}"]`),
+    ).toBeVisible();
+    // R19: the list carries no aggregate and no position.
+    await expect(panel).not.toContainText('Overall');
+    await expect(panel).not.toContainText('Rank');
+  }
 
   // The ranked table is one row per model at the preset's target count, and it
   // never shows an N/A cell; every profile listed above has one.
