@@ -1036,14 +1036,19 @@ Frontier Code 去數渲染後的列數。但那些頁面顯示的「N models eva
 | `frontiermath_tier_4_v2.csv`    | `frontiermath-tier-4-v2` | FrontierMath-Tier-4-v2-Private         |
 | `simpleqa_verified.csv`         | `simpleqa-verified`      | SimpleQA Verified                      |
 | `chess_puzzles.csv`             | `chess-puzzles`          | Chess Puzzles                          |
+| `mystery_game_puzzles.csv`      | `mystery-game-puzzles`   | Mystery Game Puzzles                   |
+| `furniture_assembly.csv`        | `furniture-assembly`     | Furniture Assembly                     |
 
 - **Epoch Capabilities Index（ECI）恆為 `EXCLUDED`。** 它是綜合指數，納入計分等於把同一批
   成績算兩次。它只作為選模的參考證據。
 - **FrontierMath 跟隨 v2（2026-11-22 使用者指示）。** Epoch 的 `benchmark_metadata.csv` 把兩份 v1
   私有題組標為被 v2 取代（2026-06-12 發布，修正題目錯誤）。v2 使用自己的 benchmark ID，維度與 v1 相同；
   v1 兩份檔案照常物化為證據，由品質政策排除計分（[審核紀錄](analysis/2026-11-22-frontiermath-v2-supersession.json)）。
+- **Mystery Game Puzzles 與 Furniture Assembly（2026-11-22 使用者核准）。** 依
+  [未採用檔案評估](analysis/2026-11-22-epoch-unpromoted-benchmarks.md) 採用這兩項，維度見
+  [BENCHMARK_DIMENSION_MAPPING](BENCHMARK_DIMENSION_MAPPING.md#2026-11-22-approved-epoch-benchmark-additions)。
 - 其他 Epoch 自己跑、但沒有核可 benchmark ID 與維度對應的檔案（例如 `ebr_bench.csv`、`mirrorcode.csv`、
-  `mystery_game_puzzles.csv`）**不 promote**，每次匯入都列在 validation report 的「Epoch-run files not
+  `spireclimb.csv`）**不 promote**，每次匯入都列在 validation report 的「Epoch-run files not
   promoted」一節。要納入必須先走 §5.3 的報告與使用者裁決。
 - ECI 有 553 列，涵蓋回溯到 2023 年的模型，多數不在 catalog 內；identity 解析不到的列保持
   `canonicalModelId: null`，**不做模糊匹配**。

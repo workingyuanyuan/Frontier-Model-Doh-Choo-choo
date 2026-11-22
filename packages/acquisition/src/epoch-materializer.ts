@@ -202,6 +202,22 @@ export const EPOCH_DIRECT_FILES = [
     version: null,
     liveTaskName: 'Chess Puzzles',
   },
+  // Adopted 2026-11-22 by user decision; evaluation in
+  // docs/analysis/2026-11-22-epoch-unpromoted-benchmarks.md.
+  {
+    name: 'furniture_assembly.csv',
+    benchmarkId: 'furniture-assembly',
+    isOrganizer: true,
+    version: null,
+    liveTaskName: 'Furniture Assembly',
+  },
+  {
+    name: 'mystery_game_puzzles.csv',
+    benchmarkId: 'mystery-game-puzzles',
+    isOrganizer: true,
+    version: null,
+    liveTaskName: 'Mystery Game Puzzles',
+  },
 ] as const;
 
 export function materializeEpoch(
@@ -434,7 +450,7 @@ export function materializeEpoch(
             evidenceId,
             method: 'EXPORT',
             locator: f.isOrganizer
-              ? `${f.name} (FrontierMath is organizer evidence)`
+              ? `${f.name} (Epoch-designed benchmark: organizer evidence)`
               : `${f.name} (rerun of external benchmark)`,
           },
         },

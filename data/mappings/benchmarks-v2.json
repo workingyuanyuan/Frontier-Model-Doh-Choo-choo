@@ -135,6 +135,16 @@
       "secondaryDimensions": ["knowledge"]
     },
     {
+      "id": "mystery-game-puzzles",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "furniture-assembly",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
       "id": "aime",
       "primaryDimension": "reasoning",
       "secondaryDimensions": []

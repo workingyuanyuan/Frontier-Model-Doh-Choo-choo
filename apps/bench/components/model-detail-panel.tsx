@@ -112,6 +112,8 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'swe-bench': 'SWE-bench',
   'simpleqa-verified': 'SimpleQA Verified',
   'chess-puzzles': 'Chess Puzzles',
+  'mystery-game-puzzles': 'Mystery Game Puzzles',
+  'furniture-assembly': 'Furniture Assembly',
   'aa-briefcase': 'AA-Briefcase',
   'apex-agents': 'APEX-Agents',
   'gdpval-aa': 'GDPval-AA',
