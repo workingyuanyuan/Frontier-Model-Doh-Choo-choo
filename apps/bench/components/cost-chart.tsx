@@ -1240,6 +1240,7 @@ export const CostChart = memo(function CostChart({
   advancedProduct,
   leaderboardModelIds,
   onUseInLeaderboard,
+  developerMode = false,
 }: {
   /** The profiles the leaderboard ranks: the preset's, or a custom comparison. */
   defaultProduct: PresetProductVersion;
@@ -1258,6 +1259,8 @@ export const CostChart = memo(function CostChart({
   leaderboardModelIds?: readonly string[] | undefined;
   /** Hands the models and efforts visible on the advanced chart to the leaderboard. */
   onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
+  /** Shows the source-weight note, a detail the main screen leaves out. */
+  developerMode?: boolean;
 }) {
   const [advanced, setAdvanced] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
@@ -1337,9 +1340,11 @@ export const CostChart = memo(function CostChart({
           </div>
           <div className="cost-chart-actions">
             {!advanced ? (
-              <p className="cost-weight-note">
-                {weightNote(COST_SOURCE_WEIGHTS)}
-              </p>
+              developerMode ? (
+                <p className="cost-weight-note">
+                  {weightNote(COST_SOURCE_WEIGHTS)}
+                </p>
+              ) : null
             ) : (
               <div
                 className="advanced-source-controls"

@@ -439,6 +439,7 @@ export function Dashboard({
           advancedProduct={product}
           leaderboardModelIds={checkedModelIds}
           onUseInLeaderboard={applyChartShortlist}
+          developerMode={developerMode}
         />
       </main>
       <footer className="site-footer">
