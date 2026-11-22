@@ -80,8 +80,24 @@ export interface VerificationIssue {
   snapshotId?: string;
   message: string;
 }
+export interface VerifyOptions {
+  /**
+   * Read and refresh the verification cache beside the database. With a
+   * usable cache the check is incremental: SQLite runs `quick_check`, and
+   * blobs whose file signature and snapshots whose stored rows are unchanged
+   * since the last passing check are not decoded or hashed again. A full
+   * check runs instead when there is no usable cache or the last full check
+   * is older than FULL_VERIFY_INTERVAL_MS.
+   */
+  cache?: boolean;
+  /** Run the full check even when the cache is usable. */
+  full?: boolean;
+  /** Clock override for tests. */
+  now?: number;
+}
 export interface VerificationReport {
   ok: boolean;
+  mode: 'full' | 'incremental';
   blobs: number;
   captures: number;
   snapshots: number;
@@ -109,6 +125,24 @@ interface BackupManifest {
 }
 
 const SCHEMA_VERSION = 2;
+const VERIFY_CACHE_VERSION = 2;
+/** Silent disk corruption only shows up in a full check; bound its age. */
+export const FULL_VERIFY_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
+interface VerifyCache {
+  version: number;
+  schemaVersion: number;
+  fullAt: string;
+  blobs: Record<string, { hash: string; signature: string }>;
+  snapshots: Record<string, string>;
+}
+/** Changes whenever the file is rewritten, replaced, resized or touched. */
+const fileSignature = (path: string): { signature: string; size: bigint } => {
+  const info = statSync(path, { bigint: true });
+  return {
+    signature: `${info.dev}:${info.ino}:${info.size}:${info.mtimeNs}:${info.ctimeNs}`,
+    size: info.size,
+  };
+};
 const digest = (bytes: string | Uint8Array): string =>
   `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
 const fileDescriptor = (path: string): { sha256: string; bytes: number } => {
@@ -384,14 +418,13 @@ export class EvidenceStore {
     if (!existsSync(path) && requireBytes)
       throw new Error(`Missing evidence blob: ${record.artifactPath}`);
     if (existsSync(path)) {
-      const info = statSync(path, { bigint: true });
-      const signature = `${info.dev}:${info.ino}:${info.size}:${info.mtimeNs}:${info.ctimeNs}`;
+      const { signature, size } = fileSignature(path);
       const verified = this.verifiedImports.get(path);
       if (
         requireBytes ||
         verified?.signature !== signature ||
         verified.hash !== record.sha256 ||
-        info.size !== BigInt(record.byteLength)
+        size !== BigInt(record.byteLength)
       ) {
         const descriptor = fileDescriptor(path);
         if (
@@ -962,127 +995,283 @@ export class EvidenceStore {
     });
   }
 
-  verify(): VerificationReport {
+  /** Where `verify({ cache: true })` keeps what the last passing check saw. */
+  get verifyCachePath(): string {
+    return `${this.dbPath}.verify-cache.json`;
+  }
+
+  private readVerifyCache(now: number): VerifyCache | null {
+    try {
+      const cache = JSON.parse(
+        readFileSync(this.verifyCachePath, 'utf8'),
+      ) as Partial<VerifyCache>;
+      const fullAt = Date.parse(cache.fullAt ?? '');
+      if (
+        cache.version !== VERIFY_CACHE_VERSION ||
+        cache.schemaVersion !== SCHEMA_VERSION ||
+        !Number.isFinite(fullAt) ||
+        fullAt > now ||
+        now - fullAt > FULL_VERIFY_INTERVAL_MS ||
+        typeof cache.blobs !== 'object' ||
+        cache.blobs === null ||
+        typeof cache.snapshots !== 'object' ||
+        cache.snapshots === null
+      )
+        return null;
+      return cache as VerifyCache;
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * One digest per snapshot over every stored column the full check reads,
+   * including its reference index, so any edit to those rows forces the
+   * snapshot through the full check again.
+   */
+  private snapshotFingerprints(): Map<string, string> {
+    const field = (hash: ReturnType<typeof createHash>, value: unknown) => {
+      const bytes =
+        value instanceof Uint8Array ? value : Buffer.from(String(value));
+      const type = value instanceof Uint8Array ? 'blob' : typeof value;
+      hash.update(`${type}:${bytes.byteLength}:`).update(bytes);
+    };
+    const refs = new Map<string, string>();
+    let current: string | null = null;
+    let hash = createHash('sha256');
+    for (const row of this.db
+      .prepare(
+        'SELECT snapshot_id,file,pointer,hash FROM snapshot_refs ORDER BY snapshot_id,file,pointer',
+      )
+      .iterate() as Iterable<{
+      snapshot_id: string;
+      file: string;
+      pointer: string;
+      hash: string;
+    }>) {
+      if (row.snapshot_id !== current) {
+        if (current !== null) refs.set(current, hash.digest('hex'));
+        current = row.snapshot_id;
+        hash = createHash('sha256');
+      }
+      field(hash, row.file);
+      field(hash, row.pointer);
+      field(hash, row.hash);
+    }
+    if (current !== null) refs.set(current, hash.digest('hex'));
+    const fingerprints = new Map<string, string>();
+    for (const row of this.db
+      .prepare('SELECT id,source_id,files,provenance,digest FROM snapshots')
+      .iterate() as Iterable<SnapshotRow>) {
+      const digest = createHash('sha256');
+      for (const value of [
+        row.id,
+        row.source_id,
+        row.files,
+        row.provenance,
+        row.digest,
+        refs.get(row.id) ?? '',
+      ])
+        field(digest, value);
+      fingerprints.set(row.id, digest.digest('hex'));
+    }
+    return fingerprints;
+  }
+
+  verify(options: VerifyOptions = {}): VerificationReport {
+    const now = options.now ?? Date.now();
+    const cache =
+      options.cache && !options.full ? this.readVerifyCache(now) : null;
+    const mode = cache ? 'incremental' : 'full';
+    const verifiedBlobs: VerifyCache['blobs'] = {};
+    const verifiedSnapshots: VerifyCache['snapshots'] = {};
     const issues: VerificationIssue[] = [];
-    const integrity = this.db
-      .prepare('PRAGMA integrity_check')
-      .all() as unknown as Array<{ integrity_check: string }>;
-    for (const row of integrity)
-      if (row.integrity_check !== 'ok')
-        issues.push({ kind: 'sqlite', message: row.integrity_check });
-    for (const row of this.db.prepare('PRAGMA foreign_key_check').all())
-      issues.push({ kind: 'foreign-key', message: canonical(row) });
-    const blobs = this.db
-      .prepare('SELECT * FROM blobs ORDER BY hash,path')
-      .all() as unknown as BlobRow[];
-    let unknown = 0;
-    for (const blob of blobs) {
-      try {
-        const path = inside(this.root, blob.path);
-        if (!existsSync(path)) {
-          unknown++;
+    // One read transaction, so the fingerprints cached below describe the
+    // same database state the checks read.
+    this.db.exec('BEGIN');
+    let counts: Pick<
+      VerificationReport,
+      'blobs' | 'captures' | 'snapshots' | 'unknown'
+    >;
+    try {
+      // quick_check skips matching index entries against their tables; the
+      // periodic full check still runs integrity_check.
+      const integrity = this.db
+        .prepare(cache ? 'PRAGMA quick_check' : 'PRAGMA integrity_check')
+        .all() as unknown as Array<Record<string, unknown>>;
+      for (const row of integrity) {
+        const [result] = Object.values(row);
+        if (result !== 'ok')
+          issues.push({ kind: 'sqlite', message: String(result) });
+      }
+      for (const row of this.db.prepare('PRAGMA foreign_key_check').all())
+        issues.push({ kind: 'foreign-key', message: canonical(row) });
+      const blobs = this.db
+        .prepare('SELECT * FROM blobs ORDER BY hash,path')
+        .all() as unknown as BlobRow[];
+      let unknown = 0;
+      for (const blob of blobs) {
+        try {
+          const path = inside(this.root, blob.path);
+          if (!existsSync(path)) {
+            unknown++;
+            issues.push({
+              kind: 'missing-blob',
+              hash: blob.hash,
+              path: blob.path,
+              message: 'Historical bytes unavailable',
+            });
+            continue;
+          }
+          const key = `${blob.hash} ${blob.path}`;
+          const { signature, size } = fileSignature(path);
+          // A size SQLite stored with another type never takes the cached path.
+          const sizeMatches =
+            blob.size === null ||
+            (typeof blob.size === 'number' && BigInt(blob.size) === size);
+          const cached = cache?.blobs[key];
+          if (
+            cached?.hash === blob.hash &&
+            cached.signature === signature &&
+            sizeMatches
+          ) {
+            verifiedBlobs[key] = cached;
+            continue;
+          }
+          const descriptor = fileDescriptor(path);
+          if (
+            descriptor.sha256 !== blob.hash ||
+            (blob.size !== null && blob.size !== descriptor.bytes)
+          )
+            issues.push({
+              kind: 'corrupt-blob',
+              hash: blob.hash,
+              path: blob.path,
+              message: 'Blob hash or size differs from stored descriptor',
+            });
+          else verifiedBlobs[key] = { hash: blob.hash, signature };
+        } catch (error) {
           issues.push({
-            kind: 'missing-blob',
+            kind: 'invalid-path',
             hash: blob.hash,
             path: blob.path,
-            message: 'Historical bytes unavailable',
+            message: String(error),
           });
+        }
+      }
+      const fingerprints = options.cache
+        ? this.snapshotFingerprints()
+        : new Map<string, string>();
+      const snapshots = this.db
+        .prepare('SELECT id FROM snapshots ORDER BY seq')
+        .all() as unknown as Array<{ id: string }>;
+      for (const { id } of snapshots) {
+        const fingerprint = fingerprints.get(id);
+        if (fingerprint !== undefined && cache?.snapshots[id] === fingerprint) {
+          verifiedSnapshots[id] = fingerprint;
           continue;
         }
-        const descriptor = fileDescriptor(path);
-        if (
-          descriptor.sha256 !== blob.hash ||
-          (blob.size !== null && blob.size !== descriptor.bytes)
-        )
-          issues.push({
-            kind: 'corrupt-blob',
-            hash: blob.hash,
-            path: blob.path,
-            message: 'Blob hash or size differs from stored descriptor',
-          });
-      } catch (error) {
-        issues.push({
-          kind: 'invalid-path',
-          hash: blob.hash,
-          path: blob.path,
-          message: String(error),
-        });
-      }
-    }
-    const snapshots = this.db
-      .prepare('SELECT id FROM snapshots ORDER BY seq')
-      .all() as unknown as Array<{ id: string }>;
-    for (const { id } of snapshots) {
-      try {
-        const snapshot = this.getSnapshot(id);
-        const expected = referenceValues(snapshot.files).sort((a, b) =>
-          canonical(a).localeCompare(canonical(b)),
-        );
-        const actual = this.db
-          .prepare(
-            'SELECT file,pointer,hash FROM snapshot_refs WHERE snapshot_id=?',
-          )
-          .all(id)
-          .map((item) => ({
-            file: String(item.file),
-            pointer: String(item.pointer),
-            hash: String(item.hash),
-          }))
-          .sort((a, b) => canonical(a).localeCompare(canonical(b)));
-        if (canonical(expected) !== canonical(actual))
-          issues.push({
-            kind: 'snapshot-references',
-            snapshotId: id,
-            message: 'Reference index differs from immutable snapshot contents',
-          });
-        const index = snapshot.files['evidence-index.json']
-          ? EvidenceRecordSchema.array().parse(
-              JSON.parse(snapshot.files['evidence-index.json']),
+        const issuesBefore = issues.length;
+        try {
+          const snapshot = this.getSnapshot(id);
+          const expected = referenceValues(snapshot.files).sort((a, b) =>
+            canonical(a).localeCompare(canonical(b)),
+          );
+          const actual = this.db
+            .prepare(
+              'SELECT file,pointer,hash FROM snapshot_refs WHERE snapshot_id=?',
             )
-          : [];
-        const indexed = new Set(index.map((record) => record.id));
-        for (const ref of expected)
-          if (
-            ['candidates.json', 'costs.json'].includes(ref.file) &&
-            !indexed.has(ref.hash)
-          ) {
+            .all(id)
+            .map((item) => ({
+              file: String(item.file),
+              pointer: String(item.pointer),
+              hash: String(item.hash),
+            }))
+            .sort((a, b) => canonical(a).localeCompare(canonical(b)));
+          if (canonical(expected) !== canonical(actual))
             issues.push({
-              kind: 'unindexed-reference',
+              kind: 'snapshot-references',
               snapshotId: id,
-              hash: ref.hash,
-              path: ref.file,
-              message: `Reference ${ref.pointer} has no evidence-index record`,
+              message:
+                'Reference index differs from immutable snapshot contents',
             });
-          }
-      } catch (error) {
-        issues.push({
-          kind: 'corrupt-snapshot',
-          snapshotId: id,
-          message: String(error),
-        });
+          const index = snapshot.files['evidence-index.json']
+            ? EvidenceRecordSchema.array().parse(
+                JSON.parse(snapshot.files['evidence-index.json']),
+              )
+            : [];
+          const indexed = new Set(index.map((record) => record.id));
+          for (const ref of expected)
+            if (
+              ['candidates.json', 'costs.json'].includes(ref.file) &&
+              !indexed.has(ref.hash)
+            ) {
+              issues.push({
+                kind: 'unindexed-reference',
+                snapshotId: id,
+                hash: ref.hash,
+                path: ref.file,
+                message: `Reference ${ref.pointer} has no evidence-index record`,
+              });
+            }
+        } catch (error) {
+          issues.push({
+            kind: 'corrupt-snapshot',
+            snapshotId: id,
+            message: String(error),
+          });
+        }
+        if (fingerprint !== undefined && issues.length === issuesBefore)
+          verifiedSnapshots[id] = fingerprint;
       }
+      const captureRows = this.db
+        .prepare('SELECT id,hash,record FROM captures ORDER BY seq')
+        .all() as unknown as Array<{
+        id: string;
+        hash: string;
+        record: string;
+      }>;
+      for (const row of captureRows) {
+        try {
+          const record = EvidenceRecordSchema.parse(JSON.parse(row.record));
+          if (row.hash !== record.sha256 || record.id !== record.sha256)
+            throw new Error('Capture digest differs from record');
+        } catch (error) {
+          issues.push({
+            kind: 'corrupt-capture',
+            message: `${row.id}: ${String(error)}`,
+          });
+        }
+      }
+      counts = {
+        blobs: blobs.length,
+        captures: captureRows.length,
+        snapshots: snapshots.length,
+        unknown,
+      };
+    } finally {
+      this.db.exec('COMMIT');
     }
-    const captureRows = this.db
-      .prepare('SELECT id,hash,record FROM captures ORDER BY seq')
-      .all() as unknown as Array<{ id: string; hash: string; record: string }>;
-    for (const row of captureRows) {
-      try {
-        const record = EvidenceRecordSchema.parse(JSON.parse(row.record));
-        if (row.hash !== record.sha256 || record.id !== record.sha256)
-          throw new Error('Capture digest differs from record');
-      } catch (error) {
-        issues.push({
-          kind: 'corrupt-capture',
-          message: `${row.id}: ${String(error)}`,
-        });
-      }
+    // Only a passing check may vouch for what the next run skips, and a
+    // failing one withdraws the old cache so the next run checks everything.
+    if (options.cache && issues.length > 0)
+      rmSync(this.verifyCachePath, { force: true });
+    if (options.cache && issues.length === 0) {
+      const next: VerifyCache = {
+        version: VERIFY_CACHE_VERSION,
+        schemaVersion: SCHEMA_VERSION,
+        fullAt: cache ? cache.fullAt : new Date(now).toISOString(),
+        blobs: verifiedBlobs,
+        snapshots: verifiedSnapshots,
+      };
+      const temporary = `${this.verifyCachePath}.${randomUUID()}.tmp`;
+      durableWrite(temporary, JSON.stringify(next));
+      renameSync(temporary, this.verifyCachePath);
     }
     return {
       ok: issues.length === 0,
-      blobs: blobs.length,
-      captures: captureRows.length,
-      snapshots: snapshots.length,
-      unknown,
+      mode,
+      ...counts,
       issues,
     };
   }

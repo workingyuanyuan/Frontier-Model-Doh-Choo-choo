@@ -9,49 +9,42 @@ on:
 permissions:
   contents: read
 
+# The gates run as parallel jobs: static checks beside the build, and the
+# browser suite split into shards once the build exists. `quality` waits for
+# all of them and is the single check that deploys and branch rules rely on.
+# Concurrency is per job, never workflow-wide, so a newer push cannot cancel a
+# deploy that is already running.
 jobs:
-  quality:
-    name: Static data and Dashboard
+  checks:
+    name: Static checks
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     concurrency:
-      group: ci-${{ github.workflow }}-${{ github.ref }}
+      group: ci-${{ github.workflow }}-${{ github.ref }}-checks
       cancel-in-progress: true
-    outputs:
-      sha: ${{ steps.verified.outputs.sha }}
-      artifact: ${{ steps.verified.outputs.artifact }}
-      indexnow: ${{ steps.indexnow.outputs.body }}
-
     env:
       CI: true
-      NEXT_PUBLIC_BASE_PATH: ${{ format('/{0}', github.event.repository.name) }}
-
     steps:
       - name: Check out repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           ref: ${{ github.sha }}
 
-      - name: Record source SHA
-        run: |
-          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-          echo "Quality and Pages build SHA: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@b0f76dfb45f55f8421693e4803ac7bb65143bd34 # v6
-
-      - name: Install Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        with:
-          node-version: 24.18.0
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-
-      - name: Install dependencies from lockfile
-        run: pnpm install --frozen-lockfile
+      - name: Set up workspace
+        uses: ./.github/actions/setup-workspace
 
       - name: Reject high or critical dependency advisories
         run: pnpm audit --audit-level high
+
+      # `pnpm format` keys its cache on file content, so a restored cache only
+      # skips files whose bytes Prettier already accepted with this version
+      # and configuration; every changed file is still checked.
+      - name: Restore Prettier cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: node_modules/.cache/prettier
+          key: prettier-${{ runner.os }}-${{ github.sha }}
+          restore-keys: prettier-${{ runner.os }}-
 
       - name: Check formatting
         run: pnpm format
@@ -70,8 +63,108 @@ jobs:
       - name: Check the product matches its sources and mappings
         run: pnpm data:verify-fresh
 
+  build:
+    name: Build dashboard
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: ci-${{ github.workflow }}-${{ github.ref }}-build
+      cancel-in-progress: true
+    outputs:
+      sha: ${{ steps.pages.outputs.sha }}
+      artifact: ${{ steps.pages.outputs.artifact }}
+      e2e: ${{ steps.pages.outputs.e2e }}
+      indexnow: ${{ steps.indexnow.outputs.body }}
+    env:
+      CI: true
+      NEXT_PUBLIC_BASE_PATH: ${{ format('/{0}', github.event.repository.name) }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Record source SHA
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          echo "Pages build SHA: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Set up workspace
+        uses: ./.github/actions/setup-workspace
+
       - name: Build production applications
         run: pnpm build
+
+      # Compare each page's data file with the live one before the deploy
+      # replaces it. A failed comparison shows as a warning and submits
+      # nothing; it never blocks the deploy.
+      - name: List pages changed since the live deployment
+        id: indexnow
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: |
+          body=$(node scripts/indexnow.mjs apps/bench/out)
+          printf 'body=%s\n' "$body" >> "$GITHUB_OUTPUT"
+
+      # Both artifacts are named per run attempt, so a rerun can never pick
+      # up another attempt's export. They are uploaded before the other gates
+      # finish; only `quality` passing lets the deploy job use one.
+      - name: Prepare Pages artifact
+        id: pages
+        run: |
+          touch apps/bench/out/.nojekyll
+          echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+          echo "artifact=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+          echo "e2e=e2e-build-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+
+      # The e2e shards test exactly this export, and import the built
+      # benchmark-data package for their expectations. Kept for a week so a
+      # failed shard can still be rerun on its own.
+      - name: Upload build for the browser gates
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ steps.pages.outputs.e2e }}
+          path: |
+            apps/bench/out
+            packages/benchmark-data/dist
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          name: ${{ steps.pages.outputs.artifact }}
+          path: apps/bench/out
+          retention-days: 7
+
+  e2e:
+    name: Dashboard browser gates (${{ matrix.shard }}/3)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: ci-${{ github.workflow }}-${{ github.ref }}-e2e-${{ matrix.shard }}
+      cancel-in-progress: true
+    strategy:
+      fail-fast: true
+      matrix:
+        shard: [1, 2, 3]
+    env:
+      CI: true
+      NEXT_PUBLIC_BASE_PATH: ${{ format('/{0}', github.event.repository.name) }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up workspace
+        uses: ./.github/actions/setup-workspace
+
+      - name: Download the build under test
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ${{ needs.build.outputs.e2e }}
 
       # The browser download is cached per Playwright version. The system
       # packages come from the runner's apt mirror, which has stalled for
@@ -108,7 +201,25 @@ jobs:
           exit 1
 
       - name: Run Dashboard browser and accessibility gates
-        run: pnpm e2e
+        run: pnpm e2e --shard=${{ matrix.shard }}/3
+
+      # quality requires one receipt per shard naming the build it tested,
+      # instead of trusting the matrix's combined result alone.
+      - name: Write shard receipt
+        env:
+          SHARD: ${{ matrix.shard }}
+          TESTED: ${{ needs.build.outputs.e2e }}
+        run: |
+          mkdir -p e2e-receipt
+          printf '%s\n' "$TESTED" > "e2e-receipt/shard-$SHARD-attempt-$GITHUB_RUN_ATTEMPT"
+
+      - name: Upload shard receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: e2e-receipt-${{ matrix.shard }}-${{ github.run_attempt }}
+          path: e2e-receipt
+          if-no-files-found: error
+          retention-days: 7
 
       # Without this, an e2e failure that only reproduces on the runner leaves
       # nothing to debug with: the traces exist but never leave the machine.
@@ -116,36 +227,57 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: playwright-report
+          name: playwright-report-${{ matrix.shard }}
           path: |
             playwright-report
             test-results
           retention-days: 7
 
-      # Compare each page's data file with the live one before the deploy
-      # replaces it. A failed comparison shows as a warning and submits
-      # nothing; it never blocks the deploy.
-      - name: List pages changed since the live deployment
-        id: indexnow
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        continue-on-error: true
-        run: |
-          body=$(node scripts/indexnow.mjs apps/bench/out)
-          printf 'body=%s\n' "$body" >> "$GITHUB_OUTPUT"
-
-      - name: Prepare verified Pages artifact
-        id: verified
-        run: |
-          touch apps/bench/out/.nojekyll
-          echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
-          echo "artifact=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
-          echo "All quality gates passed for $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+  # Fails closed: it runs whenever the workflow was not cancelled and passes
+  # only if every gate job succeeded for this SHA, so a failed or skipped gate
+  # can never surface as a passing (skipped) check.
+  quality:
+    name: Static data and Dashboard
+    needs: [checks, build, e2e]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      sha: ${{ steps.verified.outputs.sha }}
+      artifact: ${{ steps.verified.outputs.artifact }}
+      indexnow: ${{ needs.build.outputs.indexnow }}
+    steps:
+      - name: Download shard receipts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: ${{ steps.verified.outputs.artifact }}
-          path: apps/bench/out
+          pattern: e2e-receipt-*
+          merge-multiple: true
+          path: e2e-receipt
+
+      - name: Require every gate to pass
+        id: verified
+        env:
+          CHECKS: ${{ needs.checks.result }}
+          BUILD: ${{ needs.build.result }}
+          E2E: ${{ needs.e2e.result }}
+          BUILT_SHA: ${{ needs.build.outputs.sha }}
+          ARTIFACT: ${{ needs.build.outputs.artifact }}
+          TESTED: ${{ needs.build.outputs.e2e }}
+        run: |
+          echo "checks=$CHECKS build=$BUILD e2e=$E2E"
+          test "$CHECKS" = success
+          test "$BUILD" = success
+          test "$E2E" = success
+          test "$BUILT_SHA" = "$GITHUB_SHA"
+          test -n "$ARTIFACT"
+          test -n "$TESTED"
+          for shard in 1 2 3; do
+            grep -qxF "$TESTED" e2e-receipt/shard-$shard-attempt-* ||
+              { echo "::error::No receipt from shard $shard for $TESTED"; exit 1; }
+          done
+          echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+          echo "artifact=$ARTIFACT" >> "$GITHUB_OUTPUT"
+          echo "All quality gates passed for $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
 
   deploy:
     name: Deploy verified dashboard

@@ -13,6 +13,11 @@ data/product/current.json
 data/sources/*/candidates.json
 data/sources/*/validation-report.md
 
+# Dated machine records of refresh runs, daily checks and analyses (about
+# 170 MB). Their writers emit them once and nothing rewrites them; checking
+# them dominated `pnpm format` in CI.
+docs/**/*.json
+
 # Byte-for-byte copies of artifacts entries used by the materializer tests.
 # Reformatting them would change the bytes the tests parse and break the link
 # back to the SHA-256 each filename records.
