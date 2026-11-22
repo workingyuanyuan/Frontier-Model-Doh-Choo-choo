@@ -145,7 +145,17 @@ describe('Dashboard Redesign', () => {
     const weightNote = `Source weights: ${(
       100 / Object.keys(COST_SOURCE_WEIGHTS).length
     ).toFixed(1)}% each.`;
-    expect(html.split(weightNote)).toHaveLength(2);
+    // The weight note is a developer-mode detail.
+    expect(html).not.toContain(weightNote);
+    expect(
+      renderToStaticMarkup(
+        createElement(Dashboard, {
+          product: productFixture,
+          benchmarkDimensions,
+          initialDeveloperMode: true,
+        }),
+      ).split(weightNote),
+    ).toHaveLength(2);
     Object.keys(COST_SOURCE_WEIGHTS).forEach((sourceId) => {
       expect(html).toContain(sourceId);
     });

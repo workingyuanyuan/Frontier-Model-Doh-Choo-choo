@@ -854,7 +854,8 @@ test('uses an equal-width cost toolbar and full-width charts in both modes', asy
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/');
+  // The weight note beside the buttons is shown in developer mode.
+  await page.goto('/?dev=1');
 
   await expect(page.locator('.cost-model-legend')).toHaveCount(0);
   const modeTrigger = page.locator('.cost-mode-toggle');
