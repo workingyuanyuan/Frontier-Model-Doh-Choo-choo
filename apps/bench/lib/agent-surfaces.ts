@@ -69,6 +69,17 @@ const table = (headers: string[], rows: string[][]): string =>
     ...rows.map(markdownLine),
   ].join('\n');
 
+/** "2 to N" for the presets of one family, read from the data version. */
+const familySizes = (
+  product: Pick<ProductVersion, 'presets'>,
+  family: ProductVersion['presets'][number]['family'],
+): string => {
+  const counts = product.presets
+    .filter((preset) => preset.family === family)
+    .map(({ targetModelCount }) => targetModelCount);
+  return `${Math.min(...counts)} to ${Math.max(...counts)}`;
+};
+
 const versionLines = (product: {
   versionId: string;
   generatedAt: string;
@@ -417,7 +428,7 @@ export const llmsTxt = (
     '',
     '## Leaderboards',
     '',
-    'Two model sets, each with one preset per size (2 to 10 models). Each preset has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.',
+    `Two model sets, each with one preset per size (${familySizes(product, 'aa-frontier')} models for \`aa-top-N\`, ${familySizes(product, 'coverage')} for \`coverage-N\`). Each preset has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.`,
     '',
     `- \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}): ${PRESET_FAMILY_INFO['aa-frontier'].rule}. Use it for "the best N models".`,
     `- \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}): ${PRESET_FAMILY_INFO.coverage.rule}. Use it to compare on the most benchmarks; it can leave out top-ranked models or score a model at another qualifying effort than its representative one, and each file names both.`,
@@ -595,9 +606,9 @@ export const methodologyMarkdown = (
     '',
     '- The model set follows the Artificial Analysis Intelligence Index ranking of current frontier models. That index only selects models; it is not part of any score.',
     '- A model qualifies when it is ranked there and has results from at least two independent organisations.',
-    '- The frontier window is the first ten qualifying models in that ranking.',
+    `- The frontier window is the first ${product.frontier.length} qualifying models in that ranking. \`aa-top-N\` draws from its first ten; \`coverage-N\` from the whole window.`,
     '- Each model is represented by one reasoning-effort profile: among its qualifying efforts, the one holding the most scoring-eligible benchmarks (ties: more independent organisations, then the higher AA score, then the profile ID). The choice is recomputed with every data version, so it follows the effort the sources measured most.',
-    `- Two model sets, one preset per size N = 2 to 10. \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}) takes ${PRESET_FAMILY_INFO['aa-frontier'].rule.replace('the top N models', 'the top N')}. \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}) takes ${PRESET_FAMILY_INFO.coverage.rule}; it can leave out top-ranked models, and it may score a model at another qualifying effort than its representative one when that shares more benchmarks, or as many benchmarks across more dimensions. With all ten models the two sets score the same models, possibly at different efforts.`,
+    `- Two model sets, one preset per size: N = ${familySizes(product, 'aa-frontier')} for \`aa-top-N\` and ${familySizes(product, 'coverage')} for \`coverage-N\`. \`aa-top-N\` (${PRESET_FAMILY_INFO['aa-frontier'].name}) takes ${PRESET_FAMILY_INFO['aa-frontier'].rule.replace('the top N models', 'the top N')}. \`coverage-N\` (${PRESET_FAMILY_INFO.coverage.name}) takes ${PRESET_FAMILY_INFO.coverage.rule}; it can leave out top-ranked models, and it may score a model at another qualifying effort than its representative one when that shares more benchmarks, or as many benchmarks across more dimensions.`,
     `- The default preset is \`${product.defaultPresetId}\`.`,
     '- A model can have several profiles, one per reasoning effort. Results from different efforts are never merged. Each preset scores one row per base model: its representative profile in `aa-top-N`, and in `coverage-N` the qualifying effort the search chose, named in the scope line of the preset. On the dashboard a reader can switch a row to another effort, and the scores are recomputed for that selection.',
     '',

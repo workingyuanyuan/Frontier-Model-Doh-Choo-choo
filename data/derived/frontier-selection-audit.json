@@ -713,6 +713,381 @@
           "vals-ai"
         ],
         "benchmarkCount": 35
+      },
+      {
+        "rank": 11,
+        "modelId": "openai-gpt-6-1-terra",
+        "profileId": "openai-gpt-6-1-terra-max",
+        "score": 51.3265188577015,
+        "resultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:04ceac8813cc023c00c996923c722ab69402cca04b8dd1bd21e00de667b58a9e"
+        ],
+        "aaWinningProfileId": "openai-gpt-6-1-terra-max",
+        "representativeScore": 51.3265188577015,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "openai-gpt-6-1-terra-max",
+            "benchmarkCount": 32,
+            "organizationCount": 8,
+            "aaScore": 51.3265188577015
+          },
+          {
+            "profileId": "openai-gpt-6-1-terra-high",
+            "benchmarkCount": 12,
+            "organizationCount": 3,
+            "aaScore": 42.4344508712563
+          },
+          {
+            "profileId": "openai-gpt-6-1-terra-xhigh",
+            "benchmarkCount": 11,
+            "organizationCount": 2,
+            "aaScore": 45.250051789066
+          },
+          {
+            "profileId": "openai-gpt-6-1-terra-medium",
+            "benchmarkCount": 11,
+            "organizationCount": 2,
+            "aaScore": 38.1652076677975
+          },
+          {
+            "profileId": "openai-gpt-6-1-terra-low",
+            "benchmarkCount": 11,
+            "organizationCount": 2,
+            "aaScore": 29.4169280792131
+          }
+        ],
+        "organizations": [
+          "agents-last-exam",
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "scale-swe-atlas",
+          "terminal-bench",
+          "vals-ai"
+        ],
+        "benchmarkCount": 32
+      },
+      {
+        "rank": 12,
+        "modelId": "google-gemini-4-argon",
+        "profileId": "google-gemini-4-argon-high",
+        "score": 50.4121935905389,
+        "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:8884f4a0961084cd69ecaf9971db6e6afeda7e66a3a12290fd247e82fe847875"
+        ],
+        "aaWinningProfileId": "google-gemini-4-argon-high",
+        "representativeScore": 50.4121935905389,
+        "representativeResultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "google-gemini-4-argon-high",
+            "benchmarkCount": 56,
+            "organizationCount": 13,
+            "aaScore": 50.4121935905389
+          },
+          {
+            "profileId": "google-gemini-4-argon-medium",
+            "benchmarkCount": 13,
+            "organizationCount": 3,
+            "aaScore": 47.6040598289046
+          }
+        ],
+        "organizations": [
+          "agents-last-exam",
+          "arc-prize",
+          "cwe-bench",
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "maxxbench",
+          "scale-swe-atlas",
+          "surge",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 56
+      },
+      {
+        "rank": 13,
+        "modelId": "meta-muse-wonder-full",
+        "profileId": "meta-muse-wonder-full-max",
+        "score": 50.0772123627021,
+        "resultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:ea473b2318d1c795a5f59c492ba0ba9aa5bc94c59f8517f256bb6b70645a1b07"
+        ],
+        "aaWinningProfileId": "meta-muse-wonder-full-max",
+        "representativeScore": 50.0772123627021,
+        "representativeResultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "meta-muse-wonder-full-max",
+            "benchmarkCount": 23,
+            "organizationCount": 2,
+            "aaScore": 50.0772123627021
+          }
+        ],
+        "organizations": ["surge", "vals-ai"],
+        "benchmarkCount": 23
+      },
+      {
+        "rank": 14,
+        "modelId": "anthropic-claude-fable-5-1",
+        "profileId": "anthropic-claude-fable-5-1-max",
+        "score": 50.0216384248632,
+        "resultId": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:16286b043f566871aa822a05dc909484d4947de8b94fb78b62d62fa0c268f50a"
+        ],
+        "aaWinningProfileId": "anthropic-claude-fable-5-1-xhigh",
+        "representativeScore": 49.1602124158081,
+        "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "anthropic-claude-fable-5-1-max",
+            "benchmarkCount": 58,
+            "organizationCount": 10,
+            "aaScore": 49.1602124158081
+          },
+          {
+            "profileId": "anthropic-claude-fable-5-1-xhigh",
+            "benchmarkCount": 18,
+            "organizationCount": 4,
+            "aaScore": 50.0216384248632
+          },
+          {
+            "profileId": "anthropic-claude-fable-5-1-high",
+            "benchmarkCount": 16,
+            "organizationCount": 4,
+            "aaScore": 47.174988245604
+          },
+          {
+            "profileId": "anthropic-claude-fable-5-1-medium",
+            "benchmarkCount": 16,
+            "organizationCount": 3,
+            "aaScore": 43.171597828284
+          },
+          {
+            "profileId": "anthropic-claude-fable-5-1-low",
+            "benchmarkCount": 16,
+            "organizationCount": 3,
+            "aaScore": 38.683648810734
+          }
+        ],
+        "organizations": [
+          "arc-prize",
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "scale-swe-atlas",
+          "surge",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 58
+      },
+      {
+        "rank": 15,
+        "modelId": "moonshot-kimi-k3-1-pro",
+        "profileId": "moonshot-kimi-k3-1-pro-max",
+        "score": 46.4526236744189,
+        "resultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:873f6e61397e381a6a106b973aa80e74357c3236b3ec5fcdb5fb635fc4fe910e"
+        ],
+        "aaWinningProfileId": "moonshot-kimi-k3-1-pro-max",
+        "representativeScore": 46.4526236744189,
+        "representativeResultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "moonshot-kimi-k3-1-pro-max",
+            "benchmarkCount": 39,
+            "organizationCount": 8,
+            "aaScore": 46.4526236744189
+          }
+        ],
+        "organizations": [
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "scale-swe-atlas",
+          "surge",
+          "terminal-bench",
+          "vals-ai"
+        ],
+        "benchmarkCount": 39
+      },
+      {
+        "rank": 16,
+        "modelId": "anthropic-claude-opus-5",
+        "profileId": "anthropic-claude-opus-5-max",
+        "score": 44.1646231569372,
+        "resultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:e6a76d3025e6edabb4dadcf94784e19d8e360b32fa3ca39058797632f9316df5"
+        ],
+        "aaWinningProfileId": "anthropic-claude-opus-5-max",
+        "representativeScore": 44.1646231569372,
+        "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "anthropic-claude-opus-5-max",
+            "benchmarkCount": 51,
+            "organizationCount": 11,
+            "aaScore": 44.1646231569372
+          }
+        ],
+        "organizations": [
+          "arc-prize",
+          "deepswe",
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "maxxbench",
+          "surge",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 51
+      },
+      {
+        "rank": 17,
+        "modelId": "openai-gpt-6-sol",
+        "profileId": "openai-gpt-6-sol-max",
+        "score": 44.1555010304265,
+        "resultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:722ff8739816eca5f8f272dff7792e423ebc1e228ed3ba7d9233ee2ea8b754ff"
+        ],
+        "aaWinningProfileId": "openai-gpt-6-sol-max",
+        "representativeScore": 44.1555010304265,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "openai-gpt-6-sol-max",
+            "benchmarkCount": 42,
+            "organizationCount": 9,
+            "aaScore": 44.1555010304265
+          }
+        ],
+        "organizations": [
+          "arc-prize",
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "surge",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 42
+      },
+      {
+        "rank": 18,
+        "modelId": "meta-muse-wonder",
+        "profileId": "meta-muse-wonder-max",
+        "score": 43.5748225998431,
+        "resultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:1057069a97af323c8ff0910f5b1c0e68fef3a72bac8e6bc260cc31e45122cba4"
+        ],
+        "aaWinningProfileId": "meta-muse-wonder-max",
+        "representativeScore": 43.5748225998431,
+        "representativeResultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "meta-muse-wonder-max",
+            "benchmarkCount": 43,
+            "organizationCount": 6,
+            "aaScore": 43.5748225998431
+          },
+          {
+            "profileId": "meta-muse-wonder-high",
+            "benchmarkCount": 9,
+            "organizationCount": 3,
+            "aaScore": 40.5266079185604
+          }
+        ],
+        "organizations": [
+          "epoch-ai",
+          "gbench",
+          "livebench",
+          "scale-swe-atlas",
+          "surge",
+          "vals-ai"
+        ],
+        "benchmarkCount": 43
+      },
+      {
+        "rank": 19,
+        "modelId": "alibaba-qwen4-max",
+        "profileId": "alibaba-qwen4-max-xhigh",
+        "score": 42.8914543287565,
+        "resultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:ad9c665e4c093114073f524e0579eff817b3b297949c3eccbe54568397cfe08b"
+        ],
+        "aaWinningProfileId": "alibaba-qwen4-max-xhigh",
+        "representativeScore": 42.8914543287565,
+        "representativeResultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "alibaba-qwen4-max-xhigh",
+            "benchmarkCount": 29,
+            "organizationCount": 5,
+            "aaScore": 42.8914543287565
+          }
+        ],
+        "organizations": [
+          "gbench",
+          "livebench",
+          "maxxbench",
+          "surge",
+          "vals-ai"
+        ],
+        "benchmarkCount": 29
+      },
+      {
+        "rank": 20,
+        "modelId": "meta-muse-spark-1-3",
+        "profileId": "meta-muse-spark-1-3-max",
+        "score": 36.6172039139368,
+        "resultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-1",
+        "evidenceIds": [
+          "sha256:1770f8a12fa6e30147f2b2b4fc906ea3a7116397faaf5a2469b75c446a12d5a5"
+        ],
+        "aaWinningProfileId": "meta-muse-spark-1-3-max",
+        "representativeScore": 36.6172039139368,
+        "representativeResultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-1",
+        "candidateProfiles": [
+          {
+            "profileId": "meta-muse-spark-1-3-max",
+            "benchmarkCount": 41,
+            "organizationCount": 6,
+            "aaScore": 36.6172039139368
+          }
+        ],
+        "organizations": [
+          "epoch-ai",
+          "gbench",
+          "livebench",
+          "surge",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 41
       }
     ],
     "skipped": []

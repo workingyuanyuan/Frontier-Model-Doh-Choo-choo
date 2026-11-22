@@ -6,9 +6,11 @@ import {
   presetScopeSentence,
 } from './preset-family';
 
-// Synthetic window of four models; m1 is ranked first.
-const frontier = ['m1', 'm2', 'm3', 'm4'].map((modelId) => ({
+// Synthetic window of five models; m1 is ranked first. The AA family stops at
+// four, so m5 is only in the coverage family's reach.
+const frontier = ['m1', 'm2', 'm3', 'm4', 'm5'].map((modelId) => ({
   modelId,
+  representativeProfileId: `${modelId}-max`,
   reasons: ['fixture'],
   externalCompositeScores: {},
 }));
@@ -19,12 +21,12 @@ const profiles = [
     baseModelName: `Model ${modelId.slice(1)}`,
     attributes: { effort: 'max', harness: null },
   })),
-  {
-    id: 'm4-high',
-    modelId: 'm4',
-    baseModelName: 'Model 4',
+  ...['m4', 'm5'].map((modelId) => ({
+    id: `${modelId}-high`,
+    modelId,
+    baseModelName: `Model ${modelId.slice(1)}`,
     attributes: { effort: 'high', harness: null },
-  },
+  })),
 ] as never;
 const preset = (
   id: string,
@@ -54,6 +56,10 @@ const presets = [
   preset('coverage-4', 'coverage', ['m1', 'm2', 'm3', 'm4'], (modelId) =>
     modelId === 'm4' ? 'm4-high' : `${modelId}-max`,
   ),
+  // m5 is outside every AA preset; its representative comes from the frontier.
+  preset('coverage-5', 'coverage', ['m1', 'm2', 'm3', 'm4', 'm5'], (modelId) =>
+    modelId === 'm5' ? 'm5-high' : `${modelId}-max`,
+  ),
 ];
 const product = { frontier, profiles, presets };
 
@@ -62,17 +68,21 @@ describe('preset families', () => {
     const scope = presetScope(product, 'coverage-2')!;
     expect(scope).toMatchObject({
       family: 'coverage',
-      windowSize: 4,
+      windowSize: 5,
+      aaWindowSize: 4,
       counterpartId: 'aa-top-2',
       sameModelsAsCounterpart: false,
     });
     expect(scope.omitted).toEqual([
       { modelId: 'm1', modelName: 'Model 1', windowRank: 1 },
       { modelId: 'm3', modelName: 'Model 3', windowRank: 3 },
+      { modelId: 'm5', modelName: 'Model 5', windowRank: 5 },
     ]);
+    // The sentence names only omissions from the AA top four.
     expect(presetScopeSentence(scope, 2)).toContain(
-      'Not included: Model 1 (#1), Model 3 (#3).',
+      'Not included from the AA top 4: Model 1 (#1), Model 3 (#3).',
     );
+    expect(presetScopeSentence(scope, 2)).not.toContain('Model 5');
   });
 
   it('says when a coverage preset scores the same models as its counterpart', () => {
@@ -101,6 +111,11 @@ describe('preset families', () => {
       'Model 4 at high (representative: max)',
     );
     expect(presetScope(product, 'coverage-2')!.effortChanges).toEqual([]);
+    expect(
+      presetScope(product, 'coverage-5')!.effortChanges.map(
+        ({ modelId, representativeEffort }) => [modelId, representativeEffort],
+      ),
+    ).toEqual([['m5', 'max']]);
   });
 
   it('keeps the model count on a family switch, else the nearest larger', () => {

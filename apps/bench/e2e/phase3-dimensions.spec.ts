@@ -229,10 +229,12 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
 test('keeps the tenth frontier model when the ninth is manually excluded', async ({
   page,
 }) => {
-  // Presets follow the eligible frontier, not the raw AA top ten.
-  const ranking = JSON.parse(
-    readFileSync('data/derived/frontier-set.json', 'utf8'),
-  ).eligibility.leaders as { profileId: string }[];
+  // Presets follow the eligible frontier, not the raw AA top ten. The AA
+  // family uses the first ten of the window.
+  const ranking = (
+    JSON.parse(readFileSync('data/derived/frontier-set.json', 'utf8'))
+      .eligibility.leaders as { profileId: string }[]
+  ).slice(0, 10);
   const ninth = raw.profiles.find((p) => p.id === ranking[8]!.profileId)!;
   await page.goto('/?preset=aa-top-10');
   await expect(page.locator('[data-ranked-row]')).toHaveCount(10);

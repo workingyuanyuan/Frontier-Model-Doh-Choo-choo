@@ -15,6 +15,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
 import {
+  COVERAGE_WINDOW_MODELS,
   chooseDefaultCohort,
   computeFrontierSet,
 } from './generate-frontier-set.js';
@@ -228,7 +229,8 @@ describe('buildWorkspaceProduct', () => {
         modelIds: string[];
       }[];
     };
-    // The frontier is the first ten AA-ranked models that pass eligibility.
+    // The frontier is the first AA-ranked models that pass eligibility, up to
+    // the coverage window; the AA family uses the first ten.
     const leaders = artifact.eligibility.leaders;
     expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
       leaders.map(({ modelId }) => modelId),
@@ -237,16 +239,20 @@ describe('buildWorkspaceProduct', () => {
       expect(leader.organizations.length).toBeGreaterThanOrEqual(2);
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
     expect(product.defaultPresetId).toBe(artifact.defaultPresetId);
-    expect(product.frontier).toHaveLength(10);
+    expect(product.frontier.length).toBeGreaterThanOrEqual(10);
+    expect(product.frontier.length).toBeLessThanOrEqual(COVERAGE_WINDOW_MODELS);
     const family = (name: string) =>
       product.presets.filter((preset) => preset.family === name);
     const aaPresets = family('aa-frontier');
     const coveragePresets = family('coverage');
-    for (const presets of [aaPresets, coveragePresets])
-      expect(presets.map(({ targetModelCount }) => targetModelCount)).toEqual([
-        2, 3, 4, 5, 6, 7, 8, 9, 10,
-      ]);
-    expect(product.presets).toHaveLength(18);
+    const sizes = (count: number) =>
+      Array.from({ length: count - 1 }, (_, index) => index + 2);
+    expect(aaPresets.map(({ targetModelCount }) => targetModelCount)).toEqual(
+      sizes(10),
+    );
+    expect(
+      coveragePresets.map(({ targetModelCount }) => targetModelCount),
+    ).toEqual(sizes(product.frontier.length));
     // Larger cohorts never share more tests, and the default follows its rule.
     for (const presets of [aaPresets, coveragePresets])
       presets
@@ -258,18 +264,19 @@ describe('buildWorkspaceProduct', () => {
         );
     expect(chooseDefaultCohort(aaPresets).id).toBe(product.defaultPresetId);
     // A coverage preset shares at least as many tests as the AA prefix of the
-    // same size. On the whole window both score the same models, though
-    // coverage may pick other qualifying efforts.
-    coveragePresets.forEach((preset, index) =>
-      expect(preset.benchmarkIds.length).toBeGreaterThanOrEqual(
-        aaPresets[index]!.benchmarkIds.length,
-      ),
+    // same size. On the whole window it scores every frontier model, though
+    // it may pick other qualifying efforts.
+    aaPresets.forEach((preset, index) =>
+      expect(
+        coveragePresets[index]!.benchmarkIds.length,
+      ).toBeGreaterThanOrEqual(preset.benchmarkIds.length),
     );
-    const modelsOf = (preset: (typeof aaPresets)[number]) =>
-      preset.leaderboard.map(({ modelId }) => modelId).toSorted();
-    expect(modelsOf(coveragePresets.at(-1)!)).toEqual(
-      modelsOf(aaPresets.at(-1)!),
-    );
+    expect(
+      coveragePresets
+        .at(-1)!
+        .leaderboard.map(({ modelId }) => modelId)
+        .toSorted(),
+    ).toEqual(product.frontier.map(({ modelId }) => modelId).toSorted());
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
     ).toEqual(

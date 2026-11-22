@@ -82,6 +82,49 @@ function commonQualityBenchmarksFromCurrentResults(
   const eligible = common.filter(
     (id) => !quality.excludedBenchmarkIds.includes(id),
   );
+  const { dimensions, benchmarkIds, limitedRemoved } = capLimitedBenchmarks(
+    eligible,
+    known,
+    quality,
+  );
+  if (!benchmarkIds.length)
+    throw new Error('Frontier profiles have no common quality-feasible tests');
+  return {
+    commonBeforeQuality: common,
+    excludedBenchmarkIds: excluded,
+    qualityShareRemovedBenchmarkIds: limitedRemoved,
+    benchmarkIds,
+    dimensions,
+    activeDimensionIds: activeDimensionIdsOf(dimensions),
+    profiles: profileIds.map((profileId) => ({
+      profileId,
+      results: benchmarkIds.map((id) => {
+        const row = byProfile.get(profileId)!.get(id)!;
+        return {
+          benchmarkId: id,
+          score: row.normalizedScore!,
+          resultId: row.id,
+          evidenceIds: row.evidenceIds,
+        };
+      }),
+    })),
+  };
+}
+
+const activeDimensionIdsOf = (
+  dimensions: readonly { id: string; benchmarkIds: readonly string[] }[],
+) => dimensions.filter((d) => d.benchmarkIds.length).map((d) => d.id);
+
+/**
+ * Applies the limited-test share rule to scoring-eligible common tests. It
+ * depends only on the tests, so the coverage search can score a raw
+ * intersection without building the full cohort.
+ */
+function capLimitedBenchmarks(
+  eligible: readonly string[],
+  known: ReadonlyMap<string, BenchmarkDimensionMapping['benchmarks'][number]>,
+  quality: BenchmarkQualityPolicy,
+) {
   const limitedRemoved: string[] = [];
   const dimensions = CATALOG_DIMENSION_IDS.map((id) => {
     const members = eligible.filter(
@@ -101,30 +144,10 @@ function commonQualityBenchmarksFromCurrentResults(
     limitedRemoved.push(...limited.slice(cap));
     return { id, benchmarkIds: [...regular, ...limited.slice(0, cap)].sort() };
   });
-  const benchmarkIds = dimensions.flatMap((d) => d.benchmarkIds).sort();
-  if (!benchmarkIds.length)
-    throw new Error('Frontier profiles have no common quality-feasible tests');
   return {
-    commonBeforeQuality: common,
-    excludedBenchmarkIds: excluded,
-    qualityShareRemovedBenchmarkIds: limitedRemoved.sort(),
-    benchmarkIds,
     dimensions,
-    activeDimensionIds: dimensions
-      .filter((d) => d.benchmarkIds.length)
-      .map((d) => d.id),
-    profiles: profileIds.map((profileId) => ({
-      profileId,
-      results: benchmarkIds.map((id) => {
-        const row = byProfile.get(profileId)!.get(id)!;
-        return {
-          benchmarkId: id,
-          score: row.normalizedScore!,
-          resultId: row.id,
-          evidenceIds: row.evidenceIds,
-        };
-      }),
-    })),
+    benchmarkIds: dimensions.flatMap((d) => d.benchmarkIds).sort(),
+    limitedRemoved: limitedRemoved.sort(),
   };
 }
 
@@ -144,6 +167,13 @@ export const FRONTIER_ELIGIBILITY_POLICY = {
   excludedSourceIds: ['artificial-analysis'],
   excludedSourceRoles: ['VENDOR'],
 } as const;
+
+/**
+ * How many eligible AA-ranked models the coverage family may choose from
+ * (user ruling 2026-11-22). The AA family keeps the first
+ * AA_FRONTIER_POLICY.searchWindowModels of them.
+ */
+export const COVERAGE_WINDOW_MODELS = 20;
 
 export const sourceOrganization = (sourceId: string): string =>
   sourceId.startsWith('surge-') ? 'surge' : sourceId;
@@ -182,11 +212,13 @@ export function scoringEligibleBenchmarksByProfile(
 }
 
 /**
- * Walks the AA ranking and keeps the first ten models with an AA profile that
- * meets the eligibility policy, represented by the qualifying effort with the
- * most scoring-eligible benchmarks. Ranking still uses the model's best AA
- * score. Skipped models stay in the audit and remain selectable in the
- * dashboard; they only leave the slider and default view.
+ * Walks the AA ranking and keeps up to the first COVERAGE_WINDOW_MODELS models
+ * (at least ten) with an AA profile that meets the eligibility policy, represented by the
+ * qualifying effort with the most scoring-eligible benchmarks. The AA family
+ * uses the first ten; the coverage family chooses from all of them. Ranking
+ * still uses the model's best AA score. Skipped models stay in the audit and
+ * remain selectable in the dashboard; they only leave the slider and default
+ * view.
  */
 export function selectEligibleFrontier(
   candidates: CandidateResult[],
@@ -283,7 +315,7 @@ export function selectEligibleFrontier(
   })[] = [];
   const skipped: (AaLeader & { organizations: string[] })[] = [];
   for (const leader of ranked) {
-    if (leaders.length === AA_FRONTIER_POLICY.searchWindowModels) break;
+    if (leaders.length === COVERAGE_WINDOW_MODELS) break;
     const qualifying = (aaRowsByModel.get(leader.modelId) ?? [])
       .filter((row) => qualifies(row.model.profileId))
       .toSorted(byRepresentativeOrder);
@@ -446,7 +478,7 @@ export async function computeFrontierSet(
     );
     cohorts = createAaCohorts(
       candidates,
-      eligibility.leaders,
+      eligibility.leaders.slice(0, AA_FRONTIER_POLICY.searchWindowModels),
       mapping,
       quality,
     );
@@ -475,7 +507,8 @@ export async function computeFrontierSet(
     eligibility,
     cohortPolicy: {
       minModels: 2,
-      maxModels: 10,
+      maxModels: AA_FRONTIER_POLICY.searchWindowModels,
+      coverageMaxModels: COVERAGE_WINDOW_MODELS,
       defaultModelCount: BASE_DEFAULT_MODEL_COUNT,
       defaultSelection: 'largest-cohort-keeping-base-test-count',
       coverageSelection:
@@ -584,19 +617,12 @@ export function createAaCohorts(
   });
 }
 
-/** Every k-element index subset of 0..n-1, in lexicographic order. */
-function* indexCombinations(n: number, k: number): Generator<number[]> {
-  const picked = Array.from({ length: k }, (_, index) => index);
-  while (true) {
-    yield [...picked];
-    let position = k - 1;
-    while (position >= 0 && picked[position] === n - k + position) position--;
-    if (position < 0) return;
-    picked[position]!++;
-    for (let next = position + 1; next < k; next++)
-      picked[next] = picked[next - 1]! + 1;
-  }
-}
+/** Negative when left sorts first, by the first differing element. */
+const lexicalOrder = (left: readonly number[], right: readonly number[]) => {
+  for (const [index, value] of left.entries())
+    if (value !== right[index]) return value - right[index]!;
+  return 0;
+};
 
 /** A window model and the qualifying efforts it may be scored at. */
 type CoverageWindowModel = Pick<AaLeader, 'modelId' | 'profileId'> & {
@@ -613,8 +639,9 @@ type CoverageWindowModel = Pick<AaLeader, 'modelId' | 'profileId'> & {
  * the representative profiles). Ties go to more active dimensions, then to
  * fewer efforts other than the representative, then to the subset whose
  * window positions sort first (higher AA ranks), then to efforts earlier in
- * representative order. The window is the same ten eligible models, never the
- * wider catalog.
+ * representative order. The window is the first COVERAGE_WINDOW_MODELS
+ * eligible AA-ranked models (user ruling 2026-11-22), never the wider catalog;
+ * the search stays exhaustive, pruned by raw intersection size.
  */
 export function createCoverageCohorts(
   candidates: CandidateResult[],
@@ -622,14 +649,33 @@ export function createCoverageCohorts(
   mapping: BenchmarkDimensionMapping,
   quality: BenchmarkQualityPolicy,
 ) {
-  if (window.length !== 10 || window.some(({ profileId }) => !profileId))
-    throw new Error('Expected ten resolved AA leaders');
+  if (window.length < 2 || window.some(({ profileId }) => !profileId))
+    throw new Error('Expected at least two resolved AA leaders');
   const current = selectCurrentResults(candidates);
   // Raw intersections bound the capped count, so choices that cannot reach
   // the incumbent skip the rest of the search and the quality pass.
   const held = scoringEligibleBenchmarksByProfile(current, mapping, quality);
   const heldBy = (profileId: string) =>
     held.get(profileId) ?? new Set<string>();
+  // A profile with two current metrics for one benchmark cannot form a cohort
+  // (the full intersection rejects it), whatever the other members; drop it
+  // before efforts are deduplicated so it never hides a valid copy.
+  const comparisonOnly = getComparisonOnlyBenchmarkIds(mapping);
+  const knownIds = new Set(mapping.benchmarks.map(({ id }) => id));
+  const seenMetrics = new Set<string>();
+  const invalid = new Set<string>();
+  for (const row of current) {
+    if (
+      row.normalizedScore === null ||
+      row.model.profileId === null ||
+      !knownIds.has(row.benchmarkId) ||
+      comparisonOnly.has(row.benchmarkId)
+    )
+      continue;
+    const key = `${row.model.profileId}\n${row.benchmarkId}`;
+    if (seenMetrics.has(key)) invalid.add(row.model.profileId);
+    seenMetrics.add(key);
+  }
   const options = window.map(({ profileId, candidateProfiles }) => {
     const ids = candidateProfiles?.map((candidate) => candidate.profileId) ?? [
       profileId!,
@@ -643,85 +689,117 @@ export function createCoverageCohorts(
     // never chosen; dropping them keeps the search small.
     const seen = new Set<string>();
     return ids.filter((id) => {
+      if (invalid.has(id)) return false;
       const key = [...heldBy(id)].toSorted().join('\n');
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
     });
   });
-  type Common = ReturnType<typeof commonQualityBenchmarksFromCurrentResults>;
-  return Array.from({ length: 9 }, (_, index) => {
+  // The capped count and active dimensions depend only on the shared tests,
+  // which many subsets repeat.
+  const known = new Map(mapping.benchmarks.map((b) => [b.id, b]));
+  const scores = new Map<string, { count: number; dimensionCount: number }>();
+  const scoreOf = (shared: Set<string>) => {
+    const tests = [...shared].toSorted();
+    const key = tests.join('\n');
+    let score = scores.get(key);
+    if (!score) {
+      const { dimensions, benchmarkIds } = capLimitedBenchmarks(
+        tests,
+        known,
+        quality,
+      );
+      score = {
+        count: benchmarkIds.length,
+        dimensionCount: activeDimensionIdsOf(dimensions).length,
+      };
+      scores.set(key, score);
+    }
+    return score;
+  };
+  return Array.from({ length: window.length - 1 }, (_, index) => {
     const targetModelCount = index + 2;
     let best:
       | {
           positions: number[];
-          profileIds: string[];
+          choice: number[];
           deviations: number;
-          common: Common;
+          count: number;
+          dimensionCount: number;
         }
       | undefined;
-    const evaluate = (positions: number[], choice: number[]) => {
-      const profileIds = choice.map(
-        (option, depth) => options[positions[depth]!]![option]!,
-      );
-      let common: Common;
-      try {
-        common = commonQualityBenchmarksFromCurrentResults(
-          current,
-          profileIds,
-          mapping,
-          quality,
-        );
-      } catch {
-        return;
-      }
-      const deviations = choice.filter((option) => option > 0).length;
-      // Subsets and efforts are enumerated in tie-break order, so only a
-      // strict improvement on count, dimensions or deviations replaces the
-      // incumbent.
+    const evaluate = (
+      positions: number[],
+      choice: number[],
+      shared: Set<string>,
+    ) => {
+      const { count, dimensionCount } = scoreOf(shared);
+      if (!count) return;
+      const deviations = choice.filter(
+        (option, depth) =>
+          options[positions[depth]!]![option] !==
+          window[positions[depth]!]!.profileId,
+      ).length;
       const gain = best
-        ? common.benchmarkIds.length - best.common.benchmarkIds.length ||
-          common.activeDimensionIds.length -
-            best.common.activeDimensionIds.length ||
-          best.deviations - deviations
+        ? count - best.count ||
+          dimensionCount - best.dimensionCount ||
+          best.deviations - deviations ||
+          lexicalOrder(best.positions, positions) ||
+          lexicalOrder(best.choice, choice)
         : 1;
-      if (gain > 0) best = { positions, profileIds, deviations, common };
+      if (gain > 0)
+        best = { positions, choice, deviations, count, dimensionCount };
     };
+    // Depth-first over window positions in increasing order, each with its
+    // efforts. A prefix whose raw intersection is already smaller than the
+    // incumbent's capped count cannot win, so its whole subtree is skipped.
     const search = (
       positions: number[],
-      depth: number,
-      shared: Set<string> | null,
       choice: number[],
+      shared: Set<string> | null,
     ): void => {
-      if (depth === positions.length) {
-        evaluate(positions, choice);
+      if (positions.length === targetModelCount) {
+        evaluate(positions, choice, shared!);
         return;
       }
-      for (const [option, profileId] of options[positions[depth]!]!.entries()) {
-        const held = heldBy(profileId);
-        const next =
-          shared === null
-            ? held
-            : new Set([...shared].filter((id) => held.has(id)));
-        if (best && next.size < best.common.benchmarkIds.length) continue;
-        search(positions, depth + 1, next, [...choice, option]);
+      const start = positions.length ? positions.at(-1)! + 1 : 0;
+      const last = window.length - (targetModelCount - positions.length);
+      for (let position = start; position <= last; position++) {
+        for (const [option, profileId] of options[position]!.entries()) {
+          const held = heldBy(profileId);
+          const next =
+            shared === null
+              ? held
+              : new Set([...shared].filter((id) => held.has(id)));
+          if (best && next.size < best.count) continue;
+          search([...positions, position], [...choice, option], next);
+        }
       }
     };
-    for (const positions of indexCombinations(window.length, targetModelCount))
-      search(positions, 0, null, []);
+    search([], [], null);
     if (!best)
       throw new Error(
         `No ${targetModelCount}-model subset of the frontier window shares a quality-feasible test`,
       );
-    const chosen = best.positions.map((position) => window[position]!);
+    const { positions, choice } = best;
+    const chosen = positions.map((position) => window[position]!);
+    const profileIds = choice.map(
+      (option, depth) => options[positions[depth]!]![option]!,
+    );
     return {
       id: `coverage-${targetModelCount}`,
       family: 'coverage' as const,
       targetModelCount,
       modelIds: chosen.map(({ modelId }) => modelId),
-      profileIds: best.profileIds,
+      profileIds,
       representativeProfileIds: chosen.map(({ profileId }) => profileId!),
-      ...best.common,
+      ...commonQualityBenchmarksFromCurrentResults(
+        current,
+        profileIds,
+        mapping,
+        quality,
+      ),
     };
   });
 }

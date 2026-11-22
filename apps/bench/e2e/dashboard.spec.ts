@@ -1021,9 +1021,11 @@ test('switches between the AA frontier and max-coverage model sets', async ({
   const coverage = currentProduct.presets.filter(
     (p) => p.family === 'coverage',
   );
-  expect(coverage.map((p) => p.targetModelCount)).toEqual([
-    2, 3, 4, 5, 6, 7, 8, 9, 10,
-  ]);
+  // One coverage preset per size, from two to the whole frontier window.
+  expect(coverage.map((p) => p.targetModelCount)).toEqual(
+    Array.from({ length: currentProduct.frontier.length - 1 }, (_, i) => i + 2),
+  );
+  const largest = coverage.at(-1)!;
   const rowProfiles = () =>
     page
       .locator('[data-ranked-row]')
@@ -1057,10 +1059,27 @@ test('switches between the AA frontier and max-coverage model sets', async ({
   );
   await expect(page.getByTestId('preset-scope')).toContainText('Max coverage');
 
-  // The slider now moves within the coverage family.
+  // The slider now moves within the coverage family, past the AA family's
+  // largest size when the window is wider.
+  const slider = page.locator('#preset-model-count');
+  await expect(slider).toHaveAttribute('max', String(largest.targetModelCount));
+  await slider.fill(String(largest.targetModelCount));
+  await expect(page).toHaveURL(new RegExp(`preset=${largest.id}(&|$)`));
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    largest.targetModelCount,
+  );
+  expect(await rowProfiles()).toEqual(
+    largest.leaderboard.map((r) => r.profileId).sort(),
+  );
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth - innerWidth,
+    ),
+  ).toBeLessThanOrEqual(1);
+
   const small = coverage.find((p) => p.targetModelCount === 2)!;
   await page.locator('#preset-model-count').fill('2');
-  await expect(page).toHaveURL(new RegExp(`preset=${small.id}`));
+  await expect(page).toHaveURL(new RegExp(`preset=${small.id}(&|$)`));
   expect(await rowProfiles()).toEqual(
     small.leaderboard.map((r) => r.profileId).sort(),
   );
