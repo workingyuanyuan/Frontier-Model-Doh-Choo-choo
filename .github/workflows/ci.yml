@@ -14,9 +14,131 @@ permissions:
 # all of them and is the single check that deploys and branch rules rely on.
 # Concurrency is per job, never workflow-wide, so a newer push cannot cancel a
 # deploy that is already running.
+#
+# A main push that merges a PR whose CI run built this exact tree skips the
+# gates and deploys that run's verified Pages artifact. Any miss or error in
+# `reuse` runs every gate instead.
 jobs:
+  reuse:
+    name: Reuse verified PR build
+    if: >-
+      github.event_name == 'push' &&
+      github.repository == 'workingyuanyuan/Frontier-Model-Doh-Choo-choo' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    # No concurrency group: a cancelled reuse would start its fallback gates
+    # late, after a newer push's, and cancel those instead.
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: read
+    outputs:
+      hit: ${{ steps.reused.outputs.hit }}
+      artifact: ${{ steps.reused.outputs.artifact }}
+      indexnow: ${{ steps.indexnow.outputs.body }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24.18.0
+
+      # Every step below runs only if the one before it succeeded; a failure
+      # leaves `hit` unset, which runs the full pipeline.
+      - name: Find the PR run that verified this merge
+        id: find
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/find-verified-pr-build.mjs find
+
+      - name: Download that run's verification receipt
+        id: receipt
+        if: steps.find.outcome == 'success' && steps.find.outputs.run-id != ''
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: verified-build-${{ steps.find.outputs.attempt }}
+          path: reuse/receipt
+          run-id: ${{ steps.find.outputs.run-id }}
+          github-token: ${{ github.token }}
+
+      - name: Require the PR run to have built this tree
+        id: check
+        if: steps.receipt.outcome == 'success'
+        continue-on-error: true
+        env:
+          RUN_ID: ${{ steps.find.outputs.run-id }}
+          ATTEMPT: ${{ steps.find.outputs.attempt }}
+        run: node scripts/find-verified-pr-build.mjs check reuse/receipt/receipt "$RUN_ID" "$ATTEMPT"
+
+      - name: Download the verified Pages artifact
+        id: download
+        if: steps.check.outcome == 'success'
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ${{ steps.check.outputs.artifact }}
+          path: reuse/pages
+          run-id: ${{ steps.find.outputs.run-id }}
+          github-token: ${{ github.token }}
+
+      - name: Check the archive holds the site
+        id: archive
+        if: steps.download.outcome == 'success'
+        continue-on-error: true
+        run: |
+          mkdir -p reuse/out
+          tar -xf reuse/pages/artifact.tar -C reuse/out
+          test -f reuse/out/index.html
+          test -f reuse/out/.nojekyll
+
+      # deploy-pages only reads artifacts of its own run, so the PR's archive
+      # is uploaded again unchanged. The name differs from `build`'s so a
+      # fallback build in this run can still upload its own.
+      - name: Upload it as this run's Pages artifact
+        id: upload
+        if: steps.archive.outcome == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: github-pages-reused-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reuse/pages/artifact.tar
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Mark the PR build as reused
+        id: reused
+        if: steps.upload.outcome == 'success'
+        env:
+          PR: ${{ steps.find.outputs.pr }}
+          RUN_ID: ${{ steps.find.outputs.run-id }}
+        run: |
+          echo "hit=true" >> "$GITHUB_OUTPUT"
+          echo "artifact=github-pages-reused-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+          echo "Reused the Pages artifact PR #$PR verified in run $RUN_ID" >> "$GITHUB_STEP_SUMMARY"
+
+      # Same comparison as in `build`; it never blocks the deploy, and its
+      # own timeout keeps it from timing out the job after the hit.
+      - name: List pages changed since the live deployment
+        id: indexnow
+        if: steps.reused.outputs.hit == 'true'
+        continue-on-error: true
+        timeout-minutes: 2
+        run: |
+          body=$(node scripts/indexnow.mjs reuse/out)
+          printf 'body=%s\n' "$body" >> "$GITHUB_OUTPUT"
+
   checks:
     name: Static checks
+    needs: reuse
+    if: ${{ !cancelled() && !(needs.reuse.result == 'success' && needs.reuse.outputs.hit == 'true') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -65,6 +187,8 @@ jobs:
 
   build:
     name: Build dashboard
+    needs: reuse
+    if: ${{ !cancelled() && !(needs.reuse.result == 'success' && needs.reuse.outputs.hit == 'true') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -72,6 +196,7 @@ jobs:
       cancel-in-progress: true
     outputs:
       sha: ${{ steps.pages.outputs.sha }}
+      tree: ${{ steps.pages.outputs.tree }}
       artifact: ${{ steps.pages.outputs.artifact }}
       e2e: ${{ steps.pages.outputs.e2e }}
       indexnow: ${{ steps.indexnow.outputs.body }}
@@ -114,6 +239,7 @@ jobs:
         run: |
           touch apps/bench/out/.nojekyll
           echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+          echo "tree=$(git rev-parse 'HEAD^{tree}')" >> "$GITHUB_OUTPUT"
           echo "artifact=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
           echo "e2e=e2e-build-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
 
@@ -140,6 +266,9 @@ jobs:
   e2e:
     name: Dashboard browser gates (${{ matrix.shard }}/3)
     needs: build
+    # Explicit, because the implicit success() also fails when `reuse`, an
+    # ancestor through `build`, was skipped.
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -234,20 +363,22 @@ jobs:
           retention-days: 7
 
   # Fails closed: it runs whenever the workflow was not cancelled and passes
-  # only if every gate job succeeded for this SHA, so a failed or skipped gate
-  # can never surface as a passing (skipped) check.
+  # only if every gate job succeeded for this SHA, or `reuse` found the PR
+  # run that did so for this tree. A failed or skipped gate can never surface
+  # as a passing (skipped) check.
   quality:
     name: Static data and Dashboard
-    needs: [checks, build, e2e]
+    needs: [reuse, checks, build, e2e]
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
       sha: ${{ steps.verified.outputs.sha }}
       artifact: ${{ steps.verified.outputs.artifact }}
-      indexnow: ${{ needs.build.outputs.indexnow }}
+      indexnow: ${{ needs.build.outputs.indexnow || needs.reuse.outputs.indexnow }}
     steps:
       - name: Download shard receipts
+        if: ${{ !(needs.reuse.result == 'success' && needs.reuse.outputs.hit == 'true') }}
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           pattern: e2e-receipt-*
@@ -257,32 +388,64 @@ jobs:
       - name: Require every gate to pass
         id: verified
         env:
+          REUSED: ${{ needs.reuse.outputs.hit }}
+          REUSE: ${{ needs.reuse.result }}
+          REUSED_ARTIFACT: ${{ needs.reuse.outputs.artifact }}
           CHECKS: ${{ needs.checks.result }}
           BUILD: ${{ needs.build.result }}
           E2E: ${{ needs.e2e.result }}
           BUILT_SHA: ${{ needs.build.outputs.sha }}
+          TREE: ${{ needs.build.outputs.tree }}
           ARTIFACT: ${{ needs.build.outputs.artifact }}
           TESTED: ${{ needs.build.outputs.e2e }}
         run: |
-          echo "checks=$CHECKS build=$BUILD e2e=$E2E"
-          test "$CHECKS" = success
-          test "$BUILD" = success
-          test "$E2E" = success
-          test "$BUILT_SHA" = "$GITHUB_SHA"
-          test -n "$ARTIFACT"
-          test -n "$TESTED"
-          for shard in 1 2 3; do
-            grep -qxF "$TESTED" e2e-receipt/shard-$shard-attempt-* ||
-              { echo "::error::No receipt from shard $shard for $TESTED"; exit 1; }
-          done
+          echo "reuse=$REUSE/$REUSED checks=$CHECKS build=$BUILD e2e=$E2E"
+          if [ "$REUSE" = success ] && [ "$REUSED" = true ]; then
+            test "$CHECKS" = skipped
+            test "$BUILD" = skipped
+            test "$E2E" = skipped
+            test -n "$REUSED_ARTIFACT"
+            ARTIFACT=$REUSED_ARTIFACT
+            echo "Reusing the PR build verified for this tree" >> "$GITHUB_STEP_SUMMARY"
+          else
+            test "$CHECKS" = success
+            test "$BUILD" = success
+            test "$E2E" = success
+            test "$BUILT_SHA" = "$GITHUB_SHA"
+            test -n "$TREE"
+            test -n "$ARTIFACT"
+            test -n "$TESTED"
+            for shard in 1 2 3; do
+              grep -qxF "$TESTED" e2e-receipt/shard-$shard-attempt-* ||
+                { echo "::error::No receipt from shard $shard for $TESTED"; exit 1; }
+            done
+            mkdir -p verified-build
+            printf 'tree=%s\nartifact=%s\n' "$TREE" "$ARTIFACT" > verified-build/receipt
+            echo "All quality gates passed for $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          fi
           echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           echo "artifact=$ARTIFACT" >> "$GITHUB_OUTPUT"
-          echo "All quality gates passed for $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+      # Written only after every gate passed: the main push that merges this
+      # PR checks it names this tree before deploying the artifact. Without
+      # it main runs every gate, so a failed upload does not fail the PR.
+      - name: Upload verification receipt
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verified-build-${{ github.run_attempt }}
+          path: verified-build
+          if-no-files-found: error
+          retention-days: 7
 
   deploy:
     name: Deploy verified dashboard
     needs: quality
+    # !cancelled(): the implicit success() would skip this job whenever
+    # `reuse` stood in for the gates, since they are skipped ancestors.
     if: >-
+      !cancelled() &&
       github.event_name == 'push' &&
       github.repository == 'workingyuanyuan/Frontier-Model-Doh-Choo-choo' &&
       github.ref == 'refs/heads/main' &&
@@ -293,9 +456,13 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    # queue: max keeps every pending deploy; with the default single slot an
+    # older run could replace the pending current one and then fail the
+    # current-main guard, leaving main undeployed.
     concurrency:
       group: pages
       cancel-in-progress: false
+      queue: max
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -325,7 +492,10 @@ jobs:
   indexnow:
     name: Notify IndexNow of changed pages
     needs: [quality, deploy]
-    if: needs.quality.outputs.indexnow != ''
+    if: >-
+      !cancelled() &&
+      needs.deploy.result == 'success' &&
+      needs.quality.outputs.indexnow != ''
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

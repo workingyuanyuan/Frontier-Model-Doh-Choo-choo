@@ -404,9 +404,11 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
    - 驗證畫面的完整 `versionId`，與本次產品及報告一致。
 3. 依 §5 判斷有沒有**重大變更**：需停在審核階段的明顯重排或無法解釋的異動、需使用者裁決的來源與計分政策，以及待接受的殘餘風險。報告須寫明判斷結果與依據。
-4. **沒有重大變更**：代理開分支，逐一加入 `data/product/current.json` 與相關輸入、報告檔案後提交，推上 GitHub 開 PR；CI 通過後合併到 `main`。不需等使用者審核。
+4. **沒有重大變更**：代理開分支，逐一加入 `data/product/current.json` 與相關輸入、報告檔案後提交，推上 GitHub 開 PR，並以 `gh pr merge <PR> --auto --merge` 設定自動合併；CI 通過後由 GitHub 合併到 `main`。不需等使用者審核。
 5. **有重大變更**：只向使用者列出需決定的事項，常規分數更新與代理抽查結果只寫在報告中，不要求使用者逐筆核對。使用者明確指示後，才依第 4 步提交、推送與合併。
 6. 部署由合併到 `main` 的 Git commit 決定；部署前核對建置顯示的 `versionId` 等於報告記錄的值。
+
+**合併規則與部署**：`main` 有分支保護，PR 必須通過 CI 的 `Static data and Dashboard`，且分支要與 `main` 同步；落後時執行 `gh pr update-branch <PR>`，CI 會重跑，通過後自動合併。管理員仍可直接推送 `main`（前端小修）。合併後，`main` 的 CI 先找該 PR 最後一次通過的 CI run：若那次建置的 Git tree 與合併結果完全相同，就直接部署它已驗證的 Pages artifact，不重跑檢查；直接推送、PR 建置已過保存期（7 天）或 tree 不同時，才跑完整檢查。
 
 若需要 rollback，請對包含資料的 Git commit 執行 `git revert`，再以還原後的工作樹重新建置與部署。不要新增版本切換指令，也不要重抓來源或重算未變更的資料。
 
