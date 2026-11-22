@@ -1,8 +1,8 @@
 # Scale SWE Atlas acquisition validation
 
 - Source https://scale.com/leaderboard/swe-atlas
-- Observed 2026-11-21T08:42:42.735Z
-- Evidence `sha256:b25ab74eb4fbeae53c7bace5b349f7a8ca50e87b6db29c8aa6a05f4dcb6a9775`
+- Observed 2026-11-22T04:15:30.428Z
+- Evidence `sha256:22979f59a4bc7d89692ab8c3a5b1f8e32a74e87a6015ec3fc1b5523983e8a41a`
 - Rendered Overall rows 31; embedded Overall rows 31; candidates 31.
 - Embedded variant populations: {"overall":31,"qna":31,"testwriting":31,"refactoring":31}.
 - Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.

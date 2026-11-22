@@ -18,7 +18,7 @@
     "rows[].passRate": "provenance only (diagnostic)",
     "rows[].totalCostUsd / rows[].tasks": "CostRecord.cost (USD per task)"
   },
-  "lastVerifiedAt": "2026-11-21T08:43:49.689Z",
+  "lastVerifiedAt": "2026-11-22T04:16:03.942Z",
   "notes": [
     "ALE v1.1; 41 rows; results updated 2026-11-18T01:01:54.886914Z; list cost rates as of 2026-11-17; task definitions commit 2e91edd3cd26baa35a38127c90c8e5241dfbe62f.",
     "Organizer: UC Berkeley RDI. Who executes each run (organizer or vendor submission) is not stated by the board or the repository README: unknown.",

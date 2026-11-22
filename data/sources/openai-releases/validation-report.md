@@ -67,8 +67,9 @@
 - Matched: 159
 - Vendor preview rows absent from reference: 28
 - Excluded: 20
-- Cursor's live chart now shows CursorBench 4.1 (sha256:fb9e08a322253771de3982338039095dfa7aa523eac4a7e8cbe105667e8e9f80, retrieved 2026-11-21T08:44:10.715Z). CursorBench 4.0 rows are cross-checked against the last reviewed 4.0 capture (sha256:b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a, retrieved 2026-11-18T04:58:48.889Z).
+- Cursor's live chart now shows CursorBench 4.1 (sha256:952165390c15a402c20398f6c615910b4fb257850e4ed26cb8cf1180da327f86, retrieved 2026-11-22T04:16:20.241Z). CursorBench 4.0 rows are cross-checked against the last reviewed 4.0 capture (sha256:b408dbffdabb64f17648ddb4e6b1cae2a0765f8010bd80924a3ae20b853dff8a, retrieved 2026-11-18T04:58:48.889Z).
 - Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).
+- Research: [vendor release review](../../../docs/refresh/2026-10-02-vendor-releases.md).
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

@@ -1,7 +1,7 @@
 # CWE-bench v2 acquisition validation
 
 - Source: <https://cwe-bench.com/>
-- Evidence: `sha256:40336a97d78e4f4cb3bd9cb0ad2814e6651c3c4c66ef813a69914e367d4354ec`
+- Evidence: `sha256:585276f1f0a3be099bacbc921dd2562955266a8622eb642612dbfee43529717e`
 - Results as of 2026-11-18; leaderboard rows: 20; rendered browser count: 20.
 - Each row's Combined Pass@1 attribute equals the displayed default column, and Pass@4 is never below Pass@1.
 - Unresolved catalog identities (4): GLM-5.3; Hy4 Preview; Mistral Large 4; Qwen3.8-Max (0902).

@@ -15,7 +15,7 @@
     "data.rankings[].gscore": "rawScore; normalizedScore = gscore × 100",
     "data.rankings[].model_id": "model.rawName"
   },
-  "lastVerifiedAt": "2026-11-21T12:40:54.066Z",
+  "lastVerifiedAt": "2026-11-22T04:16:34.206Z",
   "notes": [
     "Agentic Coding GScore only (2026-11-21 user decision); combined, one-shot and decision-making scores are preserved in raw evidence.",
     "GScore is relative and rebalanced as models and games are added; no benchmark version is published.",

@@ -1,8 +1,8 @@
 # GBENCH acquisition validation
 
 - Source https://gertlabs.com/rankings?mode=agentic_coding; data https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500
-- Observed 2026-11-21T12:40:54.066Z
-- Evidence `sha256:c450f6b554136aa2ce0c42279fa87351e9ea8189ae952742a59395414713a076`
+- Observed 2026-11-22T04:16:34.206Z
+- Evidence `sha256:c72b164008faf04362a4a4b16981ba9b8d97791147924ee6462ab076e5b804f4`
 - Ranked rows 112; rendered Agentic Coding rows 100 (the page shows the first 100); non-model rows excluded 2 (custom/human, baseline/random); rows without a published score 0 (none); candidates 110; resolved identities 68.
 - Only the Agentic Coding GScore is scored, as `gbench-agentic-coding` (2026-11-21 user decision). The combined, one-shot and decision-making scores remain in the raw artifact.
 - GScore is published on 0–1 and multiplied by 100. It is a relative score: population-adjusted percentiles against the other ranked models, so earlier models move when models or games are added. GBENCH publishes no benchmark version, so `benchmarkVersion` is null.

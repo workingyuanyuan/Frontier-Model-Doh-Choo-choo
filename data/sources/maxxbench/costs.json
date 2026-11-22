@@ -6,7 +6,7 @@
     "cost": 3.6819609595505614,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:argon-high",
@@ -19,7 +19,7 @@
       "profileId": "google-gemini-4-argon-high",
       "rawName": "Gemini 4 Argon"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -32,12 +32,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[19].averageCost; mean over all 178 attempts; at least the sum of the 124 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[19]",
         "method": "EMBEDDED_JSON"
       }
@@ -55,7 +55,7 @@
     "cost": 4.376444067415731,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:astra-xhigh",
@@ -68,7 +68,7 @@
       "profileId": "openai-gpt-6-astra-xhigh",
       "rawName": "GPT-6 Astra"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -81,12 +81,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[3].averageCost; mean over all 178 attempts; at least the sum of the 128 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[3]",
         "method": "EMBEDDED_JSON"
       }
@@ -104,7 +104,7 @@
     "cost": 0.5781818124044944,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:deepseekfour-max",
@@ -117,7 +117,7 @@
       "profileId": "deepseek-deepseek-v4-flash-max",
       "rawName": "DeepSeek V4 Flash 0731"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -130,12 +130,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[12].averageCost; mean over all 178 attempts; at least the sum of the 50 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[12]",
         "method": "EMBEDDED_JSON"
       }
@@ -153,7 +153,7 @@
     "cost": 0.6158677053033708,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:deepseekfourone-max",
@@ -166,7 +166,7 @@
       "profileId": null,
       "rawName": "DeepSeek V4.1 Flash"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -179,12 +179,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[9].averageCost; mean over all 178 attempts; at least the sum of the 99 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[9]",
         "method": "EMBEDDED_JSON"
       }
@@ -202,7 +202,7 @@
     "cost": 0.2607380661235955,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:deepseekfourone1017-max",
@@ -215,7 +215,7 @@
       "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
       "rawName": "DeepSeek V4.1 Flash 1017"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 4,
@@ -228,12 +228,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[16].averageCost; mean over all 356 attempts; at least the sum of the 210 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[16]",
         "method": "EMBEDDED_JSON"
       }
@@ -251,7 +251,7 @@
     "cost": 14.786696213483147,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:fable-xhigh",
@@ -264,7 +264,7 @@
       "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "Claude Fable 5"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -277,12 +277,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[2].averageCost; mean over all 178 attempts; at least the sum of the 113 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[2]",
         "method": "EMBEDDED_JSON"
       }
@@ -300,7 +300,7 @@
     "cost": 2.5296742921348314,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:gemini-high",
@@ -313,7 +313,7 @@
       "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -326,12 +326,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[7].averageCost; mean over all 178 attempts; at least the sum of the 95 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[7]",
         "method": "EMBEDDED_JSON"
       }
@@ -349,7 +349,7 @@
     "cost": 0.7253113570786517,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:glmflash-max",
@@ -362,7 +362,7 @@
       "profileId": null,
       "rawName": "GLM-5.3 Flash"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -375,12 +375,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[6].averageCost; mean over all 178 attempts; at least the sum of the 98 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[6]",
         "method": "EMBEDDED_JSON"
       }
@@ -398,7 +398,7 @@
     "cost": 5.555757919325843,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:glmmax-max",
@@ -411,7 +411,7 @@
       "profileId": null,
       "rawName": "GLM-5.3"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -424,12 +424,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[5].averageCost; mean over all 178 attempts; at least the sum of the 101 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[5]",
         "method": "EMBEDDED_JSON"
       }
@@ -447,7 +447,7 @@
     "cost": 2.8323017836516855,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:haikufivefive-max",
@@ -460,7 +460,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 5.5"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 4,
@@ -473,12 +473,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[17].averageCost; mean over all 356 attempts; at least the sum of the 213 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[17]",
         "method": "EMBEDDED_JSON"
       }
@@ -496,7 +496,7 @@
     "cost": 0.5344267193258427,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:lunamax-max",
@@ -509,7 +509,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "GPT-5.6 Luna"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -522,12 +522,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[8].averageCost; mean over all 178 attempts; at least the sum of the 82 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[8]",
         "method": "EMBEDDED_JSON"
       }
@@ -545,7 +545,7 @@
     "cost": 0.26354183219101124,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:lunasix-max",
@@ -558,7 +558,7 @@
       "profileId": "openai-gpt-6-luna-max",
       "rawName": "GPT-6 Luna"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -571,12 +571,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[14].averageCost; mean over all 178 attempts; at least the sum of the 92 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[14]",
         "method": "EMBEDDED_JSON"
       }
@@ -591,10 +591,10 @@
     "assumptionId": null,
     "benchmarkId": "maxxbench",
     "benchmarkVersion": null,
-    "cost": 0.18219873507865167,
+    "cost": 0.18173511751685395,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:museember-max",
@@ -607,7 +607,7 @@
       "profileId": "meta-muse-ember-max",
       "rawName": "Muse Ember 1.0"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 4,
@@ -620,12 +620,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[20].averageCost; mean over all 356 attempts; at least the sum of the 226 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[20]",
         "method": "EMBEDDED_JSON"
       }
@@ -643,7 +643,7 @@
     "cost": 3.0312414384831463,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:museonetwo-xhigh",
@@ -656,7 +656,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "Muse Spark 1.2"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -669,12 +669,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[11].averageCost; mean over all 178 attempts; at least the sum of the 69 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[11]",
         "method": "EMBEDDED_JSON"
       }
@@ -692,7 +692,7 @@
     "cost": 13.795049741573033,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:opusfive-max",
@@ -705,7 +705,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "Claude Opus 5"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -718,12 +718,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[1].averageCost; mean over all 178 attempts; at least the sum of the 113 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[1]",
         "method": "EMBEDDED_JSON"
       }
@@ -741,7 +741,7 @@
     "cost": 16.179685519101124,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:opusfivefive-max",
@@ -754,7 +754,7 @@
       "profileId": "anthropic-claude-opus-5-5-max",
       "rawName": "Claude Opus 5.5"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -767,12 +767,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[0].averageCost; mean over all 178 attempts; at least the sum of the 136 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[0]",
         "method": "EMBEDDED_JSON"
       }
@@ -790,7 +790,7 @@
     "cost": 0.3574443822247191,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:qwen-xhigh",
@@ -803,7 +803,7 @@
       "profileId": null,
       "rawName": "Qwen3.8 Flash Next"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -816,12 +816,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[15].averageCost; mean over all 178 attempts; at least the sum of the 82 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[15]",
         "method": "EMBEDDED_JSON"
       }
@@ -839,7 +839,7 @@
     "cost": 1.4986065674157303,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:qwenfourmax-xhigh",
@@ -852,7 +852,7 @@
       "profileId": "alibaba-qwen4-max-xhigh",
       "rawName": "Qwen 4 Max"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -865,12 +865,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[18].averageCost; mean over all 178 attempts; at least the sum of the 103 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[18]",
         "method": "EMBEDDED_JSON"
       }
@@ -888,7 +888,7 @@
     "cost": 5.945539049438201,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:sol-max",
@@ -901,7 +901,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "GPT-5.6 Sol"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -914,12 +914,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[4].averageCost; mean over all 178 attempts; at least the sum of the 123 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[4]",
         "method": "EMBEDDED_JSON"
       }
@@ -937,7 +937,7 @@
     "cost": 10.524906332584269,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:sonnetfivefive-max",
@@ -950,7 +950,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-max",
       "rawName": "Claude Sonnet 5.5"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 2,
@@ -963,12 +963,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[13].averageCost; mean over all 178 attempts; at least the sum of the 119 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[13]",
         "method": "EMBEDDED_JSON"
       }
@@ -986,7 +986,7 @@
     "cost": 2.9594702334269662,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e"
+      "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6"
     ],
     "exclusionReason": null,
     "id": "maxxbench:mean-attempt-cost:stepfive-high",
@@ -999,7 +999,7 @@
       "profileId": null,
       "rawName": "Step 5 Preview"
     },
-    "observedAt": "2026-11-21T08:46:32.497Z",
+    "observedAt": "2026-11-22T04:15:27.042Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": 4,
@@ -1012,12 +1012,12 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[21].averageCost; mean over all 356 attempts; at least the sum of the 152 passed-attempt costs in completionData.averageCost",
         "method": "EMBEDDED_JSON"
       },
       "profile": {
-        "evidenceId": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+        "evidenceId": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
         "locator": "Astro BenchmarkLeaderboard.props.models[21]",
         "method": "EMBEDDED_JSON"
       }

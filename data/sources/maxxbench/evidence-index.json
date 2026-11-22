@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/6b/6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e.html",
-    "byteLength": 486939,
+    "artifactPath": "artifacts/sha256/2f/2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6.html",
+    "byteLength": 487050,
     "finalUrl": "https://unlap.ai/maxxbench/",
-    "id": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+    "id": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Astro leaderboard and embedded attempt data (completionData curves; trials before 2026-11-14)",
@@ -14,9 +14,9 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://maxxbench.unlap.ai/",
-    "retrievedAt": "2026-11-21T08:46:32.497Z",
+    "retrievedAt": "2026-11-22T04:15:27.042Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:6b097efb1ba5740b7ea0da94f4bcaa293277ec7d5ffbe9e766c0830318321a7e",
+    "sha256": "sha256:2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
     "sourceId": "maxxbench"
   }
 ]

@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-21T08:43:44.008Z",
+  "checkedAt": "2026-11-22T04:15:59.497Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -53,6 +53,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -704,7 +705,7 @@
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-21T08:43:40.883Z",
+    "observedAt": "2026-11-22T04:15:56.461Z",
     "sourceId": "arc-prize"
   }
 }

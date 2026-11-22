@@ -1,7 +1,7 @@
 # Terminal-Bench 4.1 acquisition validation
 
 - Source: <https://www.tbench.ai/leaderboard>
-- Evidence: `sha256:e940233895e39102367c3d593cc89d00816fd81ba8bff22264544f1abc7be718`
+- Evidence: `sha256:4aea4ad853862a552139620302da8dee2bf1b0109b30cfa47ca2642d5ef0ea3e`
 - Leaderboard `terminal-bench/terminal-bench` / `4-1-0` ("Terminal-Bench 4.1"), updated 2026-11-20T16:07:10.159Z.
 - Configurations: 67; distinct models: 54; rendered browser rows: 54.
 - Every row has 330 trials and its resolution rate equals successes / trials.
