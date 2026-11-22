@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-21T08:42:55.759Z",
+  "checkedAt": "2026-11-22T04:16:33.038Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -181,7 +181,7 @@
         "versions": ["4.1"]
       }
     ],
-    "observedAt": "2026-11-21T08:42:53.069Z",
+    "observedAt": "2026-11-22T04:16:31.139Z",
     "sourceId": "terminal-bench"
   }
 }

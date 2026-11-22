@@ -10,7 +10,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-opus-5-5",
-    "retrievedAt": "2026-11-21T08:44:10.715Z",
+    "retrievedAt": "2026-11-22T04:16:20.241Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:63c89c774d8278f51fbf363eb23ab01db8c1dc0acd7c4fea731a85826938fb54",
     "sourceId": "anthropic-releases"
@@ -26,7 +26,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-sonnet-5-5",
-    "retrievedAt": "2026-11-21T08:44:10.715Z",
+    "retrievedAt": "2026-11-22T04:16:20.241Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f19837b5ee4c82a112698c0ae372a2a98e9411d62176f1d8824339ddfe37ba35",
     "sourceId": "anthropic-releases"
@@ -42,7 +42,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-    "retrievedAt": "2026-11-21T08:44:10.715Z",
+    "retrievedAt": "2026-11-22T04:16:20.241Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b62ba8dcdaf9bd0af970976f54321118b15d94661f0e58b6d3ab1751c554fbb8",
     "sourceId": "anthropic-releases"
@@ -58,7 +58,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/news/claude-opus-5",
-    "retrievedAt": "2026-11-21T08:44:10.715Z",
+    "retrievedAt": "2026-11-22T04:16:20.241Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4241a4bcf508ab547c2dc970a77df1954c6b3884a51f82e8eabf35ac222a103a",
     "sourceId": "anthropic-releases"

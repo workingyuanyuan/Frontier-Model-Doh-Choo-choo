@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/e9/e940233895e39102367c3d593cc89d00816fd81ba8bff22264544f1abc7be718.html",
+    "artifactPath": "artifacts/sha256/4a/4aea4ad853862a552139620302da8dee2bf1b0109b30cfa47ca2642d5ef0ea3e.html",
     "byteLength": 355615,
     "finalUrl": "https://www.tbench.ai/",
-    "id": "sha256:e940233895e39102367c3d593cc89d00816fd81ba8bff22264544f1abc7be718",
+    "id": "sha256:4aea4ad853862a552139620302da8dee2bf1b0109b30cfa47ca2642d5ef0ea3e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "leaderboard page with embedded Terminal-Bench 4.1 query",
@@ -15,9 +15,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.tbench.ai/leaderboard",
-    "retrievedAt": "2026-11-21T08:42:53.069Z",
+    "retrievedAt": "2026-11-22T04:16:31.139Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e940233895e39102367c3d593cc89d00816fd81ba8bff22264544f1abc7be718",
+    "sha256": "sha256:4aea4ad853862a552139620302da8dee2bf1b0109b30cfa47ca2642d5ef0ea3e",
     "sourceId": "terminal-bench"
   }
 ]

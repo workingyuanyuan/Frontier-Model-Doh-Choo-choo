@@ -8,7 +8,7 @@
 - Models evidence: `sha256:55b22723416758db2a159581c1db82966919a93f68775602995363577db55478`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:83c177d73c2e0e8f011db30a60de74f17c4fb6dfcd1fee79ef4e8522fc7ad8e6`
-- Observed at: 2026-11-21T08:43:40.883Z
+- Observed at: 2026-11-22T04:15:56.461Z
 
 ## Exact counts
 
@@ -206,6 +206,16 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate rows | 318 | 318 | +0 |
+| Cost records | 318 | 318 | +0 |
+| Canonically unresolved models | 140 | 140 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

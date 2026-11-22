@@ -1,6 +1,6 @@
 # Epoch AI acquisition validation
 
-- Retrieved at: 2026-11-21T08:43:37.362Z
+- Retrieved at: 2026-11-22T04:15:53.148Z
 - Export: https://epoch.ai/data/benchmark_data.zip
 - Live comparison channel: https://epoch.ai/data/benchmarks.csv
 - Page: https://epoch.ai/benchmarks/use-this-data
@@ -61,8 +61,8 @@ so the export is compared against that file rather than against a typed count.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| CandidateResults | 1503 | 1508 | +5 |
-| Epoch Capabilities Index rows | 257 | 258 | +1 |
+| CandidateResults | 1508 | 1508 | +0 |
+| Epoch Capabilities Index rows | 258 | 258 | +0 |
 | Rows without a canonical identity | 971 | 971 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.

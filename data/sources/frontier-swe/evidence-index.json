@@ -14,7 +14,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.frontierswe.com/",
-    "retrievedAt": "2026-11-21T08:43:22.510Z",
+    "retrievedAt": "2026-11-22T04:15:35.285Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ac280dfb291672e560b69086b5ef6bbbd550dead84f251e6a617ba98027e92c0",
     "sourceId": "frontier-swe"

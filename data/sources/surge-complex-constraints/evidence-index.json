@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/complex-constraints",
-    "retrievedAt": "2026-11-21T08:42:46.832Z",
+    "retrievedAt": "2026-11-22T04:15:41.739Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6",
     "sourceId": "surge-complex-constraints"

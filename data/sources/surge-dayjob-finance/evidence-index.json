@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
-    "retrievedAt": "2026-11-21T08:43:30.512Z",
+    "retrievedAt": "2026-11-22T04:15:46.663Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7",
     "sourceId": "surge-dayjob-finance"

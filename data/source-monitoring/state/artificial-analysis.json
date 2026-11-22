@@ -241,21 +241,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-21T08:42:40.151Z",
+  "checkedAt": "2026-11-22T04:15:20.169Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/9b/9b2dbd9488fedf07d3502ebc14e0acb543f0df6ba53f3cd6889955c7c96ff1f5.html",
+    "artifactPath": "artifacts/sha256/54/54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e.html",
     "byteLength": 423868,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:9b2dbd9488fedf07d3502ebc14e0acb543f0df6ba53f3cd6889955c7c96ff1f5",
+    "id": "sha256:54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-11-21T08:42:40.151Z",
+    "retrievedAt": "2026-11-22T04:15:20.169Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9b2dbd9488fedf07d3502ebc14e0acb543f0df6ba53f3cd6889955c7c96ff1f5",
+    "sha256": "sha256:54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -328,6 +328,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-3",
           "xai-grok-4-5",
@@ -1818,6 +1819,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7",
@@ -2615,6 +2617,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -3918,6 +3921,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -4192,6 +4196,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -4708,6 +4713,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-3",
           "xai-grok-4-5",
@@ -5447,6 +5453,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-3",
           "xai-grok-4-5",
@@ -6688,6 +6695,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7",
@@ -10263,6 +10271,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-3",
           "xai-grok-4-5",
@@ -10989,6 +10998,7 @@
           "reflection-beam-1-0",
           "tencent-hy4",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-mini",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -11471,7 +11481,7 @@
         "versions": ["v0.1"]
       }
     ],
-    "observedAt": "2026-11-21T08:41:25.915Z",
+    "observedAt": "2026-11-22T04:14:32.767Z",
     "sourceId": "artificial-analysis"
   }
 }

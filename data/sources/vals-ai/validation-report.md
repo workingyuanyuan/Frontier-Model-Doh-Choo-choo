@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
 - Index evidence: `sha256:e685822cd7325a9adae1eb66603fec5057938f40e48a2155073c4b436ff7789c`
-- Observed at: 2026-11-21T08:52:43.955Z
+- Observed at: 2026-11-22T04:16:06.579Z
 
 ## Exact counts
 
@@ -15,8 +15,8 @@
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3575 |
 | Included vals_index CostRecords | 42 |
-| Canonically unresolved rows | 2115 |
-| Distinct canonically unresolved models | 249 |
+| Canonically unresolved rows | 2020 |
+| Distinct canonically unresolved models | 246 |
 
 ## Per-page completeness
 
@@ -301,8 +301,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/tev1-4b-experimental
 - deepgram/flux-general-en
 - deepgram/nova-3-streaming
-- deepseek/deepseek-v4-flash-0731
-- deepseek/deepseek-v4-pro-0813
 - deepseek/deepseek-v4.1-flash
 - devin/swe-1-6-fast
 - elevenlabs/scribe_v2_realtime
@@ -433,7 +431,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - stepfun/step-5-preview
 - tencent/hy4-flash
 - tencent/hy4-preview
-- thinkingmachines/inkling
 - thinkingmachines/inkling-small
 - together/google/gemma-2-27b-it
 - together/google/gemma-2-9b-it
@@ -506,7 +503,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 67 | 67 | +0 |
 | CandidateResults | 3727 | 3727 | +0 |
 | CostRecords retained | 3575 | 3575 | +0 |
-| Canonically unresolved rows | 2140 | 2115 | -25 |
+| Canonically unresolved rows | 2115 | 2020 | -95 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -567,6 +564,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | anthropic/claude-sonnet-4-6 | `vals-ai:aime:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:case-law-v2:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:medqa:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
+| deepseek/deepseek-v4-flash-0731 | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
@@ -653,6 +651,42 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | tencent/hy4 | `vals-ai:terminal-bench-4-0:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vals-index:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vibe-code-bench:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| thinkingmachines/inkling | `vals-ai:code-migration-v1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:code-migration:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:corpfin:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:cyber:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:emb-v1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:emb:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:fabv2-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:finance-agent-v2:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:finance-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:gpqa-diamond:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:hlab-v1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:hlab:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:ioi:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:legal-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:legal-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:legal-research:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:livecodebench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:medcode:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:medscribe:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:mmlu-pro:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:mmmu:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:mortgage-tax:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:programbench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:proofbench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:public-benefits-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:skillsbench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:srebench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:swe-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:tax-agent-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:tax-eval-v2:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:terminal-bench-2-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vals-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vals-multimodal-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vcb-1-100:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vibe-code-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling-2-small | `vals-ai:biomysterybench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:cyber:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |

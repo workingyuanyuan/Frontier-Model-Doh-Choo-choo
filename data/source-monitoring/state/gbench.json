@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-21T12:40:56.254Z",
+  "checkedAt": "2026-11-22T04:16:38.731Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -309,7 +309,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-21T12:40:54.066Z",
+    "observedAt": "2026-11-22T04:16:34.206Z",
     "sourceId": "gbench"
   }
 }

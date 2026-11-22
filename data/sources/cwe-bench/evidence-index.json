@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/40/40336a97d78e4f4cb3bd9cb0ad2814e6651c3c4c66ef813a69914e367d4354ec.html",
+    "artifactPath": "artifacts/sha256/58/585276f1f0a3be099bacbc921dd2562955266a8622eb642612dbfee43529717e.html",
     "byteLength": 154400,
     "finalUrl": "https://cwe-bench.com/",
-    "id": "sha256:40336a97d78e4f4cb3bd9cb0ad2814e6651c3c4c66ef813a69914e367d4354ec",
+    "id": "sha256:585276f1f0a3be099bacbc921dd2562955266a8622eb642612dbfee43529717e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "server-rendered leaderboard, Combined view",
@@ -13,9 +13,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://cwe-bench.com/",
-    "retrievedAt": "2026-11-21T08:42:50.819Z",
+    "retrievedAt": "2026-11-22T04:16:28.849Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:40336a97d78e4f4cb3bd9cb0ad2814e6651c3c4c66ef813a69914e367d4354ec",
+    "sha256": "sha256:585276f1f0a3be099bacbc921dd2562955266a8622eb642612dbfee43529717e",
     "sourceId": "cwe-bench"
   }
 ]
