@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T04:16:38.731Z",
+  "checkedAt": "2026-11-22T05:05:46.827Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -558,12 +558,23 @@
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-11-22T04:15:55.009Z",
+      "checkedAt": "2026-11-22T05:05:46.827Z",
       "error": null,
-      "findings": [],
+      "findings": [
+        {
+          "benchmarkId": "frontiermath-tier-4-v2",
+          "detail": "84 rows; 83 included",
+          "kind": "benchmark-materialized"
+        },
+        {
+          "benchmarkId": "frontiermath-v2",
+          "detail": "128 rows; 128 included",
+          "kind": "benchmark-materialized"
+        }
+      ],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-22T04:15:53.148Z",
+      "snapshotObservedAt": "2026-11-22T05:05:44.873Z",
       "sourceId": "epoch-ai"
     },
     {

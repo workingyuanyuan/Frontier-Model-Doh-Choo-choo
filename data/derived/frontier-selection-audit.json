@@ -174,7 +174,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-fable-5-2-max",
-            "benchmarkCount": 29,
+            "benchmarkCount": 31,
             "organizationCount": 9,
             "aaScore": 64.563595756626
           },
@@ -214,7 +214,7 @@
           "terminal-bench",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 29
+        "benchmarkCount": 31
       },
       {
         "rank": 2,
@@ -231,7 +231,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-astra-max",
-            "benchmarkCount": 37,
+            "benchmarkCount": 39,
             "organizationCount": 11,
             "aaScore": 62.1387990593969
           },
@@ -273,7 +273,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 37
+        "benchmarkCount": 39
       },
       {
         "rank": 3,
@@ -290,7 +290,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-neon-xhigh",
-            "benchmarkCount": 23,
+            "benchmarkCount": 25,
             "organizationCount": 6,
             "aaScore": 61.3982491392674
           },
@@ -321,7 +321,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 23
+        "benchmarkCount": 25
       },
       {
         "rank": 4,
@@ -338,7 +338,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-carbon-high",
-            "benchmarkCount": 40,
+            "benchmarkCount": 42,
             "organizationCount": 12,
             "aaScore": 60.025738829526
           },
@@ -369,7 +369,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 40
+        "benchmarkCount": 42
       },
       {
         "rank": 5,
@@ -386,7 +386,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-opus-5-5-max",
-            "benchmarkCount": 52,
+            "benchmarkCount": 54,
             "organizationCount": 12,
             "aaScore": 59.1060336078904
           },
@@ -429,7 +429,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 52
+        "benchmarkCount": 54
       },
       {
         "rank": 6,
@@ -504,32 +504,32 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-astra-max",
-            "benchmarkCount": 52,
+            "benchmarkCount": 54,
             "organizationCount": 12,
             "aaScore": 56.8538559596797
           },
           {
             "profileId": "openai-gpt-6-astra-xhigh",
-            "benchmarkCount": 21,
-            "organizationCount": 7,
+            "benchmarkCount": 22,
+            "organizationCount": 8,
             "aaScore": 55.3057468569681
           },
           {
             "profileId": "openai-gpt-6-astra-high",
-            "benchmarkCount": 21,
-            "organizationCount": 7,
+            "benchmarkCount": 22,
+            "organizationCount": 8,
             "aaScore": 54.849838322506
           },
           {
             "profileId": "openai-gpt-6-astra-medium",
-            "benchmarkCount": 20,
-            "organizationCount": 6,
+            "benchmarkCount": 21,
+            "organizationCount": 7,
             "aaScore": 51.5548393864113
           },
           {
             "profileId": "openai-gpt-6-astra-low",
-            "benchmarkCount": 19,
-            "organizationCount": 6,
+            "benchmarkCount": 20,
+            "organizationCount": 7,
             "aaScore": 43.3349823228524
           }
         ],
@@ -547,7 +547,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 52
+        "benchmarkCount": 54
       },
       {
         "rank": 8,
@@ -564,7 +564,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-1-sol-max",
-            "benchmarkCount": 50,
+            "benchmarkCount": 52,
             "organizationCount": 9,
             "aaScore": 54.6087338138148
           },
@@ -604,7 +604,7 @@
           "terminal-bench",
           "vals-ai"
         ],
-        "benchmarkCount": 50
+        "benchmarkCount": 52
       },
       {
         "rank": 9,
@@ -621,7 +621,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-sonnet-5-5-max",
-            "benchmarkCount": 49,
+            "benchmarkCount": 51,
             "organizationCount": 10,
             "aaScore": 54.54133407109
           },
@@ -662,7 +662,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 49
+        "benchmarkCount": 51
       },
       {
         "rank": 10,
@@ -679,7 +679,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-hydrogen-xhigh",
-            "benchmarkCount": 31,
+            "benchmarkCount": 33,
             "organizationCount": 8,
             "aaScore": 53.9192287317542
           },
@@ -712,7 +712,7 @@
           "surge",
           "vals-ai"
         ],
-        "benchmarkCount": 31
+        "benchmarkCount": 33
       }
     ],
     "skipped": []

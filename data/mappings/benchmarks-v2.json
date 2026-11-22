@@ -125,6 +125,16 @@
       "secondaryDimensions": ["knowledge"]
     },
     {
+      "id": "frontiermath-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "frontiermath-tier-4-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
       "id": "aime",
       "primaryDimension": "reasoning",
       "secondaryDimensions": []

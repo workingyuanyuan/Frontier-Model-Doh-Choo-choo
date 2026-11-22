@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-11-22",
+  "approvedBy": "user",
+  "approval": "2026-11-22 使用者指示「改用 v2」：代理回報專案仍匯入 Epoch 已標示為被取代的 FrontierMath v1，推薦依「benchmark 改版時跟隨新版」規則改採 v2。",
+  "decision": "exclude-from-scoring",
+  "addedExcludedBenchmarkIds": ["frontiermath", "frontiermath-tier-4"],
+  "previousEvidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
+  "reviews": [
+    {
+      "benchmarkId": "frontiermath",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "frontiermath-v2",
+      "reason": "Epoch's benchmark_metadata.csv sets superseded_by=FrontierMath-Tiers-1-3-v2-Private for FrontierMath-2025-02-28-Private. v2 (2026-06-12) corrects problems in the private set, so the two versions are not the same test; v1 rows are retained only as evidence.",
+      "source": "https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2"
+    },
+    {
+      "benchmarkId": "frontiermath-tier-4",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "frontiermath-tier-4-v2",
+      "reason": "Epoch's benchmark_metadata.csv sets superseded_by=FrontierMath-Tier-4-v2-Private for FrontierMath-Tier-4-2025-07-01-Private. v1 rows are retained only as evidence.",
+      "source": "https://epoch.ai/benchmarks/frontiermath-tier-4-v2"
+    }
+  ],
+  "qualityPolicy": {
+    "reviewedAt": "2026-11-22",
+    "evidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi",
+      "humanitys-last-exam",
+      "critpt",
+      "terminal-bench-4-0",
+      "frontiermath",
+      "frontiermath-tier-4"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

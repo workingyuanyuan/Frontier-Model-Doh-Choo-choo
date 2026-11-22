@@ -2,6 +2,7 @@ import { expect, openAdvancedCostChartWithEveryModel, test } from './test';
 import {
   effortSelect,
   findModels,
+  hasTaskCost,
   sharedEfforts,
   profileLabel,
 } from './product-data';
@@ -107,9 +108,12 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
   };
   await checkCopy();
   await checkCost();
-  // Pin one effort of a multi-effort model, then compare another.
-  const [model] = findModels(1, ([p]) => Boolean(sharedEfforts(p!)));
-  const [kept, compared] = sharedEfforts(model!)!;
+  // Pin one effort of a multi-effort model, then compare another. Both need a
+  // task cost, or the cost chart has no points to check against the table.
+  const [model] = findModels(1, ([p]) =>
+    Boolean(sharedEfforts(p!, hasTaskCost)),
+  );
+  const [kept, compared] = sharedEfforts(model!, hasTaskCost)!;
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   await page.getByRole('checkbox', { name: model!.name, exact: true }).check();
