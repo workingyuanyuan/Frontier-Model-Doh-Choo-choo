@@ -7,7 +7,11 @@ import {
 } from '../lib/common-benchmarks';
 import { getSourceDisplayName } from '../components/model-detail-panel';
 import { loadProductVersion } from '../lib/load-product-version';
-import { getProfileDisplayName, withActivePreset } from '../lib/view-model';
+import {
+  COST_SOURCE_WEIGHTS,
+  getProfileDisplayName,
+  withActivePreset,
+} from '../lib/view-model';
 
 // e2e expectations come from the published product, never from literals, so a
 // data refresh does not require editing specs.
@@ -119,9 +123,23 @@ export function findModels(
 
 export const hasEfforts = (p: Pick) => profilesOf(p.modelId).length > 1;
 
+/** True when a profile has a positive task cost from a weighted cost source. */
+export const hasTaskCost = (profileId: string) =>
+  product.costs.some(
+    (cost) =>
+      cost.profileId === profileId &&
+      (cost.costType === 'MEASURED_TASK' || cost.costType === 'AGENT_TASK') &&
+      cost.unit === 'USD_PER_TASK' &&
+      cost.cost > 0 &&
+      ((COST_SOURCE_WEIGHTS as Record<string, number>)[cost.sourceId] ?? 0) > 0,
+  );
+
 /** Two efforts of one model that share at least one comparable benchmark. */
-export const sharedEfforts = (p: Pick): [string, string] | undefined => {
-  const ids = profilesOf(p.modelId);
+export const sharedEfforts = (
+  p: Pick,
+  accept: (profileId: string) => boolean = () => true,
+): [string, string] | undefined => {
+  const ids = profilesOf(p.modelId).filter(accept);
   for (const kept of ids)
     for (const compared of ids)
       if (

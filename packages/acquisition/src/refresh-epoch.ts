@@ -108,6 +108,7 @@ const validationReport = (input: {
   zipEntries: number;
   externalMirrors: number;
   eciRows: number;
+  unpromotedFiles: readonly string[];
   candidates: readonly CandidateResult[];
   comparisons: readonly VisibleComparison[];
   delta: string;
@@ -168,11 +169,24 @@ ${input.comparisons
 - The Epoch Capabilities Index is a composite and stays \`EXCLUDED\`; it is
   selection-only evidence and must not be double-counted in five-dimension
   scoring.
-- \`mirrorcode.csv\` and \`mystery_game_puzzles.csv\` are present in the export but
-  are not promoted: neither has an approved benchmark ID or dimension mapping.
+- \`frontiermath\` and \`frontiermath-tier-4\` (v1) are still materialized but
+  Epoch marks them superseded by v2; the benchmark quality policy excludes them
+  from scoring and \`frontiermath-v2\` / \`frontiermath-tier-4-v2\` are scored.
 - \`gpqa-diamond\` is also published by Artificial Analysis. The cross-source
   selection rule is documented in \`docs/SPEC.md\` §4.3.1; apply source role,
   completeness and the approved equal-standing score comparison.
+
+## Epoch-run files not promoted
+
+These files are Epoch's own runs (no \`_external\` suffix) but have no approved
+benchmark ID or dimension mapping. Adopting one is a user decision
+(\`docs/SPEC.md\` §5.3).
+
+${
+  input.unpromotedFiles.length === 0
+    ? '- None.'
+    : input.unpromotedFiles.map((name) => `- \`${name}\``).join('\n')
+}
 
 ${input.delta}`;
 };
@@ -226,6 +240,18 @@ async function main() {
   const externalMirrors = entries.filter((name) =>
     name.includes('_external'),
   ).length;
+  const promoted = new Set<string>(EPOCH_DIRECT_FILES.map(({ name }) => name));
+  const unpromotedFiles = entries
+    .filter(
+      (name) =>
+        name.endsWith('.csv') &&
+        !name.includes('/') &&
+        !name.includes('_external') &&
+        !promoted.has(name) &&
+        !(EPOCH_ECI_FILES as readonly string[]).includes(name) &&
+        !['benchmark_metadata.csv', 'model_metadata.csv'].includes(name),
+    )
+    .toSorted((left, right) => left.localeCompare(right));
   if (!EPOCH_ECI_FILES.some((file) => entries.includes(file))) {
     throw new Error(`Epoch capabilities index is missing from ${ZIP_URL}`);
   }
@@ -268,6 +294,7 @@ async function main() {
     zipEntries: entries.length,
     externalMirrors,
     eciRows,
+    unpromotedFiles,
     candidates,
     comparisons,
     delta: snapshotDeltaMarkdown([
@@ -338,7 +365,8 @@ async function main() {
       'Only files without the _external suffix are treated as Epoch-run evidence.',
       'ECI is an Epoch-owned composite and stays EXCLUDED: selection-only evidence, never a ninth dimension.',
       `${comparisons.length} promoted files matched the live benchmarks.csv model set exactly.`,
-      'mirrorcode.csv and mystery_game_puzzles.csv stay in the raw artifact; neither has an approved benchmark ID or dimension mapping.',
+      'FrontierMath v1 files stay as evidence; Epoch marks them superseded by v2, which is scored under frontiermath-v2 and frontiermath-tier-4-v2.',
+      'Other Epoch-run files without an approved benchmark ID stay in the raw artifact and are listed in the validation report.',
       'Epoch Inspect harness and attempt metadata remain raw Profile provenance and do not create Product Profiles.',
     ],
   });

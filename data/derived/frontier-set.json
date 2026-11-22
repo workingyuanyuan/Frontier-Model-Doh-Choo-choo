@@ -177,7 +177,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-fable-5-2-max",
-            "benchmarkCount": 29,
+            "benchmarkCount": 31,
             "organizationCount": 9,
             "aaScore": 64.563595756626
           },
@@ -217,7 +217,7 @@
           "terminal-bench",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 29
+        "benchmarkCount": 31
       },
       {
         "rank": 2,
@@ -234,7 +234,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-astra-max",
-            "benchmarkCount": 37,
+            "benchmarkCount": 39,
             "organizationCount": 11,
             "aaScore": 62.1387990593969
           },
@@ -276,7 +276,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 37
+        "benchmarkCount": 39
       },
       {
         "rank": 3,
@@ -293,7 +293,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-neon-xhigh",
-            "benchmarkCount": 23,
+            "benchmarkCount": 25,
             "organizationCount": 6,
             "aaScore": 61.3982491392674
           },
@@ -324,7 +324,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 23
+        "benchmarkCount": 25
       },
       {
         "rank": 4,
@@ -341,7 +341,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-carbon-high",
-            "benchmarkCount": 40,
+            "benchmarkCount": 42,
             "organizationCount": 12,
             "aaScore": 60.025738829526
           },
@@ -372,7 +372,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 40
+        "benchmarkCount": 42
       },
       {
         "rank": 5,
@@ -389,7 +389,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-opus-5-5-max",
-            "benchmarkCount": 52,
+            "benchmarkCount": 54,
             "organizationCount": 12,
             "aaScore": 59.1060336078904
           },
@@ -432,7 +432,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 52
+        "benchmarkCount": 54
       },
       {
         "rank": 6,
@@ -507,32 +507,32 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-astra-max",
-            "benchmarkCount": 52,
+            "benchmarkCount": 54,
             "organizationCount": 12,
             "aaScore": 56.8538559596797
           },
           {
             "profileId": "openai-gpt-6-astra-xhigh",
-            "benchmarkCount": 21,
-            "organizationCount": 7,
+            "benchmarkCount": 22,
+            "organizationCount": 8,
             "aaScore": 55.3057468569681
           },
           {
             "profileId": "openai-gpt-6-astra-high",
-            "benchmarkCount": 21,
-            "organizationCount": 7,
+            "benchmarkCount": 22,
+            "organizationCount": 8,
             "aaScore": 54.849838322506
           },
           {
             "profileId": "openai-gpt-6-astra-medium",
-            "benchmarkCount": 20,
-            "organizationCount": 6,
+            "benchmarkCount": 21,
+            "organizationCount": 7,
             "aaScore": 51.5548393864113
           },
           {
             "profileId": "openai-gpt-6-astra-low",
-            "benchmarkCount": 19,
-            "organizationCount": 6,
+            "benchmarkCount": 20,
+            "organizationCount": 7,
             "aaScore": 43.3349823228524
           }
         ],
@@ -550,7 +550,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 52
+        "benchmarkCount": 54
       },
       {
         "rank": 8,
@@ -567,7 +567,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-1-sol-max",
-            "benchmarkCount": 50,
+            "benchmarkCount": 52,
             "organizationCount": 9,
             "aaScore": 54.6087338138148
           },
@@ -607,7 +607,7 @@
           "terminal-bench",
           "vals-ai"
         ],
-        "benchmarkCount": 50
+        "benchmarkCount": 52
       },
       {
         "rank": 9,
@@ -624,7 +624,7 @@
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-sonnet-5-5-max",
-            "benchmarkCount": 49,
+            "benchmarkCount": 51,
             "organizationCount": 10,
             "aaScore": 54.54133407109
           },
@@ -665,7 +665,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 49
+        "benchmarkCount": 51
       },
       {
         "rank": 10,
@@ -682,7 +682,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-hydrogen-xhigh",
-            "benchmarkCount": 31,
+            "benchmarkCount": 33,
             "organizationCount": 8,
             "aaScore": 53.9192287317542
           },
@@ -715,7 +715,7 @@
           "surge",
           "vals-ai"
         ],
-        "benchmarkCount": 31
+        "benchmarkCount": 33
       }
     ],
     "skipped": []
@@ -729,8 +729,8 @@
   },
   "defaultPresetId": "aa-top-9",
   "benchmarkQuality": {
-    "reviewedAt": "2026-11-21",
-    "evidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
+    "reviewedAt": "2026-11-22",
+    "evidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
     "excludedBenchmarkIds": [
       "aime",
       "programbench",
@@ -739,7 +739,9 @@
       "ioi",
       "humanitys-last-exam",
       "critpt",
-      "terminal-bench-4-0"
+      "terminal-bench-4-0",
+      "frontiermath",
+      "frontiermath-tier-4"
     ],
     "limitedBenchmarkIds": [
       "aa-lcr",
@@ -1586,6 +1588,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -1617,6 +1621,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -1636,6 +1642,8 @@
             "arc-agi-2",
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "riemann-bench"
           ]
@@ -1741,7 +1749,7 @@
               "score": 79,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -1810,6 +1818,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 95.08771929824562,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 85.96,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-fable-5-2",
@@ -1838,7 +1862,7 @@
               "score": 93.87626262626263,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -1870,7 +1894,7 @@
               "score": 94,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -1958,7 +1982,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2027,6 +2051,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 92.63157894736842,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 89.31,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-2-astra",
@@ -2055,7 +2095,7 @@
               "score": 96.84343434343434,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-2-astra-max-epoch-inspect-row-14",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2087,7 +2127,7 @@
               "score": 78.5,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2140,6 +2180,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -2158,6 +2200,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -2169,7 +2213,13 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": ["chess-puzzles", "critpt-v2", "gpqa-diamond"]
+          "benchmarkIds": [
+            "chess-puzzles",
+            "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
+            "gpqa-diamond"
+          ]
         },
         {
           "id": "knowledge",
@@ -2229,7 +2279,7 @@
               "score": 79,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2250,6 +2300,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 95.08771929824562,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 24.2,
               "resultId": "artificial-analysis:gdp-pdf:claude-fable-5-2",
@@ -2262,7 +2328,7 @@
               "score": 93.87626262626263,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2286,7 +2352,7 @@
               "score": 94,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2340,7 +2406,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2361,6 +2427,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 92.63157894736842,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 29.799999999999997,
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-2-astra",
@@ -2373,7 +2455,7 @@
               "score": 96.84343434343434,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-2-astra-max-epoch-inspect-row-14",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2397,7 +2479,7 @@
               "score": 78.5,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2451,7 +2533,7 @@
               "score": 83,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2472,6 +2554,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.5609756097561,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 28.000000000000004,
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-neon",
@@ -2484,7 +2582,7 @@
               "score": 96.27525252525253,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2508,7 +2606,7 @@
               "score": 75.2,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2555,6 +2653,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -2573,6 +2673,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -2584,7 +2686,13 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": ["chess-puzzles", "critpt-v2", "gpqa-diamond"]
+          "benchmarkIds": [
+            "chess-puzzles",
+            "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
+            "gpqa-diamond"
+          ]
         },
         {
           "id": "knowledge",
@@ -2644,7 +2752,7 @@
               "score": 79,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2665,6 +2773,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 95.08771929824562,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 24.2,
               "resultId": "artificial-analysis:gdp-pdf:claude-fable-5-2",
@@ -2677,7 +2801,7 @@
               "score": 93.87626262626263,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2701,7 +2825,7 @@
               "score": 94,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2755,7 +2879,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2776,6 +2900,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 92.63157894736842,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 29.799999999999997,
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-2-astra",
@@ -2788,7 +2928,7 @@
               "score": 96.84343434343434,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-2-astra-max-epoch-inspect-row-14",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2812,7 +2952,7 @@
               "score": 78.5,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2866,7 +3006,7 @@
               "score": 83,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2887,6 +3027,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.5609756097561,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 28.000000000000004,
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-neon",
@@ -2899,7 +3055,7 @@
               "score": 96.27525252525253,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2923,7 +3079,7 @@
               "score": 75.2,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2977,7 +3133,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -2998,6 +3154,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95.1219512195122,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 90.52631578947368,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 28.4,
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-carbon",
@@ -3010,7 +3182,7 @@
               "score": 96.52777777777779,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-carbon-high-epoch-inspect-row-6",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3034,7 +3206,7 @@
               "score": 77.7,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3083,6 +3255,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -3101,6 +3275,8 @@
         "chess-puzzles",
         "critpt-v2",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gdp-pdf",
         "gpqa-diamond",
         "hle-diamond",
@@ -3112,7 +3288,13 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": ["chess-puzzles", "critpt-v2", "gpqa-diamond"]
+          "benchmarkIds": [
+            "chess-puzzles",
+            "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
+            "gpqa-diamond"
+          ]
         },
         {
           "id": "knowledge",
@@ -3172,7 +3354,7 @@
               "score": 79,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3193,6 +3375,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 95.08771929824562,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-fable-5-2-max-epoch-inspect-row-3:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 24.2,
               "resultId": "artificial-analysis:gdp-pdf:claude-fable-5-2",
@@ -3205,7 +3403,7 @@
               "score": 93.87626262626263,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3229,7 +3427,7 @@
               "score": 94,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-fable-5-2-max-epoch-inspect-row-3",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3283,7 +3481,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3304,6 +3502,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 92.63157894736842,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 29.799999999999997,
               "resultId": "artificial-analysis:gdp-pdf:gpt-6-2-astra",
@@ -3316,7 +3530,7 @@
               "score": 96.84343434343434,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-2-astra-max-epoch-inspect-row-14",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3340,7 +3554,7 @@
               "score": 78.5,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3394,7 +3608,7 @@
               "score": 83,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3415,6 +3629,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.5609756097561,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-neon-xhigh-epoch-inspect-row-1:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 28.000000000000004,
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-neon",
@@ -3427,7 +3657,7 @@
               "score": 96.27525252525253,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3451,7 +3681,7 @@
               "score": 75.2,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-neon-xhigh-epoch-inspect-row-1",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3505,7 +3735,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3526,6 +3756,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95.1219512195122,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 90.52631578947368,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 28.4,
               "resultId": "artificial-analysis:gdp-pdf:gemini-4-carbon",
@@ -3538,7 +3784,7 @@
               "score": 96.52777777777779,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-carbon-high-epoch-inspect-row-6",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3562,7 +3808,7 @@
               "score": 77.7,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3616,7 +3862,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3637,6 +3883,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gdp-pdf",
               "score": 26.200000000000003,
               "resultId": "artificial-analysis:gdp-pdf:claude-opus-5-5",
@@ -3649,7 +3911,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -3673,7 +3935,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -7103,6 +7365,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -7171,6 +7435,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -7207,6 +7473,8 @@
           "benchmarkIds": [
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "livebench-reasoning",
             "riemann-bench"
@@ -7340,7 +7608,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -7457,6 +7725,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 79.62,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-opus-5-5",
@@ -7493,7 +7777,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -7669,7 +7953,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -7755,7 +8039,7 @@
               "score": 59,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-155",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -7872,6 +8156,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 80.48780487804879,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 88.7719298245614,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 69.74,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-sonnet-5-5",
@@ -7908,7 +8208,7 @@
               "score": 95.58080808080808,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-23",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8084,7 +8384,7 @@
               "score": 46.5,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8164,6 +8464,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -8230,6 +8532,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -8265,6 +8569,8 @@
           "benchmarkIds": [
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "livebench-reasoning",
             "riemann-bench"
@@ -8396,7 +8702,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8505,6 +8811,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 79.62,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-opus-5-5",
@@ -8541,7 +8863,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8709,7 +9031,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8794,7 +9116,7 @@
               "score": 68,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-161",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -8903,6 +9225,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 91.73,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-1-sol",
@@ -8939,7 +9277,7 @@
               "score": 95.39141414141415,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9107,7 +9445,7 @@
               "score": 73.9,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-21",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9193,7 +9531,7 @@
               "score": 59,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-155",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9302,6 +9640,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 80.48780487804879,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 88.7719298245614,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 69.74,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-sonnet-5-5",
@@ -9338,7 +9692,7 @@
               "score": 95.58080808080808,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-23",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9506,7 +9860,7 @@
               "score": 46.5,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9588,6 +9942,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -9652,6 +10008,8 @@
         "finance-agent-v2",
         "frontier-code-1-1",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -9686,6 +10044,8 @@
           "benchmarkIds": [
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "livebench-reasoning",
             "riemann-bench"
@@ -9807,7 +10167,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -9916,6 +10276,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 79.62,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-opus-5-5",
@@ -9952,7 +10328,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10112,7 +10488,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10190,7 +10566,7 @@
               "score": 74,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-astra-max-epoch-inspect-row-105",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10299,6 +10675,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.6,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-astra-max-epoch-inspect-row-31:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-astra-max-epoch-inspect-row-32:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 92.08,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-astra",
@@ -10335,7 +10727,7 @@
               "score": 95.77020202020202,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-astra-max-epoch-inspect-row-45",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10495,7 +10887,7 @@
               "score": 75.6,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-astra-max-epoch-inspect-row-39",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10572,7 +10964,7 @@
               "score": 68,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-161",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10681,6 +11073,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 91.73,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-1-sol",
@@ -10717,7 +11125,7 @@
               "score": 95.39141414141415,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10877,7 +11285,7 @@
               "score": 73.9,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-21",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -10955,7 +11363,7 @@
               "score": 59,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-155",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11064,6 +11472,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 80.48780487804879,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 88.7719298245614,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 69.74,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-sonnet-5-5",
@@ -11100,7 +11524,7 @@
               "score": 95.58080808080808,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-23",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11260,7 +11684,7 @@
               "score": 46.5,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11339,6 +11763,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -11379,6 +11805,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -11408,6 +11836,8 @@
           "benchmarkIds": [
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "livebench-reasoning",
             "riemann-bench"
@@ -11510,7 +11940,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11579,6 +12009,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95.1219512195122,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 90.52631578947368,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 86.58,
               "resultId": "gbench:gbench-agentic-coding:google-gemini-4-carbon",
@@ -11615,7 +12061,7 @@
               "score": 96.52777777777779,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-carbon-high-epoch-inspect-row-6",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11733,7 +12179,7 @@
               "score": 77.7,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11811,7 +12257,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -11880,6 +12326,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 79.62,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-opus-5-5",
@@ -11916,7 +12378,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12034,7 +12496,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12112,7 +12574,7 @@
               "score": 74,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-astra-max-epoch-inspect-row-105",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12181,6 +12643,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.6,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-astra-max-epoch-inspect-row-31:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-astra-max-epoch-inspect-row-32:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 92.08,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-astra",
@@ -12217,7 +12695,7 @@
               "score": 95.77020202020202,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-astra-max-epoch-inspect-row-45",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12335,7 +12813,7 @@
               "score": 75.6,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-astra-max-epoch-inspect-row-39",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12412,7 +12890,7 @@
               "score": 68,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-161",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12481,6 +12959,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 91.73,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-1-sol",
@@ -12517,7 +13011,7 @@
               "score": 95.39141414141415,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12635,7 +13129,7 @@
               "score": 73.9,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-21",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12713,7 +13207,7 @@
               "score": 59,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-155",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12782,6 +13276,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 80.48780487804879,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 88.7719298245614,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 69.74,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-sonnet-5-5",
@@ -12818,7 +13328,7 @@
               "score": 95.58080808080808,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-23",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -12936,7 +13446,7 @@
               "score": 46.5,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13017,6 +13527,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -13055,6 +13567,8 @@
         "dayjob-tax",
         "enterprisebench-corecraft",
         "frontier-code-2-0",
+        "frontiermath-tier-4-v2",
+        "frontiermath-v2",
         "gbench-agentic-coding",
         "gdp-pdf",
         "gdp-xlsx",
@@ -13083,6 +13597,8 @@
           "benchmarkIds": [
             "chess-puzzles",
             "critpt-v2",
+            "frontiermath-tier-4-v2",
+            "frontiermath-v2",
             "gpqa-diamond",
             "livebench-reasoning",
             "riemann-bench"
@@ -13175,7 +13691,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13244,6 +13760,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 92.63157894736842,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-2-astra-max-epoch-inspect-row-6:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 89.31,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-2-astra",
@@ -13272,7 +13804,7 @@
               "score": 96.84343434343434,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-2-astra-max-epoch-inspect-row-14",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13390,7 +13922,7 @@
               "score": 78.5,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-2-astra-max-epoch-inspect-row-13",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13460,7 +13992,7 @@
               "score": 78,
               "resultId": "epoch-ai:chess-puzzles:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13529,6 +14061,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95.1219512195122,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 90.52631578947368,
+              "resultId": "epoch-ai:frontiermath-v2:google-gemini-4-carbon-high-epoch-inspect-row-5:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 86.58,
               "resultId": "gbench:gbench-agentic-coding:google-gemini-4-carbon",
@@ -13557,7 +14105,7 @@
               "score": 96.52777777777779,
               "resultId": "epoch-ai:gpqa-diamond:google-gemini-4-carbon-high-epoch-inspect-row-6",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13675,7 +14223,7 @@
               "score": 77.7,
               "resultId": "epoch-ai:simpleqa-verified:google-gemini-4-carbon-high-epoch-inspect-row-5",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13745,7 +14293,7 @@
               "score": 67,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-opus-5-5-max-epoch-inspect-row-154",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13814,6 +14362,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 95,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 91.22807017543859,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-opus-5-5-max-epoch-inspect-row-20:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 79.62,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-opus-5-5",
@@ -13842,7 +14406,7 @@
               "score": 90.59343434343434,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-opus-5-5-max-epoch-inspect-row-27",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -13960,7 +14524,7 @@
               "score": 72.2,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-opus-5-5-max-epoch-inspect-row-26",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14030,7 +14594,7 @@
               "score": 74,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-astra-max-epoch-inspect-row-105",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14099,6 +14663,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 97.6,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-astra-max-epoch-inspect-row-31:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-astra-max-epoch-inspect-row-32:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 92.08,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-astra",
@@ -14127,7 +14707,7 @@
               "score": 95.77020202020202,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-astra-max-epoch-inspect-row-45",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14245,7 +14825,7 @@
               "score": 75.6,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-astra-max-epoch-inspect-row-39",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14314,7 +14894,7 @@
               "score": 68,
               "resultId": "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-161",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14383,6 +14963,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 100,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 93.6842105263158,
+              "resultId": "epoch-ai:frontiermath-v2:openai-gpt-6-1-sol-max-epoch-inspect-row-15:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 91.73,
               "resultId": "gbench:gbench-agentic-coding:openai-gpt-6-1-sol",
@@ -14411,7 +15007,7 @@
               "score": 95.39141414141415,
               "resultId": "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14529,7 +15125,7 @@
               "score": 73.9,
               "resultId": "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-21",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14599,7 +15195,7 @@
               "score": 59,
               "resultId": "epoch-ai:chess-puzzles:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-155",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14668,6 +15264,22 @@
               ]
             },
             {
+              "benchmarkId": "frontiermath-tier-4-v2",
+              "score": 80.48780487804879,
+              "resultId": "epoch-ai:frontiermath-tier-4-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tier-4-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
+              "benchmarkId": "frontiermath-v2",
+              "score": 88.7719298245614,
+              "resultId": "epoch-ai:frontiermath-v2:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-16:tiers-1-3-v2",
+              "evidenceIds": [
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
+              ]
+            },
+            {
               "benchmarkId": "gbench-agentic-coding",
               "score": 69.74,
               "resultId": "gbench:gbench-agentic-coding:anthropic-claude-sonnet-5-5",
@@ -14696,7 +15308,7 @@
               "score": 95.58080808080808,
               "resultId": "epoch-ai:gpqa-diamond:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-23",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {
@@ -14814,7 +15426,7 @@
               "score": 46.5,
               "resultId": "epoch-ai:simpleqa-verified:anthropic-claude-sonnet-5-5-max-epoch-inspect-row-22",
               "evidenceIds": [
-                "sha256:331b740297ead370c22d2880dbe3fff6fb61eb622726ca86db0904a2549dbb3f"
+                "sha256:8fe0ea476d7b26708eff36cf34ee3894871e78376faf8a8b2429558d1a7c9991"
               ]
             },
             {

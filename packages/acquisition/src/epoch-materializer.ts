@@ -170,6 +170,24 @@ export const EPOCH_DIRECT_FILES = [
     version: 'Tier 4',
     liveTaskName: 'FrontierMath-Tier-4-2025-07-01-Private',
   },
+  // Epoch's benchmark_metadata.csv marks both v1 files above as superseded by
+  // these v2 files (2026-06-12, corrected problems). They are different tests,
+  // so v2 has its own benchmark IDs; the v1 rows stay as evidence and the
+  // benchmark quality policy excludes the v1 IDs from scoring.
+  {
+    name: 'frontiermath_tiers_1_3_v2.csv',
+    benchmarkId: 'frontiermath-v2',
+    isOrganizer: true,
+    version: 'Tiers 1-3 v2',
+    liveTaskName: 'FrontierMath-Tiers-1-3-v2-Private',
+  },
+  {
+    name: 'frontiermath_tier_4_v2.csv',
+    benchmarkId: 'frontiermath-tier-4-v2',
+    isOrganizer: true,
+    version: 'Tier 4 v2',
+    liveTaskName: 'FrontierMath-Tier-4-v2-Private',
+  },
   {
     name: 'simpleqa_verified.csv',
     benchmarkId: 'simpleqa-verified',

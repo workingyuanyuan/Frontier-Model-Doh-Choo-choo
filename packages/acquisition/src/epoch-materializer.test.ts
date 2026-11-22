@@ -146,6 +146,25 @@ describe('Epoch AI materializer', () => {
     ]);
   });
 
+  it('files FrontierMath v2 under its own benchmark IDs, apart from v1', () => {
+    const zip = new AdmZip(modernArchive());
+    const row = 'Model version,mean_score\ngpt-6-astra_max,';
+    zip.addFile('frontiermath.csv', Buffer.from(`${row}0.4\n`));
+    zip.addFile('frontiermath_tiers_1_3_v2.csv', Buffer.from(`${row}0.5\n`));
+    zip.addFile('frontiermath_tier_4_v2.csv', Buffer.from(`${row}0.25\n`));
+    const rows = materializeEpoch(zip.toBuffer(), '2026-11-22T00:00:00.000Z');
+    CandidateResultSchema.array().parse(rows);
+    const fm = rows
+      .filter(({ benchmarkId }) => benchmarkId.startsWith('frontiermath'))
+      .map((r) => [r.benchmarkId, r.benchmarkVersion, r.normalizedScore]);
+    expect(fm).toEqual([
+      ['frontiermath', null, 40],
+      ['frontiermath-v2', 'Tiers 1-3 v2', 50],
+      ['frontiermath-tier-4-v2', 'Tier 4 v2', 25],
+    ]);
+    expect(new Set(rows.map(({ id }) => id)).size).toBe(rows.length);
+  });
+
   it('rejects modern exports without metadata or required ECI columns', () => {
     expect(() =>
       materializeEpoch(modernArchive(false), '2026-09-06T00:00:00.000Z'),

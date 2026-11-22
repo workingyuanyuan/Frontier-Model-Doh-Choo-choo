@@ -1,6 +1,6 @@
 {
-  "reviewedAt": "2026-11-21",
-  "evidencePath": "docs/analysis/2026-11-21-terminal-bench-4-1-supersession.json",
+  "reviewedAt": "2026-11-22",
+  "evidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
   "excludedBenchmarkIds": [
     "aime",
     "programbench",
@@ -9,7 +9,9 @@
     "ioi",
     "humanitys-last-exam",
     "critpt",
-    "terminal-bench-4-0"
+    "terminal-bench-4-0",
+    "frontiermath",
+    "frontiermath-tier-4"
   ],
   "limitedBenchmarkIds": [
     "aa-lcr",
