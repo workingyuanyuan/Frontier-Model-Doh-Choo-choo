@@ -16,7 +16,9 @@ pnpm evidence verify
 
 `--history` 額外掃描目前保留來源的可達 Git 歷史，匯入可由現存原始內容核對的快照；輸出 HEAD、shallow 狀態、涵蓋的 commit 數、匯入與略過筆數。`--history-limit N` 限制最近 N 個相關 commits。查詢歷史的範圍僅限已匯入資料；Git 內沒有保存的取得事件無法由提交時間推算。
 
-新 checkout 可僅靠 Git 資料建立查詢環境，原始 bytes 的可用性由 `verify` 明確回報。完整採集歷史需要完整備份。靜態網站仍可直接從 Git 資料建置。
+新 checkout 可僅靠 Git 資料建立查詢環境，原始 bytes 的可用性由 `verify` 明確回報。
+
+`verify` 預設為增量檢查：資料庫旁的 `store.sqlite.verify-cache.json` 記錄上次通過時每個 blob 的檔案簽章（inode、大小、mtime、ctime）與每個 snapshot 資料列（含引用索引）的雜湊。簽章或資料列沒變的項目不再重算 SHA-256、不再解碼，SQLite 改跑 `quick_check`；有變動的項目照常完整檢查。沒有快取、快取格式或 schema 不符、或上次完整檢查已超過 7 天時，自動改跑完整檢查（`integrity_check` 與全部 bytes）。`pnpm evidence verify --full` 強制完整檢查；`restore` 與 `recover` 一律完整檢查。只有通過的檢查會更新快取。完整採集歷史需要完整備份。靜態網站仍可直接從 Git 資料建置。
 
 ## 查詢
 

@@ -10,9 +10,13 @@ import {
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { EvidenceRecord } from '@llm-bench/benchmark-data';
-import { EvidenceStore, type ProcessInput } from './evidence-store.js';
+import {
+  EvidenceStore,
+  FULL_VERIFY_INTERVAL_MS,
+  type ProcessInput,
+} from './evidence-store.js';
 
 const roots: string[] = [];
 const stores: EvidenceStore[] = [];
@@ -524,6 +528,74 @@ describe('EvidenceStore', () => {
       'Corrupt stored snapshot',
     );
     expect(database.verify().issues).toContainEqual(
+      expect.objectContaining({ kind: 'corrupt-snapshot' }),
+    );
+  });
+
+  it('cached verify skips unchanged evidence but still catches edits', () => {
+    const database = store();
+    const captured = record(database.root);
+    database.recordCapture(captured, { status: 200 });
+    const snapshot = database.importSnapshot('example', files([captured]), {
+      kind: 'git',
+    });
+    const start = Date.parse('2026-11-01T00:00:00.000Z');
+    const at = (ms: number) => ({ cache: true, now: start + ms });
+    expect(database.verify(at(0))).toMatchObject({ ok: true, mode: 'full' });
+    expect(existsSync(database.verifyCachePath)).toBe(true);
+
+    const decode = vi.spyOn(database, 'getSnapshot');
+    expect(database.verify(at(1))).toMatchObject({
+      ok: true,
+      mode: 'incremental',
+    });
+    expect(decode).not.toHaveBeenCalled();
+    expect(database.verify({ ...at(2), full: true }).mode).toBe('full');
+    expect(database.verify(at(FULL_VERIFY_INTERVAL_MS + 3)).mode).toBe('full');
+    decode.mockRestore();
+
+    // Same length, different bytes: the file signature changes, so the blob
+    // is hashed again.
+    const blobPath = join(database.root, captured.artifactPath);
+    const original = readFileSync(blobPath);
+    writeFileSync(blobPath, Buffer.alloc(original.length, 120));
+    const tampered = database.verify(at(FULL_VERIFY_INTERVAL_MS + 4));
+    expect(tampered.mode).toBe('incremental');
+    expect(tampered.issues).toContainEqual(
+      expect.objectContaining({ kind: 'corrupt-blob' }),
+    );
+    // A failed check withdraws the cache: the next run is full again.
+    expect(existsSync(database.verifyCachePath)).toBe(false);
+    writeFileSync(blobPath, original);
+    expect(database.verify(at(FULL_VERIFY_INTERVAL_MS + 5))).toMatchObject({
+      ok: true,
+      mode: 'full',
+    });
+
+    // Same text stored as a BLOB still changes the fingerprint.
+    const sqlite = new DatabaseSync(database.dbPath);
+    const retype = (type: string) =>
+      sqlite
+        .prepare(
+          `UPDATE snapshots SET source_id=CAST(source_id AS ${type}) WHERE id=?`,
+        )
+        .run(snapshot);
+    retype('BLOB');
+    const retyped = database.verify(at(FULL_VERIFY_INTERVAL_MS + 6));
+    expect(retyped.mode).toBe('incremental');
+    expect(retyped.issues).toContainEqual(
+      expect.objectContaining({ kind: 'corrupt-snapshot' }),
+    );
+    retype('TEXT');
+    expect(database.verify(at(FULL_VERIFY_INTERVAL_MS + 7)).ok).toBe(true);
+
+    sqlite
+      .prepare('UPDATE snapshots SET files=? WHERE id=?')
+      .run('{}', snapshot);
+    sqlite.close();
+    const edited = database.verify(at(FULL_VERIFY_INTERVAL_MS + 8));
+    expect(edited.mode).toBe('incremental');
+    expect(edited.issues).toContainEqual(
       expect.objectContaining({ kind: 'corrupt-snapshot' }),
     );
   });

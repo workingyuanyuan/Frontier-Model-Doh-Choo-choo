@@ -15,7 +15,7 @@
     "data:materialize-snapshots": "pnpm --filter @llm-bench/acquisition materialize:snapshots",
     "dev": "turbo run dev --parallel",
     "e2e": "playwright test",
-    "format": "prettier --check .",
+    "format": "prettier --check . --cache --cache-strategy content",
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
     "test": "node --test scripts/*.test.mjs && turbo run test",

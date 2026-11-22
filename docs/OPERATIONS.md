@@ -278,7 +278,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 2. **確認輸入。** 完成 §2 的來源快照匯入／重新物化，核對上述 mapping 及核准政策。缺檔、schema 錯誤、identity 未解析或政策不符時先停止，保留現有產品並交付錯誤證據。
 3. **執行 `pnpm data:release`。** 由腳本（`scripts/data-release.mjs`）依序自動執行下列步驟，任一步驟失敗即停止：
    - `sources`：核對作用中來源的 `candidates.json`／`costs.json` 引用的 Evidence 都存在，且每個 artifact 檔的 SHA-256 與 `byteLength` 相符。
-   - `evidence`：執行 `pnpm evidence verify` 驗證證據庫完整性。
+   - `evidence`：執行 `pnpm evidence verify` 驗證證據庫完整性。只重新檢查上次通過後有變動的 blob 與 snapshot，每 7 天自動完整檢查一次（見 [EVIDENCE_STORE](EVIDENCE_STORE.md)）。
    - `frontier`：執行 `pnpm data:generate-frontier-set`，並要求 `frontier-selection-audit.json` 最外層 `status` 為 `selected`。
    - `product`：執行 `pnpm data:build-current` 重建 `data/product/current.json`，並再次檢查 audit 狀態為 `selected`。
    - `fresh`：執行 `pnpm data:verify-fresh`，確認工作區的 frontier 集合、audit 與 `current.json` 可由目前輸入完全重現。

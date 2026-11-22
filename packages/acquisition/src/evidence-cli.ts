@@ -44,6 +44,7 @@ const ALLOWED = new Set([
   'start',
   'length',
   'directory',
+  'full',
 ]);
 
 export function parseEvidenceArguments(args: string[]) {
@@ -57,7 +58,7 @@ export function parseEvidenceArguments(args: string[]) {
       throw new Error(`Unknown option: ${token}`);
     const name = match[1]!;
     if (name in options) throw new Error(`Duplicate option: --${name}`);
-    if (['history', 'no-scan'].includes(name)) {
+    if (['history', 'no-scan', 'full'].includes(name)) {
       if (match[2] !== undefined) throw new Error(`--${name} takes no value`);
       options[name] = 'true';
     } else {
@@ -166,7 +167,12 @@ export function runEvidenceCommand(args: string[]): {
       return { value, code: value.verification.ok ? 0 : 2 };
     }
     if (command === 'verify' || command === 'recover') {
-      const value = store.verify();
+      // `verify` reuses what the last passing check proved unchanged;
+      // `--full` (and `recover`) checks every byte and index again.
+      const value =
+        command === 'verify'
+          ? store.verify({ cache: true, full: options.full === 'true' })
+          : store.verify();
       return { value, code: value.ok ? 0 : 2 };
     }
     if (command === 'captures') {
