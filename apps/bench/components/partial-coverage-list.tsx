@@ -19,6 +19,8 @@ export interface PartialCoverageListProps {
  * the data, so it does not belong beside the numbers the main screen publishes.
  */
 export function PartialCoverageList({ rows }: PartialCoverageListProps) {
+  // Nothing to disclose: an empty section would only add text.
+  if (!rows.length) return null;
   const scoredDimensionIds = getActiveDimensionIds(rows);
   const dimensionIds = UI_DIMENSION_IDS.filter(
     (dimension) =>
@@ -36,67 +38,61 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
         <h2 id="partial-coverage-title">Partial coverage</h2>
         <span data-partial-coverage-count={rows.length}>{rows.length}</span>
       </div>
-      {rows.length > 0 ? (
-        <div
-          className="table-scroll"
-          role="region"
-          aria-label="Partial coverage scores"
-          tabIndex={0}
-        >
-          <table className="diagnostics-table">
-            <thead>
-              <tr>
-                <th scope="col">Model</th>
-                <th scope="col">Missing</th>
-                {dimensionIds.map((dimension) => (
-                  <th key={dimension} scope="col" className="diagnostics-num">
-                    <abbr title={DIMENSION_DISPLAY_NAMES[dimension]}>
-                      {UI_DIMENSION_ABBREVIATIONS[dimension]}
-                    </abbr>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => {
-                const scoreByDimension = new Map(
-                  row.dimensions.map(({ dimension, score }) => [
-                    dimension,
-                    score,
-                  ]),
-                );
+      <div
+        className="table-scroll"
+        role="region"
+        aria-label="Partial coverage scores"
+        tabIndex={0}
+      >
+        <table className="diagnostics-table">
+          <thead>
+            <tr>
+              <th scope="col">Model</th>
+              <th scope="col">Missing</th>
+              {dimensionIds.map((dimension) => (
+                <th key={dimension} scope="col" className="diagnostics-num">
+                  <abbr title={DIMENSION_DISPLAY_NAMES[dimension]}>
+                    {UI_DIMENSION_ABBREVIATIONS[dimension]}
+                  </abbr>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => {
+              const scoreByDimension = new Map(
+                row.dimensions.map(({ dimension, score }) => [
+                  dimension,
+                  score,
+                ]),
+              );
 
-                return (
-                  <tr
-                    key={row.profileId}
-                    data-partial-coverage-row={row.profileId}
-                  >
-                    <th scope="row">{row.displayName}</th>
-                    <td data-missing-dimension={row.missingDimension}>
-                      {DIMENSION_DISPLAY_NAMES[row.missingDimension]}
-                    </td>
-                    {dimensionIds.map((dimension) => {
-                      const score = scoreByDimension.get(dimension) ?? null;
-                      return (
-                        <td
-                          key={dimension}
-                          className={`diagnostics-num${score === null ? ' is-missing' : ''}`}
-                        >
-                          {formatScore(score)}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <p className="diagnostics-empty" role="status">
-          No profile is missing exactly one dimension.
-        </p>
-      )}
+              return (
+                <tr
+                  key={row.profileId}
+                  data-partial-coverage-row={row.profileId}
+                >
+                  <th scope="row">{row.displayName}</th>
+                  <td data-missing-dimension={row.missingDimension}>
+                    {DIMENSION_DISPLAY_NAMES[row.missingDimension]}
+                  </td>
+                  {dimensionIds.map((dimension) => {
+                    const score = scoreByDimension.get(dimension) ?? null;
+                    return (
+                      <td
+                        key={dimension}
+                        className={`diagnostics-num${score === null ? ' is-missing' : ''}`}
+                      >
+                        {formatScore(score)}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

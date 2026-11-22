@@ -189,9 +189,12 @@ export function Leaderboard({
 
   const scopePreset = controlPreset ?? product.activePreset;
   const scope = presetScope(pickerProduct, scopePreset.id);
-  const scopeSentence = scope
-    ? presetScopeSentence(scope, scopePreset.targetModelCount)
-    : null;
+  // How the preset chose its models is a developer-mode detail; the agent
+  // pages (HTML, Markdown, JSON) always carry it.
+  const scopeSentence =
+    scope && developerMode && !commonMode
+      ? presetScopeSentence(scope, scopePreset.targetModelCount)
+      : null;
 
   return (
     <div className="dashboard-section">
@@ -211,7 +214,7 @@ export function Leaderboard({
                 ? 'Compare reasoning efforts.'
                 : 'One row per base model.'}
             </h2>
-            {scopeSentence && !commonMode ? (
+            {scopeSentence ? (
               <p className="preset-scope" data-testid="preset-scope">
                 {scopeSentence}
               </p>
@@ -240,9 +243,7 @@ export function Leaderboard({
                     economyByProfile,
                   );
                   // A preset table keeps the scope it was ranked under.
-                  return scopeSentence && !commonMode
-                    ? `${scopeSentence}\n\n${table}`
-                    : table;
+                  return scopeSentence ? `${scopeSentence}\n\n${table}` : table;
                 }}
               />
             </div>

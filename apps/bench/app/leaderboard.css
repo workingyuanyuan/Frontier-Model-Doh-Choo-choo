@@ -27,13 +27,23 @@
   min-width: 11rem;
   vertical-align: top;
 }
+.common-benchmark-table td {
+  min-width: 6rem;
+}
 .common-benchmark-table td a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.2em;
+}
+.common-benchmark-table td a.common-best-score {
+  color: var(--accent);
+}
+.common-cell-source {
+  color: var(--ink-faint);
   display: block;
   font-size: 0.75rem;
-  margin-top: 0.4rem;
-}
-.common-best-score {
-  color: var(--accent);
+  margin-top: 0.25rem;
 }
 
 .table-scroll {
@@ -252,6 +262,7 @@
 
 /* The light accent is too pale for text on light surfaces (2.8:1). */
 [data-theme='light'] .common-best-score,
+[data-theme='light'] .common-benchmark-table td a.common-best-score,
 [data-theme='light'] .selected-badge {
   color: var(--accent-strong);
 }
