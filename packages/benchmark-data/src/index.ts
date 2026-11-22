@@ -999,6 +999,8 @@ export const ProductVersionSchema = z.object({
   frontier: z.array(
     z.object({
       modelId: SlugSchema,
+      /** The profile the AA family scores; coverage presets may use another. */
+      representativeProfileId: z.string().min(1).optional(),
       reasons: z.array(z.string().min(1)).min(1),
       externalCompositeScores: z.record(z.string(), z.number()),
     }),
@@ -1168,6 +1170,7 @@ export interface ManualFrontierModel {
 
 export interface FrontierModel {
   modelId: string;
+  representativeProfileId?: string;
   reasons: string[];
   externalCompositeScores: Record<string, number>;
 }

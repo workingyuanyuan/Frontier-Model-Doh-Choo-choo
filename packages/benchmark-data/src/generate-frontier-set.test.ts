@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  COVERAGE_WINDOW_MODELS,
   commonQualityBenchmarks,
   createAaCohorts,
   createCoverageCohorts,
@@ -247,7 +248,7 @@ describe('frontier common quality core', () => {
 
   it('builds exact AA prefixes with independently derived quality intersections', () => {
     const candidates = base();
-    const { leaders } = eligible(candidates);
+    const leaders = eligible(candidates).leaders.slice(0, 10);
     const cohorts = createAaCohorts(candidates, leaders, mapping, quality);
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -290,8 +291,10 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
+    // The coverage window is every eligible model, here all twelve.
+    expect(leaders).toHaveLength(12);
     expect(cohorts.map(({ id }) => id)).toEqual(
-      [2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `coverage-${n}`),
+      [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => `coverage-${n}`),
     );
     const members = (n: number) =>
       cohorts.find(({ targetModelCount }) => targetModelCount === n)!.modelIds;
@@ -301,7 +304,12 @@ describe('frontier common quality core', () => {
     expect(members(5)).toEqual(['m01', 'm02', 'm03', 'm04', 'm05']);
     // Several six-model subsets share seven tests; the highest ranks win.
     expect(members(6)).toEqual(['m01', 'm03', 'm04', 'm05', 'm06', 'm07']);
-    const aaCohorts = createAaCohorts(candidates, leaders, mapping, quality);
+    const aaCohorts = createAaCohorts(
+      candidates,
+      leaders.slice(0, 10),
+      mapping,
+      quality,
+    );
     for (const cohort of cohorts) {
       expect(cohort.family).toBe('coverage');
       expect(cohort.profileIds).toEqual(
@@ -311,13 +319,17 @@ describe('frontier common quality core', () => {
       );
       const sameSize = aaCohorts.find(
         ({ targetModelCount }) => targetModelCount === cohort.targetModelCount,
-      )!;
-      expect(cohort.benchmarkIds.length).toBeGreaterThanOrEqual(
-        sameSize.benchmarkIds.length,
       );
+      if (sameSize)
+        expect(cohort.benchmarkIds.length).toBeGreaterThanOrEqual(
+          sameSize.benchmarkIds.length,
+        );
     }
-    // One effort per model and one ten-model subset: the families coincide.
-    expect(cohorts.at(-1)!.profileIds).toEqual(aaCohorts.at(-1)!.profileIds);
+    // One effort per model and one subset of the whole window: every leader
+    // at its representative profile.
+    expect(cohorts.at(-1)!.profileIds).toEqual(
+      leaders.map(({ profileId }) => profileId),
+    );
   });
 
   // m01-max lacks both coding tests but holds reason-c, so it keeps the
@@ -368,7 +380,12 @@ describe('frontier common quality core', () => {
     ];
     const { leaders } = eligible(candidates);
     expect(leaders[0]!.profileId).toBe('m01-max');
-    const aaFive = createAaCohorts(candidates, leaders, mapping, quality)[3]!;
+    const aaFive = createAaCohorts(
+      candidates,
+      leaders.slice(0, 10),
+      mapping,
+      quality,
+    )[3]!;
     expect(aaFive.benchmarkIds).toHaveLength(7);
     // With xhigh the top five keep both coding tests: 8 shared, not 7.
     const five = coverageCohort(candidates, 5);
@@ -377,6 +394,33 @@ describe('frontier common quality core', () => {
     expect(five.representativeProfileIds[0]).toBe('m01-max');
     expect(five.benchmarkIds).toHaveLength(8);
     expect(five.benchmarkIds).toContain('code-a');
+  });
+
+  it('skips an effort with two current metrics for one benchmark', () => {
+    // m01-xhigh would share more tests, but its excluded-x has two metrics,
+    // so no cohort can be built with it.
+    const duplicate = row('m01', 'excluded-x', 'org-a', { effort: 'xhigh' });
+    const candidates = [
+      ...withoutM01Coding(),
+      ...scoredBy('m01', 'org-a', ['reason-c']),
+      ...m01Alternate('xhigh', 99.5),
+      duplicate,
+      {
+        ...duplicate,
+        id: `${duplicate.id}:second`,
+        metric: { ...duplicate.metric, id: 'second' },
+      },
+    ];
+    const cohorts = createCoverageCohorts(
+      candidates,
+      eligible(candidates).leaders,
+      mapping,
+      quality,
+    );
+    for (const cohort of cohorts)
+      expect(cohort.profileIds).not.toContain('m01-xhigh');
+    // Without xhigh the top five share the seven tests of the AA prefix.
+    expect(coverageCohort(candidates, 5).benchmarkIds).toHaveLength(7);
   });
 
   it('prefers a lower-ranked subset that needs fewer non-representative efforts', () => {
@@ -649,10 +693,40 @@ describe('frontier eligibility', () => {
       ...aa(null, score),
       id: `unresolved-${score}`,
     });
-    // The tenth eligible leader (m10) scores 91.
-    expect(() => eligible(base(), [unresolved(91)])).toThrow(
-      /Unresolved AA identities can affect the eligible frontier: unresolved-91/u,
+    // The last eligible leader (m12) scores 89.
+    expect(() => eligible(base(), [unresolved(89)])).toThrow(
+      /Unresolved AA identities can affect the eligible frontier: unresolved-89/u,
     );
-    expect(eligible(base(), [unresolved(90.5)]).leaders).toHaveLength(10);
+    expect(eligible(base(), [unresolved(88.5)]).leaders).toHaveLength(12);
+  });
+
+  it('keeps at most the coverage window of eligible models', () => {
+    const unresolved = (score: number) => ({
+      ...aa(null, score),
+      id: `unresolved-${score}`,
+    });
+    const extra = Array.from(
+      { length: COVERAGE_WINDOW_MODELS },
+      (_, i) => `x${String(i + 1).padStart(2, '0')}`,
+    );
+    const candidates = [
+      ...base(),
+      ...extra.flatMap((modelId, index) => [
+        aa(modelId, 80 - index),
+        ...scoredBy(modelId, 'org-a', shared),
+        ...scoredBy(modelId, 'org-b', ['agent-b']),
+      ]),
+    ];
+    const lastIndex = COVERAGE_WINDOW_MODELS - models.length - 1;
+    const { leaders } = eligible(candidates, [
+      unresolved(80 - lastIndex - 0.5),
+    ]);
+    expect(leaders.map(({ modelId }) => modelId)).toEqual([
+      ...models,
+      ...extra.slice(0, lastIndex + 1),
+    ]);
+    expect(() => eligible(candidates, [unresolved(80 - lastIndex)])).toThrow(
+      /Unresolved AA identities/u,
+    );
   });
 });

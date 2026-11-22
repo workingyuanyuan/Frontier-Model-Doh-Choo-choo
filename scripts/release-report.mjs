@@ -221,10 +221,20 @@ export const renderReleaseMarkdown = ({
     '',
     '| # | Before | AA | After | AA |',
     '| --- | --- | --- | --- | --- |',
-    ...diff.frontier.after.map((row, index) => {
-      const old = diff.frontier.before[index];
-      return `| ${index + 1} | ${old?.modelId ?? '—'} | ${old?.aa ?? '—'} | ${row.modelId} | ${row.aa ?? '—'} |`;
-    }),
+    // The window can grow or shrink; show every rank either side had.
+    ...Array.from(
+      {
+        length: Math.max(
+          diff.frontier.before.length,
+          diff.frontier.after.length,
+        ),
+      },
+      (_, index) => {
+        const old = diff.frontier.before[index];
+        const row = diff.frontier.after[index];
+        return `| ${index + 1} | ${old?.modelId ?? '—'} | ${old?.aa ?? '—'} | ${row?.modelId ?? '—'} | ${row?.aa ?? '—'} |`;
+      },
+    ),
     '',
     '## Skipped by frontier eligibility',
     '',

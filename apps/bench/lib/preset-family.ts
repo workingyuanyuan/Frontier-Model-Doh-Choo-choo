@@ -13,7 +13,7 @@ export const PRESET_FAMILY_INFO: Record<
   coverage: {
     label: 'Coverage',
     name: 'Max coverage',
-    rule: 'the N frontier-window models, each at one qualifying reasoning effort, that share the most scoring-eligible benchmarks after the quality rules (ties: more scored dimensions, then fewer efforts other than the representative, then higher AA ranks, then efforts earlier in representative order)',
+    rule: 'the N models of the whole frontier window, each at one qualifying reasoning effort, that share the most scoring-eligible benchmarks after the quality rules (ties: more scored dimensions, then fewer efforts other than the representative, then higher AA ranks, then efforts earlier in representative order)',
   },
 };
 
@@ -27,6 +27,8 @@ export interface PresetWindowModel {
 export interface PresetScope {
   family: PresetFamily;
   windowSize: number;
+  /** The largest AA-family preset: the AA top N the coverage family is read against. */
+  aaWindowSize: number;
   /** Window models this preset leaves out, in window order. */
   omitted: PresetWindowModel[];
   /** The other family's preset with the same model count, if any. */
@@ -95,14 +97,22 @@ export const presetScope = (
   const effortOf = (profileId: string) =>
     product.profiles.find(({ id }) => id === profileId)?.attributes.effort ??
     profileId;
-  // Every AA-family preset scores its models at their representative profiles.
-  const representative = new Map(
-    product.presets
+  // The frontier records each window model's representative profile; older
+  // products lack it, and their AA-family presets score exactly those.
+  const representative = new Map<string, string>([
+    ...product.presets
       .filter(({ family }) => family === 'aa-frontier')
       .flatMap(({ leaderboard }) =>
-        leaderboard.map(({ modelId, profileId }) => [modelId, profileId]),
+        leaderboard.map(
+          ({ modelId, profileId }) => [modelId, profileId] as const,
+        ),
       ),
-  );
+    ...product.frontier.flatMap(({ modelId, representativeProfileId }) =>
+      representativeProfileId
+        ? [[modelId, representativeProfileId] as const]
+        : [],
+    ),
+  ]);
   // The AA family uses the representative profiles by definition.
   const comparedRows = preset.family === 'coverage' ? preset.leaderboard : [];
   const effortChanges = comparedRows.flatMap(({ modelId, profileId }) => {
@@ -135,6 +145,12 @@ export const presetScope = (
   return {
     family: preset.family,
     windowSize: product.frontier.length,
+    aaWindowSize: Math.max(
+      0,
+      ...product.presets
+        .filter(({ family }) => family === 'aa-frontier')
+        .map(({ targetModelCount }) => targetModelCount),
+    ),
     omitted,
     counterpartId: counterpart?.id ?? null,
     sameModelsAsCounterpart:
@@ -153,10 +169,15 @@ export const presetScopeSentence = (
   const base =
     scope.family === 'coverage'
       ? `Max coverage: ${modelCount} of the ${scope.windowSize} frontier-window models and their reasoning efforts, chosen to share the most benchmarks.`
-      : `AA frontier: the top ${modelCount} of the ${scope.windowSize} frontier-window models by AA Intelligence Index.`;
+      : `AA frontier: the top ${modelCount} frontier-window models by AA Intelligence Index.`;
+  // Only top-ranked omissions are news; listing every lower-ranked window
+  // model a small preset leaves out would bury them.
+  const topOmitted = scope.omitted.filter(
+    ({ windowRank }) => windowRank <= scope.aaWindowSize,
+  );
   const omitted =
-    scope.family === 'coverage' && scope.omitted.length
-      ? ` Not included: ${scope.omitted
+    scope.family === 'coverage' && topOmitted.length
+      ? ` Not included from the AA top ${scope.aaWindowSize}: ${topOmitted
           .map(({ modelName, windowRank }) => `${modelName} (#${windowRank})`)
           .join(', ')}.`
       : '';

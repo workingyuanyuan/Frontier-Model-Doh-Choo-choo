@@ -184,6 +184,7 @@ const computeWorkspace = async (
     displaySet,
     frontier: artifact.eligibility.leaders.map((row) => ({
       modelId: row.modelId,
+      representativeProfileId: row.profileId!,
       reasons: [
         `Artificial Analysis Intelligence Index rank ${row.rank}`,
         `Scored by ${row.organizations.length} independent organizations: ${row.organizations.join(', ')}`,

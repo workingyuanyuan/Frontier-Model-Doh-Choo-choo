@@ -677,7 +677,8 @@
   /* Matches the picker button's height so the two controls read as one row. */
   height: 1.25rem;
   margin: 0;
-  width: 6rem;
+  /* Wide enough to drag through the coverage family's nineteen sizes. */
+  width: 10rem;
 }
 
 .preset-count {
@@ -732,6 +733,6 @@
 
 @media (max-width: 48rem) {
   .preset-slider input[type='range'] {
-    width: 4.5rem;
+    width: 7.5rem;
   }
 }
