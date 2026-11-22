@@ -1,4 +1,4 @@
-import { expect, test } from './test';
+import { expect, openAdvancedCostChartWithEveryModel, test } from './test';
 import {
   effortSelect,
   findModels,
@@ -154,4 +154,84 @@ test('reports clipboard failure and allows retry', async ({ page }) => {
     page.getByRole('status').filter({ hasText: 'Copy failed.' }),
   ).toBeVisible();
   await expect(copy).toBeEnabled();
+});
+
+test('copies the plotted cost chart points as Markdown', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/');
+  const copy = page.getByRole('button', {
+    name: 'Copy chart data as Markdown',
+  });
+  const copied = async () => {
+    await copy.click();
+    await expect(
+      page.getByRole('status').filter({ hasText: 'Copied!' }),
+    ).toBeVisible();
+    return (await page.evaluate(() => navigator.clipboard.readText())).split(
+      /\r?\n/,
+    );
+  };
+
+  // The default chart: one row per point, in the source breakdown's order.
+  const defaultRows = await page
+    .locator('.cost-source-table tbody tr')
+    .evaluateAll((rows) =>
+      rows.map((row) => {
+        const [model, effort] = row
+          .querySelector('th')!
+          .textContent!.trim()
+          .split(' · ');
+        const [cost, overall] = Array.from(row.querySelectorAll('td')).map(
+          (cell) => cell.textContent!.trim(),
+        );
+        return `| ${model} | ${effort} | ${overall} | ${cost} |`;
+      }),
+    );
+  expect(defaultRows.length).toBeGreaterThan(0);
+  expect(await copied()).toEqual([
+    '| Model | Effort | Overall Score | Cost index |',
+    '| --- | --- | --- | --- |',
+    ...defaultRows,
+  ]);
+
+  // The advanced chart: only the efforts it plots, scored on its sources.
+  await openAdvancedCostChartWithEveryModel(page);
+  const hidden = page
+    .locator('.cost-effort-toggle[aria-pressed="true"]')
+    .first();
+  const hiddenProfileId = await hidden.getAttribute('data-profile-id');
+  await hidden.click();
+  await page.locator('.cost-model-overflow-trigger').click();
+  const sources = await page
+    .locator('.advanced-source-toggle[aria-pressed="true"]')
+    .allTextContents();
+  const plotted = await page
+    .locator('.advanced-cost-point')
+    .evaluateAll((points) =>
+      points.map((point) => ({
+        profileId: point.getAttribute('data-profile-id')!,
+        cost: Number(point.getAttribute('data-cost-index')),
+      })),
+    );
+  expect(plotted.map(({ profileId }) => profileId)).not.toContain(
+    hiddenProfileId,
+  );
+  const [header, divider, ...rows] = await copied();
+  expect(header).toBe(
+    `| Model | Effort | Score (mean of ${sources.join(', ')}) | Cost index |`,
+  );
+  expect(divider).toBe('| --- | --- | --- | --- |');
+  expect(rows).toHaveLength(plotted.length);
+  const byValue = (left: number, right: number) => left - right;
+  const copiedCosts = rows
+    .map((row) => Number(row.split(' | ').at(-1)!.slice(0, -2)))
+    .toSorted(byValue);
+  const plottedCosts = plotted.map(({ cost }) => cost).toSorted(byValue);
+  // The points carry two decimals and the table one.
+  copiedCosts.forEach((cost, index) =>
+    expect(Math.abs(cost - plottedCosts[index]!)).toBeLessThan(0.06),
+  );
 });

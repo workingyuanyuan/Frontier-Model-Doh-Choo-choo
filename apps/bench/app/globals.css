@@ -1880,6 +1880,13 @@ details[open] > .evidence-group-summary::before {
   position: relative;
 }
 
+/* Matches the height of the Default and Models buttons beside it. */
+.cost-chart-primary-actions .copy-markdown-button {
+  height: 100%;
+  min-height: 2.125rem;
+  width: 2.75rem;
+}
+
 .advanced-source-controls {
   display: flex;
   flex-wrap: wrap;
@@ -2486,7 +2493,7 @@ details[open] > .evidence-group-summary::before {
 
   .cost-chart-primary-actions {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
     width: 100%;
   }
 

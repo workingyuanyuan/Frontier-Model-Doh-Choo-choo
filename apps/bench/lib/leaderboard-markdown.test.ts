@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { commonBenchmarksMarkdown } from './leaderboard-markdown';
+import {
+  commonBenchmarksMarkdown,
+  costChartMarkdown,
+} from './leaderboard-markdown';
 
 describe('common benchmarks markdown', () => {
   it('copies normalized scores and the difference of a pair', () => {
@@ -29,6 +32,24 @@ describe('common benchmarks markdown', () => {
         '| Benchmark | A | B | C |',
         '| --- | --- | --- | --- |',
         '| HLE | 1.0 | 2.0 | 3.0 |',
+      ].join('\n'),
+    );
+  });
+});
+
+describe('cost chart markdown', () => {
+  it('copies one row per plotted model and effort', () => {
+    expect(
+      costChartMarkdown('Score (mean of A | B)', [
+        { model: 'Model X', effort: 'xHigh', score: 54.25, costIndex: 100 },
+        { model: 'Model Y', effort: 'default', score: 17.8, costIndex: 47.96 },
+      ]),
+    ).toBe(
+      [
+        '| Model | Effort | Score (mean of A \\| B) | Cost index |',
+        '| --- | --- | --- | --- |',
+        '| Model X | xHigh | 54.3 | 100.0 |',
+        '| Model Y | default | 17.8 | 48.0 |',
       ].join('\n'),
     );
   });
