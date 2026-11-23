@@ -16,7 +16,7 @@
     "rows[].metrics.accuracy": "rawScore / normalizedScore",
     "rows[].metrics.n_trials": "profile.attempts"
   },
-  "lastVerifiedAt": "2026-11-22T04:16:31.139Z",
+  "lastVerifiedAt": "2026-11-23T13:32:13.816Z",
   "notes": [
     "67 configurations / 54 models; every configuration is retained.",
     "Terminal-Bench 4.1 regrades the 4.0 tasks with hardened verifiers.",

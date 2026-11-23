@@ -241,21 +241,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-22T04:15:20.169Z",
+  "checkedAt": "2026-11-23T13:31:28.735Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/54/54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e.html",
-    "byteLength": 423868,
+    "artifactPath": "artifacts/sha256/f4/f478821b132559a696c169aec26460de9c027deecad4a003d31dbe1107400ea2.html",
+    "byteLength": 424216,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e",
+    "id": "sha256:f478821b132559a696c169aec26460de9c027deecad4a003d31dbe1107400ea2",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-11-22T04:15:20.169Z",
+    "retrievedAt": "2026-11-23T13:31:28.735Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:54052f203a5745ffb4305994d3d8ca477ff43178c0bf0c9099f288c259bc574e",
+    "sha256": "sha256:f478821b132559a696c169aec26460de9c027deecad4a003d31dbe1107400ea2",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -11481,7 +11481,7 @@
         "versions": ["v0.1"]
       }
     ],
-    "observedAt": "2026-11-22T04:14:32.767Z",
+    "observedAt": "2026-11-23T13:30:43.875Z",
     "sourceId": "artificial-analysis"
   }
 }

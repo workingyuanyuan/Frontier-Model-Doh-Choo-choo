@@ -17,7 +17,7 @@
     "rows[].pass_rate": "normalizedScore",
     "rows[].reasoning_effort": "profile.effort"
   },
-  "lastVerifiedAt": "2026-11-22T04:15:25.359Z",
+  "lastVerifiedAt": "2026-11-23T13:31:37.265Z",
   "notes": [
     "70 configurations / 28 models; every configuration is retained.",
     "13 models expose multi-effort ladders.",

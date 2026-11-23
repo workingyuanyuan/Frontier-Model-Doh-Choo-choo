@@ -1,6 +1,6 @@
 # Epoch AI acquisition validation
 
-- Retrieved at: 2026-11-22T06:18:03.572Z
+- Retrieved at: 2026-11-23T13:29:42.341Z
 - Export: https://epoch.ai/data/benchmark_data.zip
 - Live comparison channel: https://epoch.ai/data/benchmarks.csv
 - Page: https://epoch.ai/benchmarks/use-this-data
@@ -12,24 +12,24 @@
 | ZIP entries | 92 |
 | External-source mirrors (`_external`) | 67 |
 | Epoch Capabilities Index rows | 258 |
-| CandidateResults | 1911 |
+| CandidateResults | 1915 |
 | Rows without a canonical identity | 1108 |
 
 ## CandidateResults per benchmark
 
 | Benchmark | Rows |
 |---|---:|
-| `aime` | 319 |
-| `chess-puzzles` | 167 |
+| `aime` | 320 |
+| `chess-puzzles` | 168 |
 | `epoch-capabilities-index` | 258 |
 | `frontiermath` | 101 |
 | `frontiermath-tier-4` | 72 |
 | `frontiermath-tier-4-v2` | 84 |
 | `frontiermath-v2` | 128 |
-| `furniture-assembly` | 42 |
+| `furniture-assembly` | 43 |
 | `gpqa-diamond` | 342 |
 | `math-level-5` | 108 |
-| `mystery-game-puzzles` | 149 |
+| `mystery-game-puzzles` | 150 |
 | `simpleqa-verified` | 106 |
 | `swe-bench` | 35 |
 
@@ -44,15 +44,15 @@ so the export is compared against that file rather than against a typed count.
 | GPQA diamond | 342 | 342 | matched |
 | MATH level 5 | 108 | 108 | matched |
 | SWE-Bench verified | 33 | 33 | matched |
-| OTIS Mock AIME 2024-2025 | 319 | 319 | matched |
+| OTIS Mock AIME 2024-2025 | 320 | 320 | matched |
 | FrontierMath-2025-02-28-Private | 101 | 101 | matched |
 | FrontierMath-Tier-4-2025-07-01-Private | 72 | 72 | matched |
 | FrontierMath-Tiers-1-3-v2-Private | 128 | 128 | matched |
 | FrontierMath-Tier-4-v2-Private | 84 | 84 | matched |
 | SimpleQA Verified | 106 | 106 | matched |
-| Chess Puzzles | 167 | 167 | matched |
-| Furniture Assembly | 42 | 42 | matched |
-| Mystery Game Puzzles | 149 | 149 | matched |
+| Chess Puzzles | 168 | 168 | matched |
+| Furniture Assembly | 43 | 43 | matched |
+| Mystery Game Puzzles | 150 | 150 | matched |
 
 ## Known unresolved
 
@@ -83,7 +83,7 @@ benchmark ID or dimension mapping. Adopting one is a user decision
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| CandidateResults | 1911 | 1911 | +0 |
+| CandidateResults | 1911 | 1915 | +4 |
 | Epoch Capabilities Index rows | 258 | 258 | +0 |
 | Rows without a canonical identity | 1108 | 1108 | +0 |
 
@@ -103,70 +103,70 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Claude Fable 5.1 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-1-default-epoch-inspect-row-8` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
 | Claude Fable 5.2 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-2-default-epoch-inspect-row-1` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-fable-5-2-reasoning-max:1-1 |
 | Claude Opus 4.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-5-default-epoch-inspect-row-63` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (16k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-216` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (16k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-217` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-5-default-epoch-inspect-row-41:tier-4` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-5-default-epoch-inspect-row-42` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-opus-4-5-default-epoch-inspect-row-209` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (32k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-215` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (32k thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-104` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (32k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-216` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (32k thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-105` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:frontiermath-tier-4-v2:anthropic-claude-opus-4-5-default-epoch-inspect-row-77:tier-4-v2` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-5-default-epoch-inspect-row-42:tier-4` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:frontiermath-v2:anthropic-claude-opus-4-5-default-epoch-inspect-row-121:tiers-1-3-v2` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-5-default-epoch-inspect-row-41` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-opus-4-5-default-epoch-inspect-row-210` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (32k thinking) | `epoch-ai:simpleqa-verified:anthropic-claude-opus-4-5-default-epoch-inspect-row-87` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (48k thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-142` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (59k thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-103` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (64k thinking) | `epoch-ai:furniture-assembly:anthropic-claude-opus-4-5-default-epoch-inspect-row-35` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (no thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-214` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
-| Claude Opus 4.5 (no thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-106` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (48k thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-143` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (59k thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-104` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (64k thinking) | `epoch-ai:furniture-assembly:anthropic-claude-opus-4-5-default-epoch-inspect-row-36` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (no thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-215` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
+| Claude Opus 4.5 (no thinking) | `epoch-ai:chess-puzzles:anthropic-claude-opus-4-5-default-epoch-inspect-row-107` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (no thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-5-default-epoch-inspect-row-40:tier-4` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (no thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-5-default-epoch-inspect-row-40` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (no thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-opus-4-5-default-epoch-inspect-row-211` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.5 (no thinking) | `epoch-ai:swe-bench:anthropic-claude-opus-4-5-default-epoch-inspect-row-31` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | Claude Opus 4.6 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-6-default-epoch-inspect-row-40` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
-| Claude Opus 4.6 (32k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-6-default-epoch-inspect-row-202` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
+| Claude Opus 4.6 (32k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-6-default-epoch-inspect-row-203` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (32k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-6-default-epoch-inspect-row-25:tier-4` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (32k thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-6-default-epoch-inspect-row-24` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (32k thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-opus-4-6-default-epoch-inspect-row-197` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
-| Claude Opus 4.6 (64k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-6-default-epoch-inspect-row-201` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
+| Claude Opus 4.6 (64k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-6-default-epoch-inspect-row-202` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (64k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-6-default-epoch-inspect-row-24:tier-4` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (64k thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-6-default-epoch-inspect-row-23` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (64k thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-opus-4-6-default-epoch-inspect-row-198` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (no thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-6-default-epoch-inspect-row-26:tier-4` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (no thinking) | `epoch-ai:frontiermath:anthropic-claude-opus-4-6-default-epoch-inspect-row-25` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
-| Claude Opus 4.6 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-6-default-epoch-inspect-row-111` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
+| Claude Opus 4.6 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-6-default-epoch-inspect-row-112` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (no thinking) | `epoch-ai:swe-bench:anthropic-claude-opus-4-6-default-epoch-inspect-row-16` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.6 (no thinking) | `epoch-ai:swe-bench:anthropic-claude-opus-4-6-default-epoch-inspect-row-27` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.7 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-7-default-epoch-inspect-row-32` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-opus-4-7 |
-| Claude Opus 4.7 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-7-default-epoch-inspect-row-110` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-opus-4-7 |
+| Claude Opus 4.7 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-4-7-default-epoch-inspect-row-111` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-opus-4-7 |
 | Claude Opus 4.8 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-8-max-epoch-inspect-row-23` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-opus-4-8 |
-| Claude Opus 5 | `epoch-ai:aime:anthropic-claude-opus-5-default-epoch-inspect-row-147` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| Claude Opus 5 | `epoch-ai:aime:anthropic-claude-opus-5-default-epoch-inspect-row-148` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-5-default-epoch-inspect-row-12` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5 | `epoch-ai:gpqa-diamond:anthropic-claude-opus-5-default-epoch-inspect-row-140` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
-| Claude Opus 5 | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-5-default-epoch-inspect-row-109` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| Claude Opus 5 | `epoch-ai:mystery-game-puzzles:anthropic-claude-opus-5-default-epoch-inspect-row-110` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-5-5-default-epoch-inspect-row-5` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-opus-5-5-reasoning-max:1-1 |
 | Claude Sonnet 4.6 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-58` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (16k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-20:tier-4` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (16k thinking) | `epoch-ai:frontiermath:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-19` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
-| Claude Sonnet 4.6 (32k thinking) | `epoch-ai:aime:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-198` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
+| Claude Sonnet 4.6 (32k thinking) | `epoch-ai:aime:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-199` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (32k thinking) | `epoch-ai:gpqa-diamond:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-194` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
-| Claude Sonnet 4.6 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-107` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
+| Claude Sonnet 4.6 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-108` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 4.6 (no thinking) | `epoch-ai:swe-bench:anthropic-claude-sonnet-4-6-default-epoch-inspect-row-14` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | Claude Sonnet 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-5-default-epoch-inspect-row-36` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet5-max |
-| Claude Sonnet 5 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-sonnet-5-default-epoch-inspect-row-115` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet5-max |
+| Claude Sonnet 5 (no thinking) | `epoch-ai:mystery-game-puzzles:anthropic-claude-sonnet-5-default-epoch-inspect-row-116` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet5-max |
 | Claude Sonnet 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-5-5-default-epoch-inspect-row-10` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | DeepSeek V4 Flash 0731 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-epoch-inspect-row-53` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek V4 Pro 0813 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-epoch-inspect-row-43` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | DeepSeek V4.1 Flash 1017 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-1-flash-1017-default-epoch-inspect-row-24` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-max:1-1 |
 | DeepSeek-V4-Flash | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-default-epoch-inspect-row-88` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek-V4-Pro | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-default-epoch-inspect-row-71` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
-| Gemini 3 Pro Preview | `epoch-ai:aime:google-gemini-3-pro-preview-default-epoch-inspect-row-217` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
+| Gemini 3 Pro Preview | `epoch-ai:aime:google-gemini-3-pro-preview-default-epoch-inspect-row-218` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:frontiermath-tier-4:google-gemini-3-pro-preview-default-epoch-inspect-row-43:tier-4` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:frontiermath:google-gemini-3-pro-preview-default-epoch-inspect-row-44` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:gpqa-diamond:google-gemini-3-pro-preview-default-epoch-inspect-row-212` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:swe-bench:google-gemini-3-pro-preview-default-epoch-inspect-row-22` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
-| Gemini 3.1 Pro Preview | `epoch-ai:aime:google-gemini-3-1-pro-preview-default-epoch-inspect-row-199` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
+| Gemini 3.1 Pro Preview | `epoch-ai:aime:google-gemini-3-1-pro-preview-default-epoch-inspect-row-200` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `epoch-ai:frontiermath-tier-4-v2:google-gemini-3-1-pro-preview-default-epoch-inspect-row-69:tier-4-v2` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `epoch-ai:frontiermath-tier-4:google-gemini-3-1-pro-preview-default-epoch-inspect-row-21:tier-4` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `epoch-ai:frontiermath-v2:google-gemini-3-1-pro-preview-default-epoch-inspect-row-113:tiers-1-3-v2` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
@@ -181,8 +181,8 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Gemini 4 Argon | `epoch-ai:epoch-capabilities-index:google-gemini-4-argon-default-epoch-inspect-row-11` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
 | Gemini 4 Carbon | `epoch-ai:epoch-capabilities-index:google-gemini-4-carbon-default-epoch-inspect-row-3` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | Gemini 4 Hydrogen | `epoch-ai:epoch-capabilities-index:google-gemini-4-hydrogen-default-epoch-inspect-row-9` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
-| GLM-5.1 | `epoch-ai:aime:zai-glm-5-1-default-epoch-inspect-row-92` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
-| GLM-5.1 | `epoch-ai:chess-puzzles:zai-glm-5-1-default-epoch-inspect-row-25` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 | `epoch-ai:aime:zai-glm-5-1-default-epoch-inspect-row-93` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
+| GLM-5.1 | `epoch-ai:chess-puzzles:zai-glm-5-1-default-epoch-inspect-row-26` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:epoch-capabilities-index:zai-glm-5-1-default-epoch-inspect-row-70` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:frontiermath-tier-4:zai-glm-5-1-default-epoch-inspect-row-8:tier-4` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:frontiermath-v2:zai-glm-5-1-default-epoch-inspect-row-45:tiers-1-3-v2` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -214,8 +214,8 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Grok 4.6 | `epoch-ai:epoch-capabilities-index:xai-grok-4-6-default-epoch-inspect-row-30` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `epoch-ai:epoch-capabilities-index:xai-grok-4-7-default-epoch-inspect-row-39` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling | `epoch-ai:epoch-capabilities-index:thinking-machines-inkling-default-epoch-inspect-row-78` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
-| Kimi K2.7 Code | `epoch-ai:aime:moonshot-kimi-k2-7-code-default-epoch-inspect-row-106` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
-| Kimi K2.7 Code | `epoch-ai:chess-puzzles:moonshot-kimi-k2-7-code-default-epoch-inspect-row-32` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
+| Kimi K2.7 Code | `epoch-ai:aime:moonshot-kimi-k2-7-code-default-epoch-inspect-row-107` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
+| Kimi K2.7 Code | `epoch-ai:chess-puzzles:moonshot-kimi-k2-7-code-default-epoch-inspect-row-33` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k2-7-code-default-epoch-inspect-row-66` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:frontiermath-tier-4-v2:moonshot-kimi-k2-7-code-default-epoch-inspect-row-59:tier-4-v2` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:frontiermath-v2:moonshot-kimi-k2-7-code-default-epoch-inspect-row-104:tiers-1-3-v2` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
@@ -223,11 +223,11 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Kimi K2.7 Code | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-7-code-default-epoch-inspect-row-49` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K3 | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-default-epoch-inspect-row-26` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
 | Kimi K3.1 Pro | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-1-pro-default-epoch-inspect-row-18` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:kimi-k3-1-pro-max |
-| MiniMax-M3 | `epoch-ai:aime:minimax-minimax-m3-default-epoch-inspect-row-89` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
-| MiniMax-M3 | `epoch-ai:chess-puzzles:minimax-minimax-m3-default-epoch-inspect-row-140` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| MiniMax-M3 | `epoch-ai:aime:minimax-minimax-m3-default-epoch-inspect-row-90` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| MiniMax-M3 | `epoch-ai:chess-puzzles:minimax-minimax-m3-default-epoch-inspect-row-141` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | MiniMax-M3 | `epoch-ai:epoch-capabilities-index:minimax-minimax-m3-default-epoch-inspect-row-81` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | MiniMax-M3 | `epoch-ai:gpqa-diamond:minimax-minimax-m3-default-epoch-inspect-row-83` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
-| MiniMax-M3 | `epoch-ai:mystery-game-puzzles:minimax-minimax-m3-default-epoch-inspect-row-46` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| MiniMax-M3 | `epoch-ai:mystery-game-puzzles:minimax-minimax-m3-default-epoch-inspect-row-47` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | Muse Spark 1.1 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-1-default-epoch-inspect-row-49` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.1 | `epoch-ai:simpleqa-verified:meta-muse-spark-1-1-default-epoch-inspect-row-37` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.2 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-2-default-epoch-inspect-row-47` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
@@ -235,9 +235,9 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Muse Spark Open | `epoch-ai:epoch-capabilities-index:meta-muse-spark-open-default-epoch-inspect-row-44` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:meta-muse-spark-open-xhigh:arc-agi-2-v2-semi-private |
 | Muse Wonder | `epoch-ai:epoch-capabilities-index:meta-muse-wonder-default-epoch-inspect-row-17` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-wonder |
 | Nemotron 3 Ultra | `epoch-ai:epoch-capabilities-index:nvidia-nemotron-3-ultra-default-epoch-inspect-row-86` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
-| nemotron-3-ultra | `epoch-ai:aime:nvidia-nemotron-3-ultra-default-epoch-inspect-row-87` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nemotron-3-ultra | `epoch-ai:aime:nvidia-nemotron-3-ultra-default-epoch-inspect-row-88` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 | nemotron-3-ultra | `epoch-ai:gpqa-diamond:nvidia-nemotron-3-ultra-default-epoch-inspect-row-81` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
-| nemotron-3-ultra | `epoch-ai:mystery-game-puzzles:nvidia-nemotron-3-ultra-default-epoch-inspect-row-86` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
+| nemotron-3-ultra | `epoch-ai:mystery-game-puzzles:nvidia-nemotron-3-ultra-default-epoch-inspect-row-87` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:nemotron-3-ultra-mini-swe-agent-max |
 | Qwen 3.8 Max | `epoch-ai:epoch-capabilities-index:alibaba-qwen3-8-max-default-epoch-inspect-row-31` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `epoch-ai:epoch-capabilities-index:alibaba-qwen3-8-max-default-epoch-inspect-row-42` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 
@@ -245,38 +245,38 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| Kimi K2.6 | `epoch-ai:aime:moonshot-kimi-k2-6-default-epoch-inspect-row-190` | — | `default` | — | — |
-| Kimi K2.6 | `epoch-ai:chess-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-30` | — | `default` | — | — |
+| Kimi K2.6 | `epoch-ai:aime:moonshot-kimi-k2-6-default-epoch-inspect-row-191` | — | `default` | — | — |
+| Kimi K2.6 | `epoch-ai:chess-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-31` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k2-6-default-epoch-inspect-row-64` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:frontiermath-tier-4-v2:moonshot-kimi-k2-6-default-epoch-inspect-row-81:tier-4-v2` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:frontiermath-tier-4:moonshot-kimi-k2-6-default-epoch-inspect-row-10:tier-4` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:frontiermath-v2:moonshot-kimi-k2-6-default-epoch-inspect-row-125:tiers-1-3-v2` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:frontiermath:moonshot-kimi-k2-6-default-epoch-inspect-row-9` | — | `default` | — | — |
-| Kimi K2.6 | `epoch-ai:furniture-assembly:moonshot-kimi-k2-6-default-epoch-inspect-row-23` | — | `default` | — | — |
+| Kimi K2.6 | `epoch-ai:furniture-assembly:moonshot-kimi-k2-6-default-epoch-inspect-row-24` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:gpqa-diamond:moonshot-kimi-k2-6-default-epoch-inspect-row-185` | — | `default` | — | — |
-| Kimi K2.6 | `epoch-ai:mystery-game-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-149` | — | `default` | — | — |
+| Kimi K2.6 | `epoch-ai:mystery-game-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-150` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-6-default-epoch-inspect-row-103` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:swe-bench:moonshot-kimi-k2-6-default-epoch-inspect-row-8` | — | `default` | — | — |
-| Muse Spark | `epoch-ai:aime:meta-muse-spark-default-epoch-inspect-row-196` | — | `default` | — | — |
+| Muse Spark | `epoch-ai:aime:meta-muse-spark-default-epoch-inspect-row-197` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:epoch-capabilities-index:meta-muse-spark-default-epoch-inspect-row-55` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:frontiermath-tier-4:meta-muse-spark-default-epoch-inspect-row-17:tier-4` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:frontiermath:meta-muse-spark-default-epoch-inspect-row-16` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:gpqa-diamond:meta-muse-spark-default-epoch-inspect-row-191` | — | `default` | — | — |
-| Qwen3.6 27B | `epoch-ai:aime:alibaba-qwen3-6-27b-default-epoch-inspect-row-111` | — | `default` | — | — |
+| Qwen3.6 27B | `epoch-ai:aime:alibaba-qwen3-6-27b-default-epoch-inspect-row-112` | — | `default` | — | — |
 | Qwen3.6 27B | `epoch-ai:epoch-capabilities-index:alibaba-qwen3-6-27b-default-epoch-inspect-row-89` | — | `default` | — | — |
 | Qwen3.6 27B | `epoch-ai:frontiermath-v2:alibaba-qwen3-6-27b-default-epoch-inspect-row-47:tiers-1-3-v2` | — | `default` | — | — |
 | Qwen3.6 27B | `epoch-ai:gpqa-diamond:alibaba-qwen3-6-27b-default-epoch-inspect-row-104` | — | `default` | — | — |
-| Qwen3.7 Max | `epoch-ai:aime:alibaba-qwen3-7-max-default-epoch-inspect-row-103` | — | `default` | — | — |
-| Qwen3.7 Max | `epoch-ai:chess-puzzles:alibaba-qwen3-7-max-default-epoch-inspect-row-132` | — | `default` | — | — |
+| Qwen3.7 Max | `epoch-ai:aime:alibaba-qwen3-7-max-default-epoch-inspect-row-104` | — | `default` | — | — |
+| Qwen3.7 Max | `epoch-ai:chess-puzzles:alibaba-qwen3-7-max-default-epoch-inspect-row-133` | — | `default` | — | — |
 | Qwen3.7 Max | `epoch-ai:frontiermath-tier-4-v2:alibaba-qwen3-7-max-default-epoch-inspect-row-56:tier-4-v2` | — | `default` | — | — |
 | Qwen3.7 Max | `epoch-ai:frontiermath-v2:alibaba-qwen3-7-max-default-epoch-inspect-row-101:tiers-1-3-v2` | — | `default` | — | — |
 | Qwen3.7 Max | `epoch-ai:gpqa-diamond:alibaba-qwen3-7-max-default-epoch-inspect-row-96` | — | `default` | — | — |
-| Qwen3.7 Max | `epoch-ai:mystery-game-puzzles:alibaba-qwen3-7-max-default-epoch-inspect-row-135` | — | `default` | — | — |
+| Qwen3.7 Max | `epoch-ai:mystery-game-puzzles:alibaba-qwen3-7-max-default-epoch-inspect-row-136` | — | `default` | — | — |
 | Qwen3.7 Max | `epoch-ai:simpleqa-verified:alibaba-qwen3-7-max-default-epoch-inspect-row-52` | — | `default` | — | — |
 | Qwen3.7 Max | `epoch-ai:swe-bench:alibaba-qwen3-7-max-default-epoch-inspect-row-2` | — | `default` | — | — |
-| Qwen3.7 Plus | `epoch-ai:aime:alibaba-qwen3-7-plus-default-epoch-inspect-row-120` | — | `default` | — | — |
+| Qwen3.7 Plus | `epoch-ai:aime:alibaba-qwen3-7-plus-default-epoch-inspect-row-121` | — | `default` | — | — |
 | Qwen3.7 Plus | `epoch-ai:gpqa-diamond:alibaba-qwen3-7-plus-default-epoch-inspect-row-114` | — | `default` | — | — |
-| Qwen3.7 Plus | `epoch-ai:mystery-game-puzzles:alibaba-qwen3-7-plus-default-epoch-inspect-row-36` | — | `default` | — | — |
+| Qwen3.7 Plus | `epoch-ai:mystery-game-puzzles:alibaba-qwen3-7-plus-default-epoch-inspect-row-37` | — | `default` | — | — |
 | Qwen3.7-Max | `epoch-ai:epoch-capabilities-index:alibaba-qwen3-7-max-default-epoch-inspect-row-51` | — | `default` | — | — |
 | Qwen3.7-Plus | `epoch-ai:epoch-capabilities-index:alibaba-qwen3-7-plus-default-epoch-inspect-row-80` | — | `default` | — | — |
 
