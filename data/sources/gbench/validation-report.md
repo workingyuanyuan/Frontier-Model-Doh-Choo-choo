@@ -1,8 +1,8 @@
 # GBENCH acquisition validation
 
 - Source https://gertlabs.com/rankings?mode=agentic_coding; data https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500
-- Observed 2026-11-22T04:16:34.206Z
-- Evidence `sha256:c72b164008faf04362a4a4b16981ba9b8d97791147924ee6462ab076e5b804f4`
+- Observed 2026-11-23T13:32:18.521Z
+- Evidence `sha256:81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda`
 - Ranked rows 112; rendered Agentic Coding rows 100 (the page shows the first 100); non-model rows excluded 2 (custom/human, baseline/random); rows without a published score 0 (none); candidates 110; resolved identities 68.
 - Only the Agentic Coding GScore is scored, as `gbench-agentic-coding` (2026-11-21 user decision). The combined, one-shot and decision-making scores remain in the raw artifact.
 - GScore is published on 0–1 and multiplied by 100. It is a relative score: population-adjusted percentiles against the other ranked models, so earlier models move when models or games are added. GBENCH publishes no benchmark version, so `benchmarkVersion` is null.
@@ -168,7 +168,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | minimax/minimax-m3 | `gbench:gbench-agentic-coding:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | moonshot/kimi-k2.7-code | `gbench:gbench-agentic-coding:moonshot-kimi-k2-7-code` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | moonshot/kimi-k3 | `gbench:gbench-agentic-coding:moonshot-kimi-k3` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
-| moonshot/kimi-k3.1-pro | `gbench:gbench-agentic-coding:moonshot-kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-4 |
+| moonshot/kimi-k3.1-pro | `gbench:gbench-agentic-coding:moonshot-kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-5 |
 | openai/gpt-5.2-codex | `gbench:gbench-agentic-coding:openai-gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | openai/gpt-5.3-codex | `gbench:gbench-agentic-coding:openai-gpt-5-3-codex` | — | `xhigh` | vals-ai | vals-ai:ioi:openai-gpt-5-3-codex |
 | openai/gpt-5.4 | `gbench:gbench-agentic-coding:openai-gpt-5-4` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |

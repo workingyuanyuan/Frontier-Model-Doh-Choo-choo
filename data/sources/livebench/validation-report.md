@@ -6,10 +6,10 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1795111261`) | 39 |
+| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1795422485`) | 39 |
 | 2.0 suite candidates | 273 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1795111261`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1795422485`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
 | Cost records | 162 |

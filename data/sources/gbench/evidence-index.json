@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/c7/c72b164008faf04362a4a4b16981ba9b8d97791147924ee6462ab076e5b804f4.json",
-    "byteLength": 10246002,
+    "artifactPath": "artifacts/sha256/81/81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda.json",
+    "byteLength": 10246388,
     "finalUrl": "https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500",
-    "id": "sha256:c72b164008faf04362a4a4b16981ba9b8d97791147924ee6462ab076e5b804f4",
+    "id": "sha256:81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "complete Agentic Coding rankings JSON",
@@ -15,9 +15,9 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500",
-    "retrievedAt": "2026-11-22T04:16:34.206Z",
+    "retrievedAt": "2026-11-23T13:32:18.521Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c72b164008faf04362a4a4b16981ba9b8d97791147924ee6462ab076e5b804f4",
+    "sha256": "sha256:81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda",
     "sourceId": "gbench"
   }
 ]

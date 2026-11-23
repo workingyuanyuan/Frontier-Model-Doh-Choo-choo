@@ -16,7 +16,7 @@
     "tr[data-model]": "model.rawName",
     "tr[data-p1-all]": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-22T04:16:28.849Z",
+  "lastVerifiedAt": "2026-11-23T13:32:10.640Z",
   "notes": [
     "20 rows, Combined view (250 tasks: 100 public, 150 held-out). Public and Held-out views are not materialized.",
     "All models run at high reasoning per the organizer; harness is per row.",

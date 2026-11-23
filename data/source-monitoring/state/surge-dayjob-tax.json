@@ -85,7 +85,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-22T04:15:49.948Z",
+  "checkedAt": "2026-11-23T13:32:03.286Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/bc/bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8.html",
     "byteLength": 1124446,
@@ -97,7 +97,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-22T04:15:49.948Z",
+    "retrievedAt": "2026-11-23T13:32:03.286Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
     "sourceId": "surge-dayjob-tax"
@@ -196,7 +196,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-22T04:15:49.706Z",
+    "observedAt": "2026-11-23T13:32:02.925Z",
     "sourceId": "surge-dayjob-tax"
   }
 }

@@ -85,7 +85,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-22T04:16:27.526Z",
+  "checkedAt": "2026-11-23T13:32:08.443Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/bc/bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8.html",
     "byteLength": 1124446,
@@ -97,7 +97,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-22T04:16:27.526Z",
+    "retrievedAt": "2026-11-23T13:32:08.443Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
     "sourceId": "surge-dayjob-law"
@@ -193,7 +193,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-22T04:16:27.299Z",
+    "observedAt": "2026-11-23T13:32:08.030Z",
     "sourceId": "surge-dayjob-law"
   }
 }
