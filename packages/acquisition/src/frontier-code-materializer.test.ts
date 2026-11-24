@@ -216,6 +216,142 @@ describe('Frontier Code materializer', () => {
     expect(terra?.evidenceIds).toEqual([oldEvidenceId]);
   });
 
+  it('re-derives effort and identity of preserved 1.1 rows and costs, keeping scores and evidence', () => {
+    const removed = 'GPT-5.6 Terra';
+    // The removed model ran high and none, so `none` is non-reasoning.
+    const full = JSON.parse(v11Payload) as {
+      v1_1: ReturnType<typeof version>;
+    };
+    const terraHigh = full.v1_1.data[removed]!.high!;
+    const twoEfforts = {
+      v1_1: {
+        ...full.v1_1,
+        efforts: { ...full.v1_1.efforts, [removed]: ['high', 'none'] },
+        data: {
+          ...full.v1_1.data,
+          [removed]: {
+            high: terraHigh,
+            none: { main: { new_score: 0.2, cost: 0.1 } },
+          },
+        },
+      },
+    };
+    const fresh = materializeFrontierCode11(
+      JSON.stringify(twoEfforts),
+      { dataEvidenceId: oldEvidenceId, observedAt },
+      noPrevious,
+    );
+    // As if captured before the catalog had the model and before `none`
+    // became non-reasoning.
+    const stale = <
+      T extends {
+        model: { rawName: string };
+        profile: { effort: string | null };
+      },
+    >(
+      row: T,
+    ): T =>
+      row.model.rawName === removed
+        ? {
+            ...row,
+            model: { ...row.model, canonicalModelId: null, profileId: null },
+            profile: {
+              ...row.profile,
+              effort:
+                row.profile.effort === 'non-reasoning'
+                  ? null
+                  : row.profile.effort,
+            },
+          }
+        : row;
+    const trimmed = {
+      v1_1: {
+        ...twoEfforts.v1_1,
+        models: full.v1_1.models.filter((name) => name !== removed),
+      },
+    };
+    const result = materializeFrontierCode11(
+      JSON.stringify(trimmed),
+      { dataEvidenceId: evidenceId, observedAt },
+      {
+        candidates: fresh.candidates.map(stale),
+        costs: fresh.costs.map(stale),
+      },
+    );
+    // Effort and identity equal what materializing the rows today gives;
+    // score, cost, evidence and provenance are the captured ones.
+    const terra = <T extends { model: { rawName: string } }>(
+      rows: readonly T[],
+    ) => rows.filter(({ model }) => model.rawName === removed);
+    expect(terra(result.candidates)).toEqual(terra(fresh.candidates));
+    expect(terra(result.costs)).toEqual(terra(fresh.costs));
+    expect(
+      terra(fresh.candidates).map(({ profile }) => profile.effort),
+    ).toEqual(['high', 'non-reasoning']);
+    expect(
+      terra(fresh.candidates).every(
+        ({ model }) => model.canonicalModelId !== null,
+      ),
+    ).toBe(true);
+    expect(result.reresolvedIdentities).toHaveLength(4);
+    expect(result.unresolvedModels).not.toContain(removed);
+  });
+
+  it('gives a preserved cost the same effort as its score when the export keeps the model', () => {
+    const model = 'GPT-5.6 Terra';
+    const full = JSON.parse(v11Payload) as {
+      v1_1: ReturnType<typeof version>;
+    };
+    const withEfforts = (
+      efforts: string[],
+      data: Record<
+        string,
+        { main: { new_score: number; cost: number | null } }
+      >,
+    ) => ({
+      v1_1: {
+        ...full.v1_1,
+        efforts: { ...full.v1_1.efforts, [model]: efforts },
+        data: { ...full.v1_1.data, [model]: data },
+      },
+    });
+    const previous = materializeFrontierCode11(
+      JSON.stringify(
+        withEfforts(['high', 'none'], {
+          high: { main: { new_score: 0.5, cost: 1 } },
+          none: { main: { new_score: 0.2, cost: 0.1 } },
+        }),
+      ),
+      { dataEvidenceId: oldEvidenceId, observedAt },
+      noPrevious,
+    );
+    // Upstream keeps only the `none` score, without its cost.
+    const result = materializeFrontierCode11(
+      JSON.stringify(
+        withEfforts(['none'], {
+          none: { main: { new_score: 0.2, cost: null } },
+        }),
+      ),
+      { dataEvidenceId: evidenceId, observedAt },
+      previous,
+    );
+    const effortOf = (
+      rows: readonly { id: string; profile: { effort: string | null } }[],
+      id: string,
+    ) => rows.find((row) => row.id === id)?.profile.effort;
+    expect(
+      effortOf(
+        result.costs,
+        'frontier-code:mean-rollout-cost:gpt-5-6-terra-none',
+      ),
+    ).toBe(
+      effortOf(
+        result.candidates,
+        'frontier-code:frontier-code-1-1:gpt-5-6-terra-none',
+      ),
+    );
+  });
+
   it('excludes 1.1 costs preserved from an INCLUDED snapshot and still gates their values', () => {
     const fresh = materializeFrontierCode11(
       v11Payload,

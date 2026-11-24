@@ -9,9 +9,11 @@ import {
 import {
   RIEMANN_PAGE_URL,
   materializeRiemann,
+  riemannIdentity,
 } from './surge-riemann-materializer.js';
 import {
   COMPLEX_CONSTRAINTS_PAGE_URL,
+  complexConstraintsIdentity,
   materializeComplexConstraints,
 } from './surge-complex-constraints-materializer.js';
 import { materializeSurgePercentLeaderboard } from './surge-percent-leaderboard.js';
@@ -40,6 +42,7 @@ import {
   currentArtificialAnalysisCapture,
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
+  artificialAnalysisIdentity,
 } from './artificial-analysis-rsc.js';
 import {
   buildLiveBenchSnapshot,
@@ -517,6 +520,7 @@ function rebuildSnapshots(
                 result,
                 baseline['candidates.json'],
                 evidenceList,
+                complexConstraintsIdentity,
               ));
           } else if (src.id === 'cwe-bench') {
             const page = evidenceFor(CWE_BENCH_PAGE_URL);
@@ -562,6 +566,7 @@ function rebuildSnapshots(
                 result,
                 baseline['candidates.json'],
                 evidenceList,
+                riemannIdentity,
               ));
           } else if (src.id === 'surge-gdp-xlsx') {
             const page = evidenceFor(GDP_XLSX_PAGE_URL);
@@ -761,6 +766,7 @@ function rebuildSnapshots(
                   )
                 : [],
               result.activeProfileKeys,
+              artificialAnalysisIdentity,
             ).candidates;
             materializedCosts = result.costs;
             customReportText = result.validationReport;

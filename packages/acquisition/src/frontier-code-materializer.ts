@@ -9,6 +9,8 @@ import {
   normalizeSourceEffort,
   resolveCatalogModel,
   slugify,
+  withCurrentIdentity,
+  type ModelIdentity,
 } from './materializer-utils.js';
 
 /**
@@ -105,6 +107,9 @@ export interface MaterializeFrontierCode11Result {
   valueChanges: string[];
   /** Evidence IDs that preserved rows still reference. */
   preservedEvidenceIds: string[];
+  /** Preserved rows and costs whose effort or identity the current rules
+   * and catalog changed. */
+  reresolvedIdentities: string[];
 }
 
 export interface MaterializeFrontierCode20Context {
@@ -222,6 +227,42 @@ const profileIdFor = (
 ): string | null =>
   canonicalModelId && effort ? `${canonicalModelId}-${slugify(effort)}` : null;
 
+/** Product effort of a raw FrontierCode effort key among a model's keys. */
+const sourceEffort = (
+  rawEffort: string,
+  efforts: Iterable<string>,
+): string | null =>
+  rawEffort === 'none' && new Set(efforts).size > 1
+    ? 'non-reasoning'
+    : normalizeSourceEffort(rawEffort);
+
+/** The raw effort key a row's Main locator names, e.g. `none` in
+ * `$.v1_1.data["M"]["none"].main.cost`. */
+const rawEffortKey = (row: CandidateResult | CostRecord): string | null => {
+  for (const { locator } of Object.values(row.provenance)) {
+    const key = locator.match(/\]\[("(?:[^"\\]|\\.)*")\]\.main\./u)?.[1];
+    if (key === undefined) continue;
+    try {
+      return JSON.parse(key) as string;
+    } catch {
+      return null;
+    }
+  }
+  return null;
+};
+
+/** Identity of a raw FrontierCode name and its normalized effort. */
+const frontierCodeIdentity = (
+  rawName: string,
+  effort: string | null,
+): ModelIdentity => {
+  const canonicalModelId = resolveCatalogModel(rawName).canonicalModelId;
+  return {
+    canonicalModelId,
+    profileId: profileIdFor(canonicalModelId, effort),
+  };
+};
+
 interface VersionSpec {
   benchmarkId: string;
   benchmarkVersion: string;
@@ -324,8 +365,9 @@ const buildRows = (
       throw new Error(`${spec.label} has no configurations for ${model}`);
     }
     effortsByModel.set(model, efforts);
-    const canonicalModelId = resolveCatalogModel(model).canonicalModelId;
-    if (!canonicalModelId) unresolvedModels.add(model);
+    if (!resolveCatalogModel(model).canonicalModelId) {
+      unresolvedModels.add(model);
+    }
     const harness = version.harness[model] ?? null;
 
     for (const rawEffort of efforts) {
@@ -335,14 +377,13 @@ const buildRows = (
           `${spec.label} Main score is missing for ${model} / ${rawEffort}`,
         );
       }
-      const effort =
-        rawEffort === 'none' && new Set(efforts).size > 1
-          ? 'non-reasoning'
-          : normalizeSourceEffort(rawEffort);
-      const profileId = profileIdFor(canonicalModelId, effort);
+      const effort = sourceEffort(rawEffort, efforts);
       const score = metrics.new_score as number;
       const suffix = `${slugify(model)}-${slugify(rawEffort)}`;
-      const commonModel = { rawName: model, canonicalModelId, profileId };
+      const commonModel = {
+        rawName: model,
+        ...frontierCodeIdentity(model, effort),
+      };
       // Neither export nor methodology states a per-configuration rollout
       // count, so attempts stays null.
       const commonProfile = {
@@ -499,12 +540,43 @@ export function materializeFrontierCode11(
   const previousCosts = previous.costs.filter(
     ({ benchmarkId }) => benchmarkId === FRONTIER_CODE_1_1_BENCHMARK_ID,
   );
-  const preservedCandidates = previousCandidates.filter(
+  // Preserved rows keep their scores, evidence and provenance. Their effort
+  // follows the current rule for the raw key in their locator (rows captured
+  // before `none` became non-reasoning kept null), and their identity follows
+  // the current catalog. A model still in the export takes its keys from the
+  // export, exactly as its fresh rows do; a removed model takes the keys its
+  // preserved rows carry.
+  const removedCandidates = previousCandidates.filter(
     ({ id }) => !currentCandidates.has(id),
   );
-  const preservedCosts = previousCosts.filter(
-    ({ id }) => !currentCosts.has(id),
+  const removedCosts = previousCosts.filter(({ id }) => !currentCosts.has(id));
+  const preservedKeys = new Map<string, Set<string>>();
+  for (const row of [...removedCandidates, ...removedCosts]) {
+    const key = rawEffortKey(row);
+    if (key === null) continue;
+    const keys = preservedKeys.get(row.model.rawName) ?? new Set<string>();
+    preservedKeys.set(row.model.rawName, keys.add(key));
+  }
+  const reresolve = (row: CandidateResult | CostRecord) => {
+    const key = rawEffortKey(row);
+    const effort =
+      key === null
+        ? row.profile.effort
+        : sourceEffort(
+            key,
+            version.efforts[row.model.rawName] ??
+              preservedKeys.get(row.model.rawName) ??
+              [],
+          );
+    return { ...frontierCodeIdentity(row.model.rawName, effort), effort };
+  };
+  const preservedCandidateRows = withCurrentIdentity(
+    removedCandidates,
+    reresolve,
   );
+  const preservedCostRows = withCurrentIdentity(removedCosts, reresolve);
+  const preservedCandidates = preservedCandidateRows.rows;
+  const preservedCosts = preservedCostRows.rows;
   const previousCandidateIds = new Set(previousCandidates.map(({ id }) => id));
   const valueChanges = [
     ...previousCandidates.flatMap((prior) => {
@@ -581,6 +653,10 @@ export function materializeFrontierCode11(
       .toSorted(),
     valueChanges,
     preservedEvidenceIds,
+    reresolvedIdentities: [
+      ...preservedCandidateRows.changes.values(),
+      ...preservedCostRows.changes.values(),
+    ].toSorted(),
   };
 }
 
@@ -767,6 +843,7 @@ export function frontierCodeValidationReport({
     '',
     '- The main page no longer renders 1.1; the 1.1 post shows only its launch chart. The `v1_1` export is therefore checked against the previous snapshot instead of a rendered board.',
     `- Models removed upstream and preserved unchanged: ${list(v11.preservedModels)}.`,
+    `- Preserved rows and costs re-resolved against the current effort rule and model catalog (scores, evidence and provenance unchanged): ${list(v11.reresolvedIdentities)}.`,
     `- New export rows: ${list(v11.addedCandidateIds)}.`,
     `- Value changes: ${list(v11.valueChanges)}.`,
     '- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.',

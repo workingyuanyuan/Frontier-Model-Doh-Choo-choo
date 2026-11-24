@@ -14,6 +14,8 @@ import {
   resolveModel,
   slugify,
   stripTrailingConfiguration,
+  withCurrentIdentity,
+  type CurrentIdentity,
 } from './materializer-utils.js';
 
 export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
@@ -2183,6 +2185,20 @@ export const currentArtificialAnalysisCapture = (
   };
 };
 
+/** Identity the materializer gives a row's raw name under the current
+ * catalog. The effort stays as captured: it came from the row's own `effort`
+ * field when AA published one, which a stored row no longer carries. */
+export const artificialAnalysisIdentity = ({
+  model,
+  profile,
+}: Pick<CandidateResult, 'model' | 'profile'>): CurrentIdentity => {
+  const { canonicalModelId, profileId } = resolveModel(
+    model.rawName,
+    SOURCE_ID,
+  );
+  return { canonicalModelId, profileId, effort: profile.effort };
+};
+
 const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;
 
 /**
@@ -2195,13 +2211,21 @@ const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;
  * today's capture has no row with the same ID, the same profile slug is still
  * an eligible (non-deleted, in-window, newest-build) profile today, and no
  * current rubric row already covers the same canonical model and effort.
- * Profiles AA no longer lists, or now filters out, are not retained.
+ * Profiles AA no longer lists, or now filters out, are not retained. A
+ * retained row's identity is re-resolved from its raw name against the
+ * current catalog before that comparison; score and Evidence stay as captured.
  */
 export const retainArtificialAnalysisBriefcaseRows = (
   current: readonly CandidateResult[],
   previous: readonly CandidateResult[],
   activeProfileKeys: readonly string[],
-): { candidates: CandidateResult[]; retained: CandidateResult[] } => {
+  resolveIdentity: (row: CandidateResult) => CurrentIdentity,
+): {
+  candidates: CandidateResult[];
+  retained: CandidateResult[];
+  /** Retained rows whose identity the current catalog changed. */
+  reresolved: string[];
+} => {
   const isRubric = (row: CandidateResult) =>
     row.sourceId === SOURCE_ID &&
     row.benchmarkId === 'aa-briefcase' &&
@@ -2229,9 +2253,16 @@ export const retainArtificialAnalysisBriefcaseRows = (
       .filter((value): value is string => value !== null),
   );
   const active = new Set(activeProfileKeys);
-  const retained = previous.filter((row) => {
-    if (!isRubric(row) || currentIds.has(row.id)) return false;
-    if (!active.has(row.id.slice(BRIEFCASE_ID_PREFIX.length))) return false;
+  const removed = withCurrentIdentity(
+    previous.filter(
+      (row) =>
+        isRubric(row) &&
+        !currentIds.has(row.id) &&
+        active.has(row.id.slice(BRIEFCASE_ID_PREFIX.length)),
+    ),
+    resolveIdentity,
+  );
+  const retained = removed.rows.filter((row) => {
     const key = identity(row);
     return key === null || !currentIdentities.has(key);
   });
@@ -2240,5 +2271,6 @@ export const retainArtificialAnalysisBriefcaseRows = (
       left.id.localeCompare(right.id),
     ),
     retained,
+    reresolved: retained.flatMap(({ id }) => removed.changes.get(id) ?? []),
   };
 };

@@ -1,4 +1,8 @@
-import { resolveCatalogModel } from './materializer-utils.js';
+import {
+  resolveCatalogModel,
+  type CurrentIdentity,
+  type ModelIdentity,
+} from './materializer-utils.js';
 
 export const surgeText = (html: string): string =>
   html
@@ -134,6 +138,31 @@ export const resolveSurgeModel = (modelName: string): string | null => {
     model.canonicalModelId ?? resolveCatalogModel(lookupName).canonicalModelId
   );
 };
+
+/** Canonical model and profile of a parsed Surge configuration. */
+export const surgeModelIdentity = (config: {
+  modelName: string;
+  effort: string | null;
+}): ModelIdentity => {
+  const canonicalModelId = resolveSurgeModel(config.modelName);
+  return {
+    canonicalModelId,
+    profileId:
+      canonicalModelId && config.effort
+        ? `${canonicalModelId}-${config.effort}`
+        : null,
+  };
+};
+
+/** What materializing a stored Surge row name today gives: identity and
+ * effort from the same configuration parser as fresh rows. */
+export const surgeCurrentIdentity = (config: {
+  modelName: string;
+  effort: string | null;
+}): CurrentIdentity => ({
+  ...surgeModelIdentity(config),
+  effort: config.effort,
+});
 
 export function surgeRowIdentity(row: string): { brand: string; name: string } {
   const brand = surgeText(

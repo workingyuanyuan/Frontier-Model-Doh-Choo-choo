@@ -41,15 +41,16 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 | Score/cost changes against the previous snapshot | 0 |
 | Models with multiple efforts | 30 |
 | Models with five efforts | 17 |
-| Canonically unresolved models | 9 |
+| Canonically unresolved models | 8 |
 
 - The main page no longer renders 1.1; the 1.1 post shows only its launch chart. The `v1_1` export is therefore checked against the previous snapshot instead of a rendered board.
 - Models removed upstream and preserved unchanged: GPT-6.1 Terra, Mistral Large 4 (Preview).
+- Preserved rows and costs re-resolved against the current effort rule and model catalog (scores, evidence and provenance unchanged): frontier-code:frontier-code-1-1:mistral-large-4-preview-high: unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-high, frontier-code:frontier-code-1-1:mistral-large-4-preview-none: effort null -> non-reasoning, unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-non-reasoning, frontier-code:mean-rollout-cost:mistral-large-4-preview-high: unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-high, frontier-code:mean-rollout-cost:mistral-large-4-preview-none: effort null -> non-reasoning, unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-non-reasoning.
 - New export rows: none.
 - Value changes: none.
 - The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.
 - All 141 1.1 cost records keep their IDs but are EXCLUDED: Superseded by the FrontierCode 2.0 mean rollout cost (user decision 2026-10-28); the 1.1 cost remains as evidence only.
-- Unresolved names keep null canonical/profile identity: Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
+- Unresolved names keep null canonical/profile identity: Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7, SWE-2.
 
 ## Known documentation conflict
 

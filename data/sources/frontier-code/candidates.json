@@ -6753,8 +6753,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
+      "profileId": "mistral-mistral-large-4-preview-high",
       "rawName": "Mistral Large 4 (Preview)"
     },
     "normalizedScore": 39.43,
@@ -6804,8 +6804,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
+      "profileId": "mistral-mistral-large-4-preview-non-reasoning",
       "rawName": "Mistral Large 4 (Preview)"
     },
     "normalizedScore": 27.87,
@@ -6813,7 +6813,7 @@
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
+      "effort": "non-reasoning",
       "harness": "chisel",
       "quantization": null,
       "thinking": null,

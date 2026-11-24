@@ -2,7 +2,12 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
-import { CandidateResultSchema } from '@llm-bench/benchmark-data';
+import {
+  CandidateResultSchema,
+  type CandidateResult,
+} from '@llm-bench/benchmark-data';
+
+import { type ModelIdentity } from './materializer-utils.js';
 
 import {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
@@ -1140,6 +1145,21 @@ describe('AA-Briefcase retention', () => {
       evidenceIds: [`sha256:${'b'.repeat(64)}`],
     });
 
+  // Synthetic resolvers, so these tests never depend on models.json.
+  const keepIdentity = ({ model, profile }: CandidateResult) => ({
+    ...model,
+    effort: profile.effort,
+  });
+  const catalog =
+    (identities: Record<string, ModelIdentity>) =>
+    ({ model, profile }: CandidateResult) => ({
+      ...(identities[model.rawName] ?? {
+        canonicalModelId: null,
+        profileId: null,
+      }),
+      effort: profile.effort,
+    });
+
   it('emits no rubric row from an Elo-only detail payload and lists only eligible profiles', () => {
     expect(
       capture.candidates
@@ -1158,6 +1178,7 @@ describe('AA-Briefcase retention', () => {
       capture.candidates,
       [stale, low, deleted, unlisted],
       capture.activeProfileKeys,
+      keepIdentity,
     );
     expect(result.retained).toEqual([low]);
     expect(result.candidates.find(({ id }) => id === stale.id)?.rawScore).toBe(
@@ -1181,6 +1202,7 @@ describe('AA-Briefcase retention', () => {
         [covered],
         [renamed],
         capture.activeProfileKeys,
+        keepIdentity,
       ).retained,
     ).toEqual([]);
   });
@@ -1205,8 +1227,58 @@ describe('AA-Briefcase retention', () => {
         [covered],
         [renamed],
         capture.activeProfileKeys,
+        keepIdentity,
       ).retained,
     ).toEqual([]);
+  });
+
+  it('re-resolves a retained row against the current catalog and keeps its score and Evidence', () => {
+    const low = previous('gpt-6-sol-low', 0.3);
+    const result = retainArtificialAnalysisBriefcaseRows(
+      capture.candidates,
+      [low],
+      capture.activeProfileKeys,
+      catalog({
+        'gpt-6-sol-low': {
+          canonicalModelId: 'model-c',
+          profileId: 'model-c-low',
+        },
+      }),
+    );
+    expect(result.retained).toEqual([
+      {
+        ...low,
+        model: {
+          ...low.model,
+          canonicalModelId: 'model-c',
+          profileId: 'model-c-low',
+        },
+      },
+    ]);
+    expect(result.reresolved).toEqual([
+      `${low.id}: unresolved -> model-c, profile ${low.model.profileId ?? 'null'} -> model-c-low`,
+    ]);
+  });
+
+  it('drops a retained row whose re-resolved model and effort a current rubric row covers', () => {
+    const covered = CandidateResultSchema.parse({
+      ...current,
+      model: { ...current.model, canonicalModelId: 'model-d' },
+    });
+    const stale = CandidateResultSchema.parse({
+      ...previous('gpt-6-sol-low', 0.3),
+      profile: { ...covered.profile },
+    });
+    const result = retainArtificialAnalysisBriefcaseRows(
+      [covered],
+      [stale],
+      capture.activeProfileKeys,
+      catalog({
+        'gpt-6-sol-low': { canonicalModelId: 'model-d', profileId: null },
+      }),
+    );
+    expect(result.retained).toEqual([]);
+    expect(result.reresolved).toEqual([]);
   });
 });
 
