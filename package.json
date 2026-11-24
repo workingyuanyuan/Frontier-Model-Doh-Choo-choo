@@ -18,7 +18,7 @@
     "format": "prettier --check . --cache --cache-strategy content",
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
-    "test": "node --test scripts/*.test.mjs && turbo run test",
+    "test": "node --test scripts/*.test.mjs && turbo run test --concurrency=1",
     "typecheck": "turbo run typecheck",
     "web": "pnpm --filter @llm-bench/bench dev",
     "data:generate-frontier-set": "pnpm --filter @llm-bench/benchmark-data data:generate-frontier-set",

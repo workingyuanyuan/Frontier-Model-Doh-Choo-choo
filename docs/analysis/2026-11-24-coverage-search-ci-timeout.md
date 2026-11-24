@@ -19,15 +19,15 @@ Error: Test timed out in 15000ms.
 
 各 run 的階段耗時（秒，`baseline-build` / `added-build`）：
 
-| Run         | 對應 PR                | target 中位 | full-suite 範圍    | full-suite 結果 |
-| ----------- | ---------------------- | ----------- | ------------------ | --------------- |
-| 44999944723 | #87 ci/faster-pipeline | 0.9 / 0.7   | 1.8–5.0 / 2.0–3.0  | 10/10 通過      |
-| 45038285900 | #90 coverage-window-20 | 2.0 / 1.8   | 5.7–10.7 / 4.6–7.2 | 2/10 通過       |
-| 45189876651 | #91 daily refresh      | 2.1 / 1.8   | 5.3–11.4 / 4.5–6.6 | 3/10 通過       |
-| 45343018473 | #92 Haiku 5.5          | 2.0 / 1.8   | 5.5–10.6 / 4.4–6.3 | 2/10 通過       |
-| 45365635318 | #93 AA identity review | 1.3 / 1.1   | 3.2–6.9 / 2.7–4.5  | 10/10 通過      |
+| Run         | 對應 PR                | Runner CPU    | target 中位 | full-suite 範圍    | full-suite 結果 |
+| ----------- | ---------------------- | ------------- | ----------- | ------------------ | --------------- |
+| 44999944723 | #87 ci/faster-pipeline | AMD EPYC 9V45 | 0.9 / 0.7   | 1.8–5.0 / 2.0–3.0  | 10/10 通過      |
+| 45038285900 | #90 coverage-window-20 | AMD EPYC 7763 | 2.0 / 1.8   | 5.7–10.7 / 4.6–7.2 | 2/10 通過       |
+| 45189876651 | #91 daily refresh      | AMD EPYC 7763 | 2.1 / 1.8   | 5.3–11.4 / 4.5–6.6 | 3/10 通過       |
+| 45343018473 | #92 Haiku 5.5          | AMD EPYC 7763 | 2.0 / 1.8   | 5.5–10.6 / 4.4–6.3 | 2/10 通過       |
+| 45365635318 | #93 AA identity review | AMD EPYC 9V45 | 1.3 / 1.1   | 3.2–6.9 / 2.7–4.5  | 10/10 通過      |
 
-PR #90（`fe29095`）把 `createCoverageCohorts` 的視窗從 10 個模型擴到 20 個。搜尋維持窮舉，以 prefix 剪枝；以 11-24 的資料，19 個模型數合計走過約 62 萬個節點，每個節點都用 `new Set([...shared].filter(...))` 建一個新集合，再為葉節點排序並串接 key。CPU profile 顯示這段每次 build 約 750 ms，佔整次 build 約四成；測試一次跑兩個 build。PR #93 剛好因資料變動讓搜尋變小而通過，下一次資料刷新仍可能再度逾時。
+PR #90（`fe29095`）把 `createCoverageCohorts` 的視窗從 10 個模型擴到 20 個。搜尋維持窮舉，以 prefix 剪枝；以 11-24 的資料，19 個模型數合計走過約 62 萬個節點，每個節點都用 `new Set([...shared].filter(...))` 建一個新集合，再為葉節點排序並串接 key。CPU profile 顯示這段每次 build 約 750 ms，佔整次 build 約四成；測試一次跑兩個 build。GitHub 的 `ubuntu-latest` runner 不固定 CPU：三次失敗都分到較慢的 EPYC 7763，兩次全過都分到較快的 EPYC 9V45，所以 #93 通過不能證明問題已消失。
 
 ## 修正
 
@@ -47,3 +47,25 @@ PR #90（`fe29095`）把 `createCoverageCohorts` 的視窗從 10 個模型擴到
 | full-suite     | 8,730–**14,936** | 2,878–6,949 |
 
 修正前 full-suite 第三輪已到 14.9 秒，等於在本機重現逾時邊緣。修正後最壞情況仍留約 8 秒餘裕。整個 `pnpm test` 的牆鐘時間也從 20–27 秒降到約 13 秒。CPU profile 中 `createCoverageCohorts` 從每次 build 約 750 ms 降到約 110 ms。
+
+## 後續：位元集合不夠，package 測試改為依序執行
+
+PR #94（位元集合）合併時的 measure run 45371180904 分到 EPYC 7763，可與 #92 同硬體比較。FrontierSWE 測試階段合計（秒）：
+
+| 模式       | #92 中位 / 最大 | #94 中位 / 最大 |
+| ---------- | --------------- | --------------- |
+| target     | 4.0 / 4.5       | 2.9 / 3.1       |
+| full-suite | 15.7 / 16.7     | 12.7 / 13.6     |
+
+30 輪全過，但慢機器上只剩約 1.4 秒餘裕；主 CI 的 `pnpm test` 也跑同一個測試。剩下的放大來自超額排程：`turbo run test` 同時跑三個 package，每個 vitest 又各自依 CPU 數開 worker，四核上同時有十個左右的 worker。
+
+本機 `taskset -c 0-3`，`turbo run test` 各跑兩次：
+
+| 執行方式                  | FrontierSWE 測試階段 | 整體牆鐘時間 |
+| ------------------------- | -------------------- | ------------ |
+| 預設（三個 package 並行） | 5.9–7.8 秒           | 12–21 秒     |
+| `--concurrency=1`（依序） | 2.4–2.6 秒           | 約 15 秒     |
+
+依序執行時，這個測試接近單獨執行的耗時，總時間相近且較穩定。因此根目錄 `pnpm test` 改為 `turbo run test --concurrency=1`；各 package 內的 vitest 仍平行執行檔案。
+
+改動後以同樣條件執行 `node scripts/measure-workspace-tests.mjs --iterations 3`：full-suite 的測試階段合計 2,129–2,220 ms（並行時 2,878–6,949 ms），每輪牆鐘時間 14.2–14.9 秒（並行時約 13 秒），九輪全部通過。
