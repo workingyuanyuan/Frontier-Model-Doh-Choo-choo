@@ -16,7 +16,7 @@
 - **失敗**：修正原因後重跑；無法修正時，把 receipt、失敗步驟與錯誤訊息交給使用者，不可宣稱已完成。
 - 只靠單元測試、parser 修正或建置舊產品，都不算完成資料更新。
 
-每日查核另寫 `docs/research/<日期>-benchmark-update-check.md`，與資料更新報告的分工見 [OPERATIONS](docs/OPERATIONS.md#每日-benchmark-查核的兩份文件)。匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。
+每日查核另寫 `docs/research/<日期>-benchmark-update-check.md`，與資料更新報告的分工見 [OPERATIONS](docs/OPERATIONS.md#每日-benchmark-查核的兩份文件)。匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。AA Intelligence Index 上解析不到模型身分的名稱，每一個都要先登記進 `models.json`（並從帳上刪除），或在 `data/mappings/identity-review.json` 記錄決定（`awaiting-evidence` 最多 14 天、不可改日期延期，或附理由的 `not-tracked`），否則 release 失敗；處理方式見 [OPERATIONS §3](docs/OPERATIONS.md#停止條件與保存)。
 
 ## 測試的範圍
 

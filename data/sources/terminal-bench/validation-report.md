@@ -5,7 +5,7 @@
 - Leaderboard `terminal-bench/terminal-bench` / `4-1-0` ("Terminal-Bench 4.1"), updated 2026-11-20T16:07:10.159Z.
 - Configurations: 67; distinct models: 54; rendered browser rows: 54.
 - Every row has 330 trials and its resolution rate equals successes / trials.
-- Unresolved catalog identities (15): Copilot Fusion; Ember-1; Gemini 3.1 Pro; GLM-5.3; GLM-5.3-Flash; Haiku 5.5; Hy4 Flash; Hy4 Preview; Inkling Small 2; Inkling Small; MiMo V2.6 Flash; MiMo V2.6 Pro; Mistral Large 4; Nemotron 3.5 Super VL; Qwen3.8-Max-0902.
+- Unresolved catalog identities (14): Copilot Fusion; Ember-1; Gemini 3.1 Pro; GLM-5.3; GLM-5.3-Flash; Hy4 Flash; Hy4 Preview; Inkling Small 2; Inkling Small; MiMo V2.6 Flash; MiMo V2.6 Pro; Mistral Large 4; Nemotron 3.5 Super VL; Qwen3.8-Max-0902.
 - Rows whose source effort is not a product tier (10): retained with null effort.
 
 The Stanford / Laude Institute Terminal-Bench team hosts this leaderboard, so rows are ORGANIZER results. The page embeds the complete leaderboard query in its Next.js flight data; the rendered table shows only each model's best configuration, so every effort configuration is materialized and the rendered row count is compared with distinct models.

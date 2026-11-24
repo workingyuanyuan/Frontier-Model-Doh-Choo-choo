@@ -261,7 +261,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ### 輸入與命令的寫入範圍
 
-從 repository 根目錄執行下列命令。正式流程讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`，以及白名單來源目錄中的 `candidates.json`。擷取端的檔位推測報告、Vals 驗證報告與離線物化也使用 `benchmarks-v2.json`。五維舊版的 `benchmarks.json`、`frontier.json`、`display-set-policy.json`、`display-set.json` 與使用它們的覆蓋最佳化分析工具已於 2026-11-15 移除（[已捨棄項目](REFACTOR_DISCARD_LIST.md)）。
+從 repository 根目錄執行下列命令。正式流程讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`frontier-identities.json`、`identity-review.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`，以及白名單來源目錄中的 `candidates.json`。擷取端的檔位推測報告、Vals 驗證報告與離線物化也使用 `benchmarks-v2.json`。五維舊版的 `benchmarks.json`、`frontier.json`、`display-set-policy.json`、`display-set.json` 與使用它們的覆蓋最佳化分析工具已於 2026-11-15 移除（[已捨棄項目](REFACTOR_DISCARD_LIST.md)）。
 
 | 命令                              | 用途與輸出                                                                                                                                                                                                                                                                          |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -306,6 +306,14 @@ pnpm data:release
 判定是否繼續以 audit 最外層 `status` 為準：`selected` 表示本次排名及共同集合已通過生成器檢查，`needs-review` 表示停止並處理問題。內層 `gapAudit` 僅保存斷層計算供參考，其 `needs-review` 不會單獨阻擋目前固定前 2～10 名的政策。
 
 AA 版本不可比較、前十名或合格前沿窗口內有未解析身分、合格模型不足十個、樣本不足或無法產生共同合格測試時，生成器寫入 `needs-review` audit 並回傳非零狀態（`pnpm data:release` 會在 `frontier` 或 `product` 步驟失敗並寫入 `status: "failed"` 的 receipt），保留原成功的 `frontier-set.json`。較早的讀檔／schema 錯誤可能尚未寫入新 audit，因此既有 `selected` 不能抵銷本次命令失敗。停止產品建立，保存 receipt、命令、退出碼、錯誤及本次 audit，先排除資料／實作問題；仍需政策裁決時交付具體證據。
+
+**未對應身分的審核帳（`data/mappings/identity-review.json`）。** AA Intelligence Index 上每個解析不到 catalog 模型的名稱（套用 `frontier-identities.json` 之後），都必須在這份帳上有一筆以完全相同 `rawName` 記錄的決定，否則生成器寫入 `needs-review`，`frontier` 步驟失敗。這條檢查涵蓋整個 AA Index 母體，不只前沿窗口；沒有 AA Index 列的模型不在範圍內，靠每日查核發現。它與前十名、前沿窗口的未解析身分檢查各自獨立：標為 `not-tracked` 的名稱若分數進入前沿窗口，仍會被後者擋下。模型沒登記就不會出現在網頁的模型清單，即使它在多個來源都有成績（2026-11-24 發現 Claude Haiku 5.5 發布後七週都沒登記，就是這個原因）。處理方式：
+
+- **登記**：有官方證據時，在 `models.json` 新增模型與精確 alias，執行 `pnpm data:materialize-snapshots`、`pnpm --filter @llm-bench/acquisition rematerialize:vals`、`pnpm --filter @llm-bench/acquisition materialize:effort-reports` 離線重建來源，並刪除帳上該名稱的條目（名稱已能解析卻仍留在帳上，會以 `reviewed-name-resolves` 失敗）。重建後用 `pnpm data:refresh-diff` 確認差異只有該模型的列；只有列順序或 manifest 網址順序改變的檔案還原成 HEAD。
+- **`awaiting-evidence`**：還沒查到官方證據時暫列，`reviewedOn` 填第一次暫列的日期，之後不可改日期延期。AA 列 `observedAt` 的日期晚於 `reviewedOn` 加 14 天（例如 11-24 暫列，12-08 的擷取仍可通過，12-09 起失敗）就以 `awaiting-evidence-expired` 失敗，到期時只能登記或改為 `not-tracked`；期限以來源擷取時間計算，不看系統時鐘，`data:verify-fresh` 仍可重現。
+- **`not-tracked`**：依證據判定不登記，例如廠商的「模型設定」（基礎模型加工具）、已被正式版取代的 preview。`reason` 寫明依據，不會到期。
+
+決定由代理依證據做出並寫進刷新報告，不需等使用者裁決。
 
 `data:build-current` 先完成全部計算再寫檔：產品計算或驗證失敗時，集合、audit 與 `current.json` 都不會被改寫；frontier 需要審核時只寫入 `needs-review` audit。三個檔案仍是依序寫入，寫檔途中遇到 I/O 失敗須比對 `baseline/` 與保存基準確認各檔案狀態。生成命令會覆寫工作區集合／audit；匯入前的獨立基準副本、`artifacts/releases/<run-id>/baseline/` 及 Git 中已保存的歷史版本必須保留，不以新結果覆蓋歷史審核證據。
 

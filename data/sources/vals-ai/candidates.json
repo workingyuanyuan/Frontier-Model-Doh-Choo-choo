@@ -7184,8 +7184,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 70.37,
@@ -12112,8 +12112,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 100,
@@ -14184,8 +14184,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 52.36,
@@ -16368,8 +16368,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 44.568,
@@ -28464,8 +28464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 75.476,
@@ -31264,8 +31264,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 65.477,
@@ -34288,8 +34288,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 59.015,
@@ -38152,8 +38152,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 65.373,
@@ -41176,8 +41176,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 54.138,
@@ -45264,8 +45264,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 57.448,
@@ -57528,8 +57528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 1.25,
@@ -61672,8 +61672,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 4.167,
@@ -64136,8 +64136,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 61.791,
@@ -65592,8 +65592,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 47.278,
@@ -76680,8 +76680,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 70.294,
@@ -79704,8 +79704,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 43.75,
@@ -96672,8 +96672,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 51.542,
@@ -108096,8 +108096,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 89.542,
@@ -136432,8 +136432,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 35.135,
@@ -139568,8 +139568,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 2.5,
@@ -143208,8 +143208,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 89,
@@ -147072,8 +147072,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 63.194,
@@ -150936,8 +150936,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 89.829,
@@ -152448,8 +152448,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 38.502,
@@ -156088,8 +156088,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 5.725,
@@ -163256,8 +163256,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 43.958,
@@ -165048,8 +165048,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 31.922,
@@ -185936,8 +185936,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 36.364,
@@ -189800,8 +189800,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 10,
@@ -193160,8 +193160,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 58.727,
@@ -198032,8 +198032,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 20.406,
@@ -200216,8 +200216,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 90.444,

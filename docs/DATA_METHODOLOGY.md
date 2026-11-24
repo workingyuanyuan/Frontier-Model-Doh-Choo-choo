@@ -128,7 +128,7 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 
 Frontier 模型清單依 [前沿政策](FRONTIER_POLICY.md) 由已保存的來源快照生成：依同版 Artificial Analysis Intelligence Index 排名，取最多前二十個具備至少 2 個獨立組織成績的合格模型；前沿集合用其中前十個，測試覆蓋最佳化集合用全部。結果與逐列依據寫入 `data/derived/frontier-set.json` 及 `frontier-selection-audit.json`，不手動編輯。
 
-模型能否入選由來源快照裡的證據決定：AA 排名，以及是否有至少 2 個獨立組織的成績。來源刷新帶來新成績時，資格會跟著改變。若模型有成績卻因名稱未對應而無法入選，修正的是 `data/mappings/models.json` 的模型身分或 `frontier-identities.json` 的來源名稱對應；不要為了調整成員而手動修改 `data/sources/` 底下的快照。以 `frontier.json` 的 `manualModels` 手動指定成員、以及更早的 `compositeSources` 動態 Top-20 選模，都已移除。
+模型能否入選由來源快照裡的證據決定：AA 排名，以及是否有至少 2 個獨立組織的成績。來源刷新帶來新成績時，資格會跟著改變。若模型有成績卻因名稱未對應而無法入選，修正的是 `data/mappings/models.json` 的模型身分或 `frontier-identities.json` 的來源名稱對應；AA Intelligence Index 上每個未對應的名稱，都必須登記身分，或在 `identity-review.json` 記錄暫列或不追蹤的決定（見 [OPERATIONS §3](OPERATIONS.md#停止條件與保存)）；不要為了調整成員而手動修改 `data/sources/` 底下的快照。以 `frontier.json` 的 `manualModels` 手動指定成員、以及更早的 `compositeSources` 動態 Top-20 選模，都已移除。
 
 外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入五維 Overall，避免底層 Benchmark 被重複計分。
 

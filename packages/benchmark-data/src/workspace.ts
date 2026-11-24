@@ -28,6 +28,7 @@ import {
   FrontierIdentitiesSchema,
   resolveFrontierIdentities,
 } from './frontier-identities.js';
+import { IdentityReviewSchema } from './identity-review.js';
 import {
   computeFrontierSet,
   writeFrontierSet,
@@ -115,6 +116,9 @@ const computeWorkspace = async (
   const identities = FrontierIdentitiesSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'frontier-identities.json')),
   );
+  const identityReview = IdentityReviewSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'identity-review.json')),
+  );
   const resolvedCandidates = resolveFrontierIdentities(
     sourceCandidates,
     identities,
@@ -156,6 +160,7 @@ const computeWorkspace = async (
     catalog,
     mapping: benchmarkMapping,
     quality,
+    identityReview,
   });
   if (frontier.status !== 'selected') return { frontier, product: null };
   const { artifact } = frontier;

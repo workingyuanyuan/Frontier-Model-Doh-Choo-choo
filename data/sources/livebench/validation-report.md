@@ -12,8 +12,8 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 | 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1795422485`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 162 |
-| Distinct unresolved raw model names | 23 |
+| Cost records | 167 |
+| Distinct unresolved raw model names | 20 |
 
 ## LiveBench 2.0 suites
 
@@ -36,9 +36,6 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 ## Unresolved model names
 
-- `claude-haiku-5-5-max-effort`
-- `claude-haiku-5-5-xhigh-effort`
-- `claude-haiku-5.5`
 - `deepseek-v4-flash`
 - `deepseek-v4-flash-vision-exp`
 - `deepseek-v4-pro`
@@ -59,22 +56,6 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 - `smaug-agentic`
 - `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
-
-## Visible comparison
-
-- LiveBench 2.0 rendered leaderboard rows: 39; table rows: 39.
-- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
-- Result: both rendered counts matched.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Raw model profiles | 105 | 105 | +0 |
-| Candidate results | 557 | 557 | +0 |
-| Materialized costs | 162 | 162 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -172,3 +153,9 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | smaug-mini | `livebench-2026-06-25:livebench-reasoning:smaug-mini` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
+
+## Visible comparison
+
+- LiveBench 2.0 rendered leaderboard rows: 39; table rows: 39.
+- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
+- Result: both rendered counts matched.

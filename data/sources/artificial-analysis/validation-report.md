@@ -16,7 +16,7 @@
 | Generated CandidateResults | 3475 |
 | Intelligence Index candidates (EXCLUDED) | 145 |
 | GDPval-AA normalized candidates | 211 |
-| Canonically unresolved candidates | 1023 |
+| Canonically unresolved candidates | 951 |
 | MEASURED_TASK cost rows | 135 |
 | API_STANDARDIZED token-price rows | 263 |
 
@@ -31,7 +31,7 @@
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: API cross-validation failed; page pipeline continued: Error: https://artificialanalysis.ai/api/v2/data/llms/models returned HTTP 410
+- Warning: API cross-validation was not attempted.
 
 ## Scope and semantics
 
@@ -45,11 +45,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 220 | 169 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 166 | 121 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 156 | 119 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 71 | 55 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 146 | 111 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 220 | 174 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 166 | 126 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 156 | 124 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 71 | 56 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 146 | 116 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -62,28 +62,6 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 - Rubric rows read from the leaderboard because no captured row of the profile carries `briefcaseBreakdown.rubricPassRate`: 114 (a-x-k2, claude-fable-5-1-high, claude-fable-5-1-low, claude-fable-5-1-medium, claude-fable-5-2-high, claude-fable-5-2-low, claude-fable-5-2-medium, claude-fable-5-2-xhigh, claude-haiku-5-5-high, claude-haiku-5-5-low, claude-haiku-5-5-medium, claude-haiku-5-5-xhigh, claude-opus-4-7-non-reasoning, claude-opus-5-5-high, claude-opus-5-5-low, claude-opus-5-5-medium, claude-opus-5-5-xhigh, claude-opus-5-low, claude-opus-5-medium, claude-sonnet-5-5-high, claude-sonnet-5-5-low, claude-sonnet-5-5-medium, claude-sonnet-5-5-xhigh, claude-sonnet-5-high, claude-sonnet-5-low, claude-sonnet-5-medium, claude-sonnet-5-xhigh, deepseek-v4-1-flash-1017-high, deepseek-v4-1-flash-1017-non-reasoning, deepseek-v4-1-flash-non-reasoning, deepseek-v4-flash-0420-high, deepseek-v4-pro-high, deepseek-v4-pro-non-reasoning, gemini-3-5-flash-medium, gemini-3-8-flash-low, gemini-4-carbon-low, gemini-4-hydrogen-high, gemini-4-hydrogen-low, gemini-4-hydrogen-medium, gemma-4-e4b, glm-5-3-low, gpt-5-5-high, gpt-5-6-luna-high, gpt-5-6-luna-low, gpt-5-6-luna-medium, gpt-5-6-luna-non-reasoning, gpt-5-6-luna-xhigh, gpt-5-6-sol-high, gpt-5-6-sol-low, gpt-5-6-sol-medium, gpt-5-6-sol-non-reasoning, gpt-5-6-terra-high, gpt-5-6-terra-low, gpt-5-6-terra-medium, gpt-5-6-terra-non-reasoning, gpt-5-6-terra-xhigh, gpt-6-1-sol-high, gpt-6-1-sol-medium, gpt-6-1-sol-xhigh, gpt-6-1-terra-high, gpt-6-1-terra-low, gpt-6-1-terra-medium, gpt-6-1-terra-non-reasoning, gpt-6-1-terra-xhigh, gpt-6-2-astra-high, gpt-6-2-astra-low, gpt-6-2-astra-medium, gpt-6-2-astra-xhigh, gpt-6-2-sol-high, gpt-6-2-sol-low, gpt-6-2-sol-medium, gpt-6-2-sol-xhigh, gpt-6-astra-low, gpt-6-luna-high, gpt-6-luna-low, gpt-6-luna-medium, gpt-6-luna-non-reasoning, gpt-6-luna-xhigh, gpt-6-sol-high, gpt-6-sol-low, gpt-6-sol-medium, gpt-6-sol-non-reasoning, gpt-6-sol-xhigh, granite-4-2-30b, granite-4-2-8b, grok-4-3-non-reasoning, grok-4-6-low, grok-4-6-medium, grok-4-7-high, grok-4-7-low, hypernova-60b, inkling-high, inkling-small-high, k2-horizon-32b, k2-horizon-7b, k2-horizon-mova-36b-a4b, kimi-k3-low, ling-3-0-flash-vl, mimo-v2-6-flash, mistral-large-4-medium, mistral-medium-3-5, mistral-small-4, muse-ember-xhigh, muse-glimmer, nanbeige4-3-33b, nemotron-3-5-bolt-74b-a9b, nemotron-3-5-lightning, north-mini-code, qwen3-5-9b, qwen3-8-27b-low, qwen3-8-27b-medium, qwen3-8-27b-non-reasoning, qwen3-coder-next, solar-pro4).
 - Profile-row rubric and leaderboard rubric disagree: 0. The profile-row value is kept.
 - Not joined: 63 names match no captured profile (no identity is inferred); 0 ambiguous; 0 release-day mismatches or missing release days.
-
-## AA-Briefcase rows retained from the previous snapshot
-
-- AA-Briefcase rubric rows: 225 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
-- Retention rule: a previous `aa-briefcase` rubric row is kept only when this capture has no row with the same ID, the same profile slug is still an eligible (non-deleted, in-window, newest-build) profile, and no current rubric row covers the same canonical model and effort. Values present in this capture always win.
-
-## Visible comparison
-
-- Fresh rendered models page catalog total: 765
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 305
-- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Unique source profiles | 305 | 305 | +0 |
-| Active source profiles | 295 | 295 | +0 |
-| Candidate results | 3475 | 3475 | +0 |
-| Materialized costs | 398 | 398 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -413,3 +391,14 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen3.7 Plus | `artificial-analysis:terminal-bench-4-0:qwen3-7-plus` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
+
+## AA-Briefcase rows retained from the previous snapshot
+
+- AA-Briefcase rubric rows: 225 observed in this capture; 0 retained unchanged from the previous snapshot because the profile is still listed but neither its profile row nor the AA-Briefcase leaderboard (joined by exact name) exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).
+- Retention rule: a previous `aa-briefcase` rubric row is kept only when this capture has no row with the same ID, the same profile slug is still an eligible (non-deleted, in-window, newest-build) profile, and no current rubric row covers the same canonical model and effort. Values present in this capture always win.
+
+## Visible comparison
+
+- Fresh rendered models page catalog total: 765
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 305
+- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.

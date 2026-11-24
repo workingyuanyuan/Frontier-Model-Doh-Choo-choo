@@ -719,8 +719,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -763,8 +763,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -807,8 +807,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -851,8 +851,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -895,8 +895,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -6571,8 +6571,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -6615,8 +6615,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -6659,8 +6659,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -6703,8 +6703,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -6747,8 +6747,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",

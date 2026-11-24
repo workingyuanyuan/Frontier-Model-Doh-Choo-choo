@@ -347,6 +347,19 @@
       "profilePricing": {}
     },
     {
+      "modelId": "anthropic-claude-haiku-5-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Haiku 5.5",
+      "aliases": [
+        "claude-haiku-5-5",
+        "anthropic/claude-haiku-5-5",
+        "Haiku 5.5"
+      ],
+      "releaseDate": "2026-10-07",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "openai-gpt-6-astra",
       "providerId": "openai",
       "displayName": "GPT-6 Astra",

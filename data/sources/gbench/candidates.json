@@ -229,8 +229,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-default",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "normalizedScore": 56.77,

@@ -16,6 +16,7 @@ export const CONSUMED_MAPPINGS = [
   'benchmark-quality-v2.json',
   'benchmarks-v2.json',
   'frontier-identities.json',
+  'identity-review.json',
   'models.json',
   'profile-policy.json',
   'sources.json',

@@ -13,6 +13,12 @@ import {
   resolveFrontierIdentities,
 } from './frontier-identities.js';
 import {
+  IdentityReviewSchema,
+  checkIdentityReview,
+  describeIdentityReviewIssues,
+  type IdentityReview,
+} from './identity-review.js';
+import {
   CATALOG_DIMENSION_IDS,
   BenchmarkDimensionMappingSchema,
   BenchmarkQualityPolicySchema,
@@ -384,6 +390,7 @@ export interface FrontierSetInput {
   catalog: ModelCatalog;
   mapping: BenchmarkDimensionMapping;
   quality: BenchmarkQualityPolicy;
+  identityReview: IdentityReview;
 }
 
 const readMapping = async (root: string, name: string): Promise<unknown> =>
@@ -444,7 +451,10 @@ async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
     profilePolicy,
     getComparisonOnlyBenchmarkIds(mapping),
   );
-  return { candidates, catalog, mapping, quality };
+  const identityReview = IdentityReviewSchema.parse(
+    await readMapping(root, 'identity-review.json'),
+  );
+  return { candidates, catalog, mapping, quality, identityReview };
 }
 
 /** Computes the frontier artifact and audit without writing or reloading prepared inputs. */
@@ -453,16 +463,33 @@ export async function computeFrontierSet(
   input?: FrontierSetInput,
 ) {
   const root = resolve(repositoryRoot);
-  const { candidates, catalog, mapping, quality } =
+  const { candidates, catalog, mapping, quality, identityReview } =
     input ?? (await loadFrontierSetInput(root));
   const selection = selectAaTopTen(candidates);
+  // An unregistered AA model never reaches the dashboard, so every unresolved
+  // AA name needs a recorded decision before the frontier is published. Report
+  // ledger issues alongside a ranking failure so one run shows both.
+  const identityIssues = checkIdentityReview(candidates, identityReview);
+  const identityAudit = identityIssues.length
+    ? {
+        identityReviewError: describeIdentityReviewIssues(identityIssues),
+        identityReviewIssues: identityIssues,
+      }
+    : {};
   if (selection.status !== 'selected') {
     return {
       status: 'needs-review' as const,
-      audit: selection,
+      audit: { ...selection, ...identityAudit },
       error: new Error(
         `AA frontier needs review; see ${frontierAuditPath(root)}`,
       ),
+    };
+  }
+  if (identityIssues.length) {
+    return {
+      status: 'needs-review' as const,
+      audit: { ...selection, status: 'needs-review', ...identityAudit },
+      error: new Error(describeIdentityReviewIssues(identityIssues)),
     };
   }
   let eligibility: ReturnType<typeof selectEligibleFrontier>;

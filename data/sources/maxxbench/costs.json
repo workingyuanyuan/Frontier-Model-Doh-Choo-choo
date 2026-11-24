@@ -456,8 +456,8 @@
     "metricId": "mean-attempt-cost-usd",
     "metricName": "Mean MaxxBench evaluation attempt cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "Claude Haiku 5.5"
     },
     "observedAt": "2026-11-23T13:31:39.686Z",

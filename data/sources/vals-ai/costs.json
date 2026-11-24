@@ -5603,8 +5603,8 @@
     "metricId": "cost-per-test",
     "metricName": "BioMysteryBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -9431,8 +9431,8 @@
     "metricId": "cost-per-test",
     "metricName": "ClaimBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -11059,8 +11059,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -12731,8 +12731,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -22015,8 +22015,8 @@
     "metricId": "cost-per-test",
     "metricName": "CyberBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -24215,8 +24215,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -26547,8 +26547,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -29539,8 +29539,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -31871,8 +31871,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -35039,8 +35039,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -44455,8 +44455,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -47667,8 +47667,8 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -49559,8 +49559,8 @@
     "metricId": "cost-per-test",
     "metricName": "Immigration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -50703,8 +50703,8 @@
     "metricId": "cost-per-test",
     "metricName": "IOI cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -56027,8 +56027,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -58359,8 +58359,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -71339,8 +71339,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -80227,8 +80227,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -102359,8 +102359,8 @@
     "metricId": "cost-per-test",
     "metricName": "MysteryMechanism cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -104691,8 +104691,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -107023,8 +107023,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -109971,8 +109971,8 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -113007,8 +113007,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -114195,8 +114195,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Science Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -117011,8 +117011,8 @@
     "metricId": "cost-per-test",
     "metricName": "SRE Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -122555,8 +122555,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench Multimodal cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -123963,8 +123963,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -139847,8 +139847,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -142839,8 +142839,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench-Science cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -145435,8 +145435,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -149219,8 +149219,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench 1-100 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -150935,8 +150935,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "anthropic/claude-haiku-5-5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
