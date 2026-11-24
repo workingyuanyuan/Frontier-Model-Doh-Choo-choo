@@ -18,7 +18,7 @@
 | Beam 1.0 (OpenCode) max | reflection-beam-1-0 | max | OpenCode |
 | Claude Fable 5.1 (Claude Code) max | anthropic-claude-fable-5-1 | max | Claude Code |
 | Claude Fable 5.2 (Claude Code) max | anthropic-claude-fable-5-2 | max | Claude Code |
-| Claude Haiku 5.5 (Claude Code) max | null | max | Claude Code |
+| Claude Haiku 5.5 (Claude Code) max | anthropic-claude-haiku-5-5 | max | Claude Code |
 | Claude Opus 5.5 (Claude Code) max | anthropic-claude-opus-5-5 | max | Claude Code |
 | Claude Sonnet 5.5 (Claude Code) max | anthropic-claude-sonnet-5-5 | max | Claude Code |
 | DeepSeek V4.1 Flash (DeepSeek Harness) max | null | max | DeepSeek Harness |

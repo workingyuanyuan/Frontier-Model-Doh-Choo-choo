@@ -3,7 +3,7 @@
 - Source https://gertlabs.com/rankings?mode=agentic_coding; data https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500
 - Observed 2026-11-23T13:32:18.521Z
 - Evidence `sha256:81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda`
-- Ranked rows 112; rendered Agentic Coding rows 100 (the page shows the first 100); non-model rows excluded 2 (custom/human, baseline/random); rows without a published score 0 (none); candidates 110; resolved identities 68.
+- Ranked rows 112; rendered Agentic Coding rows 100 (the page shows the first 100); non-model rows excluded 2 (custom/human, baseline/random); rows without a published score 0 (none); candidates 110; resolved identities 69.
 - Only the Agentic Coding GScore is scored, as `gbench-agentic-coding` (2026-11-21 user decision). The combined, one-shot and decision-making scores remain in the raw artifact.
 - GScore is published on 0–1 and multiplied by 100. It is a relative score: population-adjusted percentiles against the other ranked models, so earlier models move when models or games are added. GBENCH publishes no benchmark version, so `benchmarkVersion` is null.
 - The response names no effort, reasoning, thinking or harness setting for any row; those fields stay null and product effort comes from the cross-source vote. Confidence bounds are kept in provenance.
@@ -16,7 +16,7 @@
 | anthropic/claude-fable-5 | anthropic-claude-fable-5 | 72.48 |
 | anthropic/claude-fable-5-1 | anthropic-claude-fable-5-1 | 75.26 |
 | anthropic/claude-fable-5-2 | anthropic-claude-fable-5-2 | 85.96 |
-| anthropic/claude-haiku-5-5 | null | 56.77 |
+| anthropic/claude-haiku-5-5 | anthropic-claude-haiku-5-5 | 56.77 |
 | anthropic/claude-opus-4-5 | anthropic-claude-opus-4-5 | 42.71 |
 | anthropic/claude-opus-4-6 | anthropic-claude-opus-4-6 | 38.26 |
 | anthropic/claude-opus-4-7 | anthropic-claude-opus-4-7 | 45.06 |
@@ -136,6 +136,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | anthropic/claude-fable-5 | `gbench:gbench-agentic-coding:anthropic-claude-fable-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-fable-5-1 | `gbench:gbench-agentic-coding:anthropic-claude-fable-5-1` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
 | anthropic/claude-fable-5-2 | `gbench:gbench-agentic-coding:anthropic-claude-fable-5-2` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-claude-fable-5-2-reasoning-max:1-1 |
+| anthropic/claude-haiku-5-5 | `gbench:gbench-agentic-coding:anthropic-claude-haiku-5-5` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-haiku-5-5 |
 | anthropic/claude-opus-4-5 | `gbench:gbench-agentic-coding:anthropic-claude-opus-4-5` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
 | anthropic/claude-opus-4-6 | `gbench:gbench-agentic-coding:anthropic-claude-opus-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-opus-4-6-thinking-120k-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-opus-4-7 | `gbench:gbench-agentic-coding:anthropic-claude-opus-4-7` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-opus-4-7 |

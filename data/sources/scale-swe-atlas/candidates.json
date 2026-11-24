@@ -229,8 +229,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "Claude Haiku 5.5 (Claude Code) max"
     },
     "normalizedScore": 59.43,

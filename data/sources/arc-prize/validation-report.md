@@ -20,9 +20,9 @@
 | Total v2_Semi_Private evaluations | 324 |
 | Promoted v2_Semi_Private rows (display=true) | 318 |
 | Promoted cost records (USD/task) | 318 |
-| Canonically resolved rows | 178 |
-| Canonically unresolved rows | 140 |
-| Canonically unresolved models | 140 |
+| Canonically resolved rows | 182 |
+| Canonically unresolved rows | 136 |
+| Canonically unresolved models | 136 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
@@ -40,7 +40,7 @@
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 178/318 promoted rows (140 unresolved rows across 140 distinct model names).
+Exact catalog resolution succeeded for 182/318 promoted rows (136 unresolved rows across 136 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -80,10 +80,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Claude Haiku 4.5 (Thinking 1K)
 - Claude Haiku 4.5 (Thinking 32K)
 - Claude Haiku 4.5 (Thinking 8K)
-- Claude Haiku 5.5 (High)
-- Claude Haiku 5.5 (Low)
-- Claude Haiku 5.5 (Medium)
-- Claude Haiku 5.5 (XHigh)
 - Claude Opus 4
 - Claude Opus 4 (Thinking 16K)
 - Claude Opus 4 (Thinking 1K)
@@ -206,16 +202,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 318 | 318 | +0 |
-| Cost records | 318 | 318 | +0 |
-| Canonically unresolved models | 140 | 140 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

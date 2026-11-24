@@ -646,8 +646,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high",
       "rawName": "Claude Haiku 5.5 (default fallbacks, High)§"
     },
     "observedAt": "2026-11-23T13:29:50.528Z",
@@ -691,8 +691,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low",
       "rawName": "Claude Haiku 5.5 (default fallbacks, Low)§"
     },
     "observedAt": "2026-11-23T13:29:50.528Z",
@@ -736,8 +736,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
       "rawName": "Claude Haiku 5.5 (default fallbacks, Max)§"
     },
     "observedAt": "2026-11-23T13:29:50.528Z",
@@ -781,8 +781,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium",
       "rawName": "Claude Haiku 5.5 (default fallbacks, Medium)§"
     },
     "observedAt": "2026-11-23T13:29:50.528Z",
@@ -826,8 +826,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
       "rawName": "Claude Haiku 5.5 (default fallbacks, XHigh)§"
     },
     "observedAt": "2026-11-23T13:29:50.528Z",

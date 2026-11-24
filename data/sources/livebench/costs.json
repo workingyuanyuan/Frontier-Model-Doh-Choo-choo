@@ -574,6 +574,94 @@
   {
     "assumptionId": "api-blend-3-to-1",
     "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:anthropic-claude-haiku-5-5-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.1,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
+      "rawName": "claude-haiku-5.5"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.5,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=claude-haiku-5.5; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:anthropic-claude-haiku-5-5-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.1,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
+      "rawName": "claude-haiku-5-5-xhigh-effort"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.5,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=claude-haiku-5-5-xhigh-effort; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
     "cost": null,
     "costType": "API_STANDARDIZED",
@@ -3743,6 +3831,94 @@
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
+    "cost": 0.0511,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": "Superseded by LiveBench 2.0 cost per task; the 1.0 cost per successful task remains as evidence only.",
+    "id": "livebench:cost-per-successful-task:anthropic-claude-haiku-5-5-max",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
+      "rawName": "claude-haiku-5-5-max-effort"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=claude-haiku-5-5-max-effort; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": 0.0188,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": "Superseded by LiveBench 2.0 cost per task; the 1.0 cost per successful task remains as evidence only.",
+    "id": "livebench:cost-per-successful-task:anthropic-claude-haiku-5-5-xhigh",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
+      "rawName": "claude-haiku-5-5-xhigh-effort"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=claude-haiku-5-5-xhigh-effort; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
     "cost": 0.6104,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
@@ -6106,6 +6282,50 @@
       "cost": {
         "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
         "locator": "model=claude-fable-5.2; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": 0.8715548948497854,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-11-06:anthropic-claude-haiku-5-5-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max",
+      "rawName": "claude-haiku-5.5"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=claude-haiku-5.5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
     },

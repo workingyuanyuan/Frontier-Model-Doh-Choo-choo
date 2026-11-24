@@ -781,8 +781,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 52.323232323232325,
@@ -832,8 +832,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 46.96969696969697,
@@ -883,8 +883,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 33.83838383838384,
@@ -934,8 +934,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 44.94949494949495,
@@ -985,8 +985,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 51.41414141414141,
@@ -12307,8 +12307,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 82.6666666666667,
@@ -12358,8 +12358,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 77.3333333333333,
@@ -12409,8 +12409,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 72,
@@ -12460,8 +12460,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 77.3333333333333,
@@ -12511,8 +12511,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 78.3333333333333,
@@ -26063,8 +26063,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 34.66666666666667,
@@ -26114,8 +26114,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 31.833333333333336,
@@ -26165,8 +26165,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": null,
@@ -26211,8 +26211,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 30.366666666666664,
@@ -26262,8 +26262,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": null,
@@ -26308,8 +26308,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 31.733333333333334,
@@ -26359,8 +26359,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": null,
@@ -26405,8 +26405,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 33.766666666666666,
@@ -26456,8 +26456,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": null,
@@ -26502,8 +26502,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": null,
@@ -40498,6 +40498,261 @@
     "benchmarkId": "artificial-analysis-intelligence-index",
     "benchmarkVersion": "v5.0.1",
     "evidenceIds": [
+      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-haiku-5-5-high-aa-index:intelligence-index-v5-0-1",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
+      "rawName": "Claude Haiku 5.5 (High)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-11-23T13:30:43.875Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 29.874315467743,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v5.0.1",
+    "evidenceIds": [
+      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-haiku-5-5-low-aa-index:intelligence-index-v5-0-1",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
+      "rawName": "Claude Haiku 5.5 (Low)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-11-23T13:30:43.875Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 18.6180055310996,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v5.0.1",
+    "evidenceIds": [
+      "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-haiku-5-5-max-aa-index:intelligence-index-v5-0-1",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
+      "rawName": "Claude Haiku 5.5 (Max)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-11-23T13:30:43.875Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 36.4845435880142,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v5.0.1",
+    "evidenceIds": [
+      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-haiku-5-5-medium-aa-index:intelligence-index-v5-0-1",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
+      "rawName": "Claude Haiku 5.5 (Medium)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-11-23T13:30:43.875Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 24.6013254343023,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v5.0.1",
+    "evidenceIds": [
+      "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-haiku-5-5-xhigh-aa-index:intelligence-index-v5-0-1",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
+      "rawName": "Claude Haiku 5.5 (Xhigh)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-11-23T13:30:43.875Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 34.6387759486628,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v5.0.1",
+    "evidenceIds": [
       "sha256:2698679fffc850405623524cb2f14ad2ccf79962c61cb58fb537e75c943433c9"
     ],
     "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
@@ -42640,261 +42895,6 @@
     "benchmarkId": "artificial-analysis-intelligence-index",
     "benchmarkVersion": "v5.0.1",
     "evidenceIds": [
-      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-haiku-5-5-high:intelligence-index-v5-0-1",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Haiku 5.5 (High)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-11-23T13:30:43.875Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 29.874315467743,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v5.0.1",
-    "evidenceIds": [
-      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-haiku-5-5-low:intelligence-index-v5-0-1",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Haiku 5.5 (Low)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-11-23T13:30:43.875Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 18.6180055310996,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v5.0.1",
-    "evidenceIds": [
-      "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-haiku-5-5-max:intelligence-index-v5-0-1",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Haiku 5.5 (Max)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-11-23T13:30:43.875Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 36.4845435880142,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v5.0.1",
-    "evidenceIds": [
-      "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-haiku-5-5-medium:intelligence-index-v5-0-1",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Haiku 5.5 (Medium)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-11-23T13:30:43.875Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:79db9fa481488c1f681b673a114e5fb09648fd1abf2164fd446c33e7c9826cdd",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 24.6013254343023,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v5.0.1",
-    "evidenceIds": [
-      "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-haiku-5-5-xhigh:intelligence-index-v5-0-1",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Haiku 5.5 (Xhigh)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-11-23T13:30:43.875Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:dbd9f24670cb235c06a8d6317423943db8cff592c5e53eaa54aef37620ec548a",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 34.6387759486628,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v5.0.1",
-    "evidenceIds": [
       "sha256:f744e2452458169ab82fd849963f84eb530739267529af5952bc86134c1e55b5"
     ],
     "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
@@ -43213,8 +43213,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 64,
@@ -47344,8 +47344,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 18.8571428571429,
@@ -47395,8 +47395,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 18.5714285714286,
@@ -47446,8 +47446,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 9.14285714285714,
@@ -47497,8 +47497,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 12.8571428571429,
@@ -47548,8 +47548,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 22.5714285714286,
@@ -60859,8 +60859,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 34.9325505050505,
@@ -60910,8 +60910,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 23.200050505050502,
@@ -60961,8 +60961,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 8.036666666666669,
@@ -61012,8 +61012,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 16.091994949495,
@@ -61063,8 +61063,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 29.9334090909091,
@@ -68356,8 +68356,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 20.8,
@@ -68407,8 +68407,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 17.2,
@@ -68458,8 +68458,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 11.200000000000001,
@@ -68509,8 +68509,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 15.2,
@@ -68560,8 +68560,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 18.2,
@@ -79576,8 +79576,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 56.467499999999994,
@@ -79627,8 +79627,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 46.193,
@@ -79678,8 +79678,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 31.519500000000004,
@@ -79729,8 +79729,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 39.120000000000005,
@@ -79780,8 +79780,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 51.1575,
@@ -100945,8 +100945,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 29.599999999999998,
@@ -100996,8 +100996,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 23.7,
@@ -101047,8 +101047,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 14.099999999999998,
@@ -101098,8 +101098,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 16.8,
@@ -101149,8 +101149,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 28.799999999999997,
@@ -109513,8 +109513,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 44.3929564411492,
@@ -109564,8 +109564,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 37.25671918443,
@@ -109615,8 +109615,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 27.0157553290083,
@@ -109666,8 +109666,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 33.7812789620019,
@@ -109717,8 +109717,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 42.678405931418,
@@ -129964,8 +129964,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 40.964208159414525,
@@ -134350,8 +134350,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 54.976851851851805,
@@ -134401,8 +134401,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 48.7268518518519,
@@ -134452,8 +134452,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 49.189814814814795,
@@ -134503,8 +134503,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 48.9583333333333,
@@ -134554,8 +134554,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 51.73611111111111,
@@ -157606,8 +157606,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 32.8282828282828,
@@ -157657,8 +157657,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 21.7171717171717,
@@ -157708,8 +157708,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 12.6262626262626,
@@ -157759,8 +157759,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 15.151515151515198,
@@ -157810,8 +157810,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 29.292929292929298,
@@ -168775,8 +168775,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-max-aa-index",
       "rawName": "Claude Haiku 5.5 (Max)"
     },
     "normalizedScore": 20,
@@ -168826,8 +168826,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high-aa-index",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 10,
@@ -168877,8 +168877,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low-aa-index",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 1.9047619047619,
@@ -168928,8 +168928,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium-aa-index",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 7.14285714285714,
@@ -168979,8 +168979,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh-aa-index",
       "rawName": "Claude Haiku 5.5 (Xhigh)"
     },
     "normalizedScore": 18.095238095238102,

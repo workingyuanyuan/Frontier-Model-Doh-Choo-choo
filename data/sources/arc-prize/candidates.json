@@ -1057,8 +1057,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "normalizedScore": 30.69444444444444,
@@ -1109,8 +1109,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "normalizedScore": 2.7777777777777777,
@@ -1161,8 +1161,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "normalizedScore": 9.444444444444443,
@@ -1213,8 +1213,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
       "rawName": "Claude Haiku 5.5 (XHigh)"
     },
     "normalizedScore": 61.25000000000001,

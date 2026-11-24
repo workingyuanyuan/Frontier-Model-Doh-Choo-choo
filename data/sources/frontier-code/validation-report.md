@@ -19,7 +19,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 | 2.0 configurations with costs (materialized, INCLUDED) | 139 |
 | 2.0 models with multiple efforts | 33 |
 | 2.0 hidden export models | 0 |
-| 2.0 canonically unresolved models | 8 |
+| 2.0 canonically unresolved models | 7 |
 
 - Rendered Best reasoning mode rows: 35; All reasoning levels rows: 139; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
@@ -27,7 +27,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
 - Cost is the mean USD spend per rollout at list API pricing (page methodology), stored as `AGENT_TASK` / `USD_PER_TASK`. Since the 2026-10-28 user decision the cost chart pairs Frontier Code costs with `frontier-code-2-0`; 1.1 costs are kept EXCLUDED as superseded and are never blended with 2.0.
 - Effort `na` (SWE-1.6, SWE-1.7) and other non-policy keys stay null. Neither the export nor the methodology states a per-configuration rollout count, so attempts stays null.
-- Unresolved names keep null canonical/profile identity: Claude Haiku 5.5, GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
+- Unresolved names keep null canonical/profile identity: GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
 
 ## FrontierCode 1.1
 
@@ -41,7 +41,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 | Score/cost changes against the previous snapshot | 0 |
 | Models with multiple efforts | 30 |
 | Models with five efforts | 17 |
-| Canonically unresolved models | 11 |
+| Canonically unresolved models | 10 |
 
 - The main page no longer renders 1.1; the 1.1 post shows only its launch chart. The `v1_1` export is therefore checked against the previous snapshot instead of a rendered board.
 - Models removed upstream and preserved unchanged: GPT-6.1 Terra, Mistral Large 4 (Preview).
@@ -49,24 +49,11 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 - Value changes: none.
 - The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.
 - All 141 1.1 cost records keep their IDs but are EXCLUDED: Superseded by the FrontierCode 2.0 mean rollout cost (user decision 2026-10-28); the 1.1 cost remains as evidence only.
-- Unresolved names keep null canonical/profile identity: Claude Haiku 5.5, Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
+- Unresolved names keep null canonical/profile identity: Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
 
 ## Known documentation conflict
 
 Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `frontier-code-2-0` IDs. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; they are never merged. See `SPEC.md` §4.2.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Distinct models | 47 | 47 | +0 |
-| Main configurations | 141 | 141 | +0 |
-| Materialized costs | 280 | 280 | +0 |
-| 2.0 costs | 139 | 139 | +0 |
-| 2.0 models | 35 | 35 | +0 |
-| 2.0 configurations | 139 | 139 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

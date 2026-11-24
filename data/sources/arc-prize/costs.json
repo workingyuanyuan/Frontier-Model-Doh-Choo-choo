@@ -916,8 +916,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-high",
       "rawName": "Claude Haiku 5.5 (High)"
     },
     "observedAt": "2026-11-23T13:29:46.761Z",
@@ -961,8 +961,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-low",
       "rawName": "Claude Haiku 5.5 (Low)"
     },
     "observedAt": "2026-11-23T13:29:46.761Z",
@@ -1006,8 +1006,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-medium",
       "rawName": "Claude Haiku 5.5 (Medium)"
     },
     "observedAt": "2026-11-23T13:29:46.761Z",
@@ -1051,8 +1051,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-haiku-5-5",
+      "profileId": "anthropic-claude-haiku-5-5-xhigh",
       "rawName": "Claude Haiku 5.5 (XHigh)"
     },
     "observedAt": "2026-11-23T13:29:46.761Z",

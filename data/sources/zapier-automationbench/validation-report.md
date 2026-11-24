@@ -20,9 +20,9 @@
 | Provisional launch-version rows adopted (model name §) | 5 |
 | Fireworks-marked standard-price rows (‡) | 1 |
 | Dedicated-deployment cost rows excluded from costs | 1 |
-| Canonically resolved rows | 137 |
-| Canonically unresolved rows | 14 |
-| Distinct canonically unresolved names | 14 |
+| Canonically resolved rows | 142 |
+| Canonically unresolved rows | 9 |
+| Distinct canonically unresolved names | 9 |
 | Excluded candidate rows | 3 |
 | Excluded cost records | 3 |
 
@@ -61,11 +61,6 @@
 ## Unresolved model names
 
 - Claude Haiku 4.5
-- Claude Haiku 5.5 (default fallbacks, High)§
-- Claude Haiku 5.5 (default fallbacks, Low)§
-- Claude Haiku 5.5 (default fallbacks, Max)§
-- Claude Haiku 5.5 (default fallbacks, Medium)§
-- Claude Haiku 5.5 (default fallbacks, XHigh)§
 - Gemini 3.1 Pro (preview) (High)
 - Gemini 3.1 Pro (preview) (Low)
 - Gemini 3.1 Pro (preview) (Medium)
@@ -74,16 +69,6 @@
 - Minimax M2.7 (High)
 - Qwen 3.6+ (High)
 - Qwen 3.7+
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 151 | 151 | +0 |
-| Cost records | 150 | 150 | +0 |
-| Canonically unresolved rows | 14 | 14 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
