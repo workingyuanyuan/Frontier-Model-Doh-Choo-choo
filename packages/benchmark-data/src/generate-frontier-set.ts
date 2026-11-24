@@ -723,15 +723,41 @@ export function createCoverageCohorts(
       return true;
     });
   });
+  // The search visits hundreds of thousands of prefixes, so held tests are
+  // bitsets over the sorted test IDs: an intersection is a word-wise AND and
+  // its members come out already sorted.
+  const testIds = [
+    ...new Set(options.flat().flatMap((id) => [...heldBy(id)])),
+  ].toSorted();
+  const bitOf = new Map(testIds.map((id, index) => [id, index]));
+  const words = Math.max(1, Math.ceil(testIds.length / 32));
+  const maskOf = new Map(
+    options.flat().map((id) => {
+      const mask = new Uint32Array(words);
+      for (const test of heldBy(id)) {
+        const bit = bitOf.get(test)!;
+        mask[bit >>> 5] = mask[bit >>> 5]! | (1 << (bit & 31));
+      }
+      return [id, mask] as const;
+    }),
+  );
+  const optionMasks = options.map((ids) => ids.map((id) => maskOf.get(id)!));
+  const bitCount = (word: number) => {
+    let value = word - ((word >>> 1) & 0x55555555);
+    value = (value & 0x33333333) + ((value >>> 2) & 0x33333333);
+    return Math.imul((value + (value >>> 4)) & 0x0f0f0f0f, 0x01010101) >>> 24;
+  };
   // The capped count and active dimensions depend only on the shared tests,
   // which many subsets repeat.
   const known = new Map(mapping.benchmarks.map((b) => [b.id, b]));
   const scores = new Map<string, { count: number; dimensionCount: number }>();
-  const scoreOf = (shared: Set<string>) => {
-    const tests = [...shared].toSorted();
-    const key = tests.join('\n');
+  const scoreOf = (shared: Uint32Array) => {
+    const key = shared.join(',');
     let score = scores.get(key);
     if (!score) {
+      const tests = testIds.filter(
+        (_, bit) => (shared[bit >>> 5]! >>> (bit & 31)) & 1,
+      );
       const { dimensions, benchmarkIds } = capLimitedBenchmarks(
         tests,
         known,
@@ -756,12 +782,15 @@ export function createCoverageCohorts(
           dimensionCount: number;
         }
       | undefined;
-    const evaluate = (
-      positions: number[],
-      choice: number[],
-      shared: Set<string>,
-    ) => {
-      const { count, dimensionCount } = scoreOf(shared);
+    // The prefix being searched: window positions, chosen efforts, and the
+    // shared tests after each depth (shared[0] holds every test).
+    const positions: number[] = [];
+    const choice: number[] = [];
+    const shared = Array.from({ length: targetModelCount + 1 }, () =>
+      new Uint32Array(words).fill(0xffffffff),
+    );
+    const evaluate = () => {
+      const { count, dimensionCount } = scoreOf(shared[targetModelCount]!);
       if (!count) return;
       const deviations = choice.filter(
         (option, depth) =>
@@ -776,43 +805,50 @@ export function createCoverageCohorts(
           lexicalOrder(best.choice, choice)
         : 1;
       if (gain > 0)
-        best = { positions, choice, deviations, count, dimensionCount };
+        best = {
+          positions: [...positions],
+          choice: [...choice],
+          deviations,
+          count,
+          dimensionCount,
+        };
     };
     // Depth-first over window positions in increasing order, each with its
     // efforts. A prefix whose raw intersection is already smaller than the
     // incumbent's capped count cannot win, so its whole subtree is skipped.
-    const search = (
-      positions: number[],
-      choice: number[],
-      shared: Set<string> | null,
-    ): void => {
-      if (positions.length === targetModelCount) {
-        evaluate(positions, choice, shared!);
+    const search = (depth: number): void => {
+      if (depth === targetModelCount) {
+        evaluate();
         return;
       }
-      const start = positions.length ? positions.at(-1)! + 1 : 0;
-      const last = window.length - (targetModelCount - positions.length);
+      const before = shared[depth]!;
+      const next = shared[depth + 1]!;
+      const start = depth ? positions[depth - 1]! + 1 : 0;
+      const last = window.length - (targetModelCount - depth);
       for (let position = start; position <= last; position++) {
-        for (const [option, profileId] of options[position]!.entries()) {
-          const held = heldBy(profileId);
-          const next =
-            shared === null
-              ? held
-              : new Set([...shared].filter((id) => held.has(id)));
-          if (best && next.size < best.count) continue;
-          search([...positions, position], [...choice, option], next);
+        for (const [option, held] of optionMasks[position]!.entries()) {
+          let size = 0;
+          for (let word = 0; word < words; word++) {
+            next[word] = before[word]! & held[word]!;
+            size += bitCount(next[word]!);
+          }
+          if (best && size < best.count) continue;
+          positions[depth] = position;
+          choice[depth] = option;
+          search(depth + 1);
         }
       }
+      positions.length = depth;
+      choice.length = depth;
     };
-    search([], [], null);
+    search(0);
     if (!best)
       throw new Error(
         `No ${targetModelCount}-model subset of the frontier window shares a quality-feasible test`,
       );
-    const { positions, choice } = best;
-    const chosen = positions.map((position) => window[position]!);
-    const profileIds = choice.map(
-      (option, depth) => options[positions[depth]!]![option]!,
+    const chosen = best.positions.map((position) => window[position]!);
+    const profileIds = best.choice.map(
+      (option, depth) => options[best!.positions[depth]!]![option]!,
     );
     return {
       id: `coverage-${targetModelCount}`,

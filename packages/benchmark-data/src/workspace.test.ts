@@ -77,7 +77,8 @@ describe('buildWorkspaceProduct', () => {
     if (root) await rm(root, { recursive: true, force: true });
   });
 
-  // Measured integration budget: docs/analysis/2026-10-24-workspace-build-performance.md.
+  // Measured integration budget: docs/analysis/2026-10-24-workspace-build-performance.md
+  // and docs/analysis/2026-11-24-coverage-search-ci-timeout.md.
   // Shared frontier inputs and indexed cost matching cut build CPU by 40%.
   // Four-CPU concurrent target runs take about 2 s; use a 15 s budget.
   it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
