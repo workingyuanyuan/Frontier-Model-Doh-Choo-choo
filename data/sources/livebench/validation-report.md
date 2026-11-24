@@ -12,8 +12,8 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 | 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1795422485`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 167 |
-| Distinct unresolved raw model names | 20 |
+| Cost records | 181 |
+| Distinct unresolved raw model names | 14 |
 
 ## LiveBench 2.0 suites
 
@@ -40,19 +40,13 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 - `deepseek-v4-flash-vision-exp`
 - `deepseek-v4-pro`
 - `deepseek-v4.1-flash-max`
-- `gemma-4-31b`
 - `glm-5.3`
-- `glm-5.3-flash`
 - `mimo-v2.6-pro`
-- `minimax-m3.1-flash`
 - `mistral-large-4`
-- `mistral-large-4-0`
 - `mistral-large-4-high`
-- `nemotron-3.5-lightning-30b-a3b`
 - `nemotron-super-vl-3.5`
 - `nemotron-super-vl-3.5-nvfp4`
 - `ox-alpha-max`
-- `qwen3.8-flash-next`
 - `smaug-agentic`
 - `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
@@ -78,6 +72,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| glm-5.3-flash | `livebench-2026-06-25:livebench-instruction-following:glm-5-3-flash` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
+| glm-5.3-flash | `livebench-2026-06-25:livebench-language:glm-5-3-flash` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
+| glm-5.3-flash | `livebench-2026-06-25:livebench-mathematics:glm-5-3-flash` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
+| glm-5.3-flash | `livebench-2026-06-25:livebench-reasoning:glm-5-3-flash` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
@@ -114,6 +112,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-reasoning:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
+| qwen3.8-flash-next | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-flash-next` | — | `xhigh` | maxxbench | maxxbench:maxxbench:qwen-xhigh |
+| qwen3.8-flash-next | `livebench-2026-06-25:livebench-language:qwen3-8-flash-next` | — | `xhigh` | maxxbench | maxxbench:maxxbench:qwen-xhigh |
+| qwen3.8-flash-next | `livebench-2026-06-25:livebench-mathematics:qwen3-8-flash-next` | — | `xhigh` | maxxbench | maxxbench:maxxbench:qwen-xhigh |
+| qwen3.8-flash-next | `livebench-2026-06-25:livebench-reasoning:qwen3-8-flash-next` | — | `xhigh` | maxxbench | maxxbench:maxxbench:qwen-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-language:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-mathematics:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -131,6 +133,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-language:kimi-k2-6-thinking` | — | `default` | — | — |
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-mathematics:kimi-k2-6-thinking` | — | `default` | — | — |
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-reasoning:kimi-k2-6-thinking` | — | `default` | — | — |
+| nemotron-3.5-lightning-30b-a3b | `livebench-2026-06-25:livebench-instruction-following:nemotron-3-5-lightning-30b-a3b` | — | `default` | — | — |
+| nemotron-3.5-lightning-30b-a3b | `livebench-2026-06-25:livebench-language:nemotron-3-5-lightning-30b-a3b` | — | `default` | — | — |
+| nemotron-3.5-lightning-30b-a3b | `livebench-2026-06-25:livebench-mathematics:nemotron-3-5-lightning-30b-a3b` | — | `default` | — | — |
+| nemotron-3.5-lightning-30b-a3b | `livebench-2026-06-25:livebench-reasoning:nemotron-3-5-lightning-30b-a3b` | — | `default` | — | — |
 | qwen3.6-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-6-27b` | — | `default` | — | — |
 | qwen3.6-27b | `livebench-2026-06-25:livebench-language:qwen3-6-27b` | — | `default` | — | — |
 | qwen3.6-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-6-27b` | — | `default` | — | — |

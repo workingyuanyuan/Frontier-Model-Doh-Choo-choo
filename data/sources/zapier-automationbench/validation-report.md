@@ -20,9 +20,9 @@
 | Provisional launch-version rows adopted (model name §) | 5 |
 | Fireworks-marked standard-price rows (‡) | 1 |
 | Dedicated-deployment cost rows excluded from costs | 1 |
-| Canonically resolved rows | 142 |
-| Canonically unresolved rows | 9 |
-| Distinct canonically unresolved names | 9 |
+| Canonically resolved rows | 143 |
+| Canonically unresolved rows | 8 |
+| Distinct canonically unresolved names | 8 |
 | Excluded candidate rows | 3 |
 | Excluded cost records | 3 |
 
@@ -64,7 +64,6 @@
 - Gemini 3.1 Pro (preview) (High)
 - Gemini 3.1 Pro (preview) (Low)
 - Gemini 3.1 Pro (preview) (Medium)
-- Gemma 4 31B (Max)
 - GPT-OSS 120B (High)
 - Minimax M2.7 (High)
 - Qwen 3.6+ (High)

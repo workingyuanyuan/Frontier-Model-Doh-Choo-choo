@@ -20,9 +20,9 @@
 | Total v2_Semi_Private evaluations | 324 |
 | Promoted v2_Semi_Private rows (display=true) | 318 |
 | Promoted cost records (USD/task) | 318 |
-| Canonically resolved rows | 182 |
-| Canonically unresolved rows | 136 |
-| Canonically unresolved models | 136 |
+| Canonically resolved rows | 194 |
+| Canonically unresolved rows | 124 |
+| Canonically unresolved models | 124 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
@@ -40,7 +40,7 @@
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 182/318 promoted rows (136 unresolved rows across 136 distinct model names).
+Exact catalog resolution succeeded for 194/318 promoted rows (124 unresolved rows across 124 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -58,7 +58,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - GPT-5 (Minimal) (unresolved)
 - GPT-5 Mini (Minimal) (unresolved)
 - GPT-5 Nano (Minimal) (unresolved)
-- Inkling Small (Minimal) (unresolved)
+- Inkling Small (Minimal) (`thinking-machines-inkling-small`)
 
 ### Unrecognised configuration segment "Refinement" has not been reviewed as an effort tier. (1 row)
 
@@ -123,9 +123,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Gemini 3 Pro (Refinement)
 - Gemini 3.1 Pro (Preview)
 - GLM-5
-- GLM-5.3-Flash (High)
-- GLM-5.3-Flash (Low)
-- GLM-5.3-Flash (Max)
 - GPT-4.1
 - GPT-4.1-Mini
 - GPT-4.1-Nano
@@ -163,12 +160,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Grok 4.20 (Reasoning)
 - Human Panel
 - Icecuber
-- Inkling Small (High)
-- Inkling Small (Low)
-- Inkling Small (Medium)
-- Inkling Small (Minimal)
-- Inkling Small (None)
-- Inkling Small (XHigh)
 - Kimi K2.5
 - Llama 4 Maverick
 - Llama 4 Scout
@@ -180,9 +171,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Mercury 3 Preview (Low)
 - Mercury 3 Preview (Medium)
 - Minimax M2.5
-- Nemotron 3.5 Super VL (High)
-- Nemotron 3.5 Super VL (Medium)
-- Nemotron 3.5 Super VL (None)
 - NVARC
 - o1-mini
 - o3 (High)

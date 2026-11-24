@@ -33,9 +33,24 @@ describe('Surge Chartography acquisition', () => {
     expect(result.visibleRows).toBe(42);
     expect(result.candidates).toHaveLength(42);
     expect(new Set(result.candidates.map(({ id }) => id)).size).toBe(42);
-    expect(
-      result.candidates.filter(({ model }) => model.canonicalModelId !== null),
-    ).toHaveLength(32);
+    // How many rows resolve follows the live catalog, so assert that every
+    // resolved identity is a catalog model rather than a count that changes
+    // whenever a model is registered.
+    const catalogIds = new Set(
+      (
+        JSON.parse(
+          readFileSync(
+            new URL('../../../data/mappings/models.json', import.meta.url),
+            'utf8',
+          ),
+        ) as { models: { modelId: string }[] }
+      ).models.map(({ modelId }) => modelId),
+    );
+    const resolvedIds = result.candidates.flatMap(({ model }) =>
+      model.canonicalModelId === null ? [] : [model.canonicalModelId],
+    );
+    expect(resolvedIds.length).toBeGreaterThan(0);
+    expect(resolvedIds.filter((id) => !catalogIds.has(id))).toEqual([]);
     expect(result.candidates.every(({ rawScore }) => rawScore <= 100)).toBe(
       true,
     );

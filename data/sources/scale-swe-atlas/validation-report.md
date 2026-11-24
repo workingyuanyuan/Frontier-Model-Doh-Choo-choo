@@ -39,11 +39,11 @@
 | Kimi K3.1 Pro (Kimi Code CLI) max | moonshot-kimi-k3-1-pro | max | Kimi Code CLI |
 | Kimi K3 (Kimi Code CLI) max | moonshot-kimi-k3 | max | Kimi Code CLI |
 | MiniMax M3 (mini-swe-agent) max | minimax-minimax-m3 | max | mini-swe-agent |
-| Mistral Large 4 (Mistral Vibe) high | null | high | Mistral Vibe |
+| Mistral Large 4 (Mistral Vibe) high | mistral-mistral-large-4 | high | Mistral Vibe |
 | Muse Ember 1.0 (Muse Code) max | meta-muse-ember | max | Muse Code |
 | Muse Spark Open (Muse Code) xhigh | meta-muse-spark-open | xhigh | Muse Code |
 | Muse Wonder 1.0 (Muse Code) max | meta-muse-wonder | max | Muse Code |
-| Nemotron 3.5 Super VL (mini-swe-agent) max | null | max | mini-swe-agent |
+| Nemotron 3.5 Super VL (mini-swe-agent) max | nvidia-nemotron-3-5-super-vl | max | mini-swe-agent |
 | Nemotron 3 Ultra (mini-swe-agent) max | nvidia-nemotron-3-ultra | max | mini-swe-agent |
 | Qwen 3.8 Max (mini-swe-agent) max | alibaba-qwen3-8-max | max | mini-swe-agent |
 

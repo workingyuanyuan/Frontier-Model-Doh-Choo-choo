@@ -4,7 +4,7 @@
 - Evidence: `sha256:799d1d961b1c4d03397ac8eb45171bfc8ae14b250e5ba7f0fca8776c7acd8d80`
 - Results as of 2026-11-18; leaderboard rows: 20; rendered browser count: 20.
 - Each row's Combined Pass@1 attribute equals the displayed default column, and Pass@4 is never below Pass@1.
-- Unresolved catalog identities (4): GLM-5.3; Hy4 Preview; Mistral Large 4; Qwen3.8-Max (0902).
+- Unresolved catalog identities (3): GLM-5.3; Hy4 Preview; Qwen3.8-Max (0902).
 
 Collinear AI organizes CWE-bench and runs every model itself, so rows are ORGANIZER results. Scores are the default Combined view: Pass@1 over all 250 tasks (100 public and 150 held-out), four rollouts per task. The Public (100) and Held-out (150) views are not materialized.
 

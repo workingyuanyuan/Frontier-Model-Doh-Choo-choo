@@ -912,8 +912,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 73.307,
@@ -1080,7 +1080,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -1248,8 +1248,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 71.11,
@@ -3600,8 +3600,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 83.333,
@@ -6904,8 +6904,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 0,
@@ -9032,7 +9032,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -10264,8 +10264,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 54.984,
@@ -10488,8 +10488,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "normalizedScore": 52.626,
@@ -11272,8 +11272,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 44.159,
@@ -14352,8 +14352,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 16.444,
@@ -15528,7 +15528,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -15584,7 +15584,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -15752,8 +15752,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 51.647,
@@ -17208,8 +17208,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 4.609,
@@ -18832,8 +18832,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 5.127,
@@ -19728,7 +19728,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -19896,7 +19896,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -20176,8 +20176,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 20.515,
@@ -23592,8 +23592,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 59.363,
@@ -25552,8 +25552,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 58.78,
@@ -27008,7 +27008,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -30704,7 +30704,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -30760,7 +30760,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -30928,8 +30928,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 67.857,
@@ -31432,8 +31432,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 52.768,
@@ -32440,8 +32440,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 67.843,
@@ -33392,7 +33392,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -33448,7 +33448,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -33616,8 +33616,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 66.252,
@@ -35128,8 +35128,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 8.629,
@@ -36696,8 +36696,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 11.185,
@@ -37536,7 +37536,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -37704,7 +37704,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -37928,8 +37928,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 55.932,
@@ -38320,8 +38320,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 47.729,
@@ -39328,8 +39328,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 58.826,
@@ -40280,7 +40280,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -40336,7 +40336,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -40504,8 +40504,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 60.587,
@@ -42072,8 +42072,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 29.988,
@@ -43640,8 +43640,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 32.103,
@@ -44592,7 +44592,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -44760,7 +44760,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -45040,8 +45040,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 57.85,
@@ -45432,8 +45432,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 41.036,
@@ -46440,8 +46440,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 55.906,
@@ -47392,7 +47392,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -47448,7 +47448,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -47616,8 +47616,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 55.832,
@@ -52320,8 +52320,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 81.06,
@@ -54336,8 +54336,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 34.848,
@@ -56016,7 +56016,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -56856,8 +56856,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 86.364,
@@ -58368,8 +58368,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 0,
@@ -59936,8 +59936,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 0.417,
@@ -60944,7 +60944,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -61112,7 +61112,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -61392,8 +61392,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 6.667,
@@ -61840,8 +61840,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 3.75,
@@ -62736,8 +62736,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 7.5,
@@ -63688,7 +63688,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -63744,7 +63744,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -63912,8 +63912,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 10.417,
@@ -67776,7 +67776,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -67832,7 +67832,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -68000,8 +68000,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 52.5,
@@ -71416,8 +71416,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 83.764,
@@ -75168,7 +75168,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -76344,8 +76344,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 83.928,
@@ -76848,8 +76848,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 55.366,
@@ -77744,8 +77744,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 67.069,
@@ -78696,7 +78696,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -78752,7 +78752,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -78920,8 +78920,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 71.051,
@@ -80152,8 +80152,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 10.096,
@@ -80656,8 +80656,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 3.365,
@@ -82448,8 +82448,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 34.135,
@@ -82616,8 +82616,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 9.135,
@@ -84072,7 +84072,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -84240,7 +84240,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -84520,8 +84520,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 45.192,
@@ -87768,7 +87768,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
@@ -91744,7 +91744,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -92528,8 +92528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 80.51,
@@ -98408,8 +98408,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 47.602,
@@ -100144,8 +100144,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 33.752,
@@ -101544,7 +101544,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -101768,7 +101768,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -109888,8 +109888,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 63.902,
@@ -111680,8 +111680,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 67.728,
@@ -113024,7 +113024,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -113248,7 +113248,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -113584,8 +113584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 88.936,
@@ -120920,7 +120920,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
@@ -123048,8 +123048,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 75.335,
@@ -124672,7 +124672,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -125456,8 +125456,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 86.059,
@@ -127584,8 +127584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 82.486,
@@ -130720,8 +130720,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 86.012,
@@ -133016,8 +133016,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 68.044,
@@ -133520,8 +133520,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "normalizedScore": 61.368,
@@ -134696,8 +134696,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 28.895,
@@ -135984,7 +135984,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -138056,7 +138056,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -140296,8 +140296,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 0,
@@ -142536,7 +142536,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -142592,7 +142592,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -142872,8 +142872,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 0,
@@ -144944,8 +144944,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 9,
@@ -145672,7 +145672,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -145840,7 +145840,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -146008,8 +146008,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 21,
@@ -149312,7 +149312,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -149368,7 +149368,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -151440,8 +151440,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "normalizedScore": 82.782,
@@ -151776,8 +151776,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 85.258,
@@ -151832,8 +151832,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 71.965,
@@ -152224,7 +152224,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -152336,8 +152336,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 89.255,
@@ -153960,7 +153960,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -155808,7 +155808,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -155976,8 +155976,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 40.159,
@@ -157880,7 +157880,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -158104,8 +158104,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 0.763,
@@ -159784,8 +159784,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 62.8,
@@ -161464,8 +161464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 66.4,
@@ -162584,7 +162584,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -162976,8 +162976,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 92,
@@ -165496,8 +165496,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 11.554,
@@ -166000,8 +166000,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 3.109,
@@ -167680,8 +167680,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 32.136,
@@ -167848,8 +167848,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 4.482,
@@ -169080,7 +169080,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -169248,7 +169248,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -169416,8 +169416,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 31.55,
@@ -172776,8 +172776,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 71.79,
@@ -174904,8 +174904,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 67.988,
@@ -176528,7 +176528,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -177480,8 +177480,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 75.593,
@@ -178992,8 +178992,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 34.082,
@@ -180392,8 +180392,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 38.951,
@@ -181344,7 +181344,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -181512,7 +181512,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -181792,8 +181792,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 62.921,
@@ -183304,8 +183304,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 24.719,
@@ -183584,8 +183584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "normalizedScore": 39.326,
@@ -184536,8 +184536,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 30.337,
@@ -186272,8 +186272,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 0,
@@ -187952,8 +187952,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 25.253,
@@ -189184,7 +189184,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -189296,7 +189296,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -189464,8 +189464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 37.374,
@@ -192040,7 +192040,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -192208,8 +192208,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 2.857,
@@ -193328,8 +193328,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 29.784,
@@ -194224,8 +194224,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 53.781,
@@ -195120,7 +195120,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -195176,7 +195176,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -195344,8 +195344,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 50.861,
@@ -195960,8 +195960,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 41.352,
@@ -196688,8 +196688,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 34.768,
@@ -197136,7 +197136,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -197528,8 +197528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 19.833,
@@ -197696,7 +197696,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -199264,8 +199264,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 16.033,
@@ -201000,8 +201000,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "normalizedScore": 3.71,
@@ -201728,8 +201728,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "normalizedScore": 0,
@@ -203912,8 +203912,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "normalizedScore": 73.944,
@@ -204080,8 +204080,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "normalizedScore": 2.888,
@@ -206208,7 +206208,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -206376,7 +206376,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -206712,8 +206712,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "normalizedScore": 30.759,

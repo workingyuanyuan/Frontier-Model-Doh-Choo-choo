@@ -16,7 +16,7 @@
 - Costs are mean USD per evaluation attempt including failed attempts. Pricing schedules and cache assumptions are unpublished.
 - The benchmark release has no explicit version label. The task manifest schema version describes its file format.
 - Harness, tools, thinking, quantization and context window remain null where the leaderboard does not specify them.
-- Unresolved canonical identities DeepSeek V4.1 Flash, GLM-5.3 Flash, GLM-5.3, Qwen3.8 Flash Next, Step 5 Preview.
+- Unresolved canonical identities DeepSeek V4.1 Flash, GLM-5.3, Step 5 Preview.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

@@ -719,8 +719,8 @@
     "metricId": "cost-per-test",
     "metricName": "Access to Justice Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -851,7 +851,7 @@
     "metricId": "cost-per-test",
     "metricName": "Access to Justice Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -983,8 +983,8 @@
     "metricId": "cost-per-test",
     "metricName": "Access to Justice Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -2831,8 +2831,8 @@
     "metricId": "cost-per-test",
     "metricName": "AIME cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -5427,8 +5427,8 @@
     "metricId": "cost-per-test",
     "metricName": "Autoform-Hard cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -7011,7 +7011,7 @@
     "metricId": "cost-per-test",
     "metricName": "BioMysteryBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -7979,8 +7979,8 @@
     "metricId": "cost-per-test",
     "metricName": "CaseLaw v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -8155,8 +8155,8 @@
     "metricId": "cost-per-test",
     "metricName": "CaseLaw v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -8771,8 +8771,8 @@
     "metricId": "cost-per-test",
     "metricName": "CaseLaw v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -11191,8 +11191,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -12071,7 +12071,7 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -12115,7 +12115,7 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -12247,8 +12247,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -13391,8 +13391,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -14667,8 +14667,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -15327,7 +15327,7 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -15459,7 +15459,7 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -15679,8 +15679,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -18363,8 +18363,8 @@
     "metricId": "cost-per-test",
     "metricName": "CorpFin v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -19903,8 +19903,8 @@
     "metricId": "cost-per-test",
     "metricName": "CorpFin v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -20871,7 +20871,7 @@
     "metricId": "cost-per-test",
     "metricName": "CorpFin v2 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -23775,7 +23775,7 @@
     "metricId": "cost-per-test",
     "metricName": "CyberBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -23819,7 +23819,7 @@
     "metricId": "cost-per-test",
     "metricName": "CyberBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -23951,8 +23951,8 @@
     "metricId": "cost-per-test",
     "metricName": "CyberBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -24347,8 +24347,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -25139,8 +25139,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -25843,7 +25843,7 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -25887,7 +25887,7 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -26019,8 +26019,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -27207,8 +27207,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -28439,8 +28439,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -29055,7 +29055,7 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -29187,7 +29187,7 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -29363,8 +29363,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -29671,8 +29671,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -30463,8 +30463,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -31167,7 +31167,7 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -31211,7 +31211,7 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -31343,8 +31343,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent v2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -32575,8 +32575,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -33807,8 +33807,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -34511,7 +34511,7 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -34643,7 +34643,7 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -34863,8 +34863,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -35171,8 +35171,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -35963,8 +35963,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -36667,7 +36667,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -36711,7 +36711,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -36843,8 +36843,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Finance Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -40539,8 +40539,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -42123,8 +42123,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -43355,7 +43355,7 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -43927,8 +43927,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -45115,8 +45115,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -46347,8 +46347,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -47095,7 +47095,7 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -47227,7 +47227,7 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -47447,8 +47447,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark v1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -47799,8 +47799,8 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -48503,8 +48503,8 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -49207,7 +49207,7 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -49251,7 +49251,7 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -49383,8 +49383,8 @@
     "metricId": "cost-per-test",
     "metricName": "HLAB-Vals-1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -52375,7 +52375,7 @@
     "metricId": "cost-per-test",
     "metricName": "IOI cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -52419,7 +52419,7 @@
     "metricId": "cost-per-test",
     "metricName": "IOI cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -52551,8 +52551,8 @@
     "metricId": "cost-per-test",
     "metricName": "IOI cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -53695,8 +53695,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -55455,7 +55455,7 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -55763,8 +55763,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -56159,8 +56159,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -56863,8 +56863,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -57567,7 +57567,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -57611,7 +57611,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -57743,8 +57743,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Legal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -58711,8 +58711,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -59107,8 +59107,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -60515,8 +60515,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -60647,8 +60647,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -61703,7 +61703,7 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -61835,7 +61835,7 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -62055,8 +62055,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -64607,7 +64607,7 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
@@ -67643,7 +67643,7 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -68171,8 +68171,8 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -72703,8 +72703,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -74023,8 +74023,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -75079,7 +75079,7 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -75255,7 +75255,7 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -81635,8 +81635,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -83043,8 +83043,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -84099,7 +84099,7 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -84275,7 +84275,7 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -84539,8 +84539,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -90303,7 +90303,7 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
@@ -91975,8 +91975,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -93207,7 +93207,7 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -93735,8 +93735,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -95407,8 +95407,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMMU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -97871,8 +97871,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMMU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -99675,8 +99675,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -100071,8 +100071,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -100995,8 +100995,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -102007,7 +102007,7 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -103591,7 +103591,7 @@
     "metricId": "cost-per-test",
     "metricName": "MysteryMechanism cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -105131,8 +105131,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -106539,7 +106539,7 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -106583,7 +106583,7 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -106759,8 +106759,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -108343,8 +108343,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -108871,7 +108871,7 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -109003,7 +109003,7 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -109135,8 +109135,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -111731,7 +111731,7 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -111775,7 +111775,7 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -113403,8 +113403,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-high",
       "rawName": "google/gemma-4-31b-it"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -113667,8 +113667,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -113711,8 +113711,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -114019,7 +114019,7 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -114107,8 +114107,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -115339,7 +115339,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Science Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -116791,7 +116791,7 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -116923,8 +116923,8 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -118419,7 +118419,7 @@
     "metricId": "cost-per-test",
     "metricName": "SRE Bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -118595,8 +118595,8 @@
     "metricId": "cost-per-test",
     "metricName": "SRE Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -119871,8 +119871,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -121191,8 +121191,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -122027,7 +122027,7 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -122335,8 +122335,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -124315,8 +124315,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -124711,8 +124711,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -126031,8 +126031,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -126163,8 +126163,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -127087,7 +127087,7 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -127219,7 +127219,7 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -127351,8 +127351,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -129991,8 +129991,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -131663,8 +131663,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -132851,7 +132851,7 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -133511,8 +133511,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -134611,8 +134611,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -135667,8 +135667,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -136371,7 +136371,7 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -136503,7 +136503,7 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -136723,8 +136723,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -137911,8 +137911,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -138835,8 +138835,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -140111,8 +140111,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -141431,8 +141431,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -142355,7 +142355,7 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -142443,7 +142443,7 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -142575,8 +142575,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 4.0 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -144555,7 +144555,7 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench-Science cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -144687,8 +144687,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench-Science cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -145567,8 +145567,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -146271,8 +146271,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -146931,7 +146931,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -146975,7 +146975,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -147107,8 +147107,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -147591,8 +147591,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Multimodal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -148163,8 +148163,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Multimodal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -148515,7 +148515,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Multimodal Index cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -148823,8 +148823,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -148955,7 +148955,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -150187,8 +150187,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench 1-100 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -151551,8 +151551,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "baseten/nemotron-3.5-super-vl-120b-a12b"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -152079,8 +152079,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-high",
       "rawName": "google/gemini-3.1-flash-lite-preview"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -153751,8 +153751,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax/MiniMax-M3.1-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -153883,8 +153883,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
+      "profileId": "mistral-mistral-medium-3-5-high",
       "rawName": "mistralai/mistral-medium-3.5"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",
@@ -155467,7 +155467,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "thinkingmachines/inkling-small"
     },
@@ -155599,7 +155599,7 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
@@ -155863,8 +155863,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "zai/glm-5.3-flash"
     },
     "observedAt": "2026-11-23T13:29:57.329Z",

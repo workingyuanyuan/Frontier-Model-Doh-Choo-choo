@@ -59,7 +59,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "apodex-apodex-1-1",
       "profileId": null,
       "rawName": "Apodex 1.1"
     },
@@ -2875,7 +2875,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "Gemini 3.1 Flash-Lite"
     },
@@ -3975,7 +3975,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemma-4-31b",
       "profileId": null,
       "rawName": "Gemma 4 31B (Reasoning)"
     },
@@ -4019,8 +4019,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-non-reasoning",
       "rawName": "Gemma 4 31B (Non-reasoning)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -4327,7 +4327,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
       "profileId": null,
       "rawName": "GLM-5.3-Flash"
     },
@@ -8551,7 +8551,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "Inkling Small"
     },
@@ -8595,8 +8595,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-high",
       "rawName": "Inkling Small (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -8639,7 +8639,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "ifm-k2-horizon-375b-a23b",
       "profileId": null,
       "rawName": "K2 Horizon 375B A23B"
     },
@@ -8903,7 +8903,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "inclusionai-ling-3-1-flash-1019",
       "profileId": null,
       "rawName": "Ling 3.1 Flash 1019"
     },
@@ -9035,7 +9035,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "MiMo-V2.6-Flash"
     },
@@ -9211,7 +9211,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
       "profileId": null,
       "rawName": "MiniMax-M3.1-Flash"
     },
@@ -9255,8 +9255,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
       "rawName": "Mistral Large 4 (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -9299,8 +9299,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-medium",
       "rawName": "Mistral Large 4 (Medium)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -9343,7 +9343,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
       "profileId": null,
       "rawName": "Mistral Large 4 Preview"
     },
@@ -9387,7 +9387,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
       "profileId": null,
       "rawName": "Mistral Medium 3.5"
     },
@@ -9431,7 +9431,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-small-4",
       "profileId": null,
       "rawName": "Mistral Small 4 (Reasoning)"
     },
@@ -9475,8 +9475,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-small-4",
+      "profileId": "mistral-mistral-small-4-non-reasoning",
       "rawName": "Mistral Small 4 (Non-reasoning)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -9607,8 +9607,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "meta-muse-glimmer",
+      "profileId": "meta-muse-glimmer-high",
       "rawName": "Muse Glimmer (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -9959,7 +9959,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-lightning",
       "profileId": null,
       "rawName": "Nemotron 3.5 Lightning"
     },
@@ -10003,7 +10003,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
       "profileId": null,
       "rawName": "Nemotron 3.5 Super VL"
     },
@@ -11015,7 +11015,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "alibaba-qwen3-8-flash-next",
       "profileId": null,
       "rawName": "Qwen3.8-Flash-Next"
     },
@@ -11411,7 +11411,7 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "upstage-solar-pro-4",
       "profileId": null,
       "rawName": "Solar Pro 4"
     },
@@ -11631,7 +11631,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "apodex-apodex-1-1",
       "profileId": null,
       "rawName": "Apodex 1.1"
     },
@@ -13083,7 +13083,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
       "profileId": null,
       "rawName": "Gemini 3.1 Flash-Lite"
     },
@@ -13875,7 +13875,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
       "profileId": null,
       "rawName": "GLM-5.3-Flash"
     },
@@ -15899,7 +15899,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
       "profileId": null,
       "rawName": "Inkling Small"
     },
@@ -15943,8 +15943,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-high",
       "rawName": "Inkling Small (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -15987,7 +15987,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "ifm-k2-horizon-375b-a23b",
       "profileId": null,
       "rawName": "K2 Horizon 375B A23B"
     },
@@ -16119,7 +16119,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "inclusionai-ling-3-1-flash-1019",
       "profileId": null,
       "rawName": "Ling 3.1 Flash 1019"
     },
@@ -16163,7 +16163,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
       "profileId": null,
       "rawName": "MiMo-V2.6-Flash"
     },
@@ -16295,7 +16295,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
       "profileId": null,
       "rawName": "MiniMax-M3.1-Flash"
     },
@@ -16339,8 +16339,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
       "rawName": "Mistral Large 4 (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -16383,8 +16383,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-medium",
       "rawName": "Mistral Large 4 (Medium)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -16427,7 +16427,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
       "profileId": null,
       "rawName": "Mistral Large 4 Preview"
     },
@@ -16471,7 +16471,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-medium-3-5",
       "profileId": null,
       "rawName": "Mistral Medium 3.5"
     },
@@ -16515,7 +16515,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "mistral-mistral-small-4",
       "profileId": null,
       "rawName": "Mistral Small 4 (Reasoning)"
     },
@@ -16647,8 +16647,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "meta-muse-glimmer",
+      "profileId": "meta-muse-glimmer-high",
       "rawName": "Muse Glimmer (High)"
     },
     "observedAt": "2026-11-23T13:30:43.875Z",
@@ -16867,7 +16867,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-lightning",
       "profileId": null,
       "rawName": "Nemotron 3.5 Lightning"
     },
@@ -16911,7 +16911,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
       "profileId": null,
       "rawName": "Nemotron 3.5 Super VL"
     },
@@ -17219,7 +17219,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "alibaba-qwen3-8-flash-next",
       "profileId": null,
       "rawName": "Qwen3.8-Flash-Next"
     },
@@ -17395,7 +17395,7 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "upstage-solar-pro-4",
       "profileId": null,
       "rawName": "Solar Pro 4"
     },
