@@ -1,5 +1,6 @@
 import {
-  resolveSurgeModel,
+  surgeCurrentIdentity,
+  surgeModelIdentity,
   surgeLeaderboardRows,
   surgePercentRow,
   surgeText as text,
@@ -8,7 +9,7 @@ import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { slugify } from './materializer-utils.js';
+import { slugify, type CurrentIdentity } from './materializer-utils.js';
 import { surgeBenchmarkVersion } from './surge-version.js';
 
 export const COMPLEX_CONSTRAINTS_PAGE_URL =
@@ -49,6 +50,12 @@ function configuration(name: string) {
     thinking: label,
   };
 }
+
+/** Identity and effort a stored ComplexConstraints row gets today. */
+export const complexConstraintsIdentity = ({
+  model,
+}: Pick<CandidateResult, 'model'>): CurrentIdentity =>
+  surgeCurrentIdentity(configuration(model.rawName));
 
 /** Parse only the main leaderboard's HTML. Related benchmark cards and the
  * independently maintained cost/token charts are outside this snapshot. */
@@ -92,7 +99,6 @@ export function materializeComplexConstraints(
           ? name
           : `${brand} ${name}`;
       const config = configuration(rawName);
-      const canonicalModelId = resolveSurgeModel(config.modelName);
       const locator = `.lead-main [data-leaderboard-row] (zero-based index ${index})`;
       return CandidateResultSchema.parse({
         schemaVersion: 'candidate-result-v1',
@@ -101,14 +107,7 @@ export function materializeComplexConstraints(
         sourceRole: 'ORGANIZER',
         benchmarkId: 'complex-constraints',
         benchmarkVersion,
-        model: {
-          rawName,
-          canonicalModelId,
-          profileId:
-            canonicalModelId && config.effort
-              ? `${canonicalModelId}-${config.effort}`
-              : null,
-        },
+        model: { rawName, ...surgeModelIdentity(config) },
         profile: {
           effort: config.effort,
           thinking: config.thinking,

@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { type EvidenceRecord } from '@llm-bench/benchmark-data';
+import {
+  type CandidateResult,
+  type EvidenceRecord,
+} from '@llm-bench/benchmark-data';
 import { materializeComplexConstraints } from './surge-complex-constraints-materializer.js';
-import { materializeRiemann } from './surge-riemann-materializer.js';
+import {
+  materializeRiemann,
+  riemannIdentity,
+} from './surge-riemann-materializer.js';
 import {
   latestSurgeEvidence,
   retainSurgeRows,
@@ -19,6 +25,11 @@ const old = () =>
   materializeComplexConstraints(html('ComplexConstraints'), context)
     .candidates[0]!;
 const record = { id: context.evidenceId } as EvidenceRecord;
+// A synthetic resolver that keeps the stored identity, independent of models.json.
+const keepIdentity = ({ model, profile }: CandidateResult) => ({
+  ...model,
+  effort: profile.effort,
+});
 
 describe('Surge version revisions', () => {
   it('replays the latest page when historical row evidence shares its URL', () => {
@@ -90,7 +101,12 @@ describe('Surge version revisions', () => {
       rawScore: 60,
       normalizedScore: 60,
     };
-    const result = retainSurgeRows([current], [prior, omitted], [record]);
+    const result = retainSurgeRows(
+      [current],
+      [prior, omitted],
+      [record],
+      keepIdentity,
+    );
     expect(result.retained).toEqual([omitted]);
     expect(result.candidates).toEqual([omitted, current]);
     expect(
@@ -98,9 +114,9 @@ describe('Surge version revisions', () => {
     ).toBe(60);
     expect(result.evidence).toEqual([record]);
     expect(result.retained[0]?.benchmarkVersion).toBeNull();
-    expect(() => retainSurgeRows([current], [omitted], [])).toThrow(
-      'Missing retained Surge evidence',
-    );
+    expect(() =>
+      retainSurgeRows([current], [omitted], [], keepIdentity),
+    ).toThrow('Missing retained Surge evidence');
   });
 
   it('does not merge unknown identities or unspecified effort by name similarity', () => {
@@ -110,8 +126,88 @@ describe('Surge version revisions', () => {
       profile: { ...old().profile, effort: null },
     };
     const current = { ...prior, id: 'current' };
-    expect(retainSurgeRows([current], [prior], [record]).retained).toEqual([
-      prior,
+    expect(
+      retainSurgeRows([current], [prior], [record], keepIdentity).retained,
+    ).toEqual([prior]);
+  });
+
+  it('re-resolves preserved rows against the current catalog before superseding them', () => {
+    const base = old();
+    const at = (id: string, rawName: string, effort: string | null) => ({
+      ...base,
+      id,
+      model: { rawName, canonicalModelId: null, profileId: null },
+      profile: { ...base.profile, effort },
+    });
+    // Captured before the catalog knew either model.
+    const registered = at('registered', 'Model A (Max reasoning)', 'max');
+    const duplicate = at('duplicate', 'Model B (Max reasoning)', 'max');
+    const current = {
+      ...base,
+      id: 'current',
+      model: {
+        rawName: 'Model B v2 (Max reasoning)',
+        canonicalModelId: 'model-b',
+        profileId: 'model-b-max',
+      },
+      profile: { ...base.profile, effort: 'max' },
+    };
+    const catalog: Record<string, string> = {
+      'Model A (Max reasoning)': 'model-a',
+      'Model B (Max reasoning)': 'model-b',
+    };
+    const result = retainSurgeRows(
+      [current],
+      [registered, duplicate],
+      [record],
+      ({ model, profile }) => {
+        const canonicalModelId = catalog[model.rawName] ?? null;
+        return {
+          canonicalModelId,
+          profileId:
+            canonicalModelId && `${canonicalModelId}-${profile.effort}`,
+          effort: profile.effort,
+        };
+      },
+    );
+    // Score, version, time and Evidence stay; only the identity moves.
+    expect(result.retained).toEqual([
+      {
+        ...registered,
+        model: {
+          ...registered.model,
+          canonicalModelId: 'model-a',
+          profileId: 'model-a-max',
+        },
+      },
     ]);
+    expect(result.reresolved).toEqual([
+      'registered: unresolved -> model-a, profile null -> model-a-max',
+    ]);
+  });
+
+  it("re-derives a preserved row's effort from its name with the production resolver", () => {
+    const base = old();
+    // Captured under an older configuration rule that left effort null.
+    const stale = {
+      ...base,
+      id: 'stale',
+      model: {
+        rawName: 'Synthetic Unlisted Model (High reasoning)',
+        canonicalModelId: null,
+        profileId: null,
+      },
+      profile: { ...base.profile, effort: null },
+    };
+    const [retained] = retainSurgeRows(
+      [],
+      [stale],
+      [record],
+      riemannIdentity,
+    ).retained;
+    expect(retained).toEqual({
+      ...stale,
+      profile: { ...stale.profile, effort: 'high' },
+    });
   });
 });

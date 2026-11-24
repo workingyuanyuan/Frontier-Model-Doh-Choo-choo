@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { SourceManifestSchema } from '@llm-bench/benchmark-data';
 import {
   COMPLEX_CONSTRAINTS_PAGE_URL,
+  complexConstraintsIdentity,
   materializeComplexConstraints,
 } from './surge-complex-constraints-materializer.js';
 import {
@@ -38,10 +39,12 @@ async function main() {
     observedAt,
     visualRowCount,
   });
-  const merged = retainSurgeRows(result.candidates, previousCandidates, [
-    ...previousEvidence,
-    page.record,
-  ]);
+  const merged = retainSurgeRows(
+    result.candidates,
+    previousCandidates,
+    [...previousEvidence, page.record],
+    complexConstraintsIdentity,
+  );
   const manifest = SourceManifestSchema.parse({
     schemaVersion: 'source-manifest-v1',
     sourceId: 'surge-complex-constraints',

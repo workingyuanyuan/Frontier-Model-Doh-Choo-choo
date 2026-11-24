@@ -526,6 +526,60 @@ export function resolveCatalogModel(
   };
 }
 
+export interface ModelIdentity {
+  canonicalModelId: string | null;
+  profileId: string | null;
+}
+
+/** What a source's current rules give a stored row: identity and effort. */
+export interface CurrentIdentity extends ModelIdentity {
+  effort: string | null;
+}
+
+interface RowWithModel {
+  id: string;
+  model: { rawName: string } & ModelIdentity;
+  profile: { effort: string | null };
+}
+
+/**
+ * Rows a source has removed are carried forward unchanged (AGENTS.md: keep
+ * existing data when a source removes it), except for what the current rules
+ * derive from them: the catalog may have gained or dropped the model, and the
+ * effort rule may have changed, since the row was captured. `resolve` gives
+ * what materializing the row today would assign (canonical model, profile ID
+ * and effort); score, evidence, provenance and row ID stay as captured.
+ * `changes` maps the ID of every row that moved to a report line.
+ */
+export function withCurrentIdentity<T extends RowWithModel>(
+  rows: readonly T[],
+  resolve: (row: T) => CurrentIdentity,
+): { rows: T[]; changes: Map<string, string> } {
+  const changes = new Map<string, string>();
+  const updated = rows.map((row) => {
+    const { canonicalModelId, profileId, effort } = resolve(row);
+    const moved = [
+      effort === row.profile.effort
+        ? null
+        : `effort ${row.profile.effort ?? 'null'} -> ${effort ?? 'null'}`,
+      canonicalModelId === row.model.canonicalModelId
+        ? null
+        : `${row.model.canonicalModelId ?? 'unresolved'} -> ${canonicalModelId ?? 'unresolved'}`,
+      profileId === row.model.profileId
+        ? null
+        : `profile ${row.model.profileId ?? 'null'} -> ${profileId ?? 'null'}`,
+    ].filter((change): change is string => change !== null);
+    if (moved.length === 0) return row;
+    changes.set(row.id, `${row.id}: ${moved.join(', ')}`);
+    return {
+      ...row,
+      model: { ...row.model, canonicalModelId, profileId },
+      profile: { ...row.profile, effort },
+    };
+  });
+  return { rows: updated, changes };
+}
+
 export function parseCsv(text: string): string[][] {
   const rows: string[][] = [];
   let row: string[] = [];
