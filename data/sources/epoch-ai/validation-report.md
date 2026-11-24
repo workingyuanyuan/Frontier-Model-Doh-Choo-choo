@@ -235,6 +235,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | MiniMax-M3 | `epoch-ai:gpqa-diamond:minimax-minimax-m3-default-epoch-inspect-row-83` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | MiniMax-M3 | `epoch-ai:mystery-game-puzzles:minimax-minimax-m3-default-epoch-inspect-row-47` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | Mistral Large 4 | `epoch-ai:epoch-capabilities-index:mistral-mistral-large-4-default-epoch-inspect-row-50` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:mistral-large-4 |
+| Mistral Large 4 Preview | `epoch-ai:epoch-capabilities-index:mistral-mistral-large-4-preview-default-epoch-inspect-row-59` | — | `high` | frontier-code | frontier-code:frontier-code-1-1:mistral-large-4-preview-high |
 | Mistral Medium 3.5 | `epoch-ai:epoch-capabilities-index:mistral-mistral-medium-3-5-default-epoch-inspect-row-115` | — | `high` | vals-ai | vals-ai:code-migration:mistralai-mistral-medium-3-5 |
 | Muse Spark 1.1 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-1-default-epoch-inspect-row-49` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.1 | `epoch-ai:simpleqa-verified:meta-muse-spark-1-1-default-epoch-inspect-row-37` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
@@ -265,7 +266,6 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Kimi K2.6 | `epoch-ai:mystery-game-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-150` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-6-default-epoch-inspect-row-103` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:swe-bench:moonshot-kimi-k2-6-default-epoch-inspect-row-8` | — | `default` | — | — |
-| Mistral Large 4 Preview | `epoch-ai:epoch-capabilities-index:mistral-mistral-large-4-preview-default-epoch-inspect-row-59` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:aime:meta-muse-spark-default-epoch-inspect-row-197` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:epoch-capabilities-index:meta-muse-spark-default-epoch-inspect-row-55` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:frontiermath-tier-4:meta-muse-spark-default-epoch-inspect-row-17:tier-4` | — | `default` | — | — |

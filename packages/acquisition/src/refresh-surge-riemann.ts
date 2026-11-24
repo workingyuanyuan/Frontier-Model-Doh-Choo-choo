@@ -7,6 +7,7 @@ import { SourceManifestSchema } from '@llm-bench/benchmark-data';
 import {
   RIEMANN_PAGE_URL,
   materializeRiemann,
+  riemannIdentity,
 } from './surge-riemann-materializer.js';
 import {
   captureArtifact,
@@ -38,10 +39,12 @@ async function main() {
     observedAt,
     visualRowCount,
   });
-  const merged = retainSurgeRows(result.candidates, previousCandidates, [
-    ...previousEvidence,
-    page.record,
-  ]);
+  const merged = retainSurgeRows(
+    result.candidates,
+    previousCandidates,
+    [...previousEvidence, page.record],
+    riemannIdentity,
+  );
   const manifest = SourceManifestSchema.parse({
     schemaVersion: 'source-manifest-v1',
     sourceId: 'surge-riemann',

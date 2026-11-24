@@ -23,6 +23,7 @@ import {
   materializeArtificialAnalysisRsc,
   capturedPageReferences,
   retainArtificialAnalysisBriefcaseRows,
+  artificialAnalysisIdentity,
   type ArtificialAnalysisApiPage,
   type ArtificialAnalysisPage,
   type ArtificialAnalysisRow,
@@ -389,6 +390,7 @@ const main = async () => {
     materialized.candidates,
     baseline.previousCandidates,
     materialized.activeProfileKeys,
+    artificialAnalysisIdentity,
   );
   const result = { ...materialized, candidates: briefcase.candidates };
   const baselineEvidence = new Map(
@@ -443,6 +445,7 @@ const main = async () => {
       (row) =>
         `- ${row.id}: ${row.rawScore}; observed ${row.observedAt}; Evidence ${row.evidenceIds.join(', ')}.`,
     ),
+    `- Retained rows re-resolved against the current model catalog (score and Evidence unchanged): ${briefcase.reresolved.join('; ') || 'none'}.`,
     '',
     '## Visible comparison',
     '',

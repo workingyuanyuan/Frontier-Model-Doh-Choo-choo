@@ -11939,8 +11939,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
+      "profileId": "mistral-mistral-large-4-preview-high",
       "rawName": "Mistral Large 4 (Preview)"
     },
     "observedAt": "2026-10-28T06:04:53.772Z",
@@ -11983,8 +11983,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4-preview",
+      "profileId": "mistral-mistral-large-4-preview-non-reasoning",
       "rawName": "Mistral Large 4 (Preview)"
     },
     "observedAt": "2026-10-28T06:04:53.772Z",
@@ -11992,7 +11992,7 @@
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": null,
+      "effort": "non-reasoning",
       "harness": "chisel",
       "quantization": null,
       "thinking": null,

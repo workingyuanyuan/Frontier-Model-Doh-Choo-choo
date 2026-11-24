@@ -4,6 +4,11 @@ import {
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
+import {
+  withCurrentIdentity,
+  type CurrentIdentity,
+} from './materializer-utils.js';
+
 /** The official page inserts its version chip with inline JavaScript. Both
  * raw HTTP HTML and the rendered DOM contain this explicit span markup. */
 export function surgeBenchmarkVersion(html: string): string | null {
@@ -38,26 +43,34 @@ export function surgeRetentionReport(
   return (
     report +
     '\n## Preserved rows omitted from the current leaderboard\n\n' +
-    `Current rendered rows: ${visibleRows}; preserved: ${merged.retained.length}; total stored: ${merged.candidates.length}. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.\n\n` +
+    `Current rendered rows: ${visibleRows}; preserved: ${merged.retained.length}; total stored: ${merged.candidates.length}. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns; their model identity and effort follow the current catalog and configuration rules.\n\n` +
     merged.retained
       .map(
         (row) =>
           `- ${row.id}: ${row.rawScore}; version ${row.benchmarkVersion ?? 'unpublished'}; observed ${row.observedAt}; Evidence ${row.evidenceIds.join(', ')}.`,
       )
       .join('\n') +
-    '\n'
+    '\n' +
+    (merged.reresolved.length === 0
+      ? ''
+      : `\nPreserved rows re-resolved against the current model catalog: ${merged.reresolved.join('; ')}.\n`)
   );
 }
 
 /** Keep removed source rows with their original version, time and evidence.
- * A current exact canonical model/effort supersedes a renamed old row. */
+ * Their identity and effort are re-derived from the raw name with the current
+ * catalog and configuration rules first, so a current exact canonical model/effort supersedes a renamed old
+ * row even when the catalog gained the model after the row was captured. */
 export function retainSurgeRows(
   current: CandidateResult[],
   previous: CandidateResult[],
   evidence: EvidenceRecord[],
+  identity: (row: CandidateResult) => CurrentIdentity,
 ): {
   candidates: CandidateResult[];
   retained: CandidateResult[];
+  /** Retained rows whose identity the current catalog changed. */
+  reresolved: string[];
   evidence: EvidenceRecord[];
 } {
   const key = (row: CandidateResult): string =>
@@ -72,8 +85,13 @@ export function retainSurgeRows(
       : row.id;
   const currentKeys = new Set(current.map(key));
   const currentIds = new Set(current.map((row) => row.id));
-  const retained = previous.filter(
-    (row) => !currentIds.has(row.id) && !currentKeys.has(key(row)),
+  const removed = withCurrentIdentity(
+    previous.filter((row) => !currentIds.has(row.id)),
+    identity,
+  );
+  const retained = removed.rows.filter((row) => !currentKeys.has(key(row)));
+  const reresolved = retained.flatMap(
+    ({ id }) => removed.changes.get(id) ?? [],
   );
   const candidates = [...current, ...retained].toSorted((a, b) =>
     a.id.localeCompare(b.id),
@@ -87,6 +105,7 @@ export function retainSurgeRows(
   return {
     candidates,
     retained,
+    reresolved,
     evidence: [...ids].toSorted().map((id) => records.get(id)!),
   };
 }
@@ -99,6 +118,7 @@ export function retainSurgeSnapshot(
   },
   previousCandidatesJson: string | undefined,
   evidence: EvidenceRecord[],
+  identity: (row: CandidateResult) => CurrentIdentity,
 ) {
   const merged = retainSurgeRows(
     result.candidates,
@@ -106,6 +126,7 @@ export function retainSurgeSnapshot(
       JSON.parse(previousCandidatesJson ?? '[]'),
     ),
     evidence,
+    identity,
   );
   return {
     candidates: merged.candidates,

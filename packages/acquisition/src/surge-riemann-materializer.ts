@@ -1,6 +1,7 @@
 import {
   surgeConfiguration,
-  resolveSurgeModel,
+  surgeCurrentIdentity,
+  surgeModelIdentity,
   surgeLeaderboardRows,
   surgePercentRow,
   surgeText as text,
@@ -9,10 +10,16 @@ import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { slugify } from './materializer-utils.js';
+import { slugify, type CurrentIdentity } from './materializer-utils.js';
 import { surgeBenchmarkVersion } from './surge-version.js';
 
 export const RIEMANN_PAGE_URL = 'https://surgehq.ai/benchmarks/riemann-bench';
+
+/** Identity and effort a stored Riemann-bench row gets today. */
+export const riemannIdentity = ({
+  model,
+}: Pick<CandidateResult, 'model'>): CurrentIdentity =>
+  surgeCurrentIdentity(surgeConfiguration(model.rawName, 'Riemann-bench'));
 
 /** Parse only the main leaderboard's HTML. Related benchmark cards and the
  * independently maintained cost/token charts are outside this snapshot. */
@@ -56,7 +63,6 @@ export function materializeRiemann(
           ? name
           : `${brand} ${name}`;
       const config = surgeConfiguration(rawName, 'Riemann-bench');
-      const canonicalModelId = resolveSurgeModel(config.modelName);
       const locator = `.lead-main [data-leaderboard-row] (zero-based index ${index})`;
       return CandidateResultSchema.parse({
         schemaVersion: 'candidate-result-v1',
@@ -65,14 +71,7 @@ export function materializeRiemann(
         sourceRole: 'ORGANIZER',
         benchmarkId: 'riemann-bench',
         benchmarkVersion,
-        model: {
-          rawName,
-          canonicalModelId,
-          profileId:
-            canonicalModelId && config.effort
-              ? `${canonicalModelId}-${config.effort}`
-              : null,
-        },
+        model: { rawName, ...surgeModelIdentity(config) },
         profile: {
           effort: config.effort,
           thinking: config.thinking,
