@@ -15,8 +15,8 @@
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3575 |
 | Included vals_index CostRecords | 42 |
-| Canonically unresolved rows | 1988 |
-| Distinct canonically unresolved models | 245 |
+| Canonically unresolved rows | 1816 |
+| Distinct canonically unresolved models | 237 |
 
 ## Per-page completeness
 
@@ -260,7 +260,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - aristotle/aristotle
 - assemblyai/universal-3-5-pro
 - azure_speech/universal-language-model
-- baseten/nemotron-3.5-super-vl-120b-a12b
 - cartesia/ink-2
 - cohere/cohere-transcribe-03-2026
 - cohere/command-a-03-2025
@@ -337,9 +336,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - google/gemini-2.5-pro-exp-03-25
 - google/gemini-2.5-pro-preview-03-25
 - google/gemini-3-flash-preview
-- google/gemini-3.1-flash-lite-preview
 - google/gemini-3.5-flash-exa
-- google/gemma-4-31b-it
 - grok/grok-2-1212
 - grok/grok-2-vision-1212
 - grok/grok-3
@@ -371,7 +368,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - minimax/MiniMax-M2.1
 - minimax/MiniMax-M2.5
 - minimax/MiniMax-M2.7
-- minimax/MiniMax-M3.1-flash
 - mistral/voxtral-mini-2602
 - mistral/voxtral-mini-transcribe-realtime-2602
 - mistralai/devstral-2512
@@ -383,7 +379,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - mistralai/mistral-large-4
 - mistralai/mistral-large-4-oss
 - mistralai/mistral-medium-2505
-- mistralai/mistral-medium-3.5
 - mistralai/mistral-small-2402
 - mistralai/mistral-small-2503
 - mistralai/mistral-small-2603
@@ -430,7 +425,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - stepfun/step-5-preview
 - tencent/hy4-flash
 - tencent/hy4-preview
-- thinkingmachines/inkling-small
 - together/google/gemma-2-27b-it
 - together/google/gemma-2-9b-it
 - together/langston/nim/nvidia/llama-3.3-nemotron-super-49b-v1-42e84561
@@ -453,14 +447,12 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - together/togethercomputer/llama-2-7b
 - xiaomi/mimo-v2-flash
 - xiaomi/mimo-v2.5
-- xiaomi/mimo-v2.6-flash
 - xiaomi/mimo-v2.6-pro
 - zai/glm-4.5
 - zai/glm-4.6
 - zai/glm-4.7
 - zai/glm-5-thinking
 - zai/glm-5.3
-- zai/glm-5.3-flash
 - zai/glm-legal
 
 ## Approved N3a dimension mapping
@@ -502,7 +494,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 67 | 67 | +0 |
 | CandidateResults | 3727 | 3727 | +0 |
 | CostRecords retained | 3575 | 3575 | +0 |
-| Canonically unresolved rows | 2020 | 1988 | -32 |
+| Canonically unresolved rows | 1988 | 1816 | -172 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -566,6 +558,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | deepseek/deepseek-v4-flash-0731 | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
+| google/gemini-3.1-flash-lite-preview | `vals-ai:livecodebench:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-143 |
+| google/gemini-3.1-flash-lite-preview | `vals-ai:mmlu-pro:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-143 |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | minimax/MiniMax-M3 | `vals-ai:a2j:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | minimax/MiniMax-M3 | `vals-ai:code-migration-v1-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
@@ -732,6 +726,39 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-science:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vals-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-bench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:code-migration:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:corpfin:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:cyber:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:emb:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:fabv2-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:finance-agent-v2:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:finance-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:gpqa-diamond:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:hlab-v1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:hlab:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:ioi:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:legal-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:legal-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:legal-research:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:livecodebench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:medcode:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:medscribe:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:mmlu-pro:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:mortgage-tax:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:programbench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:proofbench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:public-benefits-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:skillsbench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:swe-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:tax-agent-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:tax-eval-v2:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:terminal-bench-2-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:vals-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:vals-multimodal-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:code-migration:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -889,5 +916,36 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.5-pro | `vals-ai:terminal-bench-2-1:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:terminal-bench-4-0:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:a2j:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:biomysterybench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:code-migration-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:code-migration:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:cyber:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:emb-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:emb:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:fabv2-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:finance-agent-v2:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:finance-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:hlab-v1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:hlab:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:ioi:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:legal-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:legal-research:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:medcode:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:medscribe:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:mysterymechanism:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:programbench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:proofbench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:public-benefits-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:sage:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:science-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:srebench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:tax-agent-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-2-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-4-0:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-science:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vals-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

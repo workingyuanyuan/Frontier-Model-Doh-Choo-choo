@@ -310,6 +310,50 @@
   {
     "assumptionId": "api-blend-3-to-1",
     "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:alibaba-qwen3-8-flash-next-unlabelled",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.16,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "alibaba-qwen3-8-flash-next",
+      "profileId": null,
+      "rawName": "qwen3.8-flash-next"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.47,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=qwen3.8-flash-next; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
     "benchmarkVersion": "2026-11-06",
     "cost": null,
     "costType": "API_STANDARDIZED",
@@ -1718,6 +1762,50 @@
   {
     "assumptionId": "api-blend-3-to-1",
     "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:google-gemma-4-31b-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.14,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-max",
+      "rawName": "gemma-4-31b"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.4,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=gemma-4-31b; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
     "cost": null,
     "costType": "API_STANDARDIZED",
@@ -1982,6 +2070,50 @@
   {
     "assumptionId": "api-blend-3-to-1",
     "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:minimax-minimax-m3-1-flash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.15,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
+      "rawName": "minimax-m3.1-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.6,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=minimax-m3.1-flash; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
     "cost": null,
     "costType": "API_STANDARDIZED",
@@ -2021,6 +2153,50 @@
     "sourceId": "livebench",
     "sourcePublishedAt": null,
     "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:mistral-mistral-large-4-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.7,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
+      "rawName": "mistral-large-4-0"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 2.1,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=mistral-large-4-0; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2234,6 +2410,50 @@
       "cost": {
         "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
         "locator": "model=kimi-k3; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:nvidia-nemotron-3-5-lightning-unlabelled",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.05,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-5-lightning",
+      "profileId": null,
+      "rawName": "nemotron-3.5-lightning-30b-a3b"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.2,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=nemotron-3.5-lightning-30b-a3b; input/output_price_per_million",
         "method": "EXPORT"
       }
     },
@@ -3432,6 +3652,94 @@
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:zai-glm-5-3-flash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.15,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
+      "rawName": "glm-5.3-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.5,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=glm-5.3-flash; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:zai-glm-5-3-flash-unlabelled",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.15,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": null,
+      "rawName": "glm-5.3-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": 0.5,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=glm-5.3-flash; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
@@ -3686,6 +3994,50 @@
       "cost": {
         "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
         "locator": "model=qwen3.8-27b; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": 0.0423,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": "Superseded by LiveBench 2.0 cost per task; the 1.0 cost per successful task remains as evidence only.",
+    "id": "livebench:cost-per-successful-task:alibaba-qwen3-8-flash-next-unlabelled",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "alibaba-qwen3-8-flash-next",
+      "profileId": null,
+      "rawName": "qwen3.8-flash-next"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=qwen3.8-flash-next; cost_per_successful_task",
         "method": "EXPORT"
       }
     },
@@ -5107,6 +5459,50 @@
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-06-25",
+    "cost": 0.0399,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": "Superseded by LiveBench 2.0 cost per task; the 1.0 cost per successful task remains as evidence only.",
+    "id": "livebench:cost-per-successful-task:nvidia-nemotron-3-5-lightning-unlabelled",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-5-lightning",
+      "profileId": null,
+      "rawName": "nemotron-3.5-lightning-30b-a3b"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=nemotron-3.5-lightning-30b-a3b; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
     "cost": 0.3706,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
@@ -6074,6 +6470,50 @@
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": 0.0305,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8"
+    ],
+    "exclusionReason": "Superseded by LiveBench 2.0 cost per task; the 1.0 cost per successful task remains as evidence only.",
+    "id": "livebench:cost-per-successful-task:zai-glm-5-3-flash-unlabelled",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": null,
+      "rawName": "glm-5.3-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c4227b553186ade582022ea19d04b91b75b577cccadb88f6e00857a27eeb84b8",
+        "locator": "model=glm-5.3-flash; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
     "benchmarkVersion": "2026-11-06",
     "cost": 0.5711314678111589,
     "costType": "MEASURED_TASK",
@@ -6691,6 +7131,50 @@
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-11-06",
+    "cost": 0.0705694957081545,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-11-06:google-gemma-4-31b-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-max",
+      "rawName": "gemma-4-31b"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=gemma-4-31b; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
     "cost": 0.9710513540772533,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
@@ -6810,6 +7294,94 @@
       "cost": {
         "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
         "locator": "model=muse-wonder-1.0; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": 0.11000236695278971,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-11-06:minimax-minimax-m3-1-flash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
+      "rawName": "minimax-m3.1-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=minimax-m3.1-flash; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": 0.3637280493562232,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-11-06:mistral-mistral-large-4-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
+      "rawName": "mistral-large-4-0"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=mistral-large-4-0; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
     },
@@ -7338,6 +7910,50 @@
       "cost": {
         "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
         "locator": "model=grok-4.7; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261106/cost.csv?v=1795422485",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-11-06",
+    "cost": 0.10594082832618028,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-11-06:zai-glm-5-3-flash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
+      "rawName": "glm-5.3-flash"
+    },
+    "observedAt": "2026-11-23T13:31:32.163Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:566b9c3aa20bb110ccafe70463a5b6ece608ff875e024439795c659b9bf235c4",
+        "locator": "model=glm-5.3-flash; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
     },

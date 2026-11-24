@@ -18,11 +18,11 @@
 | windows platform rows (taskCount 36) | 41 |
 | Tasks in the split | 122 |
 | Cost records emitted | 41 |
-| Canonically resolved rows | 36 |
-| Canonically unresolved rows | 5 |
-| Distinct canonically unresolved names | 4 |
+| Canonically resolved rows | 38 |
+| Canonically unresolved rows | 3 |
+| Distinct canonically unresolved names | 3 |
 | Partial-coverage rows (tasks < splitTasks) | 2 |
-| Excluded candidate rows | 0 |
+| Excluded candidate rows | 2 |
 
 ## Benchmark contract
 
@@ -40,24 +40,14 @@
 
 ## Excluded rows
 
-- None
+- minimax-m3-1-flash / claude_code / reasoning-max: multiple harnesses publish this profile; not reviewed
+- minimax-m3-1-flash / codex / reasoning-max: multiple harnesses publish this profile; not reviewed
 
 ## Unresolved model names
 
 - glm-5.3
 - kimi-3.1-pro
-- minimax-m3-1-flash
 - qwen-4
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 41 | 41 | +0 |
-| Cost records | 41 | 41 | +0 |
-| Canonically unresolved rows | 5 | 5 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

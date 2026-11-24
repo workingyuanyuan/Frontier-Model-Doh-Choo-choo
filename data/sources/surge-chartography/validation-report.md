@@ -4,7 +4,7 @@
 - Evidence: `sha256:a9afec977eb7e393d4ba88e797d789750cb656d9e90d8168064437b3b52d3eb3`
 - Main leaderboard: 42 rows; rendered browser count: 42.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
-- Unresolved catalog identities (9): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); MiniMax M3.1 Flash (Max reasoning); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning).
+- Unresolved catalog identities (6): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.
 
 Scores are the main leaderboard pass@1 percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max and Minimal reasoning to low. Thinking on does not declare an effort tier. Unresolved model variants retain null canonical identity.
 

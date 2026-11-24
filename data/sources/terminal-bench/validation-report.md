@@ -5,7 +5,7 @@
 - Leaderboard `terminal-bench/terminal-bench` / `4-1-0` ("Terminal-Bench 4.1"), updated 2026-11-20T16:07:10.159Z.
 - Configurations: 67; distinct models: 54; rendered browser rows: 54.
 - Every row has 330 trials and its resolution rate equals successes / trials.
-- Unresolved catalog identities (14): Copilot Fusion; Ember-1; Gemini 3.1 Pro; GLM-5.3; GLM-5.3-Flash; Hy4 Flash; Hy4 Preview; Inkling Small 2; Inkling Small; MiMo V2.6 Flash; MiMo V2.6 Pro; Mistral Large 4; Nemotron 3.5 Super VL; Qwen3.8-Max-0902.
+- Unresolved catalog identities (9): Copilot Fusion; Ember-1; Gemini 3.1 Pro; GLM-5.3; Hy4 Flash; Hy4 Preview; Inkling Small 2; MiMo V2.6 Pro; Qwen3.8-Max-0902.
 - Rows whose source effort is not a product tier (10): retained with null effort.
 
 The Stanford / Laude Institute Terminal-Bench team hosts this leaderboard, so rows are ORGANIZER results. The page embeds the complete leaderboard query in its Next.js flight data; the rendered table shows only each model's best configuration, so every effort configuration is materialized and the rendered row count is compared with distinct models.
@@ -24,11 +24,16 @@ This tagged section is generated deterministically for `terminal-bench`. Raw `pr
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | Beam 1.0 | `terminal-bench:terminal-bench-4-1:beam-1-0-mini-swe-agent-none` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
+| GLM-5.3-Flash | `terminal-bench:terminal-bench-4-1:glm-5-3-flash-claude-code-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
 | Inkling | `terminal-bench:terminal-bench-4-1:inkling-mini-swe-agent-none` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| Inkling Small | `terminal-bench:terminal-bench-4-1:inkling-small-mini-swe-agent-none` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | MiniMax M3 | `terminal-bench:terminal-bench-4-1:minimax-m3-mini-swe-agent-none` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| Nemotron 3.5 Super VL | `terminal-bench:terminal-bench-4-1:nemotron-3-5-super-vl-mini-swe-agent-none` | — | `high` | arc-prize | arc-prize:arc-agi-2:nvidia-nemotron-3-5-super-vl-120b-a12b-high:arc-agi-2-v2-semi-private |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| MiMo V2.6 Flash | `terminal-bench:terminal-bench-4-1:mimo-v2-6-flash-mini-swe-agent-none` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

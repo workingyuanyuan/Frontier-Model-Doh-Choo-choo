@@ -2567,8 +2567,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-high",
       "rawName": "GLM 5.3 Flash"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -2611,8 +2611,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-low",
       "rawName": "GLM 5.3 Flash"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -2655,8 +2655,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM 5.3 Flash"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -4987,8 +4987,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-high",
       "rawName": "Inkling Small"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -5031,8 +5031,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-max",
       "rawName": "Inkling Small"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -5339,8 +5339,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
       "rawName": "Mistral Large 4"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -5383,8 +5383,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-low",
       "rawName": "Mistral Large 4"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -5427,8 +5427,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode 2.0 rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-medium",
       "rawName": "Mistral Large 4"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",
@@ -9167,8 +9167,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM 5.3 Flash"
     },
     "observedAt": "2026-11-23T13:32:34.443Z",

@@ -160,6 +160,16 @@ describe('superseded DeepSeek builds', () => {
     ).toBe(false);
   });
 
+  it('matches an exact superseded name without swallowing later versions', () => {
+    expect(isSupersededBuild('livebench', 'mistral-large-4')).toBe(true);
+    expect(isSupersededBuild('livebench', 'mistral-large-4-0')).toBe(false);
+    expect(isSupersededBuild('livebench', 'mistral-large-4-preview')).toBe(
+      false,
+    );
+    expect(isSupersededBuild('livebench', 'mistral-large-4.1')).toBe(false);
+    expect(isSupersededBuild('frontier-code', 'mistral-large-4')).toBe(false);
+  });
+
   it('leaves a bare name alone on sources with no dated sibling', () => {
     // DeepSWE and Frontier Code publish one DeepSeek row each, so the bare name
     // is the current model there. Widening the rule to all sources would drop

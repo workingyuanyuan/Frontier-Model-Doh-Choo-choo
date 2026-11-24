@@ -396,6 +396,18 @@ const SUPERSEDED_BUILDS: Readonly<Record<string, ReadonlySet<string>>> = {
   livebench: new Set(['deepseek-v4-pro', 'deepseek-v4-flash']),
 };
 
+/**
+ * Superseded names matched exactly, for families whose later names extend the
+ * bare one with a version rather than a date or configuration. Mistral served
+ * the October public preview as `mistral-large-4` before the improved
+ * open-weight build, whose own ID is `mistral-large-4-0`; LiveBench lists both
+ * in one table. A prefix rule would also swallow `mistral-large-4-0`,
+ * `mistral-large-4-preview` and a future `mistral-large-4.1`.
+ */
+const SUPERSEDED_EXACT_NAMES: Readonly<Record<string, ReadonlySet<string>>> = {
+  livebench: new Set(['mistral-large-4']),
+};
+
 const CURRENT_BUILD_ALIASES: Readonly<Record<string, string>> = {
   'deepseek-v4-pro-0813': 'deepseek-deepseek-v4-pro',
   'deepseek-v4-flash-0731': 'deepseek-deepseek-v4-flash',
@@ -404,12 +416,13 @@ const CURRENT_BUILD_ALIASES: Readonly<Record<string, string>> = {
 /**
  * True when this source publishes the row as a superseded build.
  *
- * Matches on prefix because Artificial Analysis appends the configuration to
- * the slug: the April build appears as `deepseek-v4-pro-0424`,
+ * `SUPERSEDED_BUILDS` matches on prefix because Artificial Analysis appends the
+ * configuration to the slug: the April build appears as `deepseek-v4-pro-0424`,
  * `deepseek-v4-pro-0424-high` and `deepseek-v4-pro-0424-non-reasoning`.
  */
 export function isSupersededBuild(sourceId: string, key: string): boolean {
   const slug = slugify(key);
+  if (SUPERSEDED_EXACT_NAMES[sourceId]?.has(slug)) return true;
   // An explicitly approved current-release name is never superseded, even
   // though it shares a prefix with the bare superseded name on this source
   // (`deepseek-v4-flash-0731` starts with `deepseek-v4-flash`).

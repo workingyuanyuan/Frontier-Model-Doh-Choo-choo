@@ -11353,8 +11353,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-high",
       "rawName": "Nemotron 3.5 Super VL (High)"
     },
     "normalizedScore": 1.5277777777777777,
@@ -11405,8 +11405,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-medium",
       "rawName": "Nemotron 3.5 Super VL (Medium)"
     },
     "normalizedScore": 1.9444444444444444,
@@ -11457,8 +11457,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-non-reasoning",
       "rawName": "Nemotron 3.5 Super VL (None)"
     },
     "normalizedScore": 0.8333333333333334,
@@ -15409,8 +15409,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-high",
       "rawName": "Inkling Small (High)"
     },
     "normalizedScore": 33.05555555555556,
@@ -15461,8 +15461,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-low",
       "rawName": "Inkling Small (Low)"
     },
     "normalizedScore": 4.861111111111112,
@@ -15513,8 +15513,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-medium",
       "rawName": "Inkling Small (Medium)"
     },
     "normalizedScore": 13.611111111111112,
@@ -15565,8 +15565,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-low",
       "rawName": "Inkling Small (Minimal)"
     },
     "normalizedScore": 4.027777777777778,
@@ -15617,8 +15617,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-non-reasoning",
       "rawName": "Inkling Small (None)"
     },
     "normalizedScore": 0,
@@ -15669,8 +15669,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-xhigh",
       "rawName": "Inkling Small (XHigh)"
     },
     "normalizedScore": 40.138888888888886,
@@ -16397,8 +16397,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-high",
       "rawName": "GLM-5.3-Flash (High)"
     },
     "normalizedScore": 50.138888888888886,
@@ -16449,8 +16449,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-low",
       "rawName": "GLM-5.3-Flash (Low)"
     },
     "normalizedScore": 27.916666666666668,
@@ -16501,8 +16501,8 @@
       "unit": "fraction"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM-5.3-Flash (Max)"
     },
     "normalizedScore": 65.83333333333333,

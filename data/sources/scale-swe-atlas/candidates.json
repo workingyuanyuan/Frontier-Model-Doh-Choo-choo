@@ -1720,8 +1720,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
       "rawName": "Mistral Large 4 (Mistral Vibe) high"
     },
     "normalizedScore": 45.19,
@@ -2004,8 +2004,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-max",
       "rawName": "Nemotron 3.5 Super VL (mini-swe-agent) max"
     },
     "normalizedScore": 24.8,

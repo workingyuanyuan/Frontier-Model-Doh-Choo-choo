@@ -4748,8 +4748,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemma-4-31b",
+      "profileId": "google-gemma-4-31b-max",
       "rawName": "Gemma 4 31B (Max)"
     },
     "normalizedScore": 1.7,

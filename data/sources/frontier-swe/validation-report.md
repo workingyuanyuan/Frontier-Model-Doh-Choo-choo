@@ -5,7 +5,7 @@
 - Complete mean@5 configurations: 27; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.
-- Unresolved catalog names: DeepSeek V4 Flash Vision Exp, GLM-5.3 Flash, GLM-5.3, Qwen3.8-Max-0902.
+- Unresolved catalog names: DeepSeek V4 Flash Vision Exp, GLM-5.3, Qwen3.8-Max-0902.
 
 The embedded entries.abs.mean array supplies all configurations, including models hidden by the default Best filter. Scores are already percentages (0–100). Raw effort remains null because the source does not publish it. Harness and five trials are retained as provenance. The benchmark mapping limits these results to manual profile comparisons.
 
@@ -31,6 +31,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Gemini 4 Carbon | `frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | Gemini 4 Hydrogen | `frontier-swe:frontier-swe-v2:gemini-4-hydrogen-proximus` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
 | Gemini 4 Neon | `frontier-swe:frontier-swe-v2:gemini-4-neon-proximus` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-neon-high |
+| GLM-5.3 Flash | `frontier-swe:frontier-swe-v2:glm-5-3-flash-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
 | GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1 |
 | GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-max:1-1 |
 | Grok 4.6 | `frontier-swe:frontier-swe-v2:grok-4-6-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |

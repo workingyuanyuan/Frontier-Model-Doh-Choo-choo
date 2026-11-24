@@ -565,9 +565,9 @@
       "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
       "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "multiple harnesses publish this profile; not reviewed",
     "id": "agents-last-exam:agents-last-exam:claude-code-minimax-m3-1-flash-reasoning-max:1-1",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "average-score",
@@ -575,8 +575,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax-m3-1-flash"
     },
     "normalizedScore": 57.9203281572014,
@@ -2053,9 +2053,9 @@
       "sha256:eb256326e54beca1d90341cacc6d00927cb239dd06b00c67064545ae319d11b0",
       "sha256:afc1b4913dbbebee70a514ab2c5c80e9ec5ccb1764e033a38e0f4f6f4b84fa11"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "multiple harnesses publish this profile; not reviewed",
     "id": "agents-last-exam:agents-last-exam:codex-minimax-m3-1-flash-reasoning-max:1-1",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "average-score",
@@ -2063,8 +2063,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
       "rawName": "minimax-m3-1-flash"
     },
     "normalizedScore": 58.9412130288703,

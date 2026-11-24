@@ -4,7 +4,7 @@
 - Evidence: `sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80`
 - Main leaderboard: 25 rows; rendered browser count: 25.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
+- Unresolved catalog identities (2): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning).
 
 Scores are the main leaderboard Pass@1 percentages (0–100) at a 95% rubric threshold. Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.
 

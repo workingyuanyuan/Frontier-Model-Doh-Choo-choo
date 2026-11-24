@@ -358,8 +358,8 @@
     "metricId": "mean-attempt-cost-usd",
     "metricName": "Mean MaxxBench evaluation attempt cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM-5.3 Flash"
     },
     "observedAt": "2026-11-23T13:31:39.686Z",
@@ -799,8 +799,8 @@
     "metricId": "mean-attempt-cost-usd",
     "metricName": "Mean MaxxBench evaluation attempt cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "alibaba-qwen3-8-flash-next",
+      "profileId": "alibaba-qwen3-8-flash-next-xhigh",
       "rawName": "Qwen3.8 Flash Next"
     },
     "observedAt": "2026-11-23T13:31:39.686Z",

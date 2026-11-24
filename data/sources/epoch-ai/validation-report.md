@@ -13,7 +13,7 @@
 | External-source mirrors (`_external`) | 67 |
 | Epoch Capabilities Index rows | 258 |
 | CandidateResults | 1915 |
-| Rows without a canonical identity | 1097 |
+| Rows without a canonical identity | 1052 |
 
 ## CandidateResults per benchmark
 
@@ -167,6 +167,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Gemini 3 Pro Preview | `epoch-ai:frontiermath:google-gemini-3-pro-preview-default-epoch-inspect-row-44` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:gpqa-diamond:google-gemini-3-pro-preview-default-epoch-inspect-row-212` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
 | Gemini 3 Pro Preview | `epoch-ai:swe-bench:google-gemini-3-pro-preview-default-epoch-inspect-row-22` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
+| Gemini 3.1 Flash-Lite | `epoch-ai:epoch-capabilities-index:google-gemini-3-1-flash-lite-default-epoch-inspect-row-97` | — | `high` | vals-ai | vals-ai:code-migration:google-gemini-3-1-flash-lite-preview |
 | Gemini 3.1 Pro Preview | `epoch-ai:aime:google-gemini-3-1-pro-preview-default-epoch-inspect-row-200` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `epoch-ai:frontiermath-tier-4-v2:google-gemini-3-1-pro-preview-default-epoch-inspect-row-69:tier-4-v2` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `epoch-ai:frontiermath-tier-4:google-gemini-3-1-pro-preview-default-epoch-inspect-row-21:tier-4` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
@@ -182,6 +183,8 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Gemini 4 Argon | `epoch-ai:epoch-capabilities-index:google-gemini-4-argon-default-epoch-inspect-row-11` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
 | Gemini 4 Carbon | `epoch-ai:epoch-capabilities-index:google-gemini-4-carbon-default-epoch-inspect-row-3` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | Gemini 4 Hydrogen | `epoch-ai:epoch-capabilities-index:google-gemini-4-hydrogen-default-epoch-inspect-row-9` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
+| Gemma 4 31B IT | `epoch-ai:epoch-capabilities-index:google-gemma-4-31b-default-epoch-inspect-row-102` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:gemma-4-31b |
+| Gemma 4 31B IT | `epoch-ai:simpleqa-verified:google-gemma-4-31b-default-epoch-inspect-row-65` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:gemma-4-31b |
 | GLM-5.1 | `epoch-ai:aime:zai-glm-5-1-default-epoch-inspect-row-93` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:chess-puzzles:zai-glm-5-1-default-epoch-inspect-row-26` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:epoch-capabilities-index:zai-glm-5-1-default-epoch-inspect-row-70` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -192,6 +195,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | GLM-5.1 | `epoch-ai:simpleqa-verified:zai-glm-5-1-default-epoch-inspect-row-45` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.1 | `epoch-ai:swe-bench:zai-glm-5-1-default-epoch-inspect-row-6` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | GLM-5.2 | `epoch-ai:epoch-capabilities-index:zai-glm-5-2-default-epoch-inspect-row-56` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| GLM-5.3-Flash | `epoch-ai:epoch-capabilities-index:zai-glm-5-3-flash-default-epoch-inspect-row-54` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
 | GPT-5.2 | `epoch-ai:epoch-capabilities-index:openai-gpt-5-2-default-epoch-inspect-row-52` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.2 Pro | `epoch-ai:epoch-capabilities-index:openai-gpt-5-2-pro-xhigh-epoch-inspect-row-33` | — | `high` | arc-prize | arc-prize:arc-agi-2:gpt-5-2-pro-2025-12-11-high:arc-agi-2-v2-semi-private |
 | GPT-5.2 Pro (web) | `epoch-ai:frontiermath-tier-4:openai-gpt-5-2-pro-default-epoch-inspect-row-29:tier-4` | — | `high` | arc-prize | arc-prize:arc-agi-2:gpt-5-2-pro-2025-12-11-high:arc-agi-2-v2-semi-private |
@@ -215,6 +219,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Grok 4.6 | `epoch-ai:epoch-capabilities-index:xai-grok-4-6-default-epoch-inspect-row-30` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `epoch-ai:epoch-capabilities-index:xai-grok-4-7-default-epoch-inspect-row-39` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling | `epoch-ai:epoch-capabilities-index:thinking-machines-inkling-default-epoch-inspect-row-78` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| Inkling-Small | `epoch-ai:epoch-capabilities-index:thinking-machines-inkling-small-default-epoch-inspect-row-69` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | Kimi K2.7 Code | `epoch-ai:aime:moonshot-kimi-k2-7-code-default-epoch-inspect-row-107` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:chess-puzzles:moonshot-kimi-k2-7-code-default-epoch-inspect-row-33` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k2-7-code-default-epoch-inspect-row-66` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
@@ -229,6 +234,8 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | MiniMax-M3 | `epoch-ai:epoch-capabilities-index:minimax-minimax-m3-default-epoch-inspect-row-81` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | MiniMax-M3 | `epoch-ai:gpqa-diamond:minimax-minimax-m3-default-epoch-inspect-row-83` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | MiniMax-M3 | `epoch-ai:mystery-game-puzzles:minimax-minimax-m3-default-epoch-inspect-row-47` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
+| Mistral Large 4 | `epoch-ai:epoch-capabilities-index:mistral-mistral-large-4-default-epoch-inspect-row-50` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:mistral-large-4 |
+| Mistral Medium 3.5 | `epoch-ai:epoch-capabilities-index:mistral-mistral-medium-3-5-default-epoch-inspect-row-115` | — | `high` | vals-ai | vals-ai:code-migration:mistralai-mistral-medium-3-5 |
 | Muse Spark 1.1 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-1-default-epoch-inspect-row-49` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.1 | `epoch-ai:simpleqa-verified:meta-muse-spark-1-1-default-epoch-inspect-row-37` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.2 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-2-default-epoch-inspect-row-47` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
@@ -258,6 +265,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Kimi K2.6 | `epoch-ai:mystery-game-puzzles:moonshot-kimi-k2-6-default-epoch-inspect-row-150` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-6-default-epoch-inspect-row-103` | — | `default` | — | — |
 | Kimi K2.6 | `epoch-ai:swe-bench:moonshot-kimi-k2-6-default-epoch-inspect-row-8` | — | `default` | — | — |
+| Mistral Large 4 Preview | `epoch-ai:epoch-capabilities-index:mistral-mistral-large-4-preview-default-epoch-inspect-row-59` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:aime:meta-muse-spark-default-epoch-inspect-row-197` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:epoch-capabilities-index:meta-muse-spark-default-epoch-inspect-row-55` | — | `default` | — | — |
 | Muse Spark | `epoch-ai:frontiermath-tier-4:meta-muse-spark-default-epoch-inspect-row-17:tier-4` | — | `default` | — | — |

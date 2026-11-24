@@ -1436,8 +1436,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-1-flash-lite",
+      "profileId": "google-gemini-3-1-flash-lite-default",
       "rawName": "google/gemini-3.1-flash-lite"
     },
     "normalizedScore": 22.5,
@@ -2856,8 +2856,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "meta-muse-glimmer",
+      "profileId": "meta-muse-glimmer-default",
       "rawName": "meta/muse-glimmer-30b"
     },
     "normalizedScore": 32.37,
@@ -3495,8 +3495,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-default",
       "rawName": "minimax/minimax-m3.1-flash"
     },
     "normalizedScore": 51.56,
@@ -3566,8 +3566,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-default",
       "rawName": "mistral/mistral-large-4-0"
     },
     "normalizedScore": 35.24,
@@ -3992,8 +3992,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "nvidia-nemotron-3-5-super-vl",
+      "profileId": "nvidia-nemotron-3-5-super-vl-default",
       "rawName": "nvidia/nemotron-3.5-super-vl"
     },
     "normalizedScore": 26.1,
@@ -7258,8 +7258,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
+      "profileId": "xiaomi-mimo-v2-6-flash-default",
       "rawName": "xiaomi/mimo-v2.6-flash"
     },
     "normalizedScore": 61.74,
@@ -7755,8 +7755,8 @@
       "unit": "gscore points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-default",
       "rawName": "z.ai/glm-5.3-flash"
     },
     "normalizedScore": 48.82,

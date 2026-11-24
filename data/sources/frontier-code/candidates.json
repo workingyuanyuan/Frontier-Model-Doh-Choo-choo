@@ -3535,8 +3535,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM 5.3 Flash"
     },
     "normalizedScore": 31.830000000000002,
@@ -10229,8 +10229,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-high",
       "rawName": "GLM 5.3 Flash"
     },
     "normalizedScore": 12.86,
@@ -10281,8 +10281,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-low",
       "rawName": "GLM 5.3 Flash"
     },
     "normalizedScore": 8.01,
@@ -10333,8 +10333,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "zai-glm-5-3-flash",
+      "profileId": "zai-glm-5-3-flash-max",
       "rawName": "GLM 5.3 Flash"
     },
     "normalizedScore": 14.95,
@@ -13089,8 +13089,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-high",
       "rawName": "Inkling Small"
     },
     "normalizedScore": 1.78,
@@ -13141,8 +13141,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "thinking-machines-inkling-small",
+      "profileId": "thinking-machines-inkling-small-max",
       "rawName": "Inkling Small"
     },
     "normalizedScore": 3.9600000000000004,
@@ -13505,8 +13505,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-high",
       "rawName": "Mistral Large 4"
     },
     "normalizedScore": 19.650000000000002,
@@ -13557,8 +13557,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-low",
       "rawName": "Mistral Large 4"
     },
     "normalizedScore": 9.5,
@@ -13609,8 +13609,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "mistral-mistral-large-4",
+      "profileId": "mistral-mistral-large-4-medium",
       "rawName": "Mistral Large 4"
     },
     "normalizedScore": 8.780000000000001,
