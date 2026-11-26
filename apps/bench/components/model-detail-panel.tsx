@@ -111,6 +111,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'frontiermath-tier-4-v2': 'FrontierMath Tier 4 v2',
   'vibe-code-bench': 'Vibe Code Bench (v1.1)',
   'vibe-code-bench-v1-1-1': 'Vibe Code Bench v1.1.1',
+  'vibe-code-bench-1-100-v1-1': 'Vibe Code Bench 1-100 v1.1',
   'swe-bench': 'SWE-bench',
   'simpleqa-verified': 'SimpleQA Verified',
   'chess-puzzles': 'Chess Puzzles',

@@ -52,6 +52,12 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
     benchmarkId: 'vibe-code-bench-v1-1-1',
     role: 'ORGANIZER',
   },
+  // Approved 2026-11-26 (user): extends saved v1.1 builds through dependent
+  // requests. v1 (`vcb-1-100`, archived) stays unapproved evidence.
+  'vcb-1-100-v1-1': {
+    benchmarkId: 'vibe-code-bench-1-100-v1-1',
+    role: 'ORGANIZER',
+  },
   programbench: { benchmarkId: 'programbench', role: 'ORGANIZER' },
   ioi: { benchmarkId: 'ioi', role: 'INDEPENDENT' },
   'code-migration': { benchmarkId: 'code-migration', role: 'ORGANIZER' },
@@ -70,6 +76,26 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
   cyber: { benchmarkId: 'cyber', role: 'INDEPENDENT' },
   reverse_eng: { benchmarkId: 'reverse-eng', role: 'ORGANIZER' },
   a2j: { benchmarkId: 'a2j', role: 'ORGANIZER' },
+};
+
+/**
+ * Rows of approved pages kept as evidence only, because the published score is
+ * not the named model's own work. Each entry pins the reviewed score: if Vals
+ * republishes a different score, materialization fails until it is reviewed.
+ */
+export const EXCLUDED_VALS_ROWS: Readonly<
+  Record<
+    string,
+    Readonly<Record<string, { reviewedScore: number; reason: string }>>
+  >
+> = {
+  'vcb-1-100-v1-1': {
+    'anthropic/claude-opus-5-5': {
+      reviewedScore: 30.95,
+      reason:
+        'Vals reports that Claude Opus 4.8 or Claude Opus 5 served fallback requests in 12 of 50 tasks and that the published score includes this work, so it is not attributable to Claude Opus 5.5 alone (user decision 2026-11-26).',
+    },
+  },
 };
 
 // Finance Index averages Finance Agent, EMB and Tax Agent Bench; Legal Index
@@ -95,6 +121,8 @@ const REVIEWED_UNAPPROVED_IDS: Readonly<Record<string, string>> = {
   poker_agent: 'poker-agent',
   sage: 'sage',
   'terminal-bench-2': 'terminal-bench-2',
+  // VCB 1-100 v1, archived and superseded by the scored v1.1 (2026-11-26).
+  'vcb-1-100': 'vcb-1-100',
   vals_index: 'vals-index',
   vals_multimodal_index: 'vals-multimodal-index',
   time_horizon_index: 'time-horizon-index',
@@ -358,6 +386,7 @@ export function materializeVals(
   const costs: CostRecord[] = [];
   const unavailablePages: string[] = [];
   const unresolvedModels = new Set<string>();
+  const appliedRowExclusions: string[] = [];
   const pageCounts: Array<{ slug: string; rows: number; approved: boolean }> =
     [];
 
@@ -414,6 +443,13 @@ export function materializeVals(
       }
       const normalizedScore =
         rawScore >= 0 && rawScore <= 100 ? rawScore : null;
+      const rowExclusion = EXCLUDED_VALS_ROWS[page.slug]?.[rawName];
+      if (rowExclusion && rowExclusion.reviewedScore !== rawScore) {
+        throw new Error(
+          `${page.slug}/${rawName} score changed from reviewed ${rowExclusion.reviewedScore} to ${rawScore}; review EXCLUDED_VALS_ROWS`,
+        );
+      }
+      if (rowExclusion) appliedRowExclusions.push(`${page.slug}/${rawName}`);
       const resolved = resolveCatalogModel(rawName);
       const canonicalModelId = resolved.canonicalModelId;
       const effort = decodeValsEffort(row);
@@ -458,8 +494,8 @@ export function materializeVals(
           rawScore,
           normalizedScore,
           acquisitionStatus: 'FULL',
-          inclusion: approved ? 'INCLUDED' : 'EXCLUDED',
-          exclusionReason,
+          inclusion: approved && !rowExclusion ? 'INCLUDED' : 'EXCLUDED',
+          exclusionReason: exclusionReason ?? rowExclusion?.reason ?? null,
           sourceUrl: page.sourceUrl,
           observedAt: context.observedAt,
           sourcePublishedAt,
@@ -622,6 +658,15 @@ export function materializeVals(
     '',
     'All rows from these pages are retained as EXCLUDED CandidateResults. Composite indices remain excluded regardless of later mapping changes.',
     'Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently Agent Poker Bench ratings) retain the finite raw value but use `normalizedScore: null`; no capability percentage is invented.',
+    '',
+    '## Reviewed row exclusions',
+    '',
+    ...Object.entries(EXCLUDED_VALS_ROWS).flatMap(([slug, rows]) =>
+      Object.entries(rows).map(
+        ([rawName, { reviewedScore, reason }]) =>
+          `- \`${slug}\` / \`${rawName}\` (${reviewedScore}): ${appliedRowExclusions.includes(`${slug}/${rawName}`) ? 'EXCLUDED' : 'not on the page'}. ${reason}`,
+      ),
+    ),
     '',
     '## Newly discovered since the reviewed table',
     '',

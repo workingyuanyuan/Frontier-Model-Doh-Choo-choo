@@ -521,6 +521,11 @@
       "secondaryDimensions": ["agentic", "reasoning"]
     },
     {
+      "id": "vibe-code-bench-1-100-v1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
       "id": "mka",
       "primaryDimension": "comprehension",
       "secondaryDimensions": ["agentic", "knowledge", "reasoning"]

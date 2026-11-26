@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   APPROVED_VALS_BENCHMARKS,
+  EXCLUDED_VALS_ROWS,
   decodeHtmlEntities,
   decodeValsEffort,
   extractValsBenchmarkSlugs,
@@ -285,6 +286,53 @@ describe('Vals materialization policy', () => {
       result.candidates.length,
     );
     expect(result.newlyDiscoveredSlugs).toEqual([]);
+  });
+
+  it('keeps the fallback-assisted Claude Opus 5.5 row of VCB 1-100 v1.1 as evidence and fails when its score changes', () => {
+    const slug = 'vcb-1-100-v1-1';
+    const rawName = 'anthropic/claude-opus-5-5';
+    const pin = EXCLUDED_VALS_ROWS[slug]?.[rawName];
+    expect(pin).toBeDefined();
+    const { reviewedScore, reason } = pin!;
+    const page = (score: number) => ({
+      slug,
+      sourceUrl: `https://www.vals.ai/benchmarks/${slug}`,
+      evidenceId,
+      dataRoot: 'document' as const,
+      parsed: parseValsBenchmarkData({
+        metadata: { total_models: 2, version: '1' },
+        tasks: {
+          overall: {
+            [rawName]: { accuracy: score, compute_effort: 'max' },
+            'fixture/other-model': { accuracy: 40, reasoning_effort: 'high' },
+          },
+        },
+      }),
+    });
+    const context = {
+      observedAt: '2026-11-26T00:00:00.000Z',
+      indexEvidenceId: evidenceId,
+      discoveredSlugs: [slug],
+    };
+    const { candidates } = materializeVals([page(reviewedScore)], context);
+    const byName = new Map(candidates.map((row) => [row.model.rawName, row]));
+    expect(byName.get(rawName)).toMatchObject({
+      inclusion: 'EXCLUDED',
+      exclusionReason: reason,
+    });
+    expect(byName.get('fixture/other-model')).toMatchObject({
+      inclusion: 'INCLUDED',
+      exclusionReason: null,
+    });
+    for (const row of candidates) {
+      expect(row).toMatchObject({
+        benchmarkId: 'vibe-code-bench-1-100-v1-1',
+        sourceRole: 'ORGANIZER',
+      });
+    }
+    expect(() => materializeVals([page(reviewedScore + 1)], context)).toThrow(
+      'review EXCLUDED_VALS_ROWS',
+    );
   });
 
   it('decodes reasoning and compute effort but rejects 0.99', () => {

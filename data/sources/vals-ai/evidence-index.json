@@ -1203,7 +1203,7 @@
     "id": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
     "mediaType": "application/json",
     "metadata": {
-      "approvedForScoring": false,
+      "approvedForScoring": true,
       "benchmarkSlug": "vcb-1-100-v1-1",
       "benchmarkViewAvailable": true,
       "captureScope": "official BenchmarkViewLoader JSON",
@@ -2571,7 +2571,7 @@
     "id": "sha256:5d6a3df621f896ba5a63fccb65e76fb82cefe448e07ffc66443af04d3f4aacea",
     "mediaType": "text/html",
     "metadata": {
-      "approvedForScoring": false,
+      "approvedForScoring": true,
       "benchmarkSlug": "vcb-1-100-v1-1",
       "benchmarkViewAvailable": true,
       "captureScope": "official Vals BenchmarkView Astro island and visible methodology page"
