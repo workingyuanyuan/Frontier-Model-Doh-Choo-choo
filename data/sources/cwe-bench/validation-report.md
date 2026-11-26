@@ -1,10 +1,10 @@
 # CWE-bench v2 acquisition validation
 
 - Source: <https://cwe-bench.com/>
-- Evidence: `sha256:799d1d961b1c4d03397ac8eb45171bfc8ae14b250e5ba7f0fca8776c7acd8d80`
-- Results as of 2026-11-18; leaderboard rows: 20; rendered browser count: 20.
+- Evidence: `sha256:2ababb8339ba790219c56247d989c605501b56634300cd9f3b34ff562eec9475`
+- Results as of 2026-11-24; leaderboard rows: 22; rendered browser count: 22.
 - Each row's Combined Pass@1 attribute equals the displayed default column, and Pass@4 is never below Pass@1.
-- Unresolved catalog identities (3): GLM-5.3; Hy4 Preview; Qwen3.8-Max (0902).
+- Unresolved catalog identities (5): GLM-5.3; GPT-5.6 Cyber; Hy4 Preview; MiniMax-M3.1-Flash (max); Qwen3.8-Max (0902).
 
 Collinear AI organizes CWE-bench and runs every model itself, so rows are ORGANIZER results. Scores are the default Combined view: Pass@1 over all 250 tasks (100 public and 150 held-out), four rollouts per task. The Public (100) and Held-out (150) views are not materialized.
 

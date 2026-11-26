@@ -129,6 +129,15 @@
       "profilePricing": {}
     },
     {
+      "modelId": "cognition-swe-2-1",
+      "providerId": "cognition",
+      "displayName": "SWE-2.1",
+      "aliases": ["SWE-2.1"],
+      "releaseDate": "2026-11-24",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "ibm-granite-4-2-8b",
       "providerId": "ibm",
       "displayName": "Granite 4.2 8B",
@@ -1185,6 +1194,15 @@
       "displayName": "Ling 3.1 Flash 1019",
       "aliases": ["inclusionAI/Ling-3.1-flash-1019"],
       "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "inclusionai-ling-3-2-air",
+      "providerId": "inclusionai",
+      "displayName": "Ling-3.2-air",
+      "aliases": ["Ling-3.2-air", "inclusionAI/Ling-3.2-air"],
+      "releaseDate": "2026-11-23",
       "pricing": [],
       "profilePricing": {}
     },

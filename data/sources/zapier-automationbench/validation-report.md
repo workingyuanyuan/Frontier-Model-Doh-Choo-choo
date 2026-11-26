@@ -1,10 +1,10 @@
 # Zapier AutomationBench acquisition validation
 
 - Page: <https://zapier.com/benchmarks>
-- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CKqsGf_l.mjs>
-- Module evidence: `sha256:cbbf17ea7945a4d080a764c866fc57d87a823c4e15dd7ca9e3729a1b93e7bf1b`
-- Page evidence: `sha256:31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c`
-- Observed at: 2026-11-23T13:29:50.528Z
+- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/rn52rdZJHt2gbM6e3TQ2IZeI1ZzaI0JhYlYVcNYii8Y.Bkira_ya.mjs>
+- Module evidence: `sha256:74544d733b5bac187e31871927b125d7a6bf21928482e57b0949ab438d14de23`
+- Page evidence: `sha256:4f7a8325388237297e3f8862f0c0f285949aa3d0caa274a0b3020a96240049e3`
+- Observed at: 2026-11-26T06:56:11.944Z
 
 ## Exact counts
 

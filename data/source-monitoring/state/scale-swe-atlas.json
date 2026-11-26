@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-23T13:31:45.004Z",
+  "checkedAt": "2026-11-26T06:58:26.046Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,23 +8,28 @@
       {
         "id": "swe-atlas",
         "includedRetainedRows": 0,
-        "includedRows": 31,
+        "includedRows": 33,
         "metrics": ["overall-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-fable-5-2",
+          "anthropic-claude-haiku-5-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
+          "google-gemini-4-hydrogen",
+          "google-gemini-4-neon",
           "meta-muse-ember",
           "meta-muse-spark-open",
           "meta-muse-wonder",
           "minimax-minimax-m3",
+          "mistral-mistral-large-4",
           "moonshot-kimi-k3",
           "moonshot-kimi-k3-1-pro",
+          "nvidia-nemotron-3-5-super-vl",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
@@ -55,6 +60,8 @@
           "[\"Gemini 3.8 Flash (Antigravity CLI) high\",\"high\",null,\"Antigravity CLI\",null,null,null,null]",
           "[\"Gemini 4 Argon (Antigravity CLI) high\",\"high\",null,\"Antigravity CLI\",null,null,null,null]",
           "[\"Gemini 4 Carbon (Antigravity CLI) high\",\"high\",null,\"Antigravity CLI\",null,null,null,null]",
+          "[\"Gemini 4 Hydrogen (Antigravity CLI) xhigh\",\"xhigh\",null,\"Antigravity CLI\",null,null,null,null]",
+          "[\"Gemini 4 Neon (Antigravity CLI) xhigh\",\"xhigh\",null,\"Antigravity CLI\",null,null,null,null]",
           "[\"Grok 4.7 (Grok Build) xhigh\",\"xhigh\",null,\"Grok Build\",null,null,null,null]",
           "[\"Inkling 2 Small (mini-swe-agent) xhigh\",\"xhigh\",null,\"mini-swe-agent\",null,null,null,null]",
           "[\"Kimi K3 (Kimi Code CLI) max\",\"max\",null,\"Kimi Code CLI\",null,null,null,null]",
@@ -88,6 +95,8 @@
           "Gemini 3.8 Flash (Antigravity CLI) high",
           "Gemini 4 Argon (Antigravity CLI) high",
           "Gemini 4 Carbon (Antigravity CLI) high",
+          "Gemini 4 Hydrogen (Antigravity CLI) xhigh",
+          "Gemini 4 Neon (Antigravity CLI) xhigh",
           "Grok 4.7 (Grok Build) xhigh",
           "Inkling 2 Small (mini-swe-agent) xhigh",
           "Kimi K3 (Kimi Code CLI) max",
@@ -102,12 +111,12 @@
           "Qwen 3.8 Max (mini-swe-agent) max",
           "gpt-oss-120b (mini-swe-agent) high"
         ],
-        "rows": 31,
+        "rows": 33,
         "sourceUrls": ["https://scale.com/leaderboard/swe-atlas"],
         "versions": ["v1.1"]
       }
     ],
-    "observedAt": "2026-11-23T13:31:43.811Z",
+    "observedAt": "2026-11-26T06:58:25.294Z",
     "sourceId": "scale-swe-atlas"
   }
 }

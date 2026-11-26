@@ -14,7 +14,7 @@
     ".lead-hero-title h1 .v2-chip": "benchmarkVersion",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-23T13:31:51.013Z",
+  "lastVerifiedAt": "2026-11-26T06:58:31.742Z",
   "notes": [
     "Main leaderboard all-criteria task pass@1 percentages; professional instruction following.",
     "The official harness defines all_pass/mean as the leaderboard task pass rate; mean_criteria/mean is separate.",

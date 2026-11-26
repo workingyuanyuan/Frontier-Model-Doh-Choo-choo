@@ -1,66 +1,66 @@
 [
   {
-    "artifactPath": "artifacts/sha256/63/63c89c774d8278f51fbf363eb23ab01db8c1dc0acd7c4fea731a85826938fb54.html",
-    "byteLength": 420104,
+    "artifactPath": "artifacts/sha256/7d/7d3790614f0bbd1980cfd1131434ad47463cf4240cf61985244e249305968fe2.html",
+    "byteLength": 419962,
     "finalUrl": "https://www.anthropic.com/claude-opus-5-5",
-    "id": "sha256:63c89c774d8278f51fbf363eb23ab01db8c1dc0acd7c4fea731a85826938fb54",
+    "id": "sha256:7d3790614f0bbd1980cfd1131434ad47463cf4240cf61985244e249305968fe2",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-opus-5-5",
-    "retrievedAt": "2026-11-23T13:32:37.231Z",
+    "retrievedAt": "2026-11-26T06:58:48.114Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:63c89c774d8278f51fbf363eb23ab01db8c1dc0acd7c4fea731a85826938fb54",
+    "sha256": "sha256:7d3790614f0bbd1980cfd1131434ad47463cf4240cf61985244e249305968fe2",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/f1/f19837b5ee4c82a112698c0ae372a2a98e9411d62176f1d8824339ddfe37ba35.html",
-    "byteLength": 282903,
+    "artifactPath": "artifacts/sha256/ee/ee6259eb5093b13f8c94f2b051f40be1bc9e2e5100bdd744537e34f084de2818.html",
+    "byteLength": 282761,
     "finalUrl": "https://www.anthropic.com/claude-sonnet-5-5",
-    "id": "sha256:f19837b5ee4c82a112698c0ae372a2a98e9411d62176f1d8824339ddfe37ba35",
+    "id": "sha256:ee6259eb5093b13f8c94f2b051f40be1bc9e2e5100bdd744537e34f084de2818",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-sonnet-5-5",
-    "retrievedAt": "2026-11-23T13:32:37.231Z",
+    "retrievedAt": "2026-11-26T06:58:48.114Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f19837b5ee4c82a112698c0ae372a2a98e9411d62176f1d8824339ddfe37ba35",
+    "sha256": "sha256:ee6259eb5093b13f8c94f2b051f40be1bc9e2e5100bdd744537e34f084de2818",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/b6/b62ba8dcdaf9bd0af970976f54321118b15d94661f0e58b6d3ab1751c554fbb8.html",
-    "byteLength": 346235,
+    "artifactPath": "artifacts/sha256/6c/6c7644998844bd1e0ef3237c0c93ce2966c9a84856693ef7f9582e94e8623b54.html",
+    "byteLength": 346093,
     "finalUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-    "id": "sha256:b62ba8dcdaf9bd0af970976f54321118b15d94661f0e58b6d3ab1751c554fbb8",
+    "id": "sha256:6c7644998844bd1e0ef3237c0c93ce2966c9a84856693ef7f9582e94e8623b54",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-    "retrievedAt": "2026-11-23T13:32:37.231Z",
+    "retrievedAt": "2026-11-26T06:58:48.114Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b62ba8dcdaf9bd0af970976f54321118b15d94661f0e58b6d3ab1751c554fbb8",
+    "sha256": "sha256:6c7644998844bd1e0ef3237c0c93ce2966c9a84856693ef7f9582e94e8623b54",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/42/4241a4bcf508ab547c2dc970a77df1954c6b3884a51f82e8eabf35ac222a103a.html",
-    "byteLength": 240783,
+    "artifactPath": "artifacts/sha256/98/98158ab02ad1da4180025cf7bbd07d119860a3ede2f7d363feb3e36923b6570a.html",
+    "byteLength": 240641,
     "finalUrl": "https://www.anthropic.com/news/claude-opus-5",
-    "id": "sha256:4241a4bcf508ab547c2dc970a77df1954c6b3884a51f82e8eabf35ac222a103a",
+    "id": "sha256:98158ab02ad1da4180025cf7bbd07d119860a3ede2f7d363feb3e36923b6570a",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/news/claude-opus-5",
-    "retrievedAt": "2026-11-23T13:32:37.231Z",
+    "retrievedAt": "2026-11-26T06:58:48.114Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:4241a4bcf508ab547c2dc970a77df1954c6b3884a51f82e8eabf35ac222a103a",
+    "sha256": "sha256:98158ab02ad1da4180025cf7bbd07d119860a3ede2f7d363feb3e36923b6570a",
     "sourceId": "anthropic-releases"
   },
   {

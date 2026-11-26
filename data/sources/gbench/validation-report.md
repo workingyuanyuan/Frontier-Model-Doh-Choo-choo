@@ -1,8 +1,8 @@
 # GBENCH acquisition validation
 
 - Source https://gertlabs.com/rankings?mode=agentic_coding; data https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500
-- Observed 2026-11-23T13:32:18.521Z
-- Evidence `sha256:81a74727cbc765ae79175cd974ccf4c86d1109293b1527b0409e3c13086abeda`
+- Observed 2026-11-26T06:59:01.540Z
+- Evidence `sha256:60b8c98c3d2999b3b3682aa5e694ca5146963e7e2c54d209e0d2d42bf0bc7f1b`
 - Ranked rows 112; rendered Agentic Coding rows 100 (the page shows the first 100); non-model rows excluded 2 (custom/human, baseline/random); rows without a published score 0 (none); candidates 110; resolved identities 76.
 - Only the Agentic Coding GScore is scored, as `gbench-agentic-coding` (2026-11-21 user decision). The combined, one-shot and decision-making scores remain in the raw artifact.
 - GScore is published on 0–1 and multiplied by 100. It is a relative score: population-adjusted percentiles against the other ranked models, so earlier models move when models or games are added. GBENCH publishes no benchmark version, so `benchmarkVersion` is null.
@@ -150,7 +150,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | deepseek/deepseek-v4-pro-0813 | `gbench:gbench-agentic-coding:deepseek-deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4.1-flash-1017 | `gbench:gbench-agentic-coding:deepseek-deepseek-v4-1-flash-1017` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:openclaw-cli-deepseek-deepseek-v4-1-flash-1017-reasoning-max:1-1 |
 | google/gemini-3-pro-preview | `gbench:gbench-agentic-coding:google-gemini-3-pro-preview` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |
-| google/gemini-3.1-flash-lite | `gbench:gbench-agentic-coding:google-gemini-3-1-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-143 |
+| google/gemini-3.1-flash-lite | `gbench:gbench-agentic-coding:google-gemini-3-1-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-144 |
 | google/gemini-3.1-pro-preview | `gbench:gbench-agentic-coding:google-gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | google/gemini-3.5-flash | `gbench:gbench-agentic-coding:google-gemini-3-5-flash` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-high:arc-agi-2-v2-semi-private |
 | google/gemini-3.5-flash-lite | `gbench:gbench-agentic-coding:google-gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
@@ -160,7 +160,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | google/gemini-4-argon | `gbench:gbench-agentic-coding:google-gemini-4-argon` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
 | google/gemini-4-carbon | `gbench:gbench-agentic-coding:google-gemini-4-carbon` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | google/gemini-4-hydrogen | `gbench:gbench-agentic-coding:google-gemini-4-hydrogen` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
-| google/gemini-4-neon | `gbench:gbench-agentic-coding:google-gemini-4-neon` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-neon-high |
+| google/gemini-4-neon | `gbench:gbench-agentic-coding:google-gemini-4-neon` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-neon-high:arc-agi-2-v2-semi-private |
 | meta/muse-ember | `gbench:gbench-agentic-coding:meta-muse-ember` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-ember |
 | meta/muse-glimmer-30b | `gbench:gbench-agentic-coding:meta-muse-glimmer-30b` | — | `xhigh` | surge-chartography | surge-chartography:chartography:muse-glimmer-30b-xhigh-reasoning |
 | meta/muse-spark-1.1 | `gbench:gbench-agentic-coding:meta-muse-spark-1-1` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
@@ -173,7 +173,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | mistral/mistral-large-4-0 | `gbench:gbench-agentic-coding:mistral-mistral-large-4-0` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:mistral-large-4 |
 | moonshot/kimi-k2.7-code | `gbench:gbench-agentic-coding:moonshot-kimi-k2-7-code` | — | `max` | surge-chartography | surge-chartography:chartography:kimi-k2-7-code-max-reasoning |
 | moonshot/kimi-k3 | `gbench:gbench-agentic-coding:moonshot-kimi-k3` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
-| moonshot/kimi-k3.1-pro | `gbench:gbench-agentic-coding:moonshot-kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-5 |
+| moonshot/kimi-k3.1-pro | `gbench:gbench-agentic-coding:moonshot-kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-6 |
 | nvidia/nemotron-3.5-super-vl | `gbench:gbench-agentic-coding:nvidia-nemotron-3-5-super-vl` | — | `high` | arc-prize | arc-prize:arc-agi-2:nvidia-nemotron-3-5-super-vl-120b-a12b-high:arc-agi-2-v2-semi-private |
 | openai/gpt-5.2-codex | `gbench:gbench-agentic-coding:openai-gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | openai/gpt-5.3-codex | `gbench:gbench-agentic-coding:openai-gpt-5-3-codex` | — | `xhigh` | vals-ai | vals-ai:ioi:openai-gpt-5-3-codex |
@@ -191,7 +191,7 @@ This tagged section is generated deterministically for `gbench`. Raw `profile.ef
 | openai/gpt-6.2-sol | `gbench:gbench-agentic-coding:openai-gpt-6-2-sol` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-2-sol-reasoning-max:1-1 |
 | qwen/qwen3.8-27b | `gbench:gbench-agentic-coding:qwen-qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen/qwen3.8-max | `gbench:gbench-agentic-coding:qwen-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| qwen/qwen4-max | `gbench:gbench-agentic-coding:qwen-qwen4-max` | — | `xhigh` | livebench | livebench-2026-11-06:livebench-browser:qwen4-max |
+| qwen/qwen4-max | `gbench:gbench-agentic-coding:qwen-qwen4-max` | — | `xhigh` | epoch-ai | epoch-ai:aime:alibaba-qwen4-max-xhigh-epoch-inspect-row-1 |
 | thinkingmachines/inkling | `gbench:gbench-agentic-coding:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling-2-small | `gbench:gbench-agentic-coding:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | x.ai/grok-4.3 | `gbench:gbench-agentic-coding:x-ai-grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |

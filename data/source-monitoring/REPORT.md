@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## agents-last-exam
 
-- Checked: 2026-11-23T13:29:54.794Z
-- Stored score snapshot: 2026-11-23T13:29:53.738Z
+- Checked: 2026-11-26T06:56:17.376Z
+- Stored score snapshot: 2026-11-26T06:56:16.442Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-23T13:32:40.747Z
-- Stored score snapshot: 2026-11-23T13:32:37.231Z
+- Checked: 2026-11-26T06:58:50.664Z
+- Stored score snapshot: 2026-11-26T06:58:48.114Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,8 +24,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-23T13:29:49.003Z
-- Stored score snapshot: 2026-11-23T13:29:46.761Z
+- Checked: 2026-11-26T06:56:10.555Z
+- Stored score snapshot: 2026-11-26T06:56:08.272Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -34,30 +34,69 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-23T13:31:28.735Z
-- Stored score snapshot: 2026-11-23T13:30:43.875Z
+- Checked: 2026-11-26T06:58:14.930Z
+- Stored score snapshot: 2026-11-26T06:57:21.023Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                           | Benchmark             | Detail                                                          |
-| --------------------------------- | --------------------- | --------------------------------------------------------------- |
-| unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                 |
-| unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
-| unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
-| unintegrated                      | aime-2025             | https://artificialanalysis.ai/evaluations/aime-2025             |
-| unintegrated                      | code2video-aa         | https://artificialanalysis.ai/evaluations/code2video-aa         |
-| unintegrated                      | enterprise-ops-gym-aa | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
-| unintegrated                      | frontiercode          | https://artificialanalysis.ai/evaluations/frontiercode          |
-| unintegrated                      | global-mmlu-lite      | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
-| unintegrated                      | harvey-lab-aa         | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
-| unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench           |
-| unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa            |
-| unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500              |
-| unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa               |
-| unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro              |
-| catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                         |
-| unintegrated                      | tau2-bench            | https://artificialanalysis.ai/evaluations/tau2-bench            |
-| unintegrated                      | terminalbench-hard    | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
-| unintegrated                      | vials-aa              | https://artificialanalysis.ai/evaluations/vials-aa              |
+| Finding                           | Benchmark                              | Detail                                                                                                                                                                                                                                                                                          |
+| --------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profiles-lost                     | aa-briefcase                           | 225 -\> 225; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,null\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                       |
+| models-lost                       | aa-lcr                                 | 87 -\> 86; missing 1: google-gemini-4-carbon                                                                                                                                                                                                                                                    |
+| profiles-lost                     | aa-lcr                                 | 260 -\> 258; missing 3: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Gemini 4 Carbon (High)","high","reasoning",null,null,null,null,null\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                          |
+| included-coverage-decreased       | aa-lcr                                 | 260 -\> 258 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | aa-omniscience                         | 306 -\> 308; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["GLM-5.3-Flash",null,null,null,null,null,null,null\]                                                                                                                                                |
+| versions-changed                  | artificial-analysis-intelligence-index | v5.0.1 -\> v5.0.2                                                                                                                                                                                                                                                                               |
+| models-lost                       | artificial-analysis-intelligence-index | 70 -\> 68; missing 2: ibm-granite-4-2-30b, ibm-granite-4-2-8b                                                                                                                                                                                                                                   |
+| profiles-lost                     | artificial-analysis-intelligence-index | 145 -\> 144; missing 3: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,null\], \["Granite 4.2 30B",null,"reasoning",null,null,null,null,null\], \["Granite 4.2 8B",null,"reasoning",null,null,null,null,null\]                                                                          |
+| profiles-lost                     | critpt                                 | 261 -\> 260; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                    |
+| included-coverage-decreased       | critpt                                 | 261 -\> 260 included rows                                                                                                                                                                                                                                                                       |
+| models-lost                       | critpt-v2                              | 56 -\> 55; missing 1: thinking-machines-inkling                                                                                                                                                                                                                                                 |
+| profiles-lost                     | critpt-v2                              | 71 -\> 71; missing 2: \["GLM-5.3-Flash",null,"reasoning","Artificial Analysis Stirrup",true,null,null,null\], \["Inkling (Xhigh)","xhigh","reasoning","Artificial Analysis Stirrup",true,null,null,null\]                                                                                       |
+| models-lost                       | frontier-code-2-0                      | 71 -\> 69; missing 2: ibm-granite-4-2-30b, ibm-granite-4-2-8b                                                                                                                                                                                                                                   |
+| profiles-lost                     | frontier-code-2-0                      | 146 -\> 145; missing 3: \["GLM-5.3-Flash",null,"reasoning","Artificial Analysis Stirrup",true,null,3,1000000\], \["Granite 4.2 30B",null,"reasoning","Artificial Analysis Stirrup",true,null,3,131072\], \["Granite 4.2 8B",null,"reasoning","Artificial Analysis Stirrup",true,null,3,131072\] |
+| included-coverage-decreased       | frontier-code-2-0                      | 146 -\> 145 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | gdp-pdf                                | 220 -\> 220; missing 2: \["GLM-5.3-Flash",null,"reasoning","Artificial Analysis GDP.pdf",null,null,5,1000000\], \["Qwen3 Coder Next",null,"reasoning","Artificial Analysis GDP.pdf",null,null,5,256000\]                                                                                        |
+| profiles-lost                     | gdpval-aa                              | 211 -\> 210; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                    |
+| included-coverage-decreased       | gdpval-aa                              | 211 -\> 210 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | gpqa-diamond                           | 185 -\> 184; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                    |
+| included-coverage-decreased       | gpqa-diamond                           | 185 -\> 184 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | hle-diamond                            | 166 -\> 166; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,false,null,1,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,false,null,1,256000\]                                                                                                                                        |
+| profiles-lost                     | humanitys-last-exam                    | 259 -\> 258; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                    |
+| included-coverage-decreased       | humanitys-last-exam                    | 259 -\> 258 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | ifbench                                | 113 -\> 112; missing 1: \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                                                                                      |
+| included-coverage-decreased       | ifbench                                | 113 -\> 112 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | mka                                    | 26 -\> 26; missing 1: \["GLM-5.3-Flash",null,"reasoning","Artificial Analysis Stirrup",true,null,1,null\]                                                                                                                                                                                       |
+| profiles-lost                     | scicode                                | 189 -\> 188; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,1000000\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                    |
+| included-coverage-decreased       | scicode                                | 189 -\> 188 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | tau3-banking                           | 128 -\> 127; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,null\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                       |
+| included-coverage-decreased       | tau3-banking                           | 128 -\> 127 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | terminal-bench-2-1                     | 136 -\> 135; missing 2: \["GLM-5.3-Flash",null,"reasoning",null,null,null,null,null\], \["Qwen3 Coder Next",null,"reasoning",null,null,null,null,256000\]                                                                                                                                       |
+| included-coverage-decreased       | terminal-bench-2-1                     | 136 -\> 135 included rows                                                                                                                                                                                                                                                                       |
+| profiles-lost                     | terminal-bench-4-0                     | 220 -\> 220; missing 2: \["GLM-5.3-Flash",null,"reasoning","mini-swe-agent",true,null,3,1000000\], \["Qwen3 Coder Next",null,"reasoning","mini-swe-agent",true,null,3,256000\]                                                                                                                  |
+| profiles-lost                     | terminal-bench-science                 | 156 -\> 157; missing 1: \["GLM-5.3-Flash",null,"reasoning","mini-swe-agent",true,null,3,1000000\]                                                                                                                                                                                               |
+| catalog-metadata-changed          | artificial-analysis-intelligence-index | Artificial Analysis Intelligence Index v5.0.1 \[v5.0.1\] -\> Artificial Analysis Intelligence Index v5.0.2 \[v5.0.2\]                                                                                                                                                                           |
+| catalog-added                     | frontierphysics                        | https://artificialanalysis.ai/evaluations/frontierphysics                                                                                                                                                                                                                                       |
+| catalog-added                     | terminalbench-4-1                      | https://artificialanalysis.ai/evaluations/terminalbench-4-1                                                                                                                                                                                                                                     |
+| unintegrated                      | aa-3d                                  | https://artificialanalysis.ai/evaluations/aa-3d                                                                                                                                                                                                                                                 |
+| unintegrated                      | aa-analyst-agent                       | https://artificialanalysis.ai/evaluations/aa-analyst-agent                                                                                                                                                                                                                                      |
+| unintegrated                      | aa-personalitybench                    | https://artificialanalysis.ai/evaluations/aa-personalitybench                                                                                                                                                                                                                                   |
+| unintegrated                      | aime-2025                              | https://artificialanalysis.ai/evaluations/aime-2025                                                                                                                                                                                                                                             |
+| unintegrated                      | code2video-aa                          | https://artificialanalysis.ai/evaluations/code2video-aa                                                                                                                                                                                                                                         |
+| unintegrated                      | enterprise-ops-gym-aa                  | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa                                                                                                                                                                                                                                 |
+| unintegrated                      | frontiercode                           | https://artificialanalysis.ai/evaluations/frontiercode                                                                                                                                                                                                                                          |
+| unintegrated                      | frontierphysics                        | https://artificialanalysis.ai/evaluations/frontierphysics                                                                                                                                                                                                                                       |
+| unintegrated                      | global-mmlu-lite                       | https://artificialanalysis.ai/evaluations/global-mmlu-lite                                                                                                                                                                                                                                      |
+| unintegrated                      | harvey-lab-aa                          | https://artificialanalysis.ai/evaluations/harvey-lab-aa                                                                                                                                                                                                                                         |
+| unintegrated                      | healthbench                            | https://artificialanalysis.ai/evaluations/healthbench                                                                                                                                                                                                                                           |
+| unintegrated                      | itbench-aa                             | https://artificialanalysis.ai/evaluations/itbench-aa                                                                                                                                                                                                                                            |
+| unintegrated                      | math-500                               | https://artificialanalysis.ai/evaluations/math-500                                                                                                                                                                                                                                              |
+| unintegrated                      | mlcr-aa                                | https://artificialanalysis.ai/evaluations/mlcr-aa                                                                                                                                                                                                                                               |
+| unintegrated                      | mmmu-pro                               | https://artificialanalysis.ai/evaluations/mmmu-pro                                                                                                                                                                                                                                              |
+| catalog-snapshot-version-mismatch | omniscience                            | Directory v1.1; stored scores (unknown)                                                                                                                                                                                                                                                         |
+| unintegrated                      | tau2-bench                             | https://artificialanalysis.ai/evaluations/tau2-bench                                                                                                                                                                                                                                            |
+| unintegrated                      | terminalbench-4-1                      | https://artificialanalysis.ai/evaluations/terminalbench-4-1                                                                                                                                                                                                                                     |
+| unintegrated                      | terminalbench-hard                     | https://artificialanalysis.ai/evaluations/terminalbench-hard                                                                                                                                                                                                                                    |
+| unintegrated                      | vials-aa                               | https://artificialanalysis.ai/evaluations/vials-aa                                                                                                                                                                                                                                              |
 
 | Source catalog entry                                                                                                              | Capture registered | Integration       | Benchmark ID                           | Review note                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -67,7 +106,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [AA-PersonalityBench](https://artificialanalysis.ai/evaluations/aa-personalitybench)                                              | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [AIME 2025](https://artificialanalysis.ai/evaluations/aime-2025)                                                                  | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [APEX-Agents-AA](https://artificialanalysis.ai/evaluations/apex-agents-aa)                                                        | yes                | scored            | apex-agents                            |                                                                                                                                                                                                                                                                                                      |
-| [Artificial Analysis Intelligence Index v5.0.1](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index) | yes                | reviewed-deferred | artificial-analysis-intelligence-index | Composite retained separately; excluded from capability scoring by existing policy.                                                                                                                                                                                                                  |
+| [Artificial Analysis Intelligence Index v5.0.2](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index) | yes                | reviewed-deferred | artificial-analysis-intelligence-index | Composite retained separately; excluded from capability scoring by existing policy.                                                                                                                                                                                                                  |
 | [AA-LCR v1.1](https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning)                               | yes                | scored            | aa-lcr                                 |                                                                                                                                                                                                                                                                                                      |
 | [AutomationBench-AA](https://artificialanalysis.ai/evaluations/automationbench-aa)                                                | yes                | reviewed-deferred | —                                      | 2026-10-29 user decision: not scored. AA's headline (automationBenchPartialScore) is the average share of objectives completed, while Zapier's organizer leaderboard (automationbench) scores strict task completion; the metrics differ.                                                            |
 | [Code2Video-AA](https://artificialanalysis.ai/evaluations/code2video-aa)                                                          | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
@@ -76,6 +115,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [EnterpriseOps-Gym-AA](https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa)                                           | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [FrontierCode 1.1](https://artificialanalysis.ai/evaluations/frontiercode)                                                        | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [FrontierCode-AA 2.0](https://artificialanalysis.ai/evaluations/frontiercode-2-0)                                                 | yes                | scored            | frontier-code-2-0                      | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -\> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile.                                                                                   |
+| [FrontierPhysics](https://artificialanalysis.ai/evaluations/frontierphysics)                                                      | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [GDP.pdf](https://artificialanalysis.ai/evaluations/gdp-pdf)                                                                      | yes                | scored            | gdp-pdf                                |                                                                                                                                                                                                                                                                                                      |
 | [GDPval-AA v2.1](https://artificialanalysis.ai/evaluations/gdpval-aa)                                                             | yes                | scored            | gdpval-aa                              |                                                                                                                                                                                                                                                                                                      |
 | [Global-MMLU-Lite](https://artificialanalysis.ai/evaluations/global-mmlu-lite)                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
@@ -99,6 +139,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [Terminal-Bench-Science 0.1](https://artificialanalysis.ai/evaluations/terminal-bench-science)                                    | yes                | scored            | terminal-bench-science                 | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field terminalBenchScience -\> terminal-bench-science (v0.1, mini-swe-agent, 3 repeats).                                                                                                                                    |
 | [Terminal-Bench 2.1](https://artificialanalysis.ai/evaluations/terminalbench-2-1)                                                 | yes                | scored            | terminal-bench-2-1                     |                                                                                                                                                                                                                                                                                                      |
 | [Terminal-Bench 4.0](https://artificialanalysis.ai/evaluations/terminalbench-4-0)                                                 | yes                | scored            | terminal-bench-4-0                     | 2026-10-29 user decision: Terminal-Bench 4.0 is scored. Field terminalBench40 -\> terminal-bench-4-0 (66 tasks, mini-swe-agent, pass@1 over 3 repeats), shared with Vals terminal-bench-4; separate from terminal-bench-2-1.                                                                         |
+| [Terminal-Bench 4.1](https://artificialanalysis.ai/evaluations/terminalbench-4-1)                                                 | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [Terminal-Bench Hard](https://artificialanalysis.ai/evaluations/terminalbench-hard)                                               | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [VIALS-AA](https://artificialanalysis.ai/evaluations/vials-aa)                                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 
@@ -114,8 +155,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## cwe-bench
 
-- Checked: 2026-11-23T13:32:11.842Z
-- Stored score snapshot: 2026-11-23T13:32:10.640Z
+- Checked: 2026-11-26T06:58:56.152Z
+- Stored score snapshot: 2026-11-26T06:58:55.273Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -124,8 +165,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-23T13:31:37.827Z
-- Stored score snapshot: 2026-11-23T13:31:37.265Z
+- Checked: 2026-11-26T06:58:21.142Z
+- Stored score snapshot: 2026-11-26T06:58:20.763Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -134,8 +175,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-23T13:29:44.929Z
-- Stored score snapshot: 2026-11-23T13:29:42.341Z
+- Checked: 2026-11-26T06:56:06.646Z
+- Stored score snapshot: 2026-11-26T06:56:04.585Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -144,18 +185,18 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-11-23T13:32:34.949Z
-- Stored score snapshot: 2026-11-23T13:32:34.443Z
+- Checked: 2026-11-26T06:58:27.736Z
+- Stored score snapshot: 2026-11-26T06:58:27.396Z
 - Scope: snapshot-only
 
-| Finding | Benchmark | Detail                                           |
-| ------- | --------- | ------------------------------------------------ |
-| None    | —         | No differences detected within the stated scope. |
+| Finding       | Benchmark         | Detail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profiles-lost | frontier-code-2-0 | 139 -\> 144; missing 139: \["Beam 1.0","high",null,"devin-cli",null,null,null,null\], \["Beam 1.0","low",null,"devin-cli",null,null,null,null\], \["Beam 1.0","max",null,"devin-cli",null,null,null,null\], \["Beam 1.0","medium",null,"devin-cli",null,null,null,null\], \["Beam 1.0","minimal",null,"devin-cli",null,null,null,null\], \["Beam 1.0","xhigh",null,"devin-cli",null,null,null,null\], \["Claude Fable 5.1","high",null,"claude-code",null,null,null,null\], \["Claude Fable 5.1","low",null,"claude-code",null,null,null,null\], \["Claude Fable 5.1","max",null,"claude-code",null,null,null,null\], \["Claude Fable 5.1","medium",null,"claude-code",null,null,null,null\], \["Claude Fable 5.1","xhigh",null,"claude-code",null,null,null,null\], \["Claude Fable 5.2","high",null,"claude-code",null,null,null,null\], \["Claude Fable 5.2","low",null,"claude-code",null,null,null,null\], \["Claude Fable 5.2","max",null,"claude-code",null,null,null,null\], \["Claude Fable 5.2","medium",null,"claude-code",null,null,null,null\], \["Claude Fable 5.2","xhigh",null,"claude-code",null,null,null,null\], \["Claude Haiku 5.5","high",null,"claude-code",null,null,null,null\], \["Claude Haiku 5.5","low",null,"claude-code",null,null,null,null\], \["Claude Haiku 5.5","max",null,"claude-code",null,null,null,null\], \["Claude Haiku 5.5","medium",null,"claude-code",null,null,null,null\], \["Claude Haiku 5.5","xhigh",null,"claude-code",null,null,null,null\], \["Claude Opus 4.8","high",null,"claude-code",null,null,null,null\], \["Claude Opus 4.8","low",null,"claude-code",null,null,null,null\], \["Claude Opus 4.8","max",null,"claude-code",null,null,null,null\], \["Claude Opus 4.8","medium",null,"claude-code",null,null,null,null\], \["Claude Opus 4.8","xhigh",null,"claude-code",null,null,null,null\], \["Claude Opus 5","high",null,"claude-code",null,null,null,null\], \["Claude Opus 5","low",null,"claude-code",null,null,null,null\], \["Claude Opus 5","max",null,"claude-code",null,null,null,null\], \["Claude Opus 5","medium",null,"claude-code",null,null,null,null\], \["Claude Opus 5","xhigh",null,"claude-code",null,null,null,null\], \["Claude Opus 5.5","high",null,"claude-code",null,null,null,null\], \["Claude Opus 5.5","low",null,"claude-code",null,null,null,null\], \["Claude Opus 5.5","max",null,"claude-code",null,null,null,null\], \["Claude Opus 5.5","medium",null,"claude-code",null,null,null,null\], \["Claude Opus 5.5","xhigh",null,"claude-code",null,null,null,null\], \["Claude Sonnet 5.5","high",null,"claude-code",null,null,null,null\], \["Claude Sonnet 5.5","low",null,"claude-code",null,null,null,null\], \["Claude Sonnet 5.5","max",null,"claude-code",null,null,null,null\], \["Claude Sonnet 5.5","medium",null,"claude-code",null,null,null,null\], \["Claude Sonnet 5.5","xhigh",null,"claude-code",null,null,null,null\], \["DeepSeek V4.1 Flash 1017","high",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash 1017","low",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash 1017","max",null,"devin-cli",null,null,null,null\], \["GLM 5.3 Flash","high",null,"devin-cli",null,null,null,null\], \["GLM 5.3 Flash","low",null,"devin-cli",null,null,null,null\], \["GLM 5.3 Flash","max",null,"devin-cli",null,null,null,null\], \["GLM 5.3","high",null,"devin-cli",null,null,null,null\], \["GLM 5.3","low",null,"devin-cli",null,null,null,null\], \["GLM 5.3","max",null,"devin-cli",null,null,null,null\], \["GPT-5.5","high",null,"codex",null,null,null,null\], \["GPT-5.5","low",null,"codex",null,null,null,null\], \["GPT-5.5","medium",null,"codex",null,null,null,null\], \["GPT-5.5","xhigh",null,"codex",null,null,null,null\], \["GPT-5.6 Sol","high",null,"codex",null,null,null,null\], \["GPT-5.6 Sol","low",null,"codex",null,null,null,null\], \["GPT-5.6 Sol","max",null,"codex",null,null,null,null\], \["GPT-5.6 Sol","medium",null,"codex",null,null,null,null\], \["GPT-5.6 Sol","xhigh",null,"codex",null,null,null,null\], \["GPT-6 Astra","high",null,"codex",null,null,null,null\], \["GPT-6 Astra","low",null,"codex",null,null,null,null\], \["GPT-6 Astra","max",null,"codex",null,null,null,null\], \["GPT-6 Astra","medium",null,"codex",null,null,null,null\], \["GPT-6 Astra","xhigh",null,"codex",null,null,null,null\], \["GPT-6 Luna","high",null,"codex",null,null,null,null\], \["GPT-6 Luna","low",null,"codex",null,null,null,null\], \["GPT-6 Luna","max",null,"codex",null,null,null,null\], \["GPT-6 Luna","medium",null,"codex",null,null,null,null\], \["GPT-6 Luna","xhigh",null,"codex",null,null,null,null\], \["GPT-6 Sol","high",null,"codex",null,null,null,null\], \["GPT-6 Sol","low",null,"codex",null,null,null,null\], \["GPT-6 Sol","max",null,"codex",null,null,null,null\], \["GPT-6 Sol","medium",null,"codex",null,null,null,null\], \["GPT-6 Sol","xhigh",null,"codex",null,null,null,null\], \["GPT-6.1 Sol","high",null,"codex",null,null,null,null\], \["GPT-6.1 Sol","low",null,"codex",null,null,null,null\], \["GPT-6.1 Sol","max",null,"codex",null,null,null,null\], \["GPT-6.1 Sol","medium",null,"codex",null,null,null,null\], \["GPT-6.1 Sol","xhigh",null,"codex",null,null,null,null\], \["GPT-6.2 Astra","high",null,"codex",null,null,null,null\], \["GPT-6.2 Astra","low",null,"codex",null,null,null,null\], \["GPT-6.2 Astra","max",null,"codex",null,null,null,null\], \["GPT-6.2 Astra","medium",null,"codex",null,null,null,null\], \["GPT-6.2 Astra","xhigh",null,"codex",null,null,null,null\], \["GPT-6.2 Sol","high",null,"codex",null,null,null,null\], \["GPT-6.2 Sol","low",null,"codex",null,null,null,null\], \["GPT-6.2 Sol","max",null,"codex",null,null,null,null\], \["GPT-6.2 Sol","medium",null,"codex",null,null,null,null\], \["GPT-6.2 Sol","xhigh",null,"codex",null,null,null,null\], \["Gemini 4 Argon","high",null,"devin-cli",null,null,null,null\], \["Gemini 4 Argon","low",null,"devin-cli",null,null,null,null\], \["Gemini 4 Argon","medium",null,"devin-cli",null,null,null,null\], \["Gemini 4 Carbon","high",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Carbon","low",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Carbon","medium",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Hydrogen","high",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Hydrogen","low",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Hydrogen","medium",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Hydrogen","xhigh",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Neon","high",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Neon","low",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Neon","medium",null,"antigravity-cli",null,null,null,null\], \["Gemini 4 Neon","xhigh",null,"antigravity-cli",null,null,null,null\], \["Grok 4.7","high",null,"grok-build",null,null,null,null\], \["Grok 4.7","low",null,"grok-build",null,null,null,null\], \["Grok 4.7","medium",null,"grok-build",null,null,null,null\], \["Grok 4.7","xhigh",null,"grok-build",null,null,null,null\], \["Inkling 2 Small","high",null,"devin-cli",null,null,null,null\], \["Inkling 2 Small","low",null,"devin-cli",null,null,null,null\], \["Inkling 2 Small","max",null,"devin-cli",null,null,null,null\], \["Inkling 2 Small","medium",null,"devin-cli",null,null,null,null\], \["Inkling 2 Small","non-reasoning",null,"devin-cli",null,null,null,null\], \["Inkling 2 Small","xhigh",null,"devin-cli",null,null,null,null\], \["Inkling Small","high",null,"devin-cli",null,null,null,null\], \["Inkling Small","max",null,"devin-cli",null,null,null,null\], \["Kimi K3","high",null,"devin-cli",null,null,null,null\], \["Kimi K3","low",null,"devin-cli",null,null,null,null\], \["Kimi K3","max",null,"devin-cli",null,null,null,null\], \["Kimi K3.1 Pro","high",null,"devin-cli",null,null,null,null\], \["Kimi K3.1 Pro","low",null,"devin-cli",null,null,null,null\], \["Kimi K3.1 Pro","max",null,"devin-cli",null,null,null,null\], \["Mistral Large 4","high",null,"vibe",null,null,null,null\], \["Mistral Large 4","low",null,"vibe",null,null,null,null\], \["Mistral Large 4","medium",null,"vibe",null,null,null,null\], \["Muse Spark Open","high",null,"devin-cli",null,null,null,null\], \["Muse Spark Open","low",null,"devin-cli",null,null,null,null\], \["Muse Spark Open","medium",null,"devin-cli",null,null,null,null\], \["Muse Spark Open","xhigh",null,"devin-cli",null,null,null,null\], \["Muse Wonder 1.0","high",null,"muse",null,null,null,null\], \["Muse Wonder 1.0","low",null,"muse",null,null,null,null\], \["Muse Wonder 1.0","medium",null,"muse",null,null,null,null\], \["Muse Wonder 1.0","xhigh",null,"muse",null,null,null,null\], \["SWE-1.6",null,null,"devin-cli-swe1",null,null,null,null\], \["SWE-1.7",null,null,"devin-cli-swe1",null,null,null,null\], \["SWE-2 Flash","low",null,"devin",null,null,null,null\], \["SWE-2 Flash","max",null,"devin",null,null,null,null\], \["SWE-2","high",null,"devin",null,null,null,null\], \["SWE-2","max",null,"devin",null,null,null,null\], \["SWE-2","medium",null,"devin",null,null,null,null\] |
 
 ## frontier-swe
 
-- Checked: 2026-11-23T13:29:40.796Z
-- Stored score snapshot: 2026-11-23T13:29:36.609Z
+- Checked: 2026-11-26T06:56:03.225Z
+- Stored score snapshot: 2026-11-26T06:55:59.963Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -164,8 +205,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## gbench
 
-- Checked: 2026-11-23T13:32:23.343Z
-- Stored score snapshot: 2026-11-23T13:32:18.521Z
+- Checked: 2026-11-26T06:59:04.576Z
+- Stored score snapshot: 2026-11-26T06:59:01.540Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -184,8 +225,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-23T13:31:35.216Z
-- Stored score snapshot: 2026-11-23T13:31:32.163Z
+- Checked: 2026-11-26T06:58:19.420Z
+- Stored score snapshot: 2026-11-26T06:58:17.260Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -194,8 +235,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## maxxbench
 
-- Checked: 2026-11-23T13:31:41.962Z
-- Stored score snapshot: 2026-11-23T13:31:39.686Z
+- Checked: 2026-11-26T06:58:24.087Z
+- Stored score snapshot: 2026-11-26T06:58:22.376Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -204,7 +245,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-23T13:32:40.747Z
+- Checked: 2026-11-26T06:58:50.664Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -214,8 +255,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## scale-swe-atlas
 
-- Checked: 2026-11-23T13:31:45.004Z
-- Stored score snapshot: 2026-11-23T13:31:43.811Z
+- Checked: 2026-11-26T06:58:26.046Z
+- Stored score snapshot: 2026-11-26T06:58:25.294Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -224,8 +265,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-23T13:31:48.978Z
-- Stored score snapshot: 2026-11-23T13:31:48.449Z
+- Checked: 2026-11-26T06:58:29.705Z
+- Stored score snapshot: 2026-11-26T06:58:29.354Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -252,8 +293,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-23T13:31:51.334Z
-- Stored score snapshot: 2026-11-23T13:31:51.013Z
+- Checked: 2026-11-26T06:58:32.167Z
+- Stored score snapshot: 2026-11-26T06:58:31.742Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -280,8 +321,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-23T13:31:53.588Z
-- Stored score snapshot: 2026-11-23T13:31:53.270Z
+- Checked: 2026-11-26T06:58:34.369Z
+- Stored score snapshot: 2026-11-26T06:58:33.999Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -308,8 +349,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-23T13:31:58.468Z
-- Stored score snapshot: 2026-11-23T13:31:58.115Z
+- Checked: 2026-11-26T06:58:39.116Z
+- Stored score snapshot: 2026-11-26T06:58:38.672Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -336,8 +377,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-23T13:32:00.814Z
-- Stored score snapshot: 2026-11-23T13:32:00.502Z
+- Checked: 2026-11-26T06:58:41.223Z
+- Stored score snapshot: 2026-11-26T06:58:40.949Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -364,8 +405,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-law
 
-- Checked: 2026-11-23T13:32:08.443Z
-- Stored score snapshot: 2026-11-23T13:32:08.030Z
+- Checked: 2026-11-26T06:58:53.416Z
+- Stored score snapshot: 2026-11-26T06:58:53.006Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -392,8 +433,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-23T13:32:03.286Z
-- Stored score snapshot: 2026-11-23T13:32:02.925Z
+- Checked: 2026-11-26T06:58:43.602Z
+- Stored score snapshot: 2026-11-26T06:58:43.255Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -420,8 +461,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-23T13:32:05.871Z
-- Stored score snapshot: 2026-11-23T13:32:05.484Z
+- Checked: 2026-11-26T06:58:45.864Z
+- Stored score snapshot: 2026-11-26T06:58:45.540Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -448,8 +489,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-23T13:31:55.987Z
-- Stored score snapshot: 2026-11-23T13:31:55.629Z
+- Checked: 2026-11-26T06:58:36.644Z
+- Stored score snapshot: 2026-11-26T06:58:36.338Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -476,8 +517,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## terminal-bench
 
-- Checked: 2026-11-23T13:32:16.489Z
-- Stored score snapshot: 2026-11-23T13:32:13.816Z
+- Checked: 2026-11-26T06:58:59.996Z
+- Stored score snapshot: 2026-11-26T06:58:57.715Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -486,48 +527,53 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-23T13:30:15.570Z
-- Stored score snapshot: 2026-11-23T13:29:57.329Z
+- Checked: 2026-11-26T06:56:34.001Z
+- Stored score snapshot: 2026-11-26T06:56:18.995Z
 - Scope: live-catalog-and-snapshot
 
-| Finding             | Benchmark                | Detail                                                  |
-| ------------------- | ------------------------ | ------------------------------------------------------- |
-| captured-not-scored | aime                     | https://www.vals.ai/benchmarks/aime                     |
-| captured-not-scored | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
-| captured-not-scored | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
-| captured-not-scored | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
-| captured-not-scored | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
-| captured-not-scored | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
-| unintegrated        | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
-| captured-not-scored | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
-| captured-not-scored | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
-| captured-not-scored | financial-coaching-bench | https://www.vals.ai/benchmarks/financial-coaching-bench |
-| captured-not-scored | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
-| captured-not-scored | immigration              | https://www.vals.ai/benchmarks/immigration              |
-| unintegrated        | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
-| captured-not-scored | math500                  | https://www.vals.ai/benchmarks/math500                  |
-| captured-not-scored | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
-| unintegrated        | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
-| captured-not-scored | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
-| captured-not-scored | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
-| captured-not-scored | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
-| captured-not-scored | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
-| captured-not-scored | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
-| captured-not-scored | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
-| captured-not-scored | rctbench                 | https://www.vals.ai/benchmarks/rctbench                 |
-| captured-not-scored | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
-| unintegrated        | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
-| captured-not-scored | sage                     | https://www.vals.ai/benchmarks/sage                     |
-| captured-not-scored | science_index            | https://www.vals.ai/benchmarks/science_index            |
-| captured-not-scored | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
-| captured-not-scored | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
-| captured-not-scored | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
-| captured-not-scored | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
-| captured-not-scored | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
-| unintegrated        | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
-| captured-not-scored | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
-| captured-not-scored | vcb-1-100-v1-1           | https://www.vals.ai/benchmarks/vcb-1-100-v1-1           |
-| captured-not-scored | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
+| Finding                | Benchmark                | Detail                                                  |
+| ---------------------- | ------------------------ | ------------------------------------------------------- |
+| benchmark-materialized | vibe-code-v1-1-1         | 51 rows; 0 included                                     |
+| catalog-added          | swarm_speed              | https://www.vals.ai/benchmarks/swarm_speed              |
+| catalog-added          | vibe-code-v1-1-1         | https://www.vals.ai/benchmarks/vibe-code-v1-1-1         |
+| captured-not-scored    | aime                     | https://www.vals.ai/benchmarks/aime                     |
+| captured-not-scored    | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
+| captured-not-scored    | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
+| captured-not-scored    | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
+| captured-not-scored    | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
+| captured-not-scored    | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
+| unintegrated           | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
+| captured-not-scored    | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
+| captured-not-scored    | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
+| captured-not-scored    | financial-coaching-bench | https://www.vals.ai/benchmarks/financial-coaching-bench |
+| captured-not-scored    | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
+| captured-not-scored    | immigration              | https://www.vals.ai/benchmarks/immigration              |
+| unintegrated           | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
+| captured-not-scored    | math500                  | https://www.vals.ai/benchmarks/math500                  |
+| captured-not-scored    | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
+| unintegrated           | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
+| captured-not-scored    | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
+| captured-not-scored    | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
+| captured-not-scored    | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
+| captured-not-scored    | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
+| captured-not-scored    | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
+| captured-not-scored    | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
+| captured-not-scored    | rctbench                 | https://www.vals.ai/benchmarks/rctbench                 |
+| captured-not-scored    | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
+| unintegrated           | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
+| captured-not-scored    | sage                     | https://www.vals.ai/benchmarks/sage                     |
+| captured-not-scored    | science_index            | https://www.vals.ai/benchmarks/science_index            |
+| captured-not-scored    | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
+| unintegrated           | swarm_speed              | https://www.vals.ai/benchmarks/swarm_speed              |
+| captured-not-scored    | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
+| captured-not-scored    | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
+| captured-not-scored    | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
+| captured-not-scored    | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
+| unintegrated           | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
+| captured-not-scored    | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
+| captured-not-scored    | vcb-1-100-v1-1           | https://www.vals.ai/benchmarks/vcb-1-100-v1-1           |
+| captured-not-scored    | vibe-code-v1-1-1         | https://www.vals.ai/benchmarks/vibe-code-v1-1-1         |
+| captured-not-scored    | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
 
 | Source catalog entry                                                                | Capture registered | Integration         | Benchmark ID             | Review note                                                                                                                    |
 | ----------------------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -581,6 +627,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [Vals Science Index](https://www.vals.ai/benchmarks/science_index)                  | yes                | captured-not-scored | science-index            |                                                                                                                                |
 | [SkillsBench](https://www.vals.ai/benchmarks/skillsbench)                           | yes                | scored              | skillsbench              |                                                                                                                                |
 | [SRE Bench](https://www.vals.ai/benchmarks/srebench)                                | yes                | captured-not-scored | srebench                 |                                                                                                                                |
+| [Vals Swarm Speed](https://www.vals.ai/benchmarks/swarm_speed)                      | yes                | unintegrated        | —                        |                                                                                                                                |
 | [SWE-bench Verified](https://www.vals.ai/benchmarks/swebench)                       | yes                | scored              | swe-bench                |                                                                                                                                |
 | [SWE-bench Multimodal](https://www.vals.ai/benchmarks/swebench-multimodal)          | yes                | captured-not-scored | swebench-multimodal      |                                                                                                                                |
 | [Tax Agent Bench](https://www.vals.ai/benchmarks/tax_agent_bench)                   | yes                | captured-not-scored | tax-agent-bench          |                                                                                                                                |
@@ -596,6 +643,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [Vibe Code Bench 1-100](https://www.vals.ai/benchmarks/vcb-1-100)                   | yes                | captured-not-scored | vcb-1-100                |                                                                                                                                |
 | [Vibe Code Bench 1-100 v1.1](https://www.vals.ai/benchmarks/vcb-1-100-v1-1)         | yes                | captured-not-scored | vcb-1-100-v1-1           |                                                                                                                                |
 | [Vibe Code Bench v1.1](https://www.vals.ai/benchmarks/vibe-code)                    | yes                | scored              | vibe-code-bench          |                                                                                                                                |
+| [Vibe Code Bench v1.1.1](https://www.vals.ai/benchmarks/vibe-code-v1-1-1)           | yes                | captured-not-scored | vibe-code-v1-1-1         |                                                                                                                                |
 | [VoiceCodeBench](https://www.vals.ai/benchmarks/voice-code-bench)                   | yes                | captured-not-scored | voice-code-bench         |                                                                                                                                |
 | [Vals Web Search Index](https://www.vals.ai/benchmarks/web_search)                  | yes                | reviewed-deferred   | web-search               | Composite retained separately; excluded from capability scoring by existing policy.                                            |
 
@@ -611,8 +659,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-23T13:29:51.821Z
-- Stored score snapshot: 2026-11-23T13:29:50.528Z
+- Checked: 2026-11-26T06:56:15.163Z
+- Stored score snapshot: 2026-11-26T06:56:11.944Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

@@ -1,8 +1,8 @@
 # FrontierSWE V2 acquisition validation
 
 - Source: <https://www.frontierswe.com/>
-- Evidence: `sha256:ac280dfb291672e560b69086b5ef6bbbd550dead84f251e6a617ba98027e92c0`
-- Complete mean@5 configurations: 27; coverage matrix identities matched.
+- Evidence: `sha256:ba7d17014d7a8a006b7c30324dc607e724f5c85fc16fd912eb797d5f0d4f2e00`
+- Complete mean@5 configurations: 28; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.
 - Unresolved catalog names: DeepSeek V4 Flash Vision Exp, GLM-5.3, Qwen3.8-Max-0902.
@@ -30,7 +30,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-argon-reasoning-high:1-1 |
 | Gemini 4 Carbon | `frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:ale-claw-gemini-4-carbon-reasoning-high:1-1 |
 | Gemini 4 Hydrogen | `frontier-swe:frontier-swe-v2:gemini-4-hydrogen-proximus` | — | `xhigh` | agents-last-exam | agents-last-exam:agents-last-exam:antigravity-cli-gemini-4-hydrogen-reasoning-xhigh:1-1 |
-| Gemini 4 Neon | `frontier-swe:frontier-swe-v2:gemini-4-neon-proximus` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-neon-high |
+| Gemini 4 Neon | `frontier-swe:frontier-swe-v2:gemini-4-neon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-neon-high:arc-agi-2-v2-semi-private |
 | GLM-5.3 Flash | `frontier-swe:frontier-swe-v2:glm-5-3-flash-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:zai-glm-5-3-flash-max:arc-agi-2-v2-semi-private |
 | GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-5-6-sol-reasoning-max:1-1 |
 | GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:codex-gpt-6-astra-reasoning-max:1-1 |
@@ -41,6 +41,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Kimi K3 | `frontier-swe:frontier-swe-v2:kimi-k3-proximus` | — | `max` | agents-last-exam | agents-last-exam:agents-last-exam:kimi-code-kimi-k3-reasoning-max:1-1 |
 | Muse Spark 1.2 | `frontier-swe:frontier-swe-v2:muse-spark-1-2-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | Muse Spark 1.3 | `frontier-swe:frontier-swe-v2:muse-spark-1-3-proximus` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-3 |
+| Muse Wonder | `frontier-swe:frontier-swe-v2:muse-wonder-proximus` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-wonder |
 | Qwen3.8-Max | `frontier-swe:frontier-swe-v2:qwen3-8-max-proximus` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 
 ### Unlabelled rows assigned the outside-the-ladder default
