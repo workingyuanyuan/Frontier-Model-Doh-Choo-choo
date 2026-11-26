@@ -197681,622 +197681,6 @@
   },
   {
     "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:anthropic-claude-opus-5-5",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-5-5",
-      "profileId": "anthropic-claude-opus-5-5-max",
-      "rawName": "anthropic/claude-opus-5-5"
-    },
-    "normalizedScore": 30.95,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 30.95,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:deepseek-deepseek-v4-1-flash-1017",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
-      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
-      "rawName": "deepseek/deepseek-v4.1-flash-1017"
-    },
-    "normalizedScore": 26.15,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 26.15,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:google-cobalt-c-high-1p00",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "google-gemini-4-neon",
-      "profileId": "google-gemini-4-neon-high",
-      "rawName": "google/cobalt-c-high-1p00"
-    },
-    "normalizedScore": 42.3,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 42.3,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:google-gemini-4-carbon",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "google-gemini-4-carbon",
-      "profileId": "google-gemini-4-carbon-high",
-      "rawName": "google/gemini-4-carbon"
-    },
-    "normalizedScore": 49.733,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/gemini-4-carbon\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/gemini-4-carbon\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 49.733,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:grok-grok-4-7",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "xai-grok-4-7",
-      "profileId": "xai-grok-4-7-xhigh",
-      "rawName": "grok/grok-4.7"
-    },
-    "normalizedScore": 26.35,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"grok/grok-4.7\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"grok/grok-4.7\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 26.35,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:minimax-minimax-m3-1-flash",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "minimax-minimax-m3-1-flash",
-      "profileId": "minimax-minimax-m3-1-flash-max",
-      "rawName": "minimax/MiniMax-M3.1-flash"
-    },
-    "normalizedScore": 19.833,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 19.833,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:openai-gpt-6-2-astra",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-astra",
-      "profileId": "openai-gpt-6-2-astra-max",
-      "rawName": "openai/gpt-6.2-astra"
-    },
-    "normalizedScore": 55.156,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 55.156,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:openai-gpt-6-2-sol",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-sol",
-      "profileId": "openai-gpt-6-2-sol-max",
-      "rawName": "openai/gpt-6.2-sol"
-    },
-    "normalizedScore": 40.944,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 40.944,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
-      "profileId": null,
-      "rawName": "xiaomi/mimo-v2.6-flash"
-    },
-    "normalizedScore": 24.5,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 24.5,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-pro",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "xiaomi/mimo-v2.6-pro"
-    },
-    "normalizedScore": 26.411,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 26.411,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Vals benchmark has not been approved for capability scoring.",
-    "id": "vals-ai:vcb-1-100-v1-1:zai-glm-5-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "accuracy",
-      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
-      "unit": "percent"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "zai/glm-5.3"
-    },
-    "normalizedScore": 29.75,
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "profile": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"zai/glm-5.3\"].{reasoning_effort,compute_effort,harness}",
-        "method": "EMBEDDED_JSON"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"zai/glm-5.3\"].accuracy",
-        "method": "EMBEDDED_JSON"
-      },
-      "sourceRole": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
-        "method": "MANUAL"
-      }
-    },
-    "rawScore": 29.75,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceRole": "INDEPENDENT",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
-  },
-  {
-    "acquisitionStatus": "FULL",
     "benchmarkId": "vcb-1-100",
     "benchmarkVersion": "1",
     "evidenceIds": [
@@ -199750,6 +199134,622 @@
     "sourcePublishedAt": "2026-10-29T00:00:00.000Z",
     "sourceRole": "INDEPENDENT",
     "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Vals reports that Claude Opus 4.8 or Claude Opus 5 served fallback requests in 12 of 50 tasks and that the published score includes this work, so it is not attributable to Claude Opus 5.5 alone (user decision 2026-11-26).",
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:anthropic-claude-opus-5-5",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "anthropic/claude-opus-5-5"
+    },
+    "normalizedScore": 30.95,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 30.95,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:deepseek-deepseek-v4-1-flash-1017",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
+      "rawName": "deepseek/deepseek-v4.1-flash-1017"
+    },
+    "normalizedScore": 26.15,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 26.15,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:google-cobalt-c-high-1p00",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-neon",
+      "profileId": "google-gemini-4-neon-high",
+      "rawName": "google/cobalt-c-high-1p00"
+    },
+    "normalizedScore": 42.3,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 42.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:google-gemini-4-carbon",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-high",
+      "rawName": "google/gemini-4-carbon"
+    },
+    "normalizedScore": 49.733,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/gemini-4-carbon\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/gemini-4-carbon\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 49.733,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:grok-grok-4-7",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-xhigh",
+      "rawName": "grok/grok-4.7"
+    },
+    "normalizedScore": 26.35,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"grok/grok-4.7\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"grok/grok-4.7\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 26.35,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:minimax-minimax-m3-1-flash",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
+      "rawName": "minimax/MiniMax-M3.1-flash"
+    },
+    "normalizedScore": 19.833,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 19.833,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:openai-gpt-6-2-astra",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-max",
+      "rawName": "openai/gpt-6.2-astra"
+    },
+    "normalizedScore": 55.156,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 55.156,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:openai-gpt-6-2-sol",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-max",
+      "rawName": "openai/gpt-6.2-sol"
+    },
+    "normalizedScore": 40.944,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 40.944,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:xiaomi-mimo-v2-6-flash",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
+      "profileId": null,
+      "rawName": "xiaomi/mimo-v2.6-flash"
+    },
+    "normalizedScore": 24.5,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 24.5,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:xiaomi-mimo-v2-6-pro",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "xiaomi/mimo-v2.6-pro"
+    },
+    "normalizedScore": 26.411,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 26.411,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": null,
+    "id": "vals-ai:vibe-code-bench-1-100-v1-1:zai-glm-5-3",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "accuracy",
+      "name": "Vibe Code Bench 1-100 v1.1 accuracy",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "zai/glm-5.3"
+    },
+    "normalizedScore": 29.75,
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"zai/glm-5.3\"].{reasoning_effort,compute_effort,harness}",
+        "method": "EMBEDDED_JSON"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"zai/glm-5.3\"].accuracy",
+        "method": "EMBEDDED_JSON"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "approved benchmark role table[\"vcb-1-100-v1-1\"]",
+        "method": "MANUAL"
+      }
+    },
+    "rawScore": 29.75,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1"
   },
   {
     "acquisitionStatus": "FULL",

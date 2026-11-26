@@ -10,8 +10,8 @@
 | Benchmark slugs discovered from index | 69 |
 | Benchmark pages with BenchmarkView data | 63 |
 | CandidateResults | 3788 |
-| Included CandidateResults | 2206 |
-| Excluded CandidateResults | 1582 |
+| Included CandidateResults | 2216 |
+| Excluded CandidateResults | 1572 |
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3635 |
 | Included vals_index CostRecords | 42 |
@@ -86,7 +86,7 @@
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
-| `vcb-1-100-v1-1` | 11 | EXCLUDED |
+| `vcb-1-100-v1-1` | 11 | APPROVED |
 | `vibe-code` | 134 | APPROVED |
 | `vibe-code-v1-1-1` | 51 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
@@ -123,6 +123,7 @@ Every parsed page passed the strict `metadata.total_models === Object.keys(tasks
 | `tax_eval_v2` | `tax-eval-v2` | ORGANIZER |
 | `terminal-bench-2-1` | `terminal-bench-2-1` | INDEPENDENT |
 | `terminal-bench-4` | `terminal-bench-4-0` | INDEPENDENT |
+| `vcb-1-100-v1-1` | `vibe-code-bench-1-100-v1-1` | ORGANIZER |
 | `vibe-code` | `vibe-code-bench` | ORGANIZER |
 | `vibe-code-v1-1-1` | `vibe-code-bench-v1-1-1` | ORGANIZER |
 
@@ -170,12 +171,15 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `vals_multimodal_index`
 - `vals_router_index`
 - `vcb-1-100`
-- `vcb-1-100-v1-1`
 - `voice-code-bench`
 - `web_search`
 
 All rows from these pages are retained as EXCLUDED CandidateResults. Composite indices remain excluded regardless of later mapping changes.
 Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently Agent Poker Bench ratings) retain the finite raw value but use `normalizedScore: null`; no capability percentage is invented.
+
+## Reviewed row exclusions
+
+- `vcb-1-100-v1-1` / `anthropic/claude-opus-5-5` (30.95): EXCLUDED. Vals reports that Claude Opus 4.8 or Claude Opus 5 served fallback requests in 12 of 50 tasks and that the published score includes this work, so it is not attributable to Claude Opus 5.5 alone (user decision 2026-11-26).
 
 ## Newly discovered since the reviewed table
 
@@ -203,8 +207,6 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `tax_agent_bench` (not auto-promoted)
 - `terminal-bench-science` (not auto-promoted)
 - `vals_router_index` (not auto-promoted)
-- `vcb-1-100` (not auto-promoted)
-- `vcb-1-100-v1-1` (not auto-promoted)
 - `voice-code-bench` (not auto-promoted)
 
 ## Pages without BenchmarkView data
@@ -491,6 +493,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 | `tax_eval_v2` | `tax-eval-v2` | knowledge | reasoning |
 | `terminal-bench-2-1` | `terminal-bench-2-1` | agentic | coding |
 | `terminal-bench-4` | `terminal-bench-4-0` | agentic | coding |
+| `vcb-1-100-v1-1` | `vibe-code-bench-1-100-v1-1` | coding | agentic, reasoning |
 | `vibe-code` | `vibe-code-bench` | coding | agentic, reasoning |
 | `vibe-code-v1-1-1` | `vibe-code-bench-v1-1-1` | coding | agentic, reasoning |
 
@@ -960,7 +963,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-4-0:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-science:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vals-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
-| xiaomi/mimo-v2.6-flash | `vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench-1-100-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench-v1-1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 

@@ -148941,490 +148941,6 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 115.100768,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:anthropic-claude-opus-5-5",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-5-5",
-      "profileId": "anthropic-claude-opus-5-5-max",
-      "rawName": "anthropic/claude-opus-5-5"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 2.682746,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:deepseek-deepseek-v4-1-flash-1017",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
-      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
-      "rawName": "deepseek/deepseek-v4.1-flash-1017"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 44.109867,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:google-cobalt-c-high-1p00",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "google-gemini-4-neon",
-      "profileId": "google-gemini-4-neon-high",
-      "rawName": "google/cobalt-c-high-1p00"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 57.920793,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:google-gemini-4-carbon",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "google-gemini-4-carbon",
-      "profileId": "google-gemini-4-carbon-high",
-      "rawName": "google/gemini-4-carbon"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"google/gemini-4-carbon\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 41.710712,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:grok-grok-4-7",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "xai-grok-4-7",
-      "profileId": "xai-grok-4-7-xhigh",
-      "rawName": "grok/grok-4.7"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"grok/grok-4.7\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.716478,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:minimax-minimax-m3-1-flash",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "minimax-minimax-m3-1-flash",
-      "profileId": "minimax-minimax-m3-1-flash-max",
-      "rawName": "minimax/MiniMax-M3.1-flash"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 45.655501,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:openai-gpt-6-2-astra",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-astra",
-      "profileId": "openai-gpt-6-2-astra-max",
-      "rawName": "openai/gpt-6.2-astra"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 12.735155,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:openai-gpt-6-2-sol",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "openai-gpt-6-2-sol",
-      "profileId": "openai-gpt-6-2-sol-max",
-      "rawName": "openai/gpt-6.2-sol"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 0.441904,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
-      "profileId": null,
-      "rawName": "xiaomi/mimo-v2.6-flash"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 1.32472,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:xiaomi-mimo-v2-6-pro",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "xiaomi/mimo-v2.6-pro"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "vcb-1-100-v1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 13.443888,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
-    ],
-    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
-    "id": "vals-ai:cost-per-test:vcb-1-100-v1-1:zai-glm-5-3",
-    "inclusion": "EXCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-test",
-    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "zai/glm-5.3"
-    },
-    "observedAt": "2026-11-26T06:56:18.995Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "OpenHands",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
-        "locator": "tasks.overall[\"zai/glm-5.3\"].cost_per_test",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "vals-ai",
-    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
-    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
     "benchmarkId": "vcb-1-100",
     "benchmarkVersion": "1",
     "cost": 9.675734,
@@ -150565,6 +150081,490 @@
     "sourceId": "vals-ai",
     "sourcePublishedAt": "2026-10-29T00:00:00.000Z",
     "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 115.100768,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:anthropic-claude-opus-5-5",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "anthropic/claude-opus-5-5"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.682746,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:deepseek-deepseek-v4-1-flash-1017",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-1-flash-1017",
+      "profileId": "deepseek-deepseek-v4-1-flash-1017-max",
+      "rawName": "deepseek/deepseek-v4.1-flash-1017"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"deepseek/deepseek-v4.1-flash-1017\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 44.109867,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:google-cobalt-c-high-1p00",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "google-gemini-4-neon",
+      "profileId": "google-gemini-4-neon-high",
+      "rawName": "google/cobalt-c-high-1p00"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/cobalt-c-high-1p00\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 57.920793,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:google-gemini-4-carbon",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-high",
+      "rawName": "google/gemini-4-carbon"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"google/gemini-4-carbon\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 41.710712,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:grok-grok-4-7",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-xhigh",
+      "rawName": "grok/grok-4.7"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"grok/grok-4.7\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.716478,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:minimax-minimax-m3-1-flash",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3-1-flash",
+      "profileId": "minimax-minimax-m3-1-flash-max",
+      "rawName": "minimax/MiniMax-M3.1-flash"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"minimax/MiniMax-M3.1-flash\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 45.655501,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:openai-gpt-6-2-astra",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-astra",
+      "profileId": "openai-gpt-6-2-astra-max",
+      "rawName": "openai/gpt-6.2-astra"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-astra\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 12.735155,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:openai-gpt-6-2-sol",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-2-sol",
+      "profileId": "openai-gpt-6-2-sol-max",
+      "rawName": "openai/gpt-6.2-sol"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"openai/gpt-6.2-sol\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.441904,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:xiaomi-mimo-v2-6-flash",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": "xiaomi-mimo-v2-6-flash",
+      "profileId": null,
+      "rawName": "xiaomi/mimo-v2.6-flash"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-flash\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.32472,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:xiaomi-mimo-v2-6-pro",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "xiaomi/mimo-v2.6-pro"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"xiaomi/mimo-v2.6-pro\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "vibe-code-bench-1-100-v1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 13.443888,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182"
+    ],
+    "exclusionReason": "Only vals_index cost_per_test is approved as the Vals source cost for the default chart.",
+    "id": "vals-ai:cost-per-test:vibe-code-bench-1-100-v1-1:zai-glm-5-3",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-test",
+    "metricName": "Vibe Code Bench 1-100 v1.1 cost per test",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "zai/glm-5.3"
+    },
+    "observedAt": "2026-11-26T06:56:18.995Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "OpenHands",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:6e0d62bef93585ff0d3701b87ea1e670c1d3151a4f214781bb8265f44e562182",
+        "locator": "tasks.overall[\"zai/glm-5.3\"].cost_per_test",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "vals-ai",
+    "sourcePublishedAt": "2026-11-18T00:00:00.000Z",
+    "sourceUrl": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
     "unit": "USD_PER_TASK"
   },
   {

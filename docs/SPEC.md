@@ -76,6 +76,8 @@ Terminal-Bench 4.1 使用 benchmark ID `terminal-bench-4-1`（使用者 2026-11-
 
 Vals Vibe Code Bench v1.1.1 使用 benchmark ID `vibe-code-bench-v1-1-1`（slug `vibe-code-v1-1-1`，ORGANIZER），維度與 v1.1 相同：Coding 主維度、Agentic 與 Reasoning 次要。Vals 2026-11-23 發布 v1.1.1 並封存 v1.1：題目與規格不變，但以升級的瀏覽器測試代理、失敗檢查的第二位評審、100% substep 通過門檻（原為 90%）及修正或移除的歧義 UI 步驟，重新評分各模型在 v1.1 建好的應用程式，分數普遍較低、與 v1.1 不可互換。依「benchmark 改版時跟隨新版」規則，`vibe-code-bench`（v1.1，slug `vibe-code`）自 2026-11-26 起只保留為證據、不計分，見[審核紀錄](analysis/2026-11-26-vibe-code-v1-1-1-supersession.json)。
 
+Vals Vibe Code Bench 1-100 v1.1 使用 benchmark ID `vibe-code-bench-1-100-v1-1`（slug `vcb-1-100-v1-1`，使用者 2026-11-26 依代理評估決定採用），維度與 Vibe Code Bench 相同：Coding 主維度、Agentic 與 Reasoning 次要。來源角色記為 ORGANIZER。每題從一個完整通過的 Vibe Code Bench v1.1 應用程式開始，依序處理最多十個前後相依的產品需求，保留程式碼與對話；每一輪以瀏覽器代理檢查新需求和挑選的回歸流程，每個步驟都要通過；失敗判定再由第二位評審（Claude Sonnet 5.5）依錄製證據複核，確認有實作問題才算失敗，複核無法定論時依 Vals 政策算通過。分數是在這套評審政策下，從第一輪起連續通過的輪數除以計畫輪數，在 50 題測試集上取平均；所有模型使用同一個 OpenHands 環境，每題共用十小時建置時間。已封存的 v1（slug `vcb-1-100`）不核准，只保留為證據。Claude Opus 5.5 那一列不計分：Vals 寫明它在 50 題中有 12 題由 Claude Opus 4.8 或 Claude Opus 5 代為處理部分需求，公布分數包含這些成果。排除規則固定在已審核的分數上，Vals 改分時匯入會失敗，必須重新審核（`EXCLUDED_VALS_ROWS`）。
+
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
 ### 3.2 來源白名單與快照更新

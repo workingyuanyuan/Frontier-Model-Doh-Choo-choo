@@ -231,7 +231,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-astra-max",
-            "benchmarkCount": 41,
+            "benchmarkCount": 42,
             "organizationCount": 11,
             "aaScore": 62.189304109902
           },
@@ -273,7 +273,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 41
+        "benchmarkCount": 42
       },
       {
         "rank": 3,
@@ -296,8 +296,8 @@
           },
           {
             "profileId": "google-gemini-4-neon-high",
-            "benchmarkCount": 21,
-            "organizationCount": 6,
+            "benchmarkCount": 22,
+            "organizationCount": 7,
             "aaScore": 59.8209643895434
           },
           {
@@ -339,7 +339,7 @@
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-carbon-high",
-            "benchmarkCount": 43,
+            "benchmarkCount": 44,
             "organizationCount": 12,
             "aaScore": 60.1267489305361
           },
@@ -370,7 +370,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 43
+        "benchmarkCount": 44
       },
       {
         "rank": 5,
@@ -447,7 +447,7 @@
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-sol-max",
-            "benchmarkCount": 33,
+            "benchmarkCount": 34,
             "organizationCount": 10,
             "aaScore": 57.2576209885477
           },
@@ -488,7 +488,7 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 33
+        "benchmarkCount": 34
       },
       {
         "rank": 7,
