@@ -73,6 +73,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'cursorbench-4': 'CursorBench 4.0',
   critpt: 'CritPt',
   'critpt-v2': 'CritPt v2',
+  frontierphysics: 'FrontierPhysics',
   'gpqa-diamond': 'GPQA Diamond',
   'humanitys-last-exam': 'Humanity’s Last Exam',
   'hle-diamond': 'HLE-Diamond',

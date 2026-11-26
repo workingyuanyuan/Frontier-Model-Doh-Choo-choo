@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-26T06:59:04.576Z",
+  "checkedAt": "2026-11-26T07:53:38.411Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -30,193 +30,18 @@
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-26T06:58:14.930Z",
+      "checkedAt": "2026-11-26T07:53:38.411Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "aa-briefcase",
-          "detail": "225 -> 225; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "aa-lcr",
-          "detail": "87 -> 86; missing 1: google-gemini-4-carbon",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "aa-lcr",
-          "detail": "260 -> 258; missing 3: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Gemini 4 Carbon (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "aa-lcr",
-          "detail": "260 -> 258 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "aa-omniscience",
-          "detail": "306 -> 308; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"GLM-5.3-Flash\",null,null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "v5.0.1 -> v5.0.2",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "70 -> 68; missing 2: ibm-granite-4-2-30b, ibm-granite-4-2-8b",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "145 -> 144; missing 3: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,null], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "critpt",
-          "detail": "261 -> 260; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "critpt",
-          "detail": "261 -> 260 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "critpt-v2",
-          "detail": "56 -> 55; missing 1: thinking-machines-inkling",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "critpt-v2",
-          "detail": "71 -> 71; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null], [\"Inkling (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "frontier-code-2-0",
-          "detail": "71 -> 69; missing 2: ibm-granite-4-2-30b, ibm-granite-4-2-8b",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "frontier-code-2-0",
-          "detail": "146 -> 145; missing 3: [\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000], [\"Granite 4.2 30B\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,131072], [\"Granite 4.2 8B\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,131072]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "frontier-code-2-0",
-          "detail": "146 -> 145 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "220 -> 220; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "gdpval-aa",
-          "detail": "211 -> 210; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "gdpval-aa",
-          "detail": "211 -> 210 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "gpqa-diamond",
-          "detail": "185 -> 184; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "gpqa-diamond",
-          "detail": "185 -> 184 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "hle-diamond",
-          "detail": "166 -> 166; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,false,null,1,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,false,null,1,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "259 -> 258; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "259 -> 258 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "ifbench",
-          "detail": "113 -> 112; missing 1: [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "ifbench",
-          "detail": "113 -> 112 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "mka",
-          "detail": "26 -> 26; missing 1: [\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,1,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "189 -> 188; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "189 -> 188 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "tau3-banking",
-          "detail": "128 -> 127; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "tau3-banking",
-          "detail": "128 -> 127 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "terminal-bench-2-1",
-          "detail": "136 -> 135; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "terminal-bench-2-1",
-          "detail": "136 -> 135 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "terminal-bench-4-0",
-          "detail": "220 -> 220; missing 2: [\"GLM-5.3-Flash\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "terminal-bench-science",
-          "detail": "156 -> 157; missing 1: [\"GLM-5.3-Flash\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "Artificial Analysis Intelligence Index v5.0.1 [v5.0.1] -> Artificial Analysis Intelligence Index v5.0.2 [v5.0.2]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
           "benchmarkId": "frontierphysics",
-          "detail": "https://artificialanalysis.ai/evaluations/frontierphysics",
-          "kind": "catalog-added"
+          "detail": "41 rows; 41 included",
+          "kind": "benchmark-materialized"
         },
         {
-          "benchmarkId": "terminalbench-4-1",
-          "detail": "https://artificialanalysis.ai/evaluations/terminalbench-4-1",
-          "kind": "catalog-added"
+          "benchmarkId": "terminal-bench-4-1",
+          "detail": "219 rows; 219 included",
+          "kind": "benchmark-materialized"
         },
         {
           "benchmarkId": "aa-3d",
@@ -251,11 +76,6 @@
         {
           "benchmarkId": "frontiercode",
           "detail": "https://artificialanalysis.ai/evaluations/frontiercode",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "frontierphysics",
-          "detail": "https://artificialanalysis.ai/evaluations/frontierphysics",
           "kind": "unintegrated"
         },
         {
@@ -301,11 +121,6 @@
         {
           "benchmarkId": "tau2-bench",
           "detail": "https://artificialanalysis.ai/evaluations/tau2-bench",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "terminalbench-4-1",
-          "detail": "https://artificialanalysis.ai/evaluations/terminalbench-4-1",
           "kind": "unintegrated"
         },
         {
@@ -471,11 +286,11 @@
           "version": "v2.0"
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "frontierphysics",
+          "captureRegistered": true,
           "id": "frontierphysics",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "FrontierPhysics",
           "url": "https://artificialanalysis.ai/evaluations/frontierphysics",
           "version": null
@@ -711,11 +526,11 @@
           "version": "v4.0"
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "terminal-bench-4-1",
+          "captureRegistered": true,
           "id": "terminalbench-4-1",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "Terminal-Bench 4.1",
           "url": "https://artificialanalysis.ai/evaluations/terminalbench-4-1",
           "version": "v4.1"
@@ -742,7 +557,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-26T06:57:21.023Z",
+      "snapshotObservedAt": "2026-11-26T07:52:33.125Z",
       "sourceId": "artificial-analysis"
     },
     {

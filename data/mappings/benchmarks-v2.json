@@ -90,6 +90,11 @@
       "secondaryDimensions": []
     },
     {
+      "id": "frontierphysics",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "coding"]
+    },
+    {
       "id": "critpt-v2",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["agentic", "coding"]

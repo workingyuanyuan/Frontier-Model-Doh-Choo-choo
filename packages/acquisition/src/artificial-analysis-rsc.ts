@@ -46,6 +46,10 @@ export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   'frontiercode-2-0',
   // Terminal-Bench 4.0, also weighted in v5, integrated on 2026-10-29.
   'terminalbench-4-0',
+  // Adopted on 2026-11-26 (user decision): Terminal-Bench 4.1, weighted in
+  // Index v5.0.2, and the standalone FrontierPhysics evaluation.
+  'terminalbench-4-1',
+  'frontierphysics',
 ] as const;
 
 export type ArtificialAnalysisRow = Record<string, unknown>;
@@ -163,7 +167,63 @@ const EVALUATION_PRIORITY = new Map<string, number>([
   ['critpt-v2', 0],
   ['frontiercode-2-0', 0],
   ['terminalbench-4-0', 0],
+  // Own-field pages (below) rank after every other page, including unlisted
+  // evaluation pages (100), so they never become a profile's base observation
+  // while another page has the row.
+  ['terminalbench-4-1', 200],
+  ['frontierphysics', 200],
 ]);
+
+/**
+ * Evaluation pages adopted for one field only (user decision, 2026-11-26).
+ * Their payloads also carry other benchmarks' values for effort variants that
+ * neither the variant's model page nor that benchmark's own page shows (e.g.
+ * `critptAgentic` for `gpt-6-2-astra-high` on /evaluations/frontierphysics),
+ * so a row observed here keeps its identity fields and its own field only.
+ */
+const OWN_FIELD_PAGES = new Map<string, readonly string[]>([
+  ['terminalbench-4-1', ['terminalBench41']],
+  ['frontierphysics', ['frontierphysics']],
+]);
+const OWN_FIELD_PAGE_NUMERIC_KEYS = new Set([
+  'context_window_tokens',
+  'contextWindowTokens',
+]);
+
+const projectOwnFieldRow = (
+  page: ArtificialAnalysisPage,
+  row: ArtificialAnalysisRow,
+): ArtificialAnalysisRow => {
+  const ownFields =
+    page.kind === 'evaluation' && OWN_FIELD_PAGES.get(page.slug);
+  if (!ownFields) return row;
+  // Score fields are dropped whatever their type; any other number or object
+  // (breakdowns, costs, prices) is a value too, while strings and booleans
+  // carry identity and eligibility (slug, name, release date, deleted).
+  const scoreFields = new Set<string>([
+    ...APPROVED_SCORE_FIELDS,
+    ...INTELLIGENCE_INDEX_ALIASES,
+    ...SCORE_MAPPING.flatMap(({ aliases, derived }) => [
+      ...aliases,
+      ...(derived?.aliases ?? []),
+    ]),
+  ]);
+  const projected: ArtificialAnalysisRow = {};
+  for (const [key, value] of Object.entries(row)) {
+    if (ownFields.includes(key) || OWN_FIELD_PAGE_NUMERIC_KEYS.has(key)) {
+      projected[key] = value;
+      continue;
+    }
+    const isValue =
+      scoreFields.has(key) ||
+      typeof value === 'number' ||
+      (typeof value === 'object' && value !== null);
+    if (!isValue) projected[key] = value;
+  }
+  const metadata = ROW_VERSION_METADATA.get(row);
+  if (metadata) ROW_VERSION_METADATA.set(projected, metadata);
+  return projected;
+};
 
 const APPROVED_SCORE_FIELDS = [
   'lcr',
@@ -195,6 +255,8 @@ const APPROVED_SCORE_FIELDS = [
   'critptAgentic',
   'frontierCode20',
   'terminalBench40',
+  'terminalBench41',
+  'frontierphysics',
 ] as const;
 
 interface ScoreMapping {
@@ -309,6 +371,25 @@ export const SCORE_MAPPING: readonly ScoreMapping[] = [
     sourceRole: 'INDEPENDENT' as const,
     normalize: true,
     preferredPage: 'terminalbench-4-0',
+    harness: 'mini-swe-agent',
+    attempts: 3,
+    tools: true,
+  },
+  {
+    // AA's run of Terminal-Bench 4.1 (the same 66 tasks with updated
+    // verifiers), pass@1 averaged over three repeats with mini-swe-agent. It
+    // shares the organizer's benchmark ID and metric so duplicate-measurement
+    // selection applies: the ORGANIZER row (`terminal-bench`) wins every
+    // overlapping profile, and AA only fills profiles the organizer did not run.
+    field: 'terminalBench41',
+    aliases: ['terminalBench41'],
+    benchmarkId: 'terminal-bench-4-1',
+    metricId: 'resolution-rate',
+    metricName: 'Resolution rate',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'terminalbench-4-1',
     harness: 'mini-swe-agent',
     attempts: 3,
     tools: true,
@@ -474,6 +555,26 @@ export const SCORE_MAPPING: readonly ScoreMapping[] = [
     attempts: 3,
     tools: true,
   },
+  {
+    // AA's implementation of BenchFlow's FrontierPhysics (54 private tasks,
+    // three runs each in AA's Stirrup harness). Score is the mean over runs of
+    // the reviewers' rubric quality rating, 0 for runs that fail the verifier
+    // or a blocking criterion. Standalone: not part of the Intelligence Index.
+    // `frontierphysicsBreakdown` (Pass@1, verifier pass rate, domains) is not
+    // materialized.
+    field: 'frontierphysics',
+    aliases: ['frontierphysics'],
+    benchmarkId: 'frontierphysics',
+    metricId: 'score',
+    metricName: 'Score',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'frontierphysics',
+    harness: 'Artificial Analysis Stirrup',
+    attempts: 3,
+    tools: true,
+  },
 ];
 
 /** v5 additions reported separately in the validation report. */
@@ -484,6 +585,7 @@ const V5_EVALUATIONS = SCORE_MAPPING.filter(({ field }) =>
     'critptAgentic',
     'frontierCode20',
     'terminalBench40',
+    'terminalBench41',
   ].includes(field),
 ).map(({ preferredPage, field, benchmarkId }) => ({
   page: preferredPage,
@@ -870,6 +972,7 @@ const benchmarkVersionFor = (
   // The field itself identifies its version, including on mixed-version pages.
   if (benchmarkId === 'terminal-bench-2-1') return 'v2.1';
   if (benchmarkId === 'terminal-bench-4-0') return 'v4.0';
+  if (benchmarkId === 'terminal-bench-4-1') return 'v4.1';
   // Likewise read only from `frontierCode20`; `frontierCode` is the 1.1 run.
   if (benchmarkId === 'frontier-code-2-0') return 'v2.0';
   const metadata = versionMetadataFor(observation, row);
@@ -1532,7 +1635,7 @@ const uniqueRows = (pages: readonly ArtificialAnalysisPage[]) => {
       const key = pageRowKey(row);
       if (!key) continue;
       const observations = rows.get(key) ?? [];
-      observations.push({ page, row });
+      observations.push({ page, row: projectOwnFieldRow(page, row) });
       rows.set(key, observations);
     }
   }
@@ -1938,6 +2041,9 @@ export const materializeArtificialAnalysisRsc = (
   const costs = [...costsById.values()].toSorted((left, right) =>
     left.id.localeCompare(right.id),
   );
+  const frontierPhysicsRows = candidates.filter(
+    (candidate) => candidate.benchmarkId === 'frontierphysics',
+  );
   const validationReport = [
     '# Artificial Analysis acquisition validation',
     '',
@@ -2011,8 +2117,14 @@ export const materializeArtificialAnalysisRsc = (
     }),
     '',
     '- `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.',
+    '- `terminal-bench-4-1` is shared with the organizer source `terminal-bench`. AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles the organizer did not run.',
     '- `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.',
     `- Not integrated: ${V5_UNINTEGRATED.join('; ')}.`,
+    '',
+    '## FrontierPhysics',
+    '',
+    `- Integrated for scoring on 2026-11-26 (user decision). \`frontierphysics\` field candidates: ${frontierPhysicsRows.length}; canonically resolved: ${frontierPhysicsRows.filter(({ model }) => model.canonicalModelId !== null).length}.`,
+    '- Standalone evaluation, not part of the Intelligence Index. Score is the mean over three runs per task; Pass@1 and the verifier pass rate in `frontierphysicsBreakdown` are not materialized.',
     '',
     '## AA-Briefcase leaderboard join',
     '',

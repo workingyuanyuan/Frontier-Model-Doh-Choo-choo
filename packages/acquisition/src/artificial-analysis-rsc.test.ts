@@ -541,6 +541,151 @@ describe('Artificial Analysis RSC materializer', () => {
     );
   });
 
+  it('reads only their own field from the Terminal-Bench 4.1 and FrontierPhysics pages', () => {
+    const row = {
+      slug: 'grok-4-7-high',
+      name: 'Grok 4.7 (high)',
+      releaseDate: '2026-09-21',
+      deprecated: false,
+      frontierphysics: 0.25,
+      critptAgentic: 0.75,
+      hleDiamond: 0.5,
+    };
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'evaluation',
+        slug: 'frontierphysics',
+        sourceUrl: 'https://artificialanalysis.ai/evaluations/frontierphysics',
+        evidenceId,
+        retrievedAt: '2026-11-26T00:00:00.000Z',
+        rows: [row],
+      },
+    ]);
+    expect(result.candidates.map((c) => c.benchmarkId)).toEqual([
+      'frontierphysics',
+    ]);
+    // The same row on any other page is read in full.
+    const elsewhere = materializeArtificialAnalysisRsc([
+      {
+        kind: 'evaluation',
+        slug: 'critpt-v2',
+        sourceUrl: 'https://artificialanalysis.ai/evaluations/critpt-v2',
+        evidenceId,
+        retrievedAt: '2026-11-26T00:00:00.000Z',
+        rows: [row],
+      },
+    ]);
+    expect(elsewhere.candidates.map((c) => c.benchmarkId).toSorted()).toEqual([
+      'critpt-v2',
+      'frontierphysics',
+      'hle-diamond',
+    ]);
+  });
+
+  it('never lets an own-field page override another page for the same profile', () => {
+    const base = {
+      slug: 'grok-4-7-high',
+      name: 'Grok 4.7 (high)',
+      releaseDate: '2026-09-21',
+      deprecated: false,
+    };
+    const page = (slug: string, row: Record<string, unknown>) => ({
+      kind: 'evaluation' as const,
+      slug,
+      sourceUrl: `https://artificialanalysis.ai/evaluations/${slug}`,
+      evidenceId,
+      retrievedAt: '2026-11-26T00:00:00.000Z',
+      rows: [row],
+    });
+    const result = materializeArtificialAnalysisRsc([
+      // A stale flag and a string-typed foreign score on the own-field page.
+      page('terminalbench-4-1', {
+        ...base,
+        deleted: true,
+        terminalBench41: 0.5,
+        gpqa: '0.9',
+      }),
+      page('unlisted-evaluation', { ...base, gpqa: 0.8 }),
+    ]);
+    expect(
+      result.candidates
+        .map((c) => [c.benchmarkId, c.rawScore, c.sourceUrl])
+        .toSorted(),
+    ).toEqual([
+      [
+        'gpqa-diamond',
+        0.8,
+        'https://artificialanalysis.ai/models/grok-4-7-high',
+      ],
+      [
+        'terminal-bench-4-1',
+        0.5,
+        'https://artificialanalysis.ai/models/grok-4-7-high',
+      ],
+    ]);
+
+    // Alone, a projected row without its own score is not a scored profile.
+    const empty = materializeArtificialAnalysisRsc([
+      page('frontierphysics', { ...base, gpqa: '0.9' }),
+    ]);
+    expect(empty.candidates).toHaveLength(0);
+  });
+
+  it('maps Terminal-Bench 4.1 onto the organizer metric and FrontierPhysics to its own ID', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'model-detail',
+        slug: 'grok-4-7',
+        sourceUrl: 'https://artificialanalysis.ai/models/grok-4-7',
+        evidenceId,
+        retrievedAt: '2026-11-26T00:00:00.000Z',
+        rows: [
+          {
+            slug: 'grok-4-7',
+            name: 'Grok 4.7 (xhigh)',
+            releaseDate: '2026-09-21',
+            deprecated: false,
+            terminalBench40: 0.25,
+            terminalBench41: 0.5,
+            frontierphysics: 0.125,
+          },
+        ],
+      },
+    ]);
+    const terminal41 = result.candidates.filter(
+      (c) => c.benchmarkId === 'terminal-bench-4-1',
+    );
+    expect(terminal41).toHaveLength(1);
+    // Same metric ID as the organizer leaderboard, so duplicate-measurement
+    // selection compares the two sources instead of keeping both.
+    expect(terminal41[0]).toMatchObject({
+      rawScore: 0.5,
+      normalizedScore: 50,
+      benchmarkVersion: 'v4.1',
+      sourceRole: 'INDEPENDENT',
+      metric: { id: 'resolution-rate' },
+      profile: { harness: 'mini-swe-agent', attempts: 3, tools: true },
+    });
+    expect(terminal41[0]?.provenance.rawScore?.locator).toContain(
+      'field=terminalBench41',
+    );
+    // 4.0 stays its own row; neither value is relabelled as the other.
+    expect(
+      result.candidates.filter((c) => c.benchmarkId === 'terminal-bench-4-0'),
+    ).toMatchObject([{ rawScore: 0.25 }]);
+
+    const physics = result.candidates.filter(
+      (c) => c.benchmarkId === 'frontierphysics',
+    );
+    expect(physics).toHaveLength(1);
+    expect(physics[0]).toMatchObject({
+      rawScore: 0.125,
+      normalizedScore: 12.5,
+      metric: { id: 'score' },
+      profile: { harness: 'Artificial Analysis Stirrup', attempts: 3 },
+    });
+  });
+
   it('keeps missing sentinels out of candidates and emits separate cost semantics', () => {
     const html =
       '<script>self.__next_f.push([1,"21:[{\\"model_creator_id\\":\\"creator\\",\\"slug\\":\\"gpt-5-6-sol\\",\\"name\\":\\"GPT-5.6 Sol (max)\\",\\"release_date\\":\\"2026-08-01\\",\\"deprecated\\":false,\\"gpqa\\":0.9,\\"hle\\":\\"$undefined\\",\\"lcr\\":0.8,\\"omniscience\\":42,\\"omniscience_breakdown\\":{\\"total\\":{\\"accuracy\\":0.7}},\\"intelligenceIndexCostPerTask\\":{\\"cost\\":{\\"total\\":1.25}},\\"price1mInputTokens\\":5,\\"price1mOutputTokens\\":30}]")])</script>';
