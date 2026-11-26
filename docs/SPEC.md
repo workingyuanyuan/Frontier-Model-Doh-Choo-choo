@@ -74,6 +74,8 @@ CWE-bench v2 使用 benchmark ID `cwe-bench-v2`（使用者 2026-11-21 依代理
 
 Terminal-Bench 4.1 使用 benchmark ID `terminal-bench-4-1`（使用者 2026-11-21 依代理推薦決定採用），維度與 4.0 相同：Agentic 主維度、Coding 次要。來源是主辦方 Stanford／Laude Institute 的官方榜，角色記為 ORGANIZER。頁面把完整榜單查詢嵌在 Next.js flight data；表格只顯示每個模型最佳的一列，所以物化所有 effort 組態，並以不重複模型數核對瀏覽器畫面列數。每列 330 次試跑（66 題、各五次），解題率必須等於成功數除以試跑數。來源 effort `none` 不是產品檔位，保持 null。4.1 保留 4.0 的題目、改用加固後的驗證器，並以保存的 artifact 重新評分 4.0 榜單；依「benchmark 改版時跟隨新版」規則，`terminal-bench-4-0`（AA 與 Vals）自 2026-11-21 起只保留為證據、不計分，見[審核紀錄](analysis/2026-11-21-terminal-bench-4-1-supersession.json)。
 
+Vals Vibe Code Bench v1.1.1 使用 benchmark ID `vibe-code-bench-v1-1-1`（slug `vibe-code-v1-1-1`，ORGANIZER），維度與 v1.1 相同：Coding 主維度、Agentic 與 Reasoning 次要。Vals 2026-11-23 發布 v1.1.1 並封存 v1.1：題目與規格不變，但以升級的瀏覽器測試代理、失敗檢查的第二位評審、100% substep 通過門檻（原為 90%）及修正或移除的歧義 UI 步驟，重新評分各模型在 v1.1 建好的應用程式，分數普遍較低、與 v1.1 不可互換。依「benchmark 改版時跟隨新版」規則，`vibe-code-bench`（v1.1，slug `vibe-code`）自 2026-11-26 起只保留為證據、不計分，見[審核紀錄](analysis/2026-11-26-vibe-code-v1-1-1-supersession.json)。
+
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
 ### 3.2 來源白名單與快照更新

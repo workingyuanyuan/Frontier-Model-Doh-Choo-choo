@@ -1,6 +1,6 @@
 {
-  "reviewedAt": "2026-11-22",
-  "evidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
+  "reviewedAt": "2026-11-26",
+  "evidencePath": "docs/analysis/2026-11-26-vibe-code-v1-1-1-supersession.json",
   "excludedBenchmarkIds": [
     "aime",
     "programbench",
@@ -11,7 +11,8 @@
     "critpt",
     "terminal-bench-4-0",
     "frontiermath",
-    "frontiermath-tier-4"
+    "frontiermath-tier-4",
+    "vibe-code-bench"
   ],
   "limitedBenchmarkIds": [
     "aa-lcr",

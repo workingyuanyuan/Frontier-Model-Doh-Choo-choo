@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-11-26",
+  "approvedBy": "agent",
+  "approval": "AGENTS.md 授權代理在 benchmark 改版時依證據跟隨新版、舊版保留為證據。2026-11-26 每日查核發現 Vals 已把 Vibe Code Bench v1.1 封存並以 v1.1.1 取代，代理依此規則改用 v1.1.1。",
+  "decision": "exclude-from-scoring",
+  "addedExcludedBenchmarkIds": ["vibe-code-bench"],
+  "previousEvidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
+  "reviews": [
+    {
+      "benchmarkId": "vibe-code-bench",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "vibe-code-bench-v1-1-1",
+      "reason": "The Vals v1.1 page is labelled 'Archived Benchmark' and states 'Vibe Code Bench v1.1 has been superseded by v1.1.1.' v1.1.1 (released 2026-11-23) keeps the tasks and specifications, but re-grades each model's v1.1 builds with an upgraded browser-testing agent, a second judge for failed checks, a 100% substep pass bar (was 90%) and fixed or removed ambiguous UI steps. Scores drop across the board (51/51 overlapping rows lower by 0.7-25.7 points), so the versions are not interchangeable; v1.1 rows are retained only as evidence and the same applications count once.",
+      "source": "https://www.vals.ai/benchmarks/vibe-code-v1-1-1"
+    }
+  ],
+  "qualityPolicy": {
+    "reviewedAt": "2026-11-26",
+    "evidencePath": "docs/analysis/2026-11-26-vibe-code-v1-1-1-supersession.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi",
+      "humanitys-last-exam",
+      "critpt",
+      "terminal-bench-4-0",
+      "frontiermath",
+      "frontiermath-tier-4",
+      "vibe-code-bench"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

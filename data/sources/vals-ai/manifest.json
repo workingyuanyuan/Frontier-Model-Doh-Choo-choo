@@ -26,7 +26,8 @@
     "tax-eval-v2",
     "terminal-bench-2-1",
     "terminal-bench-4-0",
-    "vibe-code-bench"
+    "vibe-code-bench",
+    "vibe-code-bench-v1-1-1"
   ],
   "completeness": {
     "expectedCountMethod": "Enumerate every /benchmarks/<slug> link from the official index, capture every page and its published BenchmarkViewLoader JSON when present, parse the unique BenchmarkView data, and require metadata.total_models to equal tasks.overall row count.",

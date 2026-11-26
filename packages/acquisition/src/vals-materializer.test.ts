@@ -247,6 +247,46 @@ describe('Vals materialization policy', () => {
     expect(APPROVED_VALS_BENCHMARKS['terminal-bench-2']).toBeUndefined();
   });
 
+  it('maps archived Vibe Code Bench v1.1 and its v1.1.1 revision to separate IDs', () => {
+    const result = materializeVals(
+      ['vibe-code', 'vibe-code-v1-1-1'].map((slug) => ({
+        slug,
+        html: fixture(),
+        evidenceId,
+        sourceUrl: `https://www.vals.ai/benchmarks/${slug}`,
+      })),
+      {
+        observedAt: '2026-11-26T00:00:00.000Z',
+        indexEvidenceId: evidenceId,
+        discoveredSlugs: ['vibe-code', 'vibe-code-v1-1-1'],
+      },
+    );
+    const expected = new Map([
+      ['https://www.vals.ai/benchmarks/vibe-code', 'vibe-code-bench'],
+      [
+        'https://www.vals.ai/benchmarks/vibe-code-v1-1-1',
+        'vibe-code-bench-v1-1-1',
+      ],
+    ]);
+    for (const [sourceUrl, benchmarkId] of expected) {
+      const rows = result.candidates.filter(
+        (row) => row.sourceUrl === sourceUrl,
+      );
+      expect(rows).not.toHaveLength(0);
+      for (const row of rows) {
+        expect(row).toMatchObject({
+          benchmarkId,
+          inclusion: 'INCLUDED',
+          sourceRole: 'ORGANIZER',
+        });
+      }
+    }
+    expect(new Set(result.candidates.map(({ id }) => id)).size).toBe(
+      result.candidates.length,
+    );
+    expect(result.newlyDiscoveredSlugs).toEqual([]);
+  });
+
   it('decodes reasoning and compute effort but rejects 0.99', () => {
     expect(
       decodeValsEffort({ reasoning_effort: '0.99', compute_effort: null }),

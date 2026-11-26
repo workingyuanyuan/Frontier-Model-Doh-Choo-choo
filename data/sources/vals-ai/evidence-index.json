@@ -1245,7 +1245,7 @@
     "id": "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6",
     "mediaType": "application/json",
     "metadata": {
-      "approvedForScoring": false,
+      "approvedForScoring": true,
       "benchmarkSlug": "vibe-code-v1-1-1",
       "benchmarkViewAvailable": true,
       "captureScope": "official BenchmarkViewLoader JSON",
@@ -2609,7 +2609,7 @@
     "id": "sha256:f1e1c92387f2325614558652f17c06eee71f2916e18be43371b57991f8c23881",
     "mediaType": "text/html",
     "metadata": {
-      "approvedForScoring": false,
+      "approvedForScoring": true,
       "benchmarkSlug": "vibe-code-v1-1-1",
       "benchmarkViewAvailable": true,
       "captureScope": "official Vals BenchmarkView Astro island and visible methodology page"

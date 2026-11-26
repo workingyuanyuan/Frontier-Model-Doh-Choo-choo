@@ -10,8 +10,8 @@
 | Benchmark slugs discovered from index | 69 |
 | Benchmark pages with BenchmarkView data | 63 |
 | CandidateResults | 3788 |
-| Included CandidateResults | 2155 |
-| Excluded CandidateResults | 1633 |
+| Included CandidateResults | 2206 |
+| Excluded CandidateResults | 1582 |
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3635 |
 | Included vals_index CostRecords | 42 |
@@ -88,7 +88,7 @@
 | `vcb-1-100` | 26 | EXCLUDED |
 | `vcb-1-100-v1-1` | 11 | EXCLUDED |
 | `vibe-code` | 134 | APPROVED |
-| `vibe-code-v1-1-1` | 51 | EXCLUDED |
+| `vibe-code-v1-1-1` | 51 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 16 | EXCLUDED |
 
@@ -124,6 +124,7 @@ Every parsed page passed the strict `metadata.total_models === Object.keys(tasks
 | `terminal-bench-2-1` | `terminal-bench-2-1` | INDEPENDENT |
 | `terminal-bench-4` | `terminal-bench-4-0` | INDEPENDENT |
 | `vibe-code` | `vibe-code-bench` | ORGANIZER |
+| `vibe-code-v1-1-1` | `vibe-code-bench-v1-1-1` | ORGANIZER |
 
 Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGANIZER; Vals reruns of externally organized benchmarks are INDEPENDENT.
 
@@ -170,7 +171,6 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `vals_router_index`
 - `vcb-1-100`
 - `vcb-1-100-v1-1`
-- `vibe-code-v1-1-1`
 - `voice-code-bench`
 - `web_search`
 
@@ -205,7 +205,6 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `vals_router_index` (not auto-promoted)
 - `vcb-1-100` (not auto-promoted)
 - `vcb-1-100-v1-1` (not auto-promoted)
-- `vibe-code-v1-1-1` (not auto-promoted)
 - `voice-code-bench` (not auto-promoted)
 
 ## Pages without BenchmarkView data
@@ -493,6 +492,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 | `terminal-bench-2-1` | `terminal-bench-2-1` | agentic | coding |
 | `terminal-bench-4` | `terminal-bench-4-0` | agentic | coding |
 | `vibe-code` | `vibe-code-bench` | coding | agentic, reasoning |
+| `vibe-code-v1-1-1` | `vibe-code-bench-v1-1-1` | coding | agentic, reasoning |
 
 The N3a user ruling remains authoritative. The deferred multimodal watchlist includes `sage` and `mortgage_tax`; neither is promoted by this refresh.
 ## Snapshot delta
@@ -559,8 +559,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | anthropic/claude-opus-5 | `vals-ai:swe-bench:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:tax-eval-v2:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:vals-multimodal-index:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:vibe-code-bench:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
-| anthropic/claude-opus-5 | `vals-ai:vibe-code-v1-1-1:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-sonnet-4-6 | `vals-ai:aime:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:case-law-v2:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:medqa:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
@@ -642,8 +642,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | reflection/Beam-1.0 | `vals-ai:terminal-bench-4-0:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:terminal-bench-science:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vals-index:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
+| reflection/Beam-1.0 | `vals-ai:vibe-code-bench-v1-1-1:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vibe-code-bench:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
-| reflection/Beam-1.0 | `vals-ai:vibe-code-v1-1-1:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | tencent/hy4 | `vals-ai:emb-v1-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:fabv2-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:finance-index:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
@@ -653,8 +653,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | tencent/hy4 | `vals-ai:tax-agent-bench:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:terminal-bench-4-0:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vals-index:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| tencent/hy4 | `vals-ai:vibe-code-bench-v1-1-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vibe-code-bench:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
-| tencent/hy4 | `vals-ai:vibe-code-v1-1-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | thinkingmachines/inkling | `vals-ai:code-migration-v1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:code-migration:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:corpfin:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
@@ -690,8 +690,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling | `vals-ai:vals-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:vals-multimodal-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:vcb-1-100:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vibe-code-bench-v1-1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:vibe-code-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
-| thinkingmachines/inkling | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling-2-small | `vals-ai:biomysterybench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:cyber:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
@@ -712,8 +712,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-science:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vals-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench-v1-1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
-| thinkingmachines/inkling-2-small | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:biomysterybench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:cyber:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
@@ -738,8 +738,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-science:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vals-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-bench-v1-1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-bench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
-| thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:code-migration:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:corpfin:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
@@ -772,8 +772,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-small | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:vals-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:vals-multimodal-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:vibe-code-bench-v1-1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
-| thinkingmachines/inkling-small | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:code-migration:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -961,7 +961,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.6-flash | `vals-ai:terminal-bench-science:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vals-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench-v1-1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
-| xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-v1-1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
