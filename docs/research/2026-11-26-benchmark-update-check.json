@@ -1,0 +1,2009 @@
+{
+  "date": "2026-11-26",
+  "baselineCommit": "1539cc565fc25418bae55fcc94d1f650093a3985",
+  "baselineVersion": "sha256:d5f7b4daae9e06b9518382c7e0623ede5debd0845336eab83dfb8db14b06c66c",
+  "newVersionId": "sha256:5e1990915b3bd06039edaa1267e3ae73d668d015a140fdc56916fe6abd0fcac5",
+  "releaseRunId": "2026-11-26T07-10-40-405Z",
+  "comparedWithCapture": "2026-11-23",
+  "manifestVerification": {
+    "vendorUrls": 62,
+    "leadUrls": 57,
+    "changedFiles": 100,
+    "fetchedAt": "2026-11-26T06:50:50.999716+00:00..2026-11-26T06:54:34.957606+00:00",
+    "httpErrors": [
+      {
+        "url": "https://ai.meta.com/blog/",
+        "httpStatus": 400,
+        "error": "HTTP 400"
+      },
+      {
+        "url": "https://api-docs.deepseek.com/news/news1106",
+        "httpStatus": 404,
+        "error": "HTTP 404"
+      },
+      {
+        "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+        "httpStatus": 403,
+        "error": "HTTP 403"
+      },
+      {
+        "url": "https://livebench.ai/static/js/main.8a7822ea.js",
+        "httpStatus": 404,
+        "error": "HTTP 404"
+      }
+    ],
+    "retries": [
+      {
+        "url": "https://www.minimax.io/news",
+        "note": "first fetch failed (IPv6 network unreachable); refetched with curl -4, HTTP 200"
+      }
+    ],
+    "addedUrls": []
+  },
+  "officialEvidence": [
+    {
+      "url": "https://huggingface.co/api/models/inclusionAI/Ling-3.2-air",
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/evidence/hf-ling-3-2-air.json",
+      "sha256": "7ada1e8e1d3de8764bf833c65be33e181cd7e52c98f823a34a78754ac987c272",
+      "bytes": 22718,
+      "fetchedAt": "2026-11-26"
+    },
+    {
+      "url": "https://huggingface.co/inclusionAI/Ling-3.2-air/raw/main/README.md",
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/evidence/hf-ling-3-2-air-readme.md",
+      "sha256": "bfd673960b34eb9d488865b3feabfe477c0f9314419ca65fcb326e192a7d9c33",
+      "bytes": 6015,
+      "fetchedAt": "2026-11-26"
+    },
+    {
+      "url": "https://cognition.ai/blog/swe-2-1",
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/evidence/cognition-swe-2-1.html",
+      "sha256": "17accc3c30358703e51402472908daa1615bc0094be12d8045dd057b76a436ec",
+      "bytes": 731697,
+      "fetchedAt": "2026-11-26"
+    },
+    {
+      "url": "https://cognition.ai/blog",
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/evidence/cognition-blog.html",
+      "sha256": "073b82c1615accccbbe5fa4470b38eed88facedd3670b244a3b40e2b06669beb",
+      "bytes": 395424,
+      "fetchedAt": "2026-11-26"
+    },
+    {
+      "url": "https://docs.bigmodel.cn/cn/guide/models/glm-5.4",
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/evidence/zhipu-glm-5-4-doc.html",
+      "sha256": "866aaf99381bb51a7ca579dd073e99117f4039d7b4552fe31baac1a5effe5e16",
+      "bytes": 165032,
+      "fetchedAt": "2026-11-26"
+    }
+  ],
+  "newModels": [
+    {
+      "name": "Ling-3.2-air",
+      "vendor": "InclusionAI",
+      "date": "2026-11-23",
+      "evidence": "Hugging Face inclusionAI/Ling-3.2-air (createdAt 2026-11-23T03:55:12Z, MIT); model card: scores 23 on AA Intelligence Index v5.0.1; AA lists it with Intelligence Index 23.44 (v5.0.2)",
+      "decision": "registered as inclusionai-ling-3-2-air (aliases Ling-3.2-air, inclusionAI/Ling-3.2-air)"
+    },
+    {
+      "name": "SWE-2.1",
+      "vendor": "Cognition",
+      "date": "2026-11-24",
+      "evidence": "cognition.ai/blog/swe-2-1 \"Introducing SWE-2.1\" 2026.11.24; FrontierCode 2.0 41.3 matches organizer row (max)",
+      "decision": "registered as cognition-swe-2-1 (alias SWE-2.1)"
+    },
+    {
+      "name": "GLM-5.4",
+      "vendor": "Z.ai",
+      "date": "2026-11-23",
+      "evidence": "docs.bigmodel.cn GLM-5.4 page: available to all GLM Coding Plan users; \"模型 API 将在完成安全评估后开放\"; no source rows",
+      "decision": "not registered: no API and no source rows"
+    },
+    {
+      "name": "GPT-5.6 Cyber",
+      "vendor": "OpenAI (label only)",
+      "date": null,
+      "evidence": "CWE-bench v2 Combined row; no official OpenAI model page found today",
+      "decision": "not registered; row stays unmapped"
+    },
+    {
+      "name": "MiniMax H3 Image",
+      "vendor": "MiniMax",
+      "date": null,
+      "evidence": "minimax.io and minimax.cn nav item \"MiniMax H3 Image\" tagged NEW",
+      "decision": "image model; no text benchmarks; not tracked"
+    },
+    {
+      "name": "Hy4 Flash",
+      "vendor": "Tencent",
+      "date": null,
+      "evidence": "Fireworks SII JSON (inactive source) adds Hy4 Flash across 8 benchmarks",
+      "decision": "no active source rows; not registered"
+    }
+  ],
+  "aliasesAdded": {
+    "inclusionai-ling-3-2-air": [
+      "Ling-3.2-air",
+      "inclusionAI/Ling-3.2-air"
+    ],
+    "cognition-swe-2-1": [
+      "SWE-2.1"
+    ]
+  },
+  "notRegistered": [
+    "GLM-5.4",
+    "GPT-5.6 Cyber",
+    "MiniMax-M3.1-Flash (max) (CWE-bench label; parser does not split effort)",
+    "Hy4 Flash",
+    "MiniMax H3 Image"
+  ],
+  "versionChanges": [
+    {
+      "source": "artificial-analysis",
+      "change": "Intelligence Index v5.0.1 -> v5.0.2 (Terminal-Bench 4.0 replaced by 4.1 in the index; FrontierCode-AA 2.0 regraded)",
+      "decision": "followed (agent decision: follow benchmark versions)"
+    },
+    {
+      "source": "vals-ai",
+      "change": "Vibe Code Bench v1.1 archived, replaced by v1.1.1 (51 models)",
+      "decision": "follow-up task; today v1.1 stays scored and v1.1.1 rows are EXCLUDED"
+    }
+  ],
+  "benchmarkLeads": [
+    {
+      "name": "AA Terminal-Bench 4.1 field (terminalBench41)",
+      "evidence": "AA evaluation and model pages carry terminalBench41 for all listed models; index v5.0.2 uses it",
+      "decision": "user decision: whether AA becomes a second source for terminal-bench-4-1"
+    },
+    {
+      "name": "AA FrontierPhysics",
+      "evidence": "AA methodology: 54 private tasks across 9 physics domains (BenchFlow), Stirrup harness; VIALS page has scores for 19 of 23 models",
+      "decision": "new benchmark; adoption is a user decision"
+    },
+    {
+      "name": "AA-Robotics-Sim v0.1",
+      "evidence": "AA article 2026-11-25 (research preview, simulated Unitree G1)",
+      "decision": "research preview; not adopted"
+    },
+    {
+      "name": "Vals Swarm Speed",
+      "evidence": "vals.ai benchmarks page, updated 2026-11-23, 2 models; page unavailable to the materializer",
+      "decision": "not adopted"
+    },
+    {
+      "name": "Fireworks SII Enterprise Drift Bench (inactive)",
+      "evidence": "defensive/enterprise-drift-bench, 659 tasks, 11 models, led by Gemini 4 Carbon 51.8%",
+      "decision": "aggregator source; not adopted"
+    },
+    {
+      "name": "BenchLM OpenHarmony Bench v1.2",
+      "evidence": "BenchLM coding scored benchmarks 17 -> 18",
+      "decision": "aggregator; not adopted"
+    }
+  ],
+  "parserChanges": [],
+  "epochNewRows": {
+    "model": "alibaba-qwen4-max",
+    "effort": "xhigh",
+    "rows": {
+      "frontiermath-v2": 0.7859649122807018,
+      "frontiermath-tier-4-v2": 0.5365853658536586,
+      "gpqa-diamond": 0.9400252525252525,
+      "aime": 1,
+      "simpleqa-verified": 0.541,
+      "chess-puzzles": 0.36,
+      "mystery-game-puzzles": 0.36,
+      "furniture-assembly": 0.3416666666666667
+    },
+    "note": "1298 added / 1290 removed candidate IDs are row-position shifts; content diff by model+benchmark+version+effort is +8 rows, 0 removed, 0 value changes"
+  },
+  "refreshDiff": {
+    "head": "1539cc565fc25418bae55fcc94d1f650093a3985",
+    "changed": true,
+    "sources": [
+      {
+        "sourceId": "agents-last-exam",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "arc-prize",
+        "file": "candidates.json",
+        "added": 3,
+        "removed": 0,
+        "changed": 0,
+        "examples": [
+          "arc-prize:arc-agi-2:google-gemini-4-neon-high:arc-agi-2-v2-semi-private",
+          "arc-prize:arc-agi-2:google-gemini-4-neon-low:arc-agi-2-v2-semi-private",
+          "arc-prize:arc-agi-2:google-gemini-4-neon-medium:arc-agi-2-v2-semi-private"
+        ]
+      },
+      {
+        "sourceId": "arc-prize",
+        "file": "costs.json",
+        "added": 3,
+        "removed": 0,
+        "changed": 0,
+        "examples": [
+          "arc-prize:cost-per-task:google-gemini-4-neon-high:arc-agi-2-v2-semi-private",
+          "arc-prize:cost-per-task:google-gemini-4-neon-low:arc-agi-2-v2-semi-private",
+          "arc-prize:cost-per-task:google-gemini-4-neon-medium:arc-agi-2-v2-semi-private"
+        ]
+      },
+      {
+        "sourceId": "arc-prize",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "artificial-analysis",
+        "file": "candidates.json",
+        "added": 153,
+        "removed": 162,
+        "changed": 209,
+        "examples": [
+          "artificial-analysis:aa-briefcase:ling-3-2-air",
+          "artificial-analysis:aa-omniscience:ling-3-2-air",
+          "artificial-analysis:aa-omniscience:ling-3-2-air:index",
+          "artificial-analysis:agnes-agnes-2-5-pro-theta-aa-index:intelligence-index-v5-0-2",
+          "artificial-analysis:alibaba-qwen3-8-27b-low-aa-index:intelligence-index-v5-0-2"
+        ]
+      },
+      {
+        "sourceId": "artificial-analysis",
+        "file": "costs.json",
+        "added": 0,
+        "removed": 2,
+        "changed": 138,
+        "examples": [
+          "artificial-analysis:api-token-price:qwen3-coder-next",
+          "artificial-analysis:cost-per-intelligence-index-task:granite-4-2-8b",
+          "artificial-analysis:api-token-price:glm-5-1",
+          "artificial-analysis:api-token-price:glm-5-1-non-reasoning",
+          "artificial-analysis:api-token-price:glm-5-3-flash"
+        ]
+      },
+      {
+        "sourceId": "artificial-analysis",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "artificial-analysis",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "biobasicsbench",
+        "file": "candidates.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "<row order>"
+        ]
+      },
+      {
+        "sourceId": "cwe-bench",
+        "file": "candidates.json",
+        "added": 2,
+        "removed": 0,
+        "changed": 20,
+        "examples": [
+          "cwe-bench:cwe-bench-v2:gpt-5-6-cyber",
+          "cwe-bench:cwe-bench-v2:minimax-m3-1-flash-max",
+          "cwe-bench:cwe-bench-v2:claude-fable-5-2",
+          "cwe-bench:cwe-bench-v2:claude-opus-5-5",
+          "cwe-bench:cwe-bench-v2:claude-sonnet-5-5"
+        ]
+      },
+      {
+        "sourceId": "cwe-bench",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "cwe-bench",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "epoch-ai",
+        "file": "candidates.json",
+        "added": 1298,
+        "removed": 1290,
+        "changed": 51,
+        "examples": [
+          "epoch-ai:aime:alibaba-qwen3-6-27b-default-epoch-inspect-row-114",
+          "epoch-ai:aime:alibaba-qwen3-7-max-default-epoch-inspect-row-105",
+          "epoch-ai:aime:alibaba-qwen3-7-plus-default-epoch-inspect-row-123",
+          "epoch-ai:aime:alibaba-qwen3-8-max-xhigh-epoch-inspect-row-157",
+          "epoch-ai:aime:alibaba-qwen3-8-max-xhigh-epoch-inspect-row-32"
+        ]
+      },
+      {
+        "sourceId": "epoch-ai",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "frontier-code",
+        "file": "candidates.json",
+        "added": 5,
+        "removed": 0,
+        "changed": 139,
+        "examples": [
+          "frontier-code:frontier-code-2-0:swe-2-1-high",
+          "frontier-code:frontier-code-2-0:swe-2-1-low",
+          "frontier-code:frontier-code-2-0:swe-2-1-max",
+          "frontier-code:frontier-code-2-0:swe-2-1-medium",
+          "frontier-code:frontier-code-2-0:swe-2-1-xhigh"
+        ]
+      },
+      {
+        "sourceId": "frontier-code",
+        "file": "costs.json",
+        "added": 5,
+        "removed": 0,
+        "changed": 139,
+        "examples": [
+          "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-2-1-high",
+          "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-2-1-low",
+          "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-2-1-max",
+          "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-2-1-medium",
+          "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-2-1-xhigh"
+        ]
+      },
+      {
+        "sourceId": "frontier-code",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "frontier-code",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "frontier-swe",
+        "file": "candidates.json",
+        "added": 1,
+        "removed": 0,
+        "changed": 15,
+        "examples": [
+          "frontier-swe:frontier-swe-v2:muse-wonder-proximus",
+          "frontier-swe:frontier-swe-v2:deepseek-v4-flash-vision-exp-proximus",
+          "frontier-swe:frontier-swe-v2:gemini-3-7-flash-proximus",
+          "frontier-swe:frontier-swe-v2:gemini-3-8-flash-proximus",
+          "frontier-swe:frontier-swe-v2:glm-5-3-flash-proximus"
+        ]
+      },
+      {
+        "sourceId": "frontier-swe",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "livebench",
+        "file": "candidates.json",
+        "added": 14,
+        "removed": 0,
+        "changed": 557,
+        "examples": [
+          "livebench-2026-11-06:livebench-browser:inkling-2-mini",
+          "livebench-2026-11-06:livebench-browser:inkling-2-small",
+          "livebench-2026-11-06:livebench-coding:inkling-2-mini",
+          "livebench-2026-11-06:livebench-coding:inkling-2-small",
+          "livebench-2026-11-06:livebench-data-analysis:inkling-2-mini"
+        ]
+      },
+      {
+        "sourceId": "livebench",
+        "file": "costs.json",
+        "added": 4,
+        "removed": 0,
+        "changed": 181,
+        "examples": [
+          "livebench:api-token-price:thinking-machines-inkling-2-mini-xhigh",
+          "livebench:api-token-price:thinking-machines-inkling-2-small-xhigh",
+          "livebench:cost-per-task-2026-11-06:thinking-machines-inkling-2-mini-xhigh",
+          "livebench:cost-per-task-2026-11-06:thinking-machines-inkling-2-small-xhigh",
+          "livebench:api-token-price:abacus-smaug-flash-unlabelled"
+        ]
+      },
+      {
+        "sourceId": "livebench",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "livebench",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "scale-swe-atlas",
+        "file": "candidates.json",
+        "added": 2,
+        "removed": 0,
+        "changed": 28,
+        "examples": [
+          "scale-swe-atlas:swe-atlas:gemini-4-hydrogen-antigravity-cli-xhigh",
+          "scale-swe-atlas:swe-atlas:gemini-4-neon-antigravity-cli-xhigh",
+          "scale-swe-atlas:swe-atlas:beam-1-0-opencode-max",
+          "scale-swe-atlas:swe-atlas:claude-haiku-5-5-claude-code-max",
+          "scale-swe-atlas:swe-atlas:claude-sonnet-5-5-claude-code-max"
+        ]
+      },
+      {
+        "sourceId": "scale-swe-atlas",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "vals-ai",
+        "file": "candidates.json",
+        "added": 61,
+        "removed": 0,
+        "changed": 87,
+        "examples": [
+          "vals-ai:claimbench:decision-microsoft-decision-1-1",
+          "vals-ai:rctbench:decision-bison-1",
+          "vals-ai:rctbench:decision-clef",
+          "vals-ai:rctbench:decision-d1-2",
+          "vals-ai:rctbench:decision-d1-2-ultra"
+        ]
+      },
+      {
+        "sourceId": "vals-ai",
+        "file": "costs.json",
+        "added": 60,
+        "removed": 0,
+        "changed": 86,
+        "examples": [
+          "vals-ai:cost-per-test:claimbench:decision-microsoft-decision-1-1",
+          "vals-ai:cost-per-test:rctbench:decision-bison-1",
+          "vals-ai:cost-per-test:rctbench:decision-clef",
+          "vals-ai:cost-per-test:rctbench:decision-d1-2",
+          "vals-ai:cost-per-test:rctbench:decision-d1-2-ultra"
+        ]
+      },
+      {
+        "sourceId": "vals-ai",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "vals-ai",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      },
+      {
+        "sourceId": "zapier-automationbench",
+        "file": "evidence-index.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "URL, method, media type, capture group or metadata"
+        ]
+      },
+      {
+        "sourceId": "zapier-automationbench",
+        "file": "manifest.json",
+        "added": 0,
+        "removed": 0,
+        "changed": 1,
+        "examples": [
+          "manifest fields other than lastVerifiedAt"
+        ]
+      }
+    ]
+  },
+  "pages": [
+    {
+      "url": "https://huggingface.co/api/models?author=openai&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:50.999716+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-openai.json",
+      "sha256": "eaf7eaa10a6ba7e89a206b83be0ea6cf9ae1c2005d5370ea73c128514d9bf74d",
+      "bytes": 4172,
+      "prevStatus": 200,
+      "prevSha256": "9d779f5bdb51c9d2a6d7f0b75044015c9302f673b12da06fdcb4dbd27b94c5a0",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=google&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.000126+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-google.json",
+      "sha256": "ddfae87ec4a75a94017f8a68c16796a1f861b54d69b292cd1089fc4e1a7bacb3",
+      "bytes": 3752,
+      "prevStatus": 200,
+      "prevSha256": "90f1381fa122efaf3ef1b16aa74303a38bafef92b1cf405dae7930013841798c",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=meta-llama&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.000633+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-meta-llama.json",
+      "sha256": "2d854aef11378e72ca16096abfb8df2025b3d76fd5da7ed0f8bf267b7cbc1d7b",
+      "bytes": 3897,
+      "prevStatus": 200,
+      "prevSha256": "987c8ab0a414f54390d2a9c8f9e2ecd3dca1716cbb46cc4799c1eacd16a942b4",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=facebook&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.000953+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-facebook.json",
+      "sha256": "12e77346f88937f98089e0ace7fe60c74577f1e10803d8a1c3c31827597749bc",
+      "bytes": 3553,
+      "prevStatus": 200,
+      "prevSha256": "667b9f24b819afdb3ed843917927511a87cee6a3588dbdf48dd1cb1d85116106",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=xai-org&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.001363+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-xai-org.json",
+      "sha256": "1413ae0d040cef5a0750f47dbde75404e350e332c3324e4e408451dd0725dba8",
+      "bytes": 497,
+      "prevStatus": 200,
+      "prevSha256": "de503ac953c45a0a70ad59cfbfad0bba1dd814c0572547d0aea52c59138d0392",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=deepseek-ai&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.001692+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-deepseek-ai.json",
+      "sha256": "f1dec59b0f197fa65d50b92c25f7c37622a1bca7fd8eac5035b422c181b7da27",
+      "bytes": 3097,
+      "prevStatus": 200,
+      "prevSha256": "76a32d5d03783edf1b5eddb195ce00c07aafb357d8ace55515b210a009027138",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=moonshotai&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.002104+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-moonshotai.json",
+      "sha256": "e730d453d4e00473cbcd49bd87c5f810120cc7d118f48dc972c84d8e2067c61f",
+      "bytes": 3674,
+      "prevStatus": 200,
+      "prevSha256": "ad2c66c09911a95bacb7a8f4c26c88efe1baa6967078471cc9f9e282f5ede2ee",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.003984+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-Qwen.json",
+      "sha256": "011b7ea1d13b3f7df02baf4757672d465c372f1e3e2857ade3a6e55aa3833449",
+      "bytes": 3452,
+      "prevStatus": 200,
+      "prevSha256": "9853279b060a6b5166d1b97954f7cfd0bf925ec282403038b0b7dbaf0a98401e",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=mistralai&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.004808+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-mistralai.json",
+      "sha256": "97120cdca3be7d37e8137efd3cd707b8a0819e8470a1cd62f02a88008dc06b57",
+      "bytes": 4123,
+      "prevStatus": 200,
+      "prevSha256": "106f347d7dc8696504c65d6617330e92be9d9d5b753b1e1a97c01b0321f03694",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=MiniMaxAI&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.006423+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-MiniMaxAI.json",
+      "sha256": "e0c64ad89f2afe892e0f4e56b4d883f9a9150a49329b0609a6d96e032dac23bd",
+      "bytes": 4083,
+      "prevStatus": 200,
+      "prevSha256": "f6e0f48fa0455c63024c64c2de222a5603a069600c866e63628119f154ba0bbf",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=zai-org&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.006855+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-zai-org.json",
+      "sha256": "d6aade2edca4733beb880754d4d97dd4b3134f97e9dd1fb10fc146f736f19304",
+      "bytes": 3477,
+      "prevStatus": 200,
+      "prevSha256": "c691b11950be350d8b070b8469a885e2d777d4ccbffe36342210d0bd0fbead5b",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=thinkingmachines&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.007205+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-thinkingmachines.json",
+      "sha256": "28ca5ac67399af1f3c7fa48a196959baa7974a311ac30b0cc03880e99759ddab",
+      "bytes": 3858,
+      "prevStatus": 200,
+      "prevSha256": "6d7e7f3611bcf18d7ecddf1a0840c90c78d1247a230d23920d25ed82d06dcb83",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=LGAI-EXAONE&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.279166+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-LGAI-EXAONE.json",
+      "sha256": "410827b7ec924a35621fc9ba0693e6f9814733fbddd3a1946cba37f82efa86ca",
+      "bytes": 4514,
+      "prevStatus": 200,
+      "prevSha256": "60500718a1ecc87b1450130ce4ef13999e714c08fe56f90dc473f62cb46363d3",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/models?author=meta-models&sort=createdAt&direction=-1&limit=8",
+      "fetchedAt": "2026-11-26T06:50:51.281180+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/hf-meta-models.json",
+      "sha256": "662785cc3425eb8d1b10afc783e87366b954b668fba48a8de22255b76ffcf599",
+      "bytes": 3193,
+      "prevStatus": 200,
+      "prevSha256": "4e7eaa71fa7d6122f82090af83be6aece1a96b3f5346a2021c1613a25b23e054",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "fetchedAt": "2026-11-26T06:50:51.281553+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/anthropic-news.html",
+      "sha256": "6bae501976aceca85482c1571298c9c33ec46f7d32151b2ceae58f947f43200b",
+      "bytes": 343871,
+      "prevStatus": 200,
+      "prevSha256": "ee61eedf4dff5e4377aa7d33dba2c8de7bb33f0457daee2e2ef0a28f98f0eb04",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "fetchedAt": "2026-11-26T06:50:51.281663+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-docs-models-overview.html",
+      "sha256": "4b5cf2d6f66b391a753965d35af715f8efa43d89def908c594d94460a8e48861",
+      "bytes": 684863,
+      "prevStatus": 200,
+      "prevSha256": "ac5ea0b59444b509a819fe56dcf346a6dc4fad4036d0e988dac33f39dd601b20",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://claude.com/pricing",
+      "fetchedAt": "2026-11-26T06:50:51.282037+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-pricing.html",
+      "sha256": "b513e7bcb86951040366a8f54869696fb3a9bfa66a1a49f55c854455ed201abc",
+      "bytes": 1448601,
+      "prevStatus": 200,
+      "prevSha256": "6b9d3e04b22b7e443960c19856a0cb550ec55e97a070905233596e84741975eb",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "fetchedAt": "2026-11-26T06:50:51.285671+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-docs-release-notes.html",
+      "sha256": "77dda2c265692fa2e9feb77beefc624efe02f30dca761194792fbfe61bf16feb",
+      "bytes": 1114536,
+      "prevStatus": 200,
+      "prevSha256": "567caf1506340d9202e5f30a11dd1e097797bfde120e676e35ced96c3218ae07",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+      "fetchedAt": "2026-11-26T06:50:51.287880+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-fable-5-2-overview.html",
+      "sha256": "8d9d66f322fcde5650e1862fc173865f1edad4b7c3ac22b9db3562042a757135",
+      "bytes": 521331,
+      "prevStatus": 200,
+      "prevSha256": "06d0a958e3fd8fafb24509359d1c2990e2b44f13fbb3f9fd4be9607772530a85",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2",
+      "fetchedAt": "2026-11-26T06:50:51.289964+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-fable-5-2-whats-new.html",
+      "sha256": "a690758e13d29f2582fee3678ed47dffe3e315c22270eecf65ebf4b14c4ae8a3",
+      "bytes": 528212,
+      "prevStatus": 200,
+      "prevSha256": "538bad09365541e0133f3efa73cb70d27d5be230e804d36b192b0dd2ca2378c2",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/migration-guide",
+      "fetchedAt": "2026-11-26T06:50:51.290481+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-fable-5-2-migration.html",
+      "sha256": "ab2cac51dd743ca6ebfb1f85cbffe50f1cec6f5627cfed2a83d59982e63f6fa8",
+      "bytes": 714948,
+      "prevStatus": 200,
+      "prevSha256": "aac3cedd78126dda765e4f0e6e5a3c26007cb06b54fc5070df8234f39e57a1fe",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://support.claude.com/en/articles/15425695-covered-models",
+      "fetchedAt": "2026-11-26T06:50:51.291085+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/claude-support-covered-models.html",
+      "sha256": "e2bd6211edfc27d3743bc43a2672274b89e6864834ce0f273a90802a8a62eaf4",
+      "bytes": 224263,
+      "prevStatus": 200,
+      "prevSha256": "7fa8ee2fa5cae351489bd7e7be93bdc926217f03cda5140ab66c6e8ec13ed26f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "fetchedAt": "2026-11-26T06:50:51.294770+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/anthropic-claude-fable-mythos-5-2.html",
+      "sha256": "16b46ffb31638463cb18f85e679bd7f2cd6039cd9ebb18a355842098979914b8",
+      "bytes": 411992,
+      "prevStatus": 200,
+      "prevSha256": "259e2389fb8f7dd41ae34069783f6f2a34d3769d59135c52c5c74c26397b1512",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://openai.com/news/",
+      "fetchedAt": "2026-11-26T06:50:51.296278+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/openai-news.html",
+      "sha256": "e3df789a0762da580d3bffc3542128b600a95edba3c43bc04b24f4c51173ec2b",
+      "bytes": 387471,
+      "prevStatus": 200,
+      "prevSha256": "15de1984c9bd98543bea410055eecc83f0b054523e4c3c965f0bcad01192445d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://openai.com/index/",
+      "fetchedAt": "2026-11-26T06:50:51.466344+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/openai-index.html",
+      "sha256": "89d14419b76d0ed8bb480363d5a8f05f56e884c1790afd3c95774c0df4dbf71f",
+      "bytes": 387471,
+      "prevStatus": 200,
+      "prevSha256": "ab25f7639d9ca9127ea9dea46ab4e1694ad0ed2b657a5c4ebe48cb2bcf222112",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.openai.com/docs/models",
+      "fetchedAt": "2026-11-26T06:50:51.540783+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/openai-docs-models.html",
+      "sha256": "369bda33c781af4a72cbdb5645de98a0936e6f086e0898b39348aa237e46b50e",
+      "bytes": 428250,
+      "prevStatus": 200,
+      "prevSha256": "b7b8282ea8e847c2958e5324bc5721d2587c796beeaf6e11d598c39385fe1162",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://blog.google/technology/ai/",
+      "fetchedAt": "2026-11-26T06:50:51.560308+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-blog-ai.html",
+      "sha256": "3f21d41a082104376e8c37f8ee008e763b90d38ff26e06af390ced5c5632f2eb",
+      "bytes": 388406,
+      "prevStatus": 200,
+      "prevSha256": "4db7efc01462752c442db330dd1f97740cb80d9f7963e57e7e5f5eee3deb7339",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://deepmind.google/discover/blog/",
+      "fetchedAt": "2026-11-26T06:50:51.571108+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-deepmind-blog.html",
+      "sha256": "604d8373025acf7355fedfe5d7ce48e1f2aec30f53b1e43bbfec65a2a12b5bbd",
+      "bytes": 188130,
+      "prevStatus": 200,
+      "prevSha256": "366592c1ab984f4226ef99e10cbedc19716bbf337798459b10e2af284cd154b4",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini",
+      "fetchedAt": "2026-11-26T06:50:51.757735+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-gemini-docs-models.html",
+      "sha256": "7103755e34869267e09d9a876badcdd917fda6469d1bd61ddd545707fd0766ba",
+      "bytes": 94844,
+      "prevStatus": 200,
+      "prevSha256": "82e541ce8ebc28342f037d1410d20df803bbde143e63db275ed36767a0b87793",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://ai.google.dev/pricing",
+      "fetchedAt": "2026-11-26T06:50:51.783110+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-pricing.html",
+      "sha256": "35617ddea74335cf07ea2c4b00ec1be1c027567f726e4804226dcf4c01fe5d38",
+      "bytes": 188661,
+      "prevStatus": 200,
+      "prevSha256": "a3e4a8fb2bf22da305d138aa13037ef9fbbc2c9783d474e737a0f05cb664a37c",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "fetchedAt": "2026-11-26T06:50:51.801857+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-blog-gemini-4-hydrogen.html",
+      "sha256": "9c959aab33d0b7ff12a6e6e10158a34d63e7dbf265b21a5b7e1e8801aafcc555",
+      "bytes": 418316,
+      "prevStatus": 200,
+      "prevSha256": "5ba5c71de740939318a63d6059af64914ab22412e18681f43445916a84e4fe39",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+      "fetchedAt": "2026-11-26T06:50:51.949194+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-blog-build-with-hydrogen.html",
+      "sha256": "ad89c263d843180c9f315742558fe10cfc5e331552ae35c9b4f4c116224022f5",
+      "bytes": 380429,
+      "prevStatus": 200,
+      "prevSha256": "c5b2cdf17dcb4efcb3decac7f53cda6f03924b969867be03d3af57d7b467484e",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-hydrogen",
+      "fetchedAt": "2026-11-26T06:50:51.955898+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-gemini-4-hydrogen-doc.html",
+      "sha256": "d8f604ad89cc57f2e55ad6f7b5fa9d8046ce4fad0a19c7e9f16961969644c934",
+      "bytes": 77418,
+      "prevStatus": 200,
+      "prevSha256": "6c8081f5b1e3f83c5032430f29b937e54e57a91a439377942b6b1d2f5676ff68",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+      "fetchedAt": "2026-11-26T06:50:51.976400+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-deepmind-gemini-4-hydrogen-card.html",
+      "sha256": "1ed15f609b66d769e95a0b0f814b2f0f85d61edb694da0427a5b9474032f66f6",
+      "bytes": 30178,
+      "prevStatus": 200,
+      "prevSha256": "759e07d075e713b5f760cdda9b5a64fe1736eb23b0528020e1f3e14352b305de",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://deepmind.google/models/evals-methodology/gemini-4-hydrogen/",
+      "fetchedAt": "2026-11-26T06:50:51.988569+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-deepmind-gemini-4-hydrogen-evals.html",
+      "sha256": "e6ef1f92efbce0a02975e0f7fd495b7c04114ba81bf9c12d7be6204f826c58d0",
+      "bytes": 267631,
+      "prevStatus": 200,
+      "prevSha256": "e6ef1f92efbce0a02975e0f7fd495b7c04114ba81bf9c12d7be6204f826c58d0",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://research.meta.ai/blog/muse-ember",
+      "fetchedAt": "2026-11-26T06:50:52.078733+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/meta-muse-ember-launch.html",
+      "sha256": "95e8526da9d65b0965416def95fd9901154055876edc7fdc5f4c15a9bcf12a21",
+      "bytes": 686216,
+      "prevStatus": 200,
+      "prevSha256": "f1ba6f6762ab7f31c99c38ac4a3c62d960864e34533e0942ad30ed28b296dd8d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://dev.meta.ai/models/muse-ember",
+      "fetchedAt": "2026-11-26T06:50:52.149575+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/meta-muse-ember-model.html",
+      "sha256": "c7be3e6409d31f4043df43d546475ebc2e3536d8066705b669e3e2601b351f3e",
+      "bytes": 816213,
+      "prevStatus": 200,
+      "prevSha256": "e044774db434ef2c721578276676f663fdccdbb64c511ebb0d397387db3fc99f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://dev.meta.ai/docs/muse-ember",
+      "fetchedAt": "2026-11-26T06:50:52.182390+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/meta-muse-ember-docs.html",
+      "sha256": "e86939b2776baba3fa4ee7ee17b8f3b3b3c988293b4394874ddeed4d6a0bce28",
+      "bytes": 251396,
+      "prevStatus": 200,
+      "prevSha256": "de5f500ae33132a5d2172f705178d79e73ed4e358bf692329f6ec6f69d7e3a1f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://dev.meta.ai/docs/models",
+      "fetchedAt": "2026-11-26T06:50:52.381869+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/meta-models-docs.html",
+      "sha256": "88ffef18f417e73746046af7b3ed2f26bfd1762c59f0657cff97bc5909289efc",
+      "bytes": 397692,
+      "prevStatus": 200,
+      "prevSha256": "2787418fe9725cc64d8478d1e506104f6f0ae9569a3e5c63fd9f07e5dd5a63e3",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://ai.meta.com/blog/",
+      "fetchedAt": "2026-11-26T06:50:52.634861+00:00",
+      "httpStatus": 400,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/meta-ai-blog.html",
+      "sha256": "a29a8e7042bc52ee9c5ecedae2ef5e0d56fdc35fb437242cfb798c663c855867",
+      "bytes": 1542,
+      "prevStatus": 400,
+      "prevSha256": "90b8c2d855f9acb00df88c5719dc7087ed91676552baf6de5b87f939c2bd26b3",
+      "changed": true,
+      "error": "HTTP 400"
+    },
+    {
+      "url": "https://x.ai/news",
+      "fetchedAt": "2026-11-26T06:50:52.642019+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/xai-news.html",
+      "sha256": "b45f1f5b22aaac4f1d2fc7828facb9f3db43e732ab21fec1078da856f0a98d1c",
+      "bytes": 252611,
+      "prevStatus": 200,
+      "prevSha256": "78d278becc61e2c465c81cec072ca1104eb69c77acba840f69c6ed1737ac512d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://docs.x.ai/docs/models",
+      "fetchedAt": "2026-11-26T06:50:52.665802+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/xai-docs-models.html",
+      "sha256": "0a323ce4369cbf40c8ac91b014fb46b50559160cfbac384d8511d558b814057e",
+      "bytes": 383811,
+      "prevStatus": 200,
+      "prevSha256": "506b77c467f5d60528dc9c147ae80b0360eb01dfaff00c0173e85698ab60b845",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "fetchedAt": "2026-11-26T06:50:52.666706+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/deepseek-pricing.html",
+      "sha256": "7071504b4645de71022ea8130d4d2edf910b7ea9226c0c9aeca2680e935fc5d8",
+      "bytes": 29510,
+      "prevStatus": 200,
+      "prevSha256": "7071504b4645de71022ea8130d4d2edf910b7ea9226c0c9aeca2680e935fc5d8",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://api-docs.deepseek.com/news/news1106",
+      "fetchedAt": "2026-11-26T06:50:52.937277+00:00",
+      "httpStatus": 404,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/deepseek-news-1106.html",
+      "sha256": "a53ab0630dd99ad1487fb84c36e3b2316a4e7a29569a40e384f06d3c931b98de",
+      "bytes": 13531,
+      "prevStatus": 404,
+      "prevSha256": "a53ab0630dd99ad1487fb84c36e3b2316a4e7a29569a40e384f06d3c931b98de",
+      "changed": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.kimi.com/blog",
+      "fetchedAt": "2026-11-26T06:50:52.958348+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/kimi-blog.html",
+      "sha256": "972576ce810a424c3ba573f33ed7a3156dd6334c402ddc3ca3c21260701654d5",
+      "bytes": 222154,
+      "prevStatus": 200,
+      "prevSha256": "97b6c3738b8e2299e5c932499f0eedb0b0f9bb2725dcabb239f8200bbfaba4b7",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.moonshot.cn/docs/pricing",
+      "fetchedAt": "2026-11-26T06:50:52.964095+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/moonshot-pricing.html",
+      "sha256": "5ea0c9b01d790f72dcf51bda3a425da0b81bbb1d54eee9636d4c405178f624fb",
+      "bytes": 144943,
+      "prevStatus": 200,
+      "prevSha256": "e2ee3a544507de1f8aea094d18a1e6ac4066ef55b0f32502c3832c94ae490107",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://qwenlm.github.io/blog/",
+      "fetchedAt": "2026-11-26T06:50:52.998211+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/qwen-blog.html",
+      "sha256": "ea6345e313611b786c3a13b418128385d677cdd7b50609353654ff48025a7ab9",
+      "bytes": 13828,
+      "prevStatus": 200,
+      "prevSha256": "ea6345e313611b786c3a13b418128385d677cdd7b50609353654ff48025a7ab9",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://mistral.ai/news",
+      "fetchedAt": "2026-11-26T06:50:53.191786+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/mistral-news.html",
+      "sha256": "2204768a13a2f7fc204891f9d8dd3635653470b8487276883c942f6ad2d2afbf",
+      "bytes": 1288191,
+      "prevStatus": 200,
+      "prevSha256": "2dec1cf3e5d37bcd06462c4726880c6e2b6b4feb01eb1ea5f956ef7c97a8c142",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://docs.mistral.ai/models/mistral-large-4-0",
+      "fetchedAt": "2026-11-26T06:50:53.222873+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/mistral-large-4-docs.html",
+      "sha256": "c3b6e093cac87b2ff8f20fa83d6d919bc4528641444cd65b1413cf49e10e09c7",
+      "bytes": 308113,
+      "prevStatus": 200,
+      "prevSha256": "951cc3ff5f3cdd9b83776bfc6d4b4ef6fbe7c48a59c106945539fee6be1b3d36",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://docs.mistral.ai/getting-started/models/",
+      "fetchedAt": "2026-11-26T06:50:53.230061+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/mistral-models-overview.html",
+      "sha256": "a6e643e23fa3253bee8f3e6271c0e06378258e23309811b00bcd41f3e8b13c3f",
+      "bytes": 1203262,
+      "prevStatus": 200,
+      "prevSha256": "9dce17e58d11f07ff08c97f4b0457c978c9b41a9577eb6e9d4775b8e24504d7d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.minimax.io/news",
+      "fetchedAt": "2026-11-26T06:54:34.957606+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/minimax-news.html",
+      "sha256": "7fb193383153d7f7f2dba468c4d97e03a66f7e4de29c6e19571302e01f856cfb",
+      "bytes": 77436,
+      "prevStatus": 200,
+      "prevSha256": "b7d81b0d8eebc5422df795f5713764746fc598fe15a3303eee1ebd5856c44143",
+      "changed": true,
+      "error": null,
+      "note": "retried with curl -4 after IPv6 network unreachable"
+    },
+    {
+      "url": "https://www.minimax.cn/news",
+      "fetchedAt": "2026-11-26T06:50:53.309871+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/minimax-cn-news.html",
+      "sha256": "04b44a1166f53ffcac554138439157d125479a5389595b9dff46100c2b50c666",
+      "bytes": 82709,
+      "prevStatus": 200,
+      "prevSha256": "e7802d521b0f2bdec8ef93861cbf191328663f9f6aecb062c07fbb7b7079e711",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.minimaxi.com/document/pricing",
+      "fetchedAt": "2026-11-26T06:50:53.793296+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/minimax-pricing.html",
+      "sha256": "4e1663aeb69ac944c725127cfb8ed441e9038a68742a454376fa9306d210fddb",
+      "bytes": 309394,
+      "prevStatus": 200,
+      "prevSha256": "9f00f71ad0bb0c9a2e63d0f57b16c60dd7eb3546c6c5aaf16262e60a56de9b29",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://docs.z.ai/release-notes/new-released",
+      "fetchedAt": "2026-11-26T06:50:53.853245+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/zhipu-news.html",
+      "sha256": "ba1b3612b6a3df3367097c6483adc84667e9b88cfcd296d2fe1177fd39d24cf0",
+      "bytes": 111367,
+      "prevStatus": 200,
+      "prevSha256": "2f975a46c8c8c44757d10e737de1d30c5b0fad0a6f5381524c1ad99e88ad1a6c",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://open.bigmodel.cn/dev/howuse/model",
+      "fetchedAt": "2026-11-26T06:50:54.069804+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/zhipu-models-doc.html",
+      "sha256": "92fc32ee74e1f336419b825538d832f73ac9d6d71b833793e666bebc418cb287",
+      "bytes": 152471,
+      "prevStatus": 200,
+      "prevSha256": "808690ae06fc7ff7aefc34b8965ca39694424cb8402b003459300c599b5480f9",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://thinkingmachines.ai/",
+      "fetchedAt": "2026-11-26T06:50:54.152133+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/thinkingmachines-home.html",
+      "sha256": "0d3a79825d8a7b7b029602a452ed4bc7826244acb54ecce94d5fae99895b78ff",
+      "bytes": 76348,
+      "prevStatus": 200,
+      "prevSha256": "98fe25a081caf72319ff479abfda677207b602af7f175c106a536c5c5a7a3530",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.lgresearch.ai/news",
+      "fetchedAt": "2026-11-26T06:50:54.153391+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/lg-news.html",
+      "sha256": "389de52b6f27e1a2fcdf3cd140fa3cdd24d874e05536a19b36672e605d88af17",
+      "bytes": 105484,
+      "prevStatus": 200,
+      "prevSha256": "e8889b464cf716f9d90484d8f91b76fe37f4af64154d2579dfdd06edb0cb7d81",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.agnes-ai.com/",
+      "fetchedAt": "2026-11-26T06:50:54.364416+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/agnes-home.html",
+      "sha256": "aa54f5a46208ee438fb614ad41d8765a35a14ca04277e54bc8fd3587b92dcbfd",
+      "bytes": 8197,
+      "prevStatus": 200,
+      "prevSha256": "aa54f5a46208ee438fb614ad41d8765a35a14ca04277e54bc8fd3587b92dcbfd",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://www.agnes-ai.com/zh-Hans/docs/pricing",
+      "fetchedAt": "2026-11-26T06:50:54.462532+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/agnes-pricing.html",
+      "sha256": "5d8e24521dac7950384dd9d6860b6af0555c23a4b16bcd0e2a259bde007256a7",
+      "bytes": 165367,
+      "prevStatus": 200,
+      "prevSha256": "cf7feb3af7cfece3cec636e6348ff8189942668ca6e64414526af0160ac0f56d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.agnes-ai.com/zh-Hans/docs/overview",
+      "fetchedAt": "2026-11-26T06:50:54.483125+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/agnes-overview.html",
+      "sha256": "f1a4d6ce6c081528614b8d1b839acacbe67c4f9b7a4f131c65a7ef1b3fb88a2d",
+      "bytes": 147764,
+      "prevStatus": 200,
+      "prevSha256": "4074a31932e43fba071d72cda842240aa41420c8a5bdc6240d32d8265e058bf0",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-25-pro-theta",
+      "fetchedAt": "2026-11-26T06:50:54.547781+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/agnes-theta-model.html",
+      "sha256": "101cf92e1aa9e61c8d36599f061375908381490af478de108a17b5250065f304",
+      "bytes": 350113,
+      "prevStatus": 200,
+      "prevSha256": "5267ed50f60078cd85721065dc628001a5c6d8acb349c14a020545c72d90e37c",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+      "fetchedAt": "2026-11-26T06:50:54.674088+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/V/raw/google-deepmind-weather-datasets.html",
+      "sha256": "ec3f0f369f110dc9e269a74ccdcaa1781b05943b52de0166d3f5779477f9f485",
+      "bytes": 29458,
+      "prevStatus": 200,
+      "prevSha256": "06d102be662d9d4a2d38b406112f7d441743314021a46de7c345c760fd993cd5",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://scale.com/leaderboard",
+      "fetchedAt": "2026-11-26T06:51:43.440315+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/scale-leaderboard.html",
+      "sha256": "6e6583bf8a40ac65af17e121ffc45b072ceb63d42dfb1428d70b47a3884091ab",
+      "bytes": 293932,
+      "prevStatus": 200,
+      "prevSha256": "45558f988331e0bd3bf95c8dbb74292a373d7729ce398f676453de10b79343d7",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/evaluations/vials-aa",
+      "fetchedAt": "2026-11-26T06:51:43.440521+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/aa-vials-eval.html",
+      "sha256": "f4cd4ca3dbecfa5e9e6412cc8e36ee1583adbd687ea54f1926dd072fa299d174",
+      "bytes": 1192392,
+      "prevStatus": 200,
+      "prevSha256": "6e2908e8572139377bb98c4c987794f0e8f847c9b36efcffea548eba1e3fe48d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/articles/vials-aa",
+      "fetchedAt": "2026-11-26T06:51:43.440799+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/aa-vials-article.html",
+      "sha256": "ae298e4638859492176afa48bd5bd035f2b5d7765bec4e04295a06eee1099818",
+      "bytes": 573701,
+      "prevStatus": 200,
+      "prevSha256": "bb97a68873ab5caced64af17f903734e6b10a71118c55da070d2c57c9af5909d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "fetchedAt": "2026-11-26T06:51:43.440988+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/aa-methodology.html",
+      "sha256": "37f6f72c3f4f01d3ab11c59a240fda42f02b6d8aab601fd170c9df6347ab90c8",
+      "bytes": 1042303,
+      "prevStatus": 200,
+      "prevSha256": "901922e89da5cd67bc77ee32d747a692442349457803a1aa859ec6fac634392f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/datasets/Handshake-AI-Research/VIALS",
+      "fetchedAt": "2026-11-26T06:51:43.441193+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/hf-vials.json",
+      "sha256": "62ff30231fec7401000d9618db9516987ddc13c87db9e6ab5d2a386affed76cd",
+      "bytes": 2424,
+      "prevStatus": 200,
+      "prevSha256": "8e5a434b481243433c856005b409c4c3f4391a4004bfeeddd2de53206067f502",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.terminal-bench-science.ai/",
+      "fetchedAt": "2026-11-26T06:51:43.441407+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/tb-science-home.html",
+      "sha256": "d539dd9e2b528f6b870eac2998ea5999c6458e51f18a534154ddf2ea00a470d9",
+      "bytes": 53345,
+      "prevStatus": 200,
+      "prevSha256": "7d72ef71c1a89f431b90ce383626cf5151b9b661f45dccd603ad996cd272b84f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-science/main/README.md",
+      "fetchedAt": "2026-11-26T06:51:43.441589+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/tb-science-readme.md",
+      "sha256": "6f57f960169d0c9885d706b3283ab9fb2bba8b160be0cb34383aeff1598399ac",
+      "bytes": 28658,
+      "prevStatus": 200,
+      "prevSha256": "559d76933e12a3e6bae0de890e787055b1f95b55d4c7aac4fa2730378ca1c1ab",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-science/main/CITATION.cff",
+      "fetchedAt": "2026-11-26T06:51:43.441893+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/tb-science-citation.cff",
+      "sha256": "7fc592f10e80a8f9f9d8a05252ede0428296887d73706047cc1fe27262120b33",
+      "bytes": 1588,
+      "prevStatus": 200,
+      "prevSha256": "7fc592f10e80a8f9f9d8a05252ede0428296887d73706047cc1fe27262120b33",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/repos/harbor-framework/terminal-bench-science",
+      "fetchedAt": "2026-11-26T06:51:43.442332+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/tb-science-repo.json",
+      "sha256": "6968de3cc52679b6bc0c5138acfbcf0feadfbaa27c97b918041b2faeae08318e",
+      "bytes": 8068,
+      "prevStatus": 200,
+      "prevSha256": "972604a7736ee2c55ac4b86b5955472447457e2f9ce2f62fa8ae400a5dd698cc",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/perplexityai/wandr/main/README.md",
+      "fetchedAt": "2026-11-26T06:51:43.442672+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/wandr-perplexity-readme.md",
+      "sha256": "03611a0e9e33874856578ea82a61a1d8ddde33471ab9f19abc672003fc993a64",
+      "bytes": 9496,
+      "prevStatus": 200,
+      "prevSha256": "03611a0e9e33874856578ea82a61a1d8ddde33471ab9f19abc672003fc993a64",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/repos/perplexityai/wandr",
+      "fetchedAt": "2026-11-26T06:51:43.442833+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/wandr-repo.json",
+      "sha256": "336a50bb58bc9b99d9705cb2c4ce4d05adaed4054073fe2e857fe9ed4e70e612",
+      "bytes": 6863,
+      "prevStatus": 200,
+      "prevSha256": "ed1915768569c6bf7afdafb28fdd6174ffb0ce7adac37ddf5a58920ae027d46b",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+      "fetchedAt": "2026-11-26T06:51:43.443012+00:00",
+      "httpStatus": 403,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/wandr-perplexity-blog.html",
+      "sha256": "dd1faa417652043388d2ab722dc41422613dc5b76034c0e3b77125e6aa0d22c3",
+      "bytes": 6005,
+      "prevStatus": 403,
+      "prevSha256": "1fff621855022e7a8d6045e2f382564ab917f55997bc2102bdd9cc90ec655205",
+      "changed": true,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-eval/into-the-unknown/main/README.md",
+      "fetchedAt": "2026-11-26T06:51:43.492844+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/unknown-readme.md",
+      "sha256": "ce1ccd683ecbd8b796189cb03b024291c16b28912631392e0fc9bb1910c14649",
+      "bytes": 7008,
+      "prevStatus": 200,
+      "prevSha256": "ce1ccd683ecbd8b796189cb03b024291c16b28912631392e0fc9bb1910c14649",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://prometheus-eval.github.io/into-the-unknown/viewer/",
+      "fetchedAt": "2026-11-26T06:51:43.604858+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/unknown-viewer.html",
+      "sha256": "55a98de7ba19798f51e4f32c954547cd4481bced71a60f0429410a2203a91a17",
+      "bytes": 3181,
+      "prevStatus": 200,
+      "prevSha256": "55a98de7ba19798f51e4f32c954547cd4481bced71a60f0429410a2203a91a17",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/repos/prometheus-eval/into-the-unknown",
+      "fetchedAt": "2026-11-26T06:51:43.785931+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/unknown-repo.json",
+      "sha256": "5d741897b9a347649552f20fa8e81ec21aa38c88ef0218d0fa07f083963440b8",
+      "bytes": 7700,
+      "prevStatus": 200,
+      "prevSha256": "5d741897b9a347649552f20fa8e81ec21aa38c88ef0218d0fa07f083963440b8",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://maxxbench.unlap.ai/",
+      "fetchedAt": "2026-11-26T06:51:43.788005+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/maxxbench-home.html",
+      "sha256": "2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
+      "bytes": 487050,
+      "prevStatus": 200,
+      "prevSha256": "2f1eecf08ea42a7f7e71d5fb8d331f40f709ec8771fdfead491ee37ae70360c6",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://maxxbench.unlap.ai/changelog",
+      "fetchedAt": "2026-11-26T06:51:43.836226+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/maxxbench-changelog.html",
+      "sha256": "47b6c078c732274d484708f1ca4fa8a6d47aba323addec2713a5b3009d535da4",
+      "bytes": 188624,
+      "prevStatus": 200,
+      "prevSha256": "47b6c078c732274d484708f1ca4fa8a6d47aba323addec2713a5b3009d535da4",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://maxxbench.unlap.ai/data",
+      "fetchedAt": "2026-11-26T06:51:43.859871+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/maxxbench-data.html",
+      "sha256": "3574cc3960d3439dd265fd2fe3e55d51832e74621b37b98219064b637ea6dadd",
+      "bytes": 1555257,
+      "prevStatus": 200,
+      "prevSha256": "3574cc3960d3439dd265fd2fe3e55d51832e74621b37b98219064b637ea6dadd",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/unlap-labs/maxxbench/main/README.md",
+      "fetchedAt": "2026-11-26T06:51:43.860419+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/maxxbench-readme.md",
+      "sha256": "5ee075ca5a7d59e517e026df670a734390444ff90f2d5f46663b4817b08acb93",
+      "bytes": 1960,
+      "prevStatus": 200,
+      "prevSha256": "5ee075ca5a7d59e517e026df670a734390444ff90f2d5f46663b4817b08acb93",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/repos/unlap-labs/maxxbench",
+      "fetchedAt": "2026-11-26T06:51:43.977453+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/maxxbench-repo.json",
+      "sha256": "3c527cd355e1a053481af635bdcd04b360c8b81c35bcd07a28a7b6ccc2ac430f",
+      "bytes": 6986,
+      "prevStatus": 200,
+      "prevSha256": "9f4e22b0565c86eca8a5f9105e51f0b00f854ea633ebb3504d9adc1d865e9c95",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+      "fetchedAt": "2026-11-26T06:51:43.983597+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/biobasics-openai.html",
+      "sha256": "4b90723631a6825d055524c142256f3d3ae16dd8e47eeffc3902c484b6d8068d",
+      "bytes": 650965,
+      "prevStatus": 200,
+      "prevSha256": "ae7d7585f3b0046d6712d039c5de1f0e88d91abdc993c442d73b238a19cabf8f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://api.github.com/search/repositories?q=biobasicsbench",
+      "fetchedAt": "2026-11-26T06:51:44.022707+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/gh-biobasics.json",
+      "sha256": "08c082fdf7ca87ba911a2aabb0f0cf2d3e482a6feeaac9713e4578c20b2600b2",
+      "bytes": 73,
+      "prevStatus": 200,
+      "prevSha256": "08c082fdf7ca87ba911a2aabb0f0cf2d3e482a6feeaac9713e4578c20b2600b2",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://huggingface.co/api/datasets?search=biobasics",
+      "fetchedAt": "2026-11-26T06:51:44.068601+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/hf-biobasics.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2,
+      "prevStatus": 200,
+      "prevSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://epoch.ai/benchmarks/mirrorcode",
+      "fetchedAt": "2026-11-26T06:51:44.077578+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/epoch-mirrorcode.html",
+      "sha256": "5e23e1caa2a77d38e861a5eaf38c62f94e4838db37d2beafab09f7f21b265d00",
+      "bytes": 108230,
+      "prevStatus": 200,
+      "prevSha256": "0434e24305aefca01e2c390719d81140af0934ecfa05b25c43fdac64af1785eb",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://epoch.ai/benchmarks/mystery-game-puzzles",
+      "fetchedAt": "2026-11-26T06:51:44.093545+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/epoch-mystery-game-puzzles.html",
+      "sha256": "9bfeb4f57378e79124c1022cc8b4277bdb6812361eff3735a1a8d941242e7f9a",
+      "bytes": 103462,
+      "prevStatus": 200,
+      "prevSha256": "7b1afff0b15fd4a689ee548903fa2c537cb82849bae5453e0836771754938e3b",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://epoch.ai/data/benchmarks.csv",
+      "fetchedAt": "2026-11-26T06:51:44.177785+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/epoch-benchmarks.csv",
+      "sha256": "e0c11c981fcdfe78505634af3454843e4c9fdfe98a870fa5a912a8a758461b66",
+      "bytes": 4197443,
+      "prevStatus": 200,
+      "prevSha256": "d4b2a9712a671854207787cb8a13edf7a0a3bedac5873e23e654a9312248fb83",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://epoch.ai/benchmarks",
+      "fetchedAt": "2026-11-26T06:51:44.304922+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/epoch-benchmarks.html",
+      "sha256": "30088ae8d4606f076f276e86fb6218043dfdf29229f35ff6df3bfb0a97f288ee",
+      "bytes": 148554,
+      "prevStatus": 200,
+      "prevSha256": "42ff925db66186ebb67486305bdb271cf433ef801c4616eaaa2a86634b60d199",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://epoch.ai/data-insights",
+      "fetchedAt": "2026-11-26T06:51:44.340130+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/epoch-data-insights.html",
+      "sha256": "e29938c4e0b3a12838ecbd6bddb788406b5aaa149d8ef9696c93a76f0fd42cd1",
+      "bytes": 195315,
+      "prevStatus": 200,
+      "prevSha256": "bbd5c583df6ed72960edf6a2db8011037e8cedee4189de77f88bb225a3453d60",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "fetchedAt": "2026-11-26T06:51:44.349710+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/aa-changelog.html",
+      "sha256": "0d62f7b6dc0d57d3e58544c8bd31946570ede4a32b31d995ae012fdae876a324",
+      "bytes": 406256,
+      "prevStatus": 200,
+      "prevSha256": "eb9d9ef3cd98615d0b3c8248bbfb08a9b067c53e59b9e0ca06fa07561d83b8c0",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/articles",
+      "fetchedAt": "2026-11-26T06:51:44.389049+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/aa-articles.html",
+      "sha256": "eb1318147854c99d10f717edb2ed653d56e206634fe20ffc5a0e470ca8987a1b",
+      "bytes": 363677,
+      "prevStatus": 200,
+      "prevSha256": "1423a6311250d2e094d8cfe04283fd51c2d735052c39640339f900d176e944f7",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://livebench.ai/",
+      "fetchedAt": "2026-11-26T06:51:44.427682+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/livebench-home.html",
+      "sha256": "32cde41405e22cd97e27855a081d876ad4de753d0588708a80270021aa267923",
+      "bytes": 889,
+      "prevStatus": 200,
+      "prevSha256": "8dc4c241abfac4f464af9440404a893687368864154211cc7a2019d5c55e1dd8",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.vals.ai/news",
+      "fetchedAt": "2026-11-26T06:51:44.635506+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/vals-news.html",
+      "sha256": "368c24245165ee3ec82a6695147476e154495096f1ad3132defb48fa5860c5f7",
+      "bytes": 186649,
+      "prevStatus": 200,
+      "prevSha256": "7fae61902db3a30913fee1f1e357cd96d0414bbce3e85aaf0546adce4f775a67",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.vals.ai/benchmarks",
+      "fetchedAt": "2026-11-26T06:51:44.768510+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/vals-benchmarks.html",
+      "sha256": "9c0fd13a12cba11a6c8c718651e0491f0e0170a6d6314568f5c527f09294813b",
+      "bytes": 315880,
+      "prevStatus": 200,
+      "prevSha256": "25486303f132944178832eeab82342eb4e628c25e0afe62a73f408a04c5d0650",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://www.vals.ai/models",
+      "fetchedAt": "2026-11-26T06:51:44.794736+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/vals-models.html",
+      "sha256": "7b4f6431d5f9f662676882114fa8309c77dbd2240d853128736e99932b7acf68",
+      "bytes": 126681,
+      "prevStatus": 200,
+      "prevSha256": "7ba2e7faa457726fd569f87af55b7ea78a137dd4ffa3c3ff83ec898a45f252ab",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://cognition.com/frontiercode",
+      "fetchedAt": "2026-11-26T06:51:44.825728+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/frontiercode-home.html",
+      "sha256": "d860b7cac2e349a5816e981d39a609743c5f891254ad1f92f39868b0f74fb328",
+      "bytes": 458821,
+      "prevStatus": 200,
+      "prevSha256": "6b8a451f9604529940e3bf2fdf9e2aefc8552451410e2d9375bd975f7749396f",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://cognition.com/data/frontier-code-2.0/data.json",
+      "fetchedAt": "2026-11-26T06:51:44.852538+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/frontiercode-data.json",
+      "sha256": "feda9f00a605cfef9fc9b7168437eeec39d34f930bd65558fa55b601bf282fb0",
+      "bytes": 29221,
+      "prevStatus": 200,
+      "prevSha256": "79217153ce56e1a9f986fe886aa3279f7d17c69fd03f25b20cabf95dfc0f6fce",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://deepswe.datacurve.ai/",
+      "fetchedAt": "2026-11-26T06:51:44.929305+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/deepswe-home.html",
+      "sha256": "4ad6365bf7625f9fe176a5c6c709855ecaa74d3c829dadfb407546d0aefcfae2",
+      "bytes": 268973,
+      "prevStatus": 200,
+      "prevSha256": "4ad6365bf7625f9fe176a5c6c709855ecaa74d3c829dadfb407546d0aefcfae2",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+      "fetchedAt": "2026-11-26T06:51:45.068208+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/deepswe-live.json",
+      "sha256": "a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
+      "bytes": 94758,
+      "prevStatus": 200,
+      "prevSha256": "a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
+      "changed": false,
+      "error": null
+    },
+    {
+      "url": "https://www.frontierswe.com/",
+      "fetchedAt": "2026-11-26T06:51:45.088399+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/frontierswe-home.html",
+      "sha256": "db61b7623957846ed01459b3e675f8c5b5605245de1edd688c5c9ff106ae1c3f",
+      "bytes": 987641,
+      "prevStatus": 200,
+      "prevSha256": "ac280dfb291672e560b69086b5ef6bbbd550dead84f251e6a617ba98027e92c0",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks",
+      "fetchedAt": "2026-11-26T06:51:45.124846+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-benchmarks.html",
+      "sha256": "ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7",
+      "bytes": 1125064,
+      "prevStatus": 200,
+      "prevSha256": "bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/chartography",
+      "fetchedAt": "2026-11-26T06:51:45.154344+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-chartography.html",
+      "sha256": "7c318589af76fdfa6472d39ad820aa8cdd6eab4609591525c8685330218cf633",
+      "bytes": 575329,
+      "prevStatus": 200,
+      "prevSha256": "a9afec977eb7e393d4ba88e797d789750cb656d9e90d8168064437b3b52d3eb3",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/complex-constraints",
+      "fetchedAt": "2026-11-26T06:51:45.211729+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-complex-constraints.html",
+      "sha256": "df84566a491bfda1ad86908317db8d2893941f5df1c2c27108911a7b8c92d8ab",
+      "bytes": 549085,
+      "prevStatus": 200,
+      "prevSha256": "acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+      "fetchedAt": "2026-11-26T06:51:45.236609+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-corecraft.html",
+      "sha256": "4c8f1badfc0fd7a790a675d2cf4285b8d8b31fe73afb04e8e1c2801b92b231f7",
+      "bytes": 604935,
+      "prevStatus": 200,
+      "prevSha256": "ec091c1392534e17bd8a5eba6bb12031a292b7e9f56cc64349428c6debde9793",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+      "fetchedAt": "2026-11-26T06:51:45.246154+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-finance.html",
+      "sha256": "324d92a0e3d38c7dc1f9bc85563a4786fe2e65cdcf6bb8ae39d1187ff5db532c",
+      "bytes": 602931,
+      "prevStatus": 200,
+      "prevSha256": "dfa68b6e028389ed0aa09c2a73ce4bc8f3e75c44747b5921de17bd39432282f7",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+      "fetchedAt": "2026-11-26T06:51:45.488164+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-healthcare.html",
+      "sha256": "ee71145806a3ef044c86d9bba59a5883501b78abffe24de2b93075673230e6ea",
+      "bytes": 593039,
+      "prevStatus": 200,
+      "prevSha256": "71d95f0ab407063f210556fdb0e36feecc7be4a7278966c50699958d2d14ff18",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+      "fetchedAt": "2026-11-26T06:51:45.523677+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-tax.html",
+      "sha256": "b2f5ead9686fe1888a4dd4cb3b535ee23f19e996978f0ed584a9fc8b124e8970",
+      "bytes": 739931,
+      "prevStatus": 200,
+      "prevSha256": "b3f1c0b3e8f0a4d6891d028e8b194598a49ac89bdddb3f3a4bdec48140634909",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+      "fetchedAt": "2026-11-26T06:51:45.538998+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-gdp.html",
+      "sha256": "c0ad876f486e2c32861a79f0862b0a328f06fe7dc11cccd85412f0ba5bfaa2fd",
+      "bytes": 571346,
+      "prevStatus": 200,
+      "prevSha256": "1f3ef0a58c5eb0ee8c3d33fcd7e42d1d04d59ff76973ae407cb73b3796f02675",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://surgehq.ai/benchmarks/riemann-bench",
+      "fetchedAt": "2026-11-26T06:51:45.870301+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/surge-riemann.html",
+      "sha256": "483394fffd3a07fa256823308cf7b787d7cc4cf21bea167452d60b72f113ec70",
+      "bytes": 551037,
+      "prevStatus": 200,
+      "prevSha256": "5e50c8250a93bcc05b3b3cdb588284e1b60446cd86883bb95e8c6ddcb477c1c9",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://arcprize.org/leaderboard",
+      "fetchedAt": "2026-11-26T06:51:46.248325+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/arcprize-leaderboard.html",
+      "sha256": "77c43fa26c430b665541dddcf288baae3c09187e8f56c174ab7ec012f5a3f319",
+      "bytes": 2019646,
+      "prevStatus": 200,
+      "prevSha256": "83c177d73c2e0e8f011db30a60de74f17c4fb6dfcd1fee79ef4e8522fc7ad8e6",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://arcprize.org/media/data/evaluations.json",
+      "fetchedAt": "2026-11-26T06:51:46.525229+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/arcprize-evaluations.json",
+      "sha256": "f5ed45ed569ab8c7cb693bd63c5fe98005b5c5e231974075aba6c3c86d850bf1",
+      "bytes": 298625,
+      "prevStatus": 200,
+      "prevSha256": "b0a982bcca21daacdce77b8662fa00730ebdf56e50092e67af2251b9b26dd3bf",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://arcprize.org/media/data/models.json",
+      "fetchedAt": "2026-11-26T06:51:46.556012+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/arcprize-models.json",
+      "sha256": "c8eb61c9f404de26cfd881036ca982efd0c8f9862f66080a525d556c7fb459ef",
+      "bytes": 205341,
+      "prevStatus": 200,
+      "prevSha256": "55b22723416758db2a159581c1db82966919a93f68775602995363577db55478",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://zapier.com/benchmarks",
+      "fetchedAt": "2026-11-26T06:51:46.874451+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/zapier-benchmarks.html",
+      "sha256": "4f7a8325388237297e3f8862f0c0f285949aa3d0caa274a0b3020a96240049e3",
+      "bytes": 174677,
+      "prevStatus": 200,
+      "prevSha256": "31cf592829c27bd77879978fe4e4e04b3186c817b1ce61d89606e8f64e0afe8c",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://fireworks.ai/specialized-intelligence-index/api/index.json",
+      "fetchedAt": "2026-11-26T06:51:46.967515+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/fireworks-sii.json",
+      "sha256": "ee336e26c8b135c47bfd266df5241b56321f29ddb53f7ce187cab32007cf13c9",
+      "bytes": 2955751,
+      "prevStatus": 200,
+      "prevSha256": "31a28ba035bb0cb85881ce542e57eab208aec5ba4d9307db69f1ef5643d1af2d",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://benchlm.ai",
+      "fetchedAt": "2026-11-26T06:51:47.100746+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/benchlm-home.html",
+      "sha256": "47cfe5f5c38ff1b3717749f1110c6796517d9bf8af33d816039f44c9863ff726",
+      "bytes": 521228,
+      "prevStatus": 200,
+      "prevSha256": "e66a61ebd4970fedb7545b835b52583b6c5fe0b044088f04238a6eefd5f9a1ea",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://livebench.ai/static/js/main.8a7822ea.js",
+      "fetchedAt": "2026-11-26T06:51:47.108164+00:00",
+      "httpStatus": 404,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/livebench-bundle.js",
+      "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+      "bytes": 9379,
+      "prevStatus": 404,
+      "prevSha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+      "changed": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://gertlabs.com/rankings?mode=agentic_coding",
+      "fetchedAt": "2026-11-26T06:51:47.120674+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/gertlabs-rankings-agentic.html",
+      "sha256": "028eca7fb2b4a329460fe2d2d8567f37ad4c8f2ce1c547d3ba9adf75e3ede839",
+      "bytes": 3522,
+      "prevStatus": 200,
+      "prevSha256": "d0c8088dc67ad4d12fdde3e1ffe2fd6be903682f818875fbfcdbd3a4ae0645b4",
+      "changed": true,
+      "error": null
+    },
+    {
+      "url": "https://gertlabs.com/api/v1/global/rankings?mode=agentic_coding&limit=500",
+      "fetchedAt": "2026-11-26T06:51:47.167659+00:00",
+      "httpStatus": 200,
+      "file": "artifacts/research/2026-11-26-benchmark-check/web/L/raw/gertlabs-api-agentic.json",
+      "sha256": "27c7717c58621bf068ca3b3cb6990823d279ac00e6aee56b3302fdbedce595b3",
+      "bytes": 10249395,
+      "prevStatus": 200,
+      "prevSha256": "aa34fc61eb5afa5c531e2b9dbc32d0c4b84cff747a2a45df6d4cf2031f19c769",
+      "changed": true,
+      "error": null
+    }
+  ]
+}

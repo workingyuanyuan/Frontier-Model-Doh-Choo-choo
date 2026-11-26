@@ -2,7 +2,7 @@
 
 - Source: <https://surgehq.ai/benchmarks/riemann-bench>
 - Benchmark version: v1.1.
-- Evidence: `sha256:5e50c8250a93bcc05b3b3cdb588284e1b60446cd86883bb95e8c6ddcb477c1c9`
+- Evidence: `sha256:483394fffd3a07fa256823308cf7b787d7cc4cf21bea167452d60b72f113ec70`
 - Main leaderboard: 28 rows; rendered browser count: 28.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning).
@@ -51,8 +51,6 @@ Current rendered rows: 28; preserved: 34; total stored: 62. Preserved rows retai
 - surge-riemann:riemann-bench:muse-spark-1-1-xhigh-reasoning: 20.8; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 - surge-riemann:riemann-bench:muse-spark-1-2-xhigh-reasoning: 23.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 - surge-riemann:riemann-bench:qwen-3-7-max-thinking-on: 15.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
-
-Preserved rows re-resolved against the current model catalog: surge-riemann:riemann-bench:glm-5-3-flash-max-reasoning: unresolved -> zai-glm-5-3-flash, profile null -> zai-glm-5-3-flash-max; surge-riemann:riemann-bench:muse-glimmer-30b-xhigh-reasoning: unresolved -> meta-muse-glimmer, profile null -> meta-muse-glimmer-xhigh.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

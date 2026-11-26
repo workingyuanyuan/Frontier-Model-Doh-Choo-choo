@@ -2,7 +2,7 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:acc7c5469cae0b6ba612ab5d2dce0bc89f35496149642246aa62232c5ba12bf6`
+- Evidence: `sha256:df84566a491bfda1ad86908317db8d2893941f5df1c2c27108911a7b8c92d8ab`
 - Main leaderboard: 26 rows; rendered browser count: 26.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning).
@@ -49,8 +49,6 @@ Current rendered rows: 26; preserved: 34; total stored: 60. Preserved rows retai
 - surge-complex-constraints:complex-constraints:qwen-3-5-plus-thinking-on: 17.8; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:qwen-3-7-max-thinking-on: 33.5; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:qwen-3-8-flash-xhigh-reasoning: 43.3; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
-
-Preserved rows re-resolved against the current model catalog: surge-complex-constraints:complex-constraints:glm-5-3-flash-max-reasoning: unresolved -> zai-glm-5-3-flash, profile null -> zai-glm-5-3-flash-max; surge-complex-constraints:complex-constraints:muse-glimmer-30b-xhigh-reasoning: unresolved -> meta-muse-glimmer, profile null -> meta-muse-glimmer-xhigh.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

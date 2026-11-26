@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-23T13:31:41.962Z",
+  "checkedAt": "2026-11-26T06:58:24.087Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -11,8 +11,10 @@
         "includedRows": 21,
         "metrics": ["task-success-rate:percent:true"],
         "models": [
+          "alibaba-qwen3-8-flash-next",
           "alibaba-qwen4-max",
           "anthropic-claude-fable-5",
+          "anthropic-claude-haiku-5-5",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -25,7 +27,8 @@
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
           "openai-gpt-6-astra",
-          "openai-gpt-6-luna"
+          "openai-gpt-6-luna",
+          "zai-glm-5-3-flash"
         ],
         "profiles": [
           "[\"Claude Fable 5\",\"xhigh\",null,null,null,null,2,null]",
@@ -78,7 +81,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-23T13:31:39.686Z",
+    "observedAt": "2026-11-26T06:58:22.376Z",
     "sourceId": "maxxbench"
   }
 }

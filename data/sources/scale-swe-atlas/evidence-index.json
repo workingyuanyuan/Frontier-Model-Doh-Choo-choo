@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/e0/e0cffce6fc57e8045df877d4af9f2fd0fa9287d7cbb3c97132258632d4a3036f.html",
-    "byteLength": 142419,
+    "artifactPath": "artifacts/sha256/19/1932ff4782f12e235277f0a5ceaa150f965891318388eb0dffecc1c1418198c4.html",
+    "byteLength": 148245,
     "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
-    "id": "sha256:e0cffce6fc57e8045df877d4af9f2fd0fa9287d7cbb3c97132258632d4a3036f",
+    "id": "sha256:1932ff4782f12e235277f0a5ceaa150f965891318388eb0dffecc1c1418198c4",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Next RSC leaderboard variants",
@@ -22,6 +22,16 @@
           "confidenceInterval_lower": null,
           "confidenceInterval_upper": 5.16,
           "model": "Claude Fable 5.1 (Claude Code) max"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.45,
+          "model": "Gemini 4 Neon (Antigravity CLI) xhigh"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.44,
+          "model": "Gemini 4 Hydrogen (Antigravity CLI) xhigh"
         },
         {
           "confidenceInterval_lower": null,
@@ -165,20 +175,20 @@
         }
       ],
       "excludedFromScoring": ["qna", "testwriting", "refactoring"],
-      "materializedOverallRows": 31,
+      "materializedOverallRows": 33,
       "rawVariantCounts": {
-        "overall": 31,
-        "qna": 31,
-        "refactoring": 31,
-        "testwriting": 31
+        "overall": 33,
+        "qna": 33,
+        "refactoring": 33,
+        "testwriting": 33
       },
-      "renderedOverallRows": 31
+      "renderedOverallRows": 33
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://scale.com/leaderboard/swe-atlas",
-    "retrievedAt": "2026-11-23T13:31:43.811Z",
+    "retrievedAt": "2026-11-26T06:58:25.294Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e0cffce6fc57e8045df877d4af9f2fd0fa9287d7cbb3c97132258632d4a3036f",
+    "sha256": "sha256:1932ff4782f12e235277f0a5ceaa150f965891318388eb0dffecc1c1418198c4",
     "sourceId": "scale-swe-atlas"
   }
 ]

@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/ec/ec091c1392534e17bd8a5eba6bb12031a292b7e9f56cc64349428c6debde9793.html",
-    "byteLength": 604317,
+    "artifactPath": "artifacts/sha256/4c/4c8f1badfc0fd7a790a675d2cf4285b8d8b31fe73afb04e8e1c2801b92b231f7.html",
+    "byteLength": 604935,
     "finalUrl": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
-    "id": "sha256:ec091c1392534e17bd8a5eba6bb12031a292b7e9f56cc64349428c6debde9793",
+    "id": "sha256:4c8f1badfc0fd7a790a675d2cf4285b8d8b31fe73afb04e8e1c2801b92b231f7",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 63,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
-    "retrievedAt": "2026-11-23T13:31:53.270Z",
+    "retrievedAt": "2026-11-26T06:58:33.999Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:ec091c1392534e17bd8a5eba6bb12031a292b7e9f56cc64349428c6debde9793",
+    "sha256": "sha256:4c8f1badfc0fd7a790a675d2cf4285b8d8b31fe73afb04e8e1c2801b92b231f7",
     "sourceId": "surge-corecraft"
   }
 ]

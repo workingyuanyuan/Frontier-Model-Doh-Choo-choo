@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-23T13:32:11.842Z",
+  "checkedAt": "2026-11-26T06:58:56.152Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -8,7 +8,7 @@
       {
         "id": "cwe-bench-v2",
         "includedRetainedRows": 0,
-        "includedRows": 20,
+        "includedRows": 22,
         "metrics": ["pass-at-1:percent:true"],
         "models": [
           "anthropic-claude-fable-5-2",
@@ -20,6 +20,7 @@
           "google-gemini-4-hydrogen",
           "google-gemini-4-neon",
           "meta-muse-wonder",
+          "mistral-mistral-large-4",
           "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-terra",
           "openai-gpt-6-2-astra",
@@ -34,6 +35,7 @@
           "[\"Claude Sonnet 5.5\",\"high\",null,\"Claude Code\",true,null,4,null]",
           "[\"DeepSeek-V4.1-Flash (1017)\",\"high\",null,\"opencode\",true,null,4,null]",
           "[\"GLM-5.3\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"GPT-5.6 Cyber\",\"high\",null,\"Codex\",true,null,4,null]",
           "[\"GPT-6 Astra\",\"high\",null,\"Codex\",true,null,4,null]",
           "[\"GPT-6.1 Terra\",\"high\",null,\"Codex\",true,null,4,null]",
           "[\"GPT-6.2 Astra\",\"high\",null,\"Codex\",true,null,4,null]",
@@ -46,6 +48,7 @@
           "[\"Hy4 Preview\",\"high\",null,\"opencode\",true,null,4,null]",
           "[\"Hy4\",\"high\",null,\"Claude Code\",true,null,4,null]",
           "[\"Kimi K3.1 Pro\",\"high\",null,\"opencode\",true,null,4,null]",
+          "[\"MiniMax-M3.1-Flash (max)\",\"high\",null,\"Claude Code\",true,null,4,null]",
           "[\"Mistral Large 4\",\"high\",null,\"opencode\",true,null,4,null]",
           "[\"Muse Wonder\",\"high\",null,\"opencode\",true,null,4,null]",
           "[\"Qwen3.8-Max (0902)\",\"high\",null,\"opencode\",true,null,4,null]"
@@ -56,6 +59,7 @@
           "Claude Sonnet 5.5",
           "DeepSeek-V4.1-Flash (1017)",
           "GLM-5.3",
+          "GPT-5.6 Cyber",
           "GPT-6 Astra",
           "GPT-6.1 Terra",
           "GPT-6.2 Astra",
@@ -68,16 +72,17 @@
           "Hy4",
           "Hy4 Preview",
           "Kimi K3.1 Pro",
+          "MiniMax-M3.1-Flash (max)",
           "Mistral Large 4",
           "Muse Wonder",
           "Qwen3.8-Max (0902)"
         ],
-        "rows": 20,
+        "rows": 22,
         "sourceUrls": ["https://cwe-bench.com/"],
         "versions": ["v2"]
       }
     ],
-    "observedAt": "2026-11-23T13:32:10.640Z",
+    "observedAt": "2026-11-26T06:58:55.273Z",
     "sourceId": "cwe-bench"
   }
 }

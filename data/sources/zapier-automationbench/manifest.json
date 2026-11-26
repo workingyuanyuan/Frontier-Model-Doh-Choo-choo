@@ -15,7 +15,7 @@
     "route module leaderboard score": "rawScore and normalizedScore for task_completed_correctly",
     "route module version": "benchmarkVersion"
   },
-  "lastVerifiedAt": "2026-11-23T13:29:50.528Z",
+  "lastVerifiedAt": "2026-11-26T06:56:11.944Z",
   "notes": [
     "AutomationBench version 1.0.6; 151 rows and maximum rank 151.",
     "The route module is discovered by the content feature task_completed_correctly; deployment hashes are never hard-coded.",
@@ -30,6 +30,6 @@
   "sourceId": "zapier-automationbench",
   "targetUrls": [
     "https://zapier.com/benchmarks",
-    "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CKqsGf_l.mjs"
+    "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/rn52rdZJHt2gbM6e3TQ2IZeI1ZzaI0JhYlYVcNYii8Y.Bkira_ya.mjs"
   ]
 }

@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-23T13:32:08.030Z",
+  "lastVerifiedAt": "2026-11-26T06:58:53.006Z",
   "notes": [
     "Main leaderboard Pass@1 percentages at a 95% rubric threshold over 71 legal assignments. Only 2 sample tasks are public; full benchmark access is by request.",
     "Official methodology: https://surgehq.ai/blog/dayjob-law (2026-11-18) and https://huggingface.co/datasets/surgeai/DAYJOB-law. An attempt passes when it satisfies at least 95% of its task rubric criteria; the score is the share of passing attempts. Five attempts per task: the DAYJOB README identifies five attempts per task for leaderboard runs.",

@@ -3,25 +3,25 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:6b8a451f9604529940e3bf2fdf9e2aefc8552451410e2d9375bd975f7749396f`
+- Page/JSON-LD evidence: `sha256:d860b7cac2e349a5816e981d39a609743c5f891254ad1f92f39868b0f74fb328`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:79217153ce56e1a9f986fe886aa3279f7d17c69fd03f25b20cabf95dfc0f6fce`
+- 2.0 export evidence: `sha256:feda9f00a605cfef9fc9b7168437eeec39d34f930bd65558fa55b601bf282fb0`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 35 |
-| 2.0 Main configurations | 139 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 139 |
-| 2.0 models with multiple efforts | 33 |
+| 2.0 visible models | 36 |
+| 2.0 Main configurations | 144 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 144 |
+| 2.0 models with multiple efforts | 34 |
 | 2.0 hidden export models | 0 |
 | 2.0 canonically unresolved models | 4 |
 
-- Rendered Best reasoning mode rows: 35; All reasoning levels rows: 139; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 36; All reasoning levels rows: 144; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
@@ -45,7 +45,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 
 - The main page no longer renders 1.1; the 1.1 post shows only its launch chart. The `v1_1` export is therefore checked against the previous snapshot instead of a rendered board.
 - Models removed upstream and preserved unchanged: GPT-6.1 Terra, Mistral Large 4 (Preview).
-- Preserved rows and costs re-resolved against the current effort rule and model catalog (scores, evidence and provenance unchanged): frontier-code:frontier-code-1-1:mistral-large-4-preview-high: unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-high, frontier-code:frontier-code-1-1:mistral-large-4-preview-none: effort null -> non-reasoning, unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-non-reasoning, frontier-code:mean-rollout-cost:mistral-large-4-preview-high: unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-high, frontier-code:mean-rollout-cost:mistral-large-4-preview-none: effort null -> non-reasoning, unresolved -> mistral-mistral-large-4-preview, profile null -> mistral-mistral-large-4-preview-non-reasoning.
+- Preserved rows and costs re-resolved against the current effort rule and model catalog (scores, evidence and provenance unchanged): none.
 - New export rows: none.
 - Value changes: none.
 - The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.

@@ -4,23 +4,23 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:b0a982bcca21daacdce77b8662fa00730ebdf56e50092e67af2251b9b26dd3bf`
-- Models evidence: `sha256:55b22723416758db2a159581c1db82966919a93f68775602995363577db55478`
+- Evaluations evidence: `sha256:f5ed45ed569ab8c7cb693bd63c5fe98005b5c5e231974075aba6c3c86d850bf1`
+- Models evidence: `sha256:c8eb61c9f404de26cfd881036ca982efd0c8f9862f66080a525d556c7fb459ef`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:83c177d73c2e0e8f011db30a60de74f17c4fb6dfcd1fee79ef4e8522fc7ad8e6`
-- Observed at: 2026-11-23T13:29:46.761Z
+- Page evidence: `sha256:77c43fa26c430b665541dddcf288baae3c09187e8f56c174ab7ec012f5a3f319`
+- Observed at: 2026-11-26T06:56:08.272Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1395 |
-| Total models in models.json | 418 |
+| Total evaluation rows (all splits) | 1407 |
+| Total models in models.json | 421 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 324 |
-| Promoted v2_Semi_Private rows (display=true) | 318 |
-| Promoted cost records (USD/task) | 318 |
-| Canonically resolved rows | 194 |
+| Total v2_Semi_Private evaluations | 327 |
+| Promoted v2_Semi_Private rows (display=true) | 321 |
+| Promoted cost records (USD/task) | 321 |
+| Canonically resolved rows | 197 |
 | Canonically unresolved rows | 124 |
 | Canonically unresolved models | 124 |
 | Excluded candidate rows | 8 |
@@ -29,18 +29,18 @@
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 318 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 321 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 318/318 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 321/321 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 318/318 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 321/321 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 194/318 promoted rows (124 unresolved rows across 124 distinct model names).
+Exact catalog resolution succeeded for 197/321 promoted rows (124 unresolved rows across 124 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows

@@ -1,22 +1,22 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:25486303f132944178832eeab82342eb4e628c25e0afe62a73f408a04c5d0650`
-- Observed at: 2026-11-23T13:29:57.329Z
+- Index evidence: `sha256:9c0fd13a12cba11a6c8c718651e0491f0e0170a6d6314568f5c527f09294813b`
+- Observed at: 2026-11-26T06:56:18.995Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 67 |
-| Benchmark pages with BenchmarkView data | 62 |
-| CandidateResults | 3727 |
+| Benchmark slugs discovered from index | 69 |
+| Benchmark pages with BenchmarkView data | 63 |
+| CandidateResults | 3788 |
 | Included CandidateResults | 2155 |
-| Excluded CandidateResults | 1572 |
+| Excluded CandidateResults | 1633 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3575 |
+| CostRecords retained | 3635 |
 | Included vals_index CostRecords | 42 |
-| Canonically unresolved rows | 1816 |
-| Distinct canonically unresolved models | 237 |
+| Canonically unresolved rows | 1835 |
+| Distinct canonically unresolved models | 238 |
 
 ## Per-page completeness
 
@@ -27,7 +27,7 @@
 | `autoform_hard` | 8 | APPROVED |
 | `biomysterybench` | 35 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `claimbench` | 35 | EXCLUDED |
+| `claimbench` | 36 | EXCLUDED |
 | `code-migration` | 79 | APPROVED |
 | `code-migration-v1-1` | 31 | EXCLUDED |
 | `corp_fin_v2` | 134 | APPROVED |
@@ -65,13 +65,14 @@
 | `proof_bench` | 56 | APPROVED |
 | `public-benefits-bench` | 50 | APPROVED |
 | `public-benefits-bench-v1` | 13 | EXCLUDED |
-| `rctbench` | 9 | EXCLUDED |
+| `rctbench` | 16 | EXCLUDED |
 | `robo_bench` | 11 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
 | `sage` | 30 | EXCLUDED |
 | `science_index` | 29 | EXCLUDED |
 | `skillsbench` | 36 | APPROVED |
 | `srebench` | 38 | EXCLUDED |
+| `swarm_speed` | 0 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 23 | EXCLUDED |
 | `tax_agent_bench` | 91 | EXCLUDED |
@@ -87,8 +88,9 @@
 | `vcb-1-100` | 26 | EXCLUDED |
 | `vcb-1-100-v1-1` | 11 | EXCLUDED |
 | `vibe-code` | 134 | APPROVED |
+| `vibe-code-v1-1-1` | 51 | EXCLUDED |
 | `voice-code-bench` | 20 | EXCLUDED |
-| `web_search` | 14 | EXCLUDED |
+| `web_search` | 16 | EXCLUDED |
 
 Every parsed page passed the strict `metadata.total_models === Object.keys(tasks.overall).length` check.
 
@@ -157,6 +159,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `sage`
 - `science_index`
 - `srebench`
+- `swarm_speed`
 - `swebench-multimodal`
 - `tax_agent_bench`
 - `terminal-bench-2`
@@ -167,6 +170,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `vals_router_index`
 - `vcb-1-100`
 - `vcb-1-100-v1-1`
+- `vibe-code-v1-1-1`
 - `voice-code-bench`
 - `web_search`
 
@@ -194,12 +198,14 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `rsi_index` (not auto-promoted)
 - `science_index` (not auto-promoted)
 - `srebench` (not auto-promoted)
+- `swarm_speed` (not auto-promoted)
 - `swebench-multimodal` (not auto-promoted)
 - `tax_agent_bench` (not auto-promoted)
 - `terminal-bench-science` (not auto-promoted)
 - `vals_router_index` (not auto-promoted)
 - `vcb-1-100` (not auto-promoted)
 - `vcb-1-100-v1-1` (not auto-promoted)
+- `vibe-code-v1-1-1` (not auto-promoted)
 - `voice-code-bench` (not auto-promoted)
 
 ## Pages without BenchmarkView data
@@ -208,6 +214,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `inference_provider`
 - `mental-health`
 - `rsi_index`
+- `swarm_speed`
 - `vals_router_index`
 
 ## Identity and effort policy
@@ -294,6 +301,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/mammoth-1
 - decision/mercury-decide
 - decision/microsoft-decision-1
+- decision/microsoft-decision-1.1
 - decision/solar-decide
 - decision/solar-decide-flash
 - decision/tev1-4b-experimental
@@ -491,10 +499,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 67 | 67 | +0 |
-| CandidateResults | 3727 | 3727 | +0 |
-| CostRecords retained | 3575 | 3575 | +0 |
-| Canonically unresolved rows | 1988 | 1816 | -172 |
+| Benchmark slugs discovered from index | 69 | 69 | +0 |
+| CandidateResults | 3788 | 3788 | +0 |
+| CostRecords retained | 3635 | 3635 | +0 |
+| Canonically unresolved rows | 1835 | 1835 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -552,14 +560,15 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | anthropic/claude-opus-5 | `vals-ai:tax-eval-v2:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:vals-multimodal-index:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:vibe-code-bench:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:vibe-code-v1-1-1:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-sonnet-4-6 | `vals-ai:aime:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:case-law-v2:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:medqa:anthropic-claude-sonnet-4-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-flash-0731 | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
-| google/gemini-3.1-flash-lite-preview | `vals-ai:livecodebench:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-143 |
-| google/gemini-3.1-flash-lite-preview | `vals-ai:mmlu-pro:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-143 |
+| google/gemini-3.1-flash-lite-preview | `vals-ai:livecodebench:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-144 |
+| google/gemini-3.1-flash-lite-preview | `vals-ai:mmlu-pro:google-gemini-3-1-flash-lite-preview` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-1-flash-lite-default-epoch-inspect-row-144 |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | minimax/MiniMax-M3 | `vals-ai:a2j:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
 | minimax/MiniMax-M3 | `vals-ai:code-migration-v1-1:minimax-minimax-m3` | — | `max` | scale-swe-atlas | scale-swe-atlas:swe-atlas:minimax-m3-mini-swe-agent-max |
@@ -634,6 +643,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | reflection/Beam-1.0 | `vals-ai:terminal-bench-science:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vals-index:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vibe-code-bench:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
+| reflection/Beam-1.0 | `vals-ai:vibe-code-v1-1-1:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | tencent/hy4 | `vals-ai:emb-v1-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:fabv2-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:finance-index:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
@@ -644,6 +654,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | tencent/hy4 | `vals-ai:terminal-bench-4-0:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vals-index:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | tencent/hy4 | `vals-ai:vibe-code-bench:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
+| tencent/hy4 | `vals-ai:vibe-code-v1-1-1:tencent-hy4` | — | `high` | agents-last-exam | agents-last-exam:agents-last-exam:claude-code-hy4-reasoning-high:1-1 |
 | thinkingmachines/inkling | `vals-ai:code-migration-v1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:code-migration:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:corpfin:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
@@ -680,6 +691,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling | `vals-ai:vals-multimodal-index:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:vcb-1-100:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling | `vals-ai:vibe-code-bench:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
+| thinkingmachines/inkling | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling` | — | `max` | livebench | livebench-2026-11-06:livebench-browser:inkling |
 | thinkingmachines/inkling-2-small | `vals-ai:biomysterybench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:cyber:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
@@ -701,6 +713,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-science:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vals-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:biomysterybench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:cyber:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
@@ -726,6 +739,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-mini-1117 | `vals-ai:terminal-bench-science:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vals-index:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-bench:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-mini-1117 | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-mini-1117` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-mini-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:code-migration-v1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:code-migration:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:corpfin:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
@@ -759,6 +773,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-small | `vals-ai:vals-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:vals-multimodal-index:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-small | `vals-ai:vibe-code-v1-1-1:thinkingmachines-inkling-small` | — | `high` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-small-high:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
 | zai/glm-5.1 | `vals-ai:code-migration:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-117:1-0-6 |
@@ -947,5 +962,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.6-flash | `vals-ai:vals-index:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vcb-1-100-v1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 | xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
+| xiaomi/mimo-v2.6-flash | `vals-ai:vibe-code-v1-1-1:xiaomi-mimo-v2-6-flash` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

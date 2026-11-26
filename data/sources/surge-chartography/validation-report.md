@@ -1,7 +1,7 @@
 # Surge Chartography acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/chartography>
-- Evidence: `sha256:a9afec977eb7e393d4ba88e797d789750cb656d9e90d8168064437b3b52d3eb3`
+- Evidence: `sha256:7c318589af76fdfa6472d39ad820aa8cdd6eab4609591525c8685330218cf633`
 - Main leaderboard: 42 rows; rendered browser count: 42.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
 - Unresolved catalog identities (6): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 (High reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.

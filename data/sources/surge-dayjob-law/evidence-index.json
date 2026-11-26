@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/2d/2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80.html",
-    "byteLength": 738730,
+    "artifactPath": "artifacts/sha256/b0/b07a15b258c7064c013a77f45f7268e7d7396ff9dc7142bea578275a07c3d058.html",
+    "byteLength": 739348,
     "finalUrl": "https://surgehq.ai/benchmarks/dayjob-law",
-    "id": "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80",
+    "id": "sha256:b07a15b258c7064c013a77f45f7268e7d7396ff9dc7142bea578275a07c3d058",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 25,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-law",
-    "retrievedAt": "2026-11-23T13:32:08.030Z",
+    "retrievedAt": "2026-11-26T06:58:53.006Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80",
+    "sha256": "sha256:b07a15b258c7064c013a77f45f7268e7d7396ff9dc7142bea578275a07c3d058",
     "sourceId": "surge-dayjob-law"
   }
 ]

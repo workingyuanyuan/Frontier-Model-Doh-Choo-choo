@@ -85,21 +85,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-23T13:31:58.468Z",
+  "checkedAt": "2026-11-26T06:58:39.116Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/bc/bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8.html",
-    "byteLength": 1124446,
+    "artifactPath": "artifacts/sha256/ab/ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7.html",
+    "byteLength": 1125064,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
+    "id": "sha256:ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-23T13:31:58.468Z",
+    "retrievedAt": "2026-11-26T06:58:39.116Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
+    "sha256": "sha256:ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7",
     "sourceId": "surge-dayjob-finance"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -130,9 +130,12 @@
           "google-gemini-4-hydrogen",
           "google-gemini-4-neon",
           "meta-muse-ember",
+          "meta-muse-glimmer",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
           "meta-muse-wonder",
+          "minimax-minimax-m3-1-flash",
+          "mistral-mistral-large-4",
           "moonshot-kimi-k2-7-code",
           "moonshot-kimi-k3",
           "moonshot-kimi-k3-1-pro",
@@ -150,7 +153,8 @@
           "thinking-machines-inkling",
           "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
-          "xai-grok-4-7"
+          "xai-grok-4-7",
+          "zai-glm-5-3-flash"
         ],
         "profiles": [
           "[\"Beam 1.0 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
@@ -261,7 +265,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-23T13:31:58.115Z",
+    "observedAt": "2026-11-26T06:58:38.672Z",
     "sourceId": "surge-dayjob-finance"
   }
 }

@@ -6,57 +6,57 @@
     "searchWindowModels": 10,
     "gapToOtherMedianMultiplier": 2
   },
-  "benchmarkVersion": "v5.0.1",
-  "resolvedModelCount": 73,
+  "benchmarkVersion": "v5.0.2",
+  "resolvedModelCount": 72,
   "topTen": [
     {
       "rank": 1,
       "modelId": "anthropic-claude-fable-5-2",
       "profileId": "anthropic-claude-fable-5-2-max",
-      "score": 64.563595756626,
-      "resultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-1",
+      "score": 64.7656159586463,
+      "resultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:dc2a0f4b9e66c19ba6b41a81734ebb71176782717059ec0ca73640bf9ff65a68"
+        "sha256:22c83266f5f0bb9155341757aaf13951895b00fe474febeed373be411a2d590e"
       ]
     },
     {
       "rank": 2,
       "modelId": "openai-gpt-6-2-astra",
       "profileId": "openai-gpt-6-2-astra-max",
-      "score": 62.1387990593969,
-      "resultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-1",
+      "score": 62.189304109902,
+      "resultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:02b1cd7d9b027ceecdb691a368aaf699128fd965b3c6887d4ba2f824929f0f0f"
+        "sha256:edf29c601b9fbc2ab60b31174bc89eae1366e708963c2c3cf116eae755dce84d"
       ]
     },
     {
       "rank": 3,
       "modelId": "google-gemini-4-neon",
       "profileId": "google-gemini-4-neon-xhigh",
-      "score": 61.3982491392674,
-      "resultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-1",
+      "score": 61.5497642907825,
+      "resultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:5ea136c296ffe91822fd0362b8e7e9de61b358deff5d8ce857499d7ddb701abb"
+        "sha256:af68876cbf95832e04ddbc7cc2d44dfad592a7b34091d1ba2d0938058cb94f98"
       ]
     },
     {
       "rank": 4,
       "modelId": "google-gemini-4-carbon",
       "profileId": "google-gemini-4-carbon-high",
-      "score": 60.025738829526,
-      "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-1",
+      "score": 60.1267489305361,
+      "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:b504a4eae7b4407c58f581d66f4b11bf6c889830a7625e96e40a3255418aae97"
+        "sha256:03d164ab083a12f70c6aa3c4b25070a3bf914a18c326cee32d93b81f38a47bde"
       ]
     },
     {
       "rank": 5,
       "modelId": "anthropic-claude-opus-5-5",
       "profileId": "anthropic-claude-opus-5-5-max",
-      "score": 59.1060336078904,
-      "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-1",
+      "score": 59.1249717392035,
+      "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:528866026e1a5a01b5731b4cab4e9a23a1ecd6a48b605fc4fafc933de04abc68"
+        "sha256:00cfe049bba51ccda8ce8867b7dc01253ece7ba2d59b94fb85944bdbe5f064cd"
       ]
     },
     {
@@ -64,9 +64,9 @@
       "modelId": "openai-gpt-6-2-sol",
       "profileId": "openai-gpt-6-2-sol-max",
       "score": 57.2576209885477,
-      "resultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-1",
+      "resultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:a918f0f80fc643b13e410f6e45b55c5d751610cb6126282018d156e8c895be9d"
+        "sha256:6115e73ebbb93fe98c8cd0f7ab4b6177b6b312952bc4608b7ca9cf3654ff3ded"
       ]
     },
     {
@@ -74,52 +74,52 @@
       "modelId": "openai-gpt-6-astra",
       "profileId": "openai-gpt-6-astra-max",
       "score": 56.8538559596797,
-      "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-1",
+      "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:13f5e885c68a6e7604da805f212cb9a3032bf91aaac7230713214b4bfb770856"
+        "sha256:7cb41f2e9611a9865f5cd343618f26e7bbf649e316c7d9cac09c6849fb6fd57a"
       ]
     },
     {
       "rank": 8,
-      "modelId": "openai-gpt-6-1-sol",
-      "profileId": "openai-gpt-6-1-sol-max",
-      "score": 54.6087338138148,
-      "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-1",
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "score": 54.7282014953324,
+      "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:b1ab25e378fe929f094b9611499cce74122fd84874a7f9a4163986707feb3fd7"
+        "sha256:25b3ce92553b5de3cade4581bb513112c0210c83f72d956280f09825121c305b"
       ]
     },
     {
       "rank": 9,
-      "modelId": "anthropic-claude-sonnet-5-5",
-      "profileId": "anthropic-claude-sonnet-5-5-max",
-      "score": 54.54133407109,
-      "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-1",
+      "modelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "score": 54.6592388643199,
+      "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:3394af439b04f88ccceacbbddb5485f102ef7eac11fd2fcf0b7ce683c467b2f2"
+        "sha256:70a072c924437a5f2f63a53264df4bced12ed6c0b047af9be2900833299fd8c6"
       ]
     },
     {
       "rank": 10,
       "modelId": "google-gemini-4-hydrogen",
       "profileId": "google-gemini-4-hydrogen-xhigh",
-      "score": 53.9192287317542,
-      "resultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-1",
+      "score": 54.0707438832693,
+      "resultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-2",
       "evidenceIds": [
-        "sha256:7f66480d348c2db7d82cd19155ed8e37d776d25722883d1e78ad8f95efbbaea8"
+        "sha256:ddd367314445928d005e7d09504a3b06f1536f8096d9c13e583651c18d470a8f"
       ]
     }
   ],
   "gaps": [
-    2.424796697229098, 0.7405499201295029, 1.3725103097414006,
-    0.9197052216355956, 1.848412619342703, 0.40376502886800125,
-    2.2451221458648973, 0.06739974272480254, 0.6221053393357963
+    2.5763118487442966, 0.6395398191194985, 1.4230153602463957,
+    1.0017771913326001, 1.8673507506558025, 0.40376502886800125,
+    2.125654464347299, 0.06896263101249644, 0.5884949810506015
   ],
   "boundary": {
     "afterRank": 1,
-    "largestGap": 2.424796697229098,
-    "otherGapMedian": 0.8301275708825493,
-    "gapRatio": 2.920992847703128,
+    "largestGap": 2.5763118487442966,
+    "otherGapMedian": 0.8206585052260493,
+    "gapRatio": 3.139322668732538,
     "multiplier": 2
   },
   "selectedModelIds": [
@@ -130,8 +130,8 @@
     "anthropic-claude-opus-5-5",
     "openai-gpt-6-2-sol",
     "openai-gpt-6-astra",
-    "openai-gpt-6-1-sol",
     "anthropic-claude-sonnet-5-5",
+    "openai-gpt-6-1-sol",
     "google-gemini-4-hydrogen"
   ],
   "selectedProfileIds": [
@@ -142,8 +142,8 @@
     "anthropic-claude-opus-5-5-max",
     "openai-gpt-6-2-sol-max",
     "openai-gpt-6-astra-max",
-    "openai-gpt-6-1-sol-max",
     "anthropic-claude-sonnet-5-5-max",
+    "openai-gpt-6-1-sol-max",
     "google-gemini-4-hydrogen-xhigh"
   ],
   "issues": [],
@@ -163,20 +163,20 @@
         "rank": 1,
         "modelId": "anthropic-claude-fable-5-2",
         "profileId": "anthropic-claude-fable-5-2-max",
-        "score": 64.563595756626,
-        "resultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-1",
+        "score": 64.7656159586463,
+        "resultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:dc2a0f4b9e66c19ba6b41a81734ebb71176782717059ec0ca73640bf9ff65a68"
+          "sha256:22c83266f5f0bb9155341757aaf13951895b00fe474febeed373be411a2d590e"
         ],
         "aaWinningProfileId": "anthropic-claude-fable-5-2-max",
-        "representativeScore": 64.563595756626,
-        "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 64.7656159586463,
+        "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-2-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-fable-5-2-max",
             "benchmarkCount": 33,
             "organizationCount": 9,
-            "aaScore": 64.563595756626
+            "aaScore": 64.7656159586463
           },
           {
             "profileId": "anthropic-claude-fable-5-2-xhigh",
@@ -188,19 +188,19 @@
             "profileId": "anthropic-claude-fable-5-2-high",
             "benchmarkCount": 16,
             "organizationCount": 5,
-            "aaScore": 61.8218785440284
+            "aaScore": 61.8723835945334
           },
           {
             "profileId": "anthropic-claude-fable-5-2-medium",
             "benchmarkCount": 11,
             "organizationCount": 3,
-            "aaScore": 56.4083157101519
+            "aaScore": 56.3220356596468
           },
           {
             "profileId": "anthropic-claude-fable-5-2-low",
             "benchmarkCount": 11,
             "organizationCount": 3,
-            "aaScore": 53.9249388799182
+            "aaScore": 53.8923138799182
           }
         ],
         "organizations": [
@@ -220,38 +220,38 @@
         "rank": 2,
         "modelId": "openai-gpt-6-2-astra",
         "profileId": "openai-gpt-6-2-astra-max",
-        "score": 62.1387990593969,
-        "resultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-1",
+        "score": 62.189304109902,
+        "resultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:02b1cd7d9b027ceecdb691a368aaf699128fd965b3c6887d4ba2f824929f0f0f"
+          "sha256:edf29c601b9fbc2ab60b31174bc89eae1366e708963c2c3cf116eae755dce84d"
         ],
         "aaWinningProfileId": "openai-gpt-6-2-astra-max",
-        "representativeScore": 62.1387990593969,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 62.189304109902,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-2-astra-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-astra-max",
             "benchmarkCount": 41,
             "organizationCount": 11,
-            "aaScore": 62.1387990593969
+            "aaScore": 62.189304109902
           },
           {
             "profileId": "openai-gpt-6-2-astra-high",
             "benchmarkCount": 10,
             "organizationCount": 5,
-            "aaScore": 60.0882280338247
+            "aaScore": 60.2902482358449
           },
           {
             "profileId": "openai-gpt-6-2-astra-xhigh",
             "benchmarkCount": 9,
             "organizationCount": 4,
-            "aaScore": 61.5602325371388
+            "aaScore": 61.762252739159
           },
           {
             "profileId": "openai-gpt-6-2-astra-medium",
             "benchmarkCount": 9,
             "organizationCount": 4,
-            "aaScore": 56.9986252138657
+            "aaScore": 57.0491302643707
           },
           {
             "profileId": "openai-gpt-6-2-astra-low",
@@ -279,37 +279,37 @@
         "rank": 3,
         "modelId": "google-gemini-4-neon",
         "profileId": "google-gemini-4-neon-xhigh",
-        "score": 61.3982491392674,
-        "resultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-1",
+        "score": 61.5497642907825,
+        "resultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:5ea136c296ffe91822fd0362b8e7e9de61b358deff5d8ce857499d7ddb701abb"
+          "sha256:af68876cbf95832e04ddbc7cc2d44dfad592a7b34091d1ba2d0938058cb94f98"
         ],
         "aaWinningProfileId": "google-gemini-4-neon-xhigh",
-        "representativeScore": 61.3982491392674,
-        "representativeResultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 61.5497642907825,
+        "representativeResultId": "artificial-analysis:google-gemini-4-neon-xhigh-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-neon-xhigh",
-            "benchmarkCount": 27,
-            "organizationCount": 6,
-            "aaScore": 61.3982491392674
+            "benchmarkCount": 28,
+            "organizationCount": 7,
+            "aaScore": 61.5497642907825
           },
           {
             "profileId": "google-gemini-4-neon-high",
-            "benchmarkCount": 20,
-            "organizationCount": 5,
-            "aaScore": 59.6189441875232
+            "benchmarkCount": 21,
+            "organizationCount": 6,
+            "aaScore": 59.8209643895434
           },
           {
             "profileId": "google-gemini-4-neon-medium",
-            "benchmarkCount": 9,
-            "organizationCount": 2,
-            "aaScore": 54.8622945007349
+            "benchmarkCount": 10,
+            "organizationCount": 3,
+            "aaScore": 54.91279955124
           },
           {
             "profileId": "google-gemini-4-neon-low",
-            "benchmarkCount": 9,
-            "organizationCount": 2,
+            "benchmarkCount": 10,
+            "organizationCount": 3,
             "aaScore": 44.0831506204565
           }
         ],
@@ -317,42 +317,43 @@
           "epoch-ai",
           "frontier-code",
           "livebench",
+          "scale-swe-atlas",
           "terminal-bench",
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 27
+        "benchmarkCount": 28
       },
       {
         "rank": 4,
         "modelId": "google-gemini-4-carbon",
         "profileId": "google-gemini-4-carbon-high",
-        "score": 60.025738829526,
-        "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-1",
+        "score": 60.1267489305361,
+        "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:b504a4eae7b4407c58f581d66f4b11bf6c889830a7625e96e40a3255418aae97"
+          "sha256:03d164ab083a12f70c6aa3c4b25070a3bf914a18c326cee32d93b81f38a47bde"
         ],
         "aaWinningProfileId": "google-gemini-4-carbon-high",
-        "representativeScore": 60.025738829526,
-        "representativeResultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 60.1267489305361,
+        "representativeResultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-carbon-high",
-            "benchmarkCount": 44,
+            "benchmarkCount": 43,
             "organizationCount": 12,
-            "aaScore": 60.025738829526
+            "aaScore": 60.1267489305361
           },
           {
             "profileId": "google-gemini-4-carbon-medium",
             "benchmarkCount": 9,
             "organizationCount": 3,
-            "aaScore": 58.2587824022788
+            "aaScore": 58.3597925032889
           },
           {
             "profileId": "google-gemini-4-carbon-low",
             "benchmarkCount": 8,
             "organizationCount": 3,
-            "aaScore": 54.2206114502924
+            "aaScore": 54.1701063997873
           }
         ],
         "organizations": [
@@ -369,44 +370,44 @@
           "vals-ai",
           "zapier-automationbench"
         ],
-        "benchmarkCount": 44
+        "benchmarkCount": 43
       },
       {
         "rank": 5,
         "modelId": "anthropic-claude-opus-5-5",
         "profileId": "anthropic-claude-opus-5-5-max",
-        "score": 59.1060336078904,
-        "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-1",
+        "score": 59.1249717392035,
+        "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:528866026e1a5a01b5731b4cab4e9a23a1ecd6a48b605fc4fafc933de04abc68"
+          "sha256:00cfe049bba51ccda8ce8867b7dc01253ece7ba2d59b94fb85944bdbe5f064cd"
         ],
         "aaWinningProfileId": "anthropic-claude-opus-5-5-max",
-        "representativeScore": 59.1060336078904,
-        "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 59.1249717392035,
+        "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-opus-5-5-max",
             "benchmarkCount": 56,
             "organizationCount": 12,
-            "aaScore": 59.1060336078904
+            "aaScore": 59.1249717392035
           },
           {
             "profileId": "anthropic-claude-opus-5-5-high",
             "benchmarkCount": 15,
             "organizationCount": 5,
-            "aaScore": 51.8359958227294
+            "aaScore": 51.7854907722244
           },
           {
             "profileId": "anthropic-claude-opus-5-5-xhigh",
             "benchmarkCount": 15,
             "organizationCount": 4,
-            "aaScore": 57.4447060170507
+            "aaScore": 57.5154105625052
           },
           {
             "profileId": "anthropic-claude-opus-5-5-medium",
             "benchmarkCount": 13,
             "organizationCount": 3,
-            "aaScore": 48.2081024960691
+            "aaScore": 48.2586075465741
           },
           {
             "profileId": "anthropic-claude-opus-5-5-low",
@@ -436,13 +437,13 @@
         "modelId": "openai-gpt-6-2-sol",
         "profileId": "openai-gpt-6-2-sol-max",
         "score": 57.2576209885477,
-        "resultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-1",
+        "resultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:a918f0f80fc643b13e410f6e45b55c5d751610cb6126282018d156e8c895be9d"
+          "sha256:6115e73ebbb93fe98c8cd0f7ab4b6177b6b312952bc4608b7ca9cf3654ff3ded"
         ],
         "aaWinningProfileId": "openai-gpt-6-2-sol-max",
         "representativeScore": 57.2576209885477,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-1",
+        "representativeResultId": "artificial-analysis:openai-gpt-6-2-sol-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-2-sol-max",
@@ -454,19 +455,19 @@
             "profileId": "openai-gpt-6-2-sol-high",
             "benchmarkCount": 10,
             "organizationCount": 5,
-            "aaScore": 54.8898658241942
+            "aaScore": 54.8393607736891
           },
           {
             "profileId": "openai-gpt-6-2-sol-xhigh",
             "benchmarkCount": 9,
             "organizationCount": 4,
-            "aaScore": 55.7351067246438
+            "aaScore": 55.6340966236337
           },
           {
             "profileId": "openai-gpt-6-2-sol-medium",
             "benchmarkCount": 9,
             "organizationCount": 4,
-            "aaScore": 52.6777305876603
+            "aaScore": 52.4252053351351
           },
           {
             "profileId": "openai-gpt-6-2-sol-low",
@@ -494,13 +495,13 @@
         "modelId": "openai-gpt-6-astra",
         "profileId": "openai-gpt-6-astra-max",
         "score": 56.8538559596797,
-        "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-1",
+        "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:13f5e885c68a6e7604da805f212cb9a3032bf91aaac7230713214b4bfb770856"
+          "sha256:7cb41f2e9611a9865f5cd343618f26e7bbf649e316c7d9cac09c6849fb6fd57a"
         ],
         "aaWinningProfileId": "openai-gpt-6-astra-max",
         "representativeScore": 56.8538559596797,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-1",
+        "representativeResultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-astra-max",
@@ -512,25 +513,25 @@
             "profileId": "openai-gpt-6-astra-xhigh",
             "benchmarkCount": 22,
             "organizationCount": 8,
-            "aaScore": 55.3057468569681
+            "aaScore": 55.3562519074731
           },
           {
             "profileId": "openai-gpt-6-astra-high",
             "benchmarkCount": 22,
             "organizationCount": 8,
-            "aaScore": 54.849838322506
+            "aaScore": 54.900343373011
           },
           {
             "profileId": "openai-gpt-6-astra-medium",
             "benchmarkCount": 21,
             "organizationCount": 7,
-            "aaScore": 51.5548393864113
+            "aaScore": 51.7063545379264
           },
           {
             "profileId": "openai-gpt-6-astra-low",
             "benchmarkCount": 20,
             "organizationCount": 7,
-            "aaScore": 43.3349823228524
+            "aaScore": 43.4864974743676
           }
         ],
         "organizations": [
@@ -551,28 +552,86 @@
       },
       {
         "rank": 8,
+        "modelId": "anthropic-claude-sonnet-5-5",
+        "profileId": "anthropic-claude-sonnet-5-5-max",
+        "score": 54.7282014953324,
+        "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-2",
+        "evidenceIds": [
+          "sha256:25b3ce92553b5de3cade4581bb513112c0210c83f72d956280f09825121c305b"
+        ],
+        "aaWinningProfileId": "anthropic-claude-sonnet-5-5-max",
+        "representativeScore": 54.7282014953324,
+        "representativeResultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-2",
+        "candidateProfiles": [
+          {
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "benchmarkCount": 53,
+            "organizationCount": 10,
+            "aaScore": 54.7282014953324
+          },
+          {
+            "profileId": "anthropic-claude-sonnet-5-5-high",
+            "benchmarkCount": 15,
+            "organizationCount": 5,
+            "aaScore": 41.4835446931087
+          },
+          {
+            "profileId": "anthropic-claude-sonnet-5-5-xhigh",
+            "benchmarkCount": 15,
+            "organizationCount": 4,
+            "aaScore": 49.8735277282191
+          },
+          {
+            "profileId": "anthropic-claude-sonnet-5-5-medium",
+            "benchmarkCount": 13,
+            "organizationCount": 3,
+            "aaScore": 30.8700572653482
+          },
+          {
+            "profileId": "anthropic-claude-sonnet-5-5-low",
+            "benchmarkCount": 13,
+            "organizationCount": 3,
+            "aaScore": 25.599199499284
+          }
+        ],
+        "organizations": [
+          "epoch-ai",
+          "frontier-code",
+          "gbench",
+          "livebench",
+          "maxxbench",
+          "scale-swe-atlas",
+          "surge",
+          "terminal-bench",
+          "vals-ai",
+          "zapier-automationbench"
+        ],
+        "benchmarkCount": 53
+      },
+      {
+        "rank": 9,
         "modelId": "openai-gpt-6-1-sol",
         "profileId": "openai-gpt-6-1-sol-max",
-        "score": 54.6087338138148,
-        "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-1",
+        "score": 54.6592388643199,
+        "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:b1ab25e378fe929f094b9611499cce74122fd84874a7f9a4163986707feb3fd7"
+          "sha256:70a072c924437a5f2f63a53264df4bced12ed6c0b047af9be2900833299fd8c6"
         ],
         "aaWinningProfileId": "openai-gpt-6-1-sol-max",
-        "representativeScore": 54.6087338138148,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 54.6592388643199,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-1-sol-max",
             "benchmarkCount": 54,
             "organizationCount": 9,
-            "aaScore": 54.6087338138148
+            "aaScore": 54.6592388643199
           },
           {
             "profileId": "openai-gpt-6-1-sol-xhigh",
             "benchmarkCount": 16,
             "organizationCount": 3,
-            "aaScore": 52.458219253291
+            "aaScore": 52.407714202786
           },
           {
             "profileId": "openai-gpt-6-1-sol-low",
@@ -584,7 +643,7 @@
             "profileId": "openai-gpt-6-1-sol-high",
             "benchmarkCount": 14,
             "organizationCount": 2,
-            "aaScore": 50.3291231936536
+            "aaScore": 50.2786181431485
           },
           {
             "profileId": "openai-gpt-6-1-sol-medium",
@@ -607,93 +666,35 @@
         "benchmarkCount": 54
       },
       {
-        "rank": 9,
-        "modelId": "anthropic-claude-sonnet-5-5",
-        "profileId": "anthropic-claude-sonnet-5-5-max",
-        "score": 54.54133407109,
-        "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-1",
-        "evidenceIds": [
-          "sha256:3394af439b04f88ccceacbbddb5485f102ef7eac11fd2fcf0b7ce683c467b2f2"
-        ],
-        "aaWinningProfileId": "anthropic-claude-sonnet-5-5-max",
-        "representativeScore": 54.54133407109,
-        "representativeResultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0-1",
-        "candidateProfiles": [
-          {
-            "profileId": "anthropic-claude-sonnet-5-5-max",
-            "benchmarkCount": 53,
-            "organizationCount": 10,
-            "aaScore": 54.54133407109
-          },
-          {
-            "profileId": "anthropic-claude-sonnet-5-5-high",
-            "benchmarkCount": 15,
-            "organizationCount": 5,
-            "aaScore": 41.515109087048
-          },
-          {
-            "profileId": "anthropic-claude-sonnet-5-5-xhigh",
-            "benchmarkCount": 15,
-            "organizationCount": 4,
-            "aaScore": 49.9240327787242
-          },
-          {
-            "profileId": "anthropic-claude-sonnet-5-5-medium",
-            "benchmarkCount": 13,
-            "organizationCount": 3,
-            "aaScore": 30.8195522148431
-          },
-          {
-            "profileId": "anthropic-claude-sonnet-5-5-low",
-            "benchmarkCount": 13,
-            "organizationCount": 3,
-            "aaScore": 25.649704549789
-          }
-        ],
-        "organizations": [
-          "epoch-ai",
-          "frontier-code",
-          "gbench",
-          "livebench",
-          "maxxbench",
-          "scale-swe-atlas",
-          "surge",
-          "terminal-bench",
-          "vals-ai",
-          "zapier-automationbench"
-        ],
-        "benchmarkCount": 53
-      },
-      {
         "rank": 10,
         "modelId": "google-gemini-4-hydrogen",
         "profileId": "google-gemini-4-hydrogen-xhigh",
-        "score": 53.9192287317542,
-        "resultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-1",
+        "score": 54.0707438832693,
+        "resultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:7f66480d348c2db7d82cd19155ed8e37d776d25722883d1e78ad8f95efbbaea8"
+          "sha256:ddd367314445928d005e7d09504a3b06f1536f8096d9c13e583651c18d470a8f"
         ],
         "aaWinningProfileId": "google-gemini-4-hydrogen-xhigh",
-        "representativeScore": 53.9192287317542,
-        "representativeResultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 54.0707438832693,
+        "representativeResultId": "artificial-analysis:google-gemini-4-hydrogen-xhigh-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-hydrogen-xhigh",
-            "benchmarkCount": 35,
-            "organizationCount": 8,
-            "aaScore": 53.9192287317542
+            "benchmarkCount": 36,
+            "organizationCount": 9,
+            "aaScore": 54.0707438832693
           },
           {
             "profileId": "google-gemini-4-hydrogen-high",
             "benchmarkCount": 11,
             "organizationCount": 6,
-            "aaScore": 50.7870826951304
+            "aaScore": 50.9891028971506
           },
           {
             "profileId": "google-gemini-4-hydrogen-medium",
             "benchmarkCount": 9,
             "organizationCount": 4,
-            "aaScore": 41.2329566992579
+            "aaScore": 41.1319465982478
           },
           {
             "profileId": "google-gemini-4-hydrogen-low",
@@ -709,35 +710,36 @@
           "frontier-code",
           "gbench",
           "livebench",
+          "scale-swe-atlas",
           "surge",
           "vals-ai"
         ],
-        "benchmarkCount": 35
+        "benchmarkCount": 36
       },
       {
         "rank": 11,
         "modelId": "openai-gpt-6-1-terra",
         "profileId": "openai-gpt-6-1-terra-max",
-        "score": 51.3265188577015,
-        "resultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-1",
+        "score": 51.3907865344692,
+        "resultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:3d15e33e89306f93610c2f67e155dd89ca531fff4ed1b2022afd3e83948d2af9"
+          "sha256:a0d503e5c19bf6dba7a8a26eab4938c407f51a31f7421c39677a758c2def350b"
         ],
         "aaWinningProfileId": "openai-gpt-6-1-terra-max",
-        "representativeScore": 51.3265188577015,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 51.3907865344692,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-1-terra-max",
             "benchmarkCount": 32,
             "organizationCount": 8,
-            "aaScore": 51.3265188577015
+            "aaScore": 51.3907865344692
           },
           {
             "profileId": "openai-gpt-6-1-terra-high",
             "benchmarkCount": 12,
             "organizationCount": 3,
-            "aaScore": 42.4344508712563
+            "aaScore": 42.5354609722664
           },
           {
             "profileId": "openai-gpt-6-1-terra-xhigh",
@@ -749,7 +751,7 @@
             "profileId": "openai-gpt-6-1-terra-medium",
             "benchmarkCount": 11,
             "organizationCount": 2,
-            "aaScore": 38.1652076677975
+            "aaScore": 38.1147026172924
           },
           {
             "profileId": "openai-gpt-6-1-terra-low",
@@ -774,26 +776,26 @@
         "rank": 12,
         "modelId": "google-gemini-4-argon",
         "profileId": "google-gemini-4-argon-high",
-        "score": 50.4121935905389,
-        "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-1",
+        "score": 50.513203691549,
+        "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:97d7e3fdd6843171e9205de2ff8e374945b366c9c298e32dca0e1adf4703a502"
+          "sha256:1576cf5285d9c7e21617e6b4733d6f9d5916c0ab6f52d2b0efba936151acffff"
         ],
         "aaWinningProfileId": "google-gemini-4-argon-high",
-        "representativeScore": 50.4121935905389,
-        "representativeResultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 50.513203691549,
+        "representativeResultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "google-gemini-4-argon-high",
             "benchmarkCount": 56,
             "organizationCount": 13,
-            "aaScore": 50.4121935905389
+            "aaScore": 50.513203691549
           },
           {
             "profileId": "google-gemini-4-argon-medium",
             "benchmarkCount": 13,
             "organizationCount": 3,
-            "aaScore": 47.6040598289046
+            "aaScore": 47.7050699299147
           }
         ],
         "organizations": [
@@ -815,51 +817,28 @@
       },
       {
         "rank": 13,
-        "modelId": "meta-muse-wonder-full",
-        "profileId": "meta-muse-wonder-full-max",
-        "score": 50.0772123627021,
-        "resultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-1",
-        "evidenceIds": [
-          "sha256:36034b0332289a10c468b55449cc45eeb31b08ba9e7c8807a72ec0c5fe48a29d"
-        ],
-        "aaWinningProfileId": "meta-muse-wonder-full-max",
-        "representativeScore": 50.0772123627021,
-        "representativeResultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-1",
-        "candidateProfiles": [
-          {
-            "profileId": "meta-muse-wonder-full-max",
-            "benchmarkCount": 23,
-            "organizationCount": 2,
-            "aaScore": 50.0772123627021
-          }
-        ],
-        "organizations": ["surge", "vals-ai"],
-        "benchmarkCount": 23
-      },
-      {
-        "rank": 14,
         "modelId": "anthropic-claude-fable-5-1",
         "profileId": "anthropic-claude-fable-5-1-max",
-        "score": 50.0216384248632,
-        "resultId": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v5-0-1",
+        "score": 50.0408215056713,
+        "resultId": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:a8d160fa644309f528e341051ab634598db4824037430c4c7aa45ca8889507e1"
+          "sha256:d63e72a1051d4e2b25ffcdeb491704285cda8292cb24bc0f18539092d460a4ab"
         ],
         "aaWinningProfileId": "anthropic-claude-fable-5-1-xhigh",
-        "representativeScore": 49.1602124158081,
-        "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 49.2782199915657,
+        "representativeResultId": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-fable-5-1-max",
             "benchmarkCount": 58,
             "organizationCount": 10,
-            "aaScore": 49.1602124158081
+            "aaScore": 49.2782199915657
           },
           {
             "profileId": "anthropic-claude-fable-5-1-xhigh",
             "benchmarkCount": 18,
             "organizationCount": 4,
-            "aaScore": 50.0216384248632
+            "aaScore": 50.0408215056713
           },
           {
             "profileId": "anthropic-claude-fable-5-1-high",
@@ -871,7 +850,7 @@
             "profileId": "anthropic-claude-fable-5-1-medium",
             "benchmarkCount": 16,
             "organizationCount": 3,
-            "aaScore": 43.171597828284
+            "aaScore": 43.222102878789
           },
           {
             "profileId": "anthropic-claude-fable-5-1-low",
@@ -895,23 +874,46 @@
         "benchmarkCount": 58
       },
       {
+        "rank": 14,
+        "modelId": "meta-muse-wonder-full",
+        "profileId": "meta-muse-wonder-full-max",
+        "score": 49.9256972111869,
+        "resultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-2",
+        "evidenceIds": [
+          "sha256:8d659482160f66dfe0aa79daba43ec4d22999aa1847f76ea8589f66004517aa4"
+        ],
+        "aaWinningProfileId": "meta-muse-wonder-full-max",
+        "representativeScore": 49.9256972111869,
+        "representativeResultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0-2",
+        "candidateProfiles": [
+          {
+            "profileId": "meta-muse-wonder-full-max",
+            "benchmarkCount": 23,
+            "organizationCount": 2,
+            "aaScore": 49.9256972111869
+          }
+        ],
+        "organizations": ["surge", "vals-ai"],
+        "benchmarkCount": 23
+      },
+      {
         "rank": 15,
         "modelId": "moonshot-kimi-k3-1-pro",
         "profileId": "moonshot-kimi-k3-1-pro-max",
-        "score": 46.4526236744189,
-        "resultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1",
+        "score": 46.553633775429,
+        "resultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:026e64474c616907184f8da30c11d2b1ccb2059dcffc7bfa2be510643dc24673"
+          "sha256:98d3be4c5b0b7c99cc5f202d09f613e194b268500008bb6fad9cecc6c8ed73da"
         ],
         "aaWinningProfileId": "moonshot-kimi-k3-1-pro-max",
-        "representativeScore": 46.4526236744189,
-        "representativeResultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 46.553633775429,
+        "representativeResultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "moonshot-kimi-k3-1-pro-max",
             "benchmarkCount": 39,
             "organizationCount": 8,
-            "aaScore": 46.4526236744189
+            "aaScore": 46.553633775429
           }
         ],
         "organizations": [
@@ -931,13 +933,13 @@
         "modelId": "anthropic-claude-opus-5",
         "profileId": "anthropic-claude-opus-5-max",
         "score": 44.1646231569372,
-        "resultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-1",
+        "resultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:d827e785ea2cf00cbbb2dfa975e77c0f74e498ace8cbcfda499b8dfea2c7263f"
+          "sha256:25b6b81c2f2576000bb1fac19e4a2a3d57b3f1b0348f8c56cd12eb431e710d41"
         ],
         "aaWinningProfileId": "anthropic-claude-opus-5-max",
         "representativeScore": 44.1646231569372,
-        "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-1",
+        "representativeResultId": "artificial-analysis:anthropic-claude-opus-5-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "anthropic-claude-opus-5-max",
@@ -965,20 +967,20 @@
         "rank": 17,
         "modelId": "openai-gpt-6-sol",
         "profileId": "openai-gpt-6-sol-max",
-        "score": 44.1555010304265,
-        "resultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-1",
+        "score": 44.1049959799214,
+        "resultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:560d4552276f682f75b449626410b12278913218478a5befff0e86dfbdd8795f"
+          "sha256:15f7bb0d306087c375ff662d41845bfb0a704eb72d6a9b70550a1605ae285735"
         ],
         "aaWinningProfileId": "openai-gpt-6-sol-max",
-        "representativeScore": 44.1555010304265,
-        "representativeResultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 44.1049959799214,
+        "representativeResultId": "artificial-analysis:openai-gpt-6-sol-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "openai-gpt-6-sol-max",
             "benchmarkCount": 42,
             "organizationCount": 9,
-            "aaScore": 44.1555010304265
+            "aaScore": 44.1049959799214
           }
         ],
         "organizations": [
@@ -998,20 +1000,20 @@
         "rank": 18,
         "modelId": "meta-muse-wonder",
         "profileId": "meta-muse-wonder-max",
-        "score": 43.5748225998431,
-        "resultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-1",
+        "score": 43.7263377513583,
+        "resultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:0068682af480a782349fc713fa66352d9b528f112e6462bab425adf02d8cbd34"
+          "sha256:ad617aa7ea323e719ce9c1e8d9e4f9064954f1b16b1a9c97ddc8c002b0a515f9"
         ],
         "aaWinningProfileId": "meta-muse-wonder-max",
-        "representativeScore": 43.5748225998431,
-        "representativeResultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 43.7263377513583,
+        "representativeResultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "meta-muse-wonder-max",
             "benchmarkCount": 43,
             "organizationCount": 6,
-            "aaScore": 43.5748225998431
+            "aaScore": 43.7263377513583
           },
           {
             "profileId": "meta-muse-wonder-high",
@@ -1034,43 +1036,44 @@
         "rank": 19,
         "modelId": "alibaba-qwen4-max",
         "profileId": "alibaba-qwen4-max-xhigh",
-        "score": 42.8914543287565,
-        "resultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-1",
+        "score": 42.7904442277464,
+        "resultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:f4ff1dc9275f32944916499e8ab0ed76b707d0cb54eb05bcd0ac6cf986687e12"
+          "sha256:e1ef414196d0d354dddc8cf04a2d060fea243b36959fe8b9affa18ee718964d6"
         ],
         "aaWinningProfileId": "alibaba-qwen4-max-xhigh",
-        "representativeScore": 42.8914543287565,
-        "representativeResultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-1",
+        "representativeScore": 42.7904442277464,
+        "representativeResultId": "artificial-analysis:alibaba-qwen4-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "alibaba-qwen4-max-xhigh",
-            "benchmarkCount": 29,
-            "organizationCount": 5,
-            "aaScore": 42.8914543287565
+            "benchmarkCount": 36,
+            "organizationCount": 6,
+            "aaScore": 42.7904442277464
           }
         ],
         "organizations": [
+          "epoch-ai",
           "gbench",
           "livebench",
           "maxxbench",
           "surge",
           "vals-ai"
         ],
-        "benchmarkCount": 29
+        "benchmarkCount": 36
       },
       {
         "rank": 20,
         "modelId": "meta-muse-spark-1-3",
         "profileId": "meta-muse-spark-1-3-max",
         "score": 36.6172039139368,
-        "resultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-1",
+        "resultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-2",
         "evidenceIds": [
-          "sha256:15a65c9104681681563c40a7b0928452878a9e31283353f122a1d4c5a412be7c"
+          "sha256:8ee6839d21665cf1e30d1abc933541178277fd84bf886a44bed0c55a255004c1"
         ],
         "aaWinningProfileId": "meta-muse-spark-1-3-max",
         "representativeScore": 36.6172039139368,
-        "representativeResultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-1",
+        "representativeResultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v5-0-2",
         "candidateProfiles": [
           {
             "profileId": "meta-muse-spark-1-3-max",

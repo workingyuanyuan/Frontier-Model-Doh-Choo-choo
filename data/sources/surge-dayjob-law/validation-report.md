@@ -1,7 +1,7 @@
 # Surge DAYJOB Law acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-law>
-- Evidence: `sha256:2d46ac03eb9c68e4211298ddd4cefd6207bd2895ab3b6435bec908050e6e1e80`
+- Evidence: `sha256:b07a15b258c7064c013a77f45f7268e7d7396ff9dc7142bea578275a07c3d058`
 - Main leaderboard: 25 rows; rendered browser count: 25.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (2): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning).

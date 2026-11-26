@@ -16,9 +16,9 @@
     "tr[data-model]": "model.rawName",
     "tr[data-p1-all]": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-23T13:32:10.640Z",
+  "lastVerifiedAt": "2026-11-26T06:58:55.273Z",
   "notes": [
-    "20 rows, Combined view (250 tasks: 100 public, 150 held-out). Public and Held-out views are not materialized.",
+    "22 rows, Combined view (250 tasks: 100 public, 150 held-out). Public and Held-out views are not materialized.",
     "All models run at high reasoning per the organizer; harness is per row.",
     "Average cost per rollout is not materialized."
   ],

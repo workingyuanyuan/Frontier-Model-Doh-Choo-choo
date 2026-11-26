@@ -1,10 +1,10 @@
 # Scale SWE Atlas acquisition validation
 
 - Source https://scale.com/leaderboard/swe-atlas
-- Observed 2026-11-23T13:31:43.811Z
-- Evidence `sha256:e0cffce6fc57e8045df877d4af9f2fd0fa9287d7cbb3c97132258632d4a3036f`
-- Rendered Overall rows 31; embedded Overall rows 31; candidates 31.
-- Embedded variant populations: {"overall":31,"qna":31,"testwriting":31,"refactoring":31}.
+- Observed 2026-11-26T06:58:25.294Z
+- Evidence `sha256:1932ff4782f12e235277f0a5ceaa150f965891318388eb0dffecc1c1418198c4`
+- Rendered Overall rows 33; embedded Overall rows 33; candidates 33.
+- Embedded variant populations: {"overall":33,"qna":33,"testwriting":33,"refactoring":33}.
 - Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.
 - Published scores use the 0–100 scale directly. maxScore is chart-axis metadata, not the normalization denominator.
 - The official v1.1 notice describes 284 tasks and reruns with GPT-6.1 Sol as judge (majority of three votes), refined grading and restricted networking. Judge votes are not agent attempts.
@@ -25,6 +25,8 @@
 | Gemini 3.8 Flash (Antigravity CLI) high | google-gemini-3-8-flash | high | Antigravity CLI |
 | Gemini 4 Argon (Antigravity CLI) high | google-gemini-4-argon | high | Antigravity CLI |
 | Gemini 4 Carbon (Antigravity CLI) high | google-gemini-4-carbon | high | Antigravity CLI |
+| Gemini 4 Hydrogen (Antigravity CLI) xhigh | google-gemini-4-hydrogen | xhigh | Antigravity CLI |
+| Gemini 4 Neon (Antigravity CLI) xhigh | google-gemini-4-neon | xhigh | Antigravity CLI |
 | GLM 5.3 Flash (mini-swe-agent) max | null | max | mini-swe-agent |
 | GLM 5.3 (mini-swe-agent) max | null | max | mini-swe-agent |
 | GPT 6.1 Sol (Codex) max | openai-gpt-6-1-sol | max | Codex |

@@ -18,7 +18,7 @@
     "rows[].passRate": "provenance only (diagnostic)",
     "rows[].totalCostUsd / rows[].tasks": "CostRecord.cost (USD per task)"
   },
-  "lastVerifiedAt": "2026-11-23T13:29:53.738Z",
+  "lastVerifiedAt": "2026-11-26T06:56:16.442Z",
   "notes": [
     "ALE v1.1; 41 rows; results updated 2026-11-18T01:01:54.886914Z; list cost rates as of 2026-11-17; task definitions commit 2e91edd3cd26baa35a38127c90c8e5241dfbe62f.",
     "Organizer: UC Berkeley RDI. Who executes each run (organizer or vendor submission) is not stated by the board or the repository README: unknown.",
@@ -26,7 +26,7 @@
     "Score is avgScore × 100; passRate is diagnostic only. Cost is totalCostUsd / tasks at list prices.",
     "Rows that cover fewer tasks than the split are included and disclosed: claude-fable-5-2 / claude_code / reasoning-max: 113 of 122 tasks; gpt-5.6-sol / codex / reasoning-max: 121 of 122 tasks.",
     "A canonical model and effort published under more than one harness is excluded until reviewed.",
-    "Exact catalog identities only; 5 rows remain unresolved."
+    "Exact catalog identities only; 3 rows remain unresolved."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

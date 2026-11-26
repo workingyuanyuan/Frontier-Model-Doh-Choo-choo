@@ -85,21 +85,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-23T13:32:05.871Z",
+  "checkedAt": "2026-11-26T06:58:45.864Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/bc/bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8.html",
-    "byteLength": 1124446,
+    "artifactPath": "artifacts/sha256/ab/ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7.html",
+    "byteLength": 1125064,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
+    "id": "sha256:ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-23T13:32:05.871Z",
+    "retrievedAt": "2026-11-26T06:58:45.864Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:bc8648f9d1db439111067d8f40795d7a90c13c256f723e0f2ec6db7b716e74b8",
+    "sha256": "sha256:ab5c94e805d125fadb6f322ec7e01cfb435735d7c2fc44193346db405ca326b7",
     "sourceId": "surge-gdp-xlsx"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -128,6 +128,8 @@
           "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-wonder",
+          "minimax-minimax-m3-1-flash",
+          "mistral-mistral-large-4",
           "moonshot-kimi-k3",
           "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
@@ -222,7 +224,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-23T13:32:05.484Z",
+    "observedAt": "2026-11-26T06:58:45.540Z",
     "sourceId": "surge-gdp-xlsx"
   }
 }
