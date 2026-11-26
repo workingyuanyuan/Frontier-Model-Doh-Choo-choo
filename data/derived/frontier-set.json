@@ -1108,8 +1108,8 @@
   },
   "defaultPresetId": "aa-top-9",
   "benchmarkQuality": {
-    "reviewedAt": "2026-11-22",
-    "evidencePath": "docs/analysis/2026-11-22-frontiermath-v2-supersession.json",
+    "reviewedAt": "2026-11-26",
+    "evidencePath": "docs/analysis/2026-11-26-vibe-code-v1-1-1-supersession.json",
     "excludedBenchmarkIds": [
       "aime",
       "programbench",
@@ -1120,7 +1120,8 @@
       "critpt",
       "terminal-bench-4-0",
       "frontiermath",
-      "frontiermath-tier-4"
+      "frontiermath-tier-4",
+      "vibe-code-bench"
     ],
     "limitedBenchmarkIds": [
       "aa-lcr",
@@ -8561,7 +8562,8 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
       "excludedBenchmarkIds": [
         "aime",
@@ -8571,7 +8573,8 @@
         "livebench-mathematics",
         "programbench",
         "proofbench",
-        "terminal-bench-4-0"
+        "terminal-bench-4-0",
+        "vibe-code-bench"
       ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
@@ -8627,7 +8630,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -8679,7 +8682,7 @@
             "maxxbench",
             "scicode",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -9161,11 +9164,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -9608,11 +9611,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -9697,7 +9700,8 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
       "excludedBenchmarkIds": [
         "aime",
@@ -9707,7 +9711,8 @@
         "livebench-mathematics",
         "programbench",
         "proofbench",
-        "terminal-bench-4-0"
+        "terminal-bench-4-0",
+        "vibe-code-bench"
       ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
@@ -9761,7 +9766,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -9811,7 +9816,7 @@
             "livebench-long-agentic",
             "scicode",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -10277,11 +10282,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -10708,11 +10713,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -11138,11 +11143,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -11228,7 +11233,8 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
       "excludedBenchmarkIds": [
         "aime",
@@ -11238,7 +11244,8 @@
         "livebench-mathematics",
         "programbench",
         "proofbench",
-        "terminal-bench-4-0"
+        "terminal-bench-4-0",
+        "vibe-code-bench"
       ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
@@ -11290,7 +11297,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -11339,7 +11346,7 @@
             "livebench-long-agentic",
             "scicode",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -11788,11 +11795,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -12203,11 +12210,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -12618,11 +12625,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -13032,11 +13039,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -13123,7 +13130,8 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
       "excludedBenchmarkIds": [
         "aime",
@@ -13133,7 +13141,8 @@
         "livebench-mathematics",
         "programbench",
         "proofbench",
-        "terminal-bench-4-0"
+        "terminal-bench-4-0",
+        "vibe-code-bench"
       ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
@@ -13183,7 +13192,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -13231,7 +13240,7 @@
             "livebench-long-agentic",
             "scicode",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -13663,11 +13672,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -14062,11 +14071,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -14461,11 +14470,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -14859,11 +14868,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -15258,11 +15267,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -15348,7 +15357,8 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
       "excludedBenchmarkIds": [
         "aime",
@@ -15357,7 +15367,8 @@
         "ioi",
         "programbench",
         "proofbench",
-        "terminal-bench-4-0"
+        "terminal-bench-4-0",
+        "vibe-code-bench"
       ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
@@ -15404,7 +15415,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -15452,7 +15463,7 @@
             "livebench-long-agentic",
             "scicode",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -15850,11 +15861,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -16223,11 +16234,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -16596,11 +16607,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -16968,11 +16979,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -17341,11 +17352,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -17714,11 +17725,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -17794,9 +17805,10 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -17834,7 +17846,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -17872,7 +17884,7 @@
             "livebench-coding",
             "livebench-long-agentic",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -18204,11 +18216,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -18513,11 +18525,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -18822,11 +18834,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -19131,11 +19143,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -19440,11 +19452,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -19748,11 +19760,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -20057,11 +20069,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -20138,9 +20150,10 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -20176,7 +20189,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -20213,7 +20226,7 @@
             "livebench-coding",
             "livebench-long-agentic",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -20528,11 +20541,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -20821,11 +20834,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -21114,11 +21127,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -21407,11 +21420,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -21700,11 +21713,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -21992,11 +22005,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -22285,11 +22298,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -22578,11 +22591,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -22660,9 +22673,10 @@
         "terminal-bench-4-0",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -22696,7 +22710,7 @@
         "swe-atlas",
         "terminal-bench-4-1",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -22733,7 +22747,7 @@
             "livebench-coding",
             "livebench-long-agentic",
             "swe-atlas",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -23029,11 +23043,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -23305,11 +23319,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -23581,11 +23595,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -23857,11 +23871,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -24133,11 +24147,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -24409,11 +24423,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -24685,11 +24699,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -24961,11 +24975,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -25237,11 +25251,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -25320,9 +25334,10 @@
         "simpleqa-verified",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -25354,7 +25369,7 @@
         "mystery-game-puzzles",
         "simpleqa-verified",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -25389,7 +25404,7 @@
             "gbench-agentic-coding",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -25669,11 +25684,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -25929,11 +25944,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -26189,11 +26204,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -26449,11 +26464,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -26709,11 +26724,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -26969,11 +26984,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -27229,11 +27244,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -27489,11 +27504,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -27749,11 +27764,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -28008,11 +28023,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -28093,9 +28108,10 @@
         "simpleqa-verified",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["aime", "terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -28126,7 +28142,7 @@
         "mystery-game-puzzles",
         "simpleqa-verified",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -28161,7 +28177,7 @@
             "gbench-agentic-coding",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -28432,11 +28448,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -28684,11 +28700,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -28936,11 +28952,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -29188,11 +29204,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -29440,11 +29456,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -29692,11 +29708,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -29944,11 +29960,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -30196,11 +30212,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -30448,11 +30464,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -30700,11 +30716,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -30951,11 +30967,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -31036,9 +31052,10 @@
         "mystery-game-puzzles",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -31067,7 +31084,7 @@
         "livebench-research",
         "mystery-game-puzzles",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -31097,7 +31114,7 @@
             "gbench-agentic-coding",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -31352,11 +31369,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -31588,11 +31605,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -31824,11 +31841,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -32060,11 +32077,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -32296,11 +32313,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -32532,11 +32549,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -32768,11 +32785,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -33004,11 +33021,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -33240,11 +33257,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -33476,11 +33493,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -33711,11 +33728,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -33946,11 +33963,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -34032,9 +34049,10 @@
         "mystery-game-puzzles",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -34061,7 +34079,7 @@
         "livebench-research",
         "mystery-game-puzzles",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -34089,7 +34107,7 @@
             "gbench-agentic-coding",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -34328,11 +34346,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -34548,11 +34566,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -34768,11 +34786,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -34988,11 +35006,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -35208,11 +35226,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -35428,11 +35446,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -35648,11 +35666,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -35868,11 +35886,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -36088,11 +36106,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -36308,11 +36326,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -36527,11 +36545,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -36746,11 +36764,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -36965,11 +36983,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -37051,9 +37069,10 @@
         "livebench-research",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -37077,7 +37096,7 @@
         "livebench-reasoning",
         "livebench-research",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -37099,7 +37118,7 @@
             "gbench-agentic-coding",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -37314,11 +37333,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -37510,11 +37529,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -37706,11 +37725,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -37902,11 +37921,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.616,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 79.483,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -38098,11 +38117,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -38294,11 +38313,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -38490,11 +38509,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -38686,11 +38705,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -38882,11 +38901,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39078,11 +39097,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39274,11 +39293,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39469,11 +39488,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39664,11 +39683,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39859,11 +39878,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -39945,9 +39964,10 @@
         "mystery-game-puzzles",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -39968,7 +39988,7 @@
         "livebench-research",
         "mystery-game-puzzles",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -39995,7 +40015,7 @@
             "frontier-code-2-0",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -40182,11 +40202,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -40354,11 +40374,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 93.698,
-              "resultId": "vals-ai:vibe-code-bench:google-cobalt-c-high-1p00",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.228,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-cobalt-c-high-1p00",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -40526,11 +40546,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -40698,11 +40718,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -40870,11 +40890,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41042,11 +41062,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41214,11 +41234,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41386,11 +41406,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41557,11 +41577,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.997,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-terra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.52,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-terra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41729,11 +41749,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -41901,11 +41921,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -42073,11 +42093,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -42244,11 +42264,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -42415,11 +42435,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -42586,11 +42606,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -42672,9 +42692,10 @@
         "livebench-research",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -42692,7 +42713,7 @@
         "livebench-reasoning",
         "livebench-research",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         {
@@ -42713,7 +42734,7 @@
             "frontier-code-2-0",
             "livebench-coding",
             "livebench-long-agentic",
-            "vibe-code-bench"
+            "vibe-code-bench-v1-1-1"
           ]
         },
         {
@@ -42876,11 +42897,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43024,11 +43045,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 93.698,
-              "resultId": "vals-ai:vibe-code-bench:google-cobalt-c-high-1p00",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.228,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-cobalt-c-high-1p00",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43172,11 +43193,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43320,11 +43341,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43468,11 +43489,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.616,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 79.483,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43616,11 +43637,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43764,11 +43785,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -43912,11 +43933,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44060,11 +44081,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44207,11 +44228,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.997,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-terra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.52,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-terra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44355,11 +44376,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44503,11 +44524,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44651,11 +44672,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44798,11 +44819,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -44945,11 +44966,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -45092,11 +45113,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49085,9 +49106,10 @@
         "legal-research",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -49098,7 +49120,7 @@
         "hle-diamond",
         "legal-research",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         { "id": "reasoning", "benchmarkIds": ["critpt-v2"] },
@@ -49109,7 +49131,7 @@
         { "id": "comprehension", "benchmarkIds": ["gdp-pdf"] },
         {
           "id": "coding",
-          "benchmarkIds": ["frontier-code-2-0", "vibe-code-bench"]
+          "benchmarkIds": ["frontier-code-2-0", "vibe-code-bench-v1-1-1"]
         },
         {
           "id": "agentic",
@@ -49198,11 +49220,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49276,11 +49298,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 93.698,
-              "resultId": "vals-ai:vibe-code-bench:google-cobalt-c-high-1p00",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.228,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-cobalt-c-high-1p00",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49354,11 +49376,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49432,11 +49454,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49510,11 +49532,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.616,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 79.483,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49588,11 +49610,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49666,11 +49688,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49744,11 +49766,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49822,11 +49844,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49899,11 +49921,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.997,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-terra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.52,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-terra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -49977,11 +49999,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50055,11 +50077,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50132,11 +50154,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.996,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder-full",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 68.636,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder-full",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50210,11 +50232,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50288,11 +50310,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.404,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 70.412,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50366,11 +50388,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.824,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.599,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50443,11 +50465,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50520,11 +50542,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50597,11 +50619,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50687,9 +50709,10 @@
         "legal-research",
         "terminal-bench-4-0",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench",
+        "vibe-code-bench-v1-1-1"
       ],
-      "excludedBenchmarkIds": ["terminal-bench-4-0"],
+      "excludedBenchmarkIds": ["terminal-bench-4-0", "vibe-code-bench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -50699,7 +50722,7 @@
         "hle-diamond",
         "legal-research",
         "terminal-bench-science",
-        "vibe-code-bench"
+        "vibe-code-bench-v1-1-1"
       ],
       "dimensions": [
         { "id": "reasoning", "benchmarkIds": [] },
@@ -50710,7 +50733,7 @@
         { "id": "comprehension", "benchmarkIds": ["gdp-pdf"] },
         {
           "id": "coding",
-          "benchmarkIds": ["frontier-code-2-0", "vibe-code-bench"]
+          "benchmarkIds": ["frontier-code-2-0", "vibe-code-bench-v1-1-1"]
         },
         {
           "id": "agentic",
@@ -50785,11 +50808,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 93.771,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-2",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 83.519,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-2",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50855,11 +50878,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.898,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.567,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50925,11 +50948,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 93.698,
-              "resultId": "vals-ai:vibe-code-bench:google-cobalt-c-high-1p00",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.228,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-cobalt-c-high-1p00",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -50995,11 +51018,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.06,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.772,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-carbon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51065,11 +51088,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.294,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.49,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51135,11 +51158,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.616,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-2-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 79.483,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-2-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51205,11 +51228,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 89.594,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 77.535,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-astra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51275,11 +51298,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 92.392,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 80.88,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-sonnet-5-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51345,11 +51368,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.931,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.101,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51415,11 +51438,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.777,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-hydrogen",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 76.155,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-hydrogen",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51484,11 +51507,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.997,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-terra",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.52,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-1-terra",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51554,11 +51577,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 91.906,
-              "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 75.365,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:google-gemini-4-argon",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51624,11 +51647,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 90.263,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 78.729,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-fable-5-1",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51693,11 +51716,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.996,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder-full",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 68.636,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder-full",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51763,11 +51786,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 84.894,
-              "resultId": "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.457,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:kimi-kimi-k3-1-pro",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51833,11 +51856,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 88.404,
-              "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 70.412,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:anthropic-claude-opus-5",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51903,11 +51926,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 87.824,
-              "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-sol",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 71.599,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:openai-gpt-6-sol",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -51972,11 +51995,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 83.089,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-wonder",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 67.091,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-wonder",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -52041,11 +52064,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 86.658,
-              "resultId": "vals-ai:vibe-code-bench:alibaba-qwen4-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 74.049,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:alibaba-qwen4-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]
@@ -52110,11 +52133,11 @@
               ]
             },
             {
-              "benchmarkId": "vibe-code-bench",
-              "score": 85.856,
-              "resultId": "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "benchmarkId": "vibe-code-bench-v1-1-1",
+              "score": 64.985,
+              "resultId": "vals-ai:vibe-code-bench-v1-1-1:meta-muse-spark-1-3-max",
               "evidenceIds": [
-                "sha256:4766a008c19aea7270a6175ff15db917aca93d7b146bdbc39ce2b786567abfa3"
+                "sha256:c327f6b9479d1daadb1cf4d87bcf97fd1dd464274c80458ea40a50a99b3e62b6"
               ]
             }
           ]

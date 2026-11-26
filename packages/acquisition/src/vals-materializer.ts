@@ -43,7 +43,15 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
   autoform_hard: { benchmarkId: 'autoform-hard', role: 'ORGANIZER' },
   corp_fin_v2: { benchmarkId: 'corpfin', role: 'ORGANIZER' },
   fabv2: { benchmarkId: 'finance-agent-v2', role: 'ORGANIZER' },
+  // v1.1 (archived 2026-11-23) stays mapped so its rows remain evidence; the
+  // quality policy excludes it from scoring in favour of v1.1.1.
   'vibe-code': { benchmarkId: 'vibe-code-bench', role: 'ORGANIZER' },
+  // v1.1.1 regrades the same v1.1 builds with a stricter grader, so its scores
+  // are not comparable with v1.1 and need their own ID.
+  'vibe-code-v1-1-1': {
+    benchmarkId: 'vibe-code-bench-v1-1-1',
+    role: 'ORGANIZER',
+  },
   programbench: { benchmarkId: 'programbench', role: 'ORGANIZER' },
   ioi: { benchmarkId: 'ioi', role: 'INDEPENDENT' },
   'code-migration': { benchmarkId: 'code-migration', role: 'ORGANIZER' },
